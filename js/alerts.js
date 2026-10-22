@@ -5,7 +5,7 @@
  * Silent when there is nothing active or the API can't be reached (the conditions card covers outages).
  */
 (function () {
-  if (!window.fetch || document.querySelector(".nws-alert")) return;
+  if (!window.fetch) return;
   var URL = "https://api.weather.gov/alerts/active?zone=OHC041,OHC049,OHZ046,OHZ055";
   var MORE = "https://forecast.weather.gov/MapClick.php?lat=40.11&lon=-82.88";
   var CACHE_KEY = "nb-alerts-v1", CACHE_MS = 5 * 60 * 1000, HIDE_KEY = "nb-alerts-hidden";
@@ -36,6 +36,8 @@
   }
 
   function render(list) {
+    var old = document.querySelector(".nws-alert");
+    if (old) { old.remove(); document.documentElement.classList.remove("has-nws-alert"); }
     if (!list.length) return;
     var sig = list.map(function (a) { return a.id; }).join(",");
     try { if (sessionStorage.getItem(HIDE_KEY) === sig) return; } catch (e) {}
@@ -77,21 +79,27 @@
     document.documentElement.classList.add("has-nws-alert");
   }
 
-  var cached = null;
-  try {
-    cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
-    if (!cached || Date.now() - cached.at > CACHE_MS) cached = null;
-  } catch (e) { cached = null; }
-  if (cached) { render(cached.list); return; }
+  function load(force) {
+    var cached = null;
+    if (!force) {
+      try {
+        cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || "null");
+        if (!cached || Date.now() - cached.at > CACHE_MS) cached = null;
+      } catch (e) { cached = null; }
+    }
+    if (cached) { render(cached.list); return; }
+    var ctrl = window.AbortController ? new AbortController() : null;
+    if (ctrl) setTimeout(function () { ctrl.abort(); }, 9000);
+    fetch(URL, { headers: { Accept: "application/geo+json" }, signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) { if (!r.ok) throw new Error("alerts " + r.status); return r.json(); })
+      .then(function (json) {
+        var list = pick(json);
+        try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), list: list })); } catch (e) {}
+        render(list);
+      })
+      .catch(function () {});   // on a failed refresh the current banner (if any) stays
+  }
 
-  var ctrl = window.AbortController ? new AbortController() : null;
-  if (ctrl) setTimeout(function () { ctrl.abort(); }, 9000);
-  fetch(URL, { headers: { Accept: "application/geo+json" }, signal: ctrl ? ctrl.signal : undefined })
-    .then(function (r) { if (!r.ok) throw new Error("alerts " + r.status); return r.json(); })
-    .then(function (json) {
-      var list = pick(json);
-      try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), list: list })); } catch (e) {}
-      render(list);
-    })
-    .catch(function () {});
+  load(false);
+  if (window.NightBiteRefresh) window.NightBiteRefresh.add("alerts", load);
 })();

@@ -185,40 +185,54 @@
     );
   }
 
-  fetch(IV_URL)
-    .then(function (res) {
-      if (!res.ok) throw new Error("usgs http " + res.status);
-      return res.json();
-    })
-    .then(function (json) {
-      var pool = parseSeries(json, PARAM_POOL);
-      var temp = parseSeries(json, PARAM_TEMP);
-      var ok = applyPoolAndTemp(pool, temp);
-      if (!ok) {
-        unavailable("unavailable, check USGS");
-        return;
-      }
-      if (statusEl) {
-        var bits = [];
-        if (pool) bits.push("pool");
-        if (temp) bits.push("temp");
-        statusEl.textContent =
-          "Live USGS refresh updated " + bits.join(" + ") + " (provisional).";
-      }
-      if (!pool || !temp) {
-        var miss = !pool ? "pool" : "temp";
-        if (statusEl) {
-          statusEl.innerHTML =
-            statusEl.textContent +
-            " · " +
-            miss +
-            ' unavailable, check <a href="' +
-            GAUGE_URL +
-            '" target="_blank" rel="noopener">USGS</a>.';
+  var hadLive = false;
+
+  function load() {
+    fetch(IV_URL)
+      .then(function (res) {
+        if (!res.ok) throw new Error("usgs http " + res.status);
+        return res.json();
+      })
+      .then(function (json) {
+        var pool = parseSeries(json, PARAM_POOL);
+        var temp = parseSeries(json, PARAM_TEMP);
+        var ok = applyPoolAndTemp(pool, temp);
+        if (ok) hadLive = true;
+        if (!ok) {
+          unavailable("unavailable, check USGS");
+          return;
         }
-      }
-    })
-    .catch(function () {
-      unavailable("unavailable, check USGS");
-    });
+        if (statusEl) {
+          var bits = [];
+          if (pool) bits.push("pool");
+          if (temp) bits.push("temp");
+          statusEl.textContent =
+            "Live USGS refresh updated " + bits.join(" + ") + " (provisional).";
+        }
+        if (!pool || !temp) {
+          var miss = !pool ? "pool" : "temp";
+          if (statusEl) {
+            statusEl.innerHTML =
+              statusEl.textContent +
+              " · " +
+              miss +
+              ' unavailable, check <a href="' +
+              GAUGE_URL +
+              '" target="_blank" rel="noopener">USGS</a>.';
+          }
+        }
+      })
+      .catch(function () {
+        if (hadLive && statusEl) {
+          // a failed auto refresh keeps the last live reading on screen
+          statusEl.innerHTML = 'Refresh failed, check <a href="' + GAUGE_URL + '" target="_blank" rel="noopener">USGS</a>. Showing the last reading.';
+          return;
+        }
+        unavailable("unavailable, check USGS");
+      });
+  }
+
+  load();
+  // auto refresh (js/refresh.js): every 15 minutes while visible
+  if (window.NightBiteRefresh) window.NightBiteRefresh.add("usgs", load);
 })();

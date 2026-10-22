@@ -233,6 +233,48 @@ window.NightBiteMapData = {
     "Google listing",
     "Waze"
    ]
+  },
+  {
+   "id": "boardwalk",
+   "type": "access",
+   "name": "Hoover Mudflats Boardwalk",
+   "address": "Off Front St, Galena, OH 43021 (Area M)",
+   "parking": "Yes, lot at the boardwalk entrance",
+   "restroom": "Yes",
+   "hours": "7 a.m. to 11 p.m.",
+   "note": "Rebuilt 1,500 ft timber boardwalk, opened March 18, 2026. Ends in a wide platform with benches. The city lists casting a line as one of its uses.",
+   "tip": "Fishing from the boardwalk? Bring a pier net (bridge net) so you can land fish from the deck.",
+   "directions": [
+    40.213776,
+    -82.88026
+   ],
+   "pos": {
+    "hoover-map-wide": {
+     "x": 6.037,
+     "y": 58.333
+    },
+    "hoover-map-tall": {
+     "x": 43.229,
+     "y": 7.562
+    }
+   },
+   "sources": [
+    "Columbus Rec and Parks, Hoover Mudflats Boardwalk project page (name, 1,500 ft, opened March 18, 2026, off the Mudflats parking lot, casting a line)",
+    "Birding Hotspots, Hoover Nature Preserve Boardwalk Area M (Front Street, Galena; boardwalk starts from the parking lot; restrooms on site)",
+    "TrekOhio Hoover Reservoir listing (West St. and Front St., Galena; 40.213776, -82.88026)",
+    "Columbus Audubon, The Life, Death, and Rebirth of the Hoover Boardwalk (wide platform with benches at the end)",
+    "Google listing via edan.io (Front St, Galena; 7 a.m. to 11 p.m.)",
+    "OpenStreetMap parking ways 1227037970 to 1227037978 by Front St (boardwalk itself not mapped yet)",
+    "Columbus Rec and Parks Hoover Reservoir map (public access area M)"
+   ],
+   "sourceLabels": [
+    "Columbus Rec and Parks",
+    "Birding Hotspots",
+    "TrekOhio",
+    "Columbus Audubon",
+    "Google listing",
+    "OpenStreetMap"
+   ]
   }
  ]
 };

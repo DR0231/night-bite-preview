@@ -24,8 +24,12 @@
   var variant = null, scale = 1, lastPin = null;
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  var TYPE = { ramp: "Public boat ramp", shop: "Bait shop" };
-  var PIN = { ramp: "assets/map/pin-ramp.png", shop: "assets/map/pin-shop.png" };
+  var TYPE = { ramp: "Public boat ramp", shop: "Bait shop", access: "Boardwalk, shore access" };
+  var SHORT = { ramp: "Ramp", shop: "Bait shop", access: "Boardwalk" };
+  var PIN = { ramp: "assets/map/pin-ramp.png", shop: "assets/map/pin-shop.png", access: "assets/map/pin-access.png" };
+  var foot = dlg.querySelector(".map-foot");
+  var NOTES = "City park hours are 7 a.m. to 11 p.m. (Columbus Rec and Parks); check posted signs before a night trip. Shoreline traced from a map, not for navigation.";
+  var group = null;   // ids that share the pin the current card came from
 
   function mapsUrl(ll) {
     return "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(ll[0] + "," + ll[1]);
@@ -134,27 +138,69 @@
     top.appendChild(wrap); top.appendChild(x);
     card.appendChild(top);
     card.hidden = false;
+    if (foot) foot.hidden = true;
     card.setAttribute("aria-labelledby", "map-card-title");
     return h;
+  }
+  /* Shared pin: a segmented switch between the places on it (any number, labelled by type) */
+  function switcher(current) {
+    var wrap = document.createElement("div");
+    wrap.className = "map-switch";
+    wrap.setAttribute("role", "group");
+    wrap.setAttribute("aria-label", "Places on this pin");
+    var types = group.map(function (id) { return byId[id].type; });
+    group.forEach(function (id) {
+      var q = byId[id], b = document.createElement("button");
+      b.type = "button";
+      b.className = "map-switch-btn";
+      var dup = types.filter(function (t) { return t === q.type; }).length > 1;
+      b.textContent = dup ? q.name : SHORT[q.type];
+      b.setAttribute("aria-pressed", id === current.id ? "true" : "false");
+      if (!dup) b.setAttribute("aria-label", SHORT[q.type] + ": " + q.name);
+      b.addEventListener("click", function () {
+        if (id === current.id) return;
+        showPlace(q);
+        var nb = card.querySelector('.map-switch-btn[aria-pressed="true"]');
+        if (nb) nb.focus();
+      });
+      wrap.appendChild(b);
+    });
+    return wrap;
   }
   function showPlace(p) {
     var h = cardShell(p.name, TYPE[p.type]);
     card.setAttribute("data-type", p.type);
+    if (group && group.length > 1 && group.indexOf(p.id) >= 0) card.insertBefore(switcher(p), card.firstChild);
     var dl = document.createElement("dl"); dl.className = "map-card-facts";
     if (p.address) row(dl, "Address", p.address);
     if (p.parking) row(dl, "Parking", p.parking);
     if (p.restroom) row(dl, "Restroom", p.restroom);
     if (p.lit) row(dl, "Lit at night", p.lit);
+    if (p.hours) row(dl, "Hours", p.hours);
     if (p.phoneText) row(dl, "Phone", p.phoneText);
     if (p.note) row(dl, "Notes", p.note);
     card.appendChild(dl);
+    if (p.tip) {
+      var tip = document.createElement("p");
+      tip.className = "map-card-tip";
+      var tl = document.createElement("strong");
+      tl.textContent = "Tip";
+      tip.appendChild(tl);
+      tip.appendChild(document.createTextNode(" " + p.tip));
+      card.appendChild(tip);
+    }
     var acts = document.createElement("div"); acts.className = "map-card-actions";
     acts.appendChild(link("btn map-btn", mapsUrl(p.directions), "Directions", "Directions to " + p.name + " in Google Maps"));
     if (p.phone) acts.appendChild(link("btn btn-ghost map-btn", "tel:" + p.phone, "Call", "Call " + p.name + ", " + p.phoneText));
     card.appendChild(acts);
+    // sources and the park notes fold away so the card stays short on phones
+    var det = document.createElement("details"); det.className = "map-notes";
+    var sum = document.createElement("summary"); sum.textContent = "Sources and notes";
     var src = document.createElement("p"); src.className = "map-card-src";
     src.textContent = "Sources: " + (p.sourceLabels || p.sources.map(short)).join(", ") + ". Anything not listed wasn't confirmed.";
-    card.appendChild(src);
+    var nt = document.createElement("p"); nt.textContent = NOTES;
+    det.appendChild(sum); det.appendChild(src); det.appendChild(nt);
+    card.appendChild(det);
     h.focus();
   }
   function showCluster(ids) {
@@ -178,6 +224,7 @@
     lastPin = pin;
     pin.setAttribute("aria-expanded", "true");
     var ids = pin.dataset.ids.split(",");
+    group = ids;
     if (ids.length > 1) showCluster(ids); else showPlace(byId[ids[0]]);
     // keep the chosen pin in view when the stage scrolls (small phones)
     var r = pin.getBoundingClientRect(), s = stage.getBoundingClientRect();
@@ -186,6 +233,7 @@
   function closeCard(refocus) {
     card.hidden = true;
     card.textContent = "";
+    if (foot) foot.hidden = false;
     if (lastPin) {
       lastPin.setAttribute("aria-expanded", "false");
       if (refocus && lastPin.isConnected) lastPin.focus();
@@ -217,6 +265,11 @@
     if (!card.hidden) { e.preventDefault(); closeCard(true); }
   });
   dlg.addEventListener("click", function (e) { if (e.target === dlg) close(); });
+  // with a card open, a tap on the map (not on a pin) folds the card back down to the map
+  stage.addEventListener("click", function (e) {
+    if (card.hidden || e.target.closest(".map-pin")) return;
+    closeCard(true);
+  });
   window.addEventListener("resize", function () { if (dlg.open) layout(); });
 
   // keep Tab inside the dialog (it already makes the page behind inert)

@@ -19,7 +19,8 @@
     return new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short" }).format(new Date(iso));
   }
 
-  fetch(URL)
+  function load() {
+  return fetch(URL)
     .then(function (r) { if (!r.ok) throw new Error("usgs " + r.status); return r.json(); })
     .then(function (json) {
       var ts = json.value.timeSeries[0].values[0].value;
@@ -39,6 +40,7 @@
       function y(v) { return PAD + (hi - v) / (hi - lo) * (H - 2 * PAD); }
 
       var svg = box.querySelector("svg");
+      while (svg.firstChild) svg.removeChild(svg.firstChild);   // auto refresh redraws
       svg.setAttribute("viewBox", "0 0 " + W + " " + H);
       // midnight ET ticks
       var A = window.NightBiteAstro;
@@ -69,6 +71,14 @@
       svg.setAttribute("aria-label", "Pool level over the last 7 days: " + word.toLowerCase() + ", " +
         (change >= 0 ? "up " : "down ") + abs + " ft, from " + pts[0].v.toFixed(2) + " to " + last.v.toFixed(2) + " ft.");
       box.hidden = false;
+      box.setAttribute("data-drawn", "1");
     })
-    .catch(function () { box.hidden = true; });
+    .catch(function () {
+      // first load failed: stay hidden; a failed refresh keeps the last chart
+      if (!box.hasAttribute("data-drawn")) box.hidden = true;
+    });
+  }
+
+  load();
+  if (window.NightBiteRefresh) window.NightBiteRefresh.add("pool-trend", load);
 })();

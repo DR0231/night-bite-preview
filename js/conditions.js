@@ -15,7 +15,7 @@
   var STATION = "KCMH";
   var STATION_NAME = "Columbus airport (KCMH)";
   var WX_PAGE = "https://forecast.weather.gov/MapClick.php?lat=40.11&lon=-82.88";
-  var CACHE_KEY = "nb-cond-v1", CACHE_MS = 10 * 60 * 1000;
+  var CACHE_KEY = "nb-cond-v1", CACHE_MS = 10 * 60 * 1000;   // shorter than the 15 minute refresh, and refreshes skip it
 
   var grid = card.querySelector(".cond-grid");
   var statusEl = card.querySelector(".cond-status");
@@ -140,8 +140,8 @@
     });
   }
 
-  function stamp() {
-    var t = timeEt(new Date());
+  function stamp(when) {
+    var t = timeEt(when || new Date());
     if (statusEl) {
       statusEl.innerHTML = "NWS hourly forecast for Hoover, pressure from " + STATION_NAME + ". Checked " + t.value + " " + t.unit +
         ' ET. <a href="' + WX_PAGE + '" target="_blank" rel="noopener">Full forecast</a>.';
@@ -159,29 +159,54 @@
     try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), hourly: h, obs: o })); } catch (e) {}
   }
 
-  sunMoon();
-  var cached = readCache();
-  var startIso = new Date(Date.now() - 13 * 36e5).toISOString().replace(/\.\d{3}Z$/, "Z");
-  var hourlyP = cached ? Promise.resolve(cached.hourly) : getJson(HOURLY).catch(function () {
-    // gridpoint ids can change: rediscover from /points once
-    return getJson(POINT).then(function (pt) { return getJson(pt.properties.forecastHourly); });
-  });
-  var obsP = cached ? Promise.resolve(cached.obs) : getJson("https://api.weather.gov/stations/" + STATION + "/observations?start=" + encodeURIComponent(startIso))
-    .catch(function () { return null; });
+  var hasData = false, lastOk = null;
 
-  hourlyP.then(function (h) {
-    applyHourly(h);
-    card.setAttribute("data-state", "ok");
-    stamp();
-    return obsP.then(function (o) {
-      try {
-        applyPressure(o);
-        if (!cached) writeCache(slimHourly(h), slimObs(o));
-      } catch (e) {
-        setCell("pressure", "n/a", "", "Pressure unavailable");
-      }
+  function failRefresh() {
+    // keep the last good numbers on screen and say how old they are
+    var t = timeEt(lastOk);
+    if (statusEl) {
+      statusEl.innerHTML = "Weather update failed, check " + '<a href="' + WX_PAGE + '" target="_blank" rel="noopener">weather.gov</a>' +
+        ". Showing the " + t.value + " " + t.unit + " ET reading.";
+    }
+  }
+
+  /* force: skip the session cache (the 15 minute auto refresh always forces) */
+  function load(force) {
+    sunMoon();
+    var cached = force ? null : readCache();
+    var startIso = new Date(Date.now() - 13 * 36e5).toISOString().replace(/\.\d{3}Z$/, "Z");
+    var hourlyP = cached ? Promise.resolve(cached.hourly) : getJson(HOURLY).catch(function () {
+      // gridpoint ids can change: rediscover from /points once
+      return getJson(POINT).then(function (pt) { return getJson(pt.properties.forecastHourly); });
     });
-  }).catch(fail);
+    var obsP = cached ? Promise.resolve(cached.obs) : getJson("https://api.weather.gov/stations/" + STATION + "/observations?start=" + encodeURIComponent(startIso))
+      .catch(function () { return null; });
+
+    return hourlyP.then(function (h) {
+      applyHourly(h);
+      card.setAttribute("data-state", "ok");
+      ["wind", "air", "rain", "pressure"].forEach(function (k) {
+        var c = grid.querySelector('[data-cond="' + k + '"]');
+        if (c) c.hidden = false;
+      });
+      hasData = true;
+      lastOk = cached ? new Date(cached.at) : new Date();
+      stamp(lastOk);
+      return obsP.then(function (o) {
+        try {
+          applyPressure(o);
+          if (!cached) writeCache(slimHourly(h), slimObs(o));
+        } catch (e) {
+          setCell("pressure", "n/a", "", "Pressure unavailable");
+        }
+      });
+    }).catch(function () {
+      if (hasData) failRefresh(); else fail();
+    });
+  }
+
+  load(false);
+  if (window.NightBiteRefresh) window.NightBiteRefresh.add("conditions", load);
 
   function slimHourly(h) {
     return { properties: { periods: (h.properties.periods || []).slice(0, 16).map(function (p) {

@@ -188,6 +188,7 @@
       <ul class="map-legend" aria-label="Map key">
         <li><img src="assets/map/pin-ramp.png" alt="" width="9" height="11">Public boat ramp</li>
         <li><img src="assets/map/pin-shop.png" alt="" width="9" height="11">Bait shop</li>
+        <li><img src="assets/map/pin-access.png" alt="" width="9" height="11">Boardwalk, shore access</li>
         <li class="map-legend-hint">Tap a pin for details</li>
       </ul>
       <div class="map-stage">
@@ -196,7 +197,10 @@
         </div>
       </div>
       <div class="map-card" id="map-card" role="region" hidden></div>
-      <p class="map-foot">City park hours are 7 a.m. to 11 p.m. (Columbus Rec and Parks); check posted signs before a night trip. Shoreline traced from a map, not for navigation.</p>
+      <details class="map-notes map-foot">
+        <summary>Park hours and notes</summary>
+        <p>City park hours are 7 a.m. to 11 p.m. (Columbus Rec and Parks); check posted signs before a night trip. Shoreline traced from a map, not for navigation.</p>
+      </details>
     </div>
   </dialog>
 
@@ -217,6 +221,7 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, or USGS.</p>
     </div>
   </footer>
+  <script src="js/refresh.js"></script>
   <script src="js/alerts.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/usgs.js"></script>
