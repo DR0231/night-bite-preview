@@ -215,7 +215,7 @@
     if (pts.length > 1 && spanH >= 6) {
       var dPa = latest.pa - old.pa;
       trend = dPa >= 100 ? "Rising" : dPa <= -100 ? "Falling" : "Steady";   // 1 hPa, about 0.03 inHg
-      sub = trend + " " + Math.abs(dPa / PA_PER_INHG).toFixed(2) + " over " + Math.round(spanH) + " h";
+      sub = trend + " " + Math.abs(dPa / PA_PER_INHG).toFixed(2) + " over " + Math.round(spanH) + "\u00a0h";
     } else {
       trend = "unknown";
       sub = "Trend needs more readings";
