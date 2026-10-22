@@ -3,6 +3,7 @@
  * Data: National Weather Service API (api.weather.gov, free, no key), fetched by the browser.
  *   Hourly forecast: gridpoint ILN 89,88 (from /points/40.11,-82.88; Hoover Reservoir at Central College).
  *   Barometer and its trend: station KCMH (John Glenn Columbus Intl), the first station NWS lists for that gridpoint.
+ * Wind gusts: the hourly period's windGust when NWS sends one, otherwise the latest KCMH observation gust.
  * Sunset, moonrise and tonight's moon phase come from js/astro.js (computed locally, so they work offline).
  * If NWS fails: "Weather unavailable, check weather.gov" with a link. Never invents values.
  */
@@ -98,8 +99,8 @@
       if (new Date(periods[i].endTime).valueOf() > now) { p = periods[i]; break; }
     }
     var start = periods.indexOf(p);
-    var wind = /(\d+)(?:\s*to\s*(\d+))?\s*mph/i.exec(p.windSpeed || "");
-    if (wind) setCell("wind", wind[2] ? wind[1] + " to " + wind[2] : wind[1], "mph " + (p.windDirection || ""), subNow);
+    windNow = { p: p, sub: subNow };
+    applyWind(null);
     if (typeof p.temperature === "number") {
       var f = p.temperatureUnit === "C" ? Math.round(p.temperature * 9 / 5 + 32) : Math.round(p.temperature);
       setCell("air", String(f), "°F", subNow);
@@ -112,6 +113,60 @@
     if (maxPop !== null) setCell("rain", String(Math.round(maxPop)), "%", "Next 12 hours");
     if (summaryEl && p.shortForecast) summaryEl.textContent = p.shortForecast + ".";
     return true;
+  }
+
+  /* ---- wind: NWS hourly speed and direction, gusts from the hourly period or the latest KCMH observation ----
+     The arrow points where the wind blows TO (a southwest wind points northeast): 8 drawn sprites, plus calm and
+     variable frames, so it stays pixel crisp. Sprite sheet order: N NE E SE S SW W NW, calm, variable. */
+  var windNow = null, windObs = null;
+  var DIRS = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+  var WORDS = { N: "north", E: "east", S: "south", W: "west" };
+  function dirWords(d) {   // "SSW" -> "south southwest"
+    if (d.length === 3) return dirWords(d.charAt(0)) + " " + dirWords(d.slice(1));
+    return d.split("").map(function (c) { return WORDS[c]; }).join("");
+  }
+  function mphFrom(v) {    // "15 mph", "10 to 15 mph" (top of the range), or an NWS quantity in km/h or m/s
+    if (v === null || v === undefined) return null;
+    if (typeof v === "string") { var m = /(\d+)(?:\s*to\s*(\d+))?\s*mph/i.exec(v); return m ? +(m[2] || m[1]) : null; }
+    if (typeof v === "object" && typeof v.value === "number") {
+      if (/km_h/.test(v.unitCode || "")) return v.value * 0.621371;
+      if (/m_s/.test(v.unitCode || "")) return v.value * 2.236936;
+    }
+    return null;
+  }
+  function obsGust(json) {  // newest KCMH gust within 90 minutes, in mph
+    var feats = (json && json.features) || [], best = null;
+    feats.forEach(function (f) {
+      var g = f && f.properties && mphFrom(f.properties.windGust), t = f && f.properties && new Date(f.properties.timestamp).valueOf();
+      if (g !== null && g > 0 && (!best || t > best.t)) best = { t: t, mph: g };
+    });
+    return best && Date.now() - best.t <= 90 * 6e4 ? best.mph : null;
+  }
+  function applyWind(obs) {
+    if (obs !== null) windObs = obs;
+    if (!windNow) return;
+    var p = windNow.p, cell = grid.querySelector('[data-cond="wind"]');
+    var m = /(\d+)(?:\s*to\s*(\d+))?\s*mph/i.exec(p.windSpeed || ""), calmWord = /calm/i.test(p.windSpeed || "");
+    if (!m && !calmWord) return;
+    var lo = m ? +m[1] : 0, hi = m ? +(m[2] || m[1]) : 0;
+    var dir = String(p.windDirection || "").toUpperCase(), gust = mphFrom(p.windGust);
+    if (gust === null && windObs) gust = obsGust(windObs);
+    gust = gust !== null && Math.round(gust) > hi ? Math.round(gust) : null;   // only gusts above the sustained wind
+    var idx, label, sub = windNow.sub;
+    if (hi === 0) {
+      setCell("wind", "Calm", "", sub);
+      idx = 8; label = "Wind calm";
+    } else {
+      var k = DIRS.indexOf(dir), speed = lo === hi ? String(hi) : lo + " to " + hi;
+      setCell("wind", speed, "mph " + (k < 0 ? "Var" : dir), gust ? sub + ", gusts " + gust : sub);
+      if (k < 0) { idx = 9; label = "Wind variable, " + speed + " mph"; }
+      else { idx = (Math.round(k / 2) + 4) % 8; label = "Wind from " + dirWords(dir) + ", " + speed + " mph"; }
+      if (gust) label += ", gusts " + gust;
+    }
+    if (!cell) return;
+    cell.setAttribute("data-wind-i", String(idx));
+    var sp = cell.querySelector(".wind-sprite");
+    if (sp) { sp.style.setProperty("--wind-i", String(idx)); sp.setAttribute("aria-label", label); }
   }
 
   /* ---- barometer at KCMH: current reading in inHg and the change over about 12 hours ----
@@ -213,6 +268,7 @@
     if (!saved) return false;
     try { applyHourly(saved.hourly, "Saved"); } catch (e) { return false; }
     try { applyPressure(saved.obs, true); } catch (e) { noReading("KCMH unavailable"); }
+    try { applyWind(saved.obs || {}); } catch (e) {}
     ["wind", "air", "rain", "pressure"].forEach(function (k) {
       var c = grid.querySelector('[data-cond="' + k + '"]');
       if (c) c.hidden = false;
@@ -273,6 +329,7 @@
         var obs = null;
         try {
           applyPressure(o, offline || !!cached);
+          applyWind(o || {});
           if (!offline) stamp(lastOk);   // adds the KCMH reading time
           if (o) obs = slimObs(o);
           if (!cached && obs) writeCache(slimHourly(h), obs);
@@ -293,14 +350,14 @@
 
   function slimHourly(h) {
     return { properties: { periods: (h.properties.periods || []).slice(0, 16).map(function (p) {
-      return { endTime: p.endTime, windSpeed: p.windSpeed, windDirection: p.windDirection, temperature: p.temperature,
+      return { endTime: p.endTime, windSpeed: p.windSpeed, windDirection: p.windDirection, windGust: p.windGust, temperature: p.temperature,
         temperatureUnit: p.temperatureUnit, probabilityOfPrecipitation: p.probabilityOfPrecipitation, shortForecast: p.shortForecast };
     }) } };
   }
   function slimObs(o) {
     return { features: (o.features || []).map(function (f) {
       return { properties: { timestamp: f.properties.timestamp, seaLevelPressure: f.properties.seaLevelPressure,
-        barometricPressure: f.properties.barometricPressure } };
+        barometricPressure: f.properties.barometricPressure, windGust: f.properties.windGust } };
     }) };
   }
 })();
