@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://waterservices.usgs.gov https://api.weather.gov; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://waterservices.usgs.gov https://api.weather.gov; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'self'; upgrade-insecure-requests">
   <meta name="robots" content="noindex,nofollow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-title" content="Night Bite">
   <link rel="manifest" href="../site.webmanifest">
   <title>Hoover Reservoir species | The Night Bite</title>
   <meta name="description" content="Hoover Reservoir species guide: catfish, bass, crappie, saugeye, walleye, and more. Unofficial Night Bite notebook.">
@@ -60,6 +61,13 @@
       Night is especially useful for channel and flathead (blues too); it is not the best approach for every species.
       Filter the grid, then open a species card for season · where · limits · gear · bait.
     </p>
+    <section class="bento-card biting-card" id="biting" aria-labelledby="biting-title" hidden>
+      <h2 id="biting-title">What&rsquo;s biting now</h2>
+      <p class="biting-month"><span class="biting-month-name"></span> <span class="biting-at">at Hoover</span></p>
+      <ul class="biting-list"></ul>
+      <p class="meta biting-safety" hidden></p>
+      <p class="meta biting-note">Changes each month. Typical patterns from the species pages and ODNR, not a fishing report.</p>
+    </section>
     <div class="filter-chips" role="group" aria-label="Filter species">
       <button type="button" class="filter-chip is-active" data-filter="all">All</button>
       <button type="button" class="filter-chip" data-filter="cats">Cats</button>
@@ -157,8 +165,11 @@
     </div>
   </footer>
   <script src="../js/refresh.js"></script>
+  <script src="../js/sw-register.js"></script>
   <script src="../js/alerts.js"></script>
   <script src="../js/nav.js"></script>
   <script src="../js/species-filter.js"></script>
+  <script src="../js/biting-data.js"></script>
+  <script src="../js/biting.js"></script>
 </body>
 </html>

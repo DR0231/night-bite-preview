@@ -19,6 +19,9 @@
     return new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short" }).format(new Date(iso));
   }
 
+  var SAVE_KEY = "nb-trend-last";
+  var OFF = window.NightBiteOffline;
+
   function load() {
   return fetch(URL)
     .then(function (r) { if (!r.ok) throw new Error("usgs " + r.status); return r.json(); })
@@ -30,6 +33,19 @@
         if (isFinite(n) && n > -9999) pts.push({ t: new Date(v.dateTime).valueOf(), v: n, iso: v.dateTime });
       });
       if (pts.length < 12) throw new Error("too few");
+      if (OFF) OFF.save(SAVE_KEY, { pts: pts.filter(function (p, i) { return i % 4 === 0 || i === pts.length - 1; }) });   // hourly is plenty for the chart
+      draw(pts);
+      box.removeAttribute("data-offline");
+    })
+    .catch(function () {
+      // offline: redraw the last saved week; a failed refresh keeps the last chart; otherwise stay hidden
+      var saved = !box.hasAttribute("data-drawn") && OFF && OFF.isOffline() && OFF.load(SAVE_KEY, 14 * 864e5);
+      if (saved && saved.pts && saved.pts.length >= 12) { draw(saved.pts); box.setAttribute("data-offline", "1"); return; }
+      if (!box.hasAttribute("data-drawn")) box.hidden = true;
+    });
+  }
+
+  function draw(pts) {
       var t0 = pts[0].t, t1 = pts[pts.length - 1].t;
       var lo = Infinity, hi = -Infinity;
       pts.forEach(function (p) { lo = Math.min(lo, p.v); hi = Math.max(hi, p.v); });
@@ -72,11 +88,6 @@
         (change >= 0 ? "up " : "down ") + abs + " ft, from " + pts[0].v.toFixed(2) + " to " + last.v.toFixed(2) + " ft.");
       box.hidden = false;
       box.setAttribute("data-drawn", "1");
-    })
-    .catch(function () {
-      // first load failed: stay hidden; a failed refresh keeps the last chart
-      if (!box.hasAttribute("data-drawn")) box.hidden = true;
-    });
   }
 
   load();

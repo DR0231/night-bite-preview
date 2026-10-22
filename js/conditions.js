@@ -77,7 +77,8 @@
   }
 
   /* ---- hourly forecast ---- */
-  function applyHourly(json) {
+  function applyHourly(json, subNow) {
+    subNow = subNow || "Now";
     var periods = json && json.properties && json.properties.periods;
     if (!periods || !periods.length) throw new Error("no periods");
     var now = Date.now(), p = periods[0];
@@ -86,10 +87,10 @@
     }
     var start = periods.indexOf(p);
     var wind = /(\d+)(?:\s*to\s*(\d+))?\s*mph/i.exec(p.windSpeed || "");
-    if (wind) setCell("wind", wind[2] ? wind[1] + " to " + wind[2] : wind[1], "mph " + (p.windDirection || ""), "Now");
+    if (wind) setCell("wind", wind[2] ? wind[1] + " to " + wind[2] : wind[1], "mph " + (p.windDirection || ""), subNow);
     if (typeof p.temperature === "number") {
       var f = p.temperatureUnit === "C" ? Math.round(p.temperature * 9 / 5 + 32) : Math.round(p.temperature);
-      setCell("air", String(f), "°F", "Now");
+      setCell("air", String(f), "°F", subNow);
     }
     var maxPop = null;
     for (var j = start; j < Math.min(periods.length, start + 12); j++) {
@@ -160,10 +161,34 @@
   }
 
   var hasData = false, lastOk = null;
+  var SAVE_KEY = "nb-cond-last", SAVE_MAX = 3 * 864e5;   // last good forecast, for offline visits
+  var OFF = window.NightBiteOffline;
+
+  // offline (or NWS down on the very first load): show the last saved forecast, labelled with its time
+  function showSaved() {
+    var saved = OFF && OFF.load(SAVE_KEY, SAVE_MAX);
+    if (!saved) return false;
+    try { applyHourly(saved.hourly, "Saved"); } catch (e) { return false; }
+    try { applyPressure(saved.obs); } catch (e) { setCell("pressure", "n/a", "", "Pressure unavailable"); }
+    ["wind", "air", "rain", "pressure"].forEach(function (k) {
+      var c = grid.querySelector('[data-cond="' + k + '"]');
+      if (c) c.hidden = false;
+    });
+    hasData = true;
+    lastOk = new Date(saved.savedAt);
+    card.setAttribute("data-state", "ok");
+    card.setAttribute("data-saved", "1");
+    return true;
+  }
 
   function failRefresh() {
     // keep the last good numbers on screen and say how old they are
     var t = timeEt(lastOk);
+    if (OFF && OFF.isOffline()) {
+      card.setAttribute("data-offline", "1");
+      if (statusEl) statusEl.textContent = OFF.label(lastOk);
+      return;
+    }
     if (statusEl) {
       statusEl.innerHTML = "Weather update failed, check " + '<a href="' + WX_PAGE + '" target="_blank" rel="noopener">weather.gov</a>' +
         ". Showing the " + t.value + " " + t.unit + " ET reading.";
@@ -183,7 +208,7 @@
       .catch(function () { return null; });
 
     return hourlyP.then(function (h) {
-      applyHourly(h);
+      applyHourly(h, window.NightBiteOffline && window.NightBiteOffline.isOffline() ? "Saved" : "Now");
       card.setAttribute("data-state", "ok");
       ["wind", "air", "rain", "pressure"].forEach(function (k) {
         var c = grid.querySelector('[data-cond="' + k + '"]');
@@ -191,17 +216,31 @@
       });
       hasData = true;
       lastOk = cached ? new Date(cached.at) : new Date();
+      card.removeAttribute("data-offline");
+      card.removeAttribute("data-saved");
       stamp(lastOk);
+      var offline = OFF && OFF.isOffline();
+      if (offline) {
+        // offline but answered from the session copy or the browser's HTTP cache: label it with the last real fetch time
+        var sv = OFF.load(SAVE_KEY);
+        if (!cached && sv) lastOk = new Date(sv.savedAt);
+        failRefresh();
+      }
       return obsP.then(function (o) {
+        var obs = null;
         try {
           applyPressure(o);
-          if (!cached) writeCache(slimHourly(h), slimObs(o));
+          obs = slimObs(o);
+          if (!cached) writeCache(slimHourly(h), obs);
         } catch (e) {
           setCell("pressure", "n/a", "", "Pressure unavailable");
         }
+        if (!cached && !offline && OFF) OFF.save(SAVE_KEY, { hourly: slimHourly(h), obs: obs });
       });
     }).catch(function () {
-      if (hasData) failRefresh(); else fail();
+      if (hasData) failRefresh();
+      else if (OFF && OFF.isOffline() && showSaved()) failRefresh();
+      else fail();
     });
   }
 
