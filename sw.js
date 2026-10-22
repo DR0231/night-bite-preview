@@ -15,7 +15,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v3-2026-10-22";
+var VERSION = "v4-2026-10-22";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -111,6 +111,7 @@ var PRECACHE = [
   "assets/map/pin-access.png",
   "assets/map/pin-ramp.png",
   "assets/map/pin-shop.png",
+  "assets/moon/moon-phases.png",
   "assets/rigs/carolina.svg",
   "assets/rigs/floating-hover.svg",
   "assets/rigs/slip-float.svg",
