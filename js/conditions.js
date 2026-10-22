@@ -193,7 +193,20 @@
     card.removeAttribute("data-pressure-trend");
     card.removeAttribute("data-pressure-field");
     pressureAt = null;
+    asOf(null);
     return false;
+  }
+  /* "as of 8:51 AM" under the barometer when the KCMH reading is more than 60 minutes old */
+  function asOf(t) {
+    var el = grid.querySelector('[data-cond="pressure"] .cond-asof');
+    if (!el) return;
+    var old = t !== null && Date.now() - t > 60 * 6e4, w = old && timeEt(new Date(t), !sameEtDay(t));
+    el.textContent = old ? "as of " + w.value + " " + w.unit : "";
+    el.hidden = !old;
+  }
+  function sameEtDay(t) {
+    var A = window.NightBiteAstro;
+    return !A || A.etMidnight(new Date(t)).valueOf() === A.etMidnight(new Date()).valueOf();
   }
   /* returns true when a reading is on screen; `saved` skips the age check for the offline copy */
   function applyPressure(json, saved) {
@@ -223,6 +236,7 @@
     setCell("pressure", (latest.pa / PA_PER_INHG).toFixed(2), "inHg", sub);
     card.setAttribute("data-pressure-trend", trend.toLowerCase());
     card.setAttribute("data-pressure-field", field);
+    asOf(latest.t);
     return true;
   }
 
