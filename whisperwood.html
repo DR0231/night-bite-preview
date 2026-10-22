@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://waterservices.usgs.gov https://api.weather.gov; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a1628">
+  <link rel="manifest" href="site.webmanifest">
+  <title>Whisperwood Vale | The Night Bite</title>
+  <meta name="description" content="Whisperwood Vale: a cozy pixel fishing game. Fiction, not Hoover Reservoir. Play in the browser.">
+  <link rel="canonical" href="https://nightbiteoh.com/whisperwood.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="./">
+        <img src="assets/lantern.svg" alt="" width="24" height="36" class="lantern-glow">
+        <span class="logo-text">The Night Bite</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li class="nav-core"><a href="./">Home</a></li>
+          <li class="nav-core"><a href="species/"><span class="nav-label-full">Species</span><span class="nav-label-short">Fish</span></a></li>
+          <li class="nav-core"><a href="water.html"><span class="nav-label-full">Water</span><span class="nav-label-short">Lake</span></a></li>
+          <li class="nav-core"><a href="log.html">Log</a></li>
+          <li class="nav-extra"><a href="tournaments.html">Tournaments</a></li>
+          <li class="nav-extra"><a href="gear.html">Gear</a></li>
+          <li class="nav-extra"><a href="whisperwood.html" aria-current="page"><span class="nav-label-full">Whisperwood Vale</span><span class="nav-label-short">Whisperwood</span></a></li>
+          <li class="nav-extra"><a href="about.html">About</a></li>
+          <li class="nav-more-item">
+            <button type="button" class="nav-more-btn" aria-expanded="false" aria-controls="nav-more-panel">More</button>
+            <div id="nav-more-panel" class="nav-more-panel" hidden>
+              <a href="gear.html">Gear</a>
+              <a href="tournaments.html">Tournaments</a>
+              <a href="whisperwood.html">Whisperwood Vale</a>
+              <a href="about.html">About</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-horizon" aria-hidden="true"></div>
+    <h1>Whisperwood Vale</h1>
+    <p class="lead">
+      A cozy woodland fishing game with ponds, mist, and a journal that stays on your device.
+      <strong>Not the real lake.</strong> Not Hoover. Fiction beside the Night Bite notebook.
+    </p>
+
+    <div class="teaser-box whisperwood-atmosphere">
+      <p class="coming">PLAYABLE IN THE BROWSER</p>
+      <div class="hero-art" aria-hidden="true">
+        <img src="assets/icons/moon.svg" alt="" width="48" height="48">
+        <img src="assets/icons/bobber.svg" alt="" width="48" height="48">
+        <img src="assets/icons/fish-channel-catfish.svg" alt="" width="48" height="48">
+        <img src="assets/lantern-hero.svg" alt="" width="32" height="48" class="lantern-glow">
+      </div>
+      <p>Cast, wait for the bobber, keep a fish journal. Progress saves locally, no account needed.</p>
+      <p style="margin-top:1rem;">
+        <a class="btn" href="https://nightbiteoh.com/whisperwood/play.html">Play Whisperwood Vale</a>
+        <a class="btn btn-ghost" href="https://nightbiteoh.com/whisperwood/" style="margin-left:0.5rem;">Game home</a>
+        <a class="btn btn-ghost" href="https://nightbiteoh.com/whisperwood/guide.html" style="margin-left:0.5rem;">Guide</a>
+      </p>
+    </div>
+
+    <div class="teaser-box whisperwood-feedback" style="margin-top:1.25rem;">
+      <p class="coming">TELL US ABOUT THE VALE</p>
+      <p>Found a bug, a spot you loved, or something that felt off? Leave a note. It takes about a minute, and you don't need an account.</p>
+      <p style="margin-top:1rem;"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeL7vIXUSW5PActv19YB5Et4H61p-zzsZfIHhfAe3Of2R8ocw/viewform" target="_blank" rel="noopener">Send feedback</a> <a class="btn btn-ghost" href="privacy.html" style="margin-left:0.5rem;">Privacy</a></p>
+    </div>
+
+    <h2>Controls (desktop)</h2>
+    <ul>
+      <li><strong>WASD / arrows:</strong> move</li>
+      <li><strong>E / Space:</strong> fish / interact / minigame</li>
+      <li><strong>J</strong> journal · <strong>I</strong> pack</li>
+      <li>On-screen pad on smaller screens</li>
+    </ul>
+
+    <div class="callout">
+      The Night Bite website is the real-world Hoover notebook.
+      Whisperwood Vale is a made-up valley. Visitors play a game here; it isn’t a map of the reservoir.
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav aria-label="Footer">
+        <a href="./">Home</a>
+        <a href="species/">Species</a>
+        <a href="water.html">Water</a>
+        <a href="log.html">Log</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="gear.html">Gear</a>
+        <a href="whisperwood.html">Whisperwood Vale</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+      <p class="preview-chip-row"><span class="preview-chip" title="Test copy. Changes here are not on nightbiteoh.com yet.">Preview</span></p>
+      <p class="disclaimer-short">The Night Bite is unofficial and personal. Whisperwood Vale is fiction, not Hoover Reservoir.</p>
+    </div>
+  </footer>
+  <script src="js/nav.js"></script>
+</body>
+</html>

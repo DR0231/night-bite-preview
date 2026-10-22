@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://waterservices.usgs.gov https://api.weather.gov; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a1628">
+  <link rel="manifest" href="site.webmanifest">
+  <title>Hoover Reservoir fishing log | The Night Bite</title>
+  <meta name="description" content="Hoover Reservoir trip log: a private notebook that stays in your browser, a community trip list, and a way to submit your own trip by email or GitHub issue.">
+  <link rel="canonical" href="https://nightbiteoh.com/log.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="./">
+        <img src="assets/lantern.svg" alt="" width="24" height="36" class="lantern-glow">
+        <span class="logo-text">The Night Bite</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li class="nav-core"><a href="./">Home</a></li>
+          <li class="nav-core"><a href="species/"><span class="nav-label-full">Species</span><span class="nav-label-short">Fish</span></a></li>
+          <li class="nav-core"><a href="water.html"><span class="nav-label-full">Water</span><span class="nav-label-short">Lake</span></a></li>
+          <li class="nav-core"><a href="log.html" aria-current="page">Log</a></li>
+          <li class="nav-extra"><a href="tournaments.html">Tournaments</a></li>
+          <li class="nav-extra"><a href="gear.html">Gear</a></li>
+          <li class="nav-extra"><a href="whisperwood.html"><span class="nav-label-full">Whisperwood Vale</span><span class="nav-label-short">Whisperwood</span></a></li>
+          <li class="nav-extra"><a href="about.html">About</a></li>
+          <li class="nav-more-item">
+            <button type="button" class="nav-more-btn" aria-expanded="false" aria-controls="nav-more-panel">More</button>
+            <div id="nav-more-panel" class="nav-more-panel" hidden>
+              <a href="gear.html">Gear</a>
+              <a href="tournaments.html">Tournaments</a>
+              <a href="whisperwood.html">Whisperwood Vale</a>
+              <a href="about.html">About</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-horizon" aria-hidden="true"></div>
+    <h1>The Log</h1>
+    <p class="lead">
+      Cream-paper trip cards from Hoover nights. Private notes stay in this browser.
+      Community trips load from the notebook JSON. Entries marked Example are demos, not live bite reports.
+    </p>
+
+    <details class="how-to-read" id="how-submit-works">
+      <summary>How submit works</summary>
+      <div class="how-to-read-body">
+        <ul>
+          <li>Community list reads <code>data/community-log.json</code> in the repo.</li>
+          <li>Submit by mailto draft or GitHub issue markdown. No account needed to read.</li>
+          <li>Text trip notes only for now: no photos, likes, Instagram, or logins.</li>
+          <li>Public ramp names only. No secret GPS, no private property.</li>
+        </ul>
+      </div>
+    </details>
+
+    <h2>Community log</h2>
+    <p class="meta">
+      Loaded from <code>data/community-log.json</code>. Reviewed trips are added here; entries marked Example are demos.
+    </p>
+    <div id="community-log-list" aria-live="polite">
+      <div class="empty-log"><p>Loading community trips…</p></div>
+    </div>
+
+    <h2 id="add-trip">Submit a trip</h2>
+    <p class="meta">
+      Builds a mailto draft or shows markdown for a GitHub issue. Public ramp and area names only: no secret GPS, no private property.
+    </p>
+    <form class="form-block" id="community-trip-form">
+      <div class="form-row">
+        <label for="c-date">Date</label>
+        <input type="date" id="c-date" name="date" required>
+      </div>
+      <div class="form-row">
+        <label for="c-species">Species</label>
+        <select id="c-species" name="species" required>
+          <option value="">Choose…</option>
+          <option>Channel catfish</option>
+          <option>Blue catfish</option>
+          <option>Flathead catfish</option>
+          <option>Largemouth bass</option>
+          <option>Smallmouth bass</option>
+          <option>Black crappie</option>
+          <option>White crappie</option>
+          <option>Bluegill / sunfish</option>
+          <option>White bass</option>
+          <option>Hybrid striped bass</option>
+          <option>Saugeye</option>
+          <option>Walleye</option>
+          <option>Common carp</option>
+          <option>Longnose gar</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="c-ramp">Ramp / area (public)</label>
+        <select id="c-ramp" name="ramp" required>
+          <option value="">Choose…</option>
+          <option>Oxbow (upper ramp)</option>
+          <option>Redbank (middle ramp)</option>
+          <option>Walnut Road (lower ramp)</option>
+          <option>Maxtown</option>
+          <option>Marina / lower marina</option>
+          <option>Bank (upper)</option>
+          <option>Bank (middle)</option>
+          <option>Bank (lower)</option>
+          <option>Big Walnut Creek (public)</option>
+          <option>Other public / not sure</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="c-time">Time window</label>
+        <select id="c-time" name="time_window" required>
+          <option value="">Choose…</option>
+          <option>Day</option>
+          <option>Night</option>
+          <option>Dawn / dusk</option>
+          <option>Mixed</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="c-bait">Bait / lure</label>
+        <input type="text" id="c-bait" name="bait" required maxlength="120" placeholder="e.g. cut shad, jig">
+      </div>
+      <div class="form-row">
+        <label for="c-keep">Keep / release</label>
+        <select id="c-keep" name="keep_release" required>
+          <option value="">Choose…</option>
+          <option>Released</option>
+          <option>Kept (1)</option>
+          <option>Kept (2)</option>
+          <option>Kept (other)</option>
+          <option>No fish</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="c-notes">Notes</label>
+        <textarea id="c-notes" name="notes" maxlength="500" placeholder="Public-safe notes only…"></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn">Build email</button>
+        <button type="button" class="btn btn-ghost" id="show-markdown">Show markdown</button>
+        <a class="btn btn-ghost" href="https://github.com/DR0231/the-night-bite/issues/new?template=trip-report.yml" target="_blank" rel="noopener">GitHub issue</a>
+      </div>
+      <pre class="code-block" id="submit-preview" hidden></pre>
+      <p class="meta" id="mailto-status" style="margin-top:0.75rem;" hidden></p>
+    </form>
+
+    <hr class="divider">
+
+    <h2>Your private trips (this browser)</h2>
+    <p class="lead">
+      Add your own notes below; they stay in <code>localStorage</code> only.
+      The one trip marked <span class="sample-badge">Example</span> is a demo, not a live bite report.
+    </p>
+
+    <div id="log-list" aria-live="polite">
+      <noscript>
+        <article class="paper-card">
+          <span class="sample-badge">Example</span>
+          <h3>Channel catfish</h3>
+          <dl class="trip-dl">
+            <dt>Date</dt><dd>Jul 12, 2025</dd>
+            <dt>Spot</dt><dd>Oxbow (upper ramp)</dd>
+            <dt>Bait</dt><dd>Cut shad</dd>
+            <dt>Keep?</dt><dd>Released</dd>
+          </dl>
+          <p>Two keeper-size channels before midnight. Example trip for demo only.</p>
+        </article>
+        <p class="meta">Enable JavaScript to add your own trips and save them on this device.</p>
+      </noscript>
+    </div>
+
+    <h2>Add a private night</h2>
+    <p class="meta">
+      Saves only in this browser.
+    </p>
+    <form class="form-block" id="trip-form" action="#" method="post">
+      <div class="form-row">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div class="form-row">
+        <label for="location">Ramp or bank</label>
+        <select id="location" name="location" required>
+          <option value="">Choose…</option>
+          <option>Oxbow (upper ramp)</option>
+          <option>Redbank (middle ramp)</option>
+          <option>Walnut Road (lower ramp)</option>
+          <option>Bank (upper)</option>
+          <option>Bank (middle)</option>
+          <option>Bank (lower)</option>
+          <option>Maxtown</option>
+          <option>Marina / lower marina</option>
+          <option>Other / not sure</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="bait">Bait</label>
+        <input type="text" id="bait" name="bait" placeholder="e.g. cut bait, nightcrawlers" required maxlength="80">
+      </div>
+      <div class="form-row">
+        <label for="species">Species</label>
+        <select id="species" name="species" required>
+          <option value="">Choose…</option>
+          <option>Channel catfish</option>
+          <option>Blue catfish</option>
+          <option>Flathead catfish</option>
+          <option>Largemouth bass</option>
+          <option>Smallmouth bass</option>
+          <option>Black crappie</option>
+          <option>White crappie</option>
+          <option>Bluegill / sunfish</option>
+          <option>White bass</option>
+          <option>Hybrid striped bass</option>
+          <option>Saugeye</option>
+          <option>Walleye</option>
+          <option>Common carp</option>
+          <option>Longnose gar</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="disposition">Keep / release</label>
+        <select id="disposition" name="disposition" required>
+          <option value="">Choose…</option>
+          <option>Released</option>
+          <option>Kept (1)</option>
+          <option>Kept (2)</option>
+          <option>Kept (other)</option>
+          <option>No fish</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes" maxlength="500" placeholder="Weather, moon, what worked…"></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn">Save trip</button>
+        <button type="button" class="btn btn-ghost btn-danger" id="clear-user-entries">Clear my entries</button>
+      </div>
+      <p class="meta" style="margin-top:0.75rem;margin-bottom:0;">“Clear my entries” removes only your own trips. Never stores names, addresses, or card info.</p>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav aria-label="Footer">
+        <a href="./">Home</a>
+        <a href="species/">Species</a>
+        <a href="water.html">Water</a>
+        <a href="log.html">Log</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="gear.html">Gear</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="whisperwood.html">Whisperwood Vale</a>
+      </nav>
+      <p class="preview-chip-row"><span class="preview-chip" title="Test copy. Changes here are not on nightbiteoh.com yet.">Preview</span></p>
+      <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, or USGS.</p>
+    </div>
+  </footer>
+  <script src="js/nav.js"></script>
+  <script src="js/log.js"></script>
+  <script src="js/community-log.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+# The Night Bite preview copy. Not for search engines.
+User-agent: *
+Disallow: /
