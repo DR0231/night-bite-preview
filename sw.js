@@ -15,7 +15,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v2-2026-10-22";
+var VERSION = "v3-2026-10-22";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -52,6 +52,7 @@ var PRECACHE = [
   "js/biting.js",
   "js/community-log.js",
   "js/conditions.js",
+  "js/get-app.js",
   "js/home-log.js",
   "js/hoover-map-data.js",
   "js/hoover-map.js",

@@ -1,6 +1,6 @@
 /**
  * The Night Bite: registers the site's service worker (sw.js at the site root) for offline pages.
- * The root comes from this script's own address, so it works at /night-bite-preview/ and at nightbiteoh.com/.
+ * The root comes from this script's own address, so it works at nightbiteoh.com/ and under a subfolder (the preview copy).
  * Whisperwood pages don't load this script, and sw.js never intercepts whisperwood/ anyway.
  */
 (function () {
