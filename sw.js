@@ -15,7 +15,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v8-2026-10-24";
+var VERSION = "v9-2026-10-24";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -46,9 +46,13 @@ var PRECACHE = [
   "species/walleye.html",
   "species/white-bass.html",
   "species/white-crappie.html",
+  "species/muskellunge.html",
+  "species/yellow-perch.html",
+  "species/bullhead.html",
   "js/alerts.js",
   "js/astro.js",
   "js/biting-data.js",
+  "js/biting-data-lakes.js",
   "js/biting.js",
   "js/community-log.js",
   "js/conditions.js",
@@ -57,6 +61,11 @@ var PRECACHE = [
   "js/hoover-map-data.js",
   "js/hoover-map.js",
   "js/install-tip.js",
+  "js/lake-map-data-alum.js",
+  "js/lake-map-data-buckeye.js",
+  "js/lake-picker.js",
+  "js/lake-snapshot.js",
+  "js/lakes.js",
   "js/log.js",
   "js/mode-toggle.js",
   "js/nav.js",
@@ -81,6 +90,8 @@ var PRECACHE = [
   "assets/lantern.svg",
   "assets/lantern-hero.svg",
   "assets/hoover-chart.png",
+  "assets/alum-chart.png",
+  "assets/buckeye-chart.png",
   "assets/horizon-center.png",
   "assets/horizon-thin.png",
   "assets/horizon-tile.png",
@@ -101,6 +112,9 @@ var PRECACHE = [
   "assets/icons/fish-walleye.svg",
   "assets/icons/fish-white-bass.svg",
   "assets/icons/fish-white-crappie.svg",
+  "assets/icons/fish-muskellunge.svg",
+  "assets/icons/fish-yellow-perch.svg",
+  "assets/icons/fish-bullhead.svg",
   "assets/icons/icon-192.png",
   "assets/icons/icon-512.png",
   "assets/icons/icon-maskable-192.png",
@@ -108,6 +122,10 @@ var PRECACHE = [
   "assets/icons/moon.svg",
   "assets/map/hoover-map-tall.png",
   "assets/map/hoover-map-wide.png",
+  "assets/map/alum-map-tall.png",
+  "assets/map/alum-map-wide.png",
+  "assets/map/buckeye-map-tall.png",
+  "assets/map/buckeye-map-wide.png",
   "assets/map/pin-access.png",
   "assets/map/pin-ramp.png",
   "assets/map/pin-shop.png",

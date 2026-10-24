@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://waterservices.usgs.gov https://api.weather.gov; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://waterservices.usgs.gov https://api.weather.gov https://cwms-data.usace.army.mil; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'self'; upgrade-insecure-requests">
   <meta name="robots" content="noindex,nofollow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -19,6 +19,7 @@
   <link rel="preload" href="../assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/lakes.js"></script>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nightbiteoh.com/"}, {"@type": "ListItem", "position": 2, "name": "Species", "item": "https://nightbiteoh.com/species/"}, {"@type": "ListItem", "position": 3, "name": "Largemouth bass", "item": "https://nightbiteoh.com/species/largemouth-bass.html"}]}
   </script>
@@ -31,6 +32,7 @@
         <img src="../assets/lantern.svg" alt="" width="24" height="36" class="lantern-glow">
         <span class="logo-text">The Night Bite</span>
       </a>
+      <button type="button" class="lake-pill"><span class="lake-pill-dot" aria-hidden="true"></span><span class="lake-pill-name" aria-hidden="true"></span><span class="lake-pill-chev" aria-hidden="true"></span><span class="sr-only">Change lake</span></button>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Primary">
         <ul>
@@ -61,6 +63,8 @@
     <p class="breadcrumb"><a href="./">Species</a> · Largemouth bass</p>
     <h1 class="species-title"><img class="species-mark" src="../assets/icons/fish-largemouth-bass.svg" alt="" width="48" height="48"> Largemouth bass</h1>
     <p class="lead">More abundant than smallmouth on Hoover. Docks, weeds, and shoreline cover (public water).</p>
+    <p class="lake-note" data-for="alum">Present at Alum Creek (ODNR species list).</p>
+    <p class="lake-note" data-for="buckeye">Present at Buckeye Lake (ODNR species list).</p>
 
     <nav class="species-subnav" aria-label="On this page">
       <a href="#season">Season</a>
@@ -88,7 +92,9 @@
     </section>
 
     <section id="where" class="species-section">
-      <h2>Where on Hoover</h2>
+      <h2>Where on <span data-lk="short">Hoover</span></h2>
+      <!-- lakes:where -->
+      <div data-for="hoover">
       <div class="mode-panel" data-mode="bank">
       <ul>
         <li>Public shoreline cover, weed edges, and ramp areas (Oxbow, Redbank, etc.).</li>
@@ -107,11 +113,40 @@
         <a href="../water.html#maps">Water maps</a> ·
         <a href="https://ohiodnr.gov/static/documents/wildlife/maps/hooverreservoir2.pdf" target="_blank" rel="noopener">ODNR depth PDF (2001 @ 894 ft)</a>
       </p>
+      </div>
+      <div data-for="alum">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>Shoreline wood and cove cover in the no wake north end, from public banks.</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water.html#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>Coves north of the Cheshire Road bridge: wood, docks and weed edges.</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="buckeye">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>Docks, weeds and shoreline cover reachable from public shore.</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water.html#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>Docks, weed edges and stumps around the islands and bays.</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
     </section>
 
     <section id="limits" class="species-section">
       <h2>Limits <span class="regs-tag">reminder, verify</span></h2>
-      <p class="meta">Statewide black bass rule from the ODNR Fishing Regulations 2026–27; Hoover has no bass exception.</p>
+      <p class="meta">Statewide black bass rule from the ODNR Fishing Regulations 2026–27; <span data-lk="short">Hoover</span> has no bass exception.</p>
       <div class="table-wrap">
         <table class="access-table regs-table">
           <thead>
@@ -129,7 +164,9 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
 
     <section id="gear" class="species-section">
       <h2>Gear</h2>
-      <p class="meta">Sized for bank reality and ≤10 hp boats. Hoover is a drinking-water reservoir.</p>
+      <p class="meta" data-for="hoover">Sized for bank reality and ≤10 hp boats. Hoover is a drinking-water reservoir.</p>
+      <p class="meta" data-for="alum">Sized for bank reality and small boats. Alum Creek allows unlimited horsepower on the south main lake, so expect wakes there; the north end is no wake.</p>
+      <p class="meta" data-for="buckeye">Sized for bank reality and small boats. Buckeye is shallow with stumps: idle near shore (no wake within 300 ft).</p>
       <div class="mode-panel" data-mode="bank">
       <ul>
         <li>Medium spinning or baitcasting, 8–14 lb line (fluoro or braid+leader).</li>
@@ -205,6 +242,7 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
   <script src="../js/sw-register.js"></script>
   <script src="../js/alerts.js"></script>
   <script src="../js/nav.js"></script>
+  <script src="../js/lake-picker.js"></script>
   <script src="../js/sticky-nav.js"></script>
   <script src="../js/mode-toggle.js"></script>
 
