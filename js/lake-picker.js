@@ -18,7 +18,7 @@
 
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var order = LS.order, cur = LK.id, idx = order.indexOf(cur), live = {}, liveAt = 0;
-  pill.setAttribute("aria-label", "Lake: " + LK.cfg.name + ". Change lake");
+  pill.setAttribute("aria-label", "Choose a lake. Current lake: " + LK.cfg.name);
   pill.setAttribute("aria-haspopup", "dialog");
   pill.setAttribute("aria-expanded", "false");
 
