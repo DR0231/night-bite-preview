@@ -5,7 +5,10 @@
  *
  *  · HTML: network first, falls back to the saved copy (then to offline.html) when there's no signal.
  *  · data/*.json (log, tournaments): network first, saved copy when offline.
- *  · CSS, JS, fonts, images: stale while revalidate (instant from cache, refreshed in the background).
+ *  · CSS and JS: network first too, saved copy when offline or slow, so a page never mixes this deploy's HTML
+ *    with last deploy's styles or scripts. (Up to v11 these were cache first, which showed the multi-lake
+ *    picker unstyled and the old Hoover-only map script after a deploy.) Pages ask for them with ?v=VERSION.
+ *  · Fonts, images: stale while revalidate (instant from cache, refreshed in the background).
  *  · Whisperwood is never touched: nothing under whisperwood/ (or whisperwood.html) is cached or intercepted.
  *  · Cross origin requests (NWS, USGS, links out) pass straight through. The page itself keeps the last good
  *    readings in localStorage and labels them "Offline. Last updated ..." (js/refresh.js, NightBiteOffline).
@@ -15,7 +18,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v11-2026-10-24";
+var VERSION = "v12-2026-10-24";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -75,7 +78,7 @@ var PRECACHE = [
   "js/refresh.js",
   "js/species-filter.js",
   "js/sticky-nav.js",
-  "js/sw-register.js",
+  "js/sw-update.js",
   "js/tournaments.js",
   "js/usgs.js",
   "js/water.js",
@@ -268,6 +271,10 @@ self.addEventListener("fetch", function (event) {
     return;
   }
   if (rel(url).indexOf("data/") === 0) {                // community log and tournaments: freshest first
+    event.respondWith(networkFirst(event, url, false));
+    return;
+  }
+  if (/\.(css|js)$/i.test(url.pathname)) {               // styles and scripts: always the same deploy as the page
     event.respondWith(networkFirst(event, url, false));
     return;
   }

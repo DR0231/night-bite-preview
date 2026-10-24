@@ -2697,9 +2697,42 @@ html.lake-sheet-open { overflow: hidden; }
 .lake-dots { display: flex; justify-content: center; gap: 0.5rem; padding-bottom: 0.25rem; }
 .lake-dots span { width: 6px; height: 6px; background: rgba(245, 237, 216, 0.25); transition: background-color var(--dur) var(--ease); }
 .lake-dots span.on { background: var(--amber); }
+/* previous / next buttons: hidden on phones and tablets (they swipe); shown with a mouse or trackpad */
+.lake-stage { position: relative; }
+.lake-nav { display: none; }
+@media (hover: hover) and (pointer: fine) and (min-width: 560px) {
+  /* desktop: the same sheet, floating centered with room around it, no drag handle */
+  .lake-sheet-panel { width: min(calc(100% - 3rem), 920px); padding-bottom: 1.25rem; }
+  .lake-sheet-grab { display: none; }
+  .lake-sheet-head { cursor: default; touch-action: auto; padding-top: 1rem; }
+  .lake-track { --card-w: 300px; padding-top: 1rem; }
+  .lake-stage { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 0.5rem; padding: 0 var(--space-md); }
+  .lake-stage > .lake-track {
+    grid-column: 2; grid-row: 1;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 2rem, #000 calc(100% - 2rem), transparent);
+  }
+  .lake-nav {
+    display: inline-flex; align-items: center; justify-content: center;
+    grid-row: 1;
+    width: 44px; height: 44px;
+    background: rgba(26, 46, 74, 0.72); border: 1px solid rgba(245, 237, 216, 0.16); border-radius: 999px;
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    color: var(--cream); cursor: pointer;
+    transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .lake-nav-prev { grid-column: 1; }
+  .lake-nav-next { grid-column: 3; }
+  .lake-nav:hover { color: var(--amber); border-color: rgba(240, 168, 48, 0.5); }
+  .lake-nav:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .lake-nav:disabled { opacity: 0; pointer-events: none; }
+  .lake-nav span { width: 8px; height: 16px; background: currentColor; }
+  .lake-nav-prev span { clip-path: polygon(100% 0%, 75% 0%, 75% 12.5%, 50% 12.5%, 50% 25%, 25% 25%, 25% 37.5%, 0% 37.5%, 0% 62.5%, 25% 62.5%, 25% 75%, 50% 75%, 50% 87.5%, 75% 87.5%, 75% 100%, 100% 100%); }
+  .lake-nav-next span { clip-path: polygon(0% 0%, 25% 0%, 25% 12.5%, 50% 12.5%, 50% 25%, 75% 25%, 75% 37.5%, 100% 37.5%, 100% 62.5%, 75% 62.5%, 75% 75%, 50% 75%, 50% 87.5%, 25% 87.5%, 25% 100%, 0% 100%); }
+}
 @media (prefers-reduced-motion: reduce) {
   .lake-sheet[open] .lake-sheet-panel, .lake-sheet.is-closing .lake-sheet-panel { animation: none; }
-  .lake-card, .lake-sheet-panel { transition: none; }
+  .lake-card, .lake-sheet-panel, .lake-nav { transition: none; }
 }
 
 /* ---- lake switch: a short cross-fade (js/lakes.js skips it for every other navigation) ---- */

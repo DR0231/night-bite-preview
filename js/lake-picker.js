@@ -6,6 +6,8 @@
  *         the mouse wheel, or tap a side card to bring it to the middle.
  *   Pick: tap or press Enter on the centered card. Picking the lake you're on just closes.
  *   Leave with no change: Esc, the X, a tap outside the cards, or dragging the sheet's handle down.
+ *   Desktop (a mouse or trackpad): the same glass cards centered over the blurred page, plus previous and next
+ *   buttons beside the row; the wheel, a sideways trackpad swipe or the arrow keys preview, a click picks.
  * Picking another lake saves it (localStorage "nb-lake") and reloads the same page with ?lake=, with a short
  * cross-fade (view transition) when the browser supports it and reduced motion is off.
  * Card readings: the last reading this browser saved for that lake (js/usgs.js), else the snapshot in js/lakes.js,
@@ -41,7 +43,14 @@
   var x = el("button", "lake-sheet-close"); x.type = "button"; x.setAttribute("aria-label", "Close, keep " + LK.cfg.short);
   x.appendChild(el("span")).setAttribute("aria-hidden", "true");
   head.appendChild(grab); head.appendChild(title); head.appendChild(x);
-  var hint = el("p", "lake-sheet-hint", "Swipe to look, tap the middle card to switch."); hint.id = "lake-sheet-hint";
+  var fine = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)");
+  var hint = el("p", "lake-sheet-hint"); hint.id = "lake-sheet-hint";
+  function hintText() {
+    hint.textContent = fine && fine.matches
+      ? "Scroll or use the arrow keys to look, click the middle card to switch."
+      : "Swipe to look, tap the middle card to switch.";
+  }
+  hintText();
   var track = el("ul", "lake-track");
   track.setAttribute("aria-label", "Lakes");
   var cards = order.map(function (id, i) {
@@ -71,7 +80,17 @@
   var dots = el("div", "lake-dots"); dots.setAttribute("aria-hidden", "true");
   order.forEach(function () { dots.appendChild(el("span")); });
   var live1 = el("p", "sr-only"); live1.setAttribute("aria-live", "polite");
-  panel.appendChild(head); panel.appendChild(hint); panel.appendChild(track); panel.appendChild(dots); panel.appendChild(live1);
+  // previous / next: only shown with a mouse or trackpad (CSS), phones keep swiping
+  var stage = el("div", "lake-stage");
+  function navBtn(dir, label) {
+    var b = el("button", "lake-nav lake-nav-" + dir);
+    b.type = "button"; b.setAttribute("aria-label", label);
+    b.appendChild(el("span")).setAttribute("aria-hidden", "true");
+    return b;
+  }
+  var prev = navBtn("prev", "Previous lake"), next = navBtn("next", "Next lake");
+  stage.appendChild(track); stage.appendChild(prev); stage.appendChild(next);
+  panel.appendChild(head); panel.appendChild(hint); panel.appendChild(stage); panel.appendChild(dots); panel.appendChild(live1);
   dlg.appendChild(panel);
   document.body.appendChild(dlg);
 
@@ -161,6 +180,7 @@
       k.btn.tabIndex = j === i ? 0 : -1;
     });
     dots.querySelectorAll("span").forEach(function (d, j) { d.classList.toggle("on", j === i); });
+    prev.disabled = i === 0; next.disabled = i === cards.length - 1;
     if (dlg.open && dlg.contains(document.activeElement) && document.activeElement.classList.contains("lake-card")) cards[i].btn.focus({ preventScroll: true });
     live1.textContent = cards[i].cfg.name;
   }
@@ -184,6 +204,7 @@
   var opener = null;
   function open() {
     opener = document.activeElement;
+    hintText();
     cards.forEach(paint);
     dlg.showModal();
     document.documentElement.classList.add("lake-sheet-open");
@@ -216,13 +237,15 @@
   }
   pill.addEventListener("click", open);
   x.addEventListener("click", close);
+  prev.addEventListener("click", function () { go(center - 1); });
+  next.addEventListener("click", function () { go(center + 1); });
   dlg.addEventListener("cancel", function (e) { e.preventDefault(); close(); });
   cards.forEach(function (k, i) {
     k.btn.addEventListener("click", function () { if (i === center) pick(i); else go(i); });
   });
   // a tap on the frosted backdrop or the empty space around the cards closes with no change
   dlg.addEventListener("click", function (e) {
-    if (e.target === dlg || e.target === panel || e.target === track || e.target.classList.contains("lake-slot")) close();
+    if (e.target === dlg || e.target === panel || e.target === stage || e.target === track || e.target.classList.contains("lake-slot")) close();
   });
 
   /* keys: arrows move, Enter picks (native button), Esc closes (cancel), Tab stays inside the sheet */
@@ -233,7 +256,8 @@
     else if (k === "Home") { e.preventDefault(); go(0); }
     else if (k === "End") { e.preventDefault(); go(cards.length - 1); }
     else if (k === "Tab") {
-      var f = [x, cards[center].btn], at = f.indexOf(document.activeElement);
+      var f = [x, prev, cards[center].btn, next].filter(function (n) { return !n.disabled && n.offsetParent !== null; }),
+        at = f.indexOf(document.activeElement);
       e.preventDefault();
       f[(at + (e.shiftKey ? f.length - 1 : 1)) % f.length].focus();
     }
