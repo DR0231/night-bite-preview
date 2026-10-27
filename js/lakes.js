@@ -21,7 +21,7 @@
       id: "hoover",
       name: "Hoover Reservoir",
       short: "Hoover",
-      area: "Delaware / Franklin County",
+      area: "Central Ohio",
       lat: 40.11, lng: -82.88,
       pool: {
         src: "usgs", srcName: "USGS",
@@ -36,7 +36,7 @@
         station: "KCMH", stationName: "Columbus airport (KCMH)",
         page: "https://forecast.weather.gov/MapClick.php?lat=40.11&lon=-82.88"
       },
-      alerts: { zones: "OHC041,OHC049,OHZ046,OHZ055", counties: "Delaware or Franklin County" },
+      alerts: { zones: "OHC041,OHC049,OHZ046,OHZ055", counties: "the Hoover area" },
       push: null,      // null: js/conditions.js keeps its own Hoover list (north to south lake)
       map: { data: "NightBiteMapData", chart: "assets/hoover-chart.png" },
       spots: ["Oxbow (upper ramp)", "Redbank (middle ramp)", "Walnut Road (lower ramp)", "Bank (upper)", "Bank (middle)", "Bank (lower)", "Maxtown", "Marina / lower marina"],
@@ -46,7 +46,7 @@
       id: "alum",
       name: "Alum Creek Lake",
       short: "Alum Creek",
-      area: "Delaware County",
+      area: "Central Ohio",
       lat: 40.24, lng: -82.97,
       pool: {
         // no USGS gauge on the lake itself; the Corps of Engineers posts the lake level every 15 minutes
@@ -64,7 +64,7 @@
         station: "KDLZ", stationName: "Delaware airport (KDLZ)",
         page: "https://forecast.weather.gov/MapClick.php?lat=40.24&lon=-82.97"
       },
-      alerts: { zones: "OHC041,OHZ046", counties: "Delaware County" },
+      alerts: { zones: "OHC041,OHZ046", counties: "the Alum Creek area" },
       push: null,      // Alum Creek also runs north to south, so the Hoover wording fits
       map: { data: "NightBiteMapDataAlum", chart: "assets/alum-chart.png" },
       spots: ["New Galena ramp", "Marina ramp (Hollenback Rd)", "Cheshire ramp", "Howard ramp", "Bank (south, main lake)", "Bank (middle)", "Bank (north, no wake)", "Kayak launch"],
@@ -74,7 +74,7 @@
       id: "buckeye",
       name: "Buckeye Lake",
       short: "Buckeye",
-      area: "Licking, Fairfield and Perry Counties",
+      area: "Central Ohio",
       lat: 39.93, lng: -82.49,
       pool: {
         src: "usgs", srcName: "USGS",
@@ -91,7 +91,7 @@
         station: "KVTA", stationName: "Newark airport (KVTA)",
         page: "https://forecast.weather.gov/MapClick.php?lat=39.93&lon=-82.49"
       },
-      alerts: { zones: "OHC089,OHC045,OHC127,OHZ056,OHZ065,OHZ066", counties: "Licking, Fairfield or Perry County" },
+      alerts: { zones: "OHC089,OHC045,OHC127,OHZ056,OHZ065,OHZ066", counties: "the Buckeye Lake area" },
       // Buckeye runs west southwest to east northeast: north and south winds name a shore, east and west winds name an end
       push: ["into the south shore", "toward the southwest end", "toward the west end", "into the northwest shore",
         "into the north shore", "toward the northeast end", "toward the east end", "into the southeast shore"],
