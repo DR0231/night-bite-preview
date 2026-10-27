@@ -97,9 +97,10 @@ Limit tables are **reminders only** — confirm on [HuntFish OH / ODNR licenses]
 |------|---------|
 | `index.html` | Hub home for Hoover (the site root), lake level and tonight's bite up top, pool/temp snapshot, next actions |
 | `alum/index.html`, `buckeye/index.html` | Alum Creek and Buckeye Lake home pages, built from `index.html` (see Lake home pages) |
-| `species/index.html` | Filterable species grid |
-| `species/*.html` | Per-species Season · Where · Limits · Gear · Bait |
-| `water.html` | Maps, pool correction, structure, ramps |
+| `species/index.html` | Filterable species grid for the active lake: Biting now tags, a "Not at <lake>" group, ramps and access (`js/species-lake.js`) |
+| `species/*.html` | Per-species Season · Where · Limits · Gear · Bait, with an "at <lake> this month" note under the title |
+| `water.html` | Maps, pool correction, structure, ramps, dock season, link to Ice season |
+| `ice.html` | Ice season: ODNR ice safety, who to call per lake, winter species from the monthly notes. No ice reports |
 | `log.html` | Community JSON + private localStorage + submit |
 | `tournaments.html` | Static JSON list + submit |
 | `gear.html` | Short kits (affiliate placeholders) |
@@ -116,10 +117,19 @@ python3 tools/build-lake-pages.py && python3 tools/stamp-version.py
 ```
 
 The generator adds `<base href="../">` (so every asset, script and fetch resolves from the root), the lake's
-`nb-home` meta, its own title, description, canonical and OG tags, and points in-page links at the lake's page.
+`nb-home` meta, its own title, description, canonical and OG tags (og:image is `assets/og/og-<lake>.png`), and points in-page links at the lake's page.
 `js/lakes.js` reads `nb-home`. Old links still work: `/?lake=alum` and a saved lake choice (localStorage `nb-lake`)
 send the root to `/alum/`. On Home the lake picker goes to the lake's address; on other pages it adds `?lake=`.
 All three home pages are precached by `sw.js`, so each opens offline. List new lakes in `sitemap.xml` too.
+
+## Home tools: Share tonight, Remind me tonight
+
+`js/tonight-tools.js` adds two buttons under the Right now strip.
+Share tonight draws a 1200x630 PNG on the phone from what the page shows (level and its gauge time, bite rating and its
+NWS time, "--" when missing), then uses the Web Share API with files where supported, or a download.
+Remind me tonight has no push server: it offers a `.ics` calendar file (always works), and a phone notification that
+uses Notification Triggers where the browser has them, otherwise a timer that only runs while the app is open.
+`sw.js` handles `notificationclick` to open the lake's home page.
 
 ## Keep test runs out of the stats
 

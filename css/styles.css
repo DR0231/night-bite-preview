@@ -2825,3 +2825,94 @@ html.lake-sheet-open { overflow: hidden; }
 /* Pool trend: hold its space while the week of readings loads, so the map below doesn't jump (js/pool-trend.js
    clears data-pending; it collapses only if no data comes back). */
 .pool-trend[hidden][data-pending] { display: block; visibility: hidden; }
+
+/* ==========================================================================
+   Lake-aware Species (js/species-lake.js): Biting now tags, the "Not at <lake>" group, ramps and access,
+   and the species page note under the title.
+   ========================================================================== */
+.sp-tag {
+  display: inline-block;
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: var(--text-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.25rem 0.4rem;
+  border-radius: var(--radius);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.sp-tag-now { color: var(--navy); background: var(--amber); }
+.sp-tag-away, .sp-tag-quiet { color: var(--cream-dark); box-shadow: inset 0 0 0 1px var(--navy-light); }
+.species-card h3 .sp-tag { margin-left: 0.4rem; }
+.sp-count { margin: 0 0 var(--space-sm); }
+.sp-away { margin-top: var(--space-xl); }
+.sp-away[hidden] { display: none; }
+.sp-away h2 { color: var(--cream-dark); }
+/* species not at the lake stay visible in their own group (lakes.css rule above hides them in the main grid) */
+html[data-lake] .sp-away .species-card[data-lakes][data-lakes]:not([hidden]),
+html:not([data-lake]) .sp-away .species-card[data-lakes][data-lakes]:not([hidden]) { display: block !important; }
+.species-card.is-away { opacity: 0.72; }
+.species-card.is-away:hover, .species-card.is-away:focus-visible { opacity: 1; }
+.sp-away-note { margin: 0; }
+.sp-access { margin: var(--space-xl) 0 var(--space-lg); }
+.sp-access[hidden] { display: none; }
+.sp-access-list { list-style: none; margin: 0 0 var(--space-sm); padding: 0; }
+.sp-access-list li { display: flex; flex-direction: column; gap: 0.15rem; padding: var(--space-xs) 0; border-bottom: 1px solid var(--navy-light); }
+.sp-access-name { font-family: var(--font-display); color: var(--cream); }
+.sp-access-note { font-size: var(--text-sm); color: var(--cream-dark); }
+.sp-access-src { font-size: var(--text-sm); color: var(--muted); }
+.sp-now { margin: 0 0 var(--space-md); padding: var(--space-sm) var(--space-md); border-left: 2px solid var(--amber); background: var(--navy-mid); border-radius: 0 var(--radius) var(--radius) 0; }
+.sp-now[hidden] { display: none; }
+.sp-now p { margin: 0 0 0.35rem; }
+.sp-now p:last-child { margin-bottom: 0; }
+.sp-now-head { font-family: var(--font-display); color: var(--cream); }
+.sp-now-head .sp-tag { margin-right: 0.4rem; }
+
+/* Tonight tools (js/tonight-tools.js): Share tonight + Remind me tonight under the glance strip, and their dialogs.
+   The row is in the HTML from the start (fixed height), so nothing moves when the script runs. */
+.glance + .glance-actions { margin-top: calc(-1 * var(--space-lg) + var(--space-xs)); }
+.glance-actions {
+  display: flex; gap: var(--space-xs);
+  max-width: var(--max);
+  margin: 0 auto var(--space-lg);
+  height: 44px;
+}
+.glance-btn {
+  flex: 1 1 0; min-width: 0; height: 44px;
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: var(--text-label); letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--amber); background: transparent;
+  border: 1px solid rgba(240, 168, 48, 0.45); border-radius: var(--radius);
+  cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.glance-btn:hover { background: var(--navy-light); color: var(--cream); }
+.glance-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.tt-dialog {
+  width: min(92vw, 560px); max-height: 90vh; overflow: auto;
+  margin: auto; inset: 0; position: fixed;
+  padding: var(--card-pad);
+  color: var(--cream); background: var(--navy-mid);
+  border: 1px solid var(--navy-light); border-radius: var(--radius);
+}
+.tt-dialog::backdrop { background: rgba(10, 22, 40, 0.82); }
+.tt-dialog h2 { margin-top: 0; }
+.tt-share-img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; background: var(--navy); border: 1px solid var(--navy-light); image-rendering: pixelated; }
+.tt-actions { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: var(--space-sm) 0; }
+.tt-actions .btn[hidden] { display: none; }
+.tt-label { display: block; font-family: var(--font-display); font-size: var(--text-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
+.tt-select { width: 100%; min-height: 44px; font: inherit; color: var(--cream); background: var(--navy); border: 1px solid var(--navy-light); border-radius: var(--radius); padding: 0 var(--space-xs); }
+.tt-limits { color: var(--muted); }
+
+/* Dock season (water.html#docks) */
+.dock-calls { margin: 0 0 var(--space-sm); padding-left: 1.1rem; }
+.dock-calls li { margin: 0.25rem 0; }
+.dock-calls a { white-space: nowrap; }
+
+/* Ice season (ice.html) */
+.ice-species { display: grid; gap: var(--space-sm); margin-top: var(--space-sm); }
+.ice-species-card h3 { margin: 0 0 var(--space-xs); }
+.ice-months { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.35rem var(--space-sm); }
+.ice-months dt { font-family: var(--font-display); font-size: var(--text-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); padding-top: 0.2rem; }
+.ice-months dd { margin: 0; }
