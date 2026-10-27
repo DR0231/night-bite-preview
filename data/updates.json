@@ -2,9 +2,8 @@
   "about": "What's new on The Night Bite, newest first. Edit this file, then run: python3 tools/build-updates.py (see README, 'What's new'). Entries come from what actually shipped to nightbiteoh.com. An entry with \"draft\": true and \"date\": null is on the preview only: it shows on the preview, is hidden on nightbiteoh.com, and is left out of updates.xml until you set the date and remove the draft flag at promotion.",
   "entries": [
     {
-      "id": "share-remind-seasons",
-      "draft": true,
-      "date": null,
+      "id": "2026-10-27-share-remind-seasons",
+      "date": "2026-10-27",
       "tag": "New",
       "title": "Share tonight, Remind me, and season pages",
       "bullets": [
@@ -14,10 +13,22 @@
         "Water adds dock season notes for each lake, and the new Ice season page covers ice safety and what still bites in winter."
       ],
       "links": [
-        { "label": "Home", "href": "./" },
-        { "label": "Species", "href": "species/" },
-        { "label": "Dock season", "href": "water.html#docks" },
-        { "label": "Ice season", "href": "ice.html" }
+        {
+          "label": "Home",
+          "href": "./"
+        },
+        {
+          "label": "Species",
+          "href": "species/"
+        },
+        {
+          "label": "Dock season",
+          "href": "water.html#docks"
+        },
+        {
+          "label": "Ice season",
+          "href": "ice.html"
+        }
       ]
     },
     {
@@ -32,9 +43,18 @@
         "After an update, a page reloads only when it is out of date."
       ],
       "links": [
-        { "label": "Hoover home", "href": "./" },
-        { "label": "Alum Creek home", "href": "alum/" },
-        { "label": "Buckeye home", "href": "buckeye/" }
+        {
+          "label": "Hoover home",
+          "href": "./"
+        },
+        {
+          "label": "Alum Creek home",
+          "href": "alum/"
+        },
+        {
+          "label": "Buckeye home",
+          "href": "buckeye/"
+        }
       ]
     },
     {
@@ -48,7 +68,10 @@
         "The Log page's report link fills in the lake you picked."
       ],
       "links": [
-        { "label": "Log", "href": "log.html" }
+        {
+          "label": "Log",
+          "href": "log.html"
+        }
       ]
     },
     {
@@ -63,10 +86,22 @@
         "Pages pick up each new release on their own, even if your phone saved an older copy."
       ],
       "links": [
-        { "label": "Home", "href": "./" },
-        { "label": "Water", "href": "water.html" },
-        { "label": "Species", "href": "species/" },
-        { "label": "Tournaments", "href": "tournaments.html" }
+        {
+          "label": "Home",
+          "href": "./"
+        },
+        {
+          "label": "Water",
+          "href": "water.html"
+        },
+        {
+          "label": "Species",
+          "href": "species/"
+        },
+        {
+          "label": "Tournaments",
+          "href": "tournaments.html"
+        }
       ]
     },
     {
@@ -81,7 +116,10 @@
         "A storm heads up when thunderstorms are in the forecast."
       ],
       "links": [
-        { "label": "Home", "href": "./" }
+        {
+          "label": "Home",
+          "href": "./"
+        }
       ]
     },
     {
@@ -97,9 +135,18 @@
         "Works offline, and you can add it to your home screen like an app."
       ],
       "links": [
-        { "label": "Home", "href": "./" },
-        { "label": "Species", "href": "species/" },
-        { "label": "Add to home screen", "href": "./#get-the-app" }
+        {
+          "label": "Home",
+          "href": "./"
+        },
+        {
+          "label": "Species",
+          "href": "species/"
+        },
+        {
+          "label": "Add to home screen",
+          "href": "./#get-the-app"
+        }
       ]
     },
     {
@@ -114,9 +161,18 @@
         "About lists Hoover's fishing limits from the 2026 to 2027 ODNR regulations."
       ],
       "links": [
-        { "label": "Home", "href": "./" },
-        { "label": "Gear", "href": "gear.html" },
-        { "label": "About", "href": "about.html" }
+        {
+          "label": "Home",
+          "href": "./"
+        },
+        {
+          "label": "Gear",
+          "href": "gear.html"
+        },
+        {
+          "label": "About",
+          "href": "about.html"
+        }
       ]
     }
   ]
