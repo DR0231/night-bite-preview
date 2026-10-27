@@ -3004,3 +3004,70 @@ html:not([data-lake]) .sp-away .species-card[data-lakes][data-lakes]:not([hidden
 .ice-months { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0.35rem var(--space-sm); }
 .ice-months dt { font-family: var(--font-display); font-size: var(--text-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); padding-top: 0.2rem; }
 .ice-months dd { margin: 0; }
+
+/* What's new (updates.html): a quiet timeline, newest first. Pixel type only for the page h1. */
+.updates-follow a { white-space: nowrap; }
+.updates { list-style: none; margin: var(--space-lg) 0 0; padding: 0; }
+.update {
+  position: relative;
+  margin: 0 0 0 0.3125rem; padding: 0 0 var(--space-xl) 1.5rem;
+  border-left: 2px solid var(--navy-light);
+}
+.update:last-child { padding-bottom: 0; border-left-color: transparent; }
+.update::before {
+  content: ""; position: absolute; left: -7px; top: 0.3rem;
+  width: 12px; height: 12px;
+  background: var(--navy); border: 2px solid var(--amber-dim);
+}
+.update:first-child::before, html.nb-show-drafts .update.is-draft + .update:not(.is-draft)::before { background: var(--navy); }
+.updates > .update:first-child::before { background: var(--amber); border-color: var(--amber); }
+.update article { scroll-margin-top: calc(var(--header-h, 56px) + 1rem); }
+.update-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem 0.625rem;
+  margin: 0 0 0.375rem;
+  font-family: var(--font-body); font-size: var(--text-sm); color: var(--muted);
+}
+.update-date { font-weight: 600; color: var(--cream-dark); }
+.update-tag {
+  display: inline-flex; align-items: center; height: 1.375rem; padding: 0 0.5rem;
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1;
+  border: 1px solid currentColor; border-radius: 999px;
+}
+.update-tag-new { color: var(--navy); background: var(--amber); border-color: var(--amber); }
+.update-tag-improved { color: var(--amber); }
+.update-tag-fixed { color: var(--cream-dark); }
+.update .update-title {
+  font-family: var(--font-body); font-weight: 600; font-size: 1.375rem; line-height: 1.3; letter-spacing: 0;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-synthesis: weight style;
+  color: var(--cream); margin: 0 0 0.5rem; text-wrap: balance;
+}
+.update-list { list-style: square; margin: 0 0 var(--space-sm); padding-left: 1.125rem; }
+.update-list li { margin: 0.375rem 0; line-height: 1.6; color: var(--cream); }
+.update-list li::marker { color: var(--amber); }
+.update-links { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; }
+.update-links li { margin: 0; }
+.update-links a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 0.875rem;
+  font-family: var(--font-body); font-size: var(--text-sm); color: var(--amber); text-decoration: none;
+  background: rgba(245, 237, 216, 0.04); border: 1px solid rgba(245, 237, 216, 0.14); border-radius: 999px;
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.update-links a:hover { color: var(--cream); border-color: var(--amber); }
+.update-links a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+/* drafts: on the preview only (js/updates-draft.js adds the class in <head>, before paint) */
+.update.is-draft { display: none; }
+html.nb-show-drafts .update.is-draft { display: block; border-left-style: dashed; }
+.update-date-draft { color: var(--amber); font-style: italic; font-weight: 600; }
+
+/* New dot on links to What's new: absolutely placed, so it never moves anything */
+.site-nav a.is-new::before, .footer-inner a.is-new::before {
+  content: ""; position: absolute; width: 6px; height: 6px; background: var(--amber); pointer-events: none;
+}
+.site-nav a.is-new::before { top: 10px; right: 0; }
+.site-nav .nav-more-panel a.is-new::before { top: 50%; right: 0.75rem; margin-top: -3px; }
+.footer-inner a.is-new { position: relative; }
+.footer-inner a.is-new::before { top: 12px; right: 0; }
+.nav-more-btn.has-new {
+  background-image: linear-gradient(var(--amber), var(--amber));
+  background-size: 6px 6px; background-repeat: no-repeat; background-position: right 0 top 10px;
+}
