@@ -4,7 +4,12 @@
  * lake-only blocks ([data-for="alum"] and so on, see css/styles.css) never flash the wrong lake.
  *
  * Active lake: ?lake=hoover|alum|buckeye in the URL first, then localStorage "nb-lake", then Hoover (the default).
- * Hoover keeps a clean URL. Other lakes keep ?lake= in the address bar, so a shared link opens the same lake.
+ * Home pages have their own address per lake: Hoover at the site root, Alum Creek at alum/, Buckeye Lake at buckeye/
+ * (alum/index.html and buckeye/index.html are built from index.html by tools/build-lake-pages.py and carry
+ * <meta name="nb-home" content="alum">). On a lake's own home page that lake always wins. At the root, a ?lake= link
+ * or a saved Alum Creek or Buckeye choice goes straight to that lake's address (location.replace, before anything
+ * paints). Other pages keep ?lake= in the address bar for Alum Creek and Buckeye, a clean URL for Hoover, and their
+ * Home links point at the chosen lake's home page.
  *
  * Every value below has a source in DATA-SOURCES.md. Hoover's values are exactly the ones the scripts used before
  * this file existed (js/usgs.js, js/pool-trend.js, js/conditions.js, js/alerts.js); those scripts fall back to the
@@ -107,16 +112,30 @@
   var KEY = "nb-lake";
 
   function valid(id) { return Object.prototype.hasOwnProperty.call(LAKES, id) ? id : null; }
+
+  // site root, so pages in species/ and alum/ can find assets (lakes.js is always loaded as <root>/js/lakes.js)
+  var BASE = "";
+  try { BASE = document.currentScript.src.replace(/js\/lakes\.js(\?.*)?$/, ""); } catch (e) {}
+  // a lake's home page: the root for Hoover, alum/ and buckeye/ for the others
+  function homeFor(lake) { return BASE + (lake === "hoover" ? "" : lake + "/"); }
+
+  var homeMeta = document.querySelector('meta[name="nb-home"]');
+  var homeLake = homeMeta ? valid(homeMeta.getAttribute("content")) : null;   // set on the three home pages only
   var fromUrl = null, stored = null;
   try { fromUrl = valid(new URLSearchParams(location.search).get("lake")); } catch (e) {}
   try { stored = valid(localStorage.getItem(KEY)); } catch (e) {}
-  var id = fromUrl || stored || "hoover";
-  if (fromUrl && fromUrl !== stored) { try { localStorage.setItem(KEY, fromUrl); } catch (e) {} }
+  var id = homeLake && homeLake !== "hoover" ? homeLake : (fromUrl || stored || "hoover");
+  if (id !== stored && (fromUrl || (homeLake && homeLake !== "hoover"))) { try { localStorage.setItem(KEY, id); } catch (e) {} }
 
-  // keep the address bar honest: ?lake= for Alum Creek and Buckeye, a clean URL for Hoover
+  // the root home page with Alum Creek or Buckeye chosen: open that lake's own address instead
+  if (homeLake === "hoover" && id !== "hoover" && BASE) {
+    try { location.replace(homeFor(id) + location.hash); } catch (e) {}
+  }
+
+  // keep the address bar honest: a lake's home page has no ?lake=; elsewhere ?lake= for Alum Creek and Buckeye
   try {
     var u = new URL(location.href);
-    if (id === "hoover") u.searchParams.delete("lake"); else u.searchParams.set("lake", id);
+    if (id === "hoover" || homeLake) u.searchParams.delete("lake"); else u.searchParams.set("lake", id);
     if (u.href !== location.href) history.replaceState(history.state, "", u.href);
   } catch (e) {}
 
@@ -124,8 +143,10 @@
   root.setAttribute("data-lake", id);
   root.style.setProperty("--lake-short", '"' + LAKES[id].short + '"');
 
-  // same page, other lake (the picker navigates here; a cross-document view transition fades between them)
+  // same page, other lake (the picker navigates here; a cross-document view transition fades between them).
+  // On a home page that is the other lake's home page.
   function hrefFor(next) {
+    if (homeLake) return homeFor(next);
     var u = new URL(location.href);
     if (next === "hoover") u.searchParams.delete("lake"); else u.searchParams.set("lake", next);
     return u.href;
@@ -153,12 +174,8 @@
   }
   function cwms(hours) { return cwmsFor(id, hours); }
 
-  // site root, so pages in species/ can find assets (lakes.js is always loaded as <root>/js/lakes.js)
-  var BASE = "";
-  try { BASE = document.currentScript.src.replace(/js\/lakes\.js(\?.*)?$/, ""); } catch (e) {}
-
-  window.NightBiteLakes = { all: LAKES, order: ORDER, speciesNames: SPECIES, storageKey: KEY, hrefFor: hrefFor, base: BASE, cwmsFor: cwmsFor };
-  window.NightBiteLake = { id: id, cfg: LAKES[id], key: key, cwms: cwms };
+  window.NightBiteLakes = { all: LAKES, order: ORDER, speciesNames: SPECIES, storageKey: KEY, hrefFor: hrefFor, homeFor: homeFor, base: BASE, cwmsFor: cwmsFor };
+  window.NightBiteLake = { id: id, cfg: LAKES[id], key: key, cwms: cwms, home: homeLake };
 
   // Lake switches only (js/lake-picker.js sets the flag): a short cross-fade into the new page.
   // Registered here in <head> so it is in place before the first frame; every other navigation stays instant.
@@ -176,7 +193,13 @@
       var nodes = document.querySelectorAll("[data-lk]");
       for (var i = 0; i < nodes.length; i++) {
         var v = LAKES[id][nodes[i].getAttribute("data-lk")];
-        if (typeof v === "string") nodes[i].textContent = v;
+        if (typeof v === "string" && nodes[i].textContent !== v) nodes[i].textContent = v;
+      }
+      // Home links (logo, nav, footer) go straight to this lake's home page
+      var root0 = BASE.replace(/[?#].*$/, ""), links = document.querySelectorAll("a[href]");
+      for (var j = 0; j < links.length; j++) {
+        var a = links[j], h = a.href.replace(/[?#].*$/, "");
+        if (h === root0 || h === root0 + "index.html") a.href = homeFor(id) + (a.hash || "");
       }
     }
     root.classList.add("lk-ready");
