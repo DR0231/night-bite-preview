@@ -19,7 +19,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v21-2026-10-27";
+var VERSION = "v22-2026-10-27";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -274,7 +274,7 @@ self.addEventListener("message", function (event) {
   }
 });
 
-// "Remind me tonight" (js/tonight-tools.js): the page shows the notification through this worker; tapping it opens
+// "Remind me" (js/tonight-tools.js): the page shows the notification through this worker; tapping it opens
 // (or focuses) the lake's home page. No push subscription, no server: nothing arrives here from outside.
 self.addEventListener("notificationclick", function (event) {
   event.notification.close();

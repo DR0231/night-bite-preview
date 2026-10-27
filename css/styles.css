@@ -2889,20 +2889,102 @@ html:not([data-lake]) .sp-away .species-card[data-lakes][data-lakes]:not([hidden
 }
 .glance-btn:hover { background: var(--navy-light); color: var(--cream); }
 .glance-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+/* Share and Remind me dialogs: the same frosted glass sheet as the lake picker (bottom sheet on phones) */
 .tt-dialog {
   width: min(92vw, 560px); max-height: 90vh; overflow: auto;
   margin: auto; inset: 0; position: fixed;
   padding: var(--card-pad);
-  color: var(--cream); background: var(--navy-mid);
-  border: 1px solid var(--navy-light); border-radius: var(--radius);
+  color: var(--cream);
+  background: linear-gradient(180deg, rgba(26, 46, 74, 0.72), rgba(18, 32, 56, 0.62));
+  border: 1px solid rgba(245, 237, 216, 0.12); border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(245, 237, 216, 0.10);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  backdrop-filter: blur(18px) saturate(1.25);
 }
-.tt-dialog::backdrop { background: rgba(10, 22, 40, 0.82); }
+.tt-dialog[open] { animation: lake-in 220ms var(--ease) both; }
+.tt-dialog::backdrop {
+  background: rgba(10, 22, 40, 0.55);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  backdrop-filter: blur(14px) saturate(1.2);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .tt-dialog { background: var(--navy-mid); }
+  .tt-dialog::backdrop { background: rgba(10, 22, 40, 0.94); }
+}
+@media (max-width: 559px) {
+  .tt-dialog { width: 100%; max-width: none; margin: auto 0 0; border-radius: 14px 14px 0 0; border-bottom: 0; padding-bottom: max(var(--card-pad), env(safe-area-inset-bottom)); }
+}
 .tt-dialog h2 { margin-top: 0; }
-.tt-share-img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; background: var(--navy); border: 1px solid var(--navy-light); image-rendering: pixelated; }
+.tt-share-img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; background: var(--navy); border: 1px solid var(--navy-light); border-radius: 8px; }
+.tt-share-src { color: var(--cream-dark); }
 .tt-actions { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: var(--space-sm) 0; }
 .tt-actions .btn[hidden] { display: none; }
-.tt-label { display: block; font-family: var(--font-display); font-size: var(--text-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
-.tt-select { width: 100%; min-height: 44px; font: inherit; color: var(--cream); background: var(--navy); border: 1px solid var(--navy-light); border-radius: var(--radius); padding: 0 var(--space-xs); }
+
+/* Remind me wheel: three scroll-snap columns; the centre row sits in a glass card like the centred lake card */
+.tt-wheel {
+  --row: 44px;
+  position: relative;
+  display: flex; align-items: center; justify-content: center; gap: 0.25rem;
+  height: calc(var(--row) * 5);
+  margin: var(--space-xs) 0 var(--space-sm);
+  background: linear-gradient(180deg, rgba(26, 46, 74, 0.78), rgba(10, 22, 40, 0.70));
+  border: 1px solid rgba(245, 237, 216, 0.14); border-radius: 12px;
+  box-shadow: inset 0 1px 0 rgba(245, 237, 216, 0.10);
+  overflow: hidden;
+}
+.tt-wheel::before {
+  content: ""; position: absolute; left: 0.5rem; right: 0.5rem; top: 50%; height: var(--row); margin-top: calc(var(--row) / -2);
+  background: rgba(245, 237, 216, 0.06);
+  border: 1px solid rgba(240, 168, 48, 0.55); border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(240, 168, 48, 0.18);
+  pointer-events: none;
+}
+.tt-wheel::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(10, 22, 40, 0.75), transparent 34%, transparent 66%, rgba(10, 22, 40, 0.75));
+}
+.tt-col {
+  position: relative; z-index: 1;
+  width: 4.5rem; height: 100%;
+  overflow-y: auto; overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  touch-action: pan-y;
+  border-radius: 10px;
+}
+.tt-col::-webkit-scrollbar { display: none; }
+.tt-col:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.tt-col-list { list-style: none; margin: 0; padding: calc(var(--row) * 2) 0; }
+.tt-item {
+  --d: 2;
+  height: var(--row); margin: 0; display: flex; align-items: center; justify-content: center;
+  scroll-snap-align: center;
+  font-family: var(--font-display); font-size: 1.5rem; font-variant-numeric: tabular-nums;
+  color: var(--cream); cursor: pointer; user-select: none;
+  opacity: calc(1 - var(--d) * 0.35);
+  transform: scale(calc(1 - var(--d) * 0.08));
+  transition: opacity 200ms var(--ease), transform 200ms var(--ease);
+}
+.tt-colon { position: relative; z-index: 1; font-family: var(--font-display); font-size: 1.5rem; color: var(--cream-dark); }
+.tt-col-ap { margin-left: 0.5rem; }
+.tt-quick { display: flex; gap: var(--space-xs); }
+.tt-chip {
+  min-height: 44px; padding: 0 1rem;
+  font-family: var(--font-body); font-size: var(--text-sm); color: var(--cream);
+  background: rgba(245, 237, 216, 0.06); border: 1px solid rgba(245, 237, 216, 0.14); border-radius: 999px;
+  cursor: pointer; transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.tt-chip:hover { color: var(--amber); }
+.tt-chip[aria-pressed="true"] { border-color: var(--amber); color: var(--amber); }
+.tt-chip:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.tt-when { font-family: var(--font-body); font-weight: 600; color: var(--cream); margin: var(--space-sm) 0 0; }
+@media (prefers-reduced-motion: reduce) {
+  .tt-dialog[open] { animation: none; }
+  .tt-item, .tt-chip { transition: none; }
+  .tt-col { scroll-behavior: auto; }
+}
 .tt-limits { color: var(--muted); }
 
 /* Dock season (water.html#docks) */

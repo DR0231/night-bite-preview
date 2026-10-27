@@ -122,14 +122,21 @@ The generator adds `<base href="../">` (so every asset, script and fetch resolve
 send the root to `/alum/`. On Home the lake picker goes to the lake's address; on other pages it adds `?lake=`.
 All three home pages are precached by `sw.js`, so each opens offline. List new lakes in `sitemap.xml` too.
 
-## Home tools: Share tonight, Remind me tonight
+## Home tools: Share tonight, Remind me
 
 `js/tonight-tools.js` adds two buttons under the Right now strip.
-Share tonight draws a 1200x630 PNG on the phone from what the page shows (level and its gauge time, bite rating and its
-NWS time, "--" when missing), then uses the Web Share API with files where supported, or a download.
-Remind me tonight has no push server: it offers a `.ics` calendar file (always works), and a phone notification that
-uses Notification Triggers where the browser has them, otherwise a timer that only runs while the app is open.
-`sw.js` handles `notificationclick` to open the lake's home page.
+Share tonight draws a 1200x630 PNG on the phone from what the page shows, angler info first: wind and gusts, air and
+feels like, sky and rain chance (NWS), any NWS watch or warning (event name only), sunset, moonrise and moon (worked out
+on the phone), water temp only where the lake has a public temp gauge (Hoover; Alum and Buckeye say "No public temp
+gauge"), and the top 3 picks from the lake's "What's biting now" month notes. Lake level and the bite rating sit on one
+small line. "--" when a value is missing. No URL and no source footer on the image; the sources are listed under it in
+the dialog. Shares with the Web Share API with files where supported, or a download.
+Remind me picks any time of day on a wheel (hour 1 to 12, minutes in 5 minute steps, AM/PM; scroll-snap columns with
+spinbutton roles and arrow keys) or the Sunset button (exact minute). A time that already passed today rolls to tomorrow
+and says so. No push server: a `.ics` calendar file (always works), and a phone notification that uses Notification
+Triggers where the browser has them, otherwise a timer that only runs while the app is open.
+`sw.js` handles `notificationclick` to open the lake's home page. Every URL comes from the page's own origin (`homeFor`,
+the script URL), so the permission prompt names whatever site serves it.
 
 ## Keep test runs out of the stats
 
