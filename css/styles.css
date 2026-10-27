@@ -3070,3 +3070,36 @@ html.nb-show-drafts .update.is-draft { display: block; border-left-style: dashed
   background-image: linear-gradient(var(--amber), var(--amber));
   background-size: 6px 6px; background-repeat: no-repeat; background-position: right 0 top 10px;
 }
+
+/* ==========================================================================
+   Stocking & surveys (stocking.html): ODNR numbers, folded by species
+   ========================================================================== */
+.data-jumps { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 var(--space-md); }
+.data-jumps a {
+  font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-label); letter-spacing: 0.06em;
+  color: var(--cream-dark); text-decoration: none; padding: 0.55rem 0.8rem; min-height: 44px; display: inline-flex; align-items: center;
+  border: 1px solid var(--navy-light); border-radius: var(--radius); background: var(--navy-mid);
+}
+.data-jumps a:hover, .data-jumps a:focus-visible { color: var(--amber); border-color: var(--amber); }
+.data-glance-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1rem; margin: 0; }
+.data-glance-list dt { font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-label); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.data-glance-list dd { margin: 0.15rem 0 0; color: var(--cream); }
+@media (min-width: 720px) { .data-glance-list { grid-template-columns: repeat(4, 1fr); } }
+.data-dates { margin: var(--space-sm) 0 var(--space-lg); max-width: var(--measure); }
+.data-more { margin-top: 0.5rem; }
+.data-more summary { flex-wrap: wrap; row-gap: 0; padding: 0.35rem 0; }
+.data-sum { font-family: var(--font-body); font-size: var(--text-sm); letter-spacing: 0; color: var(--muted); margin-left: auto; }
+.data-table-wrap { margin: 0.25rem 0 0.75rem; max-width: 30rem; }
+.data-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); font-variant-numeric: tabular-nums; }
+.data-table th, .data-table td { padding: 0.45rem 0.7rem; border-bottom: 1px solid var(--navy-light); text-align: left; }
+.data-table thead th {
+  font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-label); font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: rgba(10, 22, 40, 0.5); vertical-align: bottom;
+}
+.data-table tbody th { font-weight: 600; color: var(--cream); }
+.data-table .num { text-align: right; white-space: nowrap; }
+.data-table tbody tr:last-child th, .data-table tbody tr:last-child td { border-bottom: none; }
+.data-none { color: var(--cream-dark); max-width: var(--measure); }
+.data-forecast { max-width: var(--measure); padding-left: 1.2rem; }
+.data-forecast li { margin-bottom: 0.5rem; }
+.data-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
