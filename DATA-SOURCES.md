@@ -159,3 +159,14 @@ No new data. The service worker (`sw.js`) caches this site's own files only; liv
 - Newer stocking (2020 on): ODNR Fish Stocking Database on DataOhio, https://ohiodnr.gov/buy-and-apply/hunting-fishing-boating/fishing-resources/fish-stocking-records . Linked, not copied.
 - Habitat map: links to ODNR's Interactive Ohio Lake Fishing Map (ArcGIS Experience, deep link per lake) and ODNR's lake depth map PDFs (dam.assets.ohio.gov .../wildlife/maps/hooverreservoir2.pdf, alumcreeklake2.pdf, buckeyelake2.pdf). Nothing hosted or traced; reuse terms for the GIS service were not found.
 - Built by tools/build-stocking.py (values live in the script). Edit there, run it, then tools/stamp-version.py.
+
+## Lake rules, water quality and Buckeye facts (preview, Phase 2)
+
+Checked Oct. 27, 2026. Copied only from the agency that runs each lake; nothing is paraphrased into a new rule.
+
+- Hoover boating rules (water.html#rules): Columbus City Code 921.01 (https://library.municode.com/oh/columbus/codes/code_of_ordinances?nodeId=TIT9STPAPUPRCO_CH921WARE): 10 hp, 8 to 22 ft (sail to 25 ft), 10 mph, idle within 100 ft of shore, motors over 10 hp tilted or prop removed, no water skiing, no boating within 100 ft downriver of the dam; 921.01-1(F) bans personal watercraft. Columbus Rec and Parks Hoover page (https://columbusrecparks.com/parks/hoover-reservoir-parkland/) lists 9.9 hp max, no wakeboarding, tubing or swimming in any City reservoir.
+- Alum Creek: ODNR Alum Creek Lake Fishing Area page: unlimited horsepower, portions of the lake are no wake zones.
+- Buckeye Lake: ODNR Buckeye Lake Fishing Area page: no horsepower restrictions; built about 1830, about 6 ft average and 14 ft max depth, relatively flat bottom with little woody cover. 2,873 acres and the 300 ft no wake zone are from the ODNR fishing map (buckeyelake2.pdf).
+- Fishing seasons and limits are not copied. The "Check official regs" button links ODNR's Ohio Fishing Regulations PDF.
+- Water quality (water.html#water-quality): links only, to ODH BeachGuard (https://publicapps.odh.ohio.gov/beachguardpublic/) and Ohio EPA harmful algal blooms (https://epa.ohio.gov/monitor-pollution/pollution-issues/harmful-algae-blooms). No advisory status is fetched or shown.
+- Species stocking lines (tools/build-species-stocking-lines.py): one line on saugeye, blue catfish, walleye, muskellunge, black and white crappie, largemouth bass and channel catfish pages, copied from the same ODNR PDFs as /stocking, linking to it for that lake. None on Buckeye, which has no ODNR tables.
