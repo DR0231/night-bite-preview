@@ -18,8 +18,8 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=v29-2026-10-27">
-  <script src="js/lakes.js?v=v29-2026-10-27"></script>
+  <link rel="stylesheet" href="css/styles.css?v=v30-2026-10-27">
+  <script src="js/lakes.js?v=v30-2026-10-27"></script>
 </head>
 <body>
   <a class="sr-only" href="#main">Skip to content</a>
@@ -178,7 +178,7 @@
       </p>
       <div class="card" id="pool-correction">
         <p class="pool-lead" id="correction-line">891.50 ft · 65°F · ~2.5 ft below full pool</p>
-        <script src="js/pool-readout.js?v=v29-2026-10-27"></script>
+        <script src="js/pool-readout.js?v=v30-2026-10-27"></script>
         <p class="meta" id="correction-checked">
           Checked: <time datetime="2026-10-19T08:00:00.000-04:00">2026-10-19 08:00 ET</time>.
           <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03228400/" target="_blank" rel="noopener">Live USGS gauge</a>.
@@ -190,7 +190,7 @@
         <p class="meta" id="usgs-live-status" style="margin-bottom:0.5rem;margin-top:0.75rem;">
           Provisional snapshot; your browser may refresh it from USGS. If that fails it says unavailable. Never invented.
         </p>
-        <script src="js/lake-snapshot.js?v=v29-2026-10-27"></script>
+        <script src="js/lake-snapshot.js?v=v30-2026-10-27"></script>
         <details class="how-to-read" id="how-to-read">
           <summary>How to read this</summary>
           <div class="how-to-read-body">
@@ -271,6 +271,64 @@
         <li><strong>No wake within 300 ft</strong> of any land mass. Idle in the dark and watch for stumps.</li>
       </ul>
     </section>
+
+    <!-- local-notes: owner's own notes, see LOCAL-NOTES.md -->
+    <section id="notes" aria-labelledby="notes-title">
+      <h2 id="notes-title">Local notes</h2>
+      <p class="meta">First hand notes from nights on <span data-lk="short">Hoover</span>, each dated. They are one angler&rsquo;s read, kept apart from the official data on this page.</p>
+      <div data-for="hoover">
+        <details class="how-to-read data-more notes-card">
+          <summary>Notes from Hoover <span class="data-sum">2 sample slots</span></summary>
+          <div class="how-to-read-body">
+            <ul class="note-slots">
+            <li class="note-slot">
+              <p class="note-slot-label">Sample note, replace with your own</p>
+              <p class="note-slot-body">Spot: [ramp, cove or bank]. When: [month and time of night]. What I saw: [one or two lines]. Dated: [date].</p>
+            </li>
+            <li class="note-slot">
+              <p class="note-slot-label">Sample note, replace with your own</p>
+              <p class="note-slot-body">Spot: [ramp, cove or bank]. When: [month and time of night]. What I saw: [one or two lines]. Dated: [date].</p>
+            </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <div data-for="alum">
+        <details class="how-to-read data-more notes-card">
+          <summary>Notes from Alum Creek <span class="data-sum">2 sample slots</span></summary>
+          <div class="how-to-read-body">
+            <ul class="note-slots">
+            <li class="note-slot">
+              <p class="note-slot-label">Sample note, replace with your own</p>
+              <p class="note-slot-body">Spot: [ramp, cove or bank]. When: [month and time of night]. What I saw: [one or two lines]. Dated: [date].</p>
+            </li>
+            <li class="note-slot">
+              <p class="note-slot-label">Sample note, replace with your own</p>
+              <p class="note-slot-body">Spot: [ramp, cove or bank]. When: [month and time of night]. What I saw: [one or two lines]. Dated: [date].</p>
+            </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <div data-for="buckeye">
+        <details class="how-to-read data-more notes-card">
+          <summary>Notes from Buckeye Lake <span class="data-sum">2 sample slots</span></summary>
+          <div class="how-to-read-body">
+            <ul class="note-slots">
+            <li class="note-slot">
+              <p class="note-slot-label">Sample note, replace with your own</p>
+              <p class="note-slot-body">Spot: [ramp, cove or bank]. When: [month and time of night]. What I saw: [one or two lines]. Dated: [date].</p>
+            </li>
+            <li class="note-slot">
+              <p class="note-slot-label">Sample note, replace with your own</p>
+              <p class="note-slot-body">Spot: [ramp, cove or bank]. When: [month and time of night]. What I saw: [one or two lines]. Dated: [date].</p>
+            </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+    <!-- /local-notes -->
 
     <section id="access" aria-labelledby="access-title">
       <h2 id="access-title">Ramp / access</h2>
@@ -490,11 +548,11 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js?v=v29-2026-10-27"></script>
-  <script src="js/sw-update.js?v=v29-2026-10-27"></script>
-  <script src="js/alerts.js?v=v29-2026-10-27"></script>
-  <script src="js/nav.js?v=v29-2026-10-27"></script>
-  <script src="js/lake-picker.js?v=v29-2026-10-27"></script>
-  <script src="js/usgs.js?v=v29-2026-10-27"></script>
+  <script src="js/refresh.js?v=v30-2026-10-27"></script>
+  <script src="js/sw-update.js?v=v30-2026-10-27"></script>
+  <script src="js/alerts.js?v=v30-2026-10-27"></script>
+  <script src="js/nav.js?v=v30-2026-10-27"></script>
+  <script src="js/lake-picker.js?v=v30-2026-10-27"></script>
+  <script src="js/usgs.js?v=v30-2026-10-27"></script>
 </body>
 </html>

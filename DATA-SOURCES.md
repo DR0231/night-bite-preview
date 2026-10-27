@@ -170,3 +170,9 @@ Checked Oct. 27, 2026. Copied only from the agency that runs each lake; nothing 
 - Fishing seasons and limits are not copied. The "Check official regs" button links ODNR's Ohio Fishing Regulations PDF.
 - Water quality (water.html#water-quality): links only, to ODH BeachGuard (https://publicapps.odh.ohio.gov/beachguardpublic/) and Ohio EPA harmful algal blooms (https://epa.ohio.gov/monitor-pollution/pollution-issues/harmful-algae-blooms). No advisory status is fetched or shown.
 - Species stocking lines (tools/build-species-stocking-lines.py): one line on saugeye, blue catfish, walleye, muskellunge, black and white crappie, largemouth bass and channel catfish pages, copied from the same ODNR PDFs as /stocking, linking to it for that lake. None on Buckeye, which has no ODNR tables.
+
+## Tonight, in short and Local notes (preview, Phase 3)
+
+- "Tonight, in short" (home Tonight card, js/conditions.js renderLine) restates numbers already on the page in one line: sunset (or "after dark now"), tonight's NWS hourly wind range and top rain chance from sunset to 2 AM, storms if the storm line found any, the KCMH 3 hour pressure trend, the gauge water temp when there is one, and the pool card's "below full pool" figure and 7 day trend word. No score, no prediction; it hides when none of those are loaded. The separate "Tonight's bite" rule of thumb line is unchanged.
+- Local notes (water.html#notes) holds the owner's own notes. It ships with placeholder slots marked "Sample note, replace with your own" and no content. See LOCAL-NOTES.md.
+- ODNR fishing map layers (DOW_LakeFishing MapServer) are not embedded: the service publishes no copyright, description or reuse terms, so the site stays link only. The legacy USGS waterservices fallback stays in place.
