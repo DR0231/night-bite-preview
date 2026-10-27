@@ -125,6 +125,9 @@ All three home pages are precached by `sw.js`, so each opens offline. List new l
 ## Home tools: Share tonight, Remind me
 
 `js/tonight-tools.js` adds two buttons under the Right now strip.
+A one line note under them ("Share tonight's wind, weather, sunset and what's biting") says what the card holds, so
+Share doesn't read as sharing only the strip above. No live thumbnail: at thumbnail size the card's text is unreadable,
+it would wait on the forecast, and it crowds the first screen.
 Share tonight draws a 1200x630 PNG on the phone from what the page shows, angler info first: wind and gusts, air and
 feels like, sky and rain chance (NWS), any NWS watch or warning (event name only), sunset, moonrise and moon (worked out
 on the phone), water temp only where the lake has a public temp gauge (Hoover; Alum and Buckeye say "No public temp
