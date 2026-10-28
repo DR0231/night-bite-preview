@@ -18,8 +18,8 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=v30-2026-10-27">
-  <script src="js/lakes.js?v=v30-2026-10-27"></script>
+  <link rel="stylesheet" href="css/styles.css?v=v31-2026-10-27">
+  <script src="js/lakes.js?v=v31-2026-10-27"></script>
 </head>
 <body>
   <a class="sr-only" href="#main">Skip to content</a>
@@ -36,18 +36,18 @@
           <li class="nav-core"><a href="./">Home</a></li>
           <li class="nav-core"><a href="species/"><span class="nav-label-full">Species</span><span class="nav-label-short">Species</span></a></li>
           <li class="nav-core"><a href="water"><span class="nav-label-full">Water</span><span class="nav-label-short">Lake</span></a></li>
-          <li class="nav-core"><a href="log">Log</a></li>
-          <li class="nav-extra"><a href="tournaments">Tournaments</a></li>
-          <li class="nav-extra"><a href="gear" aria-current="page">Gear</a></li>
+          <li class="nav-core"><a href="gear" aria-current="page">Gear</a></li>
           <li class="nav-extra"><a href="whisperwood.html"><span class="nav-label-full">Whisperwood Vale</span><span class="nav-label-short">Whisperwood</span></a></li>
+          <li class="nav-extra"><a href="log">Log</a></li>
+          <li class="nav-extra"><a href="tournaments">Tournaments</a></li>
           <li class="nav-extra"><a href="about">About</a></li>
           <li class="nav-extra"><a href="updates" data-updates="2026-10-27">What&rsquo;s new</a></li>
           <li class="nav-more-item">
             <button type="button" class="nav-more-btn" aria-expanded="false" aria-controls="nav-more-panel">More</button>
             <div id="nav-more-panel" class="nav-more-panel" hidden>
-              <a href="gear">Gear</a>
-              <a href="tournaments">Tournaments</a>
               <a href="whisperwood.html">Whisperwood Vale</a>
+              <a href="log">Log</a>
+              <a href="tournaments">Tournaments</a>
               <a href="about">About</a>
               <a href="updates" data-updates="2026-10-27">What&rsquo;s new</a>
             </div>
@@ -57,7 +57,7 @@
     </div>
   </header>
 
-  <main id="main" class="gear-guide">
+  <main id="main" class="gear-guide" data-scrollspy>
     <div class="page-horizon" aria-hidden="true"></div>
     <h1><span data-lk="short">Hoover</span> gear guide</h1>
     <p class="lead">
@@ -69,15 +69,18 @@
       Buy what fits your budget; confirm regs and safety gear yourself.
     </p>
 
-    <nav class="species-subnav gear-sticky-nav" aria-label="Gear sections">
-      <a href="#overview">Overview</a>
-      <a href="#dutchman">Dutchman</a>
-      <a href="#before-you-go">Before you go</a>
-      <a href="#catfish">Cats</a>
-      <a href="#crappie">Crappie</a>
-      <a href="#bass">Bass</a>
-      <a href="#saugeye">Saugeye</a>
-      <a href="#packing">Packing</a>
+    <nav class="species-subnav gear-sticky-nav gear-nav-rows" aria-label="Gear sections">
+      <div class="gear-nav-row">
+        <a href="#overview">Overview</a>
+        <a href="#before-you-go">Before you go</a>
+        <a href="#packing">Packing</a>
+      </div>
+      <div class="gear-nav-row gear-nav-row-species">
+        <a href="#catfish">Cats</a>
+        <a href="#crappie">Crappie</a>
+        <a href="#bass">Bass</a>
+        <a href="#saugeye">Saugeye</a>
+      </div>
     </nav>
 
     <section id="overview" class="species-section gear-section" aria-labelledby="overview-title">
@@ -132,7 +135,7 @@
           <strong>Old Dutchman Bait &amp; Tackle</strong>, 904 S Sunbury Rd, Westerville. Cut shad,
           shrimp, liver, crawlers, goldfish, live bluegill, floating-rig parts.
         </p>
-        <p class="meta meta-last">Neighborhood shop note, not a paid ad.</p>
+        <p class="meta meta-last">Neighborhood shop note, not a paid ad. Also a pin on the Ramps &amp; bait map on <a href="./#pool-snapshot">Home</a>.</p>
       </div>
     </section>
 
@@ -218,7 +221,7 @@
       </ul>
     </section>
 
-    <section id="kit-index" class="species-section gear-section" aria-labelledby="kits-title">
+    <section id="kit-index" data-spy-label="Kit cards" class="species-section gear-section" aria-labelledby="kits-title">
       <h2 id="kits-title">Kit cards</h2>
       <div class="card-grid cols-2">
         <a class="card gear-kit-jump" href="#catfish">
@@ -241,7 +244,7 @@
     </section>
 
     <!-- ========== CATFISH ========== -->
-    <section id="catfish" class="species-section gear-section" aria-labelledby="cats-title">
+    <section id="catfish" data-spy-label="Catfish" class="species-section gear-section" aria-labelledby="cats-title">
       <h2 id="cats-title">1. Catfish: channel, blue, flathead</h2>
       <p class="lake-note" data-for="alum">At Alum Creek the cat to target is the channel catfish; ODNR doesn't list blues or flatheads there. The blue and flathead notes below are Hoover fish.</p>
       <p class="lake-note" data-for="buckeye">At Buckeye the cats are channel catfish (abundant, 3 to 5 lb is typical) and bullhead; ODNR doesn't list blues or flatheads there. The blue and flathead notes below are Hoover fish.</p>
@@ -361,31 +364,41 @@
       <h2 id="crappie-title">2. Crappie</h2>
       <p class="meta"><strong>9″ minimum, 30 a day</strong> at <span data-lk="short">Hoover</span> in the 2026–27 rules. ODNR has proposed removing the 9″ minimum from March 1, 2027, so check before you keep fish.</p>
 
-      <article class="card gear-kit">
-        <h3>Optimal kit</h3>
-        <ul>
-          <li>Light spinning 4–8 lb mono or light braid + fluoro leader</li>
-          <li>1/16–1/8 oz jigs · slip floats · small hooks</li>
-          <li>Ruler for 9″ · small net · minnow bucket if using live bait legally</li>
-        </ul>
-      </article>
-
-      <h3>Rigs</h3>
-      <ul>
-        <li><strong>Slip-float:</strong> bead · stop · float · small shot · jig or minnow. Tune depth under brush and public docks</li>
-        <li><strong>Vertical jig:</strong> boat over brush / timber · slow lift-drop</li>
-        <li><strong>Cast-retrieve:</strong> small curly-tail or tube along points and riprap</li>
-      </ul>
-      <figure class="rig-figure">
-          <img src="assets/rigs/slip-float.svg" alt="Slip-float rig diagram" width="280" height="200">
-          <figcaption>Slip-float</figcaption>
-        </figure>
-
-      <h3>Baits / lures</h3>
-      <ul>
-        <li>Live minnows · small plastics (chartreuse, white, natural)</li>
-        <li>Tungsten or lead jigs matched to wind</li>
-      </ul>
+      <details class="how-to-read gear-fold" id="crappie-kit">
+        <summary>Optimal kit</summary>
+        <div class="how-to-read-body">
+          <article class="card gear-kit">
+            <ul>
+              <li>Light spinning 4–8 lb mono or light braid + fluoro leader</li>
+              <li>1/16–1/8 oz jigs · slip floats · small hooks</li>
+              <li>Ruler for 9″ · small net · minnow bucket if using live bait legally</li>
+            </ul>
+          </article>
+        </div>
+      </details>
+      <details class="how-to-read gear-fold" id="crappie-rigs">
+        <summary>Rigs</summary>
+        <div class="how-to-read-body">
+          <ul>
+            <li><strong>Slip-float:</strong> bead · stop · float · small shot · jig or minnow. Tune depth under brush and public docks</li>
+            <li><strong>Vertical jig:</strong> boat over brush / timber · slow lift-drop</li>
+            <li><strong>Cast-retrieve:</strong> small curly-tail or tube along points and riprap</li>
+          </ul>
+          <figure class="rig-figure">
+              <img src="assets/rigs/slip-float.svg" alt="Slip-float rig diagram" width="280" height="200">
+              <figcaption>Slip-float</figcaption>
+            </figure>
+        </div>
+      </details>
+      <details class="how-to-read gear-fold" id="crappie-baits">
+        <summary>Baits / lures</summary>
+        <div class="how-to-read-body">
+          <ul>
+            <li>Live minnows · small plastics (chartreuse, white, natural)</li>
+            <li>Tungsten or lead jigs matched to wind</li>
+          </ul>
+        </div>
+      </details>
 
       <h3>Bank vs boat</h3>
 
@@ -420,26 +433,36 @@
       <p data-for="alum">Alum Creek is a real smallmouth lake: jerkbaits and cranks as they move up in spring, tubes and ned rigs slow. Largemouth in the coves.</p>
       <p data-for="buckeye">Largemouth around docks, weeds and stumps in shallow water. Weedless baits save tackle.</p>
 
-      <article class="card gear-kit">
-        <h3>Optimal kit</h3>
-        <ul>
-          <li>Medium spinning or baitcast · 8–14 lb line (or 10–20 lb braid + leader)</li>
-          <li>Soft plastics · spinnerbait / chatter · topwater for low light</li>
-          <li>Terminal kit · pliers · 12″ measure (black bass minimum)</li>
-        </ul>
-      </article>
-
-      <h3>Rigs / presentations</h3>
-      <ul>
-        <li><strong>Texas-rig</strong> stick worm or creature, weightless or light bullet</li>
-        <li><strong>Wacky</strong> stick worm for docks, grass edges, calm pockets</li>
-        <li><strong>Jig</strong> + trailer for wood, rock, deeper banks</li>
-        <li><strong>Search:</strong> spinnerbait, squarebill, chatterbait</li>
-        <li><strong>Dropshot / Ned</strong> for clear water and pressured fish</li>
-      </ul>
-
-      <h3>Colors</h3>
-      <p class="meta">Green pumpkin, watermelon, black/blue, white/chartreuse for stained water; natural when clear.</p>
+      <details class="how-to-read gear-fold" id="bass-kit">
+        <summary>Optimal kit</summary>
+        <div class="how-to-read-body">
+          <article class="card gear-kit">
+            <ul>
+              <li>Medium spinning or baitcast · 8–14 lb line (or 10–20 lb braid + leader)</li>
+              <li>Soft plastics · spinnerbait / chatter · topwater for low light</li>
+              <li>Terminal kit · pliers · 12″ measure (black bass minimum)</li>
+            </ul>
+          </article>
+        </div>
+      </details>
+      <details class="how-to-read gear-fold" id="bass-rigs">
+        <summary>Rigs / presentations</summary>
+        <div class="how-to-read-body">
+          <ul>
+            <li><strong>Texas-rig</strong> stick worm or creature, weightless or light bullet</li>
+            <li><strong>Wacky</strong> stick worm for docks, grass edges, calm pockets</li>
+            <li><strong>Jig</strong> + trailer for wood, rock, deeper banks</li>
+            <li><strong>Search:</strong> spinnerbait, squarebill, chatterbait</li>
+            <li><strong>Dropshot / Ned</strong> for clear water and pressured fish</li>
+          </ul>
+        </div>
+      </details>
+      <details class="how-to-read gear-fold" id="bass-baits">
+        <summary>Colors</summary>
+        <div class="how-to-read-body">
+          <p class="meta">Green pumpkin, watermelon, black/blue, white/chartreuse for stained water; natural when clear.</p>
+        </div>
+      </details>
 
       <h3>Bank vs boat</h3>
 
@@ -468,7 +491,7 @@
     </section>
 
     <!-- ========== SAUGEYE ========== -->
-    <section id="saugeye" class="species-section gear-section" aria-labelledby="saugeye-title">
+    <section id="saugeye" data-spy-label="Saugeye / Walleye" class="species-section gear-section" aria-labelledby="saugeye-title">
       <h2 id="saugeye-title">4. Saugeye / Walleye</h2>
       <p>
         <span data-for="hoover">Hoover’s saugeye and walleye come from ODNR stocking (walleye were added in 2019 for a study against saugeye).</span>
@@ -477,28 +500,38 @@
         Daily limit is <strong>6 combined</strong> walleye, sauger and saugeye, with <strong>no minimum size</strong> at <span data-lk="short">Hoover</span> (2026–27 rules).
       </p>
 
-      <article class="card gear-kit">
-        <h3>Optimal kit</h3>
-        <ul>
-          <li>Medium spinning · 6–10 lb fluoro or braid + leader</li>
-          <li>Jigheads 1/8–3/8 oz · paddle-tails / twisters · blades / spoons</li>
-          <li>Headlamp for low-light unhooking · long-nose pliers</li>
-        </ul>
-      </article>
-
-      <h3>Rigs / methods</h3>
-      <ul>
-        <li><strong>Jig + minnow</strong> or soft plastic, slow hops on bottom</li>
-        <li><strong>Blade / spoon</strong>, vertical or cast when fish are up</li>
-        <li><strong>Slow troll</strong> crankbaits or harness (boat, ≤10 HP)</li>
-        <li><strong>Bank dam / riprap:</strong> cast after dark or in low light</li>
-      </ul>
-
-      <h3>Baits</h3>
-      <ul>
-        <li>Live minnows · soft plastics (white, chartreuse, natural perch)</li>
-        <li>Thin crankbaits that dig without snagging constantly</li>
-      </ul>
+      <details class="how-to-read gear-fold" id="saugeye-kit">
+        <summary>Optimal kit</summary>
+        <div class="how-to-read-body">
+          <article class="card gear-kit">
+            <ul>
+              <li>Medium spinning · 6–10 lb fluoro or braid + leader</li>
+              <li>Jigheads 1/8–3/8 oz · paddle-tails / twisters · blades / spoons</li>
+              <li>Headlamp for low-light unhooking · long-nose pliers</li>
+            </ul>
+          </article>
+        </div>
+      </details>
+      <details class="how-to-read gear-fold" id="saugeye-rigs">
+        <summary>Rigs / methods</summary>
+        <div class="how-to-read-body">
+          <ul>
+            <li><strong>Jig + minnow</strong> or soft plastic, slow hops on bottom</li>
+            <li><strong>Blade / spoon</strong>, vertical or cast when fish are up</li>
+            <li><strong>Slow troll</strong> crankbaits or harness (boat, ≤10 HP)</li>
+            <li><strong>Bank dam / riprap:</strong> cast after dark or in low light</li>
+          </ul>
+        </div>
+      </details>
+      <details class="how-to-read gear-fold" id="saugeye-baits">
+        <summary>Baits</summary>
+        <div class="how-to-read-body">
+          <ul>
+            <li>Live minnows · soft plastics (white, chartreuse, natural perch)</li>
+            <li>Thin crankbaits that dig without snagging constantly</li>
+          </ul>
+        </div>
+      </details>
 
       <h3>Bank vs boat</h3>
 
@@ -527,7 +560,7 @@
     </section>
 
     <!-- ========== PACKING ========== -->
-    <section id="packing" class="species-section gear-section" aria-labelledby="packing-title">
+    <section id="packing" data-spy-label="Packing" class="species-section gear-section" aria-labelledby="packing-title">
       <h2 id="packing-title">Quick packing lists</h2>
       <p class="meta">Your ticks save in this browser, so the list is ready next trip.</p>
 
@@ -563,7 +596,7 @@
       </div>
     </section>
 
-    <section id="practical" class="species-section gear-section" aria-labelledby="practical-title">
+    <section id="practical" data-spy-label="Practical notes" class="species-section gear-section" aria-labelledby="practical-title">
       <h2 id="practical-title">Practical <span data-lk="short">Hoover</span> notes</h2>
       <ul class="notebook-list" data-for="hoover">
         <li>Night is better for channel and flathead (blues too). It isn’t a rule for crappie or bass every trip.</li>
@@ -599,26 +632,28 @@
         <a href="./">Home</a>
         <a href="species/">Species</a>
         <a href="water">Water</a>
+        <a href="gear">Gear</a>
+        <a href="whisperwood.html">Whisperwood Vale</a>
         <a href="log">Log</a>
         <a href="tournaments">Tournaments</a>
-        <a href="gear">Gear</a>
         <a href="about">About</a>
         <a href="updates" data-updates="2026-10-27">What&rsquo;s new</a>
         <a href="privacy">Privacy</a>
-        <a href="whisperwood.html">Whisperwood Vale</a>
       </nav>
       <p class="footer-app"><a href="./#get-the-app"><span class="footer-app-icon" aria-hidden="true"></span>Add to home screen</a></p>
       <p class="preview-chip-row"><span class="preview-chip" title="Test copy. Changes here are not on nightbiteoh.com yet.">Preview</span></p>
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js?v=v30-2026-10-27"></script>
-  <script src="js/sw-update.js?v=v30-2026-10-27"></script>
-  <script src="js/alerts.js?v=v30-2026-10-27"></script>
-  <script src="js/nav.js?v=v30-2026-10-27"></script>
-  <script src="js/lake-picker.js?v=v30-2026-10-27"></script>
-  <script src="js/sticky-nav.js?v=v30-2026-10-27"></script>
-  <script src="js/mode-toggle.js?v=v30-2026-10-27"></script>
-  <script src="js/pack-list.js?v=v30-2026-10-27"></script>
+  <script src="js/refresh.js?v=v31-2026-10-27"></script>
+  <script src="js/sw-update.js?v=v31-2026-10-27"></script>
+  <script src="js/alerts.js?v=v31-2026-10-27"></script>
+  <script src="js/nav.js?v=v31-2026-10-27"></script>
+  <script src="js/lake-picker.js?v=v31-2026-10-27"></script>
+  <script src="js/sticky-nav.js?v=v31-2026-10-27"></script>
+  <script src="js/mode-toggle.js?v=v31-2026-10-27"></script>
+  <script src="js/pack-list.js?v=v31-2026-10-27"></script>
+  <script src="js/fold-anchors.js?v=v31-2026-10-27"></script>
+  <script src="js/scrollspy.js?v=v31-2026-10-27"></script>
 </body>
 </html>

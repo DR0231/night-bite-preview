@@ -3125,3 +3125,98 @@ html.nb-show-drafts .update.is-draft { display: block; border-left-style: dashed
 .note-slot.note-real { border-style: solid; }
 .note-slot.note-real .note-slot-body { color: var(--cream); }
 .cond-line-text { font-size: var(--text-sm); color: var(--cream-dark); }
+
+/* —— Scrollspy wave (js/scrollspy.js, main[data-scrollspy]) ——
+   Right-edge column of ticks; the ticks at your spot swell amber. Each section owns a slice you can tap. */
+.spy {
+  position: fixed;
+  right: max(2px, env(safe-area-inset-right));
+  top: 50%;
+  transform: translateY(-50%);
+  height: min(62vh, 30rem);
+  width: 14px;
+  z-index: 40;
+}
+.spy[hidden] { display: none; }
+.spy-ticks {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+}
+.spy-tick {
+  display: block;
+  width: 100%; height: 2px;
+  background: var(--cream-dark);
+  transform-origin: right center;
+  transform: scaleX(0.28);
+  opacity: 0.32;
+  transition: transform 180ms var(--ease), opacity 180ms var(--ease), background-color 180ms var(--ease);
+}
+.spy-tick.is-start { background: var(--cream); }
+.spy-tick.is-hot { background: var(--amber); box-shadow: 0 0 6px var(--amber-glow); }
+.spy-list { list-style: none; margin: 0; padding: 0; position: absolute; inset: 0; }
+.spy-list li { margin: 0; }
+.spy-link {
+  position: absolute; right: 0; width: 100%;
+  min-height: 6px;
+  display: block;
+  text-decoration: none;
+  border-radius: 2px;
+  -webkit-tap-highlight-color: transparent;
+}
+.spy-link:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.spy-label,
+.spy-now {
+  position: absolute;
+  right: calc(100% + 0.5rem);
+  white-space: nowrap;
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: var(--text-label);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  padding: 0.375rem 0.5rem;
+  color: var(--amber);
+  background: rgba(10, 22, 40, 0.94);
+  border: 1px solid var(--navy-light);
+  border-radius: var(--radius);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms var(--ease);
+}
+.spy-label { top: 50%; transform: translateY(-50%); color: var(--cream); }
+.spy-now { transform: translateY(-50%); }
+.spy-link:hover .spy-label,
+.spy-link:focus-visible .spy-label { opacity: 1; }
+.spy:hover .spy-now, .spy:focus-within .spy-now { opacity: 0 !important; }
+.spy.is-scrolling .spy-now { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .spy { width: 22px; right: max(8px, env(safe-area-inset-right)); }
+  .spy-link:hover { background: rgba(245, 237, 216, 0.04); }
+}
+@media (min-width: 1100px) { .spy { width: 28px; right: 16px; } }
+/* very narrow or short screens: no column */
+@media (max-width: 359px), (max-height: 419px) { .spy { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .spy-tick, .spy-label, .spy-now { transition: none; }
+}
+
+/* —— Gear: chip rows (general on top, species below), no sideways scrollbar on desktop —— */
+.gear-nav-rows { flex-direction: column; flex-wrap: nowrap; overflow-x: visible; gap: 0.375rem; }
+.gear-nav-row { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+.gear-nav-row-species a { font-size: var(--text-label); }
+/* phones: one swipeable row, scrollbar hidden, so the sticky bar stays one chip tall */
+@media (max-width: 719px) {
+  .gear-nav-rows { flex-direction: row; overflow-x: auto; scrollbar-width: none; }
+  .gear-nav-rows::-webkit-scrollbar { display: none; }
+  .gear-nav-row { display: contents; }
+  .gear-nav-row + .gear-nav-row::before { content: ""; flex: 0 0 1px; align-self: stretch; margin: 0.5rem 0.125rem; background: var(--navy-light); }
+}
+
+/* —— Gear: folded kit, rig and bait lists for species after the first —— */
+.gear-fold { margin-top: 0.25rem; border-top: 1px solid var(--hairline); }
+.gear-fold + .gear-fold { margin-top: 0; }
+.gear-fold summary { font-family: var(--font-display); font-variant-ligatures: none; }
+.gear-fold .how-to-read-body { font-size: var(--text-base); color: inherit; }
+.gear-fold .how-to-read-body > :first-child { margin-top: 0.25rem; }
+.gear-fold .gear-kit h3 { margin-top: 0; }
