@@ -29,6 +29,38 @@
   main.parentNode.insertBefore(nav, main.nextSibling);
 
   var sections = [], ticks = [], tickSec = [], active = -1, raf = 0, idle = 0, lastY = window.scrollY;
+  // placement: never above the bottom of the page's tree line strip (.page-horizon) or under the sticky header.
+  // Phones: the column starts just under the water line and slides up to sit under the header as the strip
+  // scrolls away. Wider screens: centered, unless that would overlap the trees.
+  var horizon = main.querySelector(".page-horizon"), header = document.querySelector(".site-header");
+  var place = { floor: 0, center: 0, minTop: 0 };
+
+  function measurePlace() {
+    nav.style.transform = "none";
+    nav.style.height = "";
+    nav.style.top = "0px";
+    var vh = window.innerHeight, h0 = nav.offsetHeight || vh * 0.62;
+    var gap = 12;
+    var floor = horizon ? horizon.getBoundingClientRect().bottom + window.scrollY + gap : 0;
+    var minTop = (header ? header.getBoundingClientRect().bottom : 0) + gap;
+    var h = h0, phone = window.innerWidth < 720;
+    if (phone && floor) {
+      // phones: the column hangs from the water line, then rides just under the header
+      h = Math.max(160, vh - floor - 24);
+      place.center = minTop;
+    } else {
+      if ((vh - h) / 2 < floor) h = Math.max(160, Math.min(h0, vh - floor - 24));
+      place.center = Math.max(minTop, (vh - h) / 2);
+    }
+    place.floor = floor;
+    nav.style.height = Math.round(h) + "px";
+    placeTop();
+  }
+
+  function placeTop() {
+    var t = Math.max(place.center, place.floor - window.scrollY);
+    nav.style.top = Math.round(t) + "px";
+  }
 
   function labelFor(s) {
     var l = s.getAttribute("data-spy-label");
@@ -47,6 +79,7 @@
     // short pages, or no sections: no column
     nav.hidden = all.length < 3 || docH < vh * 1.8;
     if (nav.hidden) return;
+    measurePlace();
     sections = all.map(function (s) { return { el: s, id: s.id, label: labelFor(s), top: docTop(s) }; });
     var colH = ticksEl.clientHeight || 300;
     var n = Math.max(16, Math.min(64, Math.round(colH / 8)));
@@ -95,6 +128,7 @@
   function paint() {
     raf = 0;
     if (nav.hidden || !ticks.length) return;
+    placeTop();
     var de = document.documentElement, vh = window.innerHeight;
     var max = Math.max(1, de.scrollHeight - vh), y = Math.min(max, Math.max(0, window.scrollY));
     var p = y / max;
