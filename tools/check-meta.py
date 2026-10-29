@@ -14,7 +14,7 @@ Every public page (same list as tools/build-meta.py) must have:
 404.html and offline.html need a title and description only. Warnings (not errors): descriptions over 160
 characters, titles over 70, spaced dashes in title or description, an indexable canonical missing from sitemap.xml.
 """
-import json, pathlib, re, sys
+import html, json, pathlib, re, sys
 
 root = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://nightbiteoh.com/"
@@ -47,10 +47,11 @@ for p in sorted(root.rglob("*.html")):
         err(f"needs exactly one non-empty meta description (found {len(descs)})")
     title = titles[0].strip() if titles else ""
     desc = descs[0] if descs else ""
-    if len(desc) > 160:
-        warnings.append(f"{rel}: description is {len(desc)} characters (search results cut around 160)")
-    if len(title) > 70:
-        warnings.append(f"{rel}: title is {len(title)} characters")
+    dlen, tlen = len(html.unescape(desc)), len(html.unescape(title))
+    if dlen > 160:
+        warnings.append(f"{rel}: description is {dlen} characters (search results cut around 160)")
+    if tlen > 70:
+        warnings.append(f"{rel}: title is {tlen} characters")
     for label, text in (("title", title), ("description", desc)):
         if re.search(r" [-\u2013\u2014] ", text):
             warnings.append(f"{rel}: spaced dash in {label}")
