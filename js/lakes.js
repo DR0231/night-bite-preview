@@ -399,14 +399,21 @@
 
   // Lake switches only (js/lake-picker.js sets the flag): a short cross-fade into the new page.
   // Registered here in <head> so it is in place before the first frame; every other navigation stays instant.
+  // revealing: true from the first frame until this page's own fade in has finished. A switch picked inside that
+  // window skips its fade out, so two fades never overlap (Chrome aborts the second with "Page already revealed").
+  var revealing = true;
+  function revealed() { revealing = false; }
   function vt(e, clear) {
     var switching = false;
     try { switching = sessionStorage.getItem("nb-lake-switch") === "1"; if (clear) sessionStorage.removeItem("nb-lake-switch"); } catch (er) {}
-    if (!e.viewTransition) return;
+    var t = e.viewTransition;
+    if (!t) { if (clear) revealed(); return; }
     // a skipped or interrupted fade (quick lake switches) rejects these; nothing to do, so keep the console quiet
-    var t = e.viewTransition, quiet = function () {};
+    var quiet = function () {};
     try { [t.ready, t.finished, t.updateCallbackDone].forEach(function (pr) { if (pr && pr.catch) pr.catch(quiet); }); } catch (er) {}
-    if (!switching) { try { t.skipTransition(); } catch (er) {} }
+    var busy = !clear && (revealing || document.activeViewTransition);
+    if (!switching || busy) { try { t.skipTransition(); } catch (er) {} }
+    if (clear) { try { t.finished.then(revealed, revealed); } catch (er) { revealed(); } }
   }
   window.addEventListener("pagereveal", function (e) { vt(e, true); });
   // back or forward from the browser cache shows this page's lake again, so make it the saved lake too; otherwise the

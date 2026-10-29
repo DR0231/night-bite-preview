@@ -2586,38 +2586,50 @@ html:not([data-lake]) [data-lakes]:not([data-lakes~="hoover"]) { display: none !
   }
 }
 
-/* ---- the lake picker (js/lake-picker.js): full screen sheet on phones, a panel under the pill on desktop ---- */
+/* ---- the lake picker (js/lake-picker.js): the old switcher's frosted glass, as a sheet rising from the bottom on
+   phones and a panel under the pill on desktop. Motion: fade plus a short rise, ease out in, ease in out. ---- */
 .lake-sheet {
+  --lp-in: 220ms; --lp-out: 180ms;
+  --lp-ease-in: cubic-bezier(0.2, 0, 0, 1);      /* opening: quick start, soft landing */
+  --lp-ease-out: cubic-bezier(0.4, 0, 1, 1);     /* closing: soft start, quick exit */
   padding: 0; border: 0; margin: 0;
   width: 100%; height: 100%; max-width: none; max-height: none;
   background: transparent; color: var(--cream);
   overflow: hidden;
 }
-.lake-sheet[open] { display: flex; align-items: stretch; justify-content: center; }
+.lake-sheet[open] { display: flex; align-items: flex-end; justify-content: center; }
 .lake-sheet::backdrop {
   background: rgba(10, 22, 40, 0.55);
   -webkit-backdrop-filter: blur(14px) saturate(1.2);
   backdrop-filter: blur(14px) saturate(1.2);
 }
+.lake-sheet[open]::backdrop { animation: lp-fade var(--lp-in) var(--lp-ease-in) backwards; }
+.lake-sheet.is-closing::backdrop { animation: lp-fade-out var(--lp-out) var(--lp-ease-out) both; }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .lake-sheet::backdrop { background: rgba(10, 22, 40, 0.94); }
   .lake-sheet-panel { background: var(--navy-mid) !important; }
 }
-html.lake-sheet-open { overflow: hidden; }
+html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
 .lake-sheet-panel {
   position: relative;
   display: flex; flex-direction: column;
-  width: 100%; height: 100%;
+  width: 100%; height: min(84dvh, 680px);
   min-width: 0;
-  padding: env(safe-area-inset-top) 0 0;
-  background: linear-gradient(180deg, rgba(18, 32, 56, 0.96), rgba(10, 22, 40, 0.97));
-  border: 0;
+  background: linear-gradient(180deg, rgba(26, 46, 74, 0.72), rgba(18, 32, 56, 0.62));
+  border: 1px solid rgba(245, 237, 216, 0.12); border-bottom: 0;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 -12px 48px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(245, 237, 216, 0.10);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  backdrop-filter: blur(18px) saturate(1.25);
   transition: transform var(--dur) var(--ease);
+  will-change: transform, opacity;
 }
-.lake-sheet[open] .lake-sheet-panel { animation: lake-in 200ms var(--ease) both; }
-.lake-sheet.is-closing .lake-sheet-panel { animation: lake-out 160ms var(--ease) both; }
-@keyframes lake-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-@keyframes lake-out { to { opacity: 0; transform: translateY(14px); } }
+.lake-sheet[open] .lake-sheet-panel { animation: lp-rise var(--lp-in) var(--lp-ease-in) backwards; }
+.lake-sheet.is-closing .lake-sheet-panel { animation: lp-sink var(--lp-out) var(--lp-ease-out) both; }
+@keyframes lp-fade { from { opacity: 0; } }
+@keyframes lp-fade-out { to { opacity: 0; } }
+@keyframes lp-rise { from { opacity: 0; transform: translateY(24px); } }
+@keyframes lp-sink { to { opacity: 0; transform: translateY(24px); } }
 .lake-sheet-head {
   position: relative;
   display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm);
@@ -2631,77 +2643,94 @@ html.lake-sheet-open { overflow: hidden; }
   width: 44px; height: 44px; flex-shrink: 0;
   background: rgba(245, 237, 216, 0.06); border: 1px solid rgba(245, 237, 216, 0.14); border-radius: 999px;
   color: var(--cream); cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
-.lake-sheet-close:hover { color: var(--amber); }
+.lake-sheet-close:hover { color: var(--amber); border-color: rgba(240, 168, 48, 0.4); }
 .lake-sheet-close:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .lake-sheet-close span {
   width: 12px; height: 12px; background: currentColor;
   clip-path: polygon(0 0, 16.66% 0, 50% 33.33%, 83.33% 0, 100% 0, 100% 16.66%, 66.66% 50%, 100% 83.33%, 100% 100%, 83.33% 100%, 50% 66.66%, 16.66% 100%, 0 100%, 0 83.33%, 33.33% 50%, 0 16.66%);
 }
-.lp-tools { display: flex; gap: var(--space-xs); padding: var(--space-sm) var(--space-md) 0; }
+/* search and Near me: quiet glass fields, amber only on focus or when Near me is on */
+.lp-tools { display: flex; gap: var(--space-xs); padding: 0.875rem var(--space-md) 0; }
 .lp-search {
   flex: 1; min-width: 0; min-height: 44px;
-  padding: 0 0.75rem;
+  padding: 0 0.875rem;
   font-family: var(--font-body); font-size: 1rem; color: var(--cream);
-  background: rgba(10, 22, 40, 0.6); border: 1px solid rgba(245, 237, 216, 0.16); border-radius: var(--radius);
+  background: rgba(245, 237, 216, 0.04); border: 1px solid rgba(245, 237, 216, 0.10); border-radius: 10px;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease);
+  -webkit-appearance: none; appearance: none;
 }
 .lp-search::placeholder { color: var(--muted); opacity: 1; }
-.lp-search:focus { outline: 2px solid var(--focus); outline-offset: 1px; border-color: transparent; }
+.lp-search:hover { border-color: rgba(245, 237, 216, 0.18); }
+.lp-search:focus { outline: none; border-color: rgba(240, 168, 48, 0.55); background: rgba(245, 237, 216, 0.06); box-shadow: 0 0 0 3px rgba(240, 168, 48, 0.12); }
 .lp-near {
   flex-shrink: 0; min-height: 44px; padding: 0 0.875rem;
-  font-family: var(--font-display); font-size: 0.875rem; letter-spacing: 0.03em; color: var(--cream-dark);
-  background: rgba(245, 237, 216, 0.06); border: 1px solid rgba(245, 237, 216, 0.16); border-radius: var(--radius);
+  font-family: var(--font-display); font-size: 0.8125rem; letter-spacing: 0.03em; color: var(--cream-dark);
+  background: rgba(245, 237, 216, 0.04); border: 1px solid rgba(245, 237, 216, 0.10); border-radius: 10px;
   cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
-.lp-near:hover, .lp-near[aria-pressed="true"] { color: var(--amber); border-color: rgba(240, 168, 48, 0.5); }
+.lp-near:hover, .lp-near[aria-pressed="true"] { color: var(--amber); border-color: rgba(240, 168, 48, 0.45); }
 .lp-near:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .lp-near:disabled { opacity: 0.6; cursor: progress; }
 .lp-status { margin: 0; padding: 0.375rem var(--space-md) 0; min-height: 1.5rem; font-family: var(--font-display); font-size: 0.75rem; color: var(--muted); }
-.lp-status:empty { min-height: 0.25rem; padding-top: 0; }
+.lp-status:empty { min-height: 0.375rem; padding-top: 0; }
 .lp-body {
   flex: 1; min-height: 0;
   overflow-y: auto; overscroll-behavior: contain;
   padding: 0 var(--space-md) max(1rem, env(safe-area-inset-bottom));
+  scrollbar-width: thin; scrollbar-color: rgba(245, 237, 216, 0.16) transparent;
 }
-.lp-sec { margin-top: var(--space-sm); }
-.lp-h { font-family: var(--font-display); font-size: var(--text-label); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.25rem; }
-.lp-list { list-style: none; margin: 0; padding: 0; }
-.lp-row { display: flex; align-items: stretch; margin: 0; border-top: 1px solid var(--hairline); }
-.lp-row:first-child { border-top: 0; }
+.lp-sec { margin-top: 0.75rem; }
+.lp-h { font-family: var(--font-display); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.25rem; padding: 0 0.625rem; }
+.lp-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+/* rows: a soft glass card on hover, the lake you're on outlined in amber like the old picker's middle card */
+.lp-row {
+  display: flex; align-items: stretch; margin: 0;
+  border: 1px solid transparent; border-radius: 10px;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.lp-row:hover { background: rgba(245, 237, 216, 0.04); }
+.lp-row.is-now { background: linear-gradient(180deg, rgba(26, 46, 74, 0.7), rgba(10, 22, 40, 0.55)); border-color: rgba(240, 168, 48, 0.45); box-shadow: inset 0 1px 0 rgba(245, 237, 216, 0.08); }
+.lp-row.is-picked { border-color: var(--amber); }
 .lp-lake {
-  flex: 1; min-width: 0; min-height: 48px;
-  display: flex; flex-direction: column; justify-content: center; gap: 0.125rem;
-  padding: 0.375rem 0.25rem;
-  color: var(--cream); text-decoration: none;
+  flex: 1; min-width: 0; min-height: 44px;
+  display: flex; flex-direction: column; justify-content: center; gap: 0.0625rem;
+  padding: 0.4375rem 0.625rem;
+  color: var(--cream); text-decoration: none; border-radius: 10px;
 }
+.lp-lake:focus-visible, .lp-star:focus-visible, .lp-region summary:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; border-radius: 10px; }
+.lp-name { font-family: var(--font-heading); font-size: 1.0625rem; line-height: 1.25; transition: color var(--dur) var(--ease); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .lp-lake:hover .lp-name { color: var(--amber); }
-.lp-lake:focus-visible, .lp-star:focus-visible, .lp-region summary:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; border-radius: var(--radius); }
-.lp-name { font-family: var(--font-heading); font-size: var(--text-md); line-height: 1.2; transition: color var(--dur) var(--ease); }
-.lp-lake[aria-current] .lp-name { color: var(--amber); }
-.lp-meta { display: flex; flex-wrap: wrap; gap: 0.375rem; font-family: var(--font-display); font-size: 0.6875rem; letter-spacing: 0.03em; }
-.lp-tag { color: var(--cream-dark); padding: 0 0.375rem; border-radius: 2px; box-shadow: inset 0 0 0 1px var(--navy-light); line-height: 1.5; }
-.lp-now { color: var(--amber); line-height: 1.5; }
-.lp-dist { color: var(--cream); line-height: 1.5; }
+.lp-meta { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.5rem; font-family: var(--font-display); font-size: 0.6875rem; letter-spacing: 0.03em; line-height: 1.4; color: var(--muted); }
+.lp-meta > span + span::before { content: "\00b7"; margin-right: 0.5rem; opacity: 0.7; }
+.lp-tag { color: var(--muted); }
+.lp-now { color: var(--amber); }
+.lp-dist { color: var(--cream-dark); }
 .lp-star {
   flex-shrink: 0; width: 44px; min-height: 44px;
   display: inline-flex; align-items: center; justify-content: center;
-  background: transparent; border: 0; color: var(--muted); cursor: pointer;
+  background: transparent; border: 0; border-radius: 10px; color: rgba(138, 154, 170, 0.55); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
-.lp-star span {   /* a pixel star: outline when off, filled amber when on */
-  width: 16px; height: 16px; background: currentColor;
+.lp-star span {   /* a pixel star: dim when off, filled amber when on */
+  width: 15px; height: 15px; background: currentColor;
   clip-path: polygon(50% 0, 62.5% 37.5%, 100% 37.5%, 68.75% 62.5%, 81.25% 100%, 50% 75%, 18.75% 100%, 31.25% 62.5%, 0 37.5%, 37.5% 37.5%);
-  opacity: 0.55;
+  transition: transform 140ms var(--ease), background-color 180ms var(--ease);
 }
-.lp-star:hover { color: var(--cream); }
+.lp-star:hover { color: var(--cream-dark); }
+.lp-star:active span { transform: scale(0.82); }
 .lp-star[aria-pressed="true"] { color: var(--amber); }
-.lp-star[aria-pressed="true"] span { opacity: 1; }
-.lp-empty { font-family: var(--font-body); color: var(--cream-dark); margin: var(--space-sm) 0 0; }
-/* regions: the same closed native dropdown as Species "Not recorded at" */
-.lp-region { margin-top: var(--space-sm); border-radius: var(--radius); background: rgba(10, 22, 40, 0.45); padding: 0 0.75rem; }
+.lp-star.lp-pop span { animation: lp-pop 260ms var(--lp-ease-in); }
+@keyframes lp-pop { 0% { transform: scale(0.7); opacity: 0.5; } 60% { transform: scale(1.12); opacity: 1; } 100% { transform: scale(1); } }
+.lp-empty { font-family: var(--font-body); color: var(--cream-dark); margin: 0.75rem 0.625rem 0; }
+/* regions: an open and shut heading like the Species "Not recorded at" dropdown, no box, a hairline above */
+.lp-region { margin-top: 0.75rem; border-top: 1px solid rgba(245, 237, 216, 0.08); }
 .lp-region summary {
-  font-family: var(--font-display); font-variant-ligatures: none; font-size: 1rem; letter-spacing: 0.04em;
+  font-family: var(--font-display); font-variant-ligatures: none; font-size: 0.875rem; letter-spacing: 0.04em;
   color: var(--cream-dark); cursor: pointer; list-style: none;
-  min-height: 44px; display: flex; align-items: center; gap: 0.5rem;
+  min-height: 44px; padding: 0 0.625rem; display: flex; align-items: center; gap: 0.5rem;
   transition: color var(--dur) var(--ease);
 }
 .lp-region summary:hover, .lp-region[open] summary { color: var(--amber); }
@@ -2709,30 +2738,46 @@ html.lake-sheet-open { overflow: hidden; }
 .lp-region summary::before {
   content: ""; width: 6px; height: 8px; background: currentColor;
   clip-path: polygon(0 0, 50% 0, 50% 25%, 100% 25%, 100% 75%, 50% 75%, 50% 100%, 0 100%);
-  transition: transform var(--dur) var(--ease);
+  transition: transform 200ms var(--lp-ease-in);
 }
 .lp-region[open] summary::before { transform: rotate(90deg); }
-.lp-region .lp-list { padding-bottom: 0.5rem; }
+.lp-region .lp-list { padding-bottom: 0.25rem; }
+/* smooth open and shut where the browser can size to auto; elsewhere it opens at once */
+@supports selector(::details-content) {
+  .lp-region { interpolate-size: allow-keywords; }
+  .lp-region::details-content {
+    block-size: 0; opacity: 0; overflow: clip;
+    transition: block-size 220ms var(--lp-ease-in), opacity 180ms var(--lp-ease-in), content-visibility 220ms allow-discrete;
+  }
+  .lp-region[open]::details-content { block-size: auto; opacity: 1; }
+}
 @media (hover: hover) and (pointer: fine) and (min-width: 560px) {
-  /* desktop: a panel under the pill, the page dimmed behind it */
+  /* desktop: a glass panel under the pill, the page softly blurred behind it */
   .lake-sheet[open] { display: block; }
-  .lake-sheet::backdrop { background: rgba(10, 22, 40, 0.4); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+  .lake-sheet::backdrop { background: rgba(10, 22, 40, 0.4); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
   .lake-sheet-panel {
     position: absolute; left: var(--lp-left, 1rem); top: var(--lp-top, 4rem);
-    width: min(420px, calc(100% - 2rem)); height: auto; max-height: calc(100% - var(--lp-top, 4rem) - 1rem);
+    width: min(400px, calc(100% - 2rem));
+    height: min(560px, calc(100dvh - var(--lp-top, 4rem) - 1rem));
     padding: 0 0 0.5rem;
-    background: linear-gradient(180deg, rgba(26, 46, 74, 0.92), rgba(18, 32, 56, 0.94));
-    border: 1px solid rgba(245, 237, 216, 0.12); border-radius: 10px;
+    background: linear-gradient(180deg, rgba(26, 46, 74, 0.86), rgba(18, 32, 56, 0.9));
+    border: 1px solid rgba(245, 237, 216, 0.12); border-radius: 14px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(245, 237, 216, 0.10);
-    -webkit-backdrop-filter: blur(18px) saturate(1.25); backdrop-filter: blur(18px) saturate(1.25);
+    transform-origin: 2rem 0;
   }
+  .lake-sheet[open] .lake-sheet-panel { animation-name: lp-drop; }
+  .lake-sheet.is-closing .lake-sheet-panel { animation-name: lp-lift; }
   .lake-sheet-grab { display: none; }
-  .lake-sheet-head { touch-action: auto; padding-top: 0.75rem; }
+  .lake-sheet-head { touch-action: auto; padding-top: 0.875rem; }
   .lake-sheet-close { width: 36px; height: 36px; }
 }
+@keyframes lp-drop { from { opacity: 0; transform: translateY(-6px) scale(0.98); } }
+@keyframes lp-lift { to { opacity: 0; transform: translateY(-6px) scale(0.98); } }
 @media (prefers-reduced-motion: reduce) {
-  .lake-sheet[open] .lake-sheet-panel, .lake-sheet.is-closing .lake-sheet-panel { animation: none; }
-  .lake-sheet-panel, .lp-name, .lp-region summary, .lp-region summary::before { transition: none; }
+  .lake-sheet[open] .lake-sheet-panel, .lake-sheet.is-closing .lake-sheet-panel,
+  .lake-sheet[open]::backdrop, .lake-sheet.is-closing::backdrop, .lp-star.lp-pop span { animation: none; }
+  .lake-sheet-panel, .lp-row, .lp-name, .lp-star span, .lp-search, .lp-near, .lp-region summary, .lp-region summary::before { transition: none; }
+  .lp-region::details-content { transition: none; }
 }
 /* ---- lake switch: a short cross-fade (js/lakes.js skips it for every other navigation) ---- */
 @media (prefers-reduced-motion: no-preference) {

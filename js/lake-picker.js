@@ -60,6 +60,7 @@
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       if (id === cur) { e.preventDefault(); close(); return; }
       try { localStorage.setItem(LS.storageKey, id); } catch (er) {}
+      if (a.parentNode && a.parentNode.classList) a.parentNode.classList.add("is-picked");   // the old picker's amber edge while the next lake loads
       markSwitch();
     });
   }
@@ -108,7 +109,7 @@
     var nm = el("span", "lp-name", c.name);
     a.appendChild(nm);
     var meta = el("span", "lp-meta");
-    if (id === cur) { meta.appendChild(el("span", "lp-now", "Now showing")); a.setAttribute("aria-current", "true"); }
+    if (id === cur) { meta.appendChild(el("span", "lp-now", "Now showing")); a.setAttribute("aria-current", "true"); li.classList.add("is-now"); }
     if (extra) meta.appendChild(el("span", "lp-dist", extra));
     tagsFor(c).forEach(function (t) { meta.appendChild(el("span", "lp-tag", t)); });
     if (meta.firstChild) a.appendChild(meta);
@@ -126,7 +127,7 @@
       var mineStars = Array.prototype.slice.call(body.querySelectorAll('[data-sec="mine"] .lp-star'));
       var at = mineStars.indexOf(st);
       var added = toggleStar(id);
-      paint();
+      paint(true);
       // focus: the same star if it is still in the same list; taken off Your lakes, the next star there (or the one
       // before it); with Your lakes now empty, this lake's star in its region; the search box as a last resort
       var again = body.querySelector('[data-sec="' + sec + '"] .lp-star[data-star="' + id + '"]');
@@ -135,7 +136,10 @@
         again = left[Math.min(at, left.length - 1)] || null;
       }
       if (!again) again = body.querySelector('.lp-star[data-star="' + id + '"]');
-      if (again && again.offsetParent !== null) again.focus(); else search.focus();
+      if (again && again.offsetParent !== null) {
+        again.focus({ preventScroll: true });
+        if (added && !reduce) again.classList.add("lp-pop");   // a small pop as the star fills
+      } else search.focus({ preventScroll: true });
       status.textContent = (added ? "Added " + c.name + " to your lakes." : "Removed " + c.name + " from your lakes.");
     });
     st.setAttribute("data-star", id);
@@ -212,9 +216,10 @@
 
   /* ---------- paint the body ---------- */
   var openRegions = {};
-  function paint() {
-    var q = search.value, hits = find(q);
+  function paint(keep) {
+    var q = search.value, hits = find(q), top = body.scrollTop;
     body.textContent = "";
+    if (keep) requestAnimationFrame(function () { body.scrollTop = top; });   // a star toggle keeps the list where it was
     if (hits) {
       if (hits.length) body.appendChild(section(hits.length === 1 ? "1 lake" : hits.length + " lakes", hits, null, "results"));
       else body.appendChild(el("p", "lp-empty", "No lakes match \u201c" + q.trim() + "\u201d yet."));
@@ -254,37 +259,52 @@
   var opener = null;
   function place() {   // desktop: line the panel up under the pill, kept inside the window
     if (!(fine && fine.matches)) { panel.style.removeProperty("--lp-left"); panel.style.removeProperty("--lp-top"); return; }
-    var r = pill.getBoundingClientRect(), w = Math.min(420, window.innerWidth - 32);
+    var r = pill.getBoundingClientRect(), w = Math.min(400, window.innerWidth - 32);
     var left = Math.max(16, Math.min(r.left, window.innerWidth - w - 16));
     panel.style.setProperty("--lp-left", left + "px");
     panel.style.setProperty("--lp-top", Math.max(8, r.bottom + 8) + "px");
   }
+  var closing = 0;
   function open() {
+    if (dlg.open) return;
     opener = document.activeElement;
     search.value = "";
     status.textContent = "";
     paint();
     place();
-    dlg.showModal();
+    // lock the page behind without it shifting: keep the scrollbar's width as padding while it is hidden
+    var gutter = window.innerWidth - document.documentElement.clientWidth;
+    document.documentElement.style.setProperty("--lp-gutter", Math.max(0, gutter) + "px");
     document.documentElement.classList.add("lake-sheet-open");
+    dlg.showModal();
     pill.setAttribute("aria-expanded", "true");
     body.scrollTop = 0;
     if (fine && fine.matches) search.focus();
     else { var c = body.querySelector('.lp-region[open] .lp-lake[aria-current]') || body.querySelector(".lp-lake[aria-current]"); (c || x).focus({ preventScroll: true }); }
   }
   function close() {
-    if (!dlg.open) return;
+    if (!dlg.open || closing) return;
     if (reduce || !dlg.animate) { dlg.close(); return; }
-    dlg.classList.add("is-closing");
-    setTimeout(function () { dlg.classList.remove("is-closing"); dlg.close(); }, 160);
+    dlg.classList.add("is-closing");   // CSS plays the fade out (180ms); the dialog closes when it ends
+    var done = function () {
+      if (!closing) return;
+      clearTimeout(closing); closing = 0;
+      panel.removeEventListener("animationend", onEnd);
+      dlg.classList.remove("is-closing");
+      dlg.close();
+    };
+    var onEnd = function (e) { if (e.target === panel) done(); };
+    panel.addEventListener("animationend", onEnd);
+    closing = setTimeout(done, 260);   // backstop if the animation never runs
   }
   dlg.addEventListener("close", function () {
     document.documentElement.classList.remove("lake-sheet-open");
+    document.documentElement.style.removeProperty("--lp-gutter");
     pill.setAttribute("aria-expanded", "false");
     panel.style.transform = "";
     here = null; near.setAttribute("aria-pressed", "false"); near.disabled = false;
     var back = opener && opener !== document.body && document.contains(opener) ? opener : pill;
-    if (back.focus) back.focus();
+    if (back.focus) back.focus({ preventScroll: true });   // the page stays where it was
   });
   pill.addEventListener("click", open);
   x.addEventListener("click", close);
