@@ -402,7 +402,10 @@
   function vt(e, clear) {
     var switching = false;
     try { switching = sessionStorage.getItem("nb-lake-switch") === "1"; if (clear) sessionStorage.removeItem("nb-lake-switch"); } catch (er) {}
-    if (e.viewTransition && !switching) e.viewTransition.skipTransition();
+    if (!e.viewTransition) return;
+    // a skipped or interrupted fade (quick lake switches) rejects these; nothing to do, so keep the console quiet
+    try { e.viewTransition.ready.catch(function () {}); e.viewTransition.finished.catch(function () {}); } catch (er) {}
+    if (!switching) e.viewTransition.skipTransition();
   }
   window.addEventListener("pagereveal", function (e) { vt(e, true); });
   // back or forward from the browser cache shows this page's lake again, so make it the saved lake too; otherwise the
