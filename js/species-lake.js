@@ -8,7 +8,7 @@
  *     public sources
  *
  * Species index (#species-grid): this month's picks at the lake come first with a "Biting now" tag, then every other
- * species on the lake's list. Species with no official record at the lake go into a closed "Not at <lake>" dropdown
+ * species on the lake's list. Species with no official record at the lake go into a closed "Not recorded at <lake>" dropdown
  * (<details>) below, marked with the lakes they are at. Runs right after the grid in the HTML, before the page
  * paints, so nothing moves.
  * Species page (#sp-now): a short "at <lake> this month" note under the title, filled before paint.
@@ -58,7 +58,7 @@
       } else {
         away.push(c);
         var note = el("p", "meta sp-away-note");
-        note.appendChild(el("span", "sp-tag sp-tag-away", "Not at " + lakeName));
+        note.appendChild(el("span", "sp-tag sp-tag-away", "Not recorded at " + lakeName));
         note.appendChild(document.createTextNode(lakes.length ? " Found at " + names(lakes) + "." : ""));
         c.appendChild(note);
         c.classList.add("is-away");
@@ -77,7 +77,7 @@
     if (away.length) {
       // the rest sit in a closed dropdown: species with no official record at this lake
       var sec = el("details", "sp-away");
-      var sum = el("summary", null, "Not at " + lakeName + " (" + away.length + ")");
+      var sum = el("summary", null, "Not recorded at " + lakeName + " (" + away.length + ")");
       sec.appendChild(sum);
       sec.appendChild(el("p", "meta sp-away-intro", "No ODNR survey, stocking record or fishing area page lists these at " + lakeName +
         ". Their pages read as notes for the lakes where they live."));

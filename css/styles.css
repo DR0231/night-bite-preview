@@ -2843,7 +2843,7 @@ html.lake-sheet-open { overflow: hidden; }
 .pool-trend[hidden][data-pending] { display: block; visibility: hidden; }
 
 /* ==========================================================================
-   Lake-aware Species (js/species-lake.js): Biting now tags (listed first), the "Not at <lake>" dropdown, ramps and access,
+   Lake-aware Species (js/species-lake.js): Biting now tags (listed first), the "Not recorded at <lake>" dropdown, ramps and access,
    and the species page note under the title.
    ========================================================================== */
 .sp-tag {
@@ -2862,7 +2862,7 @@ html.lake-sheet-open { overflow: hidden; }
 .sp-tag-away, .sp-tag-quiet { color: var(--cream-dark); box-shadow: inset 0 0 0 1px var(--navy-light); }
 .species-card h3 .sp-tag { margin-left: 0.4rem; }
 .sp-count { margin: 0 0 var(--space-sm); }
-/* "Not at <lake>": a closed native <details> dropdown below the lake's species (keyboard: Tab to it, Enter or Space) */
+/* "Not recorded at <lake>": a closed native <details> dropdown below the lake's species (keyboard: Tab to it, Enter or Space) */
 .sp-away {
   margin-top: var(--space-xl);
   border-radius: var(--radius);
