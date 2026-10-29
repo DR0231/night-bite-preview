@@ -7,3 +7,7 @@
 
 # local review shots
 review/
+
+# python bytecode
+__pycache__/
+*.pyc
