@@ -10,10 +10,10 @@
  *    (saugeye, crappie, bluegill, yellow perch, channel catfish, bullhead, largemouth bass)
  *  · Outdoor News, "Alum Creek's big water worth the angling effort" (Jan 27, 2026): the coves north of the
  *    Cheshire Road bridge hold bass, crappie, saugeye and muskie
- *  · Mount Vernon News, "Central Ohio spring fishing forecast" (Mar 29, 2025): Buckeye is shallow and warms first in
+ *  · Mount Vernon News, "Central Ohio spring fishing forecast" (Mar 29, 2025): Buckeye Lake is shallow and warms first in
  *    spring, crappie and saugeye in under 2 ft of water on bobbers and minnows; Alum smallmouth move up early
  *  · Best Fishing in America, Alum Creek Lake and Buckeye Lake guides (guide-level, used for typical structure only:
- *    Alum saugeye on dam riprap, Cheshire causeway rock and channel ledges; Buckeye saugeye on riprap and old towpath
+ *    Alum saugeye on dam riprap, Cheshire causeway rock and channel ledges; Buckeye Lake saugeye on riprap and old towpath
  *    drop-offs, channel cats on flats near deeper holes after dark)
  */
 window.NightBiteBitingAlum = {
@@ -75,14 +75,14 @@ window.NightBiteBitingBuckeye = {
     "yellow-perch": "Yellow perch", "channel-catfish": "Channel catfish", "largemouth-bass": "Largemouth bass"
   },
   months: [
-    { note: "Buckeye is shallow and ices fast. Check ice and cold water safety before any winter trip.", picks: [
+    { note: "Buckeye Lake is shallow and ices fast. Check ice and cold water safety before any winter trip.", picks: [
       { id: "saugeye", where: "Riprap and the slightly deeper water off the old towpath, slow jigs and minnows.", when: "Midday", night: false },
       { id: "black-crappie", where: "Docks, pilings and brush, minnows under a float.", when: "Midday", night: false } ] },
-    { note: "Buckeye is shallow and ices fast. Check ice and cold water safety before any winter trip.", picks: [
+    { note: "Buckeye Lake is shallow and ices fast. Check ice and cold water safety before any winter trip.", picks: [
       { id: "saugeye", where: "Riprap on warm spells, minnows fished slow.", when: "Afternoon into dusk", night: false },
       { id: "yellow-perch", where: "Rock and weed edges, minnows or crawlers near the bottom.", when: "Midday", night: false } ] },
     { note: "Cold water. Wear a life jacket on every early season boat trip.", picks: [
-      { id: "black-crappie", where: "Buckeye warms first in central Ohio. Shallow cover in under 2 ft of water, bobbers and minnows.", when: "Afternoon", night: false },
+      { id: "black-crappie", where: "Buckeye Lake warms first in central Ohio. Shallow cover in under 2 ft of water, bobbers and minnows.", when: "Afternoon", night: false },
       { id: "saugeye", where: "Shallow rock and riprap, live minnows or small swimbaits.", when: "Dusk and after dark", night: true } ] },
     { note: "Cold water. Wear a life jacket on every early season boat trip.", picks: [
       { id: "black-crappie", where: "Shallow docks, stumps and brush, minnows or small jigs under a float.", when: "Afternoon into dusk", night: false },
@@ -115,7 +115,7 @@ window.NightBiteBitingBuckeye = {
     { note: "Cold water and long nights. Wear a life jacket and tell someone your plan.", picks: [
       { id: "saugeye", where: "Riprap and hard bottom, jigs and minnows.", when: "Dusk and after dark", night: true },
       { id: "black-crappie", where: "Docks and brush.", when: "Afternoon", night: false } ] },
-    { note: "Buckeye is shallow and ices fast. Check ice and cold water safety before any winter trip.", picks: [
+    { note: "Buckeye Lake is shallow and ices fast. Check ice and cold water safety before any winter trip.", picks: [
       { id: "saugeye", where: "Riprap and slightly deeper water, slow jigs.", when: "Midday into dusk", night: false },
       { id: "yellow-perch", where: "Rock and weed edges, minnows near the bottom.", when: "Midday", night: false } ] }
   ]

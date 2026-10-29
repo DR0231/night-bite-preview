@@ -2496,26 +2496,12 @@ html.map-open { overflow: hidden; }
 }
 
 /* ==========================================================================
-   Lakes: Hoover, Alum Creek, Buckeye, O'Shaughnessy, Griggs, Indian Lake, Delaware Lake (js/lakes.js sets html[data-lake])
+   Lakes: Hoover, Alum Creek, Buckeye Lake, O'Shaughnessy, Griggs, Indian Lake, Delaware Lake (js/lakes.js sets html[data-lake])
    ========================================================================== */
-/* Lake-only blocks: data-for="hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware" or a space separated list. No data-lake: Hoover. */
+/* Lake-only blocks: data-for="<lake id>" or a space separated list; species cards list their lakes in data-lakes.
+   js/lakes.js adds the hide rule for the current lake before first paint, from its LAKES entry. No data-lake (no JS): Hoover. */
 html:not([data-lake]) [data-for]:not([data-for~="hoover"]),
-html[data-lake="hoover"] [data-for]:not([data-for~="hoover"]),
-html[data-lake="alum"] [data-for]:not([data-for~="alum"]),
-html[data-lake="buckeye"] [data-for]:not([data-for~="buckeye"]),
-html[data-lake="oshaughnessy"] [data-for]:not([data-for~="oshaughnessy"]),
-html[data-lake="griggs"] [data-for]:not([data-for~="griggs"]),
-html[data-lake="indian"] [data-for]:not([data-for~="indian"]),
-html[data-lake="delaware"] [data-for]:not([data-for~="delaware"]) { display: none !important; }
-/* species cards list the lakes they live in (data-lakes) */
-html:not([data-lake]) [data-lakes]:not([data-lakes~="hoover"]),
-html[data-lake="hoover"] [data-lakes]:not([data-lakes~="hoover"]),
-html[data-lake="alum"] [data-lakes]:not([data-lakes~="alum"]),
-html[data-lake="buckeye"] [data-lakes]:not([data-lakes~="buckeye"]),
-html[data-lake="oshaughnessy"] [data-lakes]:not([data-lakes~="oshaughnessy"]),
-html[data-lake="griggs"] [data-lakes]:not([data-lakes~="griggs"]),
-html[data-lake="indian"] [data-lakes]:not([data-lakes~="indian"]),
-html[data-lake="delaware"] [data-lakes]:not([data-lakes~="delaware"]) { display: none !important; }
+html:not([data-lake]) [data-lakes]:not([data-lakes~="hoover"]) { display: none !important; }
 
 /* ---- header lake picker: under the wordmark, a "Choose a lake" label over the pill; one button ---- */
 :root { --header-h: 4rem; }

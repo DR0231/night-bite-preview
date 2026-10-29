@@ -238,7 +238,7 @@ def section(id_, title, per_lake, extra=None):
             s += f'      <div data-for="{lake}">\n{extra(lake)}      </div>\n'
     return s + "    </section>\n"
 
-# BUCK_NONE unused since Buckeye sections are hidden
+# BUCK_NONE unused since Buckeye Lake sections are hidden
 BUCK_NONE = '        <p class="data-none">ODNR hasn&rsquo;t posted {what} for Buckeye Lake on its fishing area page. Nothing is filled in here.</p>\n'
 main = f'''  <main id="main">
     <div class="page-horizon" aria-hidden="true"></div>

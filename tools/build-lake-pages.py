@@ -25,7 +25,7 @@ LAKES = {
         "desc": "Unofficial Alum Creek fishing hub, Ohio: live lake level, tonight's bite, species, water maps, trip log, gear.",
     },
     "buckeye": {
-        "name": "Buckeye Lake", "short": "Buckeye",
+        "name": "Buckeye Lake", "short": "Buckeye Lake",
         "title": "The Night Bite: Buckeye Lake fishing hub",
         "desc": "Unofficial Buckeye Lake fishing hub, Ohio: live lake level, tonight's bite, species, water maps, trip log, gear.",
     },

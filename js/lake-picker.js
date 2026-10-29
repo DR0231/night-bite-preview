@@ -52,8 +52,8 @@
     if (text) n.textContent = text;
     return n;
   }
-  // a lake's chip and row name: the full name, "Buckeye Lake" never just "Buckeye"
-  function chipName(c) { return c.short === "Buckeye" ? "Buckeye Lake" : c.short; }
+  // a lake's chip and row name: the full name, short already reads "Buckeye Lake"
+  function chipName(c) { return c.short; }
   function tagsFor(c) {
     var t = [];
     if (c.pool && c.pool.src) t.push("Live level");

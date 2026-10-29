@@ -187,7 +187,7 @@
     return true;
   }
 
-  // { pool, temp } from the lake's gauge: USGS (Hoover, Buckeye, O'Shaughnessy, Griggs, Indian Lake; js/lakes.js picks the API) or the Corps CWMS API (Alum Creek, Delaware Lake)
+  // { pool, temp } from the lake's gauge: USGS (Hoover, Buckeye Lake, O'Shaughnessy, Griggs, Indian Lake; js/lakes.js picks the API) or the Corps CWMS API (Alum Creek, Delaware Lake)
   function getReadings() {
     if (CWMS) {
       return LK.cwms(3).then(function (pts) {

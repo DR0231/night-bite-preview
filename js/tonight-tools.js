@@ -21,7 +21,7 @@
   var row = document.getElementById("glance-actions");
   var LK = window.NightBiteLake, LS = window.NightBiteLakes;
   if (!row || !LK || !LS) return;
-  var cfg = LK.cfg, lakeName = cfg.short === "Buckeye" ? "Buckeye Lake" : cfg.name;
+  var cfg = LK.cfg, lakeName = cfg.name;
   var home = LS.homeFor ? LS.homeFor(LK.id) : location.href.split("#")[0];
   var REMIND_KEY = "nb-remind";
   row.hidden = false;

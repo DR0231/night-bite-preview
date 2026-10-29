@@ -83,7 +83,7 @@
     buckeye: {
       id: "buckeye",
       name: "Buckeye Lake",
-      short: "Buckeye",
+      short: "Buckeye Lake",
       area: "Central Ohio",
       lat: 39.93, lng: -82.49,
       region: "central", owner: "ODNR",
@@ -104,7 +104,7 @@
         page: "https://forecast.weather.gov/MapClick.php?lat=39.93&lon=-82.49"
       },
       alerts: { zones: "OHC089,OHC045,OHC127,OHZ056,OHZ065,OHZ066", counties: "the Buckeye Lake area" },
-      // Buckeye runs west southwest to east northeast: north and south winds name a shore, east and west winds name an end
+      // Buckeye Lake runs west southwest to east northeast: north and south winds name a shore, east and west winds name an end
       push: ["into the south shore", "toward the southwest end", "toward the west end", "into the northwest shore",
         "into the north shore", "toward the northeast end", "toward the east end", "into the southeast shore"],
       map: { data: "NightBiteMapDataBuckeye", chart: "assets/buckeye-chart.png" },
@@ -280,6 +280,12 @@
 
   var root = document.documentElement;
   root.setAttribute("data-lake", id);
+  // hide every other lake's blocks (data-for, data-lakes) before first paint; generated from the id, so a new lake needs no CSS
+  try {
+    var hide = document.createElement("style");
+    hide.textContent = 'html[data-lake="' + id + '"] [data-for]:not([data-for~="' + id + '"]),html[data-lake="' + id + '"] [data-lakes]:not([data-lakes~="' + id + '"]){display:none!important}';
+    (document.head || root).appendChild(hide);
+  } catch (e) {}
   root.style.setProperty("--lake-short", '"' + LAKES[id].short + '"');
 
   // same page, other lake (the picker navigates here; a cross-document view transition fades between them).
@@ -313,7 +319,7 @@
   }
   function cwms(hours) { return cwmsFor(id, hours); }
 
-  // USGS lake gauges (Hoover, Buckeye, O'Shaughnessy, Griggs, Indian Lake). The legacy WaterServices IV API (waterservices.usgs.gov/nwis/iv) slows down
+  // USGS lake gauges (Hoover, Buckeye Lake, O'Shaughnessy, Griggs, Indian Lake). The legacy WaterServices IV API (waterservices.usgs.gov/nwis/iv) slows down
   // from Nov. 16, 2026 and is switched off Feb. 22, 2027 (DATA-SOURCES.md). So every reading asks the new USGS Water
   // Data API first (api.waterdata.usgs.gov/ogcapi, public, CORS open, no key) and only tries the legacy API if the
   // new one errors, rate limits or takes longer than 8 seconds. Both give the same provisional readings; the legacy
