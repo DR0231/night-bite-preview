@@ -3,15 +3,15 @@
   "entries": [
     {
       "id": "2026-10-29-four-lakes",
-      "date": null,
-      "draft": true,
+      "date": "2026-10-29",
       "tag": "New",
       "title": "O’Shaughnessy, Griggs, Indian Lake and Delaware Lake",
       "bullets": [
         "Pick O’Shaughnessy Reservoir, Griggs Reservoir, Indian Lake or Delaware Lake with the lake picker. Each has its own home page.",
         "Each lake has its own map and ramps, lake level gauge (USGS, or the US Army Corps of Engineers at Delaware Lake), lake rules, species notes and dock season.",
         "Stocking & surveys adds ODNR stocking and survey data where ODNR posts it, and says so where it doesn’t.",
-        "The trip report form now lists all seven lakes."
+        "The trip report form now lists all seven lakes.",
+        "Species now puts Biting now first, lists every other fish ODNR records at the lake below it, and folds the rest into a closed Not recorded at dropdown."
       ],
       "links": [
         {
@@ -21,6 +21,10 @@
         {
           "label": "Stocking & surveys",
           "href": "stocking"
+        },
+        {
+          "label": "Species",
+          "href": "species/"
         }
       ]
     },
