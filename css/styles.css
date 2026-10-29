@@ -2734,24 +2734,6 @@ html.lake-sheet-open { overflow: hidden; }
   .lake-sheet[open] .lake-sheet-panel, .lake-sheet.is-closing .lake-sheet-panel { animation: none; }
   .lake-sheet-panel, .lp-name, .lp-region summary, .lp-region summary::before { transition: none; }
 }
-/* home: up to three starred lakes as chips under the header (js/lake-picker.js; hidden when nothing is starred) */
-.lp-starrow[hidden] { display: none; }
-.lp-starrow ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: nowrap; gap: 0.375rem; }
-.lp-starrow li { margin: 0; min-width: 0; flex: 0 1 auto; display: flex; }   /* one line: long names shorten with an ellipsis */
-.lp-chip {
-  display: inline-flex; align-items: center; gap: 0.375rem; max-width: 100%;
-  min-height: 44px; min-width: 0; padding: 0 0.625rem;
-  font-family: var(--font-display); font-size: 0.8125rem; letter-spacing: 0.02em; color: var(--cream-dark); text-decoration: none;
-  background: rgba(10, 22, 40, 0.5); border: 1px solid rgba(245, 237, 216, 0.14); border-radius: var(--radius);
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; line-height: 42px;
-  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
-}
-.lp-chip::before { content: ""; display: inline-block; vertical-align: -1px; margin-right: 0.375rem; width: 10px; height: 10px; flex-shrink: 0; background: var(--amber); opacity: 0.85;
-  clip-path: polygon(50% 0, 62.5% 37.5%, 100% 37.5%, 68.75% 62.5%, 81.25% 100%, 50% 75%, 18.75% 100%, 31.25% 62.5%, 0 37.5%, 37.5% 37.5%); }
-.lp-chip:hover, .lp-chip[aria-current] { color: var(--amber); border-color: rgba(240, 168, 48, 0.5); }
-.lp-chip:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
-@media (prefers-reduced-motion: reduce) { .lp-chip { transition: none; } }
-
 /* ---- lake switch: a short cross-fade (js/lakes.js skips it for every other navigation) ---- */
 @media (prefers-reduced-motion: no-preference) {
   @view-transition { navigation: auto; }

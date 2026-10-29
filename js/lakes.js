@@ -405,6 +405,11 @@
     if (e.viewTransition && !switching) e.viewTransition.skipTransition();
   }
   window.addEventListener("pagereveal", function (e) { vt(e, true); });
+  // back or forward from the browser cache shows this page's lake again, so make it the saved lake too; otherwise the
+  // next Water or Species link would open whichever lake was picked last on another page
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted) { try { if (localStorage.getItem(KEY) !== id) localStorage.setItem(KEY, id); } catch (er) {} }
+  });
   window.addEventListener("pageswap", function (e) { vt(e, false); });
 
   // fill [data-lk="name|short|area"] once the page is parsed (Hoover markup already says Hoover)
@@ -415,8 +420,9 @@
         var v = LAKES[id][nodes[i].getAttribute("data-lk")];
         if (typeof v === "string" && nodes[i].textContent !== v) nodes[i].textContent = v;
       }
-      // Home links (logo, nav, footer) go straight to this lake's home page
-      var root0 = BASE.replace(/[?#].*$/, ""), links = document.querySelectorAll("a[href]");
+      // Home links (logo, nav, footer) go straight to this lake's home page. Links that pick a lake (a[data-lake], the
+      // picker rows) are left alone: rewriting those once sent the Hoover link to the lake already open (v42, v43).
+      var root0 = BASE.replace(/[?#].*$/, ""), links = document.querySelectorAll("a[href]:not([data-lake])");
       for (var j = 0; j < links.length; j++) {
         var a = links[j], h = a.href.replace(/[?#].*$/, "");
         if (h === root0 || h === root0 + "index.html" || h === root0 + "index") a.href = homeFor(id) + (a.hash || "");

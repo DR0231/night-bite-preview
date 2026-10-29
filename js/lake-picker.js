@@ -1,9 +1,11 @@
 /**
- * The Night Bite: lake picker and starred lakes.
+ * The Night Bite: lake picker and your lakes (favorites).
  * The header pill (button.lake-pill, static markup on every page) opens a <dialog>: a full screen sheet on phones,
  * a panel under the pill on desktop. Top to bottom:
  *   · Search: matches each lake's name and aliases (js/lakes.js), word starts first. "Ind" finds Indian Lake.
- *   · Your lakes: starred lakes, then recently opened ones (localStorage "nb-lake-stars", "nb-lake-recent").
+ *   · Your lakes: the lakes you starred, in the order you starred them (localStorage "nb-lake-stars", ids only).
+ *     Only stars go here, nothing is added for just opening a lake, and the section is left out until you star one.
+ *     Tap a lake's star again (here or in its region) to take it back off.
  *   · Near me: asks for location only when tapped, sorts lakes by straight line distance worked out here in the
  *     browser. The location is never sent or saved. Denied or unavailable: one calm line, regions stay.
  *   · Regions (js/lakes.js REGIONS), each a native <details> like the Species "Not recorded at" dropdown. Regions
@@ -11,7 +13,6 @@
  * Each row: a link to the same page for that lake (NightBiteLakes.hrefFor), up to two tags from the lake's data
  * (Live level, Live temp) and a star toggle.
  * Keys: Tab and Shift Tab stay inside, arrow up and down move between lakes, Esc closes and focus goes back to the pill.
- * Home pages also get one row under the header: up to three starred lakes as chips (hidden when nothing is starred).
  * Adding a lake needs no edits here: one entry in js/lakes.js.
  */
 (function () {
@@ -22,9 +23,10 @@
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var fine = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 560px)");
   var order = LS.order, cur = LK.id, ALL = LS.all;
-  var STARS = "nb-lake-stars", RECENT = "nb-lake-recent", HOME_STARS = 3, RECENT_MAX = 4;
+  var STARS = "nb-lake-stars";
+  try { localStorage.removeItem("nb-lake-recent"); } catch (e) {}   // the old recent list (v42, v43) is no longer kept
 
-  /* ---------- stars and recents (localStorage, ids only) ---------- */
+  /* ---------- your lakes (localStorage, ids only) ---------- */
   function readList(k) {
     try {
       var v = JSON.parse(localStorage.getItem(k) || "[]");
@@ -40,20 +42,12 @@
     writeList(STARS, s);
     return i === -1;
   }
-  (function remember() {   // this page's lake goes to the front of the recent list
-    var r = readList(RECENT).filter(function (x) { return x !== cur; });
-    r.unshift(cur);
-    writeList(RECENT, r.slice(0, RECENT_MAX + 1));
-  })();
-
   function el(tag, cls, text) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
     if (text) n.textContent = text;
     return n;
   }
-  // a lake's chip and row name: the full name, short already reads "Buckeye Lake"
-  function chipName(c) { return c.short; }
   function tagsFor(c) {
     var t = [];
     if (c.pool && c.pool.src) t.push("Live level");
@@ -69,31 +63,6 @@
       markSwitch();
     });
   }
-
-  /* ---------- home: starred lakes row under the header ---------- */
-  var homeMain = LK.home ? document.querySelector("main.home") : null, starRow = null;
-  function paintStarRow() {
-    if (!homeMain) return;
-    var s = stars().slice(0, HOME_STARS);
-    if (!starRow) {
-      starRow = el("nav", "lp-starrow");
-      starRow.setAttribute("aria-label", "Starred lakes");
-      homeMain.insertBefore(starRow, homeMain.firstChild);
-    }
-    starRow.textContent = "";
-    starRow.hidden = !s.length;
-    if (!s.length) return;
-    var ul = el("ul");
-    s.forEach(function (id) {
-      var li = el("li"), a = el("a", "lp-chip", chipName(ALL[id]));
-      a.href = LS.homeFor(id);
-      if (id === cur) a.setAttribute("aria-current", "page");
-      pickLink(a, id);
-      li.appendChild(a); ul.appendChild(li);
-    });
-    starRow.appendChild(ul);
-  }
-  paintStarRow();
 
   if (!pill || typeof HTMLDialogElement !== "function") return;
   pill.setAttribute("aria-label", "Choose a lake. Current lake: " + LK.cfg.name);
@@ -148,20 +117,26 @@
     function paintStar() {
       var on = isStar(id);
       st.setAttribute("aria-pressed", on ? "true" : "false");
-      st.setAttribute("aria-label", (on ? "Unstar " : "Star ") + c.name);
+      st.setAttribute("aria-label", on ? "Remove " + c.name + " from your lakes" : "Add " + c.name + " to your lakes");
     }
     paintStar();
     st.appendChild(el("span")).setAttribute("aria-hidden", "true");
     st.addEventListener("click", function () {
       var box = st.closest("[data-sec]"), sec = box ? box.getAttribute("data-sec") : "";
-      toggleStar(id);
-      paintStarRow();
+      var mineStars = Array.prototype.slice.call(body.querySelectorAll('[data-sec="mine"] .lp-star'));
+      var at = mineStars.indexOf(st);
+      var added = toggleStar(id);
       paint();
-      // keep focus on the same star after the repaint (same list if it is still there)
-      var again = body.querySelector('[data-sec="' + sec + '"] .lp-star[data-star="' + id + '"]') ||
-        body.querySelector('.lp-star[data-star="' + id + '"]');
-      if (again) again.focus();
-      status.textContent = (isStar(id) ? "Starred " : "Unstarred ") + c.name + ".";
+      // focus: the same star if it is still in the same list; taken off Your lakes, the next star there (or the one
+      // before it); with Your lakes now empty, this lake's star in its region; the search box as a last resort
+      var again = body.querySelector('[data-sec="' + sec + '"] .lp-star[data-star="' + id + '"]');
+      if (!again && sec === "mine") {
+        var left = body.querySelectorAll('[data-sec="mine"] .lp-star');
+        again = left[Math.min(at, left.length - 1)] || null;
+      }
+      if (!again) again = body.querySelector('.lp-star[data-star="' + id + '"]');
+      if (again && again.offsetParent !== null) again.focus(); else search.focus();
+      status.textContent = (added ? "Added " + c.name + " to your lakes." : "Removed " + c.name + " from your lakes.");
     });
     st.setAttribute("data-star", id);
     li.appendChild(a); li.appendChild(st);
@@ -245,9 +220,8 @@
       else body.appendChild(el("p", "lp-empty", "No lakes match \u201c" + q.trim() + "\u201d yet."));
       return;
     }
-    var s = stars(), mine = s.slice();
-    readList(RECENT).forEach(function (id) { if (mine.indexOf(id) === -1 && mine.length < s.length + RECENT_MAX) mine.push(id); });
-    if (s.length || mine.length > 1) body.appendChild(section("Your lakes", mine, null, "mine"));
+    var mine = stars();
+    if (mine.length) body.appendChild(section("Your lakes", mine, null, "mine"));   // every star, no cap
     if (here) {
       var byDist = order.map(function (id) { return { id: id, d: miles(here, ALL[id]) }; })
         .sort(function (a, b) { return a.d - b.d; });
