@@ -7,9 +7,9 @@ ice = (R / "ice.html").read_text()
 head = ice[:ice.index("  <main id=\"main\">")]
 foot = ice[ice.index("  </main>"):]
 head = head.replace("<title>Ice season: Hoover, Alum Creek and Buckeye Lake | The Night Bite</title>",
-                    "<title>Stocking and surveys: Hoover, Alum Creek and Buckeye Lake | The Night Bite</title>")
+                    "<title>Stocking, surveys: Hoover, Alum Creek, Buckeye Lake | The Night Bite</title>")
 head = re.sub(r'<meta name="description" content="[^"]*">',
-              '<meta name="description" content="What ODNR has published for Hoover, Alum Creek and Buckeye Lake: fish stocked, net survey growth, angler surveys and the official habitat map. Sources and dates on every number.">', head)
+              '<meta name="description" content="What ODNR has published for Hoover, Alum Creek and Buckeye Lake: fish stocked, net survey growth, angler surveys and the habitat map, with sources and dates.">', head)
 head = head.replace('<link rel="canonical" href="https://nightbiteoh.com/ice">', '<link rel="canonical" href="https://nightbiteoh.com/stocking">')
 assert "stocking" in head
 # ice.html's own scripts at the bottom stay (refresh, sw-update, alerts, nav, lake-picker); nothing else is needed
