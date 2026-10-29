@@ -9,6 +9,12 @@ Static website: **Hoover Reservoir** fishing hub (Delaware / Franklin County, Oh
 **Site name spelling:** *The Night Bite* (Night, not Nite).  
 **Live domain:** `nightbiteoh.com` (CNAME in repo). Serve over **HTTPS** in production.
 
+## Share tags, robots and the meta check
+
+Share tags (Open Graph and Twitter Card) are written by `tools/build-meta.py` from each page's own `<title>`, meta description and canonical, so they never drift. Run it after `tools/build-lake-pages.py` and before `tools/stamp-version.py`, then check with `python3 tools/check-meta.py` (title, description, canonical, OG, Twitter and valid JSON-LD on every public page; exit 1 on errors). Images: `assets/og/og-alum.png` and `og-buckeye.png` on the lake pages, `og-card.png` everywhere else.
+
+`robots.txt` here blocks everything because this is the preview. `robots.live.txt` is the live robots.txt: AI training crawlers (GPTBot, Google-Extended, CCBot, anthropic-ai, ClaudeBot, Bytespider, Applebot-Extended, meta-externalagent, cohere-ai, Diffbot, Omgilibot) are blocked, AI search crawlers that link back (OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-SearchBot, Claude-User) and normal search engines are allowed. On promotion, copy it to the live repo as `robots.txt`.
+
 ## Local preview
 
 From this directory:

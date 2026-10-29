@@ -3427,3 +3427,9 @@ html.nb-show-drafts .update.is-draft { display: block; border-left-style: dashed
 .log-tournaments { scroll-margin-top: calc(var(--header-h, 56px) + 1rem); }
 .log-tournaments #tournaments-list { margin-bottom: 1rem; }
 .log-tournaments .how-to-read .form-block { margin-top: 0.5rem; }
+
+/* Phone numbers never break at a hyphen (tel links everywhere; .nowrap spans in What's new) */
+a[href^="tel:"],
+.nowrap {
+  white-space: nowrap;
+}
