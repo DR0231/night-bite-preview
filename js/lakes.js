@@ -404,8 +404,9 @@
     try { switching = sessionStorage.getItem("nb-lake-switch") === "1"; if (clear) sessionStorage.removeItem("nb-lake-switch"); } catch (er) {}
     if (!e.viewTransition) return;
     // a skipped or interrupted fade (quick lake switches) rejects these; nothing to do, so keep the console quiet
-    try { e.viewTransition.ready.catch(function () {}); e.viewTransition.finished.catch(function () {}); } catch (er) {}
-    if (!switching) e.viewTransition.skipTransition();
+    var t = e.viewTransition, quiet = function () {};
+    try { [t.ready, t.finished, t.updateCallbackDone].forEach(function (pr) { if (pr && pr.catch) pr.catch(quiet); }); } catch (er) {}
+    if (!switching) { try { t.skipTransition(); } catch (er) {} }
   }
   window.addEventListener("pagereveal", function (e) { vt(e, true); });
   // back or forward from the browser cache shows this page's lake again, so make it the saved lake too; otherwise the
