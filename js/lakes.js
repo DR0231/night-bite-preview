@@ -14,6 +14,9 @@
  * Also the shared gauge fetchers: USGS (usgsLatest, usgsSeries: new Water Data API first, legacy IV as fallback) and the
  * Corps CWMS API (cwmsFor, Alum Creek and Delaware Lake). js/usgs.js, js/pool-trend.js and js/lake-picker.js all use them.
  *
+ * Adding a lake: one entry in LAKES plus its id in ORDER. The picker (js/lake-picker.js) reads name, short, aliases
+ * (search), region, lat and lng (Near me) and pool (its Live level and Live temp tags) from that entry.
+ *
  * Every value below has a source in DATA-SOURCES.md. Hoover's values are exactly the ones the scripts used before
  * this file existed (js/usgs.js, js/pool-trend.js, js/conditions.js, js/alerts.js); those scripts fall back to the
  * same Hoover values if this file is missing.
@@ -26,6 +29,8 @@
       short: "Hoover",
       area: "Central Ohio",
       lat: 40.11, lng: -82.88,
+      region: "central", owner: "City of Columbus",
+      aliases: ["Hoover", "Hoover Dam", "Big Walnut"],
       pool: {
         src: "usgs", srcName: "USGS",
         site: "03228400", param: "62614", temp: "00010",
@@ -51,6 +56,8 @@
       short: "Alum Creek",
       area: "Central Ohio",
       lat: 40.24, lng: -82.97,
+      region: "central", owner: "US Army Corps of Engineers",
+      aliases: ["Alum", "Alum Creek State Park"],
       pool: {
         // no USGS gauge on the lake itself; the Corps of Engineers posts the lake level every 15 minutes
         src: "cwms", srcName: "USACE",
@@ -79,6 +86,8 @@
       short: "Buckeye",
       area: "Central Ohio",
       lat: 39.93, lng: -82.49,
+      region: "central", owner: "ODNR",
+      aliases: ["Buckeye Lake State Park"],
       pool: {
         src: "usgs", srcName: "USGS",
         site: "395540082291600", param: "62614",
@@ -108,6 +117,8 @@
       short: "O'Shaughnessy",
       area: "Central Ohio",
       lat: 40.20, lng: -83.14,
+      region: "central", owner: "City of Columbus",
+      aliases: ["OShaughnessy", "O Shaughnessy", "Shaughnessy", "Scioto"],
       pool: {
         src: "usgs", srcName: "USGS",
         site: "03220500", param: "62614",   // Scioto River at O'Shaughnessy Dam near Dublin: reservoir elevation
@@ -135,6 +146,8 @@
       short: "Griggs",
       area: "Central Ohio",
       lat: 40.03, lng: -83.095,
+      region: "central", owner: "City of Columbus",
+      aliases: ["Griggs", "Scioto"],
       pool: {
         src: "usgs", srcName: "USGS",
         site: "03221500", param: "62614", temp: "00010",   // Scioto River at Griggs Dam: reservoir elevation and water temp
@@ -161,6 +174,8 @@
       short: "Indian Lake",
       area: "West central Ohio",
       lat: 40.49, lng: -83.89,
+      region: "central", owner: "ODNR",
+      aliases: ["Indian", "Indian Lake State Park", "Russells Point"],
       pool: {
         src: "usgs", srcName: "USGS",
         site: "03260500", param: "62614", temp: "00010",   // Indian Lake at Russells Point: lake elevation and water temp
@@ -189,6 +204,8 @@
       short: "Delaware Lake",
       area: "Central Ohio",
       lat: 40.385, lng: -83.055,
+      region: "central", owner: "US Army Corps of Engineers",
+      aliases: ["Delaware", "Delaware State Park"],
       pool: {
         // no USGS lake gauge; the Corps of Engineers posts the lake level every 15 minutes (same as Alum Creek)
         src: "cwms", srcName: "USACE",
@@ -213,6 +230,16 @@
     }
   };
   var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware"];
+  // picker regions, in this order (js/lake-picker.js). A region with no lakes yet is hidden. Every lake above sets
+  // region to one of these ids; lat and lng above (the lake's NWS forecast point, on the water) give Near me distances.
+  var REGIONS = [
+    { id: "central", name: "Central Ohio" },
+    { id: "northeast", name: "Northeast Ohio" },
+    { id: "northwest", name: "Northwest Ohio" },
+    { id: "southwest", name: "Southwest Ohio" },
+    { id: "southeast", name: "Southeast Ohio" },
+    { id: "erie", name: "Lake Erie" }
+  ];
   // display names for the species ids above (the log's species lists use these)
   var SPECIES = {
     "channel-catfish": "Channel catfish", "blue-catfish": "Blue catfish", "flathead-catfish": "Flathead catfish",
@@ -360,7 +387,7 @@
   function bitingVar(lake) { return lake === "hoover" ? "NightBiteBiting" : "NightBiteBiting" + cap(lake); }
   function mapFile(lake) { return lake === "hoover" ? "hoover-map-data.js" : "lake-map-data-" + lake + ".js"; }
 
-  window.NightBiteLakes = { all: LAKES, order: ORDER, speciesNames: SPECIES, storageKey: KEY, hrefFor: hrefFor, homeFor: homeFor, base: BASE, cwmsFor: cwmsFor,
+  window.NightBiteLakes = { all: LAKES, order: ORDER, regions: REGIONS, speciesNames: SPECIES, storageKey: KEY, hrefFor: hrefFor, homeFor: homeFor, base: BASE, cwmsFor: cwmsFor,
     usgsLatest: usgsLatest, usgsSeries: usgsSeries, bitingVar: bitingVar, mapFile: mapFile };
   window.NightBiteLake = { id: id, cfg: LAKES[id], key: key, cwms: cwms, home: homeLake };
 
