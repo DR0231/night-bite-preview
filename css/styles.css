@@ -2843,7 +2843,7 @@ html.lake-sheet-open { overflow: hidden; }
 .pool-trend[hidden][data-pending] { display: block; visibility: hidden; }
 
 /* ==========================================================================
-   Lake-aware Species (js/species-lake.js): Biting now tags, the "Not at <lake>" group, ramps and access,
+   Lake-aware Species (js/species-lake.js): Biting now tags (listed first), the "Not at <lake>" dropdown, ramps and access,
    and the species page note under the title.
    ========================================================================== */
 .sp-tag {
@@ -2862,10 +2862,44 @@ html.lake-sheet-open { overflow: hidden; }
 .sp-tag-away, .sp-tag-quiet { color: var(--cream-dark); box-shadow: inset 0 0 0 1px var(--navy-light); }
 .species-card h3 .sp-tag { margin-left: 0.4rem; }
 .sp-count { margin: 0 0 var(--space-sm); }
-.sp-away { margin-top: var(--space-xl); }
+/* "Not at <lake>": a closed native <details> dropdown below the lake's species (keyboard: Tab to it, Enter or Space) */
+.sp-away {
+  margin-top: var(--space-xl);
+  border-radius: var(--radius);
+  background: rgba(10, 22, 40, 0.45);
+  padding: 0 1rem;
+}
 .sp-away[hidden] { display: none; }
-.sp-away h2 { color: var(--cream-dark); }
-/* species not at the lake stay visible in their own group (lakes.css rule above hides them in the main grid) */
+.sp-away summary {
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--cream-dark);
+  cursor: pointer;
+  list-style: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color var(--dur) var(--ease);
+}
+.sp-away summary:hover, .sp-away[open] summary { color: var(--amber); }
+.sp-away summary::-webkit-details-marker { display: none; }
+.sp-away summary::before {
+  content: "";
+  width: 6px;
+  height: 8px;
+  background: currentColor;
+  clip-path: polygon(0 0, 50% 0, 50% 25%, 100% 25%, 100% 75%, 50% 75%, 50% 100%, 0 100%);
+  transition: transform var(--dur) var(--ease);
+}
+.sp-away[open] summary::before { transform: rotate(90deg); }
+.sp-away-intro { margin: 0 0 var(--space-sm); }
+.sp-away-grid { padding-bottom: 1rem; }
+@media (prefers-reduced-motion: reduce) {
+  .sp-away summary, .sp-away summary::before { transition: none; }
+}
+/* species not at the lake stay visible inside the dropdown (lakes.css rule above hides them in the main grid) */
 html[data-lake] .sp-away .species-card[data-lakes][data-lakes]:not([hidden]),
 html:not([data-lake]) .sp-away .species-card[data-lakes][data-lakes]:not([hidden]) { display: block !important; }
 .species-card.is-away { opacity: 0.72; }

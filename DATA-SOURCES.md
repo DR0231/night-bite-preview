@@ -84,7 +84,7 @@ Hoover stays the default. The active lake comes from `?lake=hoover|alum|buckeye`
 | Alerts | Delaware County: OHC041, OHZ046 | Licking, Fairfield, Perry: OHC089, OHC045, OHC127, OHZ056, OHZ065, OHZ066 |
 | Wind wording | Same north to south wording as Hoover (the lake also runs north to south) | Own list: the lake runs west southwest to east northeast |
 | Boating rules shown | Unlimited horsepower on the south main lake, no wake north of Cheshire Road (USACE Alum Creek recreation page; follow the buoys) | No wake within 300 ft of any land mass and in marked areas (ODNR fishing map) |
-| Species shown | saugeye, walleye, muskellunge, largemouth and smallmouth bass, white and black crappie, white bass, bluegill, channel catfish (ODNR Alum Creek Lake Fishing Area, https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/alum-creek-lake-fishing-area) | saugeye, largemouth bass, white and black crappie, bluegill, yellow perch, channel catfish, bullhead (ODNR Buckeye Lake State Park, https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/buckeye-lake-state-park) |
+| Species shown | saugeye, walleye, muskellunge, largemouth and smallmouth bass, white and black crappie, white bass, bluegill, channel catfish (ODNR Alum Creek Lake Fishing Area, https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/alum-creek-lake-fishing-area); yellow perch (ODNR Waterbody Report survey data); blue catfish (ODNR Fish Stocking, 2023 to 2025) | saugeye, largemouth bass, white and black crappie, bluegill, yellow perch, channel catfish, bullhead (ODNR Buckeye Lake State Park, https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/buckeye-lake-state-park); hybrid striped bass and white bass (ODNR Waterbody Report survey data; hybrids also ODNR Fish Stocking and ODNR Fishing Tips) |
 
 Regulations (2026–27): ODNR Fishing Regulations 2026–27 (https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/laws-regs-licenses/OhioFishingRegs_English.pdf) and the Ohio Administrative Code. Alum Creek Lake and Buckeye Lake appear only in the crappie rules: 30 crappie a day, OAC 1501:31-13-08(L), and a 9″ minimum, OAC 1501:31-13-09(H) (https://codes.ohio.gov/ohio-administrative-code/rule-1501:31-13-08 and rule-1501:31-13-09). Everything else is statewide: muskellunge 1 a day (13-08(B)), no muskie length rule in 13-09; yellow perch 30 a day (13-08(H)); bass 5 a day, 12″; walleye, sauger and saugeye 6 combined, no minimum at either lake; bullhead not on the limits table.
 
@@ -130,7 +130,7 @@ Same system as Alum Creek and Buckeye Lake: `?lake=oshaughnessy|griggs|indian|de
 | Alerts | OHC041, OHZ046 | OHC049, OHZ055 | OHC091, OHZ044 | OHC041, OHZ046 |
 | Wind wording | Hoover's north to south list | Hoover's north to south list | Own list (a round lake: "into the south shore" and so on) | Hoover's north to south list |
 | Boating rules shown | Columbus Recreation and Parks: unlimited horsepower, 40 mph limit; no jet skis, tubing or swimming in any City reservoir | Same as O'Shaughnessy | ODNR Indian Lake pages: no horsepower limit; 300 ft no wake zone from the ODNR map | ODNR Delaware Lake Fishing Area and Delaware State Park pages: unlimited horsepower |
-| Species shown | hybrid striped bass only: ODNR names only hybrids for this reservoir (stocking) and posts no survey | hybrid striped bass only (same reason) | saugeye, black and white crappie, largemouth bass, bluegill, channel and flathead catfish, white bass, walleye, yellow perch (ODNR Indian Lake Fishing Area) | black and white crappie, largemouth and smallmouth bass, channel catfish, bluegill, white bass (ODNR Delaware Lake Fishing Area) |
+| Species shown | hybrid striped bass, saugeye, blue catfish, black and white crappie, bluegill, channel catfish, largemouth and smallmouth bass, white bass (ODNR Waterbody Report survey data; hybrids, saugeye and blue catfish also ODNR Fish Stocking) | hybrid striped bass, saugeye, black and white crappie, bluegill, channel catfish, largemouth and smallmouth bass, white bass (ODNR Waterbody Report survey data; hybrids also ODNR Fishing Tips and the 2026 central Ohio forecast) | saugeye, black and white crappie, largemouth bass, bluegill, channel and flathead catfish, white bass, walleye, yellow perch (ODNR Indian Lake Fishing Area); smallmouth bass (ODNR Waterbody Report survey data) | black and white crappie, largemouth and smallmouth bass, channel catfish, bluegill, white bass (ODNR Delaware Lake Fishing Area) |
 
 Regulations (2026–27, ODNR Fishing Regulations PDF above): the 30 crappie, 9″ minimum site rule lists Delaware, Indian and O'Shaughnessy, not Griggs, so Griggs crappie follow the statewide pattern (no daily limit, no minimum). Hybrid, striped and white bass are statewide: 30 combined, no more than 4 over 15″. Walleye, sauger and saugeye: 6 combined, no minimum at any of the four.
 
@@ -164,15 +164,27 @@ Dock season (data/docks.json): City of Columbus Marinas and Docks (O'Shaughnessy
 Gaps (said on the site, never filled in):
 - No public water temperature at O'Shaughnessy or Delaware Lake.
 - Delaware Lake's level is the Corps of Engineers reading, not USGS; values are provisional.
-- No ODNR species survey for O'Shaughnessy or Griggs, so only hybrid striped bass are listed there.
+- ODNR posts no written fishing forecast for O'Shaughnessy or Griggs. Their species lists come from ODNR Waterbody Report survey data and ODNR stocking records, with no size or catch notes.
 - No 2026 dock pull or drawdown dates posted for these four on Oct. 29, 2026.
 - No community trips logged at these lakes yet.
 
 ## Lake-aware Species (js/species-lake.js)
 
-No new data. Which species live at each lake: `data-lakes` on each card (same lists as `js/lakes.js`). Biting now:
-the current month's picks from `js/biting-data.js` / `js/biting-data-lakes.js`. Ramps and access: the lake's map data
-places of type ramp or access, shown with their own source labels.
+Which species live at each lake: the `species` list for each lake in `js/lakes.js` (the script also rewrites
+`data-lakes` on each card from it, and the HTML carries the same lists for the no JS view). Order on the page: this
+month's Biting now picks first (from `js/biting-data.js` / `js/biting-data-lakes.js`), then every other species on the
+lake's list, then a closed "Not at <lake>" dropdown with species that no ODNR record lists at that lake. Ramps and
+access: the lake's map data places of type ramp or access, shown with their own source labels.
+
+Species lists, checked Oct. 29, 2026 (a species is listed at a lake only when an official ODNR source shows it there):
+- ODNR fishing area and state park pages (linked in the lake tables above).
+- ODNR Waterbody Report (fish survey data, 2011 to 2026), filter Location Name: https://analytics.das.ohio.gov/t/DOPPUB/views/WaterbodyReport/WaterbodyReport
+- ODNR Fish Stocking: https://analytics.das.ohio.gov/t/DOPPUB/views/ODNR_Fish_Stocking/FishStocking
+- ODNR Fishing Tips (hybrid striped bass stocked in Buckeye Lake, Griggs and O'Shaughnessy, among others).
+Added Oct. 29, 2026 from these: yellow perch at Hoover and Alum Creek; blue catfish at Alum Creek (stocked 2023 to 2025)
+and O'Shaughnessy (stocked 2022, 2023, 2025); hybrid striped bass and white bass at Buckeye Lake; saugeye, crappie,
+bluegill, channel catfish, largemouth and smallmouth bass and white bass at O'Shaughnessy and Griggs; smallmouth bass at
+Indian Lake. Delaware Lake unchanged (ODNR stocked saugeye there only through 2009, and no survey since 2011 records them).
 
 ## Share card (js/tonight-tools.js)
 

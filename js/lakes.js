@@ -43,7 +43,7 @@
       push: null,      // null: js/conditions.js keeps its own Hoover list (north to south lake)
       map: { data: "NightBiteMapData", chart: "assets/hoover-chart.png" },
       spots: ["Oxbow (upper ramp)", "Redbank (middle ramp)", "Walnut Road (lower ramp)", "Bank (upper)", "Bank (middle)", "Bank (lower)", "Maxtown", "Marina / lower marina"],
-      species: ["channel-catfish", "blue-catfish", "flathead-catfish", "largemouth-bass", "smallmouth-bass", "black-crappie", "white-crappie", "bluegill", "white-bass", "hybrid-striped-bass", "saugeye", "walleye", "common-carp", "longnose-gar"]
+      species: ["channel-catfish", "blue-catfish", "flathead-catfish", "largemouth-bass", "smallmouth-bass", "black-crappie", "white-crappie", "bluegill", "white-bass", "hybrid-striped-bass", "saugeye", "walleye", "common-carp", "longnose-gar", "yellow-perch"]   // + yellow perch: ODNR Waterbody Report survey data
     },
     alum: {
       id: "alum",
@@ -71,7 +71,7 @@
       push: null,      // Alum Creek also runs north to south, so the Hoover wording fits
       map: { data: "NightBiteMapDataAlum", chart: "assets/alum-chart.png" },
       spots: ["New Galena ramp", "Marina ramp (Hollenback Rd)", "Cheshire ramp", "Howard ramp", "Bank (south, main lake)", "Bank (middle)", "Bank (north, no wake)", "Kayak launch"],
-      species: ["saugeye", "walleye", "muskellunge", "largemouth-bass", "smallmouth-bass", "white-crappie", "black-crappie", "white-bass", "bluegill", "channel-catfish"]
+      species: ["saugeye", "walleye", "muskellunge", "largemouth-bass", "smallmouth-bass", "white-crappie", "black-crappie", "white-bass", "bluegill", "channel-catfish", "yellow-perch", "blue-catfish"]   // perch: ODNR Waterbody Report; blue cats: ODNR stocking 2023 to 2025
     },
     buckeye: {
       id: "buckeye",
@@ -100,7 +100,7 @@
         "into the north shore", "toward the northeast end", "toward the east end", "into the southeast shore"],
       map: { data: "NightBiteMapDataBuckeye", chart: "assets/buckeye-chart.png" },
       spots: ["North Shore ramp", "Liebs Island ramp", "Fairfield Beach ramp", "Mud Island pier", "Bank (north shore)", "Bank (south shore)", "Canal / Millersport"],
-      species: ["saugeye", "largemouth-bass", "white-crappie", "black-crappie", "bluegill", "yellow-perch", "channel-catfish", "bullhead"]
+      species: ["saugeye", "largemouth-bass", "white-crappie", "black-crappie", "bluegill", "yellow-perch", "channel-catfish", "bullhead", "hybrid-striped-bass", "white-bass"]   // hybrids and white bass: ODNR Waterbody Report; hybrids also ODNR stocking
     },
     oshaughnessy: {
       id: "oshaughnessy",
@@ -127,7 +127,7 @@
       push: null,      // runs north to south like Hoover
       map: { data: "NightBiteMapDataOshaughnessy", chart: "assets/oshaughnessy-chart.png" },
       spots: ["Home Road ramp", "Twin Lakes launch", "Bellepoint ramp", "Bank (south, near the dam)", "Bank (middle)", "Bank (north)", "Kayak launch"],
-      species: ["hybrid-striped-bass"]   // the only species ODNR names for this reservoir (stocking); no ODNR survey published
+      species: ["hybrid-striped-bass", "saugeye", "blue-catfish", "black-crappie", "white-crappie", "bluegill", "channel-catfish", "largemouth-bass", "smallmouth-bass", "white-bass"]   // ODNR Waterbody Report surveys; hybrids, saugeye and blue cats also ODNR stocking
     },
     griggs: {
       id: "griggs",
@@ -153,7 +153,7 @@
       push: null,      // runs north to south like Hoover
       map: { data: "NightBiteMapDataGriggs", chart: "assets/griggs-chart.png" },
       spots: ["Griggs boat launch (Fishinger Rd)", "Griggs marina docks", "Bank (east side park)", "Bank (west side, south of Fishinger Rd)", "Bank (north)", "Kayak launch"],
-      species: ["hybrid-striped-bass"]   // the only species ODNR names for this reservoir (stocking, 2026 central Ohio forecast)
+      species: ["hybrid-striped-bass", "saugeye", "black-crappie", "white-crappie", "bluegill", "channel-catfish", "largemouth-bass", "smallmouth-bass", "white-bass"]   // ODNR Waterbody Report surveys; hybrids also ODNR stocking and the 2026 central Ohio forecast
     },
     indian: {
       id: "indian",
@@ -181,7 +181,7 @@
         "into the north shore", "into the northeast shore", "into the east shore", "into the southeast shore"],
       map: { data: "NightBiteMapDataIndian", chart: "assets/indian-chart.png" },
       spots: ["Moundwood ramp", "Lakeview Harbor ramp", "Blackhawk ramp", "Chippewa ramp", "Cranetown Island ramp", "Old Field Beach jetties", "Bank (other)", "Kayak launch"],
-      species: ["saugeye", "black-crappie", "white-crappie", "largemouth-bass", "bluegill", "channel-catfish", "flathead-catfish", "white-bass", "walleye", "yellow-perch"]
+      species: ["saugeye", "black-crappie", "white-crappie", "largemouth-bass", "bluegill", "channel-catfish", "flathead-catfish", "white-bass", "walleye", "yellow-perch", "smallmouth-bass"]   // + smallmouth: ODNR Waterbody Report survey data
     },
     delaware: {
       id: "delaware",

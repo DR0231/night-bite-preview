@@ -103,7 +103,7 @@ Limit tables are **reminders only** — confirm on [HuntFish OH / ODNR licenses]
 |------|---------|
 | `index.html` | Hub home for Hoover (the site root), lake level and tonight's bite up top, pool/temp snapshot, next actions |
 | `alum/`, `buckeye/`, `oshaughnessy/`, `griggs/`, `indian/`, `delaware/` `index.html` | Home pages for the other six lakes, built from `index.html` (see Lake home pages) |
-| `species/index.html` | Filterable species grid for the active lake: Biting now tags, a "Not at <lake>" group, ramps and access (`js/species-lake.js`) |
+| `species/index.html` | Filterable species grid for the active lake: Biting now picks first, then every other species at the lake, then a closed "Not at <lake>" dropdown, ramps and access (`js/species-lake.js`) |
 | `species/*.html` | Per-species Season · Where · Limits · Gear · Bait, with an "at <lake> this month" note under the title |
 | `water.html` | Maps, pool correction, structure, ramps, dock season (from `data/docks.json` via `tools/build-docks.py`; `docks.html` is the short /docks link), link to Ice season |
 | `ice.html` | Ice season: ODNR ice safety, who to call per lake, winter species from the monthly notes. No ice reports |

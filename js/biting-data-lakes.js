@@ -133,7 +133,8 @@ window.NightBiteBitingBuckeye = {
  *  · ODNR Indian Lake Fishing Area page and Indian Lake State Park page (saugeye, crappie, bass in shallow vegetation,
  *    bluegill over 8 inches, channel and flathead catfish, white bass spawning run near Moundwood; jetties at Old Field Beach)
  *  · ODNR Delaware Lake Fishing Area page and Delaware State Park page (crappie, bass, channel catfish, bluegill, white bass)
- * ODNR publishes no species survey for O'Shaughnessy or Griggs, so those two list only the hybrid striped bass ODNR stocks.
+ * ODNR posts written fishing notes only for hybrid striped bass at O'Shaughnessy and Griggs, so their picks cover
+ * hybrids only. The other species ODNR surveys record there show on the Species page without monthly picks.
  */
 (function () {
   var COLD = "Cold water. Wear a life jacket on every early season boat trip.";
