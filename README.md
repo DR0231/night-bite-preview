@@ -11,7 +11,7 @@ Static website: **Hoover Reservoir** fishing hub (Delaware / Franklin County, Oh
 
 ## Share tags, robots and the meta check
 
-Share tags (Open Graph and Twitter Card) are written by `tools/build-meta.py` from each page's own `<title>`, meta description and canonical, so they never drift. Run it after `tools/build-lake-pages.py` and before `tools/stamp-version.py`, then check with `python3 tools/check-meta.py` (title, description, canonical, OG, Twitter and valid JSON-LD on every public page; exit 1 on errors). Images: `assets/og/og-alum.png` and `og-buckeye.png` on the lake pages, `og-card.png` everywhere else.
+Share tags (Open Graph and Twitter Card) are written by `tools/build-meta.py` from each page's own `<title>`, meta description and canonical, so they never drift. Run it after `tools/build-lake-pages.py` and before `tools/stamp-version.py`, then check with `python3 tools/check-meta.py` (title, description, canonical, OG, Twitter and valid JSON-LD on every public page; exit 1 on errors). Images: `assets/og/og-<lake>.png` on the lake pages, `og-card.png` everywhere else.
 
 `robots.txt` here blocks everything because this is the preview. `robots.live.txt` is the live robots.txt: AI training crawlers (GPTBot, Google-Extended, CCBot, anthropic-ai, ClaudeBot, Bytespider, Applebot-Extended, meta-externalagent, cohere-ai, Diffbot, Omgilibot) are blocked, AI search crawlers that link back (OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-SearchBot, Claude-User) and normal search engines are allowed. On promotion, copy it to the live repo as `robots.txt`.
 
@@ -81,7 +81,7 @@ Home · Species · Water · Log · Tournaments · Gear · About
 }
 ```
 
-`lake` is `hoover`, `alum` or `buckeye` (missing means `hoover`). Each lake view lists only its own events.
+`lake` is `hoover`, `alum`, `buckeye`, `oshaughnessy`, `griggs`, `indian` or `delaware` (missing means `hoover`). Each lake view lists only its own events.
 
 3. **Zero invented events.** Empty list is the honest default. This site is not a tournament director.
 
@@ -102,7 +102,7 @@ Limit tables are **reminders only** — confirm on [HuntFish OH / ODNR licenses]
 | Path | Purpose |
 |------|---------|
 | `index.html` | Hub home for Hoover (the site root), lake level and tonight's bite up top, pool/temp snapshot, next actions |
-| `alum/index.html`, `buckeye/index.html` | Alum Creek and Buckeye Lake home pages, built from `index.html` (see Lake home pages) |
+| `alum/`, `buckeye/`, `oshaughnessy/`, `griggs/`, `indian/`, `delaware/` `index.html` | Home pages for the other six lakes, built from `index.html` (see Lake home pages) |
 | `species/index.html` | Filterable species grid for the active lake: Biting now tags, a "Not at <lake>" group, ramps and access (`js/species-lake.js`) |
 | `species/*.html` | Per-species Season · Where · Limits · Gear · Bait, with an "at <lake> this month" note under the title |
 | `water.html` | Maps, pool correction, structure, ramps, dock season (from `data/docks.json` via `tools/build-docks.py`; `docks.html` is the short /docks link), link to Ice season |
@@ -119,8 +119,8 @@ Pages are linked without `.html` (`water`, `updates`, `species/walleye`, `specie
 
 ## Lake home pages
 
-Each lake has its own address: Hoover is the root (`/`), Alum Creek is `/alum/`, Buckeye Lake is `/buckeye/`.
-`alum/index.html` and `buckeye/index.html` are generated, never edited by hand. After any change to `index.html`:
+Each lake has its own address: Hoover is the root (`/`), Alum Creek is `/alum/`, Buckeye Lake is `/buckeye/`, O'Shaughnessy is `/oshaughnessy/`, Griggs is `/griggs/`, Indian Lake is `/indian/`, Delaware Lake is `/delaware/`.
+The six lake `index.html` files are generated, never edited by hand. After any change to `index.html`:
 
 ```bash
 python3 tools/build-lake-pages.py && python3 tools/stamp-version.py
@@ -130,7 +130,7 @@ The generator adds `<base href="../">` (so every asset, script and fetch resolve
 `nb-home` meta, its own title, description, canonical and OG tags (og:image is `assets/og/og-<lake>.png`), and points in-page links at the lake's page.
 `js/lakes.js` reads `nb-home`. Old links still work: `/?lake=alum` and a saved lake choice (localStorage `nb-lake`)
 send the root to `/alum/`. On Home the lake picker goes to the lake's address; on other pages it adds `?lake=`.
-All three home pages are precached by `sw.js`, so each opens offline. List new lakes in `sitemap.xml` too.
+All seven home pages are precached by `sw.js`, so each opens offline. List new lakes in `sitemap.xml` too.
 
 ## Home tools: Share tonight, Remind me
 
@@ -140,7 +140,7 @@ Share doesn't read as sharing only the strip above. No live thumbnail: at thumbn
 it would wait on the forecast, and it crowds the first screen.
 Share tonight draws a 1200x630 PNG on the phone from what the page shows, angler info first: wind and gusts, air and
 feels like, sky and rain chance (NWS), any NWS watch or warning (event name only), sunset, moonrise and moon (worked out
-on the phone), water temp only where the lake has a public temp gauge (Hoover; Alum and Buckeye say "No public temp
+on the phone), water temp only where the lake has a public temp gauge (Hoover, Griggs and Indian Lake; the others say "No public temp
 gauge"), and the top 3 picks from the lake's "What's biting now" month notes. Lake level and the bite rating sit on one
 small line. "--" when a value is missing. No URL and no source footer on the image; the sources are listed under it in
 the dialog. Shares with the Web Share API with files where supported, or a download.

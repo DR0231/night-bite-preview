@@ -2,7 +2,7 @@
  * The Night Bite: lake-aware Species. Follows the active lake from js/lakes.js (lake page path, ?lake=, or the saved
  * choice). Uses only data already on the site:
  *   · which species live at each lake: data-lakes on each card (js/lakes.js species lists, sourced in DATA-SOURCES.md)
- *   · what's biting this month: js/biting-data.js (Hoover) and js/biting-data-lakes.js (Alum Creek, Buckeye Lake)
+ *   · what's biting this month: js/biting-data.js (Hoover) and js/biting-data-lakes.js (every other lake)
  *   · ramps and access: the lake's map data (js/hoover-map-data.js, js/lake-map-data-*.js), each place with its
  *     public sources
  *
@@ -16,7 +16,7 @@
   if (!LK || !LS) return;
   var id = LK.id, cfg = LK.cfg;
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  var data = id === "alum" ? window.NightBiteBitingAlum : id === "buckeye" ? window.NightBiteBitingBuckeye : window.NightBiteBiting;
+  var data = window[LS.bitingVar(id)];
 
   function monthEt() {
     try { return parseInt(new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", month: "numeric" }).format(new Date()), 10) - 1; }
@@ -82,7 +82,7 @@
     var acc = document.getElementById("sp-access");
     var mapVar = cfg.map && cfg.map.data;
     if (acc && mapVar) {
-      var src = { NightBiteMapData: "hoover-map-data.js", NightBiteMapDataAlum: "lake-map-data-alum.js", NightBiteMapDataBuckeye: "lake-map-data-buckeye.js" }[mapVar];
+      var src = LS.mapFile(id);
       var fill = function () {
         var md = window[mapVar];
         if (!md || !md.places) return;

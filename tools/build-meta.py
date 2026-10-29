@@ -9,8 +9,8 @@ right after the canonical:
   og:site_name, og:type, og:title, og:description, og:url (= canonical), og:image (+ width, height, alt),
   twitter:card summary_large_image, twitter:title, twitter:description, twitter:image, twitter:image:alt.
 Any og:* or twitter:* tags already on the page are removed first, so running it twice changes nothing.
-Images are absolute https://nightbiteoh.com URLs: assets/og/og-alum.png and og-buckeye.png on the Alum Creek and
-Buckeye lake pages, assets/og/og-card.png everywhere else (all 1200x630).
+Images are absolute https://nightbiteoh.com URLs: assets/og/og-<lake>.png on each lake home page other
+than Hoover (alum, buckeye, oshaughnessy, griggs, indian, delaware), assets/og/og-card.png everywhere else (all 1200x630).
 Skipped: 404.html and offline.html (no canonical, not shared), previews/, review/, tools/, whisperwood/ (the game),
 and Search Console verification files. Check the result with tools/check-meta.py.
 """
@@ -22,6 +22,10 @@ SKIP_FILES = {"404.html", "offline.html"}
 IMAGES = {
     "alum/index.html": ("og-alum.png", "The Night Bite: Alum Creek Lake fishing hub, a pixel lantern over a moonlit tree line"),
     "buckeye/index.html": ("og-buckeye.png", "The Night Bite: Buckeye Lake fishing hub, a pixel lantern over a moonlit tree line"),
+    "oshaughnessy/index.html": ("og-oshaughnessy.png", "The Night Bite: O’Shaughnessy Reservoir fishing hub, a pixel lantern over a moonlit tree line"),
+    "griggs/index.html": ("og-griggs.png", "The Night Bite: Griggs Reservoir fishing hub, a pixel lantern over a moonlit tree line"),
+    "indian/index.html": ("og-indian.png", "The Night Bite: Indian Lake fishing hub, a pixel lantern over a moonlit tree line"),
+    "delaware/index.html": ("og-delaware.png", "The Night Bite: Delaware Lake fishing hub, a pixel lantern over a moonlit tree line"),
 }
 DEFAULT_IMAGE = ("og-card.png", "The Night Bite: a pixel lantern over a moonlit tree line")
 
