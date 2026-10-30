@@ -2496,7 +2496,7 @@ html.map-open { overflow: hidden; }
 }
 
 /* ==========================================================================
-   Lakes: Hoover, Alum Creek, Buckeye Lake, O'Shaughnessy, Griggs, Indian Lake, Delaware Lake (js/lakes.js sets html[data-lake])
+   Lakes: Hoover, Alum Creek, Buckeye Lake, O'Shaughnessy, Griggs, Indian Lake, Delaware Lake, Deer Creek Lake, Madison Lake, Knox Lake, Clear Fork Reservoir (js/lakes.js sets html[data-lake])
    ========================================================================== */
 /* Lake-only blocks: data-for="<lake id>" or a space separated list; species cards list their lakes in data-lakes.
    js/lakes.js adds the hide rule for the current lake before first paint, from its LAKES entry. No data-lake (no JS): Hoover. */
@@ -2802,6 +2802,10 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
 .pool-chart img[data-for="griggs"] { width: 296px; height: 76px; }
 .pool-chart img[data-for="indian"] { width: 96px; height: 84px; }
 .pool-chart img[data-for="delaware"] { width: 252px; height: 96px; }
+.pool-chart img[data-for="deercreek"] { width: 96px; height: 94px; }
+.pool-chart img[data-for="madison"] { width: 264px; height: 96px; }
+.pool-chart img[data-for="knox"] { width: 70px; height: 54px; }
+.pool-chart img[data-for="clearfork"] { width: 120px; height: 96px; }
 @media (max-width: 359px) {
   .pool-chart img[data-for="alum"] { width: 134px; height: 37px; }
   .pool-chart img[data-for="buckeye"] { width: 92px; height: 48px; }
@@ -2809,6 +2813,10 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
   .pool-chart img[data-for="griggs"] { width: 148px; height: 38px; }
   .pool-chart img[data-for="indian"] { width: 48px; height: 42px; }
   .pool-chart img[data-for="delaware"] { width: 126px; height: 48px; }
+  .pool-chart img[data-for="deercreek"] { width: 48px; height: 47px; }
+  .pool-chart img[data-for="madison"] { width: 132px; height: 48px; }
+  .pool-chart img[data-for="knox"] { width: 35px; height: 27px; }
+  .pool-chart img[data-for="clearfork"] { width: 60px; height: 48px; }
 }
 .pool-chart-key > span[data-for="buckeye"] { margin-right: 0.5rem; }
 @media (min-width: 560px) { .pool-chart-key > span[data-for="buckeye"] { margin-right: 0; } }

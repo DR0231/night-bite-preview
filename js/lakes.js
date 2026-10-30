@@ -3,16 +3,17 @@
  * Loaded in <head> on every page (before any other script), so html[data-lake] is set before first paint and the
  * lake-only blocks ([data-for="alum"] and so on, see css/styles.css) never flash the wrong lake.
  *
- * Active lake: ?lake=hoover|alum|buckeye|oshaughnessy|griggs|indian|delaware in the URL first, then localStorage "nb-lake", then Hoover (the default).
+ * Active lake: ?lake=hoover|alum|buckeye|oshaughnessy|griggs|indian|delaware|deercreek|madison|knox|clearfork in the URL first, then localStorage "nb-lake", then Hoover (the default).
  * Home pages have their own address per lake: Hoover at the site root, every other lake at <id>/ (alum/, buckeye/,
- * oshaughnessy/, griggs/, indian/, delaware/). Those index.html files are built from index.html by tools/build-lake-pages.py
+ * oshaughnessy/, griggs/, indian/, delaware/, deercreek/, madison/, knox/, clearfork/). Those index.html files are built from index.html by tools/build-lake-pages.py
  * and carry <meta name="nb-home" content="<id>">. On a lake's own home page that lake always wins. At the root, a ?lake= link
  * or a saved choice of another lake goes straight to that lake's address (location.replace, before anything
  * paints). Other pages keep ?lake= in the address bar for every lake but Hoover, a clean URL for Hoover, and their
  * Home links point at the chosen lake's home page.
  *
  * Also the shared gauge fetchers: USGS (usgsLatest, usgsSeries: new Water Data API first, legacy IV as fallback) and the
- * Corps CWMS API (cwmsFor, Alum Creek and Delaware Lake). js/usgs.js, js/pool-trend.js and js/lake-picker.js all use them.
+ * Corps CWMS API (cwmsFor, Alum Creek, Delaware Lake and Deer Creek Lake). Madison Lake, Knox Lake and Clear Fork Reservoir have
+ * no public lake gauge (pool.src null): nothing is fetched and the pool card says so. js/usgs.js, js/pool-trend.js and js/lake-picker.js all use them.
  *
  * Adding a lake: one entry in LAKES plus its id in ORDER. The picker (js/lake-picker.js) reads name, short, aliases
  * (search), region, lat and lng (Near me) and pool (its Live level and Live temp tags) from that entry.
@@ -227,9 +228,124 @@
       map: { data: "NightBiteMapDataDelaware", chart: "assets/delaware-chart.png" },
       spots: ["Main marina ramp", "Southwest launch", "Sherwood Road ramp (east)", "Bank (dam area)", "Bank (other)", "Kayak launch"],
       species: ["black-crappie", "white-crappie", "largemouth-bass", "smallmouth-bass", "channel-catfish", "bluegill", "white-bass"]
+    },
+    deercreek: {
+      id: "deercreek",
+      name: "Deer Creek Lake",
+      short: "Deer Creek Lake",
+      area: "Central Ohio",
+      lat: 39.62, lng: -83.24,
+      region: "central", owner: "US Army Corps of Engineers",
+      aliases: ["Deer Creek", "Deer Creek State Park", "Deer Creek Reservoir", "Mt. Sterling"],
+      pool: {
+        // no USGS lake gauge; the Corps of Engineers posts the lake level every 15 minutes (same as Alum Creek).
+        // ODNR draws it down about 14 ft to winter pool Oct. 1 to Nov. 30, so fall readings sit well below full pool.
+        src: "cwms", srcName: "USACE",
+        office: "LRH", ts: "DeerCr-Lake.Elev.Inst.15Minutes.0.OBS",
+        temp: null,     // no public lake temperature gauge (the Corps posts an outflow temp only)
+        fullPool: 810.5,   // ODNR fishing map pool
+        gaugeUrl: "https://water.usace.army.mil/overview/lrh/locations/deercr",
+        snapshot: { line: "804.72 ft · no temp · ~5.8 ft below full pool", at: "2026-10-30T10:30:00-04:00", when: "2026-10-30 10:30 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/78,65/forecast/hourly",
+        point: "https://api.weather.gov/points/39.62,-83.24",
+        grid: "https://api.weather.gov/gridpoints/ILN/78,65",
+        station: "KI23", stationName: "Washington Court House airport (KI23)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.62&lon=-83.24"
+      },
+      alerts: { zones: "OHC129,OHC047,OHZ064,OHZ063", counties: "the Deer Creek Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataDeercreek", chart: "assets/deercreek-chart.png" },
+      spots: ["Marina ramp (west)", "Ramp by the dam", "Below the dam", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "black-crappie", "white-crappie", "largemouth-bass", "smallmouth-bass", "channel-catfish", "bluegill", "white-bass"]
+    },
+    madison: {
+      id: "madison",
+      name: "Madison Lake",
+      short: "Madison Lake",
+      area: "Central Ohio",
+      lat: 39.875, lng: -83.376,
+      region: "central", owner: "ODNR Ohio State Parks",
+      aliases: ["Madison", "Madison Lake State Park", "London"],
+      pool: {
+        // no public lake level or temperature gauge (USGS or Corps): the pool card says so, nothing is fetched
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 965,     // ODNR fishing map summer pool
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/72,76/forecast/hourly",
+        point: "https://api.weather.gov/points/39.875,-83.376",
+        grid: "https://api.weather.gov/gridpoints/ILN/72,76",
+        station: "KUYF", stationName: "London airport (KUYF)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.875&lon=-83.376"
+      },
+      alerts: { zones: "OHC097,OHZ054", counties: "the Madison Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataMadison", chart: "assets/madison-chart.png" },
+      spots: ["Launch ramp", "Bank by the ramp", "Bank (other)", "Kayak launch"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish", "bullhead"]
+    },
+    knox: {
+      id: "knox",
+      name: "Knox Lake",
+      short: "Knox Lake",
+      area: "Central Ohio",
+      lat: 40.507, lng: -82.506,
+      region: "central", owner: "ODNR Division of Wildlife",
+      aliases: ["Knox", "Knox Lake Fishing Area", "Fredericktown", "Kokosing"],
+      pool: {
+        // no public lake level or temperature gauge (the USGS Kokosing River gauge is on the river, not the lake)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 1100,    // ODNR fishing map summer pool
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/60,17/forecast/hourly",
+        point: "https://api.weather.gov/points/40.507,-82.506",
+        grid: "https://api.weather.gov/gridpoints/CLE/60,17",
+        station: "KMFD", stationName: "Mansfield airport (KMFD)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.507&lon=-82.506"
+      },
+      alerts: { zones: "OHC083,OHZ047", counties: "the Knox Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataKnox", chart: "assets/knox-chart.png" },
+      spots: ["Marina ramp (lower lake)", "Upper lake ramp", "Carry-in access", "Bank (other)", "Kayak launch"],
+      species: ["largemouth-bass", "flathead-catfish", "black-crappie", "white-crappie", "bluegill", "channel-catfish", "yellow-perch"]
+    },
+    clearfork: {
+      id: "clearfork",
+      name: "Clear Fork Reservoir",
+      short: "Clear Fork",
+      area: "Central Ohio",
+      lat: 40.71, lng: -82.63,
+      region: "central", owner: "City of Mansfield",
+      aliases: ["Clear Fork", "Clearfork", "Clear Fork Lake", "Mansfield", "Lexington"],
+      pool: {
+        // no public lake level or temperature gauge: the pool card says so, nothing is fetched
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 1202,    // ODNR fishing map summer pool (the City lists the spillway at 1202 ft)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/55,26/forecast/hourly",
+        point: "https://api.weather.gov/points/40.71,-82.63",
+        grid: "https://api.weather.gov/gridpoints/CLE/55,26",
+        station: "KMFD", stationName: "Mansfield airport (KMFD)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.71&lon=-82.63"
+      },
+      alerts: { zones: "OHC139,OHC117,OHZ029,OHZ037", counties: "the Clear Fork Reservoir area" },
+      push: null,
+      map: { data: "NightBiteMapDataClearfork", chart: "assets/clearfork-chart.png" },
+      spots: ["Ramp and marina (south side)", "Picnic area pier", "Bank (south shore)", "Bank (other)", "Kayak launch"],
+      species: ["muskellunge", "largemouth-bass", "black-crappie", "white-crappie", "channel-catfish"]
     }
   };
-  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware"];
+  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork"];
   // picker regions, in this order (js/lake-picker.js). A region with no lakes yet is hidden. Every lake above sets
   // region to one of these ids; lat and lng above (the lake's NWS forecast point, on the water) give Near me distances.
   var REGIONS = [
