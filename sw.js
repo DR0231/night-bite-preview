@@ -19,7 +19,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v46-2026-10-30";
+var VERSION = "v47-2026-10-30";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -67,6 +67,8 @@ var PRECACHE = [
   "species/bullhead.html",
   "js/alerts.js",
   "js/astro.js",
+  "js/bait-nearby.js",
+  "data/bait-shops.json",
   "js/biting-data.js",
   "js/biting-data-lakes.js",
   "js/biting.js",

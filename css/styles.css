@@ -3527,3 +3527,38 @@ a[href^="tel:"],
 .nowrap {
   white-space: nowrap;
 }
+
+/* ---- Bait nearby (js/bait-nearby.js, data/bait-shops.json) ---- */
+@media (min-width: 560px) {
+  .bento-grid .bento-bait { grid-column: 1 / -1; }
+}
+@media (min-width: 1000px) {
+  .bento-grid .bento-pool { grid-column: 1; grid-row: 1 / span 4; }
+  .bento-grid .bento-conditions { grid-column: 2; grid-row: 1; }
+  .bento-grid .bento-bait { grid-column: 2; grid-row: 2; }
+  .bento-grid .bento-maps { grid-column: 2; grid-row: 3; }
+  .bento-grid .bento-species { grid-column: 2; grid-row: 4; }
+  .bento-grid .bento-whisper { grid-column: 1; grid-row: 5; }
+  .bento-grid .bento-log { grid-column: 2; grid-row: 5; }
+}
+.bait-list { list-style: none; margin: 0; padding: 0; }
+.bait-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: 0.625rem 0;
+  border-top: 1px solid var(--hairline);
+}
+.bait-list > .bait-row:first-child { border-top: 0; padding-top: 0; }
+.bait-more-list > .bait-row:first-child { padding-top: 0; }
+.bait-info { display: flex; flex-direction: column; min-width: 0; }
+.bait-name { color: var(--cream); font-size: var(--text-base); line-height: 1.35; overflow-wrap: anywhere; }
+.bait-time { color: var(--muted); font-size: var(--text-sm); }
+.bait-go { flex-shrink: 0; padding: 0.55rem 0.9rem; }
+.bait-status { margin: 0; color: var(--cream-dark); }
+.bento-bait .how-to-read { margin-top: var(--space-sm); }
+.bento-bait .how-to-read-body li { margin-bottom: 0; }
+.bait-foot { margin: var(--space-sm) 0 0; }
+.bait-foot a { color: var(--amber); }
+.bait-foot a:hover { color: var(--cream); }
