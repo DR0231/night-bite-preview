@@ -51,6 +51,9 @@ const PAGES = IDS.flatMap(l => [l + '/', ...['water', 'stocking', 'gear', 'ice',
       check(`${w} /${p} images load and have alt`, badImg.length === 0 && !d.svgBad, JSON.stringify(badImg).slice(0, 200) + (d.svgBad ? ' svg no label ' + d.svgBad : ''));
       if (w === 390) {
         const m = await page.evaluate(async () => {
+          const pill = document.querySelector('[aria-haspopup=dialog]'); if (pill && !location.search) { pill.click(); await new Promise(r => setTimeout(r, 400)); }
+          const pickerIds = [...document.querySelectorAll('a[data-lake]')].map(e => e.dataset.lake).join(' ');
+          const dlg = document.querySelector('dialog[open]'); if (dlg) dlg.close();
           document.querySelectorAll('details').forEach(x => x.open = true);
           await new Promise(r => setTimeout(r, 300));
           const q = s => document.querySelector(s); const c = s => (q(s) || {}).content || '';
@@ -62,12 +65,13 @@ const PAGES = IDS.flatMap(l => [l + '/', ...['water', 'stocking', 'gear', 'ice',
           const blocks = [...main.querySelectorAll('.card, .how-to-read, .data-glance, .glance-cell, section.lake-section, .stock-lake, .rules-card')]
             .filter(vis).filter(b => /\d/.test(b.innerText) && !b.closest('nav'))
             .filter(b => !b.querySelector('.card, .how-to-read'))
+            .filter(b => !/^\/gear/.test(location.pathname.replace(/^\/night-bite-preview/, '')) || b.closest('[data-for]'))   // gear kits are general tackle, not lake data
             .map(b => { const own2 = [b, ...b.querySelectorAll('a[href]')].filter(a => a.matches('a[href]'));
               const up = b.closest('[data-for], section, article') || b; const ext = [...up.querySelectorAll('a[href]')];
               return { t: b.innerText.trim().replace(/\s+/g, ' ').slice(0, 70), src: own2.some(srcA) || ext.some(srcA), own: own2.map(a => a.getAttribute('href')).slice(0, 3) }; });
           const aa = [...document.querySelectorAll('a[href]')].filter(a => vis(a) || a.closest('details')).map(a => a.href).filter(h => /^https?:/.test(h));
           const qfTime = (q('#quick-facts time') || {}).dateTime || '';
-          return { title: document.title, desc: c('meta[name=description]'), ogt: c('meta[property="og:title"]'), ogd: c('meta[property="og:description"]'), ogi: c('meta[property="og:image"]'), ogu: c('meta[property="og:url"]'), canon: (q('link[rel=canonical]') || {}).href || '', ld, qfTime, text: main.innerText, blocks, aa, picker: [...document.querySelectorAll('a[data-lake]')].map(e => e.dataset.lake).join(' ') };
+          return { title: document.title, desc: c('meta[name=description]'), ogt: c('meta[property="og:title"]'), ogd: c('meta[property="og:description"]'), ogi: c('meta[property="og:image"]'), ogu: c('meta[property="og:url"]'), canon: (q('link[rel=canonical]') || {}).href || '', ld, qfTime, text: main.innerText, blocks, aa, picker: pickerIds };
         });
         if (!p.includes('?')) check(`/${p} lake picker lists all ${IDS.length} waters`, IDS.every(i => m.picker.includes(i)), m.picker.slice(0, 200));
         check(`/${p} title, description, OG, canonical`, m.title && m.desc && m.ogt && m.ogd && m.ogi && m.ogu && m.canon.startsWith(SITE), `${m.title} | canon ${m.canon} | og:image ${m.ogi}`);
