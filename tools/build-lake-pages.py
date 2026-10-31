@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Build each lake's own home page from index.html: alum/, buckeye/, oshaughnessy/, griggs/, indian/, delaware/,
-deercreek/, madison/, knox/ and clearfork/index.html.
+deercreek/, madison/, knox/, clearfork/, seneca/, dillon/, logan/, saltfork/, burroak/ and dow/index.html.
 
 Run from the repo root after any change to index.html, then run tools/stamp-version.py:
     python3 tools/build-lake-pages.py && python3 tools/stamp-version.py
@@ -69,6 +69,36 @@ LAKES = {
         "name": "Clear Fork Reservoir", "short": "Clear Fork",
         "title": "The Night Bite: Clear Fork Reservoir fishing hub",
         "desc": "Unofficial Clear Fork Reservoir fishing hub, Ohio: reservoir map and ramps, tonight's bite, species, water maps, trip log, gear.",
+    },
+    "seneca": {
+        "name": "Seneca Lake", "short": "Seneca Lake",
+        "title": "The Night Bite: Seneca Lake fishing hub",
+        "desc": "Unofficial Seneca Lake fishing hub, Ohio: live lake level, tonight's bite, species, water maps, trip log, gear.",
+    },
+    "dillon": {
+        "name": "Dillon Lake", "short": "Dillon Lake",
+        "title": "The Night Bite: Dillon Lake fishing hub",
+        "desc": "Unofficial Dillon Lake fishing hub, Ohio: live lake level, tonight's bite, species, water maps, trip log, gear.",
+    },
+    "logan": {
+        "name": "Lake Logan", "short": "Lake Logan",
+        "title": "The Night Bite: Lake Logan fishing hub",
+        "desc": "Unofficial Lake Logan fishing hub, Ohio: lake map and ramps, tonight's bite, species, water maps, trip log, gear.",
+    },
+    "saltfork": {
+        "name": "Salt Fork Lake", "short": "Salt Fork Lake",
+        "title": "The Night Bite: Salt Fork Lake fishing hub",
+        "desc": "Unofficial Salt Fork Lake fishing hub, Ohio: lake map and ramps, tonight's bite, species, water maps, trip log, gear.",
+    },
+    "burroak": {
+        "name": "Burr Oak Lake", "short": "Burr Oak Lake",
+        "title": "The Night Bite: Burr Oak Lake fishing hub",
+        "desc": "Unofficial Burr Oak Lake fishing hub, Ohio: live lake level, tonight's bite, species, water maps, trip log, gear.",
+    },
+    "dow": {
+        "name": "Dow Lake", "short": "Dow Lake",
+        "title": "The Night Bite: Dow Lake fishing hub",
+        "desc": "Unofficial Dow Lake fishing hub, Ohio: lake map and ramps, tonight's bite, species, water maps, trip log, gear.",
     },
 }
 

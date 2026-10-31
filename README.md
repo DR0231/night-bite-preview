@@ -81,7 +81,7 @@ Home · Species · Water · Log · Tournaments · Gear · About
 }
 ```
 
-`lake` is `hoover`, `alum`, `buckeye`, `oshaughnessy`, `griggs`, `indian`, `delaware`, `deercreek`, `madison`, `knox` or `clearfork` (missing means `hoover`). Each lake view lists only its own events.
+`lake` is `hoover`, `alum`, `buckeye`, `oshaughnessy`, `griggs`, `indian`, `delaware`, `deercreek`, `madison`, `knox`, `clearfork`, `seneca`, `dillon`, `logan`, `saltfork`, `burroak` or `dow` (missing means `hoover`). Each lake view lists only its own events.
 
 3. **Zero invented events.** Empty list is the honest default. This site is not a tournament director.
 
@@ -102,7 +102,7 @@ Limit tables are **reminders only** — confirm on [HuntFish OH / ODNR licenses]
 | Path | Purpose |
 |------|---------|
 | `index.html` | Hub home for Hoover (the site root), lake level and tonight's bite up top, pool/temp snapshot, next actions |
-| `alum/`, `buckeye/`, `oshaughnessy/`, `griggs/`, `indian/`, `delaware/`, `deercreek/`, `madison/`, `knox/`, `clearfork/` `index.html` | Home pages for the other ten lakes, built from `index.html` (see Lake home pages) |
+| `alum/`, `buckeye/`, `oshaughnessy/`, `griggs/`, `indian/`, `delaware/`, `deercreek/`, `madison/`, `knox/`, `clearfork/`, `seneca/`, `dillon/`, `logan/`, `saltfork/`, `burroak/`, `dow/` `index.html` | Home pages for the other 16 lakes, built from `index.html` (see Lake home pages) |
 | `species/index.html` | Filterable species grid for the active lake: Biting now picks first, then every other species at the lake, then a closed "Not at <lake>" dropdown, ramps and access (`js/species-lake.js`) |
 | `species/*.html` | Per-species Season · Where · Limits · Gear · Bait, with an "at <lake> this month" note under the title |
 | `water.html` | Maps, pool correction, structure, ramps, dock season (from `data/docks.json` via `tools/build-docks.py`; `docks.html` is the short /docks link), link to Ice season |
@@ -119,8 +119,8 @@ Pages are linked without `.html` (`water`, `updates`, `species/walleye`, `specie
 
 ## Lake home pages
 
-Each lake has its own address: Hoover is the root (`/`), Alum Creek is `/alum/`, Buckeye Lake is `/buckeye/`, O'Shaughnessy is `/oshaughnessy/`, Griggs is `/griggs/`, Indian Lake is `/indian/`, Delaware Lake is `/delaware/`, Deer Creek Lake is `/deercreek/`, Madison Lake is `/madison/`, Knox Lake is `/knox/`, Clear Fork Reservoir is `/clearfork/`.
-The ten lake `index.html` files are generated, never edited by hand. After any change to `index.html`:
+Each lake has its own address: Hoover is the root (`/`), Alum Creek is `/alum/`, Buckeye Lake is `/buckeye/`, O'Shaughnessy is `/oshaughnessy/`, Griggs is `/griggs/`, Indian Lake is `/indian/`, Delaware Lake is `/delaware/`, Deer Creek Lake is `/deercreek/`, Madison Lake is `/madison/`, Knox Lake is `/knox/`, Clear Fork Reservoir is `/clearfork/`, Seneca Lake is `/seneca/`, Dillon Lake is `/dillon/`, Lake Logan is `/logan/`, Salt Fork Lake is `/saltfork/`, Burr Oak Lake is `/burroak/`, Dow Lake is `/dow/`.
+The 16 lake `index.html` files are generated, never edited by hand. After any change to `index.html`:
 
 ```bash
 python3 tools/build-lake-pages.py && python3 tools/stamp-version.py

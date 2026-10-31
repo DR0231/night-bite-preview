@@ -2812,6 +2812,12 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
 .pool-chart img[data-for="madison"] { width: 264px; height: 96px; }
 .pool-chart img[data-for="knox"] { width: 70px; height: 54px; }
 .pool-chart img[data-for="clearfork"] { width: 120px; height: 96px; }
+.pool-chart img[data-for="seneca"] { width: 98px; height: 94px; }
+.pool-chart img[data-for="dillon"] { width: 76px; height: 76px; }
+.pool-chart img[data-for="logan"] { width: 146px; height: 96px; }
+.pool-chart img[data-for="saltfork"] { width: 96px; height: 96px; }
+.pool-chart img[data-for="burroak"] { width: 146px; height: 96px; }
+.pool-chart img[data-for="dow"] { width: 120px; height: 94px; }
 @media (max-width: 359px) {
   .pool-chart img[data-for="alum"] { width: 134px; height: 37px; }
   .pool-chart img[data-for="buckeye"] { width: 92px; height: 48px; }
@@ -2823,6 +2829,12 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
   .pool-chart img[data-for="madison"] { width: 132px; height: 48px; }
   .pool-chart img[data-for="knox"] { width: 35px; height: 27px; }
   .pool-chart img[data-for="clearfork"] { width: 60px; height: 48px; }
+  .pool-chart img[data-for="seneca"] { width: 49px; height: 47px; }
+  .pool-chart img[data-for="dillon"] { width: 38px; height: 38px; }
+  .pool-chart img[data-for="logan"] { width: 73px; height: 48px; }
+  .pool-chart img[data-for="saltfork"] { width: 48px; height: 48px; }
+  .pool-chart img[data-for="burroak"] { width: 73px; height: 48px; }
+  .pool-chart img[data-for="dow"] { width: 60px; height: 47px; }
 }
 .pool-chart-key > span[data-for="buckeye"] { margin-right: 0.5rem; }
 @media (min-width: 560px) { .pool-chart-key > span[data-for="buckeye"] { margin-right: 0; } }

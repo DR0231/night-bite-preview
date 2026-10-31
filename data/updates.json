@@ -2,6 +2,34 @@
   "about": "What's new on The Night Bite, newest first. Edit this file, then run: python3 tools/build-updates.py (see README, 'What's new'). Entries come from what actually shipped to nightbiteoh.com. An entry with \"draft\": true and \"date\": null is on the preview only: it shows on the preview, and is hidden on nightbiteoh.com until you set the date and remove the draft flag at promotion.",
   "entries": [
     {
+      "id": "draft-six-east-southeast",
+      "date": null,
+      "draft": true,
+      "tag": "New",
+      "title": "Six more waters east and southeast",
+      "bullets": [
+        "Pick Seneca Lake, Dillon Lake, Lake Logan, Salt Fork Lake, Burr Oak Lake or Dow Lake with the lake picker. Each has its own home page.",
+        "Each lake has its own map and ramps, lake rules, species notes, dock season and Bait nearby. Seneca reads the USGS lake gauge, Dillon and Burr Oak the Army Corps; Lake Logan, Salt Fork and Dow say No public gauge.",
+        "Stocking & surveys adds ten years of ODNR stocking for all six, from ODNR’s Fish Stocking dashboard.",
+        "Gear and Ice season cover all six, with each lake’s crappie and bass rules.",
+        "The trip report form now lists all 17 lakes."
+      ],
+      "links": [
+        {
+          "label": "Water",
+          "href": "water"
+        },
+        {
+          "label": "Stocking & surveys",
+          "href": "stocking"
+        },
+        {
+          "label": "Gear",
+          "href": "gear"
+        }
+      ]
+    },
+    {
       "id": "draft-lake-facts-gaps",
       "date": null,
       "draft": true,
