@@ -2,6 +2,24 @@
   "about": "What's new on The Night Bite, newest first. Edit this file, then run: python3 tools/build-updates.py (see README, 'What's new'). Entries come from what actually shipped to nightbiteoh.com. An entry with \"draft\": true and \"date\": null is on the preview only: it shows on the preview, and is hidden on nightbiteoh.com until you set the date and remove the draft flag at promotion.",
   "entries": [
     {
+      "id": "draft-tonight-at-a-glance",
+      "date": null,
+      "draft": true,
+      "tag": "Improved",
+      "title": "Tonight at a glance on every lake",
+      "bullets": [
+        "The strip under the lake name now shows the lake level, water temp, sunset and tonight’s wind, with the bite rating beside the title.",
+        "Tap the level or temp for the lake’s USGS or Army Corps gauge, or tap the wind for the National Weather Service forecast.",
+        "Lakes with no public gauge say so instead of showing a number."
+      ],
+      "links": [
+        {
+          "label": "Home",
+          "href": "./"
+        }
+      ]
+    },
+    {
       "id": "2026-10-29-four-lakes",
       "date": "2026-10-29",
       "tag": "New",
