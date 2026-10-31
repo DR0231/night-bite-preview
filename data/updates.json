@@ -2,6 +2,25 @@
   "about": "What's new on The Night Bite, newest first. Edit this file, then run: python3 tools/build-updates.py (see README, 'What's new'). Entries come from what actually shipped to nightbiteoh.com. An entry with \"draft\": true and \"date\": null is on the preview only: it shows on the preview, and is hidden on nightbiteoh.com until you set the date and remove the draft flag at promotion.",
   "entries": [
     {
+      "id": "draft-lake-facts-gaps",
+      "date": null,
+      "draft": true,
+      "tag": "Improved",
+      "title": "Lake rules and facts filled in",
+      "bullets": [
+        "O’Shaughnessy and Griggs now show the City of Columbus 10 mph limit from sunset to sunrise, linked to the City code.",
+        "Clear Fork Reservoir shows the City of Mansfield’s idle speed, no wake rule, the 500 ft boat fishing limit at the dam and no parking from dark to dawn outside camping areas.",
+        "Hoover and Alum Creek get lake facts cards, and Deer Creek Lake, Madison Lake and Buckeye Lake list each agency’s acreage.",
+        "The Twin Lakes pin at O’Shaughnessy moves to the west side cove off Dublin Road, and the east side kayak launch gets its own pin."
+      ],
+      "links": [
+        {
+          "label": "Water",
+          "href": "water"
+        }
+      ]
+    },
+    {
       "id": "draft-tonight-at-a-glance",
       "date": null,
       "draft": true,
