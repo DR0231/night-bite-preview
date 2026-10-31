@@ -20,10 +20,11 @@ const check = (n, ok, info) => { results.push((ok ? 'PASS ' : 'FAIL ') + n + (in
 const note = s => results.push('NOTE ' + s);
 const SPX = fs.readFileSync(path.join(__dirname, '..', 'species', 'index.html'), 'utf8');
 const speciesOf = l => [...SPX.matchAll(/class="card species-card"[^>]*href="([a-z-]+)" data-lakes="([^"]*)"/g)].filter(m => m[2].split(' ').includes(l)).map(m => m[1]);
-const PAGES = IDS.flatMap(l => [l + '/', ...['water', 'stocking', 'gear', 'ice', 'log', 'species/'].map(p => p + '?lake=' + l), ...speciesOf(l).map(s => 'species/' + s + '?lake=' + l)]);
+const home = l => (l === 'hoover' ? '' : l + '/');   // Hoover is the default lake and lives at the root
+const PAGES = IDS.flatMap(l => [home(l), ...['water', 'stocking', 'gear', 'ice', 'log', 'species/'].map(p => p + '?lake=' + l), ...speciesOf(l).map(s => 'species/' + s + '?lake=' + l)]);
 (async () => {
   const sm = await (await fetch(BASE + 'sitemap.xml?x=' + Date.now())).text();
-  for (const l of IDS) check(`sitemap lists /${l}/`, sm.includes(`<loc>${SITE}${l}/</loc>`));
+  for (const l of IDS) check(`sitemap lists /${home(l)}`, sm.includes(`<loc>${SITE}${home(l)}</loc>`));
   const browser = await chromium.launch({ executablePath: '/usr/bin/google-chrome', args: NA.args(['--no-sandbox']) });
   const links = new Map();
   for (const [w, h] of [[390, 844], [820, 1180], [1280, 800]]) {
@@ -33,10 +34,11 @@ const PAGES = IDS.flatMap(l => [l + '/', ...['water', 'stocking', 'gear', 'ice',
       const page = await ctx.newPage(); const errs = [];
       page.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
       page.on('pageerror', e => errs.push('pageerror ' + e.message));
+      const rf = []; page.on('requestfailed', r => rf.push(r.url()));
       let st = 0;
       try { const r = await page.goto(BASE + p, { waitUntil: 'networkidle', timeout: 45000 }); st = r ? r.status() : 0; } catch (e) { errs.push('goto ' + e.message); }
       await page.waitForTimeout(500);
-      const lake = p.split('?lake=')[1] || p.replace('/', '');
+      const lake = p.split('?lake=')[1] || p.replace('/', '') || 'hoover';
       const d = await page.evaluate(() => {
         const vis = el => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
         const imgs = [...document.images].filter(vis).map(i => ({ src: i.currentSrc || i.src, ok: i.complete && i.naturalWidth > 0, alt: i.hasAttribute('alt') }));
@@ -44,7 +46,9 @@ const PAGES = IDS.flatMap(l => [l + '/', ...['water', 'stocking', 'gear', 'ice',
         return { ov: document.documentElement.scrollWidth - window.innerWidth, lake: document.documentElement.dataset.lake, imgs, svgBad };
       }).catch(e => ({ ov: 99, imgs: [], err: e.message }));
       check(`${w} /${p} status 200`, st === 200, st);
-      check(`${w} /${p} no console or page errors`, errs.length === 0, errs.join(' | '));
+      // the analytics beacon we block ourselves shows up as ERR_BLOCKED_BY_CLIENT; that one is expected on live
+      const real = errs.filter(e => !(/ERR_BLOCKED_BY_CLIENT/.test(e) && rf.every(u => NA.PATTERN.test(u))));
+      check(`${w} /${p} no console or page errors`, real.length === 0, real.join(' | ') + (real.length ? ' RF ' + rf.join(' ') : ''));
       check(`${w} /${p} no sideways scroll`, d.ov <= 1, d.ov);
       check(`${w} /${p} shows ${lake}`, d.lake === lake, d.lake);
       const badImg = d.imgs.filter(i => !i.ok || !i.alt);
