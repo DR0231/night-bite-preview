@@ -35,12 +35,14 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=v53-2026-10-31">
+  <link rel="stylesheet" href="css/styles.css?v=v54-2026-10-31">
   <noscript><style>.glance,.glance-actions{display:none}.pool-trend[data-pending]{display:none!important}</style></noscript>
-  <script src="js/lakes.js?v=v53-2026-10-31"></script>
+  <script src="js/lakes.js?v=v54-2026-10-31"></script>
+  <!-- nb:jsonld (tools/build-lake-pages.py) -->
   <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "WebSite", "name": "The Night Bite", "url": "https://nightbiteoh.com/knox/"}
+  [{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://nightbiteoh.com/knox/#webpage", "url": "https://nightbiteoh.com/knox/", "name": "The Night Bite: Knox Lake fishing hub", "isPartOf": {"@id": "https://nightbiteoh.com/#website"}, "about": {"@type": "LakeBodyOfWater", "name": "Knox Lake"}, "dateModified": "2026-10-30", "inLanguage": "en-US"}]
   </script>
+  <!-- /nb:jsonld -->
 </head>
 <body>
   <a class="sr-only" href="knox/#main">Skip to content</a>
@@ -222,11 +224,25 @@
       species pages, water maps, trip log, and gear kits.
     </p>
 
+    <!-- nb:quick-facts (tools/build-lake-pages.py) -->
+    <details class="how-to-read quick-facts" id="quick-facts">
+      <summary><h2 class="qf-title">Quick facts</h2><span class="qf-checked">Facts checked <time datetime="2026-10-30">Oct. 30, 2026</time></span></summary>
+      <div class="how-to-read-body">
+        <dl class="qf-list">
+          <div><dt>Motors and speed</dt><dd>10 hp limit; larger motors at no wake or idle only.</dd></div>
+          <div><dt>Ramps and access</dt><dd>Marina and main ramp on Armentrout Road and an upper lake ramp. Carry-in access on the east side.</dd></div>
+          <div><dt>Normal pool</dt><dd>Summer pool is 1,100 ft, the level the ODNR fishing map is drawn at. No public gauge, so this site shows no live level.</dd></div>
+        </dl>
+        <p class="meta qf-src">Sources: <a href="https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/knox-lake-fishing-area" target="_blank" rel="noopener">ODNR, Knox Lake Fishing Area</a>; <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/knoxlake2.pdf" target="_blank" rel="noopener">ODNR fishing map</a>. Unofficial summary; posted signs and the agencies above have the final word.</p>
+      </div>
+    </details>
+    <!-- /nb:quick-facts -->
+
     <div class="bento-grid" aria-label="Next actions">
       <section class="bento-card bento-pool" id="pool-snapshot" aria-labelledby="snapshot-title">
         <h2 id="snapshot-title">Today’s pool &amp; temp</h2>
         <p class="pool-lead" id="correction-line">891.50 ft · 65°F · ~2.5 ft below full pool</p>
-        <script src="js/pool-readout.js?v=v53-2026-10-31"></script>
+        <script src="js/pool-readout.js?v=v54-2026-10-31"></script>
         <p class="meta" id="correction-checked">
           Checked: <time datetime="2026-10-19T08:00:00.000-04:00">2026-10-19 08:00 ET</time>.
           <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03228400/" target="_blank" rel="noopener">Live USGS gauge</a>.
@@ -238,7 +254,7 @@
         <p class="meta" id="usgs-live-status" style="margin-bottom:0.5rem;margin-top:0.5rem;">
           Provisional snapshot; your browser may refresh it from USGS. Never invented.
         </p>
-        <script src="js/lake-snapshot.js?v=v53-2026-10-31"></script>
+        <script src="js/lake-snapshot.js?v=v54-2026-10-31"></script>
         <div class="pool-trend" id="pool-trend" hidden data-pending>
           <div class="pool-trend-head">
             <span class="pool-trend-label">Pool, last 7 days</span>
@@ -429,7 +445,7 @@
         </details>
         <p class="meta bait-foot">Drive times are rough. <a class="bait-tell" href="mailto:contact@nightbiteoh.com?subject=Bait%20shop">Know a shop? Tell us</a></p>
       </section>
-      <script src="js/bait-nearby.js?v=v53-2026-10-31"></script>
+      <script src="js/bait-nearby.js?v=v54-2026-10-31"></script>
 
       <a class="bento-card bento-maps" href="water#maps">
         <h3>Water / maps</h3>
@@ -485,7 +501,7 @@
         <span class="card-cue" aria-hidden="true">Open the log</span>
       </a>
     </div>
-    <script src="js/glance.js?v=v53-2026-10-31"></script>
+    <script src="js/glance.js?v=v54-2026-10-31"></script>
 
     <section class="bento-card get-app" id="get-the-app" aria-labelledby="get-app-title">
       <div class="get-app-head">
@@ -521,7 +537,7 @@
         </details>
       </div>
     </section>
-    <script src="js/get-app.js?v=v53-2026-10-31"></script>
+    <script src="js/get-app.js?v=v54-2026-10-31"></script>
 
     <hr class="divider">
 
@@ -608,36 +624,36 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js?v=v53-2026-10-31"></script>
-  <script src="js/sw-update.js?v=v53-2026-10-31"></script>
-  <script src="js/alerts.js?v=v53-2026-10-31"></script>
-  <script src="js/nav.js?v=v53-2026-10-31"></script>
-  <script src="js/visits.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-picker.js?v=v53-2026-10-31"></script>
-  <script src="js/usgs.js?v=v53-2026-10-31"></script>
-  <script src="js/home-log.js?v=v53-2026-10-31"></script>
-  <script src="js/astro.js?v=v53-2026-10-31"></script>
-  <script src="js/conditions.js?v=v53-2026-10-31"></script>
-  <script src="js/pool-trend.js?v=v53-2026-10-31"></script>
-  <script src="js/hoover-map-data.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-alum.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-buckeye.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-oshaughnessy.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-griggs.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-indian.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-delaware.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-deercreek.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-madison.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-knox.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-clearfork.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-seneca.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-dillon.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-logan.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-saltfork.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-burroak.js?v=v53-2026-10-31"></script>
-  <script src="js/lake-map-data-dow.js?v=v53-2026-10-31"></script>
-  <script src="js/hoover-map.js?v=v53-2026-10-31"></script>
-  <script src="js/install-tip.js?v=v53-2026-10-31"></script>
-  <script src="js/tonight-tools.js?v=v53-2026-10-31"></script>
+  <script src="js/refresh.js?v=v54-2026-10-31"></script>
+  <script src="js/sw-update.js?v=v54-2026-10-31"></script>
+  <script src="js/alerts.js?v=v54-2026-10-31"></script>
+  <script src="js/nav.js?v=v54-2026-10-31"></script>
+  <script src="js/visits.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-picker.js?v=v54-2026-10-31"></script>
+  <script src="js/usgs.js?v=v54-2026-10-31"></script>
+  <script src="js/home-log.js?v=v54-2026-10-31"></script>
+  <script src="js/astro.js?v=v54-2026-10-31"></script>
+  <script src="js/conditions.js?v=v54-2026-10-31"></script>
+  <script src="js/pool-trend.js?v=v54-2026-10-31"></script>
+  <script src="js/hoover-map-data.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-alum.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-buckeye.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-oshaughnessy.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-griggs.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-indian.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-delaware.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-deercreek.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-madison.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-knox.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-clearfork.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-seneca.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-dillon.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-logan.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-saltfork.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-burroak.js?v=v54-2026-10-31"></script>
+  <script src="js/lake-map-data-dow.js?v=v54-2026-10-31"></script>
+  <script src="js/hoover-map.js?v=v54-2026-10-31"></script>
+  <script src="js/install-tip.js?v=v54-2026-10-31"></script>
+  <script src="js/tonight-tools.js?v=v54-2026-10-31"></script>
 </body>
 </html>

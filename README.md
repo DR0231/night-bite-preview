@@ -132,6 +132,25 @@ The generator adds `<base href="../">` (so every asset, script and fetch resolve
 send the root to `/alum/`. On Home the lake picker goes to the lake's address; on other pages it adds `?lake=`.
 All seven home pages are precached by `sw.js`, so each opens offline. List new lakes in `sitemap.xml` too.
 
+### Quick facts and structured data
+
+`tools/build-lake-pages.py` also writes two blocks on every lake home, Hoover included (it refreshes `index.html` first):
+
+- **Quick facts** (`<!-- nb:quick-facts -->`): a closed `<details>` with motors and speed, ramps and access, normal pool (with a USGS or Corps gauge link from `js/lakes.js`, or "No public gauge") and night rules, plus a visible "Facts checked <date>". The text comes only from `data/quick-facts.json`, which is copied from sourced site text (water facts cards, map notes, DATA-SOURCES.md). If a field has no source, leave it out. Never fill a gap with a guess. When you recheck a lake, update its `checked` date.
+- **JSON-LD** (`<!-- nb:jsonld -->`): Home gets WebSite (with alternateName), Organization and WebPage. Each lake home gets a WebPage whose `dateModified` matches its Facts checked date. Don't add FAQPage.
+
+## IndexNow
+
+`tools/indexnow.py` tells Bing, Yandex and other IndexNow engines when pages on https://nightbiteoh.com/ change. The key file `5b4049f688da534086dcca09d14b201f.txt` sits at the site root and has to be live on nightbiteoh.com, so copy it over when the site is promoted to live. The key is public by design.
+
+```bash
+python3 tools/indexnow.py                     # dry run: every sitemap URL, sends nothing
+python3 tools/indexnow.py --since HEAD~1      # dry run: only pages changed since that commit
+python3 tools/indexnow.py --since HEAD~1 --send   # really ping, only after the live push is up
+```
+
+Only URLs listed in `sitemap.xml` are sent. Don't use `--send` from the preview repo before the live site has the change, and don't ping the same unchanged URLs over and over.
+
 ## Home tools: Share tonight, Remind me
 
 `js/tonight-tools.js` adds two buttons under the Tonight at a glance strip.
