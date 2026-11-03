@@ -11,6 +11,7 @@
  * shared link like berlin/ opens Berlin and remembers it.
  * The site root (<meta name="nb-root">) is the water picker. With a saved lake (or a ?lake= link) it goes straight to that
  * lake's home page (location.replace, here in <head>, before anything paints); ?pick keeps the picker open instead.
+ * "Just browsing" (hoover/?browse) opens Hoover's home page without saving it; see "browsing" below.
  * Other pages keep ?lake= in the address bar for every lake but Hoover, a clean URL for Hoover, and once a lake is
  * chosen their Home links point at that lake's home page.
  *
@@ -726,12 +727,20 @@
   var homeMeta = document.querySelector('meta[name="nb-home"]');
   var homeLake = homeMeta ? valid(homeMeta.getAttribute("content")) : null;   // set on the lake home pages only
   var atRoot = !!document.querySelector('meta[name="nb-root"]');               // the water picker at the site root
-  var fromUrl = null, stored = null, pick = false;
-  try { var qs = new URLSearchParams(location.search); fromUrl = valid(qs.get("lake")); pick = qs.has("pick"); } catch (e) {}
+  var fromUrl = null, stored = null, pick = false, browse = false;
+  try { var qs = new URLSearchParams(location.search); fromUrl = valid(qs.get("lake")); pick = qs.has("pick"); browse = qs.has("browse"); } catch (e) {}
   try { stored = valid(localStorage.getItem(KEY)); } catch (e) {}
+  // "Just browsing" on the picker opens hoover/?browse: look around without saving it as your water. The flag lives in
+  // this tab (sessionStorage) so in-page links on that home page don't save it either; opening any other water ends it.
+  var browsing = false;
+  try {
+    if (homeLake && browse) sessionStorage.setItem("nb-browse", homeLake);
+    browsing = !!homeLake && sessionStorage.getItem("nb-browse") === homeLake;
+    if (homeLake && !browsing) sessionStorage.removeItem("nb-browse");
+  } catch (e) { browsing = !!homeLake && browse; }
   var id = homeLake || fromUrl || stored || "hoover";
-  var chosen = !!(homeLake || fromUrl || stored);   // false until this device has picked a water
-  if (id !== stored && (fromUrl || homeLake)) { try { localStorage.setItem(KEY, id); } catch (e) {} }
+  var chosen = !!((homeLake && !browsing) || fromUrl || stored);   // false until this device has picked a water
+  if (id !== stored && (fromUrl || (homeLake && !browsing))) { try { localStorage.setItem(KEY, id); } catch (e) {} }
 
   // the water picker with a water already chosen: open that lake's own address instead (?pick shows the picker)
   if (atRoot && (fromUrl || stored) && !pick && BASE) {
@@ -740,9 +749,10 @@
 
   // keep the address bar honest: a lake's home page has no ?lake=; elsewhere ?lake= for every lake but Hoover
   try {
-    var u = new URL(location.href), had = u.searchParams.get("lake");
+    var u = new URL(location.href), had = u.searchParams.get("lake"), hadBrowse = u.searchParams.has("browse");
     if (id === "hoover" || homeLake || atRoot) u.searchParams.delete("lake"); else u.searchParams.set("lake", id);
-    if (had !== u.searchParams.get("lake")) history.replaceState(history.state, "", u.href);
+    if (homeLake) u.searchParams.delete("browse");
+    if (had !== u.searchParams.get("lake") || (hadBrowse && homeLake)) history.replaceState(history.state, "", u.href);
   } catch (e) {}
 
   var root = document.documentElement;
@@ -862,7 +872,7 @@
 
   window.NightBiteLakes = { all: LAKES, order: ORDER, regions: REGIONS, speciesNames: SPECIES, storageKey: KEY, hrefFor: hrefFor, homeFor: homeFor, base: BASE, cwmsFor: cwmsFor,
     usgsLatest: usgsLatest, usgsSeries: usgsSeries, bitingVar: bitingVar, mapFile: mapFile };
-  window.NightBiteLake = { id: id, cfg: LAKES[id], key: key, cwms: cwms, home: homeLake, chosen: chosen, root: atRoot };
+  window.NightBiteLake = { id: id, cfg: LAKES[id], key: key, cwms: cwms, home: homeLake, chosen: chosen, root: atRoot, browsing: browsing };
 
   // Lake switches only (js/lake-picker.js sets the flag): a short cross-fade into the new page.
   // Registered here in <head> so it is in place before the first frame; every other navigation stays instant.

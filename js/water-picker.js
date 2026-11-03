@@ -1,66 +1,88 @@
 /**
- * The Night Bite: the water picker at the site root (index.html).
- * The page works with no script: every water is a plain link to its home page (<id>/), grouped by region in
- * <details>, built from js/lakes.js by tools/build-lake-pages.py. This script only adds:
- *  · the "Find a water" box: filters by name, short name and aliases, opens the regions with a match and hides the
- *    rest; Enter opens the top match;
- *  · remembering the pick: the water's id (only the id) goes in localStorage "nb-lake" on the way out, the same key
- *    js/lakes.js reads. Next visit, js/lakes.js opens that water's home page before this page paints. ?pick keeps
- *    the picker open (the lake pages' "Change water" sheet is the other way to switch).
+ * The Night Bite: Pick your water, the site root (index.html).
+ * With no script the page already works: every water is a plain link to its home page (<id>/), and the region chips
+ * jump to their section. Tiles and chips are built from js/lakes.js and data/quick-facts.json by
+ * tools/build-lake-pages.py. This script adds, and nothing more:
+ *  · "Find a water": filters the tiles by name, short name, area and aliases; Enter opens the top match, Escape clears;
+ *    a search with no match shows a calm empty state with a way back to every water;
+ *  · the region chips become filters (All waters shows every region);
+ *  · Last picked: with ?pick and a water saved, that water's tile sits on top;
+ *  · remembering the pick: the water's id (only the id) goes in localStorage "nb-lake", the key js/lakes.js reads, and
+ *    the lake page fades in like a switch from the lake sheet. "Just browsing" (hoover/?browse) saves nothing.
  */
 (function () {
   var box = document.getElementById("waters");
   if (!box) return;
   var LS = window.NightBiteLakes || {}, KEY = LS.storageKey || "nb-lake";
-  var tools = box.querySelector(".wp-tools"), input = document.getElementById("wp-search");
-  var empty = box.querySelector(".wp-empty");
-  var regions = Array.prototype.slice.call(box.querySelectorAll(".wp-region"));
-  var links = Array.prototype.slice.call(box.querySelectorAll("a[data-water]"));
+  var regions = [].slice.call(box.querySelectorAll(".wp-region"));
+  var tiles = [].slice.call(box.querySelectorAll(".wp-grid a[data-water]"));
+  var chips = [].slice.call(box.querySelectorAll(".wp-chip"));
+  var search = box.querySelector(".wp-search"), input = document.getElementById("wp-search");
+  var empty = box.querySelector(".wp-empty"), emptyText = box.querySelector(".wp-empty-text");
+  var last = box.querySelector(".wp-last");
+  var chip = "all";
+
+  function remember(id) {
+    try { localStorage.setItem(KEY, id); } catch (e) {}
+    try { sessionStorage.removeItem("nb-browse"); sessionStorage.setItem("nb-lake-switch", "1"); } catch (e) {}
+  }
+  function wire(a) {
+    a.addEventListener("click", function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      remember(a.getAttribute("data-water"));
+    });
+  }
+  tiles.forEach(wire);
+
+  // Last picked (only seen with ?pick; otherwise js/lakes.js has already opened the saved water)
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) {}
+  var savedTile = saved && box.querySelector('.wp-grid a[data-water="' + saved + '"]');
+  if (last && savedTile) {
+    var copy = savedTile.cloneNode(true);
+    copy.setAttribute("aria-label", "Last picked: " + savedTile.querySelector(".wp-name").textContent);
+    var img = copy.querySelector("img"); if (img) img.loading = "eager";
+    last.appendChild(copy); wire(copy); last.hidden = false;
+  }
 
-  // ?pick with a water already saved: mark it, and open its region
-  links.forEach(function (a) {
-    if (a.getAttribute("data-water") !== saved) return;
-    var li = a.parentNode, meta = a.querySelector(".lp-meta");
-    li.classList.add("is-now");
-    if (!meta) { meta = document.createElement("span"); meta.className = "lp-meta"; a.appendChild(meta); }
-    var now = document.createElement("span"); now.className = "lp-now"; now.textContent = "Last picked";
-    meta.insertBefore(now, meta.firstChild);
-    var d = a.closest("details"); if (d) d.open = true;
-  });
-
-  links.forEach(function (a) {
-    a.addEventListener("click", function () {
-      try { localStorage.setItem(KEY, a.getAttribute("data-water")); } catch (e) {}
-    });
-  });
-
-  if (!tools || !input) return;
-  tools.hidden = false;
-  var wasOpen = regions.map(function (d) { return d.open; });
-  function norm(s) { return (s || "").toLowerCase().replace(/[\u2019']/g, "").replace(/\s+/g, " ").trim(); }
+  function norm(s) { return (s || "").toLowerCase().replace(/[\u2019'.]/g, "").replace(/\s+/g, " ").trim(); }
   function paint() {
-    var q = norm(input.value), hits = 0;
-    regions.forEach(function (d, i) {
-      var n = 0;
-      d.querySelectorAll(".lp-row").forEach(function (li) {
-        var a = li.querySelector("a[data-water]");
-        var ok = !q || norm(a.getAttribute("data-q")).indexOf(q) !== -1;
+    var q = norm(input && input.value), hits = 0;
+    regions.forEach(function (sec) {
+      var inChip = chip === "all" || sec.getAttribute("data-region") === chip, n = 0;
+      [].forEach.call(sec.querySelectorAll(".wp-item"), function (li) {
+        var a = li.firstElementChild;
+        var ok = inChip && (!q || norm(a.getAttribute("data-q")).indexOf(q) !== -1);
         li.hidden = !ok; if (ok) n++;
       });
-      d.hidden = !!q && !n;
-      d.open = q ? n > 0 : wasOpen[i];
-      hits += n;
+      sec.hidden = !n; hits += n;
     });
-    empty.hidden = !q || hits > 0;
-    empty.textContent = q && !hits ? "No waters match \u201c" + input.value.trim() + "\u201d yet." : "";
+    if (last && savedTile) last.hidden = !!q || chip !== "all";
+    chips.forEach(function (c) { c.setAttribute("aria-current", c.getAttribute("data-chip") === chip ? "true" : "false"); });
+    empty.hidden = hits > 0;
+    if (!hits) emptyText.textContent = "Nothing matches \u201c" + input.value.trim() + "\u201d. Try a lake name, a town like Mt. Sterling, or another region.";
   }
-  regions.forEach(function (d, i) { d.addEventListener("toggle", function () { if (!input.value) wasOpen[i] = d.open; }); });
-  input.addEventListener("input", paint);
-  input.addEventListener("keydown", function (e) {
-    if (e.key !== "Enter" || !input.value.trim()) return;
-    var top = links.filter(function (a) { return !a.parentNode.hidden; })[0];
-    if (top) { e.preventDefault(); top.click(); }
+
+  chips.forEach(function (c) {
+    c.addEventListener("click", function (e) {
+      e.preventDefault();
+      chip = c.getAttribute("data-chip");
+      if (input && input.value) input.value = "";
+      paint();
+    });
   });
+  if (search && input) {
+    search.hidden = false;
+    input.addEventListener("input", function () { if (input.value && chip !== "all") chip = "all"; paint(); });
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && input.value) { input.value = ""; paint(); return; }
+      if (e.key !== "Enter" || !input.value.trim()) return;
+      var top = tiles.filter(function (a) { return !a.parentNode.hidden; })[0];
+      if (top) { e.preventDefault(); top.click(); }
+    });
+  }
+  box.querySelector(".wp-empty-clear").addEventListener("click", function () {
+    chip = "all"; if (input) { input.value = ""; input.focus(); } paint();
+  });
+  paint();
 })();

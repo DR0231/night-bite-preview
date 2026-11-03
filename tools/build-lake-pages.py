@@ -215,32 +215,79 @@ for lake, L in LAKES.items():
 # The site root (index.html) is the water picker: plain links to every lake home, grouped by region in the order of
 # REGIONS in js/lakes.js (empty regions left out), and the site-wide JSON-LD (WebSite, Organization, WebPage).
 # Written between markers, so a new lake in js/lakes.js shows up here with no edit to index.html.
-def picker_rows(ids):
-    out = []
-    for lid in ids:
-        c = REG["lakes"][lid]
-        pool = c.get("pool") or {}
-        tags = (["Live level"] if pool.get("src") else []) + (["Live temp"] if pool.get("temp") else [])
-        q = " ".join([c["name"], c["short"]] + list(c.get("aliases") or [])).lower()
-        meta = "".join(f'<span class="lp-tag">{x}</span>' for x in tags[:2])
-        meta = f'<span class="lp-meta">{meta}</span>' if meta else ""
-        out.append(f'          <li class="lp-row"><a class="lp-lake" href="{registry.home(lid)}" data-water="{lid}" '
-                   f'data-q="{esc(q)}"><span class="lp-name">{html.escape(c["name"], quote=False)}</span>{meta}</a></li>')
-    return "\n".join(out)
+def motors_short(lid):
+    """A two-word motor rule for the picker tile, read from the lake's sourced "motors" line in data/quick-facts.json."""
+    F = FACTS.get(lid) or {}
+    if F.get("motorsShort"):
+        return F["motorsShort"]
+    m = (F.get("motors") or "").lower()
+    if "electric motors only" in m:
+        return "Electric only"
+    if "idle speed and no wake on the whole lake" in m:
+        return "Idle only"
+    hp = re.match(r"(\d+) hp limit", m)
+    if hp:
+        return hp.group(1) + " hp"
+    if m.startswith(("no horsepower limit", "unlimited horsepower")):
+        return "No hp limit"
+    sys.exit(f"build-lake-pages: add a short \"motorsShort\" for {lid} to data/quick-facts.json (picker tile)")
+
+
+def chart_img(lid):
+    """The lake's own pixel chart (assets/<id>-chart.png, the pool card art), drawn at 2x like the pool card."""
+    c = REG["lakes"][lid]
+    src = ((c.get("map") or {}).get("chart")) or f"assets/{lid}-chart.png"
+    f = root / src
+    if not f.exists():
+        return ""
+    b = f.read_bytes()
+    w, h = int.from_bytes(b[16:20], "big"), int.from_bytes(b[20:24], "big")   # PNG IHDR
+    return f'<img src="{src}" alt="" width="{w * 2}" height="{h * 2}" loading="lazy" decoding="async">'
+
+
+def ft(v):
+    return f"{v:,.2f}".rstrip("0").rstrip(".") if isinstance(v, float) and v % 1 else f"{int(v):,}"
+
+
+def picker_tile(lid):
+    c = REG["lakes"][lid]
+    pool = c.get("pool") or {}
+    q = " ".join([c["name"], c["short"], c.get("area") or ""] + list(c.get("aliases") or [])).lower()
+    gauge = ("Live level" + (" and temp" if pool.get("temp") else "")) if pool.get("src") else "No public gauge"
+    stats = [f'<span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">{motors_short(lid)}</span></span>']
+    if pool.get("fullPool"):
+        stats.append(f'<span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">'
+                     f'{ft(pool["fullPool"])}<span class="wp-unit">ft</span></span></span>')
+    return (f'          <li class="wp-item"><a class="wp-tile" href="{registry.home(lid)}" data-water="{lid}" data-q="{esc(q)}">'
+            f'<span class="wp-art" aria-hidden="true">{chart_img(lid)}</span>'
+            f'<span class="wp-head"><span class="wp-name">{html.escape(c["name"], quote=False)}</span>'
+            f'<span class="wp-area">{html.escape(c.get("area") or "", quote=False)}</span></span>'
+            f'<span class="wp-stats">{"".join(stats)}</span>'
+            f'<span class="wp-gauge"{" data-live" if pool.get("src") else ""}>{gauge}</span></a></li>')
 
 
 def water_picker():
-    parts, first = [], True
+    parts = []
     for rg in REG["regions"]:
         ids = [i for i in REG["order"] if REG["lakes"][i]["region"] == rg["id"]]
         if not ids:
             continue
-        parts.append(f'      <details class="lp-region wp-region" data-region="{rg["id"]}"{" open" if first else ""}>\n'
-                     f'        <summary>{html.escape(rg["name"], quote=False)}</summary>\n'
-                     f'        <ul class="lp-list">\n{picker_rows(ids)}\n        </ul>\n      </details>')
-        first = False
+        name = html.escape(rg["name"], quote=False)
+        parts.append(f'      <section class="wp-region" id="region-{rg["id"]}" data-region="{rg["id"]}" aria-labelledby="wp-h-{rg["id"]}">\n'
+                     f'        <h3 class="wp-region-title" id="wp-h-{rg["id"]}">{name}</h3>\n'
+                     f'        <ul class="wp-grid">\n' + "\n".join(picker_tile(i) for i in ids) + '\n        </ul>\n      </section>')
     return ("      <!-- nb:water-picker (tools/build-lake-pages.py, from js/lakes.js) -->\n" + "\n".join(parts)
             + "\n      <!-- /nb:water-picker -->")
+
+
+def picker_chips():
+    chips = ['        <a class="wp-chip" href="#waters" data-chip="all">All waters</a>']
+    for rg in REG["regions"]:
+        if any(REG["lakes"][i]["region"] == rg["id"] for i in REG["order"]):
+            chips.append(f'        <a class="wp-chip" href="#region-{rg["id"]}" data-chip="{rg["id"]}">'
+                         f'{html.escape(rg["name"].replace(" Ohio", ""), quote=False)}</a>')
+    return ("      <!-- nb:water-chips (tools/build-lake-pages.py, from js/lakes.js) -->\n" + "\n".join(chips)
+            + "\n      <!-- /nb:water-chips -->")
 
 
 def root_jsonld(title):
@@ -266,7 +313,8 @@ if 'name="nb-root"' not in r:
     sys.exit("build-lake-pages: index.html is not the water picker (<meta name=\"nb-root\"> missing)")
 r_title = html.unescape(re.search(r"<title>([^<]*)</title>", r).group(1))
 new_r = sub1(r"[ \t]*<!-- nb:water-picker.*?<!-- /nb:water-picker -->", lambda m: water_picker(), r, re.S)
+new_r = sub1(r"[ \t]*<!-- nb:water-chips.*?<!-- /nb:water-chips -->", lambda m: picker_chips(), new_r, re.S)
 new_r = sub1(r"[ \t]*<!-- nb:jsonld.*?<!-- /nb:jsonld -->", lambda m: root_jsonld(r_title), new_r, re.S)
 if new_r != r:
     ROOT_PAGE.write_text(new_r)
-    print("wrote index.html (water picker lists, site JSON-LD)")
+    print("wrote index.html (water picker tiles and region chips, site JSON-LD)")

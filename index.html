@@ -33,8 +33,8 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=v66-2026-11-03">
-  <script src="js/lakes.js?v=v66-2026-11-03"></script>
+  <link rel="stylesheet" href="css/styles.css?v=v67-2026-11-03">
+  <script src="js/lakes.js?v=v67-2026-11-03"></script>
   <!-- nb:jsonld (tools/build-lake-pages.py) -->
   <script type="application/ld+json">
   [{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://nightbiteoh.com/#website", "name": "The Night Bite", "alternateName": ["Night Bite OH", "The Night Bite Ohio", "nightbiteoh.com"], "url": "https://nightbiteoh.com/", "inLanguage": "en-US", "publisher": {"@id": "https://nightbiteoh.com/#organization"}}, {"@context": "https://schema.org", "@type": "Organization", "@id": "https://nightbiteoh.com/#organization", "name": "The Night Bite", "url": "https://nightbiteoh.com/", "logo": {"@type": "ImageObject", "url": "https://nightbiteoh.com/assets/icons/icon-512.png", "width": 512, "height": 512}}, {"@context": "https://schema.org", "@type": "WebPage", "@id": "https://nightbiteoh.com/#webpage", "url": "https://nightbiteoh.com/", "name": "The Night Bite: Ohio Night Fishing, Live Lake Levels", "isPartOf": {"@id": "https://nightbiteoh.com/#website"}, "dateModified": "2026-11-03", "inLanguage": "en-US"}]
@@ -75,72 +75,82 @@
   </header>
 
   <main id="main" class="home water-home">
-    <section class="hero" aria-labelledby="home-title">
+    <section class="hero wp-hero" aria-labelledby="home-title">
       <div class="hero-horizon" aria-hidden="true">
         <img src="assets/horizon-center.png" alt="" width="160" height="46">
         <span class="hero-dock-light"></span>
       </div>
       <p class="hero-brand">The Night Bite</p>
       <h1 class="tagline" id="home-title">Pick your water</h1>
-      <p class="lead wp-lead">Live levels, tonight&rsquo;s bite, ramps and night rules for Ohio waters. Pick one and it opens first next time, on this device.</p>
+      <p class="wp-lead">A night fishing notebook for Ohio waters: live levels, tonight&rsquo;s bite, ramps and the rules after dark. Pick one and it opens first next time.</p>
+      <p class="wp-browse"><a class="wp-browse-link" href="hoover/?browse">Just browsing<span class="wp-browse-sub">Look around Hoover Reservoir first</span></a></p>
     </section>
 
-    <section class="bento-card wp" id="waters" aria-labelledby="wp-title">
-      <h2 class="wp-title" id="wp-title">Waters by region</h2>
-      <div class="wp-tools" hidden>
-        <label class="sr-only" for="wp-search">Find a water</label>
-        <input class="lp-search" id="wp-search" type="search" placeholder="Find a water" autocomplete="off" spellcheck="false" enterkeyhint="go">
+    <section class="wp" id="waters" aria-labelledby="wp-title">
+      <div class="wp-bar">
+        <h2 class="wp-title" id="wp-title">Waters</h2>
+        <div class="wp-search" hidden>
+          <label class="sr-only" for="wp-search">Find a water</label>
+          <input class="lp-search wp-input" id="wp-search" type="search" placeholder="Find a water or town" autocomplete="off" spellcheck="false" enterkeyhint="go">
+        </div>
+        <nav class="wp-chips" aria-label="Regions">
+      <!-- nb:water-chips (tools/build-lake-pages.py, from js/lakes.js) -->
+        <a class="wp-chip" href="#waters" data-chip="all">All waters</a>
+        <a class="wp-chip" href="#region-central" data-chip="central">Central</a>
+        <a class="wp-chip" href="#region-southeast" data-chip="southeast">East and Southeast</a>
+        <a class="wp-chip" href="#region-northeast" data-chip="northeast">Northeast</a>
+      <!-- /nb:water-chips -->
+        </nav>
       </div>
-      <p class="lp-empty wp-empty" role="status" hidden></p>
+      <div class="wp-last" hidden>
+        <p class="wp-region-title">Last picked</p>
+      </div>
+      <div class="wp-empty" role="status" hidden>
+        <img class="wp-empty-lantern" src="assets/lantern.svg" alt="" width="24" height="36">
+        <p class="wp-empty-title">No waters by that name yet</p>
+        <p class="wp-empty-text"></p>
+        <button type="button" class="wp-empty-clear">Show every water</button>
+      </div>
       <!-- nb:water-picker (tools/build-lake-pages.py, from js/lakes.js) -->
-      <details class="lp-region wp-region" data-region="central" open>
-        <summary>Central Ohio</summary>
-        <ul class="lp-list">
-          <li class="lp-row"><a class="lp-lake" href="hoover/" data-water="hoover" data-q="hoover reservoir hoover hoover hoover dam big walnut"><span class="lp-name">Hoover Reservoir</span><span class="lp-meta"><span class="lp-tag">Live level</span><span class="lp-tag">Live temp</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="alum/" data-water="alum" data-q="alum creek lake alum creek alum alum creek state park"><span class="lp-name">Alum Creek Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="buckeye/" data-water="buckeye" data-q="buckeye lake buckeye lake buckeye lake state park"><span class="lp-name">Buckeye Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="oshaughnessy/" data-water="oshaughnessy" data-q="o&#39;shaughnessy reservoir o&#39;shaughnessy oshaughnessy o shaughnessy shaughnessy scioto"><span class="lp-name">O'Shaughnessy Reservoir</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="griggs/" data-water="griggs" data-q="griggs reservoir griggs griggs scioto"><span class="lp-name">Griggs Reservoir</span><span class="lp-meta"><span class="lp-tag">Live level</span><span class="lp-tag">Live temp</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="indian/" data-water="indian" data-q="indian lake indian lake indian indian lake state park russells point"><span class="lp-name">Indian Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span><span class="lp-tag">Live temp</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="delaware/" data-water="delaware" data-q="delaware lake delaware lake delaware delaware state park"><span class="lp-name">Delaware Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="deercreek/" data-water="deercreek" data-q="deer creek lake deer creek lake deer creek deer creek state park deer creek reservoir mt. sterling"><span class="lp-name">Deer Creek Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="madison/" data-water="madison" data-q="madison lake madison lake madison madison lake state park london"><span class="lp-name">Madison Lake</span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="knox/" data-water="knox" data-q="knox lake knox lake knox knox lake fishing area fredericktown kokosing"><span class="lp-name">Knox Lake</span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="clearfork/" data-water="clearfork" data-q="clear fork reservoir clear fork clear fork clearfork clear fork lake mansfield lexington"><span class="lp-name">Clear Fork Reservoir</span></a></li>
+      <section class="wp-region" id="region-central" data-region="central" aria-labelledby="wp-h-central">
+        <h3 class="wp-region-title" id="wp-h-central">Central Ohio</h3>
+        <ul class="wp-grid">
+          <li class="wp-item"><a class="wp-tile" href="hoover/" data-water="hoover" data-q="hoover reservoir hoover central ohio hoover hoover dam big walnut"><span class="wp-art" aria-hidden="true"><img src="assets/hoover-chart.png" alt="" width="286" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Hoover Reservoir</span><span class="wp-area">Central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">10 hp</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">894<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level and temp</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="alum/" data-water="alum" data-q="alum creek lake alum creek central ohio alum alum creek state park"><span class="wp-art" aria-hidden="true"><img src="assets/alum-chart.png" alt="" width="268" height="74" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Alum Creek Lake</span><span class="wp-area">Central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">888<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="buckeye/" data-water="buckeye" data-q="buckeye lake buckeye lake central ohio buckeye lake state park"><span class="wp-art" aria-hidden="true"><img src="assets/buckeye-chart.png" alt="" width="184" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Buckeye Lake</span><span class="wp-area">Central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">891.75<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="oshaughnessy/" data-water="oshaughnessy" data-q="o&#39;shaughnessy reservoir o&#39;shaughnessy central ohio oshaughnessy o shaughnessy shaughnessy scioto"><span class="wp-art" aria-hidden="true"><img src="assets/oshaughnessy-chart.png" alt="" width="290" height="76" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">O'Shaughnessy Reservoir</span><span class="wp-area">Central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">848.5<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="griggs/" data-water="griggs" data-q="griggs reservoir griggs central ohio griggs scioto"><span class="wp-art" aria-hidden="true"><img src="assets/griggs-chart.png" alt="" width="296" height="76" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Griggs Reservoir</span><span class="wp-area">Central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">756.18<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level and temp</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="indian/" data-water="indian" data-q="indian lake indian lake west central ohio indian indian lake state park russells point"><span class="wp-art" aria-hidden="true"><img src="assets/indian-chart.png" alt="" width="96" height="84" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Indian Lake</span><span class="wp-area">West central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">996.3<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level and temp</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="delaware/" data-water="delaware" data-q="delaware lake delaware lake central ohio delaware delaware state park"><span class="wp-art" aria-hidden="true"><img src="assets/delaware-chart.png" alt="" width="252" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Delaware Lake</span><span class="wp-area">Central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">915<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="deercreek/" data-water="deercreek" data-q="deer creek lake deer creek lake central ohio deer creek deer creek state park deer creek reservoir mt. sterling"><span class="wp-art" aria-hidden="true"><img src="assets/deercreek-chart.png" alt="" width="96" height="94" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Deer Creek Lake</span><span class="wp-area">Central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">810.5<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="madison/" data-water="madison" data-q="madison lake madison lake central ohio madison madison lake state park london"><span class="wp-art" aria-hidden="true"><img src="assets/madison-chart.png" alt="" width="264" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Madison Lake</span><span class="wp-area">Central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">Electric only</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">965<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge">No public gauge</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="knox/" data-water="knox" data-q="knox lake knox lake central ohio knox knox lake fishing area fredericktown kokosing"><span class="wp-art" aria-hidden="true"><img src="assets/knox-chart.png" alt="" width="70" height="54" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Knox Lake</span><span class="wp-area">Central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">10 hp</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">1,100<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge">No public gauge</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="clearfork/" data-water="clearfork" data-q="clear fork reservoir clear fork central ohio clear fork clearfork clear fork lake mansfield lexington"><span class="wp-art" aria-hidden="true"><img src="assets/clearfork-chart.png" alt="" width="120" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Clear Fork Reservoir</span><span class="wp-area">Central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">Idle only</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">1,202<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge">No public gauge</span></a></li>
         </ul>
-      </details>
-      <details class="lp-region wp-region" data-region="southeast">
-        <summary>East and Southeast Ohio</summary>
-        <ul class="lp-list">
-          <li class="lp-row"><a class="lp-lake" href="seneca/" data-water="seneca" data-q="seneca lake seneca lake seneca seneca lake park senecaville senecaville lake mwcd"><span class="lp-name">Seneca Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="dillon/" data-water="dillon" data-q="dillon lake dillon lake dillon dillon state park dillon reservoir nashport zanesville"><span class="lp-name">Dillon Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="logan/" data-water="logan" data-q="lake logan lake logan logan lake logan state park hocking lake hocking hills"><span class="lp-name">Lake Logan</span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="saltfork/" data-water="saltfork" data-q="salt fork lake salt fork lake salt fork salt fork state park saltfork cambridge kimbolton"><span class="lp-name">Salt Fork Lake</span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="burroak/" data-water="burroak" data-q="burr oak lake burr oak lake burr oak burr oak state park burr oak reservoir tom jenkins dam glouster"><span class="lp-name">Burr Oak Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="dow/" data-water="dow" data-q="dow lake dow lake dow strouds run strouds run state park athens"><span class="lp-name">Dow Lake</span></a></li>
+      </section>
+      <section class="wp-region" id="region-southeast" data-region="southeast" aria-labelledby="wp-h-southeast">
+        <h3 class="wp-region-title" id="wp-h-southeast">East and Southeast Ohio</h3>
+        <ul class="wp-grid">
+          <li class="wp-item"><a class="wp-tile" href="seneca/" data-water="seneca" data-q="seneca lake seneca lake east central ohio seneca seneca lake park senecaville senecaville lake mwcd"><span class="wp-art" aria-hidden="true"><img src="assets/seneca-chart.png" alt="" width="98" height="94" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Seneca Lake</span><span class="wp-area">East central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">399 hp</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">832<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="dillon/" data-water="dillon" data-q="dillon lake dillon lake east central ohio dillon dillon state park dillon reservoir nashport zanesville"><span class="wp-art" aria-hidden="true"><img src="assets/dillon-chart.png" alt="" width="76" height="76" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Dillon Lake</span><span class="wp-area">East central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">737<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="logan/" data-water="logan" data-q="lake logan lake logan southeast ohio logan lake logan state park hocking lake hocking hills"><span class="wp-art" aria-hidden="true"><img src="assets/logan-chart.png" alt="" width="146" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Lake Logan</span><span class="wp-area">Southeast Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">10 hp</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">759<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge">No public gauge</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="saltfork/" data-water="saltfork" data-q="salt fork lake salt fork lake east central ohio salt fork salt fork state park saltfork cambridge kimbolton"><span class="wp-art" aria-hidden="true"><img src="assets/saltfork-chart.png" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Salt Fork Lake</span><span class="wp-area">East central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">800<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge">No public gauge</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="burroak/" data-water="burroak" data-q="burr oak lake burr oak lake southeast ohio burr oak burr oak state park burr oak reservoir tom jenkins dam glouster"><span class="wp-art" aria-hidden="true"><img src="assets/burroak-chart.png" alt="" width="146" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Burr Oak Lake</span><span class="wp-area">Southeast Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">10 hp</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">721<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="dow/" data-water="dow" data-q="dow lake dow lake southeast ohio dow strouds run strouds run state park athens"><span class="wp-art" aria-hidden="true"><img src="assets/dow-chart.png" alt="" width="120" height="94" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Dow Lake</span><span class="wp-area">Southeast Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">10 hp</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">660<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge">No public gauge</span></a></li>
         </ul>
-      </details>
-      <details class="lp-region wp-region" data-region="northeast">
-        <summary>Northeast Ohio</summary>
-        <ul class="lp-list">
-          <li class="lp-row"><a class="lp-lake" href="mosquito/" data-water="mosquito" data-q="mosquito creek lake mosquito creek lake mosquito mosquito lake mosquito lake state park cortland mosquito creek reservoir"><span class="lp-name">Mosquito Creek Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="berlin/" data-water="berlin" data-q="berlin lake berlin lake berlin berlin reservoir berlin center deerfield mill creek"><span class="lp-name">Berlin Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="westbranch/" data-water="westbranch" data-q="west branch reservoir west branch west branch west branch state park kirwan michael j. kirwan reservoir kirwan reservoir ravenna"><span class="lp-name">West Branch Reservoir</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="pymatuning/" data-water="pymatuning" data-q="pymatuning lake pymatuning pymatuning pymatuning reservoir pymatuning state park andover jamestown"><span class="lp-name">Pymatuning Lake</span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="milton/" data-water="milton" data-q="lake milton lake milton milton lake milton state park milton reservoir craig beach pricetown"><span class="lp-name">Lake Milton</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
-          <li class="lp-row"><a class="lp-lake" href="leesville/" data-water="leesville" data-q="leesville lake leesville lake leesville leesville lake park mwcd bowerston north fork south fork"><span class="lp-name">Leesville Lake</span><span class="lp-meta"><span class="lp-tag">Live level</span></span></a></li>
+      </section>
+      <section class="wp-region" id="region-northeast" data-region="northeast" aria-labelledby="wp-h-northeast">
+        <h3 class="wp-region-title" id="wp-h-northeast">Northeast Ohio</h3>
+        <ul class="wp-grid">
+          <li class="wp-item"><a class="wp-tile" href="mosquito/" data-water="mosquito" data-q="mosquito creek lake mosquito creek lake northeast ohio mosquito mosquito lake mosquito lake state park cortland mosquito creek reservoir"><span class="wp-art" aria-hidden="true"><img src="assets/mosquito-chart.png" alt="" width="296" height="72" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Mosquito Creek Lake</span><span class="wp-area">Northeast Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">901<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="berlin/" data-water="berlin" data-q="berlin lake berlin lake northeast ohio berlin berlin reservoir berlin center deerfield mill creek"><span class="wp-art" aria-hidden="true"><img src="assets/berlin-chart.png" alt="" width="120" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Berlin Lake</span><span class="wp-area">Northeast Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">1,024<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="westbranch/" data-water="westbranch" data-q="west branch reservoir west branch northeast ohio west branch west branch state park kirwan michael j. kirwan reservoir kirwan reservoir ravenna"><span class="wp-art" aria-hidden="true"><img src="assets/westbranch-chart.png" alt="" width="204" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">West Branch Reservoir</span><span class="wp-area">Northeast Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">985.5<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="pymatuning/" data-water="pymatuning" data-q="pymatuning lake pymatuning northeast ohio pymatuning pymatuning reservoir pymatuning state park andover jamestown"><span class="wp-art" aria-hidden="true"><img src="assets/pymatuning-chart.png" alt="" width="190" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Pymatuning Lake</span><span class="wp-area">Northeast Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">20 hp</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">1,008<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge">No public gauge</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="milton/" data-water="milton" data-q="lake milton lake milton northeast ohio milton lake milton state park milton reservoir craig beach pricetown"><span class="wp-art" aria-hidden="true"><img src="assets/milton-chart.png" alt="" width="222" height="94" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Lake Milton</span><span class="wp-area">Northeast Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">No hp limit</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">948<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
+          <li class="wp-item"><a class="wp-tile" href="leesville/" data-water="leesville" data-q="leesville lake leesville lake east central ohio leesville leesville lake park mwcd bowerston north fork south fork"><span class="wp-art" aria-hidden="true"><img src="assets/leesville-chart.png" alt="" width="90" height="96" loading="lazy" decoding="async"></span><span class="wp-head"><span class="wp-name">Leesville Lake</span><span class="wp-area">East central Ohio</span></span><span class="wp-stats"><span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">10 hp</span></span><span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">963<span class="wp-unit">ft</span></span></span></span><span class="wp-gauge" data-live>Live level</span></a></li>
         </ul>
-      </details>
+      </section>
       <!-- /nb:water-picker -->
-    </section>
-
-    <section class="wp-browse" aria-labelledby="browse-title">
-      <h2 class="wp-browse-title" id="browse-title">Just browsing</h2>
-      <ul class="wp-browse-list">
-        <li><a class="wp-browse-link" href="species/"><span class="wp-browse-name">Species</span><span class="wp-browse-meta">Night habits, rigs and Ohio limits</span></a></li>
-        <li><a class="wp-browse-link" href="water"><span class="wp-browse-name">Water</span><span class="wp-browse-meta">Levels, temps and how to read them</span></a></li>
-        <li><a class="wp-browse-link" href="gear"><span class="wp-browse-name">Gear</span><span class="wp-browse-meta">Lights, rigs and what goes in the bucket</span></a></li>
-      </ul>
     </section>
 
     <section class="bento-card get-app" id="get-the-app" aria-labelledby="get-app-title">
@@ -177,7 +187,7 @@
         </details>
       </div>
     </section>
-    <script src="js/get-app.js?v=v66-2026-11-03"></script>
+    <script src="js/get-app.js?v=v67-2026-11-03"></script>
 
     <hr class="divider">
 
@@ -211,10 +221,10 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/water-picker.js?v=v66-2026-11-03"></script>
-  <script src="js/sw-update.js?v=v66-2026-11-03"></script>
-  <script src="js/nav.js?v=v66-2026-11-03"></script>
-  <script src="js/visits.js?v=v66-2026-11-03"></script>
-  <script src="js/install-tip.js?v=v66-2026-11-03"></script>
+  <script src="js/water-picker.js?v=v67-2026-11-03"></script>
+  <script src="js/sw-update.js?v=v67-2026-11-03"></script>
+  <script src="js/nav.js?v=v67-2026-11-03"></script>
+  <script src="js/visits.js?v=v67-2026-11-03"></script>
+  <script src="js/install-tip.js?v=v67-2026-11-03"></script>
 </body>
 </html>
