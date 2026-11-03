@@ -215,24 +215,6 @@ for lake, L in LAKES.items():
 # The site root (index.html) is the water picker: plain links to every lake home, grouped by region in the order of
 # REGIONS in js/lakes.js (empty regions left out), and the site-wide JSON-LD (WebSite, Organization, WebPage).
 # Written between markers, so a new lake in js/lakes.js shows up here with no edit to index.html.
-def motors_short(lid):
-    """A two-word motor rule for the picker tile, read from the lake's sourced "motors" line in data/quick-facts.json."""
-    F = FACTS.get(lid) or {}
-    if F.get("motorsShort"):
-        return F["motorsShort"]
-    m = (F.get("motors") or "").lower()
-    if "electric motors only" in m:
-        return "Electric only"
-    if "idle speed and no wake on the whole lake" in m:
-        return "Idle only"
-    hp = re.match(r"(\d+) hp limit", m)
-    if hp:
-        return hp.group(1) + " hp"
-    if m.startswith(("no horsepower limit", "unlimited horsepower")):
-        return "No hp limit"
-    sys.exit(f"build-lake-pages: add a short \"motorsShort\" for {lid} to data/quick-facts.json (picker tile)")
-
-
 def chart_img(lid):
     """The lake's own pixel chart (assets/<id>-chart.png, the pool card art), drawn at 2x like the pool card."""
     c = REG["lakes"][lid]
@@ -245,19 +227,11 @@ def chart_img(lid):
     return f'<img src="{src}" alt="" width="{w * 2}" height="{h * 2}" decoding="async">'
 
 
-def ft(v):
-    return f"{v:,.2f}".rstrip("0").rstrip(".") if isinstance(v, float) and v % 1 else f"{int(v):,}"
-
-
 def picker_tile(lid):
     c = REG["lakes"][lid]
     pool = c.get("pool") or {}
     q = " ".join([c["name"], c["short"], c.get("area") or ""] + list(c.get("aliases") or [])).lower()
     gauge = ("Live level" + (" and temp" if pool.get("temp") else "")) if pool.get("src") else "No public gauge"
-    stats = [f'<span class="wp-stat"><span class="wp-stat-label">Motors</span><span class="wp-stat-value">{motors_short(lid)}</span></span>']
-    if pool.get("fullPool"):
-        stats.append(f'<span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">'
-                     f'{ft(pool["fullPool"])}<span class="wp-unit">ft</span></span></span>')
     # the area line only when it says more than the region heading above it (West central Ohio under Central Ohio)
     rname = next((r["name"] for r in REG["regions"] if r["id"] == c["region"]), "")
     area = (f'<span class="wp-area">{html.escape(c["area"], quote=False)}</span>'
@@ -266,7 +240,6 @@ def picker_tile(lid):
             f'<span class="wp-art" aria-hidden="true">{chart_img(lid)}</span>'
             f'<span class="wp-head"><span class="wp-name">{html.escape(c["name"], quote=False)}</span>'
             f'{area}</span>'
-            f'<span class="wp-stats">{"".join(stats)}</span>'
             f'<span class="wp-gauge"{" data-live" if pool.get("src") else ""}>{gauge}</span></a></li>')
 
 

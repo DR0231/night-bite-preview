@@ -101,7 +101,7 @@ Limit tables are **reminders only** — confirm on [HuntFish OH / ODNR licenses]
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | Pick your water (the site root): every water as a tile (its pixel chart, motors, summer pool, gauge) grouped by region from `js/lakes.js` and `data/quick-facts.json`, region chips, a Find a water box and Last picked (`js/water-picker.js`), Just browsing (`hoover/?browse`, opens Hoover without saving it), Get the app |
+| `index.html` | Pick your water (the site root): every water as a tile (its pixel chart, name, area where it adds, gauge line) grouped by region from `js/lakes.js` and `data/quick-facts.json`, region chips, a Find a water box and Last picked (`js/water-picker.js`), Just browsing (`hoover/?browse`, opens Hoover without saving it), Get the app |
 | `hoover/index.html` | Hoover's home page (moved from the root on Nov. 3, 2026): Tonight at a glance, Quick facts, pool snapshot (the USGS snapshot routine's lines), conditions, bait nearby, log |
 | `<lake>/index.html` (`alum/`, `berlin/` and the rest) | Home pages for every other lake, built like `hoover/` from `tools/lake-home.html` (see Lake home pages) |
 | `species/index.html` | Filterable species grid for the active lake: Biting now picks first, then every other species at the lake, then a closed "Not at <lake>" dropdown, ramps and access (`js/species-lake.js`) |

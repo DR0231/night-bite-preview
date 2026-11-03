@@ -3694,8 +3694,8 @@ a[href^="tel:"],
 
 /* ==========================================================================
    Pick your water: the site root (index.html, js/water-picker.js). The front door: the home hero, then every water
-   as a tile with its own pixel chart (assets/<id>-chart.png, the pool card art) and two facts from
-   data/quick-facts.json and js/lakes.js. Tiles are built by tools/build-lake-pages.py; the page works with no script.
+   as a tile with its own pixel chart, its name, the area where it adds, and whether it has a live gauge (all from
+   js/lakes.js). Tiles are built by tools/build-lake-pages.py; the page works with no script.
    ========================================================================== */
 main.water-home { max-width: 1160px; }
 .water-home > :not(.wp):not(.wp-hero) { max-width: var(--max-wide); margin-left: auto; margin-right: auto; }
@@ -3784,27 +3784,14 @@ main.water-home { max-width: 1160px; }
 .wp-name { font-family: var(--font-heading); font-synthesis: none; font-size: 1rem; line-height: 1.2; color: var(--cream); overflow-wrap: anywhere; transition: color var(--dur) var(--ease); }
 .wp-area {
   font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-label); letter-spacing: 0.04em; line-height: 16px;
-  color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  color: var(--muted); overflow-wrap: anywhere;
 }
-.wp-stats { display: flex; flex-direction: column; margin: auto var(--space-sm) 0; }
-.wp-stat {
-  display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-xs);
-  padding: 0.375rem 0; border-top: 1px solid var(--navy-light);
-}
-.wp-stat-label {
-  font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-label); letter-spacing: 0.08em; line-height: 16px;
-  text-transform: uppercase; color: var(--muted); white-space: nowrap;
-}
-.wp-stat-value {
-  font-family: var(--font-heading); font-synthesis: none; font-size: 0.9375rem; line-height: 18px; color: var(--amber);
-  white-space: nowrap; text-align: right;
-}
-.wp-unit { font-size: 0.7em; margin-left: 0.25em; color: var(--amber-dim); }
 .wp-gauge {
-  display: flex; align-items: center; gap: 0.4375rem; margin: 0 var(--space-sm); padding: 0.375rem 0 var(--space-sm);
+  display: flex; align-items: center; gap: 0.4375rem; margin: auto var(--space-sm) 0; padding: 0.4375rem 0 var(--space-sm);
   border-top: 1px solid var(--navy-light);
   font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-label); letter-spacing: 0.04em; line-height: 16px; color: var(--muted);
 }
+.wp-gauge { min-width: 0; overflow-wrap: anywhere; }
 .wp-gauge::before { content: ""; flex: 0 0 6px; width: 6px; height: 6px; border: 1px solid var(--muted); }
 .wp-gauge[data-live] { color: var(--cream-dark); }
 .wp-gauge[data-live]::before { background: var(--amber); border-color: var(--amber); box-shadow: 0 0 6px rgba(240, 168, 48, 0.55); }
@@ -3815,9 +3802,9 @@ main.water-home { max-width: 1160px; }
 .wp-tile:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 
 /* Last picked (seen with ?pick, when a water is saved): one wide tile, chart beside the facts */
-.wp-last .wp-tile { display: grid; grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr); grid-template-rows: auto 1fr auto; border-color: rgba(240, 168, 48, 0.45); }
-.wp-last .wp-art { grid-row: 1 / 4; height: auto; min-height: 100%; border-bottom: 0; border-right: 1px solid var(--navy-light); border-radius: var(--radius) 0 0 var(--radius); }
-.wp-last .wp-stats { margin-top: 0; }
+.wp-last .wp-tile { display: grid; grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr); grid-template-rows: auto 1fr; border-color: rgba(240, 168, 48, 0.45); }
+.wp-last .wp-art { grid-row: 1 / 3; height: auto; min-height: 100%; border-bottom: 0; border-right: 1px solid var(--navy-light); border-radius: var(--radius) 0 0 var(--radius); }
+.wp-last .wp-gauge { margin-top: 0; align-self: end; }
 .wp-last .wp-name { font-size: var(--text-md); }
 
 /* search that finds nothing */
@@ -3837,9 +3824,7 @@ main.water-home { max-width: 1160px; }
 @media (max-width: 359px) {
   .wp-grid { gap: var(--space-xs); }
   .wp-head { padding: var(--space-xs) var(--space-xs) var(--space-2xs); }
-  .wp-stats, .wp-gauge { margin-left: var(--space-xs); margin-right: var(--space-xs); }
-  .wp-stat { flex-direction: column; gap: 0.125rem; }
-  .wp-stat-value { text-align: left; }
+  .wp-gauge { margin-left: var(--space-xs); margin-right: var(--space-xs); }
   .wp-name { font-size: 0.9375rem; }
 }
 @media (min-width: 640px) {
