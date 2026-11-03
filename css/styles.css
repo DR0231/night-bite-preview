@@ -2974,6 +2974,37 @@ a.glance-cell[href]:hover { background: var(--navy-mid); color: inherit; }
 }
 .glance-bite .glance-value { font-size: 20px; line-height: 24px; height: 24px; }
 .glance-cell[data-empty] .glance-value { color: var(--muted); }
+/* a word state in the value slot ("No gauge", "Check NWS", "Needs forecast"): label type on the same baseline box,
+   so a cell never shows a bare "--" and never changes height when the reading arrives */
+.glance-value.glance-state,
+.glance-grid .glance-value.glance-state {
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  -webkit-font-smoothing: auto;
+  color: var(--cream-dark);
+  align-items: flex-end;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.glance-bite .glance-value.glance-state { font-size: var(--text-label); align-items: center; }
+.glance-cell[data-empty] .glance-value.glance-state { color: var(--cream-dark); }
+.glance-head { flex-wrap: wrap; row-gap: 0; }
+.glance-head .glance-bite { margin-left: auto; }
+/* when the level and temp were read: the stamped snapshot ("Level last checked Nov. 2, 5 PM ET"), turned into
+   "last updated X hours ago" by js/glance.js; two lines of room so it never moves the page as it changes */
+.glance-stamp {
+  margin: 0;
+  padding: var(--space-2xs) 0;
+  min-height: 40px;
+  border-top: 1px solid var(--navy-light);
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: var(--text-label);
+  letter-spacing: 0.04em;
+  line-height: 16px;
+  color: var(--muted);
+}
+.glance-stamp time { color: var(--cream-dark); white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) {
   .glance-cell { transition: none; }
 }

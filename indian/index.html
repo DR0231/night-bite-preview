@@ -35,9 +35,9 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=v73-2026-11-03">
-  <noscript><style>.glance,.glance-actions{display:none}.pool-trend[data-pending]{display:none!important}</style></noscript>
-  <script src="js/lakes.js?v=v73-2026-11-03"></script>
+  <link rel="stylesheet" href="css/styles.css?v=v74-2026-11-03">
+  <noscript><style>.glance-actions{display:none}.pool-trend[data-pending]{display:none!important}</style></noscript>
+  <script src="js/lakes.js?v=v74-2026-11-03"></script>
   <!-- nb:jsonld (tools/build-lake-pages.py) -->
   <script type="application/ld+json">
   [{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://nightbiteoh.com/indian/#webpage", "url": "https://nightbiteoh.com/indian/", "name": "Indian Lake Fishing: Level, Ramps, Rules | The Night Bite", "isPartOf": {"@id": "https://nightbiteoh.com/#website"}, "about": {"@type": "LakeBodyOfWater", "name": "Indian Lake"}, "dateModified": "2026-10-29", "inLanguage": "en-US"}]
@@ -88,36 +88,38 @@
       <h1 class="tagline" id="home-title"><span data-lk="name">Indian Lake</span> fishing</h1>
     </section>
 
-    <section class="glance" id="glance" aria-labelledby="glance-title">
+    <section class="glance" id="glance" aria-labelledby="glance-title" data-baked="snapshot">
+      <!-- baked by tools/glance_bake.py from this page's pool card; js/glance.js keeps it current -->
       <div class="glance-head">
         <h2 class="glance-title" id="glance-title">Tonight at a glance</h2>
         <a class="glance-cell glance-bite" href="indian/#conditions" data-empty>
           <span class="glance-label">Bite</span>
-          <span class="glance-value" data-glance="bite">--</span>
+          <span class="glance-value glance-state" data-glance="bite">Needs forecast</span>
         </a>
       </div>
       <div class="glance-grid">
-        <a class="glance-cell" href="indian/#pool-snapshot" data-cell="pool" data-empty>
+        <a class="glance-cell" href="https://waterdata.usgs.gov/monitoring-location/USGS-03260500/" target="_blank" rel="noopener" data-cell="pool">
           <span class="glance-label">Lake level</span>
-          <span class="glance-value" data-glance="pool">--</span>
-          <span class="glance-sub" data-glance="pool-sub">Loading the gauge</span>
+          <span class="glance-value" data-glance="pool">996.02<span class="glance-unit"> ft</span></span>
+          <span class="glance-sub" data-glance="pool-sub">~0.3 ft below full</span>
         </a>
-        <a class="glance-cell" href="indian/#pool-snapshot" data-cell="temp" data-empty>
+        <a class="glance-cell" href="https://waterdata.usgs.gov/monitoring-location/USGS-03260500/" target="_blank" rel="noopener" data-cell="temp">
           <span class="glance-label">Water temp</span>
-          <span class="glance-value" data-glance="temp">--</span>
-          <span class="glance-sub" data-glance="temp-sub">Loading the gauge</span>
+          <span class="glance-value" data-glance="temp">61<span class="glance-unit"> °F</span></span>
+          <span class="glance-sub" data-glance="temp-sub">USGS gauge</span>
         </a>
         <a class="glance-cell" href="indian/#conditions" data-cell="sunset" data-empty>
           <span class="glance-label">Sunset</span>
-          <span class="glance-value" data-glance="sunset">--</span>
-          <span class="glance-sub" data-glance="sunset-sub">Worked out on this phone</span>
+          <span class="glance-value glance-state" data-glance="sunset"><noscript>JS is off</noscript></span>
+          <span class="glance-sub" data-glance="sunset-sub">On this phone</span>
         </a>
-        <a class="glance-cell" href="indian/#conditions" data-cell="wind" data-empty>
+        <a class="glance-cell" href="https://forecast.weather.gov/MapClick.php?lat=40.49&amp;lon=-83.89" target="_blank" rel="noopener" data-cell="wind" data-empty>
           <span class="glance-label">Wind tonight</span>
-          <span class="glance-value" data-glance="wind">--</span>
-          <span class="glance-sub" data-glance="wind-sub">Loading the forecast</span>
+          <span class="glance-value glance-state" data-glance="wind">Check NWS</span>
+          <span class="glance-sub" data-glance="wind-sub">At weather.gov</span>
         </a>
       </div>
+      <p class="glance-stamp" data-glance="stamp">Level and temp last checked <time datetime="2026-10-29T13:00:00-04:00">Oct. 29, 1 PM ET</time>, USGS gauge.</p>
     </section>
     <div class="glance-actions" id="glance-actions">
       <button type="button" class="glance-btn" data-act="share" aria-haspopup="dialog" aria-controls="tt-share" aria-describedby="glance-share-note">Share tonight</button>
@@ -266,11 +268,10 @@
     <div class="bento-grid" aria-label="Next actions">
       <section class="bento-card bento-pool" id="pool-snapshot" aria-labelledby="snapshot-title">
         <h2 id="snapshot-title">Today’s pool &amp; temp</h2>
-        <p class="pool-lead" id="correction-line">891.50 ft · 65°F · ~2.5 ft below full pool</p>
-        <script src="js/pool-readout.js?v=v73-2026-11-03"></script>
+        <p class="pool-lead" id="correction-line">996.02 ft · 61°F · ~0.3 ft below full pool</p>
+        <script src="js/pool-readout.js?v=v74-2026-11-03"></script>
         <p class="meta" id="correction-checked">
-          Checked: <time datetime="2026-10-19T08:00:00.000-04:00">2026-10-19 08:00 ET</time>.
-          <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03228400/" target="_blank" rel="noopener">Live USGS gauge</a>.
+          Checked: <time datetime="2026-10-29T13:00:00-04:00">2026-10-29 13:00 ET</time>. <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03260500/" target="_blank" rel="noopener">Live USGS gauge</a>.
         </p>
         <div class="water-stat" style="display:none">
           <span class="label">Water temp</span>
@@ -279,7 +280,7 @@
         <p class="meta" id="usgs-live-status" style="margin-bottom:0.5rem;margin-top:0.5rem;">
           Provisional snapshot; your browser may refresh it from USGS. Never invented.
         </p>
-        <script src="js/lake-snapshot.js?v=v73-2026-11-03"></script>
+        <script src="js/lake-snapshot.js?v=v74-2026-11-03"></script>
         <div class="pool-trend" id="pool-trend" hidden data-pending>
           <div class="pool-trend-head">
             <span class="pool-trend-label">Pool, last 7 days</span>
@@ -517,7 +518,7 @@
         </details>
         <p class="meta bait-foot">Drive times are rough. <a class="bait-tell" href="mailto:contact@nightbiteoh.com?subject=Bait%20shop">Know a shop? Tell us</a></p>
       </section>
-      <script src="js/bait-nearby.js?v=v73-2026-11-03"></script>
+      <script src="js/bait-nearby.js?v=v74-2026-11-03"></script>
 
       <a class="bento-card bento-maps" href="water#maps">
         <h3>Water / maps</h3>
@@ -585,7 +586,7 @@
         <span class="card-cue" aria-hidden="true">Open the log</span>
       </a>
     </div>
-    <script src="js/glance.js?v=v73-2026-11-03"></script>
+    <script src="js/glance.js?v=v74-2026-11-03"></script>
 
     <section class="bento-card get-app" id="get-the-app" aria-labelledby="get-app-title">
       <div class="get-app-head">
@@ -621,7 +622,7 @@
         </details>
       </div>
     </section>
-    <script src="js/get-app.js?v=v73-2026-11-03"></script>
+    <script src="js/get-app.js?v=v74-2026-11-03"></script>
 
     <hr class="divider">
 
@@ -717,42 +718,42 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js?v=v73-2026-11-03"></script>
-  <script src="js/sw-update.js?v=v73-2026-11-03"></script>
-  <script src="js/alerts.js?v=v73-2026-11-03"></script>
-  <script src="js/nav.js?v=v73-2026-11-03"></script>
-  <script src="js/visits.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-picker.js?v=v73-2026-11-03"></script>
-  <script src="js/usgs.js?v=v73-2026-11-03"></script>
-  <script src="js/home-log.js?v=v73-2026-11-03"></script>
-  <script src="js/astro.js?v=v73-2026-11-03"></script>
-  <script src="js/conditions.js?v=v73-2026-11-03"></script>
-  <script src="js/pool-trend.js?v=v73-2026-11-03"></script>
-  <script src="js/hoover-map-data.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-alum.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-buckeye.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-oshaughnessy.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-griggs.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-indian.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-delaware.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-deercreek.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-madison.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-knox.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-clearfork.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-seneca.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-dillon.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-logan.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-saltfork.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-burroak.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-dow.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-mosquito.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-berlin.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-westbranch.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-pymatuning.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-milton.js?v=v73-2026-11-03"></script>
-  <script src="js/lake-map-data-leesville.js?v=v73-2026-11-03"></script>
-  <script src="js/hoover-map.js?v=v73-2026-11-03"></script>
-  <script src="js/install-tip.js?v=v73-2026-11-03"></script>
-  <script src="js/tonight-tools.js?v=v73-2026-11-03"></script>
+  <script src="js/refresh.js?v=v74-2026-11-03"></script>
+  <script src="js/sw-update.js?v=v74-2026-11-03"></script>
+  <script src="js/alerts.js?v=v74-2026-11-03"></script>
+  <script src="js/nav.js?v=v74-2026-11-03"></script>
+  <script src="js/visits.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-picker.js?v=v74-2026-11-03"></script>
+  <script src="js/usgs.js?v=v74-2026-11-03"></script>
+  <script src="js/home-log.js?v=v74-2026-11-03"></script>
+  <script src="js/astro.js?v=v74-2026-11-03"></script>
+  <script src="js/conditions.js?v=v74-2026-11-03"></script>
+  <script src="js/pool-trend.js?v=v74-2026-11-03"></script>
+  <script src="js/hoover-map-data.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-alum.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-buckeye.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-oshaughnessy.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-griggs.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-indian.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-delaware.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-deercreek.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-madison.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-knox.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-clearfork.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-seneca.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-dillon.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-logan.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-saltfork.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-burroak.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-dow.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-mosquito.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-berlin.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-westbranch.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-pymatuning.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-milton.js?v=v74-2026-11-03"></script>
+  <script src="js/lake-map-data-leesville.js?v=v74-2026-11-03"></script>
+  <script src="js/hoover-map.js?v=v74-2026-11-03"></script>
+  <script src="js/install-tip.js?v=v74-2026-11-03"></script>
+  <script src="js/tonight-tools.js?v=v74-2026-11-03"></script>
 </body>
 </html>

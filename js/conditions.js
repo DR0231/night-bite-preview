@@ -631,6 +631,7 @@
     lastOk = new Date(saved.savedAt);
     card.setAttribute("data-state", "ok");
     card.setAttribute("data-saved", "1");
+    if (saved.savedAt) card.setAttribute("data-saved-at", String(saved.savedAt));   // js/glance.js: "Saved NWS, 3h ago"
     return true;
   }
 
@@ -673,6 +674,7 @@
       lastOk = cached ? new Date(cached.at) : new Date();
       card.removeAttribute("data-offline");
       card.removeAttribute("data-saved");
+      card.removeAttribute("data-saved-at");
       stamp(lastOk);
       render();
       var offline = OFF && OFF.isOffline();
@@ -699,7 +701,8 @@
       });
     }).catch(function () {
       if (hasData) failRefresh();
-      else if (OFF && OFF.isOffline() && showSaved()) failRefresh();
+      // offline, or NWS blocked or down on the first load: the last forecast saved on this phone (3 days at most), labelled
+      else if (OFF && showSaved()) failRefresh();
       else fail();
     });
   }

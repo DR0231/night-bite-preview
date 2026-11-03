@@ -24,6 +24,8 @@ data/quick-facts.json (motors and speed, ramps and access, pool, night rules, so
 JSON-LD (between <!-- nb:jsonld --> markers): every lake home gets its own WebPage, part of the WebSite that the
 site root (the water picker) declares. Each WebPage carries dateModified = that lake's "checked" date, the same date
 the page shows as "Facts checked". The template's own two blocks are refreshed with Hoover's.
+Tonight at a glance: tools/glance_bake.py bakes the strip from each page's own pool card (level, temp, Checked time)
+and, for lakes other than Hoover, writes that lake's snapshot from js/lakes.js into the pool card's static lines.
 Never edit the <lake>/index.html copies by hand (except the three snapshot lines in hoover/index.html); they are overwritten.
 """
 import datetime, html, json, pathlib, re, sys
@@ -41,6 +43,7 @@ ORG_ID = SITE + "#organization"
 # <title> and meta description from data/quick-facts.json ("title", "description"). A new lake needs no edit here.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import registry  # noqa: E402
+import glance_bake  # noqa: E402  (the static Tonight at a glance strip and pool card snapshot lines)
 import importlib.util  # noqa: E402
 
 REG = registry.load(root)
@@ -185,6 +188,8 @@ if _hv.exists():
 
 # the template's own Quick facts and JSON-LD: Hoover's, so it reads like the page it becomes
 new_src = fill(src, "hoover", "Hoover Reservoir", SITE + "hoover/", LAKES["hoover"]["title"])
+# and its glance strip, baked from Hoover's own pool card lines (tools/glance_bake.py)
+new_src = glance_bake.bake(new_src, REG["lakes"]["hoover"].get("pool") or {}, (REG["lakes"]["hoover"].get("nws") or {}).get("page"), card=False)
 if new_src != TEMPLATE.read_text():
     TEMPLATE.write_text(new_src)
     print("wrote tools/lake-home.html (Hoover quick facts, JSON-LD, snapshot lines)")
@@ -209,6 +214,10 @@ for lake, L in LAKES.items():
     h = sub1(r'(<meta property="og:image" content=")[^"]*(")', r"\g<1>" + SITE + f"assets/og/og-{lake}.png" + r"\2", h)
     h = sub1(r'(<meta property="og:image:alt" content=")[^"]*(")', r"\g<1>" + esc(f"The Night Bite: {L['name']} fishing hub, a pixel lantern over a moonlit tree line") + r"\2", h)
     h = fill(h, lake, L["name"], url, L["title"])
+    # this lake's own snapshot in the pool card (not Hoover's) and the glance strip baked from it, so the first paint,
+    # a page with JavaScript off and a page whose USGS or NWS calls fail all show a stamped reading, never "--"
+    _c = REG["lakes"][lake]
+    h = glance_bake.bake(h, _c.get("pool") or {}, (_c.get("nws") or {}).get("page"), card=lake != "hoover")
     # in-page links and Home links: with <base href="../"> they would otherwise point at the root page
     h = re.sub(r'href="#', f'href="{lake}/#', h)
     h = re.sub(r'href="\./"', f'href="{lake}/"', h)

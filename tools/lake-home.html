@@ -36,7 +36,7 @@
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css?v=v63-2026-11-03">
-  <noscript><style>.glance,.glance-actions{display:none}.pool-trend[data-pending]{display:none!important}</style></noscript>
+  <noscript><style>.glance-actions{display:none}.pool-trend[data-pending]{display:none!important}</style></noscript>
   <script src="js/lakes.js?v=v63-2026-11-03"></script>
   <!-- nb:jsonld (tools/build-lake-pages.py) -->
   <script type="application/ld+json">
@@ -88,36 +88,38 @@
       <h1 class="tagline" id="home-title"><span data-lk="name">Hoover Reservoir</span> fishing</h1>
     </section>
 
-    <section class="glance" id="glance" aria-labelledby="glance-title">
+    <section class="glance" id="glance" aria-labelledby="glance-title" data-baked="snapshot">
+      <!-- baked by tools/glance_bake.py from this page's pool card; js/glance.js keeps it current -->
       <div class="glance-head">
         <h2 class="glance-title" id="glance-title">Tonight at a glance</h2>
         <a class="glance-cell glance-bite" href="#conditions" data-empty>
           <span class="glance-label">Bite</span>
-          <span class="glance-value" data-glance="bite">--</span>
+          <span class="glance-value glance-state" data-glance="bite">Needs forecast</span>
         </a>
       </div>
       <div class="glance-grid">
-        <a class="glance-cell" href="#pool-snapshot" data-cell="pool" data-empty>
+        <a class="glance-cell" href="https://waterdata.usgs.gov/monitoring-location/USGS-03228400/" target="_blank" rel="noopener" data-cell="pool">
           <span class="glance-label">Lake level</span>
-          <span class="glance-value" data-glance="pool">--</span>
-          <span class="glance-sub" data-glance="pool-sub">Loading the gauge</span>
+          <span class="glance-value" data-glance="pool">891.50<span class="glance-unit"> ft</span></span>
+          <span class="glance-sub" data-glance="pool-sub">~2.5 ft below full</span>
         </a>
-        <a class="glance-cell" href="#pool-snapshot" data-cell="temp" data-empty>
+        <a class="glance-cell" href="https://waterdata.usgs.gov/monitoring-location/USGS-03228400/" target="_blank" rel="noopener" data-cell="temp">
           <span class="glance-label">Water temp</span>
-          <span class="glance-value" data-glance="temp">--</span>
-          <span class="glance-sub" data-glance="temp-sub">Loading the gauge</span>
+          <span class="glance-value" data-glance="temp">65<span class="glance-unit"> °F</span></span>
+          <span class="glance-sub" data-glance="temp-sub">USGS gauge</span>
         </a>
         <a class="glance-cell" href="#conditions" data-cell="sunset" data-empty>
           <span class="glance-label">Sunset</span>
-          <span class="glance-value" data-glance="sunset">--</span>
-          <span class="glance-sub" data-glance="sunset-sub">Worked out on this phone</span>
+          <span class="glance-value glance-state" data-glance="sunset"><noscript>JS is off</noscript></span>
+          <span class="glance-sub" data-glance="sunset-sub">On this phone</span>
         </a>
-        <a class="glance-cell" href="#conditions" data-cell="wind" data-empty>
+        <a class="glance-cell" href="https://forecast.weather.gov/MapClick.php?lat=40.11&amp;lon=-82.88" target="_blank" rel="noopener" data-cell="wind" data-empty>
           <span class="glance-label">Wind tonight</span>
-          <span class="glance-value" data-glance="wind">--</span>
-          <span class="glance-sub" data-glance="wind-sub">Loading the forecast</span>
+          <span class="glance-value glance-state" data-glance="wind">Check NWS</span>
+          <span class="glance-sub" data-glance="wind-sub">At weather.gov</span>
         </a>
       </div>
+      <p class="glance-stamp" data-glance="stamp">Level and temp last checked <time datetime="2026-10-19T08:00:00.000-04:00">Oct. 19, 8 AM ET</time>, USGS gauge.</p>
     </section>
     <div class="glance-actions" id="glance-actions">
       <button type="button" class="glance-btn" data-act="share" aria-haspopup="dialog" aria-controls="tt-share" aria-describedby="glance-share-note">Share tonight</button>
