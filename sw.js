@@ -9,7 +9,7 @@
  *    with last deploy's styles or scripts. (Up to v11 these were cache first, which showed the multi-lake
  *    picker unstyled and the old Hoover-only map script after a deploy.) Pages ask for them with ?v=VERSION.
  *  · Fonts, images: stale while revalidate (instant from cache, refreshed in the background).
- *  · Home pages: the root (Hoover) and every lake home page (alum/, buckeye/, oshaughnessy/, griggs/, indian/, delaware/, deercreek/, madison/, knox/, clearfork/, seneca/, dillon/, logan/, saltfork/, burroak/, dow/, mosquito/, berlin/, westbranch/, pymatuning/, milton/, leesville/) are precached, so each lake opens offline.
+ *  · Home pages: the root (the water picker) and every lake home page (hoover/, alum/, buckeye/, oshaughnessy/, griggs/, indian/, delaware/, deercreek/, madison/, knox/, clearfork/, seneca/, dillon/, logan/, saltfork/, burroak/, dow/, mosquito/, berlin/, westbranch/, pymatuning/, milton/, leesville/) are precached, so each lake opens offline.
  *  · Whisperwood is never touched: nothing under whisperwood/ (or whisperwood.html) is cached or intercepted.
  *  · Cross origin requests (NWS, USGS, links out) pass straight through. The page itself keeps the last good
  *    readings in localStorage and labels them "Offline. Last updated ..." (js/refresh.js, NightBiteOffline).
@@ -19,13 +19,14 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v63-2026-11-03";
+var VERSION = "v64-2026-11-03";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 
 var PRECACHE = [
   "./",
+  "hoover/",
   "alum/",
   "buckeye/",
   "oshaughnessy/",
