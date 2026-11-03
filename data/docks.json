@@ -1,6 +1,6 @@
 {
   "_readme": "Dock season status for water.html#docks. Edit here, then run: python3 tools/build-docks.py && python3 tools/stamp-version.py. Status is one of: in, ending, out, unannounced. 'ending' needs 'ends' (YYYY-MM-DD) and flips to 'after' text on the page once that date passes. Never set 'out' without an official source saying so. 'checked' is the date someone last read every source below. tools/check-docks.py watches the 'watch' list.",
-  "checked": "2026-10-29",
+  "checked": "2026-11-03",
   "lakes": {
     "hoover": {
       "name": "Hoover",
@@ -258,10 +258,20 @@
       "name": "Delaware Lake",
       "items": [
         {
-          "name": "State park docks",
+          "name": "Lease docks",
+          "status": "ending",
+          "ends": "2026-10-01",
+          "label": "Season ends Oct. 1",
+          "after_label": "Season over",
+          "note": "ODNR lists the Delaware lease dock season as April 15 to Oct. 1.",
+          "after_note": "ODNR lists the Delaware lease dock season as April 15 to Oct. 1, so the lease docks are done for 2026.",
+          "source": "odnr-delaware-lottery"
+        },
+        {
+          "name": "Launch docks",
           "status": "unannounced",
           "label": "Not announced",
-          "note": "ODNR has not posted a 2026 date for pulling the seasonal rental or launch docks.",
+          "note": "ODNR has not posted a 2026 date for pulling the launch docks.",
           "source": "odnr-delaware"
         },
         {
@@ -297,6 +307,7 @@
       ],
       "sources": [
         "odnr-delaware",
+        "odnr-delaware-lottery",
         "odnr-drawdowns"
       ]
     },
@@ -459,10 +470,13 @@
         },
         {
           "name": "Winter level",
-          "status": "unannounced",
-          "label": "Not posted",
-          "note": "Seneca is an MWCD lake, so it is not on ODNR&rsquo;s state park drawdown list, and MWCD posts no winter pool date. The USGS gauge at Senecaville shows the level.",
-          "source": "mwcd-seneca"
+          "status": "ending",
+          "ends": "2026-11-14",
+          "label": "Drawdown Nov. 15",
+          "after_label": "Drawdown under way",
+          "note": "MWCD says the winter drawdown starts Nov. 15: 5 ft, from 832.2 ft to 827.2 ft over about 35 days. The USGS gauge at Senecaville shows the level.",
+          "after_note": "MWCD started the winter drawdown Nov. 15: 5 ft, from 832.2 ft to 827.2 ft over about 35 days, with a partial refill to 830.2 ft by Mar. 15, 2027. The USGS gauge at Senecaville shows the level.",
+          "source": "mwcd-drawdowns"
         },
         {
           "name": "Launch ramps",
@@ -490,7 +504,8 @@
       ],
       "sources": [
         "mwcd-seneca",
-        "mwcd-seneca-marina"
+        "mwcd-seneca-marina",
+        "mwcd-drawdowns"
       ]
     },
     "dillon": {
@@ -961,6 +976,21 @@
       ]
     },
     {
+      "id": "odnr-delaware-lottery",
+      "label": "ODNR, Delaware Dock Lottery",
+      "url": "https://ohiodnr.gov/discover-and-learn/safety-conservation/about-odnr/division-parks-watercraft/boating-paddling-ohio/dock-lotteries/delaware",
+      "lakes": [
+        "delaware"
+      ],
+      "keywords": [
+        "dock season",
+        "april",
+        "october",
+        "remov",
+        "lottery"
+      ]
+    },
+    {
       "id": "odnr-deercreek",
       "label": "ODNR, Deer Creek State Park",
       "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/deer-creek-state-park",
@@ -1093,6 +1123,21 @@
         "alert",
         "marina",
         "season"
+      ]
+    },
+    {
+      "id": "mwcd-drawdowns",
+      "label": "MWCD, Winter Drawdown Schedule (Oct. 2026)",
+      "url": "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/",
+      "lakes": [
+        "seneca"
+      ],
+      "keywords": [
+        "seneca",
+        "drawdown",
+        "november",
+        "dock",
+        "ramp"
       ]
     },
     {

@@ -93,7 +93,13 @@ def quick_facts(lake):
     if F.get("motors"):
         rows.append(("Motors and speed", t(F["motors"])))
     if F.get("ramps"):
-        rows.append(("Ramps and access", t(F["ramps"])))
+        ramps = t(F["ramps"])
+        D = F.get("docks")   # optional dated end of season dock line, official source only
+        if D:
+            ramps += (f'<br><span class="qf-docks">Docks, checked <time datetime="{D["checked"]}">{nice_date(D["checked"])}</time>: '
+                      f'{t(D["text"])} Source: <a href="{D["source"][1]}" target="_blank" rel="noopener">{t(D["source"][0])}</a>. '
+                      f'<a href="water#docks">Dock season, all lakes</a>.</span>')
+        rows.append(("Ramps and access", ramps))
     pool = t(F["pool"]) + " " if F.get("pool") else ""
     if src == "usgs" and gauge:
         pool += f'Live level: <a href="{gauge}" target="_blank" rel="noopener">USGS gauge {site}</a>.'

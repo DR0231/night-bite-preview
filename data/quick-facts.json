@@ -1,10 +1,11 @@
 {
-  "_about": "Quick facts on each lake home page, written into the HTML by tools/build-lake-pages.py (no JavaScript). Every line is copied from text the site already sources (water.html lake facts cards, the home page map notes and How to read this, js/lake-map-data-*.js); the gauge link comes from js/lakes.js. Leave a field out when there is no official source. checked = the date the facts were last checked against the sources listed; it also becomes the page's WebPage dateModified. title and description (every lake but Hoover) are that lake home page's <title> and meta description, written by tools/build-lake-pages.py; Hoover's live in index.html itself.",
+  "_about": "Quick facts on each lake home page, written into the HTML by tools/build-lake-pages.py (no JavaScript). Every line is copied from text the site already sources (water.html lake facts cards, the home page map notes and How to read this, js/lake-map-data-*.js); the gauge link comes from js/lakes.js. docks (optional) = a dated end of season dock line under Ramps and access, from an official page only (checked, text, source [label, url]). Leave a field out when there is no official source. checked = the date the facts were last checked against the sources listed; it also becomes the page's WebPage dateModified. title and description (every lake but Hoover) are that lake home page's <title> and meta description, written by tools/build-lake-pages.py; Hoover's live in index.html itself.",
   "lakes": {
     "hoover": {
       "checked": "2026-10-31",
       "motors": "10 hp limit and 10 mph; idle speed within 100 ft of shore. Boats 22 ft max.",
       "ramps": "Five public ramps: Oxbow Road, Sunbury Road, Twin Bridges, Red Bank and Walnut Street. Shore access on the Mudflats Boardwalk.",
+      "docks": {"checked": "2026-11-03", "text": "The city lists the marina dock season as May 1 to Oct. 31, so the marina docks are done for 2026. No date posted yet for pulling the ramp docks.", "source": ["Columbus Recreation and Parks, Marinas & Docks", "https://columbusrecparks.com/facilities/rentals/marinas-and-docks/"]},
       "pool": "Summer pool is 894 ft, the level the ODNR contour map is drawn at.",
       "night": "City park hours are 7 a.m. to 11 p.m.; check posted signs before a night trip.",
       "sources": [
@@ -45,6 +46,7 @@
       "description": "O'Shaughnessy Reservoir fishing: live USGS level, 40 mph by day and 10 mph after sunset, Home Road and Bellepoint ramps, tonight's bite. Unofficial.",
       "motors": "Unlimited horsepower; 40 mph by day. Idle speed within 100 ft of shore and bridges. Boats 22 ft or shorter, no personal watercraft.",
       "ramps": "Home Road ramp and marina, and the Bellepoint ramp. Canoe and kayak launches at Twin Lakes and on the east side.",
+      "docks": {"checked": "2026-11-03", "text": "The city lists the marina dock season as May 1 to Oct. 31, so the marina docks are done for 2026. No date posted yet for pulling the ramp docks.", "source": ["Columbus Recreation and Parks, Marinas & Docks", "https://columbusrecparks.com/facilities/rentals/marinas-and-docks/"]},
       "pool": "Full pool is the City dam crest, 848.5 ft. ODNR fishing map depths are based on 847.9 ft.",
       "night": "10 mph from sunset to sunrise (City code). City park hours are 7 a.m. to 11 p.m.; check posted signs before a night trip.",
       "sources": [
@@ -59,6 +61,7 @@
       "description": "Griggs Reservoir fishing: live USGS level, 10 mph after sunset, the Griggs boat launch and docks, tonight's bite and species. Unofficial.",
       "motors": "Unlimited horsepower; 40 mph by day. Idle speed within 100 ft of shore and bridges. Boats 22 ft or shorter, no personal watercraft.",
       "ramps": "Griggs boat launch south of Fishinger Road, plus the marina and public boat docks.",
+      "docks": {"checked": "2026-11-03", "text": "The city lists the marina dock season as May 1 to Oct. 31, so the marina docks are done for 2026. No date posted yet for pulling the ramp docks.", "source": ["Columbus Recreation and Parks, Marinas & Docks", "https://columbusrecparks.com/facilities/rentals/marinas-and-docks/"]},
       "pool": "Full pool is the City dam crest, 756.18 ft. ODNR fishing map depths are based on 757 ft.",
       "night": "10 mph from sunset to sunrise (City code). City park hours are 7 a.m. to 11 p.m.; check posted signs before a night trip.",
       "sources": [
@@ -87,6 +90,7 @@
       "description": "Delaware Lake fishing: live Corps lake level, unlimited hp, three state park ramps, tonight's bite and species. Unofficial.",
       "motors": "Unlimited horsepower. Follow the posted no wake buoys.",
       "ramps": "Three state park ramps: the main marina ramp, Sherwood Road on the east side and the southwest launch area.",
+      "docks": {"checked": "2026-11-03", "text": "ODNR lists the lease dock season as April 15 to Oct. 1, so the lease docks are done for 2026. No date posted yet for pulling the launch docks.", "source": ["ODNR, Delaware Dock Lottery", "https://ohiodnr.gov/discover-and-learn/safety-conservation/about-odnr/division-parks-watercraft/boating-paddling-ohio/dock-lotteries/delaware"]},
       "pool": "Normal summer pool is 915 ft. ODNR lists a winter drawdown to about 910 ft.",
       "night": "State park hours are sunrise to sunset; ODNR allows legitimate recreation, like fishing, outside those hours.",
       "sources": [
