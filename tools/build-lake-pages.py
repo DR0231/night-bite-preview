@@ -208,3 +208,63 @@ for lake, L in LAKES.items():
     out.parent.mkdir(exist_ok=True)
     out.write_text(h)
     print(f"wrote {out.relative_to(root)}")
+
+
+# The site root (index.html) is the water picker: plain links to every lake home, grouped by region in the order of
+# REGIONS in js/lakes.js (empty regions left out), and the site-wide JSON-LD (WebSite, Organization, WebPage).
+# Written between markers, so a new lake in js/lakes.js shows up here with no edit to index.html.
+def picker_rows(ids):
+    out = []
+    for lid in ids:
+        c = REG["lakes"][lid]
+        pool = c.get("pool") or {}
+        tags = (["Live level"] if pool.get("src") else []) + (["Live temp"] if pool.get("temp") else [])
+        q = " ".join([c["name"], c["short"]] + list(c.get("aliases") or [])).lower()
+        meta = "".join(f'<span class="lp-tag">{x}</span>' for x in tags[:2])
+        meta = f'<span class="lp-meta">{meta}</span>' if meta else ""
+        out.append(f'          <li class="lp-row"><a class="lp-lake" href="{registry.home(lid)}" data-water="{lid}" '
+                   f'data-q="{esc(q)}"><span class="lp-name">{html.escape(c["name"], quote=False)}</span>{meta}</a></li>')
+    return "\n".join(out)
+
+
+def water_picker():
+    parts, first = [], True
+    for rg in REG["regions"]:
+        ids = [i for i in REG["order"] if REG["lakes"][i]["region"] == rg["id"]]
+        if not ids:
+            continue
+        parts.append(f'      <details class="lp-region wp-region" data-region="{rg["id"]}"{" open" if first else ""}>\n'
+                     f'        <summary>{html.escape(rg["name"], quote=False)}</summary>\n'
+                     f'        <ul class="lp-list">\n{picker_rows(ids)}\n        </ul>\n      </details>')
+        first = False
+    return ("      <!-- nb:water-picker (tools/build-lake-pages.py, from js/lakes.js) -->\n" + "\n".join(parts)
+            + "\n      <!-- /nb:water-picker -->")
+
+
+def root_jsonld(title):
+    checked = max((FACTS.get(i) or {}).get("checked", "") for i in REG["order"])
+    data = [
+        {"@context": "https://schema.org", "@type": "WebSite", "@id": WEBSITE_ID, "name": "The Night Bite",
+         "alternateName": ["Night Bite OH", "The Night Bite Ohio", "nightbiteoh.com"], "url": SITE,
+         "inLanguage": "en-US", "publisher": {"@id": ORG_ID}},
+        {"@context": "https://schema.org", "@type": "Organization", "@id": ORG_ID, "name": "The Night Bite", "url": SITE,
+         "logo": {"@type": "ImageObject", "url": SITE + "assets/icons/icon-512.png", "width": 512, "height": 512}},
+        {"@context": "https://schema.org", "@type": "WebPage", "@id": SITE + "#webpage", "url": SITE, "name": title,
+         "isPartOf": {"@id": WEBSITE_ID}, "dateModified": checked or None, "inLanguage": "en-US"},
+    ]
+    if not checked:
+        del data[2]["dateModified"]
+    return ("  <!-- nb:jsonld (tools/build-lake-pages.py) -->\n  <script type=\"application/ld+json\">\n  "
+            + json.dumps(data, ensure_ascii=False) + "\n  </script>\n  <!-- /nb:jsonld -->")
+
+
+ROOT_PAGE = root / "index.html"
+r = ROOT_PAGE.read_text()
+if 'name="nb-root"' not in r:
+    sys.exit("build-lake-pages: index.html is not the water picker (<meta name=\"nb-root\"> missing)")
+r_title = html.unescape(re.search(r"<title>([^<]*)</title>", r).group(1))
+new_r = sub1(r"[ \t]*<!-- nb:water-picker.*?<!-- /nb:water-picker -->", lambda m: water_picker(), r, re.S)
+new_r = sub1(r"[ \t]*<!-- nb:jsonld.*?<!-- /nb:jsonld -->", lambda m: root_jsonld(r_title), new_r, re.S)
+if new_r != r:
+    ROOT_PAGE.write_text(new_r)
+    print("wrote index.html (water picker lists, site JSON-LD)")

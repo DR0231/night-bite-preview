@@ -3691,3 +3691,29 @@ a[href^="tel:"],
   .qf-list dd { margin: 0; }
   .qf-list dt { padding-top: 0.2rem; }
 }
+
+/* Water picker at the site root (index.html, js/water-picker.js): the lake sheet's rows and regions, on the page */
+.water-home .wp-lead { margin: var(--space-xs) auto 0; max-width: 34rem; text-align: center; color: var(--cream-dark); }
+.wp { margin-top: var(--space-md); padding: var(--space-sm) var(--space-sm) var(--space-xs); }
+.wp-title { font-family: var(--font-display); font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0.625rem var(--space-xs); }
+.wp-tools { display: flex; padding: 0 0 var(--space-xs); }
+.wp-tools[hidden], .wp-empty[hidden], .wp-region[hidden], .wp .lp-row[hidden] { display: none; }
+.wp .lp-region:first-of-type { margin-top: 0; border-top: 0; }
+.wp .lp-name { white-space: normal; }
+.wp-browse { margin-top: var(--space-md); }
+.wp-browse-title { font-family: var(--font-display); font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 var(--space-xs); }
+.wp-browse-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-xs); }
+.wp-browse-link {
+  display: flex; flex-direction: column; justify-content: center; gap: 0.0625rem; min-height: 44px;
+  padding: 0.5rem 0.875rem; color: var(--cream); text-decoration: none;
+  border: 1px solid rgba(245, 237, 216, 0.10); border-radius: var(--radius); background: rgba(245, 237, 216, 0.03);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+.wp-browse-link:hover { border-color: rgba(240, 168, 48, 0.45); background: rgba(245, 237, 216, 0.05); }
+.wp-browse-link:hover .wp-browse-name { color: var(--amber); }
+.wp-browse-link:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.wp-browse-name { font-family: var(--font-heading); font-size: 1.0625rem; line-height: 1.25; }
+.wp-browse-meta { font-family: var(--font-display); font-size: 0.6875rem; letter-spacing: 0.03em; color: var(--muted); }
+@media (min-width: 640px) {
+  .wp-browse-list { grid-template-columns: repeat(3, 1fr); }
+}

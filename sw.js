@@ -19,7 +19,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v64-2026-11-03";
+var VERSION = "v65-2026-11-03";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -117,6 +117,7 @@ var PRECACHE = [
   "js/lake-map-data-milton.js",
   "js/lake-map-data-leesville.js",
   "js/lake-picker.js",
+  "js/water-picker.js",
   "js/lake-snapshot.js",
   "js/lakes.js",
   "js/log.js",

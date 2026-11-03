@@ -740,9 +740,9 @@
 
   // keep the address bar honest: a lake's home page has no ?lake=; elsewhere ?lake= for every lake but Hoover
   try {
-    var u = new URL(location.href);
+    var u = new URL(location.href), had = u.searchParams.get("lake");
     if (id === "hoover" || homeLake || atRoot) u.searchParams.delete("lake"); else u.searchParams.set("lake", id);
-    if (u.href !== location.href) history.replaceState(history.state, "", u.href);
+    if (had !== u.searchParams.get("lake")) history.replaceState(history.state, "", u.href);
   } catch (e) {}
 
   var root = document.documentElement;
