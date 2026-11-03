@@ -3742,6 +3742,9 @@ main.water-home { max-width: 1160px; }
   overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; scroll-padding-inline: 1rem;
 }
 .wp-chips::-webkit-scrollbar { display: none; }
+@media (max-width: 639px) {   /* the chip row scrolls sideways on phones; fade its edge so the last chip reads as more */
+  .wp-chips { -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 2.5rem), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 2.5rem), transparent); }
+}
 .wp-chip {
   flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 40px; padding: 0 0.875rem;
   font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-label); letter-spacing: 0.06em; text-transform: uppercase;
@@ -3818,7 +3821,7 @@ main.water-home { max-width: 1160px; }
 .wp-last .wp-name { font-size: var(--text-md); }
 
 /* search that finds nothing */
-.wp-empty { margin-top: var(--space-lg); padding: var(--space-xl) var(--space-md); text-align: center; border: 1px dashed var(--navy-light); border-radius: var(--radius); }
+.wp-empty { margin-top: var(--space-lg); padding: var(--space-xl) var(--space-md); text-align: center; background: var(--navy-mid); border: 1px solid var(--navy-light); border-radius: var(--radius); box-shadow: inset 0 1px 0 var(--hairline); }
 .wp-empty-lantern { display: block; margin: 0 auto var(--space-sm); width: 24px; height: 36px; filter: drop-shadow(0 0 8px rgba(240, 168, 48, 0.35)); opacity: 0.9; }
 .wp-empty-title { margin: 0; font-family: var(--font-heading); font-size: var(--text-md); color: var(--cream); }
 .wp-empty-text { margin: var(--space-2xs) auto var(--space-md); max-width: 28rem; font-size: var(--text-sm); color: var(--cream-dark); }

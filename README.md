@@ -101,7 +101,7 @@ Limit tables are **reminders only** — confirm on [HuntFish OH / ODNR licenses]
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | Pick your water (the site root): every water as a plain link, grouped by region from `js/lakes.js`, a Find a water box (`js/water-picker.js`), Just browsing links to Species, Water and Gear, Get the app |
+| `index.html` | Pick your water (the site root): every water as a tile (its pixel chart, motors, summer pool, gauge) grouped by region from `js/lakes.js` and `data/quick-facts.json`, region chips, a Find a water box and Last picked (`js/water-picker.js`), Just browsing (`hoover/?browse`, opens Hoover without saving it), Get the app |
 | `hoover/index.html` | Hoover's home page (moved from the root on Nov. 3, 2026): Tonight at a glance, Quick facts, pool snapshot (the USGS snapshot routine's lines), conditions, bait nearby, log |
 | `<lake>/index.html` (`alum/`, `berlin/` and the rest) | Home pages for every other lake, built like `hoover/` from `tools/lake-home.html` (see Lake home pages) |
 | `species/index.html` | Filterable species grid for the active lake: Biting now picks first, then every other species at the lake, then a closed "Not at <lake>" dropdown, ramps and access (`js/species-lake.js`) |
@@ -132,7 +132,7 @@ python3 tools/build-lake-pages.py && python3 tools/build-meta.py && python3 tool
 
 The generator adds `<base href="../">` (so every asset, script and fetch resolves from the root), the lake's
 `nb-home` meta, its own title, description, canonical and OG tags (og:image is `assets/og/og-<lake>.png`), and points
-in-page links at the lake's page. It also writes the root's region lists (`<!-- nb:water-picker -->`) and site JSON-LD,
+in-page links at the lake's page. It also writes the root's tiles and region chips (`<!-- nb:water-picker -->`, `<!-- nb:water-chips -->`) and site JSON-LD,
 so a new lake in `js/lakes.js` shows up on the picker with no edit to `index.html`.
 
 Remembered water: `js/lakes.js` keeps the last water picked or opened in localStorage `nb-lake` (the id only). A lake

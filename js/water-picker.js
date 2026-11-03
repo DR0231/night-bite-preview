@@ -60,7 +60,7 @@
     if (last && savedTile) last.hidden = !!q || chip !== "all";
     chips.forEach(function (c) { c.setAttribute("aria-current", c.getAttribute("data-chip") === chip ? "true" : "false"); });
     empty.hidden = hits > 0;
-    if (!hits) emptyText.textContent = "Nothing matches \u201c" + input.value.trim() + "\u201d. Try a lake name, a town like Mt. Sterling, or another region.";
+    if (!hits) emptyText.textContent = "Nothing matches \u201c" + input.value.trim() + "\u201d. Try the water\u2019s name or a nearby town, like Mt. Sterling.";
   }
 
   chips.forEach(function (c) {
