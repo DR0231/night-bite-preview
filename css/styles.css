@@ -3700,7 +3700,8 @@ a[href^="tel:"],
 main.water-home { max-width: 1160px; }
 .water-home > :not(.wp):not(.wp-hero) { max-width: var(--max-wide); margin-left: auto; margin-right: auto; }
 .water-home > .condensed-list { margin-left: auto; margin-right: auto; }
-.wp-hero { padding-bottom: var(--space-lg); }
+.wp-hero { padding: var(--space-md) 0 var(--space-lg); }
+.wp-hero .hero-horizon { margin-bottom: var(--space-md); }
 .wp-hero .hero-brand { margin-bottom: var(--space-2xs); }
 .wp-hero h1.tagline { color: var(--amber); opacity: 1; }
 .wp-lead {
@@ -3839,6 +3840,8 @@ main.water-home { max-width: 1160px; }
   .wp-name { font-size: 0.9375rem; }
 }
 @media (min-width: 640px) {
+  .wp-hero { padding-top: var(--space-xl); }
+  .wp-hero .hero-horizon { margin-bottom: var(--space-lg); }
   .wp-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .wp-chips { flex-wrap: wrap; margin: 0; padding: 0; overflow: visible; }
   .wp-last .wp-tile { grid-template-columns: minmax(0, 10rem) minmax(0, 1fr); max-width: 32rem; }

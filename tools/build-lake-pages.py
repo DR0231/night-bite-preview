@@ -258,10 +258,14 @@ def picker_tile(lid):
     if pool.get("fullPool"):
         stats.append(f'<span class="wp-stat"><span class="wp-stat-label">Summer pool</span><span class="wp-stat-value">'
                      f'{ft(pool["fullPool"])}<span class="wp-unit">ft</span></span></span>')
+    # the area line only when it says more than the region heading above it (West central Ohio under Central Ohio)
+    rname = next((r["name"] for r in REG["regions"] if r["id"] == c["region"]), "")
+    area = (f'<span class="wp-area">{html.escape(c["area"], quote=False)}</span>'
+            if c.get("area") and c["area"].lower() != rname.lower() else "")
     return (f'          <li class="wp-item"><a class="wp-tile" href="{registry.home(lid)}" data-water="{lid}" data-q="{esc(q)}">'
             f'<span class="wp-art" aria-hidden="true">{chart_img(lid)}</span>'
             f'<span class="wp-head"><span class="wp-name">{html.escape(c["name"], quote=False)}</span>'
-            f'<span class="wp-area">{html.escape(c.get("area") or "", quote=False)}</span></span>'
+            f'{area}</span>'
             f'<span class="wp-stats">{"".join(stats)}</span>'
             f'<span class="wp-gauge"{" data-live" if pool.get("src") else ""}>{gauge}</span></a></li>')
 
