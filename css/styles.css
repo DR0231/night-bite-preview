@@ -3776,10 +3776,10 @@ main.water-home { max-width: 1160px; }
   transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease), transform 200ms var(--ease), box-shadow 200ms var(--ease);
 }
 .wp-art {
-  display: flex; align-items: center; justify-content: center; height: 84px; padding: 0 var(--space-xs); overflow: hidden;
+  display: flex; align-items: center; justify-content: center; height: 164px; padding: var(--space-xs); overflow: hidden;
   background: var(--navy); border-bottom: 1px solid var(--navy-light); border-radius: var(--radius) var(--radius) 0 0;
 }
-.wp-art img { max-width: 100%; max-height: 68px; object-fit: contain; image-rendering: pixelated; opacity: 0.88; transition: opacity var(--dur) var(--ease); }
+.wp-art img { max-width: 100%; max-height: 100%; object-fit: contain; image-rendering: pixelated; opacity: 0.88; transition: opacity var(--dur) var(--ease); }
 .wp-head { display: flex; flex-direction: column; gap: 0.25rem; padding: var(--space-sm) var(--space-sm) var(--space-xs); }
 .wp-name { font-family: var(--font-heading); font-synthesis: none; font-size: 1rem; line-height: 1.2; color: var(--cream); overflow-wrap: anywhere; transition: color var(--dur) var(--ease); }
 .wp-area {
@@ -3840,8 +3840,6 @@ main.water-home { max-width: 1160px; }
   .wp-title { flex: 0 0 auto; }
   .wp-search { flex: 0 1 22rem; order: 3; margin-left: auto; }
   .wp-chips { order: 2; }
-  .wp-art { height: 96px; }
-  .wp-art img { max-height: 76px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .wp-tile, .wp-tile:hover { transform: none; }

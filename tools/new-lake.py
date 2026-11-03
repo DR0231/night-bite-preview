@@ -322,6 +322,7 @@ files = {
     f"assets/og/og-{slug}.png": "share card (until then the page shares og-card.png)",
     f"js/lake-map-data-{slug}.js": "map data from the ODNR fishing map (map is null, so the home map falls back)",
     f"assets/{slug}-chart.png": "map chart image",
+    f"assets/tiles/{slug}.png": "picker tile chart (run python3 tools/build-tile-charts.py once the chart exists)",
 }
 for rel, why in files.items():
     if not (ROOT / rel).exists():

@@ -19,7 +19,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v71-2026-11-03";
+var VERSION = "v72-2026-11-03";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -151,6 +151,29 @@ var PRECACHE = [
   "apple-touch-icon.png",
   "assets/lantern.svg",
   "assets/lantern-hero.svg",
+  "assets/tiles/hoover.png",
+  "assets/tiles/alum.png",
+  "assets/tiles/buckeye.png",
+  "assets/tiles/oshaughnessy.png",
+  "assets/tiles/griggs.png",
+  "assets/tiles/indian.png",
+  "assets/tiles/delaware.png",
+  "assets/tiles/deercreek.png",
+  "assets/tiles/madison.png",
+  "assets/tiles/knox.png",
+  "assets/tiles/clearfork.png",
+  "assets/tiles/seneca.png",
+  "assets/tiles/dillon.png",
+  "assets/tiles/logan.png",
+  "assets/tiles/saltfork.png",
+  "assets/tiles/burroak.png",
+  "assets/tiles/dow.png",
+  "assets/tiles/mosquito.png",
+  "assets/tiles/berlin.png",
+  "assets/tiles/westbranch.png",
+  "assets/tiles/pymatuning.png",
+  "assets/tiles/milton.png",
+  "assets/tiles/leesville.png",
   "assets/hoover-chart.png",
   "assets/alum-chart.png",
   "assets/buckeye-chart.png",

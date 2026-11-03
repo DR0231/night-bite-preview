@@ -216,15 +216,16 @@ for lake, L in LAKES.items():
 # REGIONS in js/lakes.js (empty regions left out), and the site-wide JSON-LD (WebSite, Organization, WebPage).
 # Written between markers, so a new lake in js/lakes.js shows up here with no edit to index.html.
 def chart_img(lid):
-    """The lake's own pixel chart (assets/<id>-chart.png, the pool card art), drawn at 2x like the pool card."""
-    c = REG["lakes"][lid]
-    src = ((c.get("map") or {}).get("chart")) or f"assets/{lid}-chart.png"
+    """The picker tile's chart: assets/tiles/<id>.png (north up, no arrow; tools/build-tile-charts.py makes it from the
+    pool card chart). Drawn at a whole-number scale (1x to 3x) that fits a 148px tall well, so pixels stay crisp."""
+    src = f"assets/tiles/{lid}.png"
     f = root / src
     if not f.exists():
-        return ""
+        return ""   # a new lake with no chart yet; tools/new-lake.py lists the missing tile
     b = f.read_bytes()
     w, h = int.from_bytes(b[16:20], "big"), int.from_bytes(b[20:24], "big")   # PNG IHDR
-    return f'<img src="{src}" alt="" width="{w * 2}" height="{h * 2}" decoding="async">'
+    k = max(1, min(3, 148 // h, 300 // w))
+    return f'<img src="{src}" alt="" width="{w * k}" height="{h * k}" decoding="async">'
 
 
 def picker_tile(lid):
