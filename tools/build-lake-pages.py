@@ -41,8 +41,18 @@ ORG_ID = SITE + "#organization"
 # <title> and meta description from data/quick-facts.json ("title", "description"). A new lake needs no edit here.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import registry  # noqa: E402
+import importlib.util  # noqa: E402
 
 REG = registry.load(root)
+
+# picker tile charts first (assets/tiles/<id>.png and their sw.js PRECACHE lines), so a lake whose chart was just
+# added gets its tile on this build; see tools/build-tile-charts.py
+_spec = importlib.util.spec_from_file_location("build_tile_charts", pathlib.Path(__file__).with_name("build-tile-charts.py"))
+_tiles = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_tiles)
+_changed = _tiles.build(root)
+if _changed:
+    print("build-tile-charts: " + ", ".join(_changed))
 LAKES = {}
 for _id in REG["order"]:
     _f = FACTS.get(_id) or {}
