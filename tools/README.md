@@ -100,6 +100,7 @@ python3 tools/promote.py --live --confirm-push --whats-new entry.json --commit -
 ```
 python3 tools/build-lake-pages.py   # picker tile charts (build-tile-charts.py, below), lake homes from tools/lake-home.html
                                     # + registry (title/description from data/quick-facts.json), the root picker tiles
+python3 tools/build-docks.py        # water.html#docks from data/docks.json; a date already past is baked as its after text
 python3 tools/build-meta.py         # share tags; og-<id>.png when it exists, else og-card.png
 python3 tools/stamp-version.py      # ?v=VERSION on CSS/JS links
 python3 tools/build-updates.py      # What's new page from data/updates.json

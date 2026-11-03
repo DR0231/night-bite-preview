@@ -20,7 +20,7 @@ Lake scope (check-waters, check-glance, check-glance-fallback, check-bait). A ru
                     interrupted run resumes; --fresh starts over. Default state dir /workspace/nb-checks/all-lakes-<target>/.
 
 Builds (in this checkout, skipped with --no-build and always skipped for live), in order:
-    build-lake-pages, build-meta, stamp-version, build-updates
+    build-lake-pages, build-docks, build-meta, stamp-version, build-updates
 Checks: check-meta (0 errors), check-radius, check-docks (report only: a CHANGED dock page is a note, never a failure),
 check-lake-isolation (each lake home in scope ships only its own blocks, chart and map data; static, fast),
 check-glance, check-glance-fallback (USGS and NWS blocked, and JavaScript off, at 320 and 430 px: no placeholder,
@@ -41,7 +41,7 @@ sys.stdout.reconfigure(line_buffering=True)
 TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
-BUILDS = ["build-lake-pages.py", "build-meta.py", "stamp-version.py", "build-updates.py"]
+BUILDS = ["build-lake-pages.py", "build-docks.py", "build-meta.py", "stamp-version.py", "build-updates.py"]
 CHECKS = ["check-meta", "check-radius", "check-docks", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "sweep"]
 BROWSER = {"check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "sweep"}
 
