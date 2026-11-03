@@ -5,12 +5,24 @@
     python3 tools/check-all.py --target local       # build, serve this checkout locally (tools/serve.py), check that
     python3 tools/check-all.py --target live        # read-only: no build, checks https://nightbiteoh.com and the live checkout
     python3 tools/check-all.py --no-build --only check-meta,sweep --log /tmp/x.log
-    python3 tools/check-all.py --target local --lakes seneca,dow --shots    # limit check-waters, screenshot changed pages
+    python3 tools/check-all.py --target local --lakes seneca,dow --shots    # limit the lake checks, screenshot changed pages
+    python3 tools/check-all.py --target local --all-lakes                  # every lake, in groups of 5, resumable
+    python3 tools/check-all.py --target local --all-lakes --group 2        # just one group (one short step per wait)
+
+Lake scope (check-waters, check-glance, check-bait). A run never covers every lake by accident:
+    --lakes a,b     exactly those lakes
+    (neither)       the lakes whose files differ from origin/main (git diff, plus uncommitted and untracked files)
+                    plus hoover as the reference; the choice is printed. Shared files (css, js, data) are listed too,
+                    since they can touch every lake: add --lakes or use --all-lakes when that matters.
+    --all-lakes     an explicit full run. Lakes are split into groups of --group-size (default 5). Each group runs as
+                    its own check-all (no rebuild) and writes <state-dir>/group-N.json, plus a "site" group for the
+                    static checks and the sweep. Rerunning the same command skips groups already done, so an
+                    interrupted run resumes; --fresh starts over. Default state dir /workspace/nb-checks/all-lakes-<target>/.
 
 Builds (in this checkout, skipped with --no-build and always skipped for live), in order:
     build-lake-pages, build-meta, stamp-version, build-updates
 Checks: check-meta (0 errors), check-radius, check-docks (report only: a CHANGED dock page is a note, never a failure),
-check-glance, check-bait, check-waters (every lake in js/lakes.js unless --lakes), sweep (every sitemap page).
+check-glance, check-bait, check-waters (the lake scope above), sweep (every sitemap page).
 Every browser check loads tools/no-analytics.cjs. Against live nothing is written: static checks read the live
 checkout (--live-dir, default /workspace/the-night-bite) through NB_ROOT, and no build runs.
 
@@ -37,11 +49,79 @@ ap.add_argument("--no-build", action="store_true", help="skip the builds")
 ap.add_argument("--log", help="log file (default /workspace/nb-checks/<target>-<time>/check-all.log)")
 ap.add_argument("--only", help="comma list of checks to run (" + ",".join(CHECKS) + ")")
 ap.add_argument("--skip", help="comma list of checks to skip")
-ap.add_argument("--lakes", help="comma list of lake ids for check-waters (default every lake)")
+ap.add_argument("--lakes", help="comma list of lake ids for the lake checks (default: changed vs origin/main, plus hoover)")
+ap.add_argument("--all-lakes", action="store_true", help="explicit full run over every lake, in resumable groups")
+ap.add_argument("--group", help="with --all-lakes: run only this group (a number, or 'site')")
+ap.add_argument("--group-size", type=int, default=5, help="with --all-lakes: lakes per group (default 5)")
+ap.add_argument("--state-dir", help="with --all-lakes: where group results go (default /workspace/nb-checks/all-lakes-<target>/)")
+ap.add_argument("--fresh", action="store_true", help="with --all-lakes: forget earlier group results and start over")
+ap.add_argument("--base-ref", default="origin/main", help="git ref the default lake scope is diffed against")
 ap.add_argument("--shots", nargs="?", const="changed", help="sweep screenshots: paths a,b or 'changed' (default when bare)")
 ap.add_argument("--jobs", type=int, default=2, help="browser checks run at once (default 2)")
 ap.add_argument("--live-dir", default="/workspace/the-night-bite", help="live checkout, read only (target live)")
 a = ap.parse_args()
+sys.path.insert(0, str(TOOLS))
+import registry  # noqa: E402
+
+if a.lakes and a.all_lakes:
+    sys.exit("check-all: use --lakes or --all-lakes, not both")
+if (a.group or a.fresh) and not a.all_lakes:
+    sys.exit("check-all: --group and --fresh only go with --all-lakes")
+ALL_IDS = registry.load()["order"]
+LAKE_CHECKS = {"check-glance", "check-bait", "check-waters"}
+
+
+def all_lakes_run():
+    """Explicit full run: one 'site' group (static checks + sweep), then lake groups of --group-size, each a child
+    check-all with --lakes and --no-build, each writing group-N.json so a rerun resumes where it stopped."""
+    size = max(1, a.group_size)
+    groups = {"site": None}
+    for i in range(0, len(ALL_IDS), size):
+        groups[str(i // size + 1)] = ALL_IDS[i:i + size]
+    state = pathlib.Path(a.state_dir or f"/workspace/nb-checks/all-lakes-{a.target}")
+    state.mkdir(parents=True, exist_ok=True)
+    if a.fresh:
+        for f in state.glob("group-*.json"):
+            f.unlink()
+    plan = {k: v for k, v in groups.items() if a.group in (None, k)}
+    if not plan:
+        sys.exit(f"check-all: no group {a.group}; groups are " + ", ".join(groups))
+    print(f"check-all --all-lakes {a.target}: {len(ALL_IDS)} lakes in {len(groups) - 1} groups of {size} plus 'site'. State: {state}")
+    for k, v in groups.items():
+        print(f"  group {k}: {'static checks + sweep' if v is None else ','.join(v)}")
+    if a.target != "live" and not a.no_build and a.group in (None, "site"):
+        for b in BUILDS:
+            p = subprocess.run([sys.executable, str(TOOLS / b)], cwd=ROOT, capture_output=True, text=True)
+            if p.returncode:
+                sys.exit(f"BUILD FAILED: {b}\n{p.stdout}{p.stderr}")
+    passthru = ["--target", a.target, "--jobs", str(a.jobs), "--live-dir", a.live_dir] + (["--base", a.base] if a.base else [])
+    worst = 0
+    for k, v in plan.items():
+        res = state / f"group-{k}.json"
+        if res.exists() and json.loads(res.read_text()).get("exit") == 0:
+            print(f"  group {k}: done earlier, skipped ({res})")
+            continue
+        sel = [c for c in CHECKS if c in only]
+        sel = [c for c in sel if (c in LAKE_CHECKS) == (v is not None)]
+        if not sel:
+            continue
+        cmd = [sys.executable, str(TOOLS / "check-all.py"), *passthru, "--no-build", "--only", ",".join(sel),
+               "--log", str(state / f"group-{k}" / "check-all.log")] + (["--lakes", ",".join(v)] if v else ["--lakes", "hoover"])
+        if a.shots and v is None:
+            cmd += ["--shots", a.shots]
+        print(f"  group {k}: running {','.join(sel)}" + (f" on {','.join(v)}" if v else ""))
+        t0 = time.time()
+        p = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+        tail = [l for l in p.stdout.strip().splitlines() if l.strip()][-1:] or [""]
+        res.write_text(json.dumps({"group": k, "lakes": v, "checks": sel, "exit": p.returncode, "secs": round(time.time() - t0),
+                                   "result": tail[0], "log": str(state / f"group-{k}" / "check-all.log"),
+                                   "at": datetime.datetime.now().isoformat(timespec="seconds")}, indent=1) + "\n")
+        print(f"  group {k}: exit {p.returncode} in {time.time() - t0:.0f}s :: {tail[0]}")
+        worst = max(worst, p.returncode)
+    has = lambda v: any(c in only and (c in LAKE_CHECKS) == (v is not None) for c in CHECKS)
+    left = [k for k, v in groups.items() if has(v) and not ((state / f"group-{k}.json").exists() and json.loads((state / f"group-{k}.json").read_text()).get("exit") == 0)]
+    print("all groups passed" if not left else "groups not passed yet: " + ", ".join(left) + " (rerun the same command to resume)")
+    sys.exit(1 if worst else 0)
 
 stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 log_path = pathlib.Path(a.log) if a.log else pathlib.Path(f"/workspace/nb-checks/{a.target}-{stamp}/check-all.log")
@@ -70,9 +150,30 @@ only -= set(a.skip.split(",")) if a.skip else set()
 unknown = only - set(CHECKS)
 if unknown:
     sys.exit("check-all: unknown check(s): " + ", ".join(sorted(unknown)))
+if a.all_lakes:
+    all_lakes_run()
+
+# ---- lake scope: never every lake by accident
+if a.lakes:
+    LAKES = [x for x in a.lakes.split(",") if x]
+    bad = [x for x in LAKES if x not in ALL_IDS]
+    if bad:
+        sys.exit("check-all: unknown lake(s): " + ", ".join(bad))
+    scope_note = "lakes from --lakes: " + ",".join(LAKES)
+else:
+    ch = registry.changed(a.base_ref)
+    if ch.get("error"):
+        print("check-all: " + ch["error"] + "; scoping to hoover")
+    LAKES = [x for x in ALL_IDS if x in set(ch.get("lakes", [])) | {"hoover"}]
+    scope_note = (f"lakes changed vs {a.base_ref}: {','.join(ch.get('lakes', [])) or 'none'}, plus hoover -> {','.join(LAKES)}"
+                  + (f" (shared files also changed: {', '.join(ch['shared'][:6])}{' ...' if len(ch['shared']) > 6 else ''};"
+                     " add --lakes or use --all-lakes for more)" if ch.get("shared") else ""))
+if only & LAKE_CHECKS:
+    print("check-all scope: " + scope_note)
 known = json.loads((TOOLS / "known-failures.json").read_text())["known"]
 notes, server = [], None
 log(f"# check-all {a.target} {datetime.datetime.now().isoformat(timespec='seconds')}")
+log("scope " + scope_note)
 
 # ---- builds (never against live)
 if a.target == "live":
@@ -141,9 +242,9 @@ def cmd_for(name):
         "check-meta": ([py, str(TOOLS / "check-meta.py")], static_env),
         "check-radius": ([py, str(TOOLS / "check-radius.py")], static_env),
         "check-docks": ([py, str(TOOLS / "check-docks.py")], {}),
-        "check-glance": (["node", str(TOOLS / "check-glance.cjs"), base, d], {}),
-        "check-bait": (["node", str(TOOLS / "check-bait.cjs")], {"BASE": base, "OUT": d}),
-        "check-waters": (["node", str(TOOLS / "check-waters.cjs"), base, d] + ([a.lakes] if a.lakes else []), {}),
+        "check-glance": (["node", str(TOOLS / "check-glance.cjs"), base, d], {"NB_LAKES": ",".join(LAKES)}),
+        "check-bait": (["node", str(TOOLS / "check-bait.cjs")], {"BASE": base, "OUT": d, "NB_LAKES": ",".join(LAKES)}),
+        "check-waters": (["node", str(TOOLS / "check-waters.cjs"), base, d, ",".join(LAKES)], {}),
         "sweep": (["node", str(TOOLS / "sweep.cjs"), "--base", base, "--out", d] + (["--shots", a.shots] if a.shots else []), {}),
     }[name]
 
@@ -197,6 +298,8 @@ if notes:
 log_path.write_text("\n".join(log_lines) + "\n")
 
 print(f"check-all {a.target} ({base})")
+if only & LAKE_CHECKS:
+    print("  scope: " + scope_note)
 for s in summary:
     print("  " + s)
 for n in notes:

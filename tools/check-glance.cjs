@@ -14,7 +14,9 @@ const fs = require('fs'); fs.mkdirSync(OUT, { recursive: true });
 const SIZES = [[390, 844, 'phone'], [820, 1180, 'tablet'], [1280, 800, 'desktop']];
 // lakes, which have no gauge and which have a USGS temp gauge: all from js/lakes.js (tools/registry.cjs)
 const R = require('./registry.cjs');
-const LAKES = R.order(), NOGAUGE = R.noGauge(), TEMP = R.hasTemp();
+// NB_LAKES=a,b limits the per-lake pass to those lakes (check-all.py sets it from its lake scope); default every lake
+const ONLY = (process.env.NB_LAKES || '').split(',').filter(Boolean);
+const LAKES = ONLY.length ? R.order().filter(l => ONLY.includes(l)) : R.order(), NOGAUGE = R.noGauge(), TEMP = R.hasTemp();
 const home = l => BASE + R.home(l);
 // the analytics beacon we block ourselves logs ERR_BLOCKED_BY_CLIENT; ignore that line only when every failed request was ours
 const realErrs = (errs, rf) => errs.filter(e => !(/ERR_BLOCKED_BY_CLIENT/.test(e) && rf.length && rf.every(u => NA.PATTERN.test(u))));

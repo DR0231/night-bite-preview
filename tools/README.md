@@ -17,7 +17,7 @@ A Google Maps listing is used only for bait shops.
 
 | Script | What it does |
 | --- | --- |
-| `python3 tools/check-all.py` | Builds, then runs every check. Writes one log and exits 1 only on a failure that is not in `tools/known-failures.json` |
+| `python3 tools/check-all.py` | Builds, then runs every check on the changed lakes plus hoover. Writes one log and exits 1 only on a failure that is not in `tools/known-failures.json` |
 | `node tools/sweep.cjs` | Opens every sitemap page at 390, 820 and 1280 px. Checks status, console, links, title, h1, meta, canonical and alt text |
 | `python3 tools/new-lake.py` | Adds a new lake to the registry, Quick facts, sitemap and Bait nearby, runs the builds, and prints a checklist of everything still unsourced |
 | `python3 tools/promote.py` | Copies the preview to live. **Dry run by default** |
@@ -30,11 +30,21 @@ python3 tools/check-all.py --target local          # build, serve this checkout 
 python3 tools/check-all.py --target live           # read-only: no build; checks nightbiteoh.com and /workspace/the-night-bite
 python3 tools/check-all.py --target local --only check-meta,check-radius,check-docks    # static checks, about 20 s
 python3 tools/check-all.py --target local --lakes dow --shots --log /workspace/nb-checks/dow/check-all.log
+python3 tools/check-all.py --target local --all-lakes             # explicit full run: groups of 5, resumable
+python3 tools/check-all.py --target local --all-lakes --group 3   # one group only, one short step at a time
 ```
 
-* Checks: check-meta, check-radius, check-docks (report only), check-glance, check-bait, check-waters (every lake unless `--lakes`) and sweep.
+**Lake scope.** check-waters, check-glance and check-bait never cover every lake by accident:
+
+* `--lakes a,b` checks exactly those lakes.
+* With no `--lakes`, the run checks the lakes whose files differ from `origin/main` (`git diff`, plus uncommitted and untracked files; `--base-ref` changes the ref) plus `hoover` as the reference, and prints what it chose. A file counts for a lake when its folder or file name is the lake id (`dow/index.html`, `assets/tiles/dow.png`, `assets/dow-chart.png`). Shared files (css, js, data) are listed in the printed scope too, since they can touch every lake. Add `--lakes` or use `--all-lakes` when that matters.
+* `--all-lakes` is the only way to check every lake. It builds once, then runs a `site` group (static checks and the sweep) and lake groups of `--group-size` (default 5), each as its own `check-all --no-build --lakes ...`. Each group writes `group-<n>.json` and its log under `--state-dir` (default `/workspace/nb-checks/all-lakes-<target>/`). Rerunning the same command skips groups that passed, so an interrupted run resumes. `--group <n|site>` runs one group, `--fresh` starts over.
+* Start each run in the background and wait on it no more than about 5 minutes at a time. One lake group takes about 4 to 5 minutes.
+* `node tools/registry.cjs --changed [REF]` prints the changed lakes and files on their own.
+
+* Checks: check-meta, check-radius, check-docks (report only), check-glance, check-bait, check-waters (the lake scope above) and sweep.
 * `--skip` leaves checks out.
-* A full run takes about 20 minutes. Most of that is check-waters on all 23 lakes.
+* A scoped run takes a few minutes. A full `--all-lakes` run takes over 30 minutes across 23 lakes, which is why it is split into groups.
 * Known failures go in `tools/known-failures.json` as `{check, match, target?, why}`. Add an entry only for a failure you have looked at and accepted. Then remove it once the failure is fixed.
 
 ### sweep.cjs
@@ -110,6 +120,6 @@ python3 tools/build-tile-charts.py --check         # change nothing; exit 1 if a
 
 ## Other checks and helpers
 
-* `check-meta.py`, `check-radius.py`, `check-docks.py`, `check-glance.cjs`, `check-bait.cjs` and `check-waters.cjs` are each also runnable alone. `NB_ROOT=DIR` points the static checks at another checkout.
+* `check-meta.py`, `check-radius.py`, `check-docks.py`, `check-glance.cjs`, `check-bait.cjs` and `check-waters.cjs` are each also runnable alone. Run alone, `check-waters.cjs [BASE] [OUT]` with no lake ids checks the changed lakes plus hoover and prints them; `--all-lakes [--group N] [--fresh]` runs every lake in groups of 5 with a `group-N.json` per group in OUT, resuming on rerun. `check-glance.cjs` and `check-bait.cjs` take `NB_LAKES=a,b` (check-all sets it). `NB_ROOT=DIR` points the static checks at another checkout.
 * `serve.py --root DIR --port 8642` serves a checkout like GitHub Pages does (clean URLs, a 301 to add the trailing slash, and 404.html for missing pages).
 * `indexnow.py` is for live only, after a push.
