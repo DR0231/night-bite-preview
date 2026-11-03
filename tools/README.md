@@ -143,6 +143,19 @@ python3 tools/build-tile-charts.py --check         # change nothing; exit 1 if a
   lakes from the header pill at 390 and 1280 px (each switch lands on the lake's own address with only its own chart
   and blocks, and saves it), and a lake home with JavaScript off showing its own lake. Analytics blocked.
 
+## Display settings (`a11y-inject.py`, `check-a11y-settings.cjs`)
+
+- `js/a11y-boot.js` loads sync in every `<head>` (before the stylesheet; the CSP forbids inline script) and sets
+  `data-text` (sm, lg, xl), `data-font` (readable), `data-motion` (reduce), `data-contrast` (more) on `<html>` from
+  localStorage `nb-a11y`, so nothing flashes. Large and XL turn readable text on. `data-light` (red) is reserved for S3b.
+- `js/a11y.js` (defer) builds the Display panel (a native `<dialog>`) on first open from any `[data-a11y-open]` button:
+  one in the More menu, one in the footer nav. The buttons stay hidden without JavaScript.
+- `python3 tools/a11y-inject.py` adds the head script, the panel script and both buttons to every page and to
+  `tools/lake-home.html`. Idempotent; run it after adding a hand-written page. whisperwood* is skipped.
+- `node tools/check-a11y-settings.cjs <base> [outDir] [pages]` (in check-all): each size, readable text, less motion
+  and high contrast apply, persist after a reload, are on `<html>` before first paint, no sideways scroll at XL, the
+  header still fits, Reset clears it, and no JS means no Display button. Pages default to `,hoover/,species/`.
+
 ## Other checks and helpers
 
 * `check-meta.py`, `check-radius.py`, `check-docks.py`, `check-glance.cjs`, `check-bait.cjs` and `check-waters.cjs` are each also runnable alone. Run alone, `check-waters.cjs [BASE] [OUT]` with no lake ids checks the changed lakes plus hoover and prints them; `--all-lakes [--group N] [--fresh]` runs every lake in groups of 5 with a `group-N.json` per group in OUT, resuming on rerun. `check-glance.cjs`, `check-glance-fallback.cjs` and `check-bait.cjs` take `NB_LAKES=a,b` (check-all sets it). `NB_ROOT=DIR` points the static checks at another checkout.

@@ -3877,3 +3877,109 @@ main.water-home { max-width: 1160px; }
 @media (prefers-reduced-motion: reduce) {
   .wp-tile, .wp-tile:hover { transform: none; }
 }
+
+/* ==========================================================================
+   Display settings (js/a11y-boot.js sets the attributes on <html> before paint; js/a11y.js is the panel)
+   Red-light mode (S3b) will hook in on html[data-light="red"] through the same custom properties.
+   ========================================================================== */
+html[data-text="sm"] { font-size: 93.75%; }
+html[data-text="lg"] { font-size: 118.75%; }
+html[data-text="xl"] { font-size: 137.5%; }
+html[data-font="readable"] {
+  --font-system: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-system);
+  --font-heading: var(--font-system);
+  --font-body: var(--font-system);
+}
+html[data-font="readable"] body { letter-spacing: normal; }
+html[data-font="readable"] .site-nav a, html[data-font="readable"] .nav-more-btn,
+html[data-font="readable"] .nav-more-panel a { letter-spacing: 0; }
+/* Decorative pixel marks keep the pixel face */
+html[data-font="readable"] .logo-text,
+html[data-font="readable"] .hero-brand { font-family: "Night Bite Pixel", "Pixelify Sans", monospace; }
+html[data-text="lg"] .site-nav a, html[data-text="xl"] .site-nav a,
+html[data-text="lg"] .nav-more-btn, html[data-text="xl"] .nav-more-btn { padding: 0 0.3rem; }
+
+html[data-motion="reduce"] { scroll-behavior: auto; }
+html[data-motion="reduce"] *, html[data-motion="reduce"] *::before, html[data-motion="reduce"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+html[data-contrast="more"] {
+  --muted: #d9ccab;
+  --cream-dark: #f5edd8;
+  --navy-light: #4a6690;
+  --hairline: rgba(245, 237, 216, 0.35);
+  --amber-dim: #f0a830;
+  --focus: #ffe08a;
+}
+html[data-contrast="more"] body::before { opacity: 0 !important; }
+html[data-contrast="more"] main a:not(.btn):not([class*="chip"]):not([class*="pill"]) { text-decoration: underline; text-underline-offset: 0.18em; }
+html[data-contrast="more"] :focus-visible { outline-width: 3px !important; outline-offset: 3px; }
+
+/* Display entry points: hidden until js/a11y.js runs (no JS, no dead button) */
+.nav-more-panel .a11y-open {
+  display: flex; align-items: center; width: 100%; min-height: 44px; padding: 0 0.875rem;
+  font: inherit; font-family: var(--font-display); font-variant-ligatures: none; font-size: 0.875rem; letter-spacing: 0.03em;
+  color: var(--cream-dark); background: transparent; border: 0; border-radius: var(--radius); cursor: pointer; text-align: left;
+  border-top: 1px solid var(--navy-light); margin-top: 0.25rem;
+}
+.nav-more-panel .a11y-open:hover { color: var(--amber); background: var(--navy-light); }
+.site-footer .a11y-open {
+  font: inherit; color: inherit; background: transparent; border: 0; padding: 0; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 0.18em; min-height: 44px; border-radius: var(--radius);
+}
+[data-a11y-open][hidden] { display: none !important; }
+
+/* Panel: a bottom sheet on phones, a centered card from 600px */
+.a11y-panel {
+  margin: auto auto 0; width: 100%; max-width: 30rem; max-height: 90dvh; overflow: auto;
+  padding: var(--card-pad); color: var(--cream); background: var(--navy-mid);
+  border: 1px solid var(--navy-light); border-radius: var(--radius) var(--radius) 0 0;
+  box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.45);
+  font-family: var(--font-body);
+}
+.a11y-panel::backdrop { background: rgba(5, 11, 20, 0.7); }
+@media (min-width: 600px) { .a11y-panel { margin: auto; border-radius: var(--radius); } }
+.a11y-form { display: grid; gap: var(--space-md); }
+.a11y-title { font-family: var(--font-heading); font-size: var(--text-lg); color: var(--cream); margin: 0; }
+.a11y-sizes { border: 0; padding: 0; margin: 0; min-width: 0; }
+.a11y-sizes legend, .a11y-toggle-text { font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-sm); color: var(--cream); }
+.a11y-sizes legend { margin-bottom: var(--space-xs); }
+.a11y-seg { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.25rem; }
+.a11y-seg-opt { position: relative; display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 0.25rem;
+  border: 1px solid var(--navy-light); border-radius: var(--radius); background: var(--navy); color: var(--cream-dark);
+  cursor: pointer; text-align: center; line-height: 1.1; font-size: var(--text-sm); }
+.a11y-seg-opt[data-size="sm"] span { font-size: 0.85em; }
+.a11y-seg-opt[data-size="lg"] span { font-size: 1.15em; }
+.a11y-seg-opt[data-size="xl"] span { font-size: 1.3em; }
+.a11y-seg-opt input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.a11y-seg-opt:has(input:checked) { border-color: var(--amber); color: var(--amber); background: var(--navy-light); }
+.a11y-seg-opt:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+.a11y-row { display: grid; gap: 0.125rem; }
+.a11y-toggle { display: flex; align-items: center; gap: 0.75rem; min-height: 44px; cursor: pointer; }
+.a11y-toggle input { width: 1.375rem; height: 1.375rem; accent-color: var(--amber); flex: none; margin: 0; }
+.a11y-toggle input:disabled + .a11y-toggle-text { opacity: 0.75; }
+.a11y-note, .a11y-saved { margin: 0; font-size: var(--text-sm); color: var(--muted); padding-left: 2.125rem; }
+.a11y-saved { padding-left: 0; }
+.a11y-actions { display: flex; gap: var(--space-xs); justify-content: flex-end; flex-wrap: wrap; }
+.a11y-actions .btn { min-height: 44px; }
+/* Large and XL on phones: the header row keeps a readable fixed size (system font) and the wordmark goes to
+   screen-reader text, so Home, Species, Lake, Gear and More still fit beside the lantern */
+@media (max-width: 900px) {
+  html[data-text="lg"] .site-nav a, html[data-text="xl"] .site-nav a,
+  html[data-text="lg"] .nav-more-btn, html[data-text="xl"] .nav-more-btn { font-size: 15px; padding: 0 0.3rem; }
+}
+@media (max-width: 560px) {
+  html[data-text="lg"] .logo-text, html[data-text="xl"] .logo-text {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap;
+  }
+  html[data-text="lg"] .logo, html[data-text="xl"] .logo { min-width: 44px; justify-content: center; }
+}
+@media (max-width: 374px) {
+  html[data-text="lg"] .site-nav a, html[data-text="xl"] .site-nav a,
+  html[data-text="lg"] .nav-more-btn, html[data-text="xl"] .nav-more-btn { font-size: 14px; padding: 0 0.2rem; }
+}

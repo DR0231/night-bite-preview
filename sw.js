@@ -19,7 +19,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v78-2026-11-03";
+var VERSION = "v79-2026-11-03";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -123,6 +123,8 @@ var PRECACHE = [
   "js/log.js",
   "js/mode-toggle.js",
   "js/nav.js",
+  "js/a11y-boot.js",
+  "js/a11y.js",
   "js/updates-draft.js",
   "js/pack-list.js",
   "js/pool-readout.js",

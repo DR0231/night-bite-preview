@@ -25,7 +25,8 @@ Checks: check-meta (0 errors), check-radius, check-docks (report only: a CHANGED
 check-lake-isolation (each lake home in scope ships only its own blocks, chart and map data; static, fast),
 check-glance, check-glance-fallback (USGS and NWS blocked, and JavaScript off, at 320 and 430 px: no placeholder,
 a visible timestamp), check-bait, check-waters (the lake scope above), check-picker-flow (the water picker and switching
-lakes from the header pill, about 1 minute), sweep (every sitemap page).
+lakes from the header pill, about 1 minute), check-a11y-settings (Display panel: each setting applies, persists
+after a reload and is set before first paint, at 390 and 1280 on /, hoover/ and species/, about 30 s), sweep (every sitemap page).
 Every browser check loads tools/no-analytics.cjs. Against live nothing is written: static checks read the live
 checkout (--live-dir, default /workspace/the-night-bite) through NB_ROOT, and no build runs.
 
@@ -42,8 +43,8 @@ TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
 BUILDS = ["build-lake-pages.py", "build-docks.py", "build-meta.py", "stamp-version.py", "build-updates.py"]
-CHECKS = ["check-meta", "check-radius", "check-docks", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "sweep"]
-BROWSER = {"check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "sweep"}
+CHECKS = ["check-meta", "check-radius", "check-docks", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "sweep"]
+BROWSER = {"check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "sweep"}
 
 ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 ap.add_argument("--target", choices=["preview", "live", "local"], default="preview")
@@ -251,6 +252,7 @@ def cmd_for(name):
         "check-bait": (["node", str(TOOLS / "check-bait.cjs")], {"BASE": base, "OUT": d, "NB_LAKES": ",".join(LAKES)}),
         "check-waters": (["node", str(TOOLS / "check-waters.cjs"), base, d, ",".join(LAKES)], {}),
         "check-picker-flow": (["node", str(TOOLS / "check-picker-flow.cjs"), base, d], {}),
+        "check-a11y-settings": (["node", str(TOOLS / "check-a11y-settings.cjs"), base, d], {}),
         "sweep": (["node", str(TOOLS / "sweep.cjs"), "--base", base, "--out", d] + (["--shots", a.shots] if a.shots else []), {}),
     }[name]
 

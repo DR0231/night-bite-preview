@@ -37,6 +37,10 @@ Any static server works (`npx serve`, VS Code Live Server, etc.).
 
 **Do not commit secrets or PATs.** This site has no API keys. Mailto and the privacy page use the public contact `contact@nightbiteoh.com`.
 
+## Display settings
+
+Text size, readable text, less motion and high contrast: `js/a11y-boot.js` (head) and `js/a11y.js` (panel), saved in localStorage `nb-a11y` on the device only. See tools/README.md "Display settings".
+
 ## Nav
 
 Home · Species · Water · Log · Tournaments · Gear · About  
