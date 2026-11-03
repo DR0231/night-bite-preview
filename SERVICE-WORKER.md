@@ -8,6 +8,7 @@ Files: `sw.js` (site root), `js/sw-update.js` (every page except whisperwood.htm
 * Scope is the folder `sw.js` sits in: `/night-bite-preview/` on the preview, `/` on nightbiteoh.com. Every path in
   `sw.js` and the manifest is relative, so the same files work in both places.
 * Install precaches the core pages, `css/styles.css`, all of `js/`, the Latin fonts, icons, map art and `data/*.json`.
+  Home pages: the root (`./`, the water picker) and every lake home, `hoover/` included (since v65).
 * Pages (navigations and `text/html`): network first with a 4 second timeout, then the saved copy, then `offline.html`.
 * `data/*.json`: network first, saved copy when offline.
 * CSS and JS: network first with the same 4 second timeout, saved copy when offline or slow. (Through v11 they were

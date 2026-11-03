@@ -91,7 +91,7 @@ Log shows exactly one SAMPLE card. It normally comes from `data/community-log.js
 
 ## Water numbers
 
-Home + Water show a **labeled provisional USGS snapshot** (pool param 62614, temp param 00010). `js/water.js` may refresh pool from the public IV JSON; **on failure it keeps the static snapshot and never invents**. Depth map: ODNR 2001 @ 894 ft — PDF linked, not for navigation. No Garmin/Navionics.
+Hoover's home (`hoover/`) + Water show a **labeled provisional USGS snapshot** (pool param 62614, temp param 00010). `js/water.js` may refresh pool from the public IV JSON; **on failure it keeps the static snapshot and never invents**. Depth map: ODNR 2001 @ 894 ft — PDF linked, not for navigation. No Garmin/Navionics.
 
 ## Regs
 
@@ -101,8 +101,9 @@ Limit tables are **reminders only** — confirm on [HuntFish OH / ODNR licenses]
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | Hub home for Hoover (the site root), lake level and tonight's bite up top, pool/temp snapshot, next actions |
-| `alum/`, `buckeye/`, `oshaughnessy/`, `griggs/`, `indian/`, `delaware/`, `deercreek/`, `madison/`, `knox/`, `clearfork/`, `seneca/`, `dillon/`, `logan/`, `saltfork/`, `burroak/`, `dow/`, `mosquito/`, `berlin/`, `westbranch/`, `pymatuning/`, `milton/`, `leesville/` `index.html` | Home pages for the other 22 lakes, built from `index.html` (see Lake home pages) |
+| `index.html` | Pick your water (the site root): every water as a plain link, grouped by region from `js/lakes.js`, a Find a water box (`js/water-picker.js`), Just browsing links to Species, Water and Gear, Get the app |
+| `hoover/index.html` | Hoover's home page (moved from the root on Nov. 3, 2026): Tonight at a glance, Quick facts, pool snapshot (the USGS snapshot routine's lines), conditions, bait nearby, log |
+| `<lake>/index.html` (`alum/`, `berlin/` and the rest) | Home pages for every other lake, built like `hoover/` from `tools/lake-home.html` (see Lake home pages) |
 | `species/index.html` | Filterable species grid for the active lake: Biting now picks first, then every other species at the lake, then a closed "Not at <lake>" dropdown, ramps and access (`js/species-lake.js`) |
 | `species/*.html` | Per-species Season · Where · Limits · Gear · Bait, with an "at <lake> this month" note under the title |
 | `water.html` | Maps, pool correction, structure, ramps, dock season (from `data/docks.json` via `tools/build-docks.py`; `docks.html` is the short /docks link), link to Ice season |
@@ -119,25 +120,34 @@ Pages are linked without `.html` (`water`, `updates`, `species/walleye`, `specie
 
 ## Lake home pages
 
-Each lake has its own address: Hoover is the root (`/`), Alum Creek is `/alum/`, Buckeye Lake is `/buckeye/`, O'Shaughnessy is `/oshaughnessy/`, Griggs is `/griggs/`, Indian Lake is `/indian/`, Delaware Lake is `/delaware/`, Deer Creek Lake is `/deercreek/`, Madison Lake is `/madison/`, Knox Lake is `/knox/`, Clear Fork Reservoir is `/clearfork/`, Seneca Lake is `/seneca/`, Dillon Lake is `/dillon/`, Lake Logan is `/logan/`, Salt Fork Lake is `/saltfork/`, Burr Oak Lake is `/burroak/`, Dow Lake is `/dow/`, Mosquito Creek Lake is `/mosquito/`, Berlin Lake is `/berlin/`, West Branch Reservoir is `/westbranch/`, Pymatuning Lake is `/pymatuning/`, Lake Milton is `/milton/`, Leesville Lake is `/leesville/`.
-The 16 lake `index.html` files are generated, never edited by hand. After any change to `index.html`:
+Each lake has its own address at `/<id>/`, Hoover too (`/hoover/`, `/alum/`, `/berlin/` ...; the ids are in `js/lakes.js`).
+The site root (`/`) is the water picker. All lake `index.html` files, `hoover/` included, are generated from
+`tools/lake-home.html` and never edited by hand, with one exception: the USGS snapshot routine's three lines in
+`hoover/index.html` (correction-line, the Checked time, water-temp), which the build carries back into the template.
+After any change to `tools/lake-home.html` or `js/lakes.js`:
 
 ```bash
-python3 tools/build-lake-pages.py && python3 tools/stamp-version.py
+python3 tools/build-lake-pages.py && python3 tools/build-meta.py && python3 tools/stamp-version.py
 ```
 
 The generator adds `<base href="../">` (so every asset, script and fetch resolves from the root), the lake's
-`nb-home` meta, its own title, description, canonical and OG tags (og:image is `assets/og/og-<lake>.png`), and points in-page links at the lake's page.
-`js/lakes.js` reads `nb-home`. Old links still work: `/?lake=alum` and a saved lake choice (localStorage `nb-lake`)
-send the root to `/alum/`. On Home the lake picker goes to the lake's address; on other pages it adds `?lake=`.
-All seven home pages are precached by `sw.js`, so each opens offline. List new lakes in `sitemap.xml` too.
+`nb-home` meta, its own title, description, canonical and OG tags (og:image is `assets/og/og-<lake>.png`), and points
+in-page links at the lake's page. It also writes the root's region lists (`<!-- nb:water-picker -->`) and site JSON-LD,
+so a new lake in `js/lakes.js` shows up on the picker with no edit to `index.html`.
+
+Remembered water: `js/lakes.js` keeps the last water picked or opened in localStorage `nb-lake` (the id only). A lake
+home page always wins and updates it, so a shared `/berlin/` link opens Berlin. On the root, a saved water (or an old
+`/?lake=alum` link) goes straight to that lake's home page before paint (`location.replace`, no flash); lake pages never
+redirect, so there is no loop. `/?pick` keeps the picker open. Once a water is chosen, Home links on every page point at
+its home page; on a first visit they open the picker. All home pages are precached by `sw.js`. List new lakes in
+`sitemap.xml` too.
 
 ### Quick facts and structured data
 
-`tools/build-lake-pages.py` also writes two blocks on every lake home, Hoover included (it refreshes `index.html` first):
+`tools/build-lake-pages.py` also writes two blocks on every lake home, Hoover included (it refreshes `tools/lake-home.html` first):
 
 - **Quick facts** (`<!-- nb:quick-facts -->`): a closed `<details>` with motors and speed, ramps and access, normal pool (with a USGS or Corps gauge link from `js/lakes.js`, or "No public gauge") and night rules, plus a visible "Facts checked <date>". The text comes only from `data/quick-facts.json`, which is copied from sourced site text (water facts cards, map notes, DATA-SOURCES.md). If a field has no source, leave it out. Never fill a gap with a guess. When you recheck a lake, update its `checked` date.
-- **JSON-LD** (`<!-- nb:jsonld -->`): Home gets WebSite (with alternateName), Organization and WebPage. Each lake home gets a WebPage whose `dateModified` matches its Facts checked date. Don't add FAQPage.
+- **JSON-LD** (`<!-- nb:jsonld -->`): the root (the water picker) gets WebSite (with alternateName), Organization and WebPage. Each lake home gets a WebPage whose `dateModified` matches its Facts checked date. Don't add FAQPage.
 
 ## IndexNow
 

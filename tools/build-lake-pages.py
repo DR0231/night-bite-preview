@@ -181,6 +181,8 @@ if new_src != TEMPLATE.read_text():
 src = new_src
 TEMPLATE_NOTE = re.compile(r"<!-- Template for every lake home.*?-->\n", re.S)
 src = TEMPLATE_NOTE.sub("", src, count=1)
+# the template's own noindex (it is copied to live with the tools, but is not a page); never on the lake homes
+src = re.sub(r'[ \t]*<meta name="robots" content="noindex" data-nb-template>\n', "", src, count=1)
 
 for lake, L in LAKES.items():
     url = SITE + lake + "/"

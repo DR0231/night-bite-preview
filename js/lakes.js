@@ -906,6 +906,7 @@
       var root0 = BASE.replace(/[?#].*$/, ""), links = document.querySelectorAll("a[href]:not([data-lake])");
       for (var j = 0; j < links.length; j++) {
         var a = links[j], h = a.href.replace(/[?#].*$/, "");
+        if (/[?&]pick\b/.test(a.search)) continue;   // "Pick your water" links (./?pick) keep the picker
         if (h === root0 || h === root0 + "index.html" || h === root0 + "index") a.href = homeFor(id) + (a.hash || "");
       }
     }
