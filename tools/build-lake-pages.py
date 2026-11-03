@@ -12,7 +12,10 @@ Each copy:
   · says which lake it is (<meta name="nb-home" content="alum">), which js/lakes.js reads before first paint;
   · has its own title, description, canonical, og:url, og:title, og:description, og:image and JSON-LD url;
   · has the lake's names already filled in [data-lk] spots, so nothing swaps after paint;
-  · has its own Quick facts block and JSON-LD (see below).
+  · has its own Quick facts block and JSON-LD (see below);
+  · keeps only its own lake's blocks and pool chart (tools/lake_isolate.py drops every other lake's data-for element
+    and sets <html data-lake="<id>">); the template keeps all of them. tools/check-lake-isolation.py checks this.
+sitemap.xml gets today's <lastmod> (ET) for every lake home, and the root, whose content changed on this build.
 
 Hoover's pool snapshot (the USGS snapshot routine's three lines: correction-line, the Checked time, water-temp) is
 edited in hoover/index.html, the page visitors see. This script copies those three lines from hoover/index.html into
@@ -44,6 +47,7 @@ ORG_ID = SITE + "#organization"
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import registry  # noqa: E402
 import glance_bake  # noqa: E402  (the static Tonight at a glance strip and pool card snapshot lines)
+import lake_isolate  # noqa: E402  (each lake home keeps only its own data-for blocks and chart)
 import importlib.util  # noqa: E402
 
 REG = registry.load(root)
@@ -199,6 +203,14 @@ src = TEMPLATE_NOTE.sub("", src, count=1)
 # the template's own noindex (it is copied to live with the tools, but is not a page); never on the lake homes
 src = re.sub(r'[ \t]*<meta name="robots" content="noindex" data-nb-template>\n', "", src, count=1)
 
+# sitemap.xml <lastmod>: today (ET) for every page whose content changed on this build (version stamps ignored)
+LASTMOD = set()
+
+
+def unstamped(text):
+    return re.sub(r"v\d+-\d{4}-\d\d-\d\d", "", text)
+
+
 for lake, L in LAKES.items():
     url = SITE + lake + "/"
     h = src
@@ -224,9 +236,13 @@ for lake, L in LAKES.items():
     # lake names in place before first paint (js/lakes.js would fill the same text)
     for key in ("name", "short"):
         h = re.sub(r'(<span[^>]*data-lk="' + key + r'"[^>]*>)[^<]*(</span>)', r"\g<1>" + L[key] + r"\2", h)
+    # only this lake's blocks and chart: the template carries every lake's; switching lakes is a page load
+    h = lake_isolate.isolate(h, lake)
     h = h.replace("<!DOCTYPE html>\n", "<!DOCTYPE html>\n<!-- Built from tools/lake-home.html by tools/build-lake-pages.py. Do not edit by hand (except the three snapshot lines in hoover/index.html). -->\n", 1)
     out = root / lake / "index.html"
     out.parent.mkdir(exist_ok=True)
+    if out.exists() and unstamped(out.read_text()) != unstamped(h):
+        LASTMOD.add(url)
     out.write_text(h)
     print(f"wrote {out.relative_to(root)}")
 
@@ -234,7 +250,7 @@ for lake, L in LAKES.items():
 # The site root (index.html) is the water picker: plain links to every lake home, grouped by region in the order of
 # REGIONS in js/lakes.js (empty regions left out), and the site-wide JSON-LD (WebSite, Organization, WebPage).
 # Written between markers, so a new lake in js/lakes.js shows up here with no edit to index.html.
-def chart_img(lid):
+def chart_img(lid, eager=False):
     """The picker tile's chart: assets/tiles/<id>.png (north up, no arrow; tools/build-tile-charts.py makes it from the
     pool card chart). Drawn at a whole-number scale (1x to 3x) that fits a 148px tall well, so pixels stay crisp."""
     src = f"assets/tiles/{lid}.png"
@@ -244,7 +260,11 @@ def chart_img(lid):
     b = f.read_bytes()
     w, h = int.from_bytes(b[16:20], "big"), int.from_bytes(b[20:24], "big")   # PNG IHDR
     k = max(1, min(3, 148 // h, 300 // w))
-    return f'<img src="{src}" alt="" width="{w * k}" height="{h * k}" decoding="async">'
+    lazy = "" if eager else ' loading="lazy"'
+    return f'<img src="{src}" alt="" width="{w * k}" height="{h * k}"{lazy} decoding="async">'
+
+
+EAGER_TILES = 4   # the first row on the widest layout loads at once; the rest load as they scroll into view
 
 
 def picker_tile(lid):
@@ -257,7 +277,7 @@ def picker_tile(lid):
     area = (f'<span class="wp-area">{html.escape(c["area"], quote=False)}</span>'
             if c.get("area") and c["area"].lower() != rname.lower() else "")
     return (f'          <li class="wp-item"><a class="wp-tile" href="{registry.home(lid)}" data-water="{lid}" data-q="{esc(q)}">'
-            f'<span class="wp-art" aria-hidden="true">{chart_img(lid)}</span>'
+            f'<span class="wp-art" aria-hidden="true">{chart_img(lid, REG["order"].index(lid) < EAGER_TILES)}</span>'
             f'<span class="wp-head"><span class="wp-name">{html.escape(c["name"], quote=False)}</span>'
             f'{area}</span>'
             f'<span class="wp-gauge"{" data-live" if pool.get("src") else ""}>{gauge}</span></a></li>')
@@ -313,5 +333,18 @@ new_r = sub1(r"[ \t]*<!-- nb:water-picker.*?<!-- /nb:water-picker -->", lambda m
 new_r = sub1(r"[ \t]*<!-- nb:water-chips.*?<!-- /nb:water-chips -->", lambda m: picker_chips(), new_r, re.S)
 new_r = sub1(r"[ \t]*<!-- nb:jsonld.*?<!-- /nb:jsonld -->", lambda m: root_jsonld(r_title), new_r, re.S)
 if new_r != r:
+    if unstamped(new_r) != unstamped(r):
+        LASTMOD.add(SITE)
     ROOT_PAGE.write_text(new_r)
     print("wrote index.html (water picker tiles and region chips, site JSON-LD)")
+
+if LASTMOD:
+    import zoneinfo
+    today = datetime.datetime.now(zoneinfo.ZoneInfo("America/New_York")).date().isoformat()
+    SM = root / "sitemap.xml"
+    sm = SM.read_text()
+    for u in sorted(LASTMOD):
+        sm = re.sub(r"(<loc>" + re.escape(u) + r"</loc>\s*<lastmod>)[^<]*(</lastmod>)", r"\g<1>" + today + r"\2", sm)
+    if sm != SM.read_text():
+        SM.write_text(sm)
+        print(f"sitemap.xml: lastmod {today} for {len(LASTMOD)} changed page(s)")

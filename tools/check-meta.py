@@ -13,6 +13,8 @@ Every public page (same list as tools/build-meta.py) must have:
   · every <script type="application/ld+json"> block parses as JSON and has @context https://schema.org and @type
 404.html and offline.html need a title and description only. Warnings (not errors): descriptions over 160
 characters, titles over 70, spaced dashes in title or description, an indexable canonical missing from sitemap.xml.
+Across pages (errors): two indexable pages with the same <title>, meta description or first <h1> text (404, offline
+and noindex redirect pages left out), so every lake and page can be found and shared on its own.
 """
 import html, json, os, pathlib, re, sys
 
@@ -25,6 +27,7 @@ OG = ["og:site_name", "og:type", "og:title", "og:description", "og:url", "og:ima
 TW = ["twitter:card", "twitter:title", "twitter:description", "twitter:image"]
 
 errors, warnings, checked = [], [], 0
+seen = {"title": {}, "description": {}, "h1": {}}   # text -> first page that used it
 sitemap = set(re.findall(r"<loc>([^<]+)</loc>", (root / "sitemap.xml").read_text()))
 
 
@@ -103,6 +106,16 @@ for p in sorted(root.rglob("*.html")):
     noindex = re.search(r'<meta name="robots" content="[^"]*noindex', head) and 'http-equiv="refresh"' in head
     if not noindex and canon not in sitemap:
         warnings.append(f"{rel}: canonical {canon} is not in sitemap.xml")
+    if not noindex:
+        h1 = re.search(r"<h1\b[^>]*>(.*?)</h1>", src, re.S)
+        h1 = " ".join(html.unescape(re.sub(r"<[^>]+>", "", h1.group(1))).split()) if h1 else ""
+        for kind, text in (("title", html.unescape(title)), ("description", html.unescape(desc)), ("h1", h1)):
+            if not text:
+                continue
+            if text in seen[kind]:
+                err(f"same {kind} as {seen[kind][text]}: {text[:70]}")
+            else:
+                seen[kind][text] = rel
 
 for w in warnings:
     print("warn:", w)

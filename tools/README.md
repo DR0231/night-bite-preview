@@ -42,7 +42,7 @@ python3 tools/check-all.py --target local --all-lakes --group 3   # one group on
 * Start each run in the background and wait on it no more than about 5 minutes at a time. One lake group takes about 4 to 5 minutes.
 * `node tools/registry.cjs --changed [REF]` prints the changed lakes and files on their own.
 
-* Checks: check-meta, check-radius, check-docks (report only), check-glance, check-glance-fallback, check-bait, check-waters (the lake scope above) and sweep.
+* Checks: check-meta, check-radius, check-docks (report only), check-lake-isolation, check-glance, check-glance-fallback, check-bait, check-waters (the lake scope above), check-picker-flow and sweep.
 * `--skip` leaves checks out.
 * A scoped run takes a few minutes. A full `--all-lakes` run takes over 30 minutes across 23 lakes, which is why it is split into groups.
 * Known failures go in `tools/known-failures.json` as `{check, match, target?, why}`. Add an entry only for a failure you have looked at and accepted. Then remove it once the failure is fixed.
@@ -117,6 +117,30 @@ python3 tools/build-tile-charts.py --check         # change nothing; exit 1 if a
 * Keeps exactly one `"assets/tiles/<id>.png"` line per tile in sw.js `PRECACHE`, and a full run drops tiles of lakes no longer in js/lakes.js.
 * Idempotent: files are written only when their bytes would change. Needs Pillow to draw; without it the committed tiles stay as they are.
 * Runs on its own inside `build-lake-pages.py` (so check-all, promote and every build keep tiles in step), and `new-lake.py` runs it with `--lake <slug>`. A new lake gets its tile on the first build after its chart is added. A chart needs the standard arrow in its top left corner; the script stops if it can't find one.
+
+## One lake per lake home (`lake_isolate.py`, `check-lake-isolation.py`)
+
+* `tools/lake-home.html` carries every lake's lake-only blocks (`data-for="<id>"` or a list of ids), every pool chart
+  `<img>` and every map data script. `build-lake-pages.py` runs `lake_isolate.isolate()` on each built page, so
+  `<id>/index.html` keeps only its own blocks (rewritten to `data-for="<id>"`), its own chart and its own
+  `js/lake-map-data-<id>.js` (Hoover: `js/hoover-map-data.js`), and gets `<html data-lake="<id>">` so a page with
+  JavaScript off shows its own lake. Switching lakes is a page load to that lake's home page, so nothing is lost.
+  Shared pages (water, gear, stocking, species) still carry every lake and switch in place.
+* A new lake needs its blocks and chart in `tools/lake-home.html` as before; the build does the rest.
+* `python3 tools/check-lake-isolation.py [--lakes a,b]` (static, under a second; check-all runs it for the lake scope)
+  fails on another lake's block, chart or map data script on a lake home, a missing or doubled own chart, a missing
+  `data-lake`, or a lake with no chart in the template.
+* `build-lake-pages.py` also sets `<lastmod>` in sitemap.xml to today (ET) for each lake home, and the root, whose
+  content changed on that build (version stamps ignored), and gives picker tiles after the first row `loading="lazy"`.
+* `check-meta.py` errors when two indexable pages share a `<title>`, meta description or first `<h1>`.
+
+## Picker flow (`check-picker-flow.cjs`)
+
+* `node tools/check-picker-flow.cjs <base> [out]` (about 1 minute; check-all runs it as `check-picker-flow`): the root
+  picker (first visit, search by name and town, empty state, region chip, Enter, return visit, `?pick` with Last picked,
+  tiles, Just browsing saves nothing, shared lake link, lazy tiles, plain links with JavaScript off), then switching
+  lakes from the header pill at 390 and 1280 px (each switch lands on the lake's own address with only its own chart
+  and blocks, and saves it), and a lake home with JavaScript off showing its own lake. Analytics blocked.
 
 ## Other checks and helpers
 

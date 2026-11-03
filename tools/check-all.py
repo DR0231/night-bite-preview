@@ -22,8 +22,10 @@ Lake scope (check-waters, check-glance, check-glance-fallback, check-bait). A ru
 Builds (in this checkout, skipped with --no-build and always skipped for live), in order:
     build-lake-pages, build-meta, stamp-version, build-updates
 Checks: check-meta (0 errors), check-radius, check-docks (report only: a CHANGED dock page is a note, never a failure),
+check-lake-isolation (each lake home in scope ships only its own blocks, chart and map data; static, fast),
 check-glance, check-glance-fallback (USGS and NWS blocked, and JavaScript off, at 320 and 430 px: no placeholder,
-a visible timestamp), check-bait, check-waters (the lake scope above), sweep (every sitemap page).
+a visible timestamp), check-bait, check-waters (the lake scope above), check-picker-flow (the water picker and switching
+lakes from the header pill, about 1 minute), sweep (every sitemap page).
 Every browser check loads tools/no-analytics.cjs. Against live nothing is written: static checks read the live
 checkout (--live-dir, default /workspace/the-night-bite) through NB_ROOT, and no build runs.
 
@@ -40,8 +42,8 @@ TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
 BUILDS = ["build-lake-pages.py", "build-meta.py", "stamp-version.py", "build-updates.py"]
-CHECKS = ["check-meta", "check-radius", "check-docks", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "sweep"]
-BROWSER = {"check-glance", "check-glance-fallback", "check-bait", "check-waters", "sweep"}
+CHECKS = ["check-meta", "check-radius", "check-docks", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "sweep"]
+BROWSER = {"check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "sweep"}
 
 ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 ap.add_argument("--target", choices=["preview", "live", "local"], default="preview")
@@ -69,7 +71,7 @@ if a.lakes and a.all_lakes:
 if (a.group or a.fresh) and not a.all_lakes:
     sys.exit("check-all: --group and --fresh only go with --all-lakes")
 ALL_IDS = registry.load()["order"]
-LAKE_CHECKS = {"check-glance", "check-glance-fallback", "check-bait", "check-waters"}
+LAKE_CHECKS = {"check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters"}
 
 
 def all_lakes_run():
@@ -243,10 +245,12 @@ def cmd_for(name):
         "check-meta": ([py, str(TOOLS / "check-meta.py")], static_env),
         "check-radius": ([py, str(TOOLS / "check-radius.py")], static_env),
         "check-docks": ([py, str(TOOLS / "check-docks.py")], {}),
+        "check-lake-isolation": ([py, str(TOOLS / "check-lake-isolation.py")], dict(static_env, NB_LAKES=",".join(LAKES))),
         "check-glance": (["node", str(TOOLS / "check-glance.cjs"), base, d], {"NB_LAKES": ",".join(LAKES)}),
         "check-glance-fallback": (["node", str(TOOLS / "check-glance-fallback.cjs"), base, d], {"NB_LAKES": ",".join(LAKES)}),
         "check-bait": (["node", str(TOOLS / "check-bait.cjs")], {"BASE": base, "OUT": d, "NB_LAKES": ",".join(LAKES)}),
         "check-waters": (["node", str(TOOLS / "check-waters.cjs"), base, d, ",".join(LAKES)], {}),
+        "check-picker-flow": (["node", str(TOOLS / "check-picker-flow.cjs"), base, d], {}),
         "sweep": (["node", str(TOOLS / "sweep.cjs"), "--base", base, "--out", d] + (["--shots", a.shots] if a.shots else []), {}),
     }[name]
 
