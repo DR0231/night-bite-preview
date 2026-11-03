@@ -34,7 +34,7 @@ python3 tools/check-all.py --target local --all-lakes             # explicit ful
 python3 tools/check-all.py --target local --all-lakes --group 3   # one group only, one short step at a time
 ```
 
-**Lake scope.** check-waters, check-glance and check-bait never cover every lake by accident:
+**Lake scope.** check-waters, check-glance, check-glance-fallback and check-bait never cover every lake by accident:
 
 * `--lakes a,b` checks exactly those lakes.
 * With no `--lakes`, the run checks the lakes whose files differ from `origin/main` (`git diff`, plus uncommitted and untracked files; `--base-ref` changes the ref) plus `hoover` as the reference, and prints what it chose. A file counts for a lake when its folder or file name is the lake id (`dow/index.html`, `assets/tiles/dow.png`, `assets/dow-chart.png`). Shared files (css, js, data) are listed in the printed scope too, since they can touch every lake. Add `--lakes` or use `--all-lakes` when that matters.
@@ -42,7 +42,7 @@ python3 tools/check-all.py --target local --all-lakes --group 3   # one group on
 * Start each run in the background and wait on it no more than about 5 minutes at a time. One lake group takes about 4 to 5 minutes.
 * `node tools/registry.cjs --changed [REF]` prints the changed lakes and files on their own.
 
-* Checks: check-meta, check-radius, check-docks (report only), check-glance, check-bait, check-waters (the lake scope above) and sweep.
+* Checks: check-meta, check-radius, check-docks (report only), check-glance, check-glance-fallback, check-bait, check-waters (the lake scope above) and sweep.
 * `--skip` leaves checks out.
 * A scoped run takes a few minutes. A full `--all-lakes` run takes over 30 minutes across 23 lakes, which is why it is split into groups.
 * Known failures go in `tools/known-failures.json` as `{check, match, target?, why}`. Add an entry only for a failure you have looked at and accepted. Then remove it once the failure is fixed.
@@ -120,6 +120,22 @@ python3 tools/build-tile-charts.py --check         # change nothing; exit 1 if a
 
 ## Other checks and helpers
 
-* `check-meta.py`, `check-radius.py`, `check-docks.py`, `check-glance.cjs`, `check-bait.cjs` and `check-waters.cjs` are each also runnable alone. Run alone, `check-waters.cjs [BASE] [OUT]` with no lake ids checks the changed lakes plus hoover and prints them; `--all-lakes [--group N] [--fresh]` runs every lake in groups of 5 with a `group-N.json` per group in OUT, resuming on rerun. `check-glance.cjs` and `check-bait.cjs` take `NB_LAKES=a,b` (check-all sets it). `NB_ROOT=DIR` points the static checks at another checkout.
+* `check-meta.py`, `check-radius.py`, `check-docks.py`, `check-glance.cjs`, `check-bait.cjs` and `check-waters.cjs` are each also runnable alone. Run alone, `check-waters.cjs [BASE] [OUT]` with no lake ids checks the changed lakes plus hoover and prints them; `--all-lakes [--group N] [--fresh]` runs every lake in groups of 5 with a `group-N.json` per group in OUT, resuming on rerun. `check-glance.cjs`, `check-glance-fallback.cjs` and `check-bait.cjs` take `NB_LAKES=a,b` (check-all sets it). `NB_ROOT=DIR` points the static checks at another checkout.
 * `serve.py --root DIR --port 8642` serves a checkout like GitHub Pages does (clean URLs, a 301 to add the trailing slash, and 404.html for missing pages).
 * `indexnow.py` is for live only, after a push.
+
+## Tonight at a glance: baked strip and its fallback check
+
+* `glance_bake.py` bakes the "Tonight at a glance" strip into every lake home from that page's own pool card (level,
+  water temp, the Checked `<time>`), and writes each non-Hoover lake's own snapshot (js/lakes.js `pool.snapshot`) into
+  its pool card's static lines. `build-lake-pages.py` calls it, so a normal build keeps them in step. With JavaScript
+  off, or USGS and NWS blocked, the page still shows the stamped reading with its date and time, "Needs forecast"
+  for the bite, "Check NWS" for wind and "No gauge" (linked to the pool card note) where a lake has no public gauge.
+  js/glance.js turns the stamp into "last updated X hours ago" and swaps in live values when they arrive.
+* After the weekly USGS snapshot routine edits Hoover's three snapshot lines, rebake the strip from them:
+  `python3 tools/glance_bake.py hoover/index.html` (or run the normal build). `python3 tools/glance_bake.py --check`
+  exits 1 if any lake home's strip is out of step with its pool card.
+* `check-glance-fallback.cjs [BASE] [OUT] [--lakes a,b]` loads each lake home with USGS, the Corps and NWS blocked
+  and again with JavaScript off, at 320 and 430 px, and fails on any "--", "Loading", "unavailable" or
+  "NWS not available" in the strip, a gauge lake without a visible timestamp, a missing "No gauge" state, clipped
+  text or sideways scroll. Default lakes hoover,alum,knox,pymatuning (USGS, Corps, no gauge, stale gauge).

@@ -9,7 +9,7 @@
     python3 tools/check-all.py --target local --all-lakes                  # every lake, in groups of 5, resumable
     python3 tools/check-all.py --target local --all-lakes --group 2        # just one group (one short step per wait)
 
-Lake scope (check-waters, check-glance, check-bait). A run never covers every lake by accident:
+Lake scope (check-waters, check-glance, check-glance-fallback, check-bait). A run never covers every lake by accident:
     --lakes a,b     exactly those lakes
     (neither)       the lakes whose files differ from origin/main (git diff, plus uncommitted and untracked files)
                     plus hoover as the reference; the choice is printed. Shared files (css, js, data) are listed too,
@@ -22,7 +22,8 @@ Lake scope (check-waters, check-glance, check-bait). A run never covers every la
 Builds (in this checkout, skipped with --no-build and always skipped for live), in order:
     build-lake-pages, build-meta, stamp-version, build-updates
 Checks: check-meta (0 errors), check-radius, check-docks (report only: a CHANGED dock page is a note, never a failure),
-check-glance, check-bait, check-waters (the lake scope above), sweep (every sitemap page).
+check-glance, check-glance-fallback (USGS and NWS blocked, and JavaScript off, at 320 and 430 px: no placeholder,
+a visible timestamp), check-bait, check-waters (the lake scope above), sweep (every sitemap page).
 Every browser check loads tools/no-analytics.cjs. Against live nothing is written: static checks read the live
 checkout (--live-dir, default /workspace/the-night-bite) through NB_ROOT, and no build runs.
 
@@ -39,8 +40,8 @@ TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
 BUILDS = ["build-lake-pages.py", "build-meta.py", "stamp-version.py", "build-updates.py"]
-CHECKS = ["check-meta", "check-radius", "check-docks", "check-glance", "check-bait", "check-waters", "sweep"]
-BROWSER = {"check-glance", "check-bait", "check-waters", "sweep"}
+CHECKS = ["check-meta", "check-radius", "check-docks", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "sweep"]
+BROWSER = {"check-glance", "check-glance-fallback", "check-bait", "check-waters", "sweep"}
 
 ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 ap.add_argument("--target", choices=["preview", "live", "local"], default="preview")
@@ -68,7 +69,7 @@ if a.lakes and a.all_lakes:
 if (a.group or a.fresh) and not a.all_lakes:
     sys.exit("check-all: --group and --fresh only go with --all-lakes")
 ALL_IDS = registry.load()["order"]
-LAKE_CHECKS = {"check-glance", "check-bait", "check-waters"}
+LAKE_CHECKS = {"check-glance", "check-glance-fallback", "check-bait", "check-waters"}
 
 
 def all_lakes_run():
@@ -243,6 +244,7 @@ def cmd_for(name):
         "check-radius": ([py, str(TOOLS / "check-radius.py")], static_env),
         "check-docks": ([py, str(TOOLS / "check-docks.py")], {}),
         "check-glance": (["node", str(TOOLS / "check-glance.cjs"), base, d], {"NB_LAKES": ",".join(LAKES)}),
+        "check-glance-fallback": (["node", str(TOOLS / "check-glance-fallback.cjs"), base, d], {"NB_LAKES": ",".join(LAKES)}),
         "check-bait": (["node", str(TOOLS / "check-bait.cjs")], {"BASE": base, "OUT": d, "NB_LAKES": ",".join(LAKES)}),
         "check-waters": (["node", str(TOOLS / "check-waters.cjs"), base, d, ",".join(LAKES)], {}),
         "sweep": (["node", str(TOOLS / "sweep.cjs"), "--base", base, "--out", d] + (["--shots", a.shots] if a.shots else []), {}),

@@ -30,6 +30,7 @@ Checked 2026-10-22 (ET). Only details confirmed by a source below are shown on t
 
 ## USGS Water Data APIs (js/lakes.js: usgsLatest, usgsSeries), switched Oct. 27, 2026
 - Every USGS read (Tonight card, Tonight at a glance strip, lake picker, pool trend) goes through js/lakes.js. First try: the new USGS Water Data OGC API, `https://api.waterdata.usgs.gov/ogcapi/v1/collections/latest-continuous/items` (latest values) and `.../continuous/items` (7 day series), 8 second timeout, no API key (rate limited per IP by api.data.gov).
+- When a USGS or NWS read fails, or JavaScript is off, Tonight at a glance keeps the stamped snapshot (the same reading and Checked time as the pool card, baked in by tools/glance_bake.py) and says how old it is. Lakes with no public gauge say "No gauge" and link to the pool card note. Nothing is estimated.
 - Fallback: the legacy WaterServices IV API (`waterservices.usgs.gov/nwis/iv`). USGS adds a 2 second delay to it from Nov. 16, 2026 and turns it off Feb. 22, 2027 (https://waterdata.usgs.gov/blog/wdfn-waterservices-degradation/). Remove the fallback and its CSP host then.
 - If both fail: the saved offline reading, then "unavailable, check USGS".
 - Parity check, Oct. 27, 2026: Hoover 62614 890.60 ft and 00010 18.0 C, Buckeye 62614 891.45 ft, same in both APIs; 7 day series had the same point counts (Hoover 167, Buckeye 667).
