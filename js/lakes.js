@@ -697,10 +697,10 @@
   // region to one of these ids; lat and lng above (the lake's NWS forecast point, on the water) give Near me distances.
   var REGIONS = [
     { id: "central", name: "Central Ohio" },
+    { id: "southeast", name: "East and Southeast Ohio" },
     { id: "northeast", name: "Northeast Ohio" },
     { id: "northwest", name: "Northwest Ohio" },
     { id: "southwest", name: "Southwest Ohio" },
-    { id: "southeast", name: "Southeast Ohio" },
     { id: "erie", name: "Lake Erie" }
   ];
   // display names for the species ids above (the log's species lists use these)
