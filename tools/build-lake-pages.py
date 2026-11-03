@@ -82,6 +82,13 @@ def nice_date(iso):
     return f"{mon} {d.day}, {d.year}"
 
 
+def stale_cfg(lake):
+    """pool.stale in js/lakes.js (a USGS gauge that stopped reporting): (site, lastWhen, url), or None."""
+    m = re.search(r"\n    " + lake + r": \{\n.*?\n      pool: \{(.*?)\n      \},", LAKES_JS, re.S)
+    st = m and re.search(r'stale: \{ site: "(\w+)", last: "[^"]*", lastWhen: "([^"]+)", url: "([^"]+)" \}', m.group(1))
+    return st.groups() if st else None
+
+
 def t(s):
     return html.escape(s, quote=False)
 
@@ -105,6 +112,9 @@ def quick_facts(lake):
         pool += f'Live level: <a href="{gauge}" target="_blank" rel="noopener">USGS gauge {site}</a>.'
     elif src == "cwms" and gauge:
         pool += f'Live level: <a href="{gauge}" target="_blank" rel="noopener">Corps of Engineers gauge</a>.'
+    elif stale_cfg(lake):
+        st_site, st_when, st_url = stale_cfg(lake)
+        pool += f'<a href="{st_url}" target="_blank" rel="noopener">USGS gauge {st_site}</a> has not reported since {st_when}, so this site shows no live level.'
     else:
         pool += "No public gauge, so this site shows no live level."
     rows.append(("Normal pool", pool))

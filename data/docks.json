@@ -746,6 +746,259 @@
         "odnr-strouds",
         "odnr-drawdowns"
       ]
+    },
+    "mosquito": {
+      "name": "Mosquito Creek Lake",
+      "checked": "2026-11-03",
+      "items": [
+        {
+          "name": "Courtesy docks and marina",
+          "status": "unannounced",
+          "label": "Not announced",
+          "note": "ODNR lists courtesy docks at the ramps and a fuel dock at the marina concession but has not posted a 2026 date for pulling docks.",
+          "source": "odnr-mosquito"
+        },
+        {
+          "name": "Marina and beach lots",
+          "status": "unannounced",
+          "label": "Construction",
+          "note": "ODNR notice: road construction at the marina and beach parking lots since Oct. 3, 2026, until further notice.",
+          "source": "odnr-mosquito"
+        },
+        {
+          "name": "Launch ramps",
+          "status": "unannounced",
+          "label": "No closure posted",
+          "note": "ODNR lists the main SR 305 ramp, the marina, campground and causeway ramps, the Causeway Bait ramp and a wildlife kayak launch.",
+          "source": "odnr-mosquito"
+        }
+      ],
+      "history": "",
+      "history_url": "",
+      "calls": [
+        [
+          "Mosquito Marina",
+          "+13306372075",
+          "330-637-2075",
+          ""
+        ],
+        [
+          "Mosquito Lake State Park office",
+          "+13306372856",
+          "330-637-2856",
+          ""
+        ]
+      ],
+      "sources": [
+        "odnr-mosquito"
+      ]
+    },
+    "berlin": {
+      "name": "Berlin Lake",
+      "checked": "2026-11-03",
+      "items": [
+        {
+          "name": "Bonner Road ramp",
+          "status": "out",
+          "label": "Closed to May 28, 2027",
+          "note": "ODNR: closed for renovation from Sept. 14, 2026 to May 28, 2027.",
+          "source": "odnr-berlin"
+        },
+        {
+          "name": "Mill Creek ramp",
+          "status": "ending",
+          "label": "Open to Nov. 25",
+          "note": "ODNR opens Mill Creek while Bonner Road is closed: Sept. 7 to Nov. 25, 2026, then Feb. 27 to May 21, 2027.",
+          "source": "odnr-berlin",
+          "ends": "2026-11-25",
+          "after_label": "Reopens Feb. 27",
+          "after_note": "ODNR lists Mill Creek open again from Feb. 27 to May 21, 2027 while Bonner Road is closed."
+        },
+        {
+          "name": "Winter level",
+          "status": "unannounced",
+          "label": "Not posted",
+          "note": "ODNR says the level can swing as much as 20 ft in a year. The Corps runs the dam; the level card on Home shows the USGS reading.",
+          "source": "odnr-berlin"
+        }
+      ],
+      "history": "",
+      "history_url": "",
+      "calls": [
+        [
+          "ODNR Wildlife District 3",
+          "+13306442293",
+          "330-644-2293",
+          ""
+        ]
+      ],
+      "sources": [
+        "odnr-berlin"
+      ]
+    },
+    "westbranch": {
+      "name": "West Branch Reservoir",
+      "checked": "2026-11-03",
+      "items": [
+        {
+          "name": "Marina and courtesy docks",
+          "status": "unannounced",
+          "label": "Not announced",
+          "note": "ODNR lists the West Branch Marina and courtesy docks at the East and West ramps in boating season, but has not posted a 2026 date for pulling them.",
+          "source": "odnr-westbranch"
+        },
+        {
+          "name": "Launch ramps",
+          "status": "unannounced",
+          "label": "No closure posted",
+          "note": "ODNR lists five ramps: East, West, the campground ramp, Rock Spring Road and Knapp Road.",
+          "source": "odnr-westbranch"
+        }
+      ],
+      "history": "",
+      "history_url": "",
+      "calls": [
+        [
+          "West Branch Marina",
+          "+13302969209",
+          "330-296-9209",
+          ""
+        ],
+        [
+          "West Branch State Park office",
+          "+13302350030",
+          "330-235-0030",
+          ""
+        ]
+      ],
+      "sources": [
+        "odnr-westbranch"
+      ]
+    },
+    "pymatuning": {
+      "name": "Pymatuning Lake",
+      "checked": "2026-11-03",
+      "items": [
+        {
+          "name": "Marina and courtesy docks",
+          "status": "unannounced",
+          "label": "Not announced",
+          "note": "ODNR lists the Birches Landing marina and a courtesy dock at the campground ramp but has not posted a 2026 date for pulling docks.",
+          "source": "odnr-pymatuning"
+        },
+        {
+          "name": "Cabin Beach to Birches road",
+          "status": "out",
+          "label": "Closed for good",
+          "note": "ODNR notice (Aug. 5, 2026): the road from the south end of Cabin Beach to Birches Marina is permanently closed for a bike path. Use other routes.",
+          "source": "odnr-pymatuning"
+        },
+        {
+          "name": "Launch ramps",
+          "status": "unannounced",
+          "label": "No closure posted",
+          "note": "ODNR lists Padanaram, Birches Landing, Cabin Beach, New Bowers and the campground ramp on the Ohio side.",
+          "source": "odnr-pymatuning"
+        }
+      ],
+      "history": "",
+      "history_url": "",
+      "calls": [
+        [
+          "Pymatuning State Park office",
+          "+14402614551",
+          "440-261-4551",
+          ""
+        ]
+      ],
+      "sources": [
+        "odnr-pymatuning"
+      ]
+    },
+    "milton": {
+      "name": "Lake Milton",
+      "checked": "2026-11-03",
+      "items": [
+        {
+          "name": "Marina",
+          "status": "unannounced",
+          "label": "Not announced",
+          "note": "ODNR lists the Lake Milton Marina but has not posted a 2026 date for pulling docks.",
+          "source": "odnr-milton"
+        },
+        {
+          "name": "Fall drawdown",
+          "status": "unannounced",
+          "label": "Seasonal",
+          "note": "ODNR: the fall drawdown typically begins Oct. 15 and takes the lake down about 8 ft; refill starts March 15, weather permitting.",
+          "source": "odnr-milton"
+        },
+        {
+          "name": "Launch ramps",
+          "status": "unannounced",
+          "label": "No closure posted",
+          "note": "ODNR lists three ramps: Miller&rsquo;s Landing, Robinson Point and Pointview.",
+          "source": "odnr-milton"
+        }
+      ],
+      "history": "",
+      "history_url": "",
+      "calls": [
+        [
+          "Lake Milton Marina",
+          "+13306544991",
+          "330-654-4991",
+          ""
+        ],
+        [
+          "Lake Milton State Park office",
+          "+13302350030",
+          "330-235-0030",
+          ""
+        ]
+      ],
+      "sources": [
+        "odnr-milton"
+      ]
+    },
+    "leesville": {
+      "name": "Leesville Lake",
+      "checked": "2026-11-03",
+      "items": [
+        {
+          "name": "Marina docks",
+          "status": "unannounced",
+          "label": "Not announced",
+          "note": "MWCD lists the South Fork and North Fork marinas but has not posted a date for pulling docks.",
+          "source": "mwcd-leesville"
+        },
+        {
+          "name": "Launch ramps",
+          "status": "unannounced",
+          "label": "No closure posted",
+          "note": "MWCD lists two public launch ramps and an accessible kayak launch.",
+          "source": "mwcd-leesville"
+        }
+      ],
+      "history": "",
+      "history_url": "",
+      "calls": [
+        [
+          "North Fork Marina",
+          "+13306274270",
+          "330-627-4270",
+          ""
+        ],
+        [
+          "MWCD, Atwood Lake Park office",
+          "+13303436780",
+          "330-343-6780",
+          ""
+        ]
+      ],
+      "sources": [
+        "mwcd-leesville"
+      ]
     }
   },
   "watch": [
@@ -1252,6 +1505,121 @@
         "remov",
         "alert",
         "marina"
+      ]
+    },
+    {
+      "id": "odnr-mosquito",
+      "label": "ODNR, Mosquito Lake State Park",
+      "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/mosquito-lake-state-park",
+      "lakes": [
+        "mosquito"
+      ],
+      "keywords": [
+        "dock",
+        "ramp",
+        "launch",
+        "drawdown",
+        "closed",
+        "closure",
+        "remov",
+        "alert",
+        "marina"
+      ]
+    },
+    {
+      "id": "odnr-berlin",
+      "label": "ODNR, Berlin Lake Fishing Area",
+      "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/berlin-lake-fishing-area",
+      "lakes": [
+        "berlin"
+      ],
+      "keywords": [
+        "dock",
+        "ramp",
+        "launch",
+        "drawdown",
+        "closed",
+        "closure",
+        "remov",
+        "alert",
+        "marina"
+      ]
+    },
+    {
+      "id": "odnr-westbranch",
+      "label": "ODNR, West Branch State Park",
+      "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/west-branch-state-park",
+      "lakes": [
+        "westbranch"
+      ],
+      "keywords": [
+        "dock",
+        "ramp",
+        "launch",
+        "drawdown",
+        "closed",
+        "closure",
+        "remov",
+        "alert",
+        "marina"
+      ]
+    },
+    {
+      "id": "odnr-pymatuning",
+      "label": "ODNR, Pymatuning State Park",
+      "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/pymatuning-state-park",
+      "lakes": [
+        "pymatuning"
+      ],
+      "keywords": [
+        "dock",
+        "ramp",
+        "launch",
+        "drawdown",
+        "closed",
+        "closure",
+        "remov",
+        "alert",
+        "marina"
+      ]
+    },
+    {
+      "id": "odnr-milton",
+      "label": "ODNR, Lake Milton State Park",
+      "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-milton-state-park",
+      "lakes": [
+        "milton"
+      ],
+      "keywords": [
+        "dock",
+        "ramp",
+        "launch",
+        "drawdown",
+        "closed",
+        "closure",
+        "remov",
+        "alert",
+        "marina"
+      ]
+    },
+    {
+      "id": "mwcd-leesville",
+      "label": "Muskingum Watershed Conservancy District, Leesville Lake",
+      "url": "https://www.mwcd.org/places/leesville-lake/",
+      "lakes": [
+        "leesville"
+      ],
+      "keywords": [
+        "dock",
+        "ramp",
+        "launch",
+        "drawdown",
+        "closed",
+        "closure",
+        "remov",
+        "alert",
+        "marina",
+        "season"
       ]
     }
   ]
