@@ -39,7 +39,7 @@ Any static server works (`npx serve`, VS Code Live Server, etc.).
 
 ## Display settings
 
-Text size, readable text, less motion and high contrast: `js/a11y-boot.js` (head) and `js/a11y.js` (panel), saved in localStorage `nb-a11y` on the device only. See tools/README.md "Display settings".
+Text size, readable text, less motion, high contrast and red light (`html[data-light="red"]`, palette tokens only; the share card reads the same tokens): `js/a11y-boot.js` (head) and `js/a11y.js` (panel), saved in localStorage `nb-a11y` on the device only. See tools/README.md "Display settings".
 
 ## Nav
 

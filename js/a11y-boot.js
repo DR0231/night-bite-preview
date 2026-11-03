@@ -4,7 +4,7 @@
  *   data-font     readable                (phone's own system font for text and UI; lg and xl turn it on too)
  *   data-motion   reduce                  (also makes matchMedia('(prefers-reduced-motion: reduce)') report true)
  *   data-contrast more                    (high contrast, still navy and cream)
- *   data-light    reserved for red-light mode (S3b); accepted and set, not styled yet
+ *   data-light    red                     (red light: dim red on black; the phone's toolbar color follows)
  */
 (function (d) {
   var KEY = "nb-a11y", OK = { text: ["sm", "lg", "xl"], font: ["readable"], motion: ["reduce"], contrast: ["more"], light: ["red"] };
@@ -13,6 +13,8 @@
     var h = d.documentElement;
     for (var k in OK) { if (OK[k].indexOf(s[k]) >= 0) h.setAttribute("data-" + k, s[k]); else h.removeAttribute("data-" + k); }
     if (s.text === "lg" || s.text === "xl") h.setAttribute("data-font", "readable");
+    var tc = d.querySelector('meta[name="theme-color"]');
+    if (tc) { if (!tc.hasAttribute("data-day")) tc.setAttribute("data-day", tc.content); tc.content = s.light === "red" ? "#000000" : tc.getAttribute("data-day"); }
   }
   var mm = window.matchMedia;
   if (mm) window.matchMedia = function (q) {

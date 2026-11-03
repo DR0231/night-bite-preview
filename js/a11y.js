@@ -1,6 +1,6 @@
 /* The Night Bite: Display panel (text size, readable text, less motion, high contrast). Settings live in
  * localStorage "nb-a11y" on this device only; js/a11y-boot.js applies them before paint. Any [data-a11y-open]
- * button opens the panel (More menu and footer). Red-light mode (S3b) goes in the [data-a11y-slot="light"] row.
+ * button opens the panel (More menu and footer). Red light (data-light="red") is the last toggle.
  */
 (function () {
   var A = window.NB_A11Y; if (!A) return;
@@ -9,7 +9,8 @@
   var TOGGLES = [
     ["font", "readable", "Readable text", "Your phone\u2019s own font for text, menus and buttons. Large sizes turn it on."],
     ["motion", "reduce", "Less motion", "No sliding or fading."],
-    ["contrast", "more", "High contrast", "Brighter text and borders."]
+    ["contrast", "more", "High contrast", "Brighter text and borders."],
+    ["light", "red", "Red light", "Dim red on black, so your eyes stay used to the dark."]
   ];
   function el(t, a, kids) {
     var e = document.createElement(t);
@@ -37,7 +38,6 @@
         el("p", { id: id + "-note", "class": "a11y-note", text: t[3] })
       ]));
     });
-    form.appendChild(el("div", { "class": "a11y-row", "data-a11y-slot": "light", hidden: "" }));
     form.appendChild(el("p", { "class": "a11y-saved", text: "Saved on this phone only." }));
     var reset = el("button", { type: "button", "class": "btn btn-ghost a11y-reset", text: "Reset" });
     var done = el("button", { type: "submit", "class": "btn a11y-done", value: "done", text: "Done" });

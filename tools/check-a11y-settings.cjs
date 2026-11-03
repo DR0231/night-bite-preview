@@ -7,7 +7,9 @@
  * and heading fonts to the system font while the logo keeps its pixel face; Less motion stops transitions; High contrast
  * sets data-contrast and keeps body/nav text >= 7:1; every setting persists after a reload and is on <html> before
  * first paint (checked from a script that runs before the stylesheet's first paint); no sideways scroll at XL;
- * Reset clears it. Prints PASS/FAIL lines; exit 1 on any FAIL. Analytics blocked (tools/no-analytics.cjs).
+ * Reset clears it. Red light at 390: applies, red text on true black, nothing brighter than the red ceiling, the share card
+ * is drawn red, pictures get the red filter and the lantern does not, it persists before paint and turns off cleanly.
+ * Prints PASS/FAIL lines; exit 1 on any FAIL. Analytics blocked (tools/no-analytics.cjs).
  */
 const path = require('path');
 const PW = process.env.PLAYWRIGHT_CORE || '/usr/local/lib/pnpm/5/.pnpm/playwright-core@1.59.1/node_modules/playwright-core';
@@ -105,6 +107,77 @@ const sys = f => /system-ui/.test(f) && !/Pixelify|Night Bite Pixel|Source Serif
       await ctx.close();
     }
   }
+  // Red light (S3b), at 390 on each page: applies from the panel, true black behind red text, the toolbar color follows,
+  // photos/maps/charts get the red filter while the lantern keeps its art, it persists and is on <html> before paint.
+  const RED_CEIL = 96;   // no text color or share-card pixel may have green or blue above this (0-255)
+  for (const pg of PAGES) {
+    const W = '390 /' + pg + ' red: ';
+    const ctx = await br.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block' });
+    await na.block(ctx);
+    await ctx.addInitScript(() => { new MutationObserver((l, o) => { if (document.body) { window.__nbBootLight = document.documentElement.getAttribute('data-light') || ''; o.disconnect(); } }).observe(document, { childList: true, subtree: true }); });
+    const p = await ctx.newPage(); p.on('pageerror', e => errs.push(W + e.message));
+    await p.goto(B + pg + (pg === '' ? '?pick' : ''), { waitUntil: 'load' });
+    if (await p.isVisible('.nav-more-btn')) { await p.click('.nav-more-btn'); await p.click('#nav-more-panel [data-a11y-open]'); } else await p.click('.site-footer [data-a11y-open]');
+    await p.waitForSelector('#a11y-panel[open]', { timeout: 3000 });
+    ok(W + 'Red light toggle in the panel', await p.isVisible('#a11y-light'));
+    await p.check('#a11y-light'); await p.keyboard.press('Escape'); await p.waitForTimeout(150);
+    const red = () => p.evaluate((CEIL) => {
+      const cs = e => getComputedStyle(e), h = document.documentElement;
+      const rgb = c => (c.match(/[\d.]+/g) || [0, 0, 0]).slice(0, 3).map(Number);
+      const lum = c => { const f = v => (v /= 255) <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); const m = rgb(c); return 0.2126 * f(m[0]) + 0.7152 * f(m[1]) + 0.0722 * f(m[2]); };
+      const bright = [];
+      for (const e of document.querySelectorAll('body *')) {
+        if (!e.offsetParent && cs(e).position !== 'fixed') continue;
+        if (![...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue;
+        if (e.closest('dialog:not([open]), [hidden]')) continue;
+        const m = rgb(cs(e).color); if (m[1] > CEIL || m[2] > CEIL) bright.push(e.tagName + '.' + (e.className || '') + ' ' + cs(e).color);
+      }
+      const imgs = [...document.querySelectorAll('main img, main svg')].filter(e => e.getBoundingClientRect().width > 0 && !e.closest('.hero-horizon'));
+      const lantern = document.querySelector('.logo img, .lantern-glow');
+      return {
+        attr: h.getAttribute('data-light') || '', bg: cs(document.body).backgroundColor, theme: (document.querySelector('meta[name="theme-color"]') || {}).content,
+        text: (Math.max(lum(cs(document.body).color), 0) + 0.05) / 0.05, bright: bright.slice(0, 8), brightN: bright.length,
+        unfiltered: imgs.filter(e => !/sepia/.test(cs(e).filter)).map(e => (e.getAttribute('src') || e.tagName)).slice(0, 5),
+        lantern: lantern ? cs(lantern).filter : 'none', boot: window.__nbBootLight
+      };
+    }, RED_CEIL);
+    let r = await red();
+    ok(W + 'applies: data-light=red, black page, toolbar black', r.attr === 'red' && r.bg === 'rgb(0, 0, 0)' && r.theme === '#000000', r);
+    ok(W + 'body text red on black >= 4.5:1', r.text >= 4.5, r.text);
+    ok(W + 'no text brighter than the red ceiling', r.brightN === 0, r.bright);
+    ok(W + 'pictures, maps and charts get the red filter', r.unfiltered.length === 0, r.unfiltered);
+    ok(W + 'lantern art untouched (no red filter)', !/sepia/.test(r.lantern), r.lantern);
+    await p.reload({ waitUntil: 'load' }); r = await red();
+    ok(W + 'persists after reload, before paint', r.attr === 'red' && r.boot === 'red' && r.bg === 'rgb(0, 0, 0)', r);
+    if (await p.$('[data-act="share"]')) {
+      await p.click('[data-act="share"]');
+      await p.waitForFunction(() => { const i = document.getElementById('tt-share-img'); return i && i.src && i.complete && i.naturalWidth; }, null, { timeout: 15000 }).catch(() => {});
+      const card = await p.evaluate((CEIL) => {
+        const i = document.getElementById('tt-share-img'); if (!i || !i.naturalWidth) return { none: true };
+        const c = document.createElement('canvas'); c.width = i.naturalWidth; c.height = i.naturalHeight;
+        const x = c.getContext('2d'); x.drawImage(i, 0, 0); const d = x.getImageData(0, 0, c.width, c.height).data;
+        let over = 0, maxG = 0, maxB = 0;
+        for (let k = 0; k < d.length; k += 4) {
+          const px = (k / 4) % c.width, py = Math.floor(k / 4 / c.width);
+          if (px >= 44 && px <= 96 && py >= 30 && py <= 94) continue;   // the lantern keeps its art
+          if (d[k + 1] > maxG) maxG = d[k + 1]; if (d[k + 2] > maxB) maxB = d[k + 2];
+          if (d[k + 1] > CEIL || d[k + 2] > CEIL) over++;
+        }
+        const dl = document.getElementById('tt-share');
+        return { maxG, maxB, over, dlgBg: getComputedStyle(dl).backgroundColor };
+      }, RED_CEIL);
+      ok(W + 'share card drawn in red (no pixel above the ceiling outside the lantern)', !card.none && card.over === 0, card);
+      ok(W + 'share dialog background is dark', card.dlgBg && (card.dlgBg.match(/\d+/g) || [255, 255, 255]).slice(1, 3).every(v => +v <= 16), card.dlgBg);
+      await p.keyboard.press('Escape');
+    }
+    // turn it off again
+    if (await p.isVisible('.nav-more-btn')) { await p.click('.nav-more-btn'); await p.click('#nav-more-panel [data-a11y-open]'); } else await p.click('.site-footer [data-a11y-open]');
+    await p.uncheck('#a11y-light'); await p.keyboard.press('Escape');
+    r = await red();
+    ok(W + 'turning it off restores the night palette and toolbar color', r.attr === '' && r.theme === '#0a1628' && r.bg !== 'rgb(0, 0, 0)', r);
+    await ctx.close();
+  }
+
   // no JS: Display buttons stay hidden (no dead control)
   {
     const ctx = await br.newContext({ javaScriptEnabled: false, viewport: { width: 1280, height: 800 } });

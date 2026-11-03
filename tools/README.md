@@ -147,14 +147,17 @@ python3 tools/build-tile-charts.py --check         # change nothing; exit 1 if a
 
 - `js/a11y-boot.js` loads sync in every `<head>` (before the stylesheet; the CSP forbids inline script) and sets
   `data-text` (sm, lg, xl), `data-font` (readable), `data-motion` (reduce), `data-contrast` (more) on `<html>` from
-  localStorage `nb-a11y`, so nothing flashes. Large and XL turn readable text on. `data-light` (red) is reserved for S3b.
+  localStorage `nb-a11y`, so nothing flashes. Large and XL turn readable text on. `data-light` (red) is red light: only the palette tokens
+  change (including the `--*-rgb` triplets used for tints), pictures get `--red-filter`, the lantern keeps its art, the
+  phone toolbar color goes black, and the share card reads the same tokens.
 - `js/a11y.js` (defer) builds the Display panel (a native `<dialog>`) on first open from any `[data-a11y-open]` button:
   one in the More menu, one in the footer nav. The buttons stay hidden without JavaScript.
 - `python3 tools/a11y-inject.py` adds the head script, the panel script and both buttons to every page and to
   `tools/lake-home.html`. Idempotent; run it after adding a hand-written page. whisperwood* is skipped.
 - `node tools/check-a11y-settings.cjs <base> [outDir] [pages]` (in check-all): each size, readable text, less motion
   and high contrast apply, persist after a reload, are on `<html>` before first paint, no sideways scroll at XL, the
-  header still fits, Reset clears it, and no JS means no Display button. Pages default to `,hoover/,species/`.
+  header still fits, Reset clears it, and no JS means no Display button. Red light at 390: red text on true black (no
+  text color or share-card pixel with green or blue above 96), pictures filtered, lantern not, persists before paint. Pages default to `,hoover/,species/`.
 
 ## Other checks and helpers
 
