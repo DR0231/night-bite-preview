@@ -15,6 +15,8 @@ Every public page (same list as tools/build-meta.py) must have:
 characters, titles over 70, spaced dashes in title or description, an indexable canonical missing from sitemap.xml.
 Across pages (errors): two indexable pages with the same <title>, meta description or first <h1> text (404, offline
 and noindex redirect pages left out), so every lake and page can be found and shared on its own.
+Header nav (error): the old two-span labels (nav-label-full + nav-label-short, read as "SpeciesSpecies", "WaterLake")
+anywhere but whisperwood.html; tools/nav-labels.py rewrites them.
 """
 import html, json, os, pathlib, re, sys
 
@@ -43,6 +45,8 @@ for p in sorted(root.rglob("*.html")):
     src = p.read_text()
     head = src[:src.find("</head>")]
     err = lambda m: errors.append(f"{rel}: {m}")
+    if 'class="nav-label-short"' in src and not rel.startswith("whisperwood"):
+        err("old two-span nav labels (run python3 tools/nav-labels.py)")
     titles = re.findall(r"<title>([^<]*)</title>", head)
     descs = metas(head, "name", "description")
     if len(titles) != 1 or not titles[0].strip():

@@ -421,6 +421,8 @@ button, .btn, .site-nav a, .nav-more-btn, .species-subnav a, .gear-sticky-nav a,
   .site-nav .nav-more-item { display: list-item; }
   .nav-label-full { display: none; }
   .nav-label-short { display: inline; }
+  .nav-label-text { display: none; }
+  .nav-label[data-short]::before { content: attr(data-short); }
   .nav-more-panel {
     position: fixed;
     top: auto;

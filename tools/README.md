@@ -147,6 +147,7 @@ python3 tools/build-tile-charts.py --check         # change nothing; exit 1 if a
 * `check-meta.py`, `check-radius.py`, `check-docks.py`, `check-glance.cjs`, `check-bait.cjs` and `check-waters.cjs` are each also runnable alone. Run alone, `check-waters.cjs [BASE] [OUT]` with no lake ids checks the changed lakes plus hoover and prints them; `--all-lakes [--group N] [--fresh]` runs every lake in groups of 5 with a `group-N.json` per group in OUT, resuming on rerun. `check-glance.cjs`, `check-glance-fallback.cjs` and `check-bait.cjs` take `NB_LAKES=a,b` (check-all sets it). `NB_ROOT=DIR` points the static checks at another checkout.
 * `serve.py --root DIR --port 8642` serves a checkout like GitHub Pages does (clean URLs, a 301 to add the trailing slash, and 404.html for missing pages).
 * `indexnow.py` is for live only, after a push.
+* `nav-labels.py` gives each header nav link one label, so page text reads "Species", "Water" and "Whisperwood Vale" once (the old full + short spans read "SpeciesSpecies", "WaterLake"). On phones the Water link still shows "Lake" from `data-short` through CSS. `--check` changes nothing and exits 1 if a page has the old spans; check-meta reports the same as an error. whisperwood.html is never touched.
 
 ## Tonight at a glance: baked strip and its fallback check
 
