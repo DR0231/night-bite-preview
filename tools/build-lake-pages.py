@@ -242,7 +242,7 @@ def chart_img(lid):
         return ""
     b = f.read_bytes()
     w, h = int.from_bytes(b[16:20], "big"), int.from_bytes(b[20:24], "big")   # PNG IHDR
-    return f'<img src="{src}" alt="" width="{w * 2}" height="{h * 2}" loading="lazy" decoding="async">'
+    return f'<img src="{src}" alt="" width="{w * 2}" height="{h * 2}" decoding="async">'
 
 
 def ft(v):

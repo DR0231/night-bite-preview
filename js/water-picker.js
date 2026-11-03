@@ -41,7 +41,6 @@
   if (last && savedTile) {
     var copy = savedTile.cloneNode(true);
     copy.setAttribute("aria-label", "Last picked: " + savedTile.querySelector(".wp-name").textContent);
-    var img = copy.querySelector("img"); if (img) img.loading = "eager";
     last.appendChild(copy); wire(copy); last.hidden = false;
   }
 
