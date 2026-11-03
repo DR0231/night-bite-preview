@@ -226,10 +226,13 @@
       "items": [
         {
           "name": "State park docks",
-          "status": "unannounced",
-          "label": "Not announced",
-          "note": "ODNR has not posted a 2026 date for pulling the seasonal rental or courtesy docks.",
-          "source": "odnr-indian"
+          "status": "ending",
+          "ends": "2026-11-01",
+          "label": "Boats out by Nov. 1",
+          "after_label": "Season over",
+          "note": "Peak of Ohio reported on Oct. 24, 2026 that ODNR reminds boaters &ldquo;all boats must be removed from state docks by November 1.&rdquo; ODNR&rsquo;s own pages do not post the date.",
+          "after_note": "Peak of Ohio reported on Oct. 24, 2026 that ODNR reminds boaters &ldquo;all boats must be removed from state docks by November 1,&rdquo; so the state docks are done for 2026. ODNR&rsquo;s own pages do not post the date.",
+          "source": "peak-indian-docks"
         },
         {
           "name": "Winter drawdown",
@@ -251,6 +254,7 @@
       ],
       "sources": [
         "odnr-indian",
+        "peak-indian-docks",
         "odnr-drawdowns"
       ]
     },
@@ -954,6 +958,21 @@
         "closure",
         "remov",
         "alert"
+      ]
+    },
+    {
+      "id": "peak-indian-docks",
+      "label": "Peak of Ohio, ODNR end of season boating reminders for Indian Lake (Oct. 24, 2026)",
+      "url": "https://www.peakofohio.com/local-news/odnr-shares-end-of-season-boating-reminders-for-indian-lake/",
+      "lakes": [
+        "indian"
+      ],
+      "keywords": [
+        "dock",
+        "november",
+        "remov",
+        "buoy",
+        "no-wake"
       ]
     },
     {

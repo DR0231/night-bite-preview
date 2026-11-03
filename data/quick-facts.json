@@ -1,5 +1,5 @@
 {
-  "_about": "Quick facts on each lake home page, written into the HTML by tools/build-lake-pages.py (no JavaScript). Every line is copied from text the site already sources (water.html lake facts cards, the home page map notes and How to read this, js/lake-map-data-*.js); the gauge link comes from js/lakes.js. docks (optional) = a dated end of season dock line under Ramps and access, from an official page only (checked, text, source [label, url]). Leave a field out when there is no official source. checked = the date the facts were last checked against the sources listed; it also becomes the page's WebPage dateModified. title and description (every lake but Hoover) are that lake home page's <title> and meta description, written by tools/build-lake-pages.py; Hoover's live in index.html itself.",
+  "_about": "Quick facts on each lake home page, written into the HTML by tools/build-lake-pages.py (no JavaScript). Every line is copied from text the site already sources (water.html lake facts cards, the home page map notes and How to read this, js/lake-map-data-*.js); the gauge link comes from js/lakes.js. docks (optional) = a dated end of season dock line under Ramps and access, from an official page, or a news story quoting the agency when D'Angelo approves it, named as such in the text (checked, text, source [label, url]). Leave a field out when there is no official source. checked = the date the facts were last checked against the sources listed; it also becomes the page's WebPage dateModified. title and description (every lake but Hoover) are that lake home page's <title> and meta description, written by tools/build-lake-pages.py; Hoover's live in index.html itself.",
   "lakes": {
     "hoover": {
       "checked": "2026-10-31",
@@ -76,6 +76,7 @@
       "description": "Indian Lake fishing: live USGS lake level, no hp limit, five state park ramps and the Old Field Beach jetties, tonight's bite. Unofficial.",
       "motors": "No horsepower limit. No wake within 300 ft of any shoreline, in channels and where marked.",
       "ramps": "Five state park launch ramps: Moundwood, Lakeview Harbor, Blackhawk, Chippewa and Cranetown Island. Fishing jetties at Old Field Beach.",
+      "docks": {"checked": "2026-11-03", "text": "Peak of Ohio reported on Oct. 24, 2026 that ODNR reminds boaters \u201call boats must be removed from state docks by November 1,\u201d so the state docks are done for 2026. ODNR\u2019s own pages do not post the date.", "source": ["Peak of Ohio, Oct. 24, 2026", "https://www.peakofohio.com/local-news/odnr-shares-end-of-season-boating-reminders-for-indian-lake/"]},
       "pool": "Normal summer pool is 996.3 ft, the level the ODNR fishing map is drawn at.",
       "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
       "sources": [
