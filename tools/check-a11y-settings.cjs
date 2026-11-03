@@ -9,6 +9,8 @@
  * first paint (checked from a script that runs before the stylesheet's first paint); no sideways scroll at XL;
  * Reset clears it. Red light at 390: applies, red text on true black, nothing brighter than the red ceiling, the share card
  * is drawn red, pictures get the red filter and the lantern does not, it persists before paint and turns off cleanly.
+ * Touch targets at 390 (page and More menu): every control >= 44x44 except inline text links and the scrollspy rail. Focus: Tab through the
+ * first 12 stops at 390 and 1280 shows a ring on each.
  * Prints PASS/FAIL lines; exit 1 on any FAIL. Analytics blocked (tools/no-analytics.cjs).
  */
 const path = require('path');
@@ -120,7 +122,7 @@ const sys = f => /system-ui/.test(f) && !/Pixelify|Night Bite Pixel|Source Serif
     if (await p.isVisible('.nav-more-btn')) { await p.click('.nav-more-btn'); await p.click('#nav-more-panel [data-a11y-open]'); } else await p.click('.site-footer [data-a11y-open]');
     await p.waitForSelector('#a11y-panel[open]', { timeout: 3000 });
     ok(W + 'Red light toggle in the panel', await p.isVisible('#a11y-light'));
-    await p.check('#a11y-light'); await p.keyboard.press('Escape'); await p.waitForTimeout(150);
+    await p.check('#a11y-light'); await p.keyboard.press('Escape'); await p.waitForTimeout(700);   // let color transitions finish
     const red = () => p.evaluate((CEIL) => {
       const cs = e => getComputedStyle(e), h = document.documentElement;
       const rgb = c => (c.match(/[\d.]+/g) || [0, 0, 0]).slice(0, 3).map(Number);
@@ -172,10 +174,78 @@ const sys = f => /system-ui/.test(f) && !/Pixelify|Night Bite Pixel|Source Serif
     }
     // turn it off again
     if (await p.isVisible('.nav-more-btn')) { await p.click('.nav-more-btn'); await p.click('#nav-more-panel [data-a11y-open]'); } else await p.click('.site-footer [data-a11y-open]');
-    await p.uncheck('#a11y-light'); await p.keyboard.press('Escape');
+    await p.uncheck('#a11y-light'); await p.keyboard.press('Escape'); await p.waitForTimeout(300);
     r = await red();
     ok(W + 'turning it off restores the night palette and toolbar color', r.attr === '' && r.theme === '#0a1628' && r.bg !== 'rgb(0, 0, 0)', r);
     await ctx.close();
+  }
+
+  // Touch targets and focus (S3b), at 390 on each page: every visible link, button, field and summary is at least
+  // 44x44 (its box plus any absolutely placed ::before/::after touch slop), with the More menu closed and open. Links
+  // inside running text are exempt (WCAG 2.5.8 inline exception), as is the skip link until it is focused.
+  // Then Tab through the first 12 stops: each one shows a focus ring (outline or box-shadow) on a visible element.
+  const tapMisses = () => p2.evaluate(() => {
+    const miss = [];
+    const slop = (e, b) => {
+      let r = { l: b.left, t: b.top, r: b.right, b: b.bottom };
+      for (const ps of ['::before', '::after']) {
+        const c = getComputedStyle(e, ps); if (c.content === 'none' || c.position !== 'absolute') continue;
+        const n = v => parseFloat(v) || 0;
+        r = { l: Math.min(r.l, b.left + n(c.left)), t: Math.min(r.t, b.top + n(c.top)), r: Math.max(r.r, b.right - n(c.right)), b: Math.max(r.b, b.bottom - n(c.bottom)) };
+      }
+      return { w: r.r - r.l, h: r.b - r.t };
+    };
+    for (const e of document.querySelectorAll('a[href], button, input:not([type=hidden]), select, textarea, summary, [role=button], [tabindex]:not([tabindex="-1"])')) {
+      const b = e.getBoundingClientRect(), cs = getComputedStyle(e);
+      if (!b.width || !b.height || cs.visibility === 'hidden' || e.closest('[hidden], dialog:not([open]), [aria-hidden="true"]')) continue;
+      if (e.classList.contains('sr-only')) continue;
+      if (e.matches('input[type=radio], input[type=checkbox]') && e.closest('label')) continue;   // the label is the target
+      let par = e.parentElement; while (par && getComputedStyle(par).display === 'inline') par = par.parentElement;
+      if (e.tagName === 'A' && cs.display === 'inline' && par && par.textContent.trim().length > e.textContent.trim().length + 2) continue;
+      if (e.classList.contains('spy-link')) continue;   // scrollspy rail: a shortcut beside the page (sections are reachable by scrolling); slices >= 24px (WCAG 2.5.8), widening it would cover page text
+      const z = slop(e, b);
+      if (z.w < 43.5 || z.h < 43.5) miss.push((e.className && typeof e.className === 'string' ? e.tagName.toLowerCase() + '.' + e.className.split(' ')[0] : e.tagName.toLowerCase()) + ' "' + (e.textContent || e.getAttribute('aria-label') || '').trim().slice(0, 24) + '" ' + Math.round(z.w) + 'x' + Math.round(z.h));
+    }
+    return miss;
+  });
+  let p2;
+  for (const pg of PAGES) {
+    const W = '390 /' + pg + ' targets: ';
+    const ctx = await br.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block' });
+    await na.block(ctx);
+    p2 = await ctx.newPage(); p2.on('pageerror', e => errs.push(W + e.message));
+    await p2.goto(B + pg + (pg === '' ? '?pick' : ''), { waitUntil: 'load' });
+    let m = await tapMisses();
+    ok(W + 'every tap target >= 44x44 (page)', m.length === 0, m);
+    if (await p2.isVisible('.nav-more-btn')) {
+      await p2.click('.nav-more-btn'); m = await tapMisses();
+      ok(W + 'every tap target >= 44x44 (More menu open)', m.length === 0, m);
+      await p2.click('.nav-more-btn');
+    }
+    await ctx.close();
+  }
+  for (const [vw, vh, mob] of [[390, 844, true], [1280, 800, false]]) {
+    for (const pg of PAGES) {
+      const W = vw + ' /' + pg + ' focus: ';
+      const ctx = await br.newContext({ viewport: { width: vw, height: vh }, isMobile: mob, hasTouch: mob, serviceWorkers: 'block' });
+      await na.block(ctx);
+      const p = await ctx.newPage(); p.on('pageerror', e => errs.push(W + e.message));
+      await p.goto(B + pg + (pg === '' ? '?pick' : ''), { waitUntil: 'load' });
+      const bad = [];
+      for (let i = 0; i < 12; i++) {
+        await p.keyboard.press('Tab');
+        const f = await p.evaluate(() => {
+          const e = document.activeElement; if (!e || e === document.body) return null;
+          const c = getComputedStyle(e), b = e.getBoundingClientRect();
+          let ring = (c.outlineStyle !== 'none' && parseFloat(c.outlineWidth) >= 2) || (c.boxShadow && c.boxShadow !== 'none');
+          if (!ring && e.matches('input')) { const l = e.closest('label'); if (l) { const lc = getComputedStyle(l); ring = lc.outlineStyle !== 'none' && parseFloat(lc.outlineWidth) >= 2; } }
+          return { name: e.tagName.toLowerCase() + '.' + (typeof e.className === 'string' ? e.className.split(' ')[0] : '') + ' ' + (e.textContent || '').trim().slice(0, 20), ring, vis: b.width > 0 && b.height > 0, fv: e.matches(':focus-visible') };
+        });
+        if (f && !(f.ring && f.vis && f.fv)) bad.push(f);
+      }
+      ok(W + 'Tab through the first 12 stops: each has a visible focus ring', bad.length === 0, bad);
+      await ctx.close();
+    }
   }
 
   // no JS: Display buttons stay hidden (no dead control)
