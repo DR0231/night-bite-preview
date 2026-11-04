@@ -65,5 +65,12 @@ for l in files:
 print(f"check-i18n: {len(en)} English keys, languages {', '.join(files)}")
 for r in report: print("  " + r)
 for e in errs: print("FAIL " + e)
+# S12: per-page string files must match the built pages; STRICT groups in tools/i18n-extract.py fail on any gap
+import subprocess
+x = subprocess.run([sys.executable, str(ROOT / "tools" / "i18n-extract.py"), "--check"], capture_output=True, text=True, env={**os.environ, "NB_ROOT": str(ROOT)})
+print(x.stdout.rstrip())
+for line in x.stdout.splitlines():
+    if line.startswith("FAIL "): errs.append(line[5:])
+if x.returncode and not any(l.startswith("FAIL ") for l in x.stdout.splitlines()): errs.append("i18n-extract --check crashed: " + x.stderr.strip()[-300:])
 print(f"check-i18n: {len(errs)} errors")
 sys.exit(1 if errs else 0)

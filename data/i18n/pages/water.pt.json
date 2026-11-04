@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "lang": "pt",
+  "page": "water",
+  "review": "draft"
+ },
+ "strings": {
+  "water.1eee969b": "Medidor USGS ao vivo",
+  "water.4e589220": "e podem ser revisados.",
+  "water.5175b841": "no lago, então o campo de temperatura mostra n/a. Nada é estimado.",
+  "water.90471ca5": "provisórios",
+  "water.9c69f0c5": "Barragem",
+  "water.d014c690": "As profundidades do mapa de pesca do ODNR se baseiam no",
+  "water.f2eb9a7b": "Sem medidor público de temperatura da água"
+ }
+}

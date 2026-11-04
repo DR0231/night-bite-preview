@@ -11,3 +11,4 @@ review/
 # python bytecode
 __pycache__/
 *.pyc
+tools/.i18n-coverage.json

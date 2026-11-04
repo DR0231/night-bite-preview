@@ -3,7 +3,8 @@
   "lang": "ar",
   "name": "العربية",
   "review": "draft",
-  "dir": "rtl"
+  "dir": "rtl",
+  "pages": []
  },
  "strings": {
   "nav.menu": "القائمة",

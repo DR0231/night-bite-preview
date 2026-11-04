@@ -3,7 +3,8 @@
   "lang": "fa",
   "name": "فارسی",
   "review": "draft",
-  "dir": "rtl"
+  "dir": "rtl",
+  "pages": []
  },
  "strings": {
   "nav.menu": "منو",

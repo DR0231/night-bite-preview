@@ -108,7 +108,7 @@ const state = () => {
       ov: document.documentElement.scrollWidth - 390 };
   };
   // every other drafted language (S9b+): applies (html lang, marker, Species nav from its file), facts untouched, no sideways scroll at 390
-  const langs = fs.readdirSync(path.join(__dirname, '..', 'data', 'i18n')).map(f => f.replace(/\.json$/, '')).filter(l => l !== 'en' && l !== 'es');
+  const langs = fs.readdirSync(path.join(__dirname, '..', 'data', 'i18n')).filter(f => f.endsWith('.json')).map(f => f.replace(/\.json$/, '')).filter(l => l !== 'en' && l !== 'es');
   for (const l of langs) {
     const j = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'i18n', l + '.json'), 'utf8'));
     const c3 = await br.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block' });

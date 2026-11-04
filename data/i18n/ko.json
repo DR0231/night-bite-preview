@@ -2,7 +2,8 @@
  "_meta": {
   "lang": "ko",
   "name": "한국어",
-  "review": "draft"
+  "review": "draft",
+  "pages": []
  },
  "strings": {
   "nav.menu": "메뉴",

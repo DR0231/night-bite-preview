@@ -1,0 +1,27 @@
+{
+ "_meta": {
+  "lang": "fr",
+  "page": "index",
+  "review": "draft"
+ },
+ "strings": {
+  "index.0f01ed56": "Exemple",
+  "index.1928f95c": "Android",
+  "index.23a72ab2": "Ou touchez le bouton Installer quand il apparaît.",
+  "index.37b80ed5": "Dans Safari, touchez",
+  "index.4024c72d": "· pas ODNR / City / USGS",
+  "index.40354734": "Touchez « Installer l’app » ou « Ajouter à l’écran d’accueil ».",
+  "index.45f81cbc": "Touchez « Sur l’écran d’accueil ». Faites défiler le menu si vous ne le voyez pas.",
+  "index.51cbb35c": "Partager.",
+  "index.5370c168": "(trois points)",
+  "index.6e6b02b1": "Vous utilisez l’app. Les pages déjà ouvertes marchent sans réseau.",
+  "index.7321b4ce": "Touchez Ajouter.",
+  "index.96bb7bdb": "l’icône Partager",
+  "index.97f2142c": "iPhone",
+  "index.9b03b878": "Votre navigateur demande avant de l’ajouter.",
+  "index.bfa17ff0": "Pages espèces avec rappels de limites des règles ODNR 2026–27",
+  "index.c0908888": "Un exemple d’entrée du carnet, marqué",
+  "index.e5f79aa1": "Installer l’app",
+  "index.ed4ec706": "Dans Chrome, touchez le menu"
+ }
+}

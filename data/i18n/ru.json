@@ -2,7 +2,8 @@
  "_meta": {
   "lang": "ru",
   "name": "Русский",
-  "review": "draft"
+  "review": "draft",
+  "pages": []
  },
  "strings": {
   "nav.menu": "Меню",

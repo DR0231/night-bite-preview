@@ -2,7 +2,37 @@
  "_meta": {
   "lang": "it",
   "name": "Italiano",
-  "review": "draft"
+  "review": "draft",
+  "pages": [
+   "about",
+   "alum",
+   "berlin",
+   "buckeye",
+   "burroak",
+   "clearfork",
+   "deercreek",
+   "delaware",
+   "dillon",
+   "dow",
+   "gear",
+   "griggs",
+   "hoover",
+   "index",
+   "indian",
+   "knox",
+   "leesville",
+   "logan",
+   "madison",
+   "milton",
+   "mosquito",
+   "oshaughnessy",
+   "pymatuning",
+   "saltfork",
+   "seneca",
+   "species",
+   "water",
+   "westbranch"
+  ]
  },
  "strings": {
   "nav.menu": "Menu",

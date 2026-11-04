@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "lang": "fr",
+  "page": "water",
+  "review": "draft"
+ },
+ "strings": {
+  "water.1eee969b": "Station USGS en direct",
+  "water.4e589220": "et peuvent être révisées.",
+  "water.5175b841": "sur le lac, donc la case température indique n/a. Rien n’est estimé.",
+  "water.90471ca5": "provisoires",
+  "water.9c69f0c5": "Barrage",
+  "water.d014c690": "Les profondeurs de la carte de pêche ODNR sont basées sur le",
+  "water.f2eb9a7b": "Pas de sonde publique de température de l’eau"
+ }
+}

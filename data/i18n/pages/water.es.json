@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "lang": "es",
+  "page": "water",
+  "review": "draft"
+ },
+ "strings": {
+  "water.1eee969b": "Medidor USGS en vivo",
+  "water.4e589220": "y pueden corregirse.",
+  "water.5175b841": "en el lago, así que la casilla de temperatura dice n/a. No se estima nada.",
+  "water.90471ca5": "provisionales",
+  "water.9c69f0c5": "Presa",
+  "water.d014c690": "Las profundidades del mapa de pesca de ODNR se basan en el",
+  "water.f2eb9a7b": "No hay medidor público de temperatura del agua"
+ }
+}

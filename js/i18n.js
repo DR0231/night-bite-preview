@@ -17,6 +17,8 @@
  * (compass words) apply only to a captured template value ("mph {dir}"), never to a whole text node; a text node that
  * starts with ": " or ends with "Source:" / "Live level:" is matched without that piece and the piece added back
  * translated; [data-nb-rule] (rule lines, translated as drafts) gets a small note pointing to the linked official source.
+ * S12: every other line on a page comes from data/i18n/pages/<page>.en.json and <page>.<lang>.json, written by
+ * tools/i18n-extract.py from the built HTML and the translation memory data/i18n/tm/<lang>.json. Shared keys win.
  */
 (function (d) {
   var SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label";
@@ -34,6 +36,22 @@
       .catch(function () { delete cache[lang]; return { _meta: { lang: lang }, strings: {} }; });
     return cache[lang];
   }
+  // S12: each page also has its own lines in data/i18n/pages/<page>.<lang>.json (tools/i18n-extract.py)
+  function pageId() {
+    var root = new URL("../", BASE).pathname, p = location.pathname;
+    p = (p.indexOf(root) === 0 ? p.slice(root.length) : p.replace(/^\//, "")).replace(/index\.html$/, "").replace(/\.html$/, "").replace(/\/$/, "");
+    return !p ? "index" : p.replace(/\//g, "-").replace(/^species-$/, "species");
+  }
+  var pcache = {};
+  function loadPage(lang) {
+    var k = pageId() + "." + lang;
+    if (pcache[k]) return pcache[k];
+    pcache[k] = fetch(new URL("../data/i18n/pages/" + k + ".json", BASE).href, { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : { strings: {} }; })
+      .catch(function () { delete pcache[k]; return { strings: {} }; });
+    return pcache[k];
+  }
+  function merge(a, b) { var o = {}, k; for (k in a) o[k] = a[k]; for (k in b) o[k] = b[k]; return o; }
   function norm(s) { return s.replace(/\s+/g, " ").trim(); }
   function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
   function build(en, tr) {
@@ -161,9 +179,13 @@
   }
   function set(lang) {
     lang = lang || "en";
-    return Promise.all([load("en"), lang === "en" ? null : load(lang)]).then(function (r) {
+    return Promise.all([load("en"), lang === "en" ? null : load(lang)]).then(function (r0) {
+      // only pages listed in _meta.pages have their own file (no 404s, nothing for the service worker to wait on)
+      var has = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf(pageId()) >= 0;
+      return Promise.all([r0[0], r0[1], has ? loadPage("en") : null, has ? loadPage(lang) : null]);
+    }).then(function (r) {
       cur = lang;
-      tbl = build(r[0].strings || {}, (r[1] && r[1].strings) || {});
+      tbl = build(merge((r[2] && r[2].strings) || {}, r[0].strings || {}), merge((r[3] && r[3].strings) || {}, (r[1] && r[1].strings) || {}));
       var A = window.NB_A11Y, dir = (r[1] && r[1]._meta && r[1]._meta.dir) || (A && A.RTL && A.RTL[lang] ? "rtl" : "ltr");
       d.documentElement.lang = lang; d.documentElement.dir = lang === "en" ? "ltr" : dir;
       if (lang === "en") d.documentElement.removeAttribute("data-lang"); else d.documentElement.setAttribute("data-lang", lang);

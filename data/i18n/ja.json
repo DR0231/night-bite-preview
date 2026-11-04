@@ -2,7 +2,8 @@
  "_meta": {
   "lang": "ja",
   "name": "日本語",
-  "review": "draft"
+  "review": "draft",
+  "pages": []
  },
  "strings": {
   "nav.menu": "メニュー",

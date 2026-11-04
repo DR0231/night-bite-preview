@@ -3,7 +3,8 @@
   "lang": "ur",
   "name": "اردو",
   "review": "draft",
-  "dir": "rtl"
+  "dir": "rtl",
+  "pages": []
  },
  "strings": {
   "nav.menu": "مینو",

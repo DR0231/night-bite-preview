@@ -2,7 +2,8 @@
  "_meta": {
   "lang": "vi",
   "name": "Tiếng Việt",
-  "review": "draft"
+  "review": "draft",
+  "pages": []
  },
  "strings": {
   "nav.menu": "Menu",
