@@ -19,6 +19,10 @@
  * translated; [data-nb-rule] (rule lines, translated as drafts) gets a small note pointing to the linked official source.
  * S12: every other line on a page comes from data/i18n/pages/<page>.en.json and <page>.<lang>.json, written by
  * tools/i18n-extract.py from the built HTML and the translation memory data/i18n/tm/<lang>.json. Shared keys win.
+ * S13: text the scripts write after load goes through the pg.* templates; any {value} or whole text node that is an
+ * Ohio clock time ("5:27 PM Wed", "9 PM", "Nov. 2, 5 PM ET") is rewritten with Intl, a value cell split as "5:27" +
+ * <span class="cond-unit">PM Wed</span> is read as one time, and <time datetime> holding a full ISO instant (the
+ * glance stamp) is written with Intl in Ohio time. Units (°F, %, inHg, ft) and every number stay as written.
  */
 (function (d) {
   var SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label";
@@ -50,6 +54,40 @@
       .then(function (r) { return r.ok ? r.json() : { strings: {} }; })
       .catch(function () { delete pcache[k]; return { strings: {} }; });
     return pcache[k];
+  }
+  // S13: times the scripts write in English ("5:27 PM Wed", "9 PM", "Tue 9:40 PM ET", "Nov. 2, 5 PM ET") are read
+  // back and written with Intl in the picked language; the clock value itself never changes (always Ohio time)
+  var DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], MONS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var TRE = /^(?:(Sun|Mon|Tue|Wed|Thu|Fri|Sat) )?(?:(Jan|Feb|Mar|Apr|May|June?|July?|Aug|Sept?|Oct|Nov|Dec)\.? (\d{1,2}), )?(\d{1,2})(?::(\d{2}))? ?([AP]M)(?: (Sun|Mon|Tue|Wed|Thu|Fri|Sat))?( ET)?$/;
+  function tparse(v) {
+    var m = TRE.exec(norm(v)); if (!m) return null;
+    var h = +m[4] % 12 + (m[6] === "PM" ? 12 : 0), day = m[1] || m[7], mon = m[2] ? MONS.indexOf(m[2].slice(0, 3)) : -1;
+    // a fixed week (Nov 1 2026 is a Sunday) carries the weekday; a month and day carry themselves
+    var dt = mon >= 0 ? Date.UTC(2026, mon, +m[3], h, +(m[5] || 0)) : Date.UTC(2026, 10, 1 + (day ? DAYS.indexOf(day) : 0), h, +(m[5] || 0));
+    return { at: dt, min: m[5] != null, day: !!day, date: mon >= 0, et: !!m[8] };
+  }
+  function tfmt(p, parts) {
+    try {
+      var o = { timeZone: "UTC", hour: "numeric" }; if (p.min || p.date) o.minute = "2-digit";
+      var t = new Intl.DateTimeFormat(cur, o).format(p.at), x = "";
+      if (p.date) x = new Intl.DateTimeFormat(cur, { timeZone: "UTC", month: "short", day: "numeric" }).format(p.at);
+      else if (p.day) x = new Intl.DateTimeFormat(cur, { timeZone: "UTC", weekday: "short" }).format(p.at);
+      if (parts) return { t: t, x: x };
+      return (p.date ? x + ", " + t : p.day ? x + " " + t : t) + (p.et ? " ET" : "");
+    } catch (e) { return null; }
+  }
+  function timeT(v) { var p = tparse(v); return p ? tfmt(p) : null; }
+  // a value cell written as "5:27" + <span class="cond-unit">PM Wed</span>: both nodes are read together
+  var UNIT = ".cond-unit, .glance-unit";
+  function enOf(n) { return n && n.nodeType === 3 ? (orig.has(n) && n.nodeValue === n.__nbOut ? orig.get(n) : n.nodeValue) : null; }
+  function split(node, en) {
+    var p = node.parentNode, num, unit, isUnit = false;
+    if (p.matches && p.matches(UNIT)) { isUnit = true; num = enOf(p.previousSibling); unit = en; }
+    else { var nx = node.nextSibling; if (!nx || !nx.matches || !nx.matches(UNIT)) return null; num = en; unit = enOf(nx.firstChild); }
+    if (num == null || unit == null || !/^\d{1,2}(:\d{2})?$/.test(norm(num)) || !/^[AP]M( \w{3})?$/.test(norm(unit))) return null;
+    var q = tparse(norm(num) + " " + norm(unit)); if (!q) return null;
+    var r = tfmt(q, true); if (!r) return null;
+    return isUnit ? (r.x || "\u200b") : r.t;
   }
   function merge(a, b) { var o = {}, k; for (k in a) o[k] = a[k]; for (k in b) o[k] = b[k]; return o; }
   function norm(s) { return s.replace(/\s+/g, " ").trim(); }
@@ -86,6 +124,7 @@
   function capT(t, v) {
     var c = function (x) { var k = t.cap[x]; return k && t.tr[k] != null ? t.tr[k] : null; };
     var r = c(v); if (r != null) return r;
+    r = timeT(v); if (r != null) return r;
     if (/^[NSEW]{3}$/.test(v) && c(v[0]) != null && c(v.slice(1)) != null) return c(v[0]) + c(v.slice(1));
     return lookup1(t, v, true);
   }
@@ -100,7 +139,7 @@
       t.tpl[i].names.forEach(function (nm, j) { var v = m[j + 1], vt = capT(t, norm(v)); if (vt != null) v = vt; out = out.split("{" + nm + "}").join(rtl() ? "\u2068" + v + "\u2069" : v); });
       return out;
     }
-    return null;
+    return timeT(n);
   }
   function walk(root, wide) {
     var w = d.createTreeWalker(root, NodeFilter.SHOW_TEXT), n, list = [];
@@ -112,7 +151,8 @@
       if (orig.has(node) && node.nodeValue !== node.__nbOut) orig.delete(node);
       var en = orig.has(node) ? orig.get(node) : node.nodeValue;
       if (!norm(en)) return;
-      var out = cur === "en" ? null : lookup(tbl, en, wide), want;
+      var out = cur === "en" ? null : split(node, en), want;
+      if (out == null && cur !== "en") out = lookup(tbl, en, wide);
       if (out != null) { want = en.match(/^\s*/)[0] + out + en.match(/\s*$/)[0]; orig.set(node, en); node.__nbOut = want; }
       else { want = en; orig.delete(node); }
       if (node.nodeValue !== want) node.nodeValue = want;
@@ -142,11 +182,21 @@
   }
   var dateOrig = new WeakMap();
   function dates() {
-    [].slice.call(d.querySelectorAll("main time[datetime], dialog time[datetime]")).forEach(function (el) {
-      var dt = el.getAttribute("datetime"); if (!/^\d{4}-\d{2}-\d{2}$/.test(dt) || el.children.length) return;
+    [].slice.call(d.querySelectorAll("main time[datetime], dialog time[datetime], .glance time[datetime], .night-chip time[datetime], .nws-alert time[datetime], #my-trips time[datetime]")).forEach(function (el) {
+      var dt = el.getAttribute("datetime"), full = /^\d{4}-\d{2}-\d{2}T/.test(dt);
+      if ((!/^\d{4}-\d{2}-\d{2}$/.test(dt) && !full) || el.children.length) return;
+      // a script rewrote it since (a new reading): that text is the English now
+      if (dateOrig.has(el) && el.textContent !== el.__nbOut) dateOrig.delete(el);
       if (!dateOrig.has(el)) dateOrig.set(el, el.textContent);
       var want = dateOrig.get(el);
-      if (cur !== "en") { try { var p = dt.split("-"); want = new Intl.DateTimeFormat(cur, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(Date.UTC(+p[0], +p[1] - 1, +p[2])); } catch (e) {} }
+      if (cur !== "en") { try {
+        if (full) {
+          // "(Nov. 2, 5 PM ET)": an instant, shown in Ohio time like the English, brackets and "ET" kept
+          var en0 = want, at = new Date(dt), body = new Intl.DateTimeFormat(cur, { timeZone: "America/New_York", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(at);
+          if (isFinite(at)) want = (/^\s*\(/.test(en0) ? "(" : "") + body + (/ET\)?\s*$/.test(en0) ? " ET" : "") + (/\)\s*$/.test(en0) ? ")" : "");
+        } else { var p = dt.split("-"); want = new Intl.DateTimeFormat(cur, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(Date.UTC(+p[0], +p[1] - 1, +p[2])); }
+      } catch (e) {} }
+      el.__nbOut = want;
       if (el.textContent !== want) el.textContent = want;
     });
   }

@@ -31,6 +31,9 @@ D = ROOT / "data" / "i18n"; PAGES = D / "pages"; TM = D / "tm"
 ATTRS = ["alt", "aria-label", "title", "placeholder"]
 SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label"
 KEEP = "h1, .cond-summary, [data-nb-keep]"
+# S13: text the scripts write after load (values, units, subs, status lines, the hourly strip) and <time> (Intl in the
+# browser). Their baked placeholders are never shown for long; js/i18n.js handles them with pg.* templates and Intl.
+DYN = ".cond-value, .cond-unit, .glance-unit, .cond-sub, .cond-asof, .cond-hours-list, .cond-storm, .cond-bite-rate, .cond-bite-why, .cond-line-text, .cond-x-value, .cond-status, .bait-status, .get-app-status, [id$=status], [class*=-status], time[datetime], [data-nb-dyn]"
 SKIP_PAGES = {"whisperwood"}
 # page groups for the coverage report; check-i18n.py fails on gaps only in STRICT_GROUPS (grow it as groups finish)
 STRICT_GROUPS = []
@@ -79,7 +82,7 @@ def words_left(s):
 
 def extract(path, exact, tpl):
     soup = BeautifulSoup(path.read_text(encoding="utf-8"), "lxml")
-    keep = set(map(id, soup.select(KEEP))) ; scope = set(map(id, soup.select(SCOPES)))
+    keep = set(map(id, soup.select(KEEP + ", " + DYN))) ; scope = set(map(id, soup.select(SCOPES)))
     def blocked(el):
         for a in [el] + list(el.parents):
             if id(a) in keep or id(a) in scope: return True

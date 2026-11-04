@@ -10,7 +10,6 @@
   "species-white-crappie.06ddedfa": "Fall creek arms.",
   "species-white-crappie.08eb3dd5": "No horsepower limit by day, 10 mph on the whole lake at night; 55 ft at the deepest, and the level can swing 20 ft in a year (ODNR).",
   "species-white-crappie.0929c2dc": "reminder, verify",
-  "species-white-crappie.093a2eec": "Public ramps and Corps shore. The Bonner Road ramp is closed until May 28, 2027.",
   "species-white-crappie.0b5e5e38": "Contours on the ODNR fishing map; check the 300 ft no wake zone before a night run.",
   "species-white-crappie.0ff95b8a": "boat. Small jigs travel light.",
   "species-white-crappie.0ffdaab1": "Sized for bank reality and small boats. Madison Lake is electric motors only.",
@@ -37,7 +36,6 @@
   "species-white-crappie.2d48439f": "ODNR lists white crappie at Leesville Lake.",
   "species-white-crappie.2f5027d6": "The launch ramps, the marinas and state park shore (ODNR).",
   "species-white-crappie.306460f2": "water maps",
-  "species-white-crappie.32c9d7e0": "Shore at Mosquito Lake State Park and along the SR 88 causeway (ODNR). The marina and beach lots have construction since Oct. 3, 2026.",
   "species-white-crappie.35681ce5": "The two state park ramps, the beach area and state park shore (ODNR).",
   "species-white-crappie.37a6f173": "Match depth to season: shallow in spring, deeper in summer.",
   "species-white-crappie.38f7ec29": "The ramp area and state park shore (ODNR).",
@@ -49,6 +47,8 @@
   "species-white-crappie.40af0815": "Water & maps",
   "species-white-crappie.416b27a5": "About this page",
   "species-white-crappie.457f0993": "Unlimited horsepower; no wake within 300 ft of shore and west of the Rock Spring Road causeway (ODNR).",
+  "species-white-crappie.45928bc1": "Public ramps and Corps shore. The Bonner Road ramp is closed until",
+  "species-white-crappie.486a7bed": "rule as black crappie: 30 a day combined, 9″ minimum (2026–27). ODNR has proposed dropping the 9″ minimum from",
   "species-white-crappie.49c96a8c": "Public banks in Oxbow / upper ends in spring.",
   "species-white-crappie.4d01f8d8": "Same as black crappie: low light and spring days on the bank, night lights optional.",
   "species-white-crappie.4dfd7c3d": "Sized for bank reality and small boats. Lake Logan has a 10 hp limit and a 10 mph speed limit.",
@@ -118,6 +118,7 @@
   "species-white-crappie.baf07b71": "Docks, pilings and brush.",
   "species-white-crappie.c1f56e38": "Sized for bank reality and small boats. Salt Fork Lake allows unlimited horsepower, with speed and ski zones.",
   "species-white-crappie.c2a3616e": "ODNR posts no where notes for white crappie at O’Shaughnessy. See the Hoover notes on the Hoover view.",
+  "species-white-crappie.c3b9e77c": "Shore at Mosquito Lake State Park and along the SR 88 causeway (ODNR). The marina and beach lots have construction since",
   "species-white-crappie.c7961c32": "ODNR fish surveys record black and white crappie at Clear Fork.",
   "species-white-crappie.c8bdb96e": "Lake Milton State Park shore and the public ramps (ODNR).",
   "species-white-crappie.cc1f3cb2": "Summer deeper cover and channel-related brush.",
@@ -145,7 +146,6 @@
   "species-white-crappie.ef58de4f": "Boat",
   "species-white-crappie.f196bf58": "The marina, the County Road 5 ramps and state shore (ODNR).",
   "species-white-crappie.f1cbe8a4": "The marina and Lake Park ramps, the accessible pier and public shore (MWCD).",
-  "species-white-crappie.f56050ff": "Sized for bank reality and small boats. Mosquito Creek Lake has no horsepower limit, with no wake 300 ft from shore.",
-  "species-white-crappie.f86ed4ac": "rule as black crappie: 30 a day combined, 9″ minimum (2026–27). ODNR has proposed dropping the 9″ minimum from March 1, 2027."
+  "species-white-crappie.f56050ff": "Sized for bank reality and small boats. Mosquito Creek Lake has no horsepower limit, with no wake 300 ft from shore."
  }
 }

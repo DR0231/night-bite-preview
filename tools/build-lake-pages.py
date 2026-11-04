@@ -69,6 +69,11 @@ for _id in REG["order"]:
                   "title": _f["title"], "desc": _f["description"]}
 
 
+import importlib.util as _ilu
+_wd = _ilu.spec_from_file_location("wrap_dates", str(__import__("pathlib").Path(__file__).resolve().parent / "wrap-dates.py"))
+_wdm = _ilu.module_from_spec(_wd); _wd.loader.exec_module(_wdm)
+def WRAP_DATES(h): return _wdm.wrap(h)[0]
+
 def sub1(pattern, repl, text, flags=0):
     new, n = re.subn(pattern, repl, text, count=1, flags=flags)
     if n != 1:
@@ -277,6 +282,8 @@ for lake, L in LAKES.items():
         h = re.sub(r'(<span[^>]*data-lk="' + key + r'"[^>]*>)[^<]*(</span>)', r"\g<1>" + L[key] + r"\2", h)
     # only this lake's blocks and chart: the template carries every lake's; switching lakes is a page load
     h = lake_isolate.isolate(h, lake)
+    # S13: written dates in <time datetime> so js/i18n.js writes them with Intl in the picked language
+    h = WRAP_DATES(h)
     h = h.replace("<!DOCTYPE html>\n", "<!DOCTYPE html>\n<!-- Built from tools/lake-home.html by tools/build-lake-pages.py. Do not edit by hand (except the three snapshot lines in hoover/index.html). -->\n", 1)
     out = root / lake / "index.html"
     out.parent.mkdir(exist_ok=True)
@@ -371,6 +378,7 @@ r_title = html.unescape(re.search(r"<title>([^<]*)</title>", r).group(1))
 new_r = sub1(r"[ \t]*<!-- nb:water-picker.*?<!-- /nb:water-picker -->", lambda m: water_picker(), r, re.S)
 new_r = sub1(r"[ \t]*<!-- nb:water-chips.*?<!-- /nb:water-chips -->", lambda m: picker_chips(), new_r, re.S)
 new_r = sub1(r"[ \t]*<!-- nb:jsonld.*?<!-- /nb:jsonld -->", lambda m: root_jsonld(r_title), new_r, re.S)
+new_r = WRAP_DATES(new_r)
 if new_r != r:
     if unstamped(new_r) != unstamped(r):
         LASTMOD.add(SITE)
