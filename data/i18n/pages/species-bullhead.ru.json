@@ -5,6 +5,7 @@
   "review": "draft"
  },
  "strings": {
+  "species-bullhead.0904295b": "Указан на странице ODNR Madison Lake State Park среди обильных уловов.",
   "species-bullhead.0929c2dc": "напоминание, проверьте",
   "species-bullhead.15df0dbb": "Дневной лимит",
   "species-bullhead.172fe660": "Минимальная длина",
@@ -12,7 +13,12 @@
   "species-bullhead.2732b4bc": "и в текущих правилах ODNR, прежде чем оставить рыбу. Источник:",
   "species-bullhead.306460f2": "картах водоёма",
   "species-bullhead.3a0a165f": "Напоминание (проверьте 2026–27)",
+  "species-bullhead.40af0815": "Водоём и карты",
+  "species-bullhead.416b27a5": "Об этой странице",
+  "species-bullhead.507d7ebf": "Лимит / размер",
   "species-bullhead.525f61b6": "Где",
+  "species-bullhead.5b7c80a8": "Записать поездку",
+  "species-bullhead.5d410e64": "Изобаты, поправка на уровень, общественные спуски.",
   "species-bullhead.61a0ae3b": "Лимиты",
   "species-bullhead.62255f56": "Сезон",
   "species-bullhead.6a48c0a8": "Время суток",
@@ -22,6 +28,8 @@
   "species-bullhead.80946517": "HuntFish OH / лицензии ODNR",
   "species-bullhead.9e89988c": "С берега",
   "species-bullhead.ba003615": "ODNR Fishing Regulations 2026–27 (проверьте актуальность)",
+  "species-bullhead.d554eecb": "Наживка и подача",
+  "species-bullhead.ddaf2b13": "Без лимита (все прочие рыбы)",
   "species-bullhead.ef58de4f": "С лодки"
  }
 }
