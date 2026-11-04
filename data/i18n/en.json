@@ -501,5 +501,8 @@
   "cmp.dw_wnw": "west northwest",
   "cmp.dw_nnw": "north northwest",
   "cmp.dw_var": "variable"
- }
+ },
+ "pg.log_empty": "No trips saved on this phone yet. Add your first one below.",
+ "pg.log_backup_note": "Save a backup file, then open it on a new phone or browser. Trips in the file are added to the ones here; nothing is replaced.",
+ "pg.log_share_note": "Public ramp and area names only. No secret GPS, no private property. Text notes only, no photos. Sent trips wait for review and only go up once they’re approved."
 }

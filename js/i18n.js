@@ -240,7 +240,17 @@
       if (n.textContent !== txt) n.textContent = txt;
     });
   }
-  function run() { if (busy) return; busy = true; try { scopes().forEach(function (r) { walk(r); }); [].slice.call(d.querySelectorAll(WIDE)).forEach(function (r) { walk(r, true); }); dates(); rules(); isolate(); } finally { busy = false; } }
+  // S13 final: a dock note with <time> children is one line in docklist, but the walk sees it in pieces; match it whole
+  function wholeNotes() {
+    [].slice.call(d.querySelectorAll(".dock-note")).forEach(function (el) {
+      if (el.__nbHtml == null) { if (!el.querySelector("time")) return; el.__nbHtml = el.innerHTML; el.__nbEn = norm(el.textContent); }
+      if (cur === "en") { if (el.__nbOut != null && el.textContent === el.__nbOut) el.innerHTML = el.__nbHtml; el.__nbOut = null; return; }
+      if (el.__nbOut != null && el.textContent === el.__nbOut) return;
+      var out = lookup(tbl, el.__nbEn, true);
+      if (out != null) { el.textContent = out; el.__nbOut = el.textContent; }
+    });
+  }
+  function run() { if (busy) return; busy = true; try { wholeNotes(); scopes().forEach(function (r) { walk(r); }); [].slice.call(d.querySelectorAll(WIDE)).forEach(function (r) { walk(r, true); }); dates(); rules(); isolate(); } finally { busy = false; } }
   function marker(meta) {
     var m = d.getElementById("i18n-draft");
     if (cur === "en") { if (m) m.remove(); return; }
