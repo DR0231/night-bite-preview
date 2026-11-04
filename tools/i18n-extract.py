@@ -64,6 +64,7 @@ def group(page, LAKES):
     if page.startswith("species"): return "species"
     if page in ("index", "water"): return "picker + water"
     if page == "log": return "log"
+    if page == "js": return "script cards"
     return "other pages"
 
 def en_tables():
@@ -108,6 +109,18 @@ def extract(path, exact, tpl):
                 found[norm(v)] = 1
     return list(found)
 
+# S13: the "What's biting" cards are filled from these data files by js/biting.js and js/species-lake.js; their
+# where/when/note lines go into one virtual page "js" (species names stay English, so they are left out)
+JS_DATA = ["js/biting-data.js", "js/biting-data-lakes.js"]
+def js_lines():
+    import subprocess
+    code = ("global.window={};" + "".join(f"require({json.dumps(str(ROOT / p))});" for p in JS_DATA) +
+            "const s=new Set();for(const k in window){const v=window[k];if(!v||!v.months)continue;"
+            "v.months.forEach(m=>{if(m.note)s.add(m.note);(m.picks||[]).forEach(p=>{s.add(p.where);s.add(p.when)})})}"
+            "console.log(JSON.stringify([...s]))")
+    out = json.loads(subprocess.run(["node", "-e", code], capture_output=True, text=True, check=True).stdout)
+    return sorted({norm(x) for x in out if x and norm(x)})
+
 def write(p, obj, check, changed):
     txt = json.dumps(obj, ensure_ascii=False, indent=1, sort_keys=True) + "\n"
     if p.exists() and p.read_text(encoding="utf-8") == txt: return
@@ -125,11 +138,11 @@ def main():
     langs = sorted(p.stem for p in D.glob("*.json") if p.stem != "en")
     tm = {l: (json.loads((TM / f"{l}.json").read_text())["strings"] if (TM / f"{l}.json").exists() else {}) for l in langs}
     changed, keep_files, cov, gaps = [], set(), {}, []
-    for page, path in pages():
-        lines = extract(path, exact, tpl)
+    for page, path in pages() + [("js", None)]:
+        lines = js_lines() if path is None else extract(path, exact, tpl)
         src = {f"{page}.{h8(s)}": s for s in lines}
         f = PAGES / f"{page}.en.json"; keep_files.add(f.name)
-        write(f, {"_meta": {"page": page, "source": str(path.relative_to(ROOT))}, "strings": src}, a.check, changed)
+        write(f, {"_meta": {"page": page, "source": str(path.relative_to(ROOT)) if path else ", ".join(JS_DATA)}, "strings": src}, a.check, changed)
         g = group(page, LAKES)
         for l in langs:
             tr = {k: tm[l][k.split(".", 1)[1]] for k in src if k.split(".", 1)[1] in tm[l]}

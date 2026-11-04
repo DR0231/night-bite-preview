@@ -47,8 +47,8 @@
     return !p ? "index" : p.replace(/\//g, "-").replace(/^species-$/, "species");
   }
   var pcache = {};
-  function loadPage(lang) {
-    var k = pageId() + "." + lang;
+  function loadPage(lang, id) {
+    var k = (id || pageId()) + "." + lang;
     if (pcache[k]) return pcache[k];
     pcache[k] = fetch(new URL("../data/i18n/pages/" + k + ".json", BASE).href, { cache: "no-cache" })
       .then(function (r) { return r.ok ? r.json() : { strings: {} }; })
@@ -127,8 +127,8 @@
     var end = /\.$/.test(n), bits = (end ? n.slice(0, -1) : n).split(", "), out = [];
     if (bits.length < 2) return null;
     for (var i = 0; i < bits.length; i++) {
-      var b = bits[i], r = lookup1(t, b, true);
-      if (r == null && i === 0) r = lookup1(t, b.charAt(0).toLowerCase() + b.slice(1), true);
+      var b = bits[i], r = lookup1(t, b, true, true);
+      if (r == null && i === 0) r = lookup1(t, b.charAt(0).toLowerCase() + b.slice(1), true, true);
       if (r == null || r === b) return null;
       out.push(r);
     }
@@ -144,11 +144,12 @@
     if (/^[NSEW]{3}$/.test(v) && c(v[0]) != null && c(v.slice(1)) != null) return c(v[0]) + c(v.slice(1));
     return lookup1(t, v, true);
   }
-  function lookup1(t, n, wide) {
+  function lookup1(t, n, wide, part) {
     var k = t.exact[n];
     if (k) return t.tr[k] != null ? t.tr[k] : null;
     for (var i = 0; i < t.tpl.length; i++) {
-      if (wide && t.tpl[i].k.indexOf("pg.") !== 0) continue;
+      if (wide && t.tpl[i].k.indexOf("pg.") !== 0 && !(part && t.tpl[i].k.indexOf("pl.") === 0)) continue;
+      if (!part && t.tpl[i].k.indexOf("pl.") === 0) continue;
       var m = n.match(t.tpl[i].re); if (!m) continue;
       var out = t.tr[t.tpl[i].k]; if (out == null) return null;
       // a captured part can be a string too ("2 hours ago", "steady"); names and numbers match nothing and stay
@@ -250,10 +251,13 @@
     return Promise.all([load("en"), lang === "en" ? null : load(lang)]).then(function (r0) {
       // only pages listed in _meta.pages have their own file (no 404s, nothing for the service worker to wait on)
       var has = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf(pageId()) >= 0;
-      return Promise.all([r0[0], r0[1], has ? loadPage("en") : null, has ? loadPage(lang) : null]);
+      // S13: lines the scripts fill in from data (the "What's biting" cards) live in one shared "js" page file
+      var js = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf("js") >= 0;
+      return Promise.all([r0[0], r0[1], has ? loadPage("en") : null, has ? loadPage(lang) : null, js ? loadPage("en", "js") : null, js ? loadPage(lang, "js") : null]);
     }).then(function (r) {
       cur = lang;
-      tbl = build(merge((r[2] && r[2].strings) || {}, r[0].strings || {}), merge((r[3] && r[3].strings) || {}, (r[1] && r[1].strings) || {}));
+      var S = function (x) { return (x && x.strings) || {}; };
+      tbl = build(merge(merge(S(r[4]), S(r[2])), S(r[0])), merge(merge(S(r[5]), S(r[3])), S(r[1])));
       var A = window.NB_A11Y, dir = (r[1] && r[1]._meta && r[1]._meta.dir) || (A && A.RTL && A.RTL[lang] ? "rtl" : "ltr");
       d.documentElement.lang = lang; d.documentElement.dir = lang === "en" ? "ltr" : dir;
       if (lang === "en") d.documentElement.removeAttribute("data-lang"); else d.documentElement.setAttribute("data-lang", lang);
