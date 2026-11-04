@@ -21,39 +21,47 @@
   function build() {
     dlg = el("dialog", { id: "a11y-panel", "class": "a11y-panel", "aria-labelledby": "a11y-title" });
     var form = el("form", { method: "dialog", "class": "a11y-form" });
-    form.appendChild(el("h2", { id: "a11y-title", "class": "a11y-title", text: "Display" }));
-    var fs = el("fieldset", { "class": "a11y-sizes" }, [el("legend", { text: "Text size" })]);
+    var close = el("button", { type: "button", "class": "a11y-close", "aria-label": "Close" }, [el("span", { "aria-hidden": "true", "class": "a11y-close-x" })]);
+    form.appendChild(el("div", { "class": "a11y-head" }, [el("h2", { id: "a11y-title", "class": "a11y-title", text: "Display" }), close]));
+    function group(label, id, kids) {
+      return el("section", { "class": "a11y-group", "aria-labelledby": id }, [el("h3", { id: id, "class": "a11y-group-label", text: label })].concat(kids));
+    }
+    function toggle(t) {
+      var id = "a11y-" + t[0];
+      var inp = el("input", { type: "checkbox", role: "switch", id: id, "data-key": t[0], value: t[1], "aria-describedby": id + "-note" });
+      return el("div", { "class": "a11y-row" }, [
+        el("label", { "for": id, "class": "a11y-toggle" }, [
+          el("span", { "class": "a11y-toggle-body" }, [el("span", { "class": "a11y-toggle-text", text: t[2] }), el("span", { id: id + "-note", "class": "a11y-note", text: t[3] })]),
+          inp, el("span", { "class": "a11y-switch", "aria-hidden": "true" })
+        ])
+      ]);
+    }
+    var fs = el("fieldset", { "class": "a11y-sizes" }, [el("legend", { "class": "sr-only", text: "Text size" })]);
     var row = el("div", { "class": "a11y-seg" });
     SIZES.forEach(function (s) {
       var id = "a11y-size-" + (s[0] || "default");
       var inp = el("input", { type: "radio", name: "a11y-text", id: id, value: s[0] });
       row.appendChild(el("label", { "for": id, "class": "a11y-seg-opt", "data-size": s[0] || "default" }, [inp, el("span", { text: s[1] })]));
     });
-    fs.appendChild(row); form.appendChild(fs);
-    TOGGLES.forEach(function (t) {
-      var id = "a11y-" + t[0];
-      var inp = el("input", { type: "checkbox", id: id, "data-key": t[0], value: t[1], "aria-describedby": id + "-note" });
-      form.appendChild(el("div", { "class": "a11y-row" }, [
-        el("label", { "for": id, "class": "a11y-toggle" }, [inp, el("span", { "class": "a11y-toggle-text", text: t[2] })]),
-        el("p", { id: id + "-note", "class": "a11y-note", text: t[3] })
-      ]));
-    });
-    var lsel = el("select", { id: "a11y-lang", "aria-describedby": "a11y-lang-note" });
+    fs.appendChild(row);
+    form.appendChild(group("Text size", "a11y-g-text", [fs, toggle(TOGGLES[0])]));
+    form.appendChild(group("Screen", "a11y-g-screen", [el("div", { "class": "a11y-list" }, TOGGLES.slice(1).map(toggle))]));
+    var lsel = el("select", { id: "a11y-lang", "aria-labelledby": "a11y-g-lang", "aria-describedby": "a11y-lang-note" });
     Object.keys(A.LANGS).forEach(function (k) { lsel.appendChild(el("option", { value: k, lang: k, text: A.LANGS[k] })); });
-    form.appendChild(el("div", { "class": "a11y-row a11y-lang" }, [
-      el("label", { "for": "a11y-lang", "class": "a11y-lang-label", text: "Language" }), lsel,
-      el("p", { id: "a11y-lang-note", "class": "a11y-note", text: "Draft translations. Rules, levels and place names stay in English." })
-    ]));
+    form.appendChild(group("Language", "a11y-g-lang", [el("div", { "class": "a11y-row a11y-lang" }, [
+      el("div", { "class": "a11y-select" }, [lsel]),
+      el("p", { id: "a11y-lang-note", "class": "a11y-note", text: "Draft translations. Place names stay in English; for rules, the linked official source counts." })
+    ])]));
     lsel.addEventListener("change", function (e) { e.stopPropagation(); setLang(lsel.value); sync(form); });
-    form.appendChild(el("p", { "class": "a11y-saved", text: "Saved on this phone only." }));
     var reset = el("button", { type: "button", "class": "btn btn-ghost a11y-reset", text: "Reset" });
     var done = el("button", { type: "submit", "class": "btn a11y-done", value: "done", text: "Done" });
-    form.appendChild(el("div", { "class": "a11y-actions" }, [reset, done]));
+    form.appendChild(el("div", { "class": "a11y-foot" }, [el("p", { "class": "a11y-saved", text: "Saved on this phone only." }), el("div", { "class": "a11y-actions" }, [reset, done])]));
     dlg.appendChild(form);
     document.body.appendChild(dlg);
     form.addEventListener("change", function (e) { if (e.target && e.target.id === "a11y-lang") return; A.save(collect(form)); sync(form); });
     reset.addEventListener("click", function () { A.save({}); setLang("en"); sync(form); });
-    dlg.addEventListener("close", function () { if (lastBtn) lastBtn.focus(); });
+    close.addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("close", function () { if (lastBtn && lastBtn.isConnected) lastBtn.focus(); });
     dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
     return form;
   }
