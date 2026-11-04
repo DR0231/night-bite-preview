@@ -480,6 +480,26 @@
   "pg.mw_baro": "기압 추세",
   "pg.mw_wind": "바람",
   "pg.mw_moon": "달",
-  "pg.mw_water": "수온"
+  "pg.mw_water": "수온",
+  "pg.back_map": "지도로 돌아가기",
+  "pg.src_notes": "출처와 메모",
+  "pg.fill_first": "먼저 필수 항목을 채운 뒤 markdown을 보세요.",
+  "pg.no_geo_lakes": "이 브라우저는 위치를 공유할 수 없어 호수가 지역별로 묶여 있습니다.",
+  "pg.finding_lakes": "근처 호수를 찾는 중…",
+  "pg.nearest_first": "가까운 순, 직선 거리 마일. 위치는 이 기기에만 남습니다.",
+  "pg.no_problem": "괜찮습니다. 위의 단계는 언제든 쓸 수 있습니다.",
+  "pg.not_now": "나중에",
+  "pg.loc_off": "위치 꺼짐, 호수 기준으로 정렬했습니다.",
+  "pg.sorted_you": "현재 위치 기준으로 정렬했습니다. 위치는 이 기기에만 남습니다.",
+  "pg.no_shops_near": "{lake} 근처에 확인된 가게가 아직 없습니다.",
+  "pg.shops_fail": "가게 목록을 불러오지 못했습니다. 신호가 있을 때 다시 시도하세요.",
+  "pg.no_gauges": "이 호수에는 공개 수위계나 수온계가 없습니다. 지어낸 값은 없습니다.",
+  "pg.drawing": "카드를 그리는 중…",
+  "pg.notif_off": "이 사이트의 알림이 꺼져 있으니 캘린더 옵션을 사용하세요.",
+  "pg.log_unavail": "지금은 기록을 볼 수 없습니다. 내 조행은 기록 페이지에서 보세요.",
+  "pg.no_backup": "이 휴대폰에 저장된 조행이 없어 백업할 것이 없습니다.",
+  "pg.too_big": "이 파일은 The Night Bite 백업이라기엔 너무 큽니다.",
+  "pg.cant_read": "파일을 읽을 수 없습니다.",
+  "pg.no_match": "“{q}”와 일치하는 결과가 없습니다. 물 이름이나 근처 마을(예: Mt. Sterling)로 찾아보세요."
  }
 }

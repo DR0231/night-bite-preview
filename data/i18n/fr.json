@@ -480,6 +480,26 @@
   "pg.mw_baro": "tendance du baromètre",
   "pg.mw_wind": "vent",
   "pg.mw_moon": "lune",
-  "pg.mw_water": "température de l’eau"
+  "pg.mw_water": "température de l’eau",
+  "pg.back_map": "Retour à la carte",
+  "pg.src_notes": "Sources et notes",
+  "pg.fill_first": "Remplissez d’abord les champs obligatoires, puis affichez le markdown.",
+  "pg.no_geo_lakes": "Ce navigateur ne peut pas partager de position, les lacs restent donc groupés par région.",
+  "pg.finding_lakes": "Recherche de lacs près de vous…",
+  "pg.nearest_first": "Les plus proches d’abord, en miles à vol d’oiseau. Votre position reste sur cet appareil.",
+  "pg.no_problem": "Pas de souci. Les étapes ci-dessus marchent toujours.",
+  "pg.not_now": "Pas maintenant",
+  "pg.loc_off": "Position désactivée, tri depuis le lac.",
+  "pg.sorted_you": "Trié depuis votre position. Elle reste sur cet appareil.",
+  "pg.no_shops_near": "Aucun magasin confirmé près de {lake} pour l’instant.",
+  "pg.shops_fail": "La liste des magasins n’a pas chargé. Réessayez quand vous aurez du réseau.",
+  "pg.no_gauges": "Pas de station publique de niveau ni de température de l’eau sur ce lac. Jamais inventé.",
+  "pg.drawing": "Dessin de la carte…",
+  "pg.notif_off": "Les notifications sont désactivées pour ce site, utilisez plutôt l’option calendrier.",
+  "pg.log_unavail": "Journal indisponible pour le moment. Ouvrez le journal pour vos propres sorties.",
+  "pg.no_backup": "Aucune sortie enregistrée sur ce téléphone, rien à sauvegarder.",
+  "pg.too_big": "Ce fichier est trop gros pour être une sauvegarde Night Bite.",
+  "pg.cant_read": "Impossible de lire ce fichier.",
+  "pg.no_match": "Rien ne correspond à « {q} ». Essayez le nom du plan d’eau ou une ville proche, comme Mt. Sterling."
  }
 }

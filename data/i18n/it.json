@@ -480,6 +480,26 @@
   "pg.mw_baro": "tendenza del barometro",
   "pg.mw_wind": "vento",
   "pg.mw_moon": "luna",
-  "pg.mw_water": "temperatura dell’acqua"
+  "pg.mw_water": "temperatura dell’acqua",
+  "pg.back_map": "Torna alla mappa",
+  "pg.src_notes": "Fonti e note",
+  "pg.fill_first": "Compila prima i campi obbligatori, poi mostra il markdown.",
+  "pg.no_geo_lakes": "Questo browser non può condividere la posizione, quindi i laghi restano raggruppati per regione.",
+  "pg.finding_lakes": "Cerco laghi vicino a te…",
+  "pg.nearest_first": "Prima i più vicini, miglia in linea d’aria. La tua posizione resta su questo dispositivo.",
+  "pg.no_problem": "Nessun problema. I passaggi sopra funzionano sempre.",
+  "pg.not_now": "Non ora",
+  "pg.loc_off": "Posizione disattivata, ordinati dal lago.",
+  "pg.sorted_you": "Ordinati dalla tua posizione. Resta su questo dispositivo.",
+  "pg.no_shops_near": "Ancora nessun negozio confermato vicino a {lake}.",
+  "pg.shops_fail": "L’elenco dei negozi non si è caricato. Riprova quando hai campo.",
+  "pg.no_gauges": "Nessun idrometro pubblico né sensore di temperatura dell’acqua su questo lago. Mai inventato.",
+  "pg.drawing": "Disegno la scheda…",
+  "pg.notif_off": "Le notifiche sono disattivate per questo sito, usa l’opzione calendario.",
+  "pg.log_unavail": "Registro non disponibile ora. Apri il registro per le tue uscite.",
+  "pg.no_backup": "Nessuna uscita salvata su questo telefono, niente da salvare.",
+  "pg.too_big": "Il file è troppo grande per essere un backup di The Night Bite.",
+  "pg.cant_read": "Impossibile leggere il file.",
+  "pg.no_match": "Nessun risultato per “{q}”. Prova il nome dell’acqua o un paese vicino, come Mt. Sterling."
  }
 }

@@ -480,6 +480,26 @@
   "pg.mw_baro": "气压趋势",
   "pg.mw_wind": "风",
   "pg.mw_moon": "月亮",
-  "pg.mw_water": "水温"
+  "pg.mw_water": "水温",
+  "pg.back_map": "返回地图",
+  "pg.src_notes": "来源和说明",
+  "pg.fill_first": "请先填写必填项，再显示 markdown。",
+  "pg.no_geo_lakes": "此浏览器无法共享位置，湖泊仍按地区分组。",
+  "pg.finding_lakes": "正在查找你附近的湖泊…",
+  "pg.nearest_first": "最近的在前，按直线英里计。你的位置只保存在此设备上。",
+  "pg.no_problem": "没关系。上面的步骤随时都能用。",
+  "pg.not_now": "以后再说",
+  "pg.loc_off": "位置已关闭，按到湖的距离排序。",
+  "pg.sorted_you": "已按你的位置排序。位置只保存在此设备上。",
+  "pg.no_shops_near": "{lake} 附近还没有已确认的店铺。",
+  "pg.shops_fail": "店铺列表没有加载。有信号时再试一次。",
+  "pg.no_gauges": "这个湖没有公开的水位或水温测站。绝不编造。",
+  "pg.drawing": "正在绘制卡片…",
+  "pg.notif_off": "此网站的通知已关闭，请改用日历选项。",
+  "pg.log_unavail": "钓行记录暂时无法使用。打开记录页查看你自己的钓行。",
+  "pg.no_backup": "这部手机上还没有保存钓行，没有可备份的内容。",
+  "pg.too_big": "这个文件太大，不像是 The Night Bite 备份。",
+  "pg.cant_read": "无法读取这个文件。",
+  "pg.no_match": "没有与“{q}”匹配的结果。试试水域名称或附近城镇，例如 Mt. Sterling。"
  }
 }

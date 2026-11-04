@@ -480,6 +480,26 @@
   "pg.mw_baro": "takbo ng barometro",
   "pg.mw_wind": "hangin",
   "pg.mw_moon": "buwan",
-  "pg.mw_water": "temperatura ng tubig"
+  "pg.mw_water": "temperatura ng tubig",
+  "pg.back_map": "Bumalik sa mapa",
+  "pg.src_notes": "Mga source at tala",
+  "pg.fill_first": "Punan muna ang mga kailangang field, saka ipakita ang markdown.",
+  "pg.no_geo_lakes": "Hindi makapagbahagi ng lokasyon ang browser na ito, kaya nakagrupo pa rin ang mga lawa ayon sa rehiyon.",
+  "pg.finding_lakes": "Naghahanap ng lawa malapit sa iyo…",
+  "pg.nearest_first": "Pinakamalapit muna, milya sa tuwid na linya. Nananatili sa device na ito ang lokasyon mo.",
+  "pg.no_problem": "Walang problema. Gumagana pa rin ang mga hakbang sa itaas kahit kailan.",
+  "pg.not_now": "Hindi muna",
+  "pg.loc_off": "Naka-off ang lokasyon, inayos mula sa lawa.",
+  "pg.sorted_you": "Inayos mula sa lokasyon mo. Nananatili ito sa device na ito.",
+  "pg.no_shops_near": "Wala pang kumpirmadong tindahan malapit sa {lake}.",
+  "pg.shops_fail": "Hindi nag-load ang listahan ng tindahan. Subukan ulit kapag may signal.",
+  "pg.no_gauges": "Walang pampublikong gauge ng antas o temperatura ng tubig sa lawang ito. Hindi kailanman inimbento.",
+  "pg.drawing": "Iginuguhit ang card…",
+  "pg.notif_off": "Naka-off ang notifications para sa site na ito, kaya gamitin ang calendar option.",
+  "pg.log_unavail": "Hindi available ang log ngayon. Buksan ang log para sa sarili mong trips.",
+  "pg.no_backup": "Wala pang trip na naka-save sa phone na ito, kaya walang ibaback-up.",
+  "pg.too_big": "Masyadong malaki ang file na iyan para maging Night Bite backup.",
+  "pg.cant_read": "Hindi mabasa ang file na iyan.",
+  "pg.no_match": "Walang tugma sa “{q}”. Subukan ang pangalan ng tubig o kalapit na bayan, gaya ng Mt. Sterling."
  }
 }

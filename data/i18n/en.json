@@ -425,6 +425,26 @@
   "pg.mw_baro": "barometer trend",
   "pg.mw_wind": "wind",
   "pg.mw_moon": "moon",
-  "pg.mw_water": "water temp"
+  "pg.mw_water": "water temp",
+  "pg.back_map": "Back to map",
+  "pg.src_notes": "Sources and notes",
+  "pg.fill_first": "Fill required fields first, then show markdown.",
+  "pg.no_geo_lakes": "This browser can't share a location, so lakes stay grouped by region.",
+  "pg.finding_lakes": "Finding lakes near you…",
+  "pg.nearest_first": "Nearest first, straight line miles. Your location stays on this device.",
+  "pg.no_problem": "No problem. The steps above still work any time.",
+  "pg.not_now": "Not now",
+  "pg.loc_off": "Location off, sorted from the lake.",
+  "pg.sorted_you": "Sorted from your location. It stays on this device.",
+  "pg.no_shops_near": "No shops confirmed yet near {lake}.",
+  "pg.shops_fail": "Shop list didn't load. Try again when you have signal.",
+  "pg.no_gauges": "No public lake level or water temp gauge on this lake. Never invented.",
+  "pg.drawing": "Drawing the card…",
+  "pg.notif_off": "Notifications are off for this site, so use the calendar option instead.",
+  "pg.log_unavail": "Log unavailable right now. Open the log for your own trips.",
+  "pg.no_backup": "No trips saved on this phone yet, so there's nothing to back up.",
+  "pg.too_big": "That file is too big to be a Night Bite backup.",
+  "pg.cant_read": "Couldn't read that file.",
+  "pg.no_match": "Nothing matches “{q}”. Try the water’s name or a nearby town, like Mt. Sterling."
  }
 }

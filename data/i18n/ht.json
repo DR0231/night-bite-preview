@@ -480,6 +480,26 @@
   "pg.mw_baro": "tandans bawomèt la",
   "pg.mw_wind": "van",
   "pg.mw_moon": "lalin",
-  "pg.mw_water": "tanperati dlo a"
+  "pg.mw_water": "tanperati dlo a",
+  "pg.back_map": "Retounen sou kat la",
+  "pg.src_notes": "Sous ak nòt",
+  "pg.fill_first": "Ranpli chan obligatwa yo anvan, epi montre markdown nan.",
+  "pg.no_geo_lakes": "Navigatè sa a pa ka pataje kote ou ye, kidonk lak yo rete gwoupe pa rejyon.",
+  "pg.finding_lakes": "N ap chèche lak toupre ou…",
+  "pg.nearest_first": "Pi pre yo an premye, an mil liy dwat. Kote ou ye rete sou aparèy sa a.",
+  "pg.no_problem": "Pa gen pwoblèm. Etap ki anwo yo toujou mache.",
+  "pg.not_now": "Pa kounye a",
+  "pg.loc_off": "Lokalizasyon fèmen, ranje apati lak la.",
+  "pg.sorted_you": "Ranje apati kote ou ye. Sa rete sou aparèy sa a.",
+  "pg.no_shops_near": "Poko gen boutik konfime toupre {lake}.",
+  "pg.shops_fail": "Lis boutik yo pa chaje. Eseye ankò lè ou gen siyal.",
+  "pg.no_gauges": "Pa gen jòj piblik pou nivo dlo oswa tanperati dlo sou lak sa a. Nou pa janm envante.",
+  "pg.drawing": "N ap desine kat la…",
+  "pg.notif_off": "Notifikasyon fèmen pou sit sa a, kidonk sèvi ak opsyon kalandriye a.",
+  "pg.log_unavail": "Jounal la pa disponib kounye a. Louvri jounal la pou vwayaj pa w.",
+  "pg.no_backup": "Pa gen vwayaj sere sou telefòn sa a, kidonk pa gen anyen pou fè backup.",
+  "pg.too_big": "Fichye sa a twò gwo pou se yon backup Night Bite.",
+  "pg.cant_read": "Nou pa t ka li fichye sa a.",
+  "pg.no_match": "Anyen pa koresponn ak “{q}”. Eseye non dlo a oswa yon vil toupre, tankou Mt. Sterling."
  }
 }

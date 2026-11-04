@@ -480,6 +480,26 @@
   "pg.mw_baro": "xu hướng khí áp",
   "pg.mw_wind": "gió",
   "pg.mw_moon": "trăng",
-  "pg.mw_water": "nhiệt độ nước"
+  "pg.mw_water": "nhiệt độ nước",
+  "pg.back_map": "Quay lại bản đồ",
+  "pg.src_notes": "Nguồn và ghi chú",
+  "pg.fill_first": "Điền các ô bắt buộc trước, rồi hiện markdown.",
+  "pg.no_geo_lakes": "Trình duyệt này không chia sẻ được vị trí, nên các hồ vẫn nhóm theo vùng.",
+  "pg.finding_lakes": "Đang tìm hồ gần bạn…",
+  "pg.nearest_first": "Gần nhất trước, tính bằng dặm đường thẳng. Vị trí của bạn chỉ ở trên thiết bị này.",
+  "pg.no_problem": "Không sao. Các bước ở trên lúc nào cũng dùng được.",
+  "pg.not_now": "Để sau",
+  "pg.loc_off": "Vị trí đang tắt, sắp xếp theo khoảng cách từ hồ.",
+  "pg.sorted_you": "Sắp xếp theo vị trí của bạn. Vị trí chỉ ở trên thiết bị này.",
+  "pg.no_shops_near": "Chưa có cửa hàng nào được xác nhận gần {lake}.",
+  "pg.shops_fail": "Danh sách cửa hàng chưa tải được. Hãy thử lại khi có sóng.",
+  "pg.no_gauges": "Hồ này không có trạm đo mực nước hay nhiệt độ nước công khai. Không bao giờ bịa.",
+  "pg.drawing": "Đang vẽ thẻ…",
+  "pg.notif_off": "Thông báo của trang này đang tắt, hãy dùng tùy chọn lịch.",
+  "pg.log_unavail": "Nhật ký tạm thời không dùng được. Mở nhật ký để xem chuyến câu của bạn.",
+  "pg.no_backup": "Chưa có chuyến câu nào lưu trên điện thoại này, nên không có gì để sao lưu.",
+  "pg.too_big": "Tệp này quá lớn để là bản sao lưu The Night Bite.",
+  "pg.cant_read": "Không đọc được tệp đó.",
+  "pg.no_match": "Không có kết quả cho “{q}”. Hãy thử tên vùng nước hoặc thị trấn gần đó, như Mt. Sterling."
  }
 }

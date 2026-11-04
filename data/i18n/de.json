@@ -480,6 +480,26 @@
   "pg.mw_baro": "Barometertrend",
   "pg.mw_wind": "Wind",
   "pg.mw_moon": "Mond",
-  "pg.mw_water": "Wassertemperatur"
+  "pg.mw_water": "Wassertemperatur",
+  "pg.back_map": "Zurück zur Karte",
+  "pg.src_notes": "Quellen und Hinweise",
+  "pg.fill_first": "Erst die Pflichtfelder ausfüllen, dann markdown anzeigen.",
+  "pg.no_geo_lakes": "Dieser Browser kann keinen Standort teilen, daher bleiben die Seen nach Region gruppiert.",
+  "pg.finding_lakes": "Suche Seen in deiner Nähe…",
+  "pg.nearest_first": "Nächste zuerst, Luftlinie in Meilen. Dein Standort bleibt auf diesem Gerät.",
+  "pg.no_problem": "Kein Problem. Die Schritte oben funktionieren jederzeit.",
+  "pg.not_now": "Nicht jetzt",
+  "pg.loc_off": "Standort aus, vom See aus sortiert.",
+  "pg.sorted_you": "Von deinem Standort aus sortiert. Er bleibt auf diesem Gerät.",
+  "pg.no_shops_near": "Noch keine bestätigten Läden nahe {lake}.",
+  "pg.shops_fail": "Die Ladenliste wurde nicht geladen. Versuch es erneut, wenn du Empfang hast.",
+  "pg.no_gauges": "An diesem See gibt es keinen öffentlichen Pegel und keine Wassertemperatur-Messstelle. Nie erfunden.",
+  "pg.drawing": "Karte wird gezeichnet…",
+  "pg.notif_off": "Benachrichtigungen sind für diese Seite aus, nutze stattdessen die Kalenderoption.",
+  "pg.log_unavail": "Das Logbuch ist gerade nicht verfügbar. Öffne das Logbuch für deine eigenen Ausflüge.",
+  "pg.no_backup": "Auf diesem Telefon sind keine Ausflüge gespeichert, also gibt es nichts zu sichern.",
+  "pg.too_big": "Diese Datei ist zu groß für ein Night Bite Backup.",
+  "pg.cant_read": "Diese Datei konnte nicht gelesen werden.",
+  "pg.no_match": "Nichts passt zu „{q}“. Versuch den Namen des Gewässers oder einen Ort in der Nähe, etwa Mt. Sterling."
  }
 }

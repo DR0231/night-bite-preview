@@ -480,6 +480,26 @@
   "pg.mw_baro": "trend barometru",
   "pg.mw_wind": "wiatr",
   "pg.mw_moon": "księżyc",
-  "pg.mw_water": "temperatura wody"
+  "pg.mw_water": "temperatura wody",
+  "pg.back_map": "Wróć do mapy",
+  "pg.src_notes": "Źródła i uwagi",
+  "pg.fill_first": "Najpierw wypełnij wymagane pola, potem pokaż markdown.",
+  "pg.no_geo_lakes": "Ta przeglądarka nie udostępnia lokalizacji, więc jeziora zostają pogrupowane według regionu.",
+  "pg.finding_lakes": "Szukam jezior w pobliżu…",
+  "pg.nearest_first": "Najbliższe najpierw, mile w linii prostej. Twoja lokalizacja zostaje na tym urządzeniu.",
+  "pg.no_problem": "Nie ma sprawy. Kroki powyżej działają zawsze.",
+  "pg.not_now": "Nie teraz",
+  "pg.loc_off": "Lokalizacja wyłączona, sortowanie od jeziora.",
+  "pg.sorted_you": "Posortowane od twojej lokalizacji. Zostaje na tym urządzeniu.",
+  "pg.no_shops_near": "Brak jeszcze potwierdzonych sklepów w pobliżu {lake}.",
+  "pg.shops_fail": "Lista sklepów się nie wczytała. Spróbuj ponownie, gdy będzie zasięg.",
+  "pg.no_gauges": "To jezioro nie ma publicznego wodowskazu ani pomiaru temperatury wody. Nigdy nie zmyślane.",
+  "pg.drawing": "Rysuję kartę…",
+  "pg.notif_off": "Powiadomienia są wyłączone dla tej strony, więc użyj opcji kalendarza.",
+  "pg.log_unavail": "Dziennik jest teraz niedostępny. Otwórz dziennik, aby zobaczyć własne wyprawy.",
+  "pg.no_backup": "Na tym telefonie nie ma zapisanych wypraw, więc nie ma czego kopiować.",
+  "pg.too_big": "Ten plik jest za duży jak na kopię The Night Bite.",
+  "pg.cant_read": "Nie udało się odczytać pliku.",
+  "pg.no_match": "Nic nie pasuje do „{q}”. Spróbuj nazwy wody lub pobliskiego miasta, np. Mt. Sterling."
  }
 }
