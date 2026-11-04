@@ -1,0 +1,31 @@
+{
+ "_meta": {
+  "lang": "vi",
+  "page": "water",
+  "review": "draft"
+ },
+ "strings": {
+  "water.19b5b4d8": "ban ngày và",
+  "water.1eee969b": "Trạm đo USGS trực tiếp",
+  "water.38c160e3": "Columbus Recreation and Parks, Bến thuyền và cầu tàu",
+  "water.3bbdbfde": "là cao độ mặt hồ tính bằng feet do USGS công bố, không phải độ sâu của hố hay lòng lạch nào.",
+  "water.4374aaee": "đến",
+  "water.44100b3c": "Số liệu USGS là",
+  "water.4e589220": "và có thể được sửa lại.",
+  "water.5175b841": "trên hồ, nên ô nhiệt độ ghi n/a. Không có gì là ước tính.",
+  "water.523a36aa": "là cao độ mặt hồ tính bằng feet do Corps công bố, không phải độ sâu của hố hay lòng lạch nào.",
+  "water.77edd4b4": "Không giới hạn mã lực",
+  "water.8a9948ac": "Mực nước mùa hè của Corps là",
+  "water.90471ca5": "tạm thời",
+  "water.906ab80c": "là cao độ mặt hồ (ft NGVD29), không phải độ sâu của hố hay lòng lạch nào.",
+  "water.9c69f0c5": "Đập",
+  "water.9dcd2c3c": "Không giới hạn mã lực",
+  "water.a39224a8": "ODNR, Hạ mực nước mùa đông",
+  "water.a5ff1c64": "Nhiệt độ",
+  "water.cbdd14f5": "10 mph từ hoàng hôn đến bình minh",
+  "water.d014c690": "Độ sâu trên bản đồ câu cá ODNR dựa trên",
+  "water.d2964d49": "Columbus City Code 921.01-1(G)",
+  "water.e420a3cd": "Giới hạn 10 hp",
+  "water.f2eb9a7b": "Không có trạm đo nhiệt độ nước công khai"
+ }
+}

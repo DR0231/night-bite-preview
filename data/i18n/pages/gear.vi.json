@@ -1,0 +1,13 @@
+{
+ "_meta": {
+  "lang": "vi",
+  "page": "gear",
+  "review": "draft"
+ },
+ "strings": {
+  "gear.27e90dfa": "lúc",
+  "gear.77edd4b4": "Không giới hạn mã lực",
+  "gear.9dcd2c3c": "Không giới hạn mã lực",
+  "gear.e420a3cd": "Giới hạn 10 hp"
+ }
+}
