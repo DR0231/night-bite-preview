@@ -433,3 +433,11 @@ Checked Oct. 27, 2026. Copied only from the agency that runs each lake; nothing 
 - "Tonight, in short" (home Tonight card, js/conditions.js renderLine) restates numbers already on the page in one line: sunset (or "after dark now"), tonight's NWS hourly wind range and top rain chance from sunset to 2 AM, storms if the storm line found any, the KCMH 3 hour pressure trend, the gauge water temp when there is one, and the pool card's "below full pool" figure and 7 day trend word. No score, no prediction; it hides when none of those are loaded. The separate "Tonight's bite" rule of thumb line is unchanged.
 - Local notes (water.html#notes) holds the owner's own notes. It ships with placeholder slots marked "Sample note, replace with your own" and no content. See LOCAL-NOTES.md.
 - ODNR fishing map layers (DOW_LakeFishing MapServer) are not embedded: the service publishes no copyright, description or reuse terms, so the site stays link only. The legacy USGS waterservices fallback stays in place.
+
+## Night-rules chip (S5, checked Nov 3, 2026)
+Hours per lake in data/quick-facts.json "hours", each with its source link.
+* City of Columbus parks (Hoover, O'Shaughnessy, Griggs): 7 a.m. to 11 p.m., Columbus Recreation and Parks page for each park. No after-hours fishing exception is stated there, so none is shown.
+* ODNR state parks: the "Contact & Hours" block on each state park page ("Park Hours: 6am to 11pm daily" or "Sunrise to Sunset"; "Visitors are permitted to actively engage in legitimate recreational activities outside these hours"). Re-read Nov 3 for Alum Creek, Buckeye Lake and Indian Lake; the others carry the wording already in their Night rules line.
+* MWCD (Seneca, Leesville): MWCD Rules and Regulations rule 1.13, https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf (no one present 11 p.m. to 6 a.m. except people fishing, hunting, boating or other legitimate recreation, or going to or from it).
+* Clearfork: Mansfield Codified Ordinances chapter 971 (no parking dark to dawn outside camping areas); no clock time, so no countdown.
+* No official hours: Knox Lake (ODNR Knox Lake Fishing Area page lists none) and Berlin Lake (ODNR Berlin Lake Fishing Area page lists none, only 10 mph at night). No chip.

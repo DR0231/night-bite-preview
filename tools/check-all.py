@@ -22,6 +22,7 @@ Lake scope (check-waters, check-glance, check-glance-fallback, check-bait). A ru
 Builds (in this checkout, skipped with --no-build and always skipped for live), in order:
     build-lake-pages, build-docks, build-meta, stamp-version, build-updates
 Checks: check-meta (0 errors), check-radius, check-docks (report only: a CHANGED dock page is a note, never a failure),
+check-night-rules (the chip and a mocked NWS storm banner above the fold at 390, red light and high contrast; browser),
 check-hours (night-rules data has official sources and every chip matches it; static),
 check-lake-isolation (each lake home in scope ships only its own blocks, chart and map data; static, fast),
 check-glance, check-glance-fallback (USGS and NWS blocked, and JavaScript off, at 320 and 430 px: no placeholder,
@@ -44,7 +45,7 @@ TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
 BUILDS = ["build-lake-pages.py", "build-docks.py", "build-meta.py", "stamp-version.py", "build-updates.py"]
-CHECKS = ["check-meta", "check-radius", "check-hours", "check-docks", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "sweep"]
+CHECKS = ["check-meta", "check-radius", "check-hours", "check-docks", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-night-rules", "sweep"]
 BROWSER = {"check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "sweep"}
 
 ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -73,7 +74,7 @@ if a.lakes and a.all_lakes:
 if (a.group or a.fresh) and not a.all_lakes:
     sys.exit("check-all: --group and --fresh only go with --all-lakes")
 ALL_IDS = registry.load()["order"]
-LAKE_CHECKS = {"check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters"}
+LAKE_CHECKS = {"check-night-rules", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters"}
 
 
 def all_lakes_run():
@@ -250,6 +251,7 @@ def cmd_for(name):
         "check-docks": ([py, str(TOOLS / "check-docks.py")], {}),
         "check-lake-isolation": ([py, str(TOOLS / "check-lake-isolation.py")], dict(static_env, NB_LAKES=",".join(LAKES))),
         "check-glance": (["node", str(TOOLS / "check-glance.cjs"), base, d], {"NB_LAKES": ",".join(LAKES)}),
+        "check-night-rules": (["node", str(TOOLS / "check-night-rules.cjs"), base, d], {"NB_LAKES": ",".join(LAKES)}),
         "check-glance-fallback": (["node", str(TOOLS / "check-glance-fallback.cjs"), base, d], {"NB_LAKES": ",".join(LAKES)}),
         "check-bait": (["node", str(TOOLS / "check-bait.cjs")], {"BASE": base, "OUT": d, "NB_LAKES": ",".join(LAKES)}),
         "check-waters": (["node", str(TOOLS / "check-waters.cjs"), base, d, ",".join(LAKES)], {}),

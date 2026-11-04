@@ -42,7 +42,7 @@ python3 tools/check-all.py --target local --all-lakes --group 3   # one group on
 * Start each run in the background and wait on it no more than about 5 minutes at a time. One lake group takes about 4 to 5 minutes.
 * `node tools/registry.cjs --changed [REF]` prints the changed lakes and files on their own.
 
-* Checks: check-meta, check-radius, check-docks (report only), check-lake-isolation, check-glance, check-glance-fallback, check-bait, check-waters (the lake scope above), check-picker-flow and sweep.
+* Checks: check-meta, check-radius, check-docks (report only), check-hours, check-lake-isolation, check-glance, check-glance-fallback, check-bait, check-waters (the lake scope above), check-picker-flow, check-night-rules and sweep.
 * `--skip` leaves checks out.
 * A scoped run takes a few minutes. A full `--all-lakes` run takes over 30 minutes across 23 lakes, which is why it is split into groups.
 * Known failures go in `tools/known-failures.json` as `{check, match, target?, why}`. Add an entry only for a failure you have looked at and accepted. Then remove it once the failure is fixed.
@@ -181,3 +181,7 @@ python3 tools/build-tile-charts.py --check         # change nothing; exit 1 if a
   and again with JavaScript off, at 320 and 430 px, and fails on any "--", "Loading", "unavailable" or
   "NWS not available" in the strip, a gauge lake without a visible timestamp, a missing "No gauge" state, clipped
   text or sideways scroll. Default lakes hoover,alum,knox,pymatuning (USGS, Corps, no gauge, stale gauge).
+
+## Night-rules chip (S5)
+* `data/quick-facts.json` `hours` per lake feeds the chip under each lake hero (built by `build-lake-pages.py`, countdown in `js/night-rules.js`, Eastern time). Only from an official city, ODNR, Army Corps or MWCD page, linked as `source`. `fishing_after_hours` is `true` only when the source says so, otherwise `null`. No official hours: `{"none": true, "note": "..."}`; no chip, and the Night rules row says so.
+* `check-hours.py` (static, all lakes): every entry parses, has an official https source, and each lake home's chip matches it. `check-night-rules.cjs [BASE] [OUT]` (`NB_LAKES=a,b`): chip above the fold at 390, source link, countdown text, red light and high contrast, plus a mocked NWS storm banner above the fold. `new-lake.py` takes an optional `hours` object (see `new-lake.example.json`).
