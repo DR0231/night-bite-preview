@@ -104,7 +104,7 @@
     if (A.moonTonight) {
       var mt = A.moonTonight(now);
       st.moon = mt;
-      setCell("moon", mt.name, "", Math.round(mt.fraction * 100) + "% lit");
+      setCell("moon", mt.name === "New" || mt.name === "Full" ? mt.name + " moon" : mt.name, "", Math.round(mt.fraction * 100) + "% lit");
       var mc = grid.querySelector('[data-cond="moon"]');
       if (mc) {
         mc.setAttribute("data-phase-index", String(mt.index));
