@@ -319,6 +319,7 @@
   "pg.miss_temp": "temp unavailable, check",
   "pg.feels_at": "{time}, feels {t}",
   "pg.live_pool_p": "Live {src} refresh updated pool (provisional).",
-  "pg.live_temp_p": "Live {src} refresh updated temp (provisional)."
+  "pg.live_temp_p": "Live {src} refresh updated temp (provisional).",
+  "pg.gusts_at": "{time}, gusts {n}"
  }
 }

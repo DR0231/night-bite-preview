@@ -320,6 +320,7 @@
   "pg.miss_temp": "수온 사용할 수 없음, 확인:",
   "pg.feels_at": "{time}, 체감 {t}",
   "pg.live_pool_p": "{src} 실시간 새로고침으로 수위 업데이트(잠정).",
-  "pg.live_temp_p": "{src} 실시간 새로고침으로 수온 업데이트(잠정)."
+  "pg.live_temp_p": "{src} 실시간 새로고침으로 수온 업데이트(잠정).",
+  "pg.gusts_at": "{time}, 돌풍 {n}"
  }
 }

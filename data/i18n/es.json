@@ -370,6 +370,7 @@
   "pg.miss_temp": "temperatura no disponible, consulta",
   "pg.feels_at": "{time}, sensación {t}",
   "pg.live_pool_p": "Actualización en vivo de {src}: nivel actualizado (provisional).",
-  "pg.live_temp_p": "Actualización en vivo de {src}: temperatura actualizada (provisional)."
+  "pg.live_temp_p": "Actualización en vivo de {src}: temperatura actualizada (provisional).",
+  "pg.gusts_at": "{time}, ráfagas {n}"
  }
 }

@@ -349,6 +349,7 @@
   "pg.miss_temp": "temperatura non disponibile, controlla",
   "pg.feels_at": "{time}, percepita {t}",
   "pg.live_pool_p": "Aggiornamento {src}: livello aggiornato (provvisorio).",
-  "pg.live_temp_p": "Aggiornamento {src}: temperatura aggiornata (provvisoria)."
+  "pg.live_temp_p": "Aggiornamento {src}: temperatura aggiornata (provvisoria).",
+  "pg.gusts_at": "{time}, raffiche {n}"
  }
 }

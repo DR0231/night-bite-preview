@@ -320,6 +320,7 @@
   "pg.miss_temp": "hindi available ang temperatura, tingnan ang",
   "pg.feels_at": "{time}, pakiramdam {t}",
   "pg.live_pool_p": "Live refresh ng {src}: na-update ang lebel (pansamantala).",
-  "pg.live_temp_p": "Live refresh ng {src}: na-update ang temperatura (pansamantala)."
+  "pg.live_temp_p": "Live refresh ng {src}: na-update ang temperatura (pansamantala).",
+  "pg.gusts_at": "{time}, bugso {n}"
  }
 }

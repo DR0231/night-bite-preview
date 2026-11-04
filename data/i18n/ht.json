@@ -349,6 +349,7 @@
   "pg.miss_temp": "tanperati pa disponib, tcheke",
   "pg.feels_at": "{time}, santi {t}",
   "pg.live_pool_p": "Mizajou an dirèk {src}: nivo mete ajou (pwovizwa).",
-  "pg.live_temp_p": "Mizajou an dirèk {src}: tanperati mete ajou (pwovizwa)."
+  "pg.live_temp_p": "Mizajou an dirèk {src}: tanperati mete ajou (pwovizwa).",
+  "pg.gusts_at": "{time}, rafal {n}"
  }
 }

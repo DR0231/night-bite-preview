@@ -320,6 +320,7 @@
   "pg.miss_temp": "không có nhiệt độ, xem",
   "pg.feels_at": "{time}, cảm giác {t}",
   "pg.live_pool_p": "Làm mới {src}: đã cập nhật mực nước (tạm thời).",
-  "pg.live_temp_p": "Làm mới {src}: đã cập nhật nhiệt độ (tạm thời)."
+  "pg.live_temp_p": "Làm mới {src}: đã cập nhật nhiệt độ (tạm thời).",
+  "pg.gusts_at": "{time}, gió giật {n}"
  }
 }

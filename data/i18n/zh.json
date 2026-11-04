@@ -372,6 +372,7 @@
   "pg.miss_temp": "水温不可用，请查看",
   "pg.feels_at": "{time}，体感 {t}",
   "pg.live_pool_p": "{src} 实时刷新已更新水位（临时数据）。",
-  "pg.live_temp_p": "{src} 实时刷新已更新水温（临时数据）。"
+  "pg.live_temp_p": "{src} 实时刷新已更新水温（临时数据）。",
+  "pg.gusts_at": "{time}，阵风 {n}"
  }
 }

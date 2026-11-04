@@ -349,6 +349,7 @@
   "pg.miss_temp": "Temperatur nicht verfügbar, siehe",
   "pg.feels_at": "{time}, gefühlt {t}",
   "pg.live_pool_p": "Live-Aktualisierung {src}: Pegel aktualisiert (vorläufig).",
-  "pg.live_temp_p": "Live-Aktualisierung {src}: Temperatur aktualisiert (vorläufig)."
+  "pg.live_temp_p": "Live-Aktualisierung {src}: Temperatur aktualisiert (vorläufig).",
+  "pg.gusts_at": "{time}, Böen {n}"
  }
 }
