@@ -5,14 +5,29 @@
   "review": "draft"
  },
  "strings": {
+  "stocking.12cdc674": "ODNR, Deer Creek Lake Fishing Area",
   "stocking.143fa4c4": "Walleye",
+  "stocking.28e22019": "ODNR, Pymatuning Lake Fishing Area",
   "stocking.2cda21fd": "ODNR, Clear Fork Reservoir Fishing Area",
+  "stocking.303b3b38": "ODNR, Lake Milton Fishing Area",
   "stocking.33e42ccc": "ODNR, Dillon Lake Fishing Area",
+  "stocking.3f9d277b": "ODNR, Dow Lake Fishing Area",
+  "stocking.5374e95a": "ODNR, Delaware Lake Fishing Area",
+  "stocking.6c3d4afe": "ODNR, Buckeye Lake Fishing Area",
+  "stocking.6d19867e": "ODNR, Indian Lake Fishing Area",
   "stocking.7e439c35": "Sa pahinang ito",
   "stocking.809be87a": "ODNR, Madison Lake State Park",
+  "stocking.809eecda": "ODNR, Salt Fork Lake Fishing Area",
+  "stocking.8451c5c9": "ODNR, Mosquito Creek Lake Fishing Area",
   "stocking.8696eec3": "ODNR, Leesville Lake Fishing Area",
   "stocking.94fc17ee": "ODNR, Berlin Lake Fishing Area",
   "stocking.9e24e097": "ODNR, Seneca Lake Fishing Area",
-  "stocking.bd2d60bc": "ODNR, Knox Lake Fishing Area"
+  "stocking.b2304907": "ODNR, O’Shaughnessy Reservoir Fishing Area",
+  "stocking.bd2d60bc": "ODNR, Knox Lake Fishing Area",
+  "stocking.dcea8c5d": "ODNR, Burr Oak Lake Fishing Area",
+  "stocking.e9d6e9b9": "ODNR, Kirwan Reservoir (West Branch) Fishing Area",
+  "stocking.ee02e4a4": "ODNR, Griggs Reservoir Fishing Area",
+  "stocking.f111fa3d": "ODNR, Lake Logan Fishing Area",
+  "stocking.f44f8a5c": "ODNR, Hoover Reservoir Fishing Area"
  }
 }
