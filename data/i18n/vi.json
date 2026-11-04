@@ -4,6 +4,7 @@
   "name": "Tiếng Việt",
   "review": "draft",
   "pages": [
+   "404",
    "about",
    "alum",
    "berlin",
@@ -26,12 +27,14 @@
    "madison",
    "milton",
    "mosquito",
+   "offline",
    "oshaughnessy",
    "privacy",
    "pymatuning",
    "saltfork",
    "seneca",
    "species",
+   "stocking",
    "water",
    "westbranch"
   ]
