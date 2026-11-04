@@ -4,6 +4,7 @@
   "name": "Deutsch",
   "review": "draft",
   "pages": [
+   "404",
    "about",
    "alum",
    "berlin",
@@ -27,6 +28,7 @@
    "madison",
    "milton",
    "mosquito",
+   "offline",
    "oshaughnessy",
    "privacy",
    "pymatuning",
@@ -51,6 +53,7 @@
    "species-white-crappie",
    "species-yellow-perch",
    "stocking",
+   "updates",
    "water",
    "westbranch"
   ]
