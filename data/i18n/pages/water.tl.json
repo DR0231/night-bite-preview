@@ -1,0 +1,34 @@
+{
+ "_meta": {
+  "lang": "tl",
+  "page": "water",
+  "review": "draft"
+ },
+ "strings": {
+  "water.143fa4c4": "Walleye",
+  "water.1eee969b": "Live na USGS gauge",
+  "water.2cda21fd": "ODNR, Clear Fork Reservoir Fishing Area",
+  "water.33e42ccc": "ODNR, Dillon Lake Fishing Area",
+  "water.38c160e3": "Columbus Recreation and Parks, Mga Marina at Pantalan",
+  "water.3bbdbfde": "ay taas ng ibabaw ng lawa sa feet ayon sa USGS, hindi lalim ng anumang butas o channel.",
+  "water.4374aaee": "hanggang",
+  "water.44100b3c": "Ang mga halaga ng USGS ay",
+  "water.4e589220": "at maaaring baguhin.",
+  "water.5175b841": "sa lawa, kaya n/a ang nasa puwesto ng temperatura. Walang tinantiya.",
+  "water.77edd4b4": "Walang limit sa horsepower",
+  "water.809be87a": "ODNR, Madison Lake State Park",
+  "water.8696eec3": "ODNR, Leesville Lake Fishing Area",
+  "water.90471ca5": "pansamantala",
+  "water.906ab80c": "ay taas ng ibabaw ng lawa (ft NGVD29), hindi lalim ng anumang butas o channel.",
+  "water.94fc17ee": "ODNR, Berlin Lake Fishing Area",
+  "water.9c69f0c5": "Dam",
+  "water.9dcd2c3c": "Walang limit na horsepower",
+  "water.9e24e097": "ODNR, Seneca Lake Fishing Area",
+  "water.9e89988c": "Pampang",
+  "water.bd2d60bc": "ODNR, Knox Lake Fishing Area",
+  "water.d014c690": "Ang lalim sa fishing map ng ODNR ay batay sa",
+  "water.e420a3cd": "10 hp na limit",
+  "water.ef58de4f": "Bangka",
+  "water.f2eb9a7b": "Walang pampublikong gauge ng temperatura ng tubig"
+ }
+}

@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "lang": "tl",
+  "page": "stocking",
+  "review": "draft"
+ },
+ "strings": {
+  "stocking.143fa4c4": "Walleye",
+  "stocking.2cda21fd": "ODNR, Clear Fork Reservoir Fishing Area",
+  "stocking.33e42ccc": "ODNR, Dillon Lake Fishing Area",
+  "stocking.7e439c35": "Sa pahinang ito",
+  "stocking.809be87a": "ODNR, Madison Lake State Park",
+  "stocking.8696eec3": "ODNR, Leesville Lake Fishing Area",
+  "stocking.94fc17ee": "ODNR, Berlin Lake Fishing Area",
+  "stocking.9e24e097": "ODNR, Seneca Lake Fishing Area",
+  "stocking.bd2d60bc": "ODNR, Knox Lake Fishing Area"
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "_meta": {
+  "lang": "tl",
+  "page": "gear",
+  "review": "draft"
+ },
+ "strings": {
+  "gear.27e90dfa": "sa",
+  "gear.2cda21fd": "ODNR, Clear Fork Reservoir Fishing Area",
+  "gear.33e42ccc": "ODNR, Dillon Lake Fishing Area",
+  "gear.77edd4b4": "Walang limit sa horsepower",
+  "gear.809be87a": "ODNR, Madison Lake State Park",
+  "gear.8696eec3": "ODNR, Leesville Lake Fishing Area",
+  "gear.94fc17ee": "ODNR, Berlin Lake Fishing Area",
+  "gear.9dcd2c3c": "Walang limit na horsepower",
+  "gear.9e24e097": "ODNR, Seneca Lake Fishing Area",
+  "gear.9e89988c": "Pampang",
+  "gear.bd2d60bc": "ODNR, Knox Lake Fishing Area",
+  "gear.e420a3cd": "10 hp na limit",
+  "gear.ef58de4f": "Bangka"
+ }
+}
