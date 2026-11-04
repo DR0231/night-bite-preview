@@ -5,6 +5,9 @@
   "review": "draft"
  },
  "strings": {
+  "species-yellow-perch.00b61bc3": "На Dow Lake не обычен: ODNR его там не указывает. Эта страница о Buckeye Lake.",
+  "species-yellow-perch.057035b3": "Нет в данных обследований и зарыбления ODNR для O’Shaughnessy. Эта страница о Buckeye Lake.",
+  "species-yellow-perch.07416113": "На Dillon Lake не обычен: ODNR его там не указывает. Эта страница о Buckeye Lake.",
   "species-yellow-perch.0929c2dc": "напоминание, проверьте",
   "species-yellow-perch.15df0dbb": "Дневной лимит",
   "species-yellow-perch.172fe660": "Минимальная длина",
@@ -14,20 +17,31 @@
   "species-yellow-perch.3a0a165f": "Напоминание (проверьте 2026–27)",
   "species-yellow-perch.40af0815": "Водоём и карты",
   "species-yellow-perch.416b27a5": "Об этой странице",
+  "species-yellow-perch.479a3fa8": "На Deer Creek Lake не обычен: ODNR его там не указывает. Эта страница о Buckeye Lake.",
   "species-yellow-perch.525f61b6": "Где",
+  "species-yellow-perch.56310159": "Нет в данных обследований и зарыбления ODNR для Griggs. Эта страница о Buckeye Lake.",
+  "species-yellow-perch.595dfac2": "Только общественные спуски, парки, берег и пирс Mud Island. Метки на",
   "species-yellow-perch.5b7c80a8": "Записать поездку",
   "species-yellow-perch.5d410e64": "Изобаты, поправка на уровень, общественные спуски.",
   "species-yellow-perch.61a0ae3b": "Лимиты",
   "species-yellow-perch.62255f56": "Сезон",
+  "species-yellow-perch.66472801": "На Clear Fork Reservoir не обычен: ODNR его там не указывает. Эта страница о Buckeye Lake.",
   "species-yellow-perch.6a48c0a8": "Время суток",
   "species-yellow-perch.6eef6648": "Нет",
+  "species-yellow-perch.74f03d48": "На Lake Logan не обычен: ODNR его там не указывает. Эта страница о Buckeye Lake.",
   "species-yellow-perch.78e1790e": "Правило",
+  "species-yellow-perch.7bea8b0d": "Где на Buckeye Lake",
   "species-yellow-perch.7e439c35": "На этой странице",
   "species-yellow-perch.80946517": "HuntFish OH / лицензии ODNR",
+  "species-yellow-perch.841f95e0": "На Delaware Lake не обычен: ODNR его там не указывает. Эта страница о Buckeye Lake.",
   "species-yellow-perch.9e89988c": "С берега",
   "species-yellow-perch.ba003615": "ODNR Fishing Regulations 2026–27 (проверьте актуальность)",
+  "species-yellow-perch.c220864e": "Карты Buckeye Lake",
   "species-yellow-perch.d554eecb": "Наживка и подача",
+  "species-yellow-perch.da0b1457": "Только неофициальный блокнот, не ODNR, не Corps of Engineers и не USGS. Лицензия нужна с 16 лет. Проверьте правила, прежде чем оставить рыбу.",
   "species-yellow-perch.ddaf2b13": "Без лимита (все прочие рыбы)",
-  "species-yellow-perch.ef58de4f": "С лодки"
+  "species-yellow-perch.ef58de4f": "С лодки",
+  "species-yellow-perch.f7e0f475": "На Berlin Lake не обычен: ODNR его там не указывает. Эта страница о Buckeye Lake.",
+  "species-yellow-perch.f9f612e7": "На Burr Oak Lake не обычен: ODNR его там не указывает. Эта страница о Buckeye Lake."
  }
 }
