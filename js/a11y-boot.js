@@ -26,7 +26,7 @@
     }
     return mm.call(window, q);
   };
-  var LKEY = "nb-lang", LANGS = { en: "English", es: "Espa\u00f1ol" };
+  var LKEY = "nb-lang", LANGS = { en: "English", es: "Espa\u00f1ol", zh: "\u7b80\u4f53\u4e2d\u6587", tl: "Tagalog", vi: "Ti\u1ebfng Vi\u1ec7t", fr: "Fran\u00e7ais", ko: "\ud55c\uad6d\uc5b4", pt: "Portugu\u00eas", hi: "\u0939\u093f\u0928\u094d\u0926\u0940", ru: "\u0420\u0443\u0441\u0441\u043a\u0438\u0439" };
   function lang() { try { var l = localStorage.getItem(LKEY); return LANGS[l] ? l : "en"; } catch (e) { return "en"; } }
   function applyLang(l) { var h = d.documentElement; h.lang = l === "en" ? "en" : l; if (l === "en") h.removeAttribute("data-lang"); else h.setAttribute("data-lang", l); }
   window.NB_A11Y = { KEY: KEY, OK: OK, read: read, apply: apply, LKEY: LKEY, LANGS: LANGS, lang: lang,

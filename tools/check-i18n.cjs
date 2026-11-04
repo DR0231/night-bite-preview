@@ -89,6 +89,19 @@ const state = () => {
   const p2 = await c2.newPage(); await p2.goto(B + 'hoover/', { waitUntil: 'networkidle' }); await p2.waitForTimeout(700);
   const fb = await p2.evaluate(state);
   ok('missing key falls back to English (Gear), others Spanish', fb.gear === 'Gear' && fb.nav === 'Especies' && fb.lang === 'es', fb);
+  // every other drafted language (S9b+): applies (html lang, marker, Species nav from its file), facts untouched, no sideways scroll at 390
+  const langs = fs.readdirSync(path.join(__dirname, '..', 'data', 'i18n')).map(f => f.replace(/\.json$/, '')).filter(l => l !== 'en' && l !== 'es');
+  for (const l of langs) {
+    const j = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'i18n', l + '.json'), 'utf8'));
+    const c3 = await br.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block' });
+    await na.block(c3);
+    await c3.addInitScript(v => { try { localStorage.setItem('nb-lang', v); } catch (e) {} }, l);
+    const p3 = await c3.newPage(); const e3 = []; p3.on('pageerror', e => e3.push(e.message));
+    await p3.goto(B + 'hoover/', { waitUntil: 'networkidle' }); await p3.waitForTimeout(700);
+    const st = await p3.evaluate(state);
+    ok(`${l}: applies (lang, marker, nav), facts unchanged, no sideways scroll, no errors`, st.lang === l && /Draft translation/.test(st.marker) && st.nav === j.strings['nav.species'] && st.h1 === en.h1 && st.chip === en.chip && st.ov <= 1 && !e3.length, { st, e3 });
+    await c3.close();
+  }
   await br.close();
   console.log(`check-i18n: ${passes} pass, ${fails} fail`);
   process.exit(fails ? 1 : 0);
