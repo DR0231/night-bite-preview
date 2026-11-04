@@ -108,7 +108,7 @@
   var TAILS = ["Source:", "Live level:"];
   function lookup(t, s, wide) {
     var n = norm(s); if (!n) return null;
-    var r = lookup1(t, n, wide); if (r != null || !wide) return r;
+    var r = lookup1(t, n, wide); if (r == null) r = listT(t, n); if (r != null || !wide) return r;
     // ": The city lists ... Source:" (text between a <time> and a link): peel the joins, translate the middle
     var pre = "", post = "", m0 = n.match(/^([:;,.]\s*)(.+)$/);
     if (m0) { pre = m0[1].trim() + " "; n = m0[2]; }
@@ -120,6 +120,21 @@
     if (pre && !post && !n) return null;
     r = n ? lookup1(t, n, wide) : "";
     return r == null ? null : (pre + r + post).replace(/^\s+/, pre ? "" : "");
+  }
+  // a line the scripts join from parts ("After dark now, SE wind 12 mph, 4% rain chance."): every part must match
+  // a string or pg.* template on its own, or the line stays English; joined with the language's own comma
+  function listT(t, n) {
+    var end = /\.$/.test(n), bits = (end ? n.slice(0, -1) : n).split(", "), out = [];
+    if (bits.length < 2) return null;
+    for (var i = 0; i < bits.length; i++) {
+      var b = bits[i], r = lookup1(t, b, true);
+      if (r == null && i === 0) r = lookup1(t, b.charAt(0).toLowerCase() + b.slice(1), true);
+      if (r == null || r === b) return null;
+      out.push(r);
+    }
+    var cjk = cur === "ja" || cur === "zh", sep = cur === "ja" ? "\u3001" : cur === "zh" ? "\uff0c" : /^(ar|fa|ur)$/.test(cur) ? "\u060c " : ", ";
+    var s = out.join(sep); s = s.charAt(0).toUpperCase() + s.slice(1);
+    return s + (end ? (cjk ? "\u3002" : cur === "hi" ? "\u0964" : cur === "ur" ? "\u06d4" : ".") : "");
   }
   // a captured value: compass words first ("SE"; "NNE" = N + NE), then any exact or page string
   function capT(t, v) {
@@ -157,6 +172,8 @@
       if (out != null) { want = en.match(/^\s*/)[0] + out + en.match(/\s*$/)[0]; orig.set(node, en); node.__nbOut = want; }
       else { want = en; orig.delete(node); }
       if (node.nodeValue !== want) node.nodeValue = want;
+      // scripts that parse this text (the pool line) read the English back from data-en while data-nb-out still matches
+      if (p.id === "correction-line") { if (out != null) { p.setAttribute("data-en", en); p.setAttribute("data-nb-out", p.textContent); } else { p.removeAttribute("data-en"); p.removeAttribute("data-nb-out"); } }
     });
     var els = root.querySelectorAll ? [root].concat([].slice.call(root.querySelectorAll("[" + ATTRS.join("],[") + "]"))) : [];
     els.forEach(function (el) {

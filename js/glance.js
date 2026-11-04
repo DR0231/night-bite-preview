@@ -118,7 +118,7 @@
       state(tempV, "No gauge"); set(tempS, "No public gauge"); cell(tempV, false);
       return;
     }
-    var m = line ? RE.exec(line.textContent || "") : null;
+    var m = line ? RE.exec((line.getAttribute("data-nb-out") === line.textContent && line.getAttribute("data-en") || line.textContent || "")) : null;
     if (m) lastM = m;
     m = m || lastM;
     if (m) { set(poolV, m[1], "ft"); set(poolS, "~" + m[3] + " ft " + m[4] + " full"); cell(poolV, true); }

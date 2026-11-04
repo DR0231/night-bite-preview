@@ -27,7 +27,7 @@
   row.hidden = false;
 
   function $(s, r) { return (r || document).querySelector(s); }
-  function txt(s) { var n = $(s); return n ? n.textContent.replace(/\s+/g, " ").trim() : ""; }
+  function txt(s) { var n = $(s); return n ? ((n.getAttribute("data-nb-out") === n.textContent && n.getAttribute("data-en")) || n.textContent).replace(/\s+/g, " ").trim() : ""; }
   function etNow() {
     try { return new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(new Date()) + " ET"; }
     catch (e) { return new Date().toLocaleString(); }

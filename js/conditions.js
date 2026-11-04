@@ -563,7 +563,7 @@
      gauge water temp, and the pool line and 7 day trend from the pool card. No score and no prediction. */
   function poolBits() {
     var out = [], line = document.getElementById("correction-line");
-    var m = line && /~?\s*([\d.]+)\s*ft\s+(below|above)\s+full pool/i.exec(line.textContent || "");
+    var m = line && /~?\s*([\d.]+)\s*ft\s+(below|above)\s+full pool/i.exec((line.getAttribute("data-nb-out") === line.textContent && line.getAttribute("data-en") || line.textContent || ""));
     if (m) out.push("pool " + m[1] + " ft " + m[2].toLowerCase() + " full");
     var tr = document.getElementById("pool-trend"), w = document.getElementById("pool-trend-word");
     var word = tr && !tr.hidden && w && (w.textContent || "").trim().toLowerCase();
