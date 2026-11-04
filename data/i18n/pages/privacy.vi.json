@@ -5,6 +5,8 @@
   "review": "draft"
  },
  "strings": {
-  "privacy.93ef0dd8": "Theo"
+  "privacy.81c61b31": "localStorage",
+  "privacy.93ef0dd8": "Theo",
+  "privacy.b8316845": "nightbite-log-v1"
  }
 }
