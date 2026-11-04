@@ -5,7 +5,23 @@
   "review": "draft"
  },
  "strings": {
+  "species-bullhead.0929c2dc": "напоминание, проверьте",
+  "species-bullhead.15df0dbb": "Дневной лимит",
+  "species-bullhead.172fe660": "Минимальная длина",
+  "species-bullhead.210d78e9": "Только напоминание. Проверьте на",
+  "species-bullhead.2732b4bc": "и в текущих правилах ODNR, прежде чем оставить рыбу. Источник:",
+  "species-bullhead.306460f2": "картах водоёма",
+  "species-bullhead.3a0a165f": "Напоминание (проверьте 2026–27)",
+  "species-bullhead.525f61b6": "Где",
+  "species-bullhead.61a0ae3b": "Лимиты",
+  "species-bullhead.62255f56": "Сезон",
+  "species-bullhead.6a48c0a8": "Время суток",
+  "species-bullhead.6eef6648": "Нет",
+  "species-bullhead.78e1790e": "Правило",
+  "species-bullhead.7e439c35": "На этой странице",
+  "species-bullhead.80946517": "HuntFish OH / лицензии ODNR",
   "species-bullhead.9e89988c": "С берега",
+  "species-bullhead.ba003615": "ODNR Fishing Regulations 2026–27 (проверьте актуальность)",
   "species-bullhead.ef58de4f": "С лодки"
  }
 }
