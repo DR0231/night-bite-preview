@@ -1071,6 +1071,13 @@ a.sr-only:focus-visible {
 .log-io { margin-top: 0.5rem; }
 .log-io-status { margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; border-left: 3px solid var(--amber); color: var(--cream); }
 html[data-contrast="high"] .log-io-status { border-left-color: currentColor; }
+/* Share a trip (js/community-log.js): queue status line, other ways to send, and the honeypot kept off screen */
+.trip-send-status { margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; border-left: 3px solid var(--amber); color: var(--cream); }
+.trip-send-status[data-state="sending"] { border-left-color: var(--muted); }
+html[data-contrast="high"] .trip-send-status { border-left-color: currentColor; }
+.trip-other { margin: 1rem 0 0; }
+.trip-other-actions { margin-top: 0.5rem; }
+.hp-field { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 
 /* ==========================================================================
    Water maps / access

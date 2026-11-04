@@ -4,6 +4,6 @@
   "main": "worker.js",
   "compatibility_date": "2026-11-01",
   "workers_dev": true,
-  "observability": { "enabled": true },
+  "observability": { "enabled": false },
   "kv_namespaces": [{ "binding": "TRIPS", "id": "d41222451003416fadb2d6f529bea6f8" }]
 }

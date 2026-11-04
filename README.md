@@ -48,7 +48,7 @@ Home · Species · Water · Log · Tournaments · Gear · About
 
 ## Adding a community trip
 
-1. Prefer a GitHub issue via `.github/ISSUE_TEMPLATE/trip-report.yml`, or use the Log page mailto / markdown helper.
+1. Readers use Send for review on the Log (the nb-trip-queue Worker queue, `workers/trip-queue/`). List and approve with `python3 tools/trip-queue.py`; `approve ID --write` adds the trip here. GitHub issues (`.github/ISSUE_TEMPLATE/trip-report.yml`) and the mailto / markdown helper stay as the fallback.
 2. After review, append an object to `data/community-log.json` → `trips` array:
 
 ```json
@@ -94,7 +94,7 @@ Home · Species · Water · Log · Tournaments · Gear · About
 These notes used to sit on the Log page itself; the page now says only "saved on this phone only".
 
 - Community trips load from `data/community-log.json` (`js/community-log.js`). Entries with `"sample": true` are never shown. The Community section stays hidden until a real (non-sample) trip matches the lake filter, and also when the JSON fails to load.
-- Share a trip (folded on the page) builds a mailto draft to `contact@nightbiteoh.com`, or markdown for `.github/ISSUE_TEMPLATE/trip-report.yml`. Text only, public ramp names only. The moderated Worker form replaces this in S7b.
+- Share a trip (folded on the page) sends to the nb-trip-queue Worker (pending until approved; see `workers/trip-queue/README.md` and `tools/trip-queue.py`). If the queue can't be reached, Build email (mailto to `contact@nightbiteoh.com`), Show markdown and GitHub issue stay below it. Text only, public ramp names only.
 - Your trips: `js/log.js`, localStorage `nightbite-log-v1`, user entries only (samples are never stored; `nightbite-samples-seeded-v2` is an old flag that gets removed). Entries without `lake` are Hoover trips. Old Hoover ramp names stay as saved and show as the official names (`spotName` in `js/lakes.js`).
 - Empty states: with no trips the list is hidden, one line says so, and "Add a trip" opens.
 - Backup: "Save a backup" downloads `night-bite-log-YYYY-MM-DD.json` as `{"app":"the-night-bite","kind":"trip-log","version":1,"exported":ISO,"entries":[...]}`. "Open a backup" reads that file, or a bare array (a raw `nightbite-log-v1` copy), with FileReader. Each entry needs a `YYYY-MM-DD` date, a known lake id (missing means `hoover`), string fields only (clipped to the form limits) and at least one of species, spot, bait or notes; samples are dropped. Trips are merged, never replaced: a trip that matches one already saved (same lake, date, spot after the ramp-name mapping, species, bait, keep and notes) is counted as already here. No network. `window.NightBiteLogIO` is the hook `tools/check-log-io.cjs` tests.

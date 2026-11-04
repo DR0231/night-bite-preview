@@ -30,6 +30,7 @@ check-glance, check-glance-fallback (USGS and NWS blocked, and JavaScript off, a
 a visible timestamp), check-bait, check-waters (the lake scope above), check-picker-flow (the water picker and switching
 lakes from the header pill, about 1 minute), check-a11y-settings (Display panel: each setting applies, persists
 after a reload and is set before first paint, at 390 and 1280 on /, hoover/ and species/, about 30 s),
+check-trip-queue (Share a trip: queue down falls back to email/GitHub; a check trip sent for real lands pending, then is rejected and gone; needs /home/box/.nightbite/trip-queue-admin-token)
 check-log-io (Log empty states, no dev notes, backup export, clear, import round trip with an old-format trip, merge
 without duplicates, bad files refused; about 10 s), sweep (every sitemap page).
 Every browser check loads tools/no-analytics.cjs. Against live nothing is written: static checks read the live
@@ -48,8 +49,8 @@ TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
 BUILDS = ["build-lake-pages.py", "build-docks.py", "build-meta.py", "stamp-version.py", "build-updates.py"]
-CHECKS = ["check-meta", "check-radius", "check-hours", "check-ramp-names", "check-docks", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-log-io", "check-night-rules", "sweep"]
-BROWSER = {"check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-log-io", "sweep"}
+CHECKS = ["check-meta", "check-radius", "check-hours", "check-ramp-names", "check-docks", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-log-io", "check-trip-queue", "check-night-rules", "sweep"]
+BROWSER = {"check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-log-io", "check-trip-queue", "sweep"}
 
 ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 ap.add_argument("--target", choices=["preview", "live", "local"], default="preview")
@@ -262,6 +263,7 @@ def cmd_for(name):
         "check-picker-flow": (["node", str(TOOLS / "check-picker-flow.cjs"), base, d], {}),
         "check-a11y-settings": (["node", str(TOOLS / "check-a11y-settings.cjs"), base, d], {}),
         "check-log-io": (["node", str(TOOLS / "check-log-io.cjs"), base, d], {}),
+        "check-trip-queue": (["node", str(TOOLS / "check-trip-queue.cjs"), base, d], {}),
         "sweep": (["node", str(TOOLS / "sweep.cjs"), "--base", base, "--out", d] + (["--shots", a.shots] if a.shots else []), {}),
     }[name]
 

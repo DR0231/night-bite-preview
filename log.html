@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.waterdata.usgs.gov https://waterservices.usgs.gov https://api.weather.gov https://cwms-data.usace.army.mil https://nightbite-visits.nightbiteoh.workers.dev; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.waterdata.usgs.gov https://waterservices.usgs.gov https://api.weather.gov https://cwms-data.usace.army.mil https://nightbite-visits.nightbiteoh.workers.dev https://nb-trip-queue.nightbiteoh.workers.dev; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'self'; upgrade-insecure-requests">
   <meta name="robots" content="noindex,nofollow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -32,9 +32,9 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="js/a11y-boot.js?v=v88-2026-11-03"></script>
-  <link rel="stylesheet" href="css/styles.css?v=v88-2026-11-03">
-  <script src="js/lakes.js?v=v88-2026-11-03"></script>
+  <script src="js/a11y-boot.js?v=v89-2026-11-03"></script>
+  <link rel="stylesheet" href="css/styles.css?v=v89-2026-11-03">
+  <script src="js/lakes.js?v=v89-2026-11-03"></script>
 </head>
 <body>
   <a class="sr-only" href="#main">Skip to content</a>
@@ -192,7 +192,7 @@
     <details class="how-to-read log-fold" id="add-trip">
       <summary>Share a trip</summary>
       <div class="how-to-read-body">
-        <p class="meta">Public ramp and area names only. No secret GPS, no private property. Text notes only, no photos.</p>
+        <p class="meta">Public ramp and area names only. No secret GPS, no private property. Text notes only, no photos. Sent trips wait for review and only go up once they&rsquo;re approved.</p>
         <form class="form-block" id="community-trip-form">
           <div class="form-row">
             <label for="c-date">Date</label>
@@ -263,8 +263,17 @@
             <label for="c-notes">Notes</label>
             <textarea id="c-notes" name="notes" maxlength="500" placeholder="Public-safe notes only…"></textarea>
           </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="c-website">Leave this empty</label>
+            <input type="text" id="c-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
           <div class="form-actions">
-            <button type="submit" class="btn">Build email</button>
+            <button type="submit" class="btn" id="send-trip">Send for review</button>
+          </div>
+          <p class="meta trip-send-status" id="trip-send-status" role="status" aria-live="polite" hidden></p>
+          <p class="meta trip-other">Or send it another way:</p>
+          <div class="form-actions trip-other-actions" id="trip-fallback">
+            <button type="button" class="btn btn-ghost" id="build-email">Build email</button>
             <button type="button" class="btn btn-ghost" id="show-markdown">Show markdown</button>
             <a class="btn btn-ghost" href="https://github.com/DR0231/the-night-bite/issues/new?template=trip-report.yml" target="_blank" rel="noopener">GitHub issue</a>
           </div>
@@ -350,16 +359,16 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js?v=v88-2026-11-03"></script>
-  <script src="js/sw-update.js?v=v88-2026-11-03"></script>
-  <script src="js/alerts.js?v=v88-2026-11-03"></script>
-  <script src="js/nav.js?v=v88-2026-11-03"></script>
-  <script src="js/visits.js?v=v88-2026-11-03"></script>
-  <script src="js/lake-picker.js?v=v88-2026-11-03"></script>
-  <script src="js/log.js?v=v88-2026-11-03"></script>
-  <script src="js/community-log.js?v=v88-2026-11-03"></script>
-  <script src="js/tournaments.js?v=v88-2026-11-03"></script>
-  <script src="js/fold-anchors.js?v=v88-2026-11-03"></script>
-  <script src="js/a11y.js?v=v88-2026-11-03" defer></script>
+  <script src="js/refresh.js?v=v89-2026-11-03"></script>
+  <script src="js/sw-update.js?v=v89-2026-11-03"></script>
+  <script src="js/alerts.js?v=v89-2026-11-03"></script>
+  <script src="js/nav.js?v=v89-2026-11-03"></script>
+  <script src="js/visits.js?v=v89-2026-11-03"></script>
+  <script src="js/lake-picker.js?v=v89-2026-11-03"></script>
+  <script src="js/log.js?v=v89-2026-11-03"></script>
+  <script src="js/community-log.js?v=v89-2026-11-03"></script>
+  <script src="js/tournaments.js?v=v89-2026-11-03"></script>
+  <script src="js/fold-anchors.js?v=v89-2026-11-03"></script>
+  <script src="js/a11y.js?v=v89-2026-11-03" defer></script>
 </body>
 </html>
