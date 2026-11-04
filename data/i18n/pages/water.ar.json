@@ -1,0 +1,25 @@
+{
+ "_meta": {
+  "lang": "ar",
+  "page": "water",
+  "review": "draft"
+ },
+ "strings": {
+  "water.1eee969b": "مقياس USGS مباشر",
+  "water.38c160e3": "Columbus Recreation and Parks, Marinas & Docks",
+  "water.3bbdbfde": "هو منسوب سطح البحيرة بالقدم كما ينشره USGS، وليس عمق أي حفرة أو قناة.",
+  "water.4374aaee": "إلى",
+  "water.44100b3c": "قيم USGS",
+  "water.4e589220": "وقد يُعدَّل.",
+  "water.5175b841": "في البحيرة، لذلك تظهر خانة الحرارة n/a. لا شيء مُقدَّر.",
+  "water.77edd4b4": "لا حد لقوة المحرك",
+  "water.90471ca5": "مؤقت",
+  "water.906ab80c": "هو منسوب سطح البحيرة (ft NGVD29)، وليس عمق أي حفرة أو قناة.",
+  "water.9c69f0c5": "السد",
+  "water.9dcd2c3c": "قوة محرك غير محدودة",
+  "water.a5ff1c64": "الحرارة",
+  "water.d014c690": "أعماق خريطة الصيد من ODNR مبنية على",
+  "water.e420a3cd": "حد 10 hp",
+  "water.f2eb9a7b": "لا يوجد مقياس عام لحرارة الماء"
+ }
+}

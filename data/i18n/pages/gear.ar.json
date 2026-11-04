@@ -1,0 +1,13 @@
+{
+ "_meta": {
+  "lang": "ar",
+  "page": "gear",
+  "review": "draft"
+ },
+ "strings": {
+  "gear.27e90dfa": "عند",
+  "gear.77edd4b4": "لا حد لقوة المحرك",
+  "gear.9dcd2c3c": "قوة محرك غير محدودة",
+  "gear.e420a3cd": "حد 10 hp"
+ }
+}
