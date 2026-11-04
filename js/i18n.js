@@ -6,10 +6,16 @@
  * data-short that equals an English string (or fits a template such as "{time} left") is swapped for the same key in
  * the picked language. A key missing there keeps the English text. Lake names, ramp names, species, levels, rules and
  * regulations are never in the string files, so they always stay as the source publishes them.
+ * Right to left (ar, ur, fa: _meta.dir "rtl"): <html dir="rtl">, {time} values wrapped in Unicode isolates, and the
+ * fact elements in LTR (numbers, lake and ramp names, the rule chip, untranslated options) get dir="ltr" while they hold
+ * no RTL script; any left-to-right language, English included, removes it again.
  */
 (function (d) {
   var SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft";
   var ATTRS = ["placeholder", "aria-label", "data-short", "title"];
+  var LTR = ".glance-value, .glance-sub, .glance-stamp, .lake-pill-name, .night-chip-text, main h1, .site-header option, #add-trip option, #my-trips option, [data-log-filter] option, .i18n-draft-en";
+  var RTLSCRIPT = /[\u0590-\u08ff\ufb1d-\ufdff\ufe70-\ufeff]/;
+  function rtl() { return d.documentElement.dir === "rtl"; }
   var me = d.currentScript, BASE = me ? me.src : location.href;
   var cache = {}, orig = new WeakMap(), attrOrig = new WeakMap(), cur = "en", tbl = null, obs = null, busy = false;
   function load(lang) {
@@ -39,7 +45,7 @@
     for (var i = 0; i < t.tpl.length; i++) {
       var m = n.match(t.tpl[i].re); if (!m) continue;
       var out = t.tr[t.tpl[i].k]; if (out == null) return null;
-      t.tpl[i].names.forEach(function (nm, j) { out = out.split("{" + nm + "}").join(m[j + 1]); });
+      t.tpl[i].names.forEach(function (nm, j) { out = out.split("{" + nm + "}").join(rtl() ? "\u2068" + m[j + 1] + "\u2069" : m[j + 1]); });
       return out;
     }
     return null;
@@ -71,7 +77,16 @@
     });
   }
   function scopes() { return [].slice.call(d.querySelectorAll(SCOPES)); }
-  function run() { if (busy) return; busy = true; try { scopes().forEach(walk); } finally { busy = false; } }
+  // facts stay left to right inside an RTL page (like <bdi dir="ltr">); only elements this file marked are reset
+  function isolate() {
+    var on = rtl();
+    [].slice.call(d.querySelectorAll(LTR + ", [data-nb-ltr]")).forEach(function (el) {
+      var t = el.textContent || "", want = on && norm(t) && !RTLSCRIPT.test(t);
+      if (want && !el.hasAttribute("dir")) { el.setAttribute("dir", "ltr"); el.setAttribute("data-nb-ltr", ""); }
+      else if (!want && el.hasAttribute("data-nb-ltr")) { el.removeAttribute("dir"); el.removeAttribute("data-nb-ltr"); }
+    });
+  }
+  function run() { if (busy) return; busy = true; try { scopes().forEach(walk); isolate(); } finally { busy = false; } }
   function marker(meta) {
     var m = d.getElementById("i18n-draft");
     if (cur === "en") { if (m) m.remove(); return; }
@@ -79,11 +94,14 @@
       m = d.createElement("p"); m.id = "i18n-draft"; m.className = "i18n-draft"; m.setAttribute("role", "note");
       var tag = d.createElement("span"); tag.className = "i18n-draft-tag";
       var txt = d.createElement("span"); txt.className = "i18n-draft-text";
+      var tagEn = d.createElement("span"); tagEn.className = "i18n-draft-en";
+      tag.appendChild(d.createElement("span")).className = "i18n-draft-tr"; tag.appendChild(tagEn);
       m.appendChild(tag); m.appendChild(d.createTextNode(" ")); m.appendChild(txt);
       var main = d.querySelector("main"); if (main) main.insertBefore(m, main.firstChild); else d.body.insertBefore(m, d.body.firstChild);
     }
     // always shows the English words too, so anyone can tell this is a draft
-    m.querySelector(".i18n-draft-tag").textContent = (tbl.tr["i18n.draft"] || "Draft translation") + (tbl.tr["i18n.draft"] ? " (Draft translation)" : "");
+    m.querySelector(".i18n-draft-tr").textContent = tbl.tr["i18n.draft"] ? tbl.tr["i18n.draft"] + " " : "";
+    m.querySelector(".i18n-draft-en").textContent = tbl.tr["i18n.draft"] ? "(Draft translation)" : "Draft translation";
     m.querySelector(".i18n-draft-text").textContent = tbl.tr["i18n.facts_note"] || "";
     m.dataset.review = (meta && meta.review) || "draft";
   }
@@ -92,7 +110,8 @@
     return Promise.all([load("en"), lang === "en" ? null : load(lang)]).then(function (r) {
       cur = lang;
       tbl = build(r[0].strings || {}, (r[1] && r[1].strings) || {});
-      d.documentElement.lang = lang; d.documentElement.dir = (r[1] && r[1]._meta && r[1]._meta.dir) || "ltr";
+      var A = window.NB_A11Y, dir = (r[1] && r[1]._meta && r[1]._meta.dir) || (A && A.RTL && A.RTL[lang] ? "rtl" : "ltr");
+      d.documentElement.lang = lang; d.documentElement.dir = lang === "en" ? "ltr" : dir;
       if (lang === "en") d.documentElement.removeAttribute("data-lang"); else d.documentElement.setAttribute("data-lang", lang);
       marker(r[1] && r[1]._meta);
       run();

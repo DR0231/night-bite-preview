@@ -369,7 +369,7 @@ button, .btn, .site-nav a, .nav-more-btn, .species-subnav a, .gear-sticky-nav a,
   order: 2;
   width: 6px;
   height: 4px;
-  margin-left: 0.4rem;
+  margin-inline-start: 0.4rem;
   background: currentColor;
   clip-path: polygon(0 0, 100% 0, 100% 50%, 66% 50%, 66% 100%, 33% 100%, 33% 50%, 0 50%);
   transition: transform var(--dur) var(--ease);
@@ -381,7 +381,7 @@ button, .btn, .site-nav a, .nav-more-btn, .species-subnav a, .gear-sticky-nav a,
 
 .nav-more-panel {
   position: absolute;
-  right: 0;
+  inset-inline-end: 0;
   top: calc(100% + 0.375rem);
   min-width: 13rem;
   background: var(--navy-mid);
@@ -443,7 +443,7 @@ button, .btn, .site-nav a, .nav-more-btn, .species-subnav a, .gear-sticky-nav a,
     position: fixed;
     top: auto;
     margin-top: 0.375rem;
-    right: max(0.5rem, env(safe-area-inset-right));
+    inset-inline-end: max(0.5rem, env(safe-area-inset-right));
     max-height: 70dvh;
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -457,7 +457,7 @@ button, .btn, .site-nav a, .nav-more-btn, .species-subnav a, .gear-sticky-nav a,
   .site-nav ul { gap: 0; }
   .site-nav a, .nav-more-btn { padding: 0 0.25rem; font-size: 0.75rem; letter-spacing: 0; }
   .site-nav a::after, .nav-more-btn::after { left: 0.25rem; right: 0.25rem; }
-  .nav-more-btn::before { margin-left: 0.25rem; }
+  .nav-more-btn::before { margin-inline-start: 0.25rem; }
 }
 /* 375 to 384px (iPhone mini / SE): 12px wordmark so Species fits beside it */
 @media (max-width: 384px) {
@@ -584,7 +584,7 @@ code {
 .hero-horizon {
   position: relative;
   width: 100vw;
-  margin-left: calc(50% - 50vw);
+  margin-inline-start: calc(50% - 50vw);
   height: 92px;
   margin-bottom: var(--space-lg);
   display: flex;
@@ -619,7 +619,8 @@ code {
 /* Inner pages: a quiet tree-line strip (no moon or dock) heads every page */
 .page-horizon {
   width: 100vw;
-  margin: calc(-1 * var(--space-xs)) 0 var(--space-lg) calc(50% - 50vw);
+  margin: calc(-1 * var(--space-xs)) 0 var(--space-lg);
+  margin-inline-start: calc(50% - 50vw);
   height: 44px;
   background: url("../assets/horizon-thin.png") left top / 480px 44px repeat-x;
   image-rendering: pixelated;
@@ -997,7 +998,7 @@ a.sr-only:focus,
 a.sr-only:focus-visible {
   position: fixed;
   top: max(0.5rem, env(safe-area-inset-top));
-  left: max(0.5rem, env(safe-area-inset-left));
+  inset-inline-start: max(0.5rem, env(safe-area-inset-left));
   width: auto;
   height: auto;
   margin: 0;
@@ -1018,7 +1019,7 @@ a.sr-only:focus-visible {
   width: 32px;   /* 16px sprite at 2x — whole-number scale */
   height: 32px;
   image-rendering: pixelated;
-  margin-right: var(--space-xs, 0.5rem);
+  margin-inline-end: var(--space-xs, 0.5rem);
 }
 /* Species page mark: 16px fish at 3x beside the h1 */
 .species-title { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
@@ -1077,12 +1078,12 @@ a.sr-only:focus-visible {
 .log-fold { margin-top: 0.75rem; }
 .log-fold .form-block { margin-top: 0.25rem; }
 .log-io { margin-top: 0.5rem; }
-.log-io-status { margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; border-left: 3px solid var(--amber); color: var(--cream); }
-html[data-contrast="high"] .log-io-status { border-left-color: currentColor; }
+.log-io-status { margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; border-inline-start: 3px solid var(--amber); color: var(--cream); }
+html[data-contrast="high"] .log-io-status { border-inline-start-color: currentColor; }
 /* Share a trip (js/community-log.js): queue status line, other ways to send, and the honeypot kept off screen */
-.trip-send-status { margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; border-left: 3px solid var(--amber); color: var(--cream); }
-.trip-send-status[data-state="sending"] { border-left-color: var(--muted); }
-html[data-contrast="high"] .trip-send-status { border-left-color: currentColor; }
+.trip-send-status { margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; border-inline-start: 3px solid var(--amber); color: var(--cream); }
+.trip-send-status[data-state="sending"] { border-inline-start-color: var(--muted); }
+html[data-contrast="high"] .trip-send-status { border-inline-start-color: currentColor; }
 .trip-other { margin: 1rem 0 0; }
 .trip-other-actions { margin-top: 0.5rem; }
 .hp-field { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
@@ -2580,7 +2581,7 @@ html:not([data-lake]) [data-lakes]:not([data-lakes~="hoover"]) { display: none !
 .lake-pill {
   position: absolute;
   top: calc(50% - 0.5rem);
-  left: calc(max(1rem, env(safe-area-inset-left)) + 24px + 0.625rem);
+  inset-inline-start: calc(max(1rem, env(safe-area-inset-left)) + 24px + 0.625rem);
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -2636,19 +2637,19 @@ html:not([data-lake]) [data-lakes]:not([data-lakes~="hoover"]) { display: none !
 .lake-pill:hover .lake-pill-label, .lake-pill[aria-expanded="true"] .lake-pill-label { color: var(--cream); }
 .lake-pill:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius); }
 @media (max-width: 440px) {
-  .lake-pill { left: calc(max(0.75rem, env(safe-area-inset-left)) + 24px + 0.5rem); }
+  .lake-pill { inset-inline-start: calc(max(0.75rem, env(safe-area-inset-left)) + 24px + 0.5rem); }
   .lake-pill-label { letter-spacing: 0.02em; }
   .lake-pill-chip { gap: 0.25rem; padding: 0 0.3125rem 0 0.25rem; letter-spacing: 0; }
 }
 @media (max-width: 384px) {
-  .lake-pill { left: calc(max(0.75rem, env(safe-area-inset-left)) + 24px + 0.375rem); }
+  .lake-pill { inset-inline-start: calc(max(0.75rem, env(safe-area-inset-left)) + 24px + 0.375rem); }
 }
 /* narrowest phones: the wordmark is hidden, so label + pill hang as a tab under the lantern */
 @media (max-width: 374px) {
   :root { --header-h: 3.5rem; }
   .logo-text { transform: none; }
   .lake-pill {
-    top: calc(100% - 1px); left: max(0.5rem, env(safe-area-inset-left));
+    top: calc(100% - 1px); inset-inline-start: max(0.5rem, env(safe-area-inset-left));
     padding: 0.25rem 0.375rem 0.3125rem;
     background: rgb(var(--navy-rgb) / 0.94);
     border: 1px solid var(--hairline); border-top: 0;
@@ -2960,16 +2961,17 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
   flex-direction: column;
   gap: 0.375rem;
   min-width: 0;
-  padding: var(--space-sm) var(--space-sm) var(--space-sm) 0;
+  padding-block: var(--space-sm);
+  padding-inline: 0 var(--space-sm);
   text-decoration: none;
   color: inherit;
   transition: background-color var(--dur) var(--ease);
 }
-.glance-grid .glance-cell:nth-child(even) { padding-left: var(--space-sm); box-shadow: inset 1px 0 0 var(--navy-light); }
+.glance-grid .glance-cell:nth-child(even) { padding-inline-start: var(--space-sm); box-shadow: inset 1px 0 0 var(--navy-light); }
 .glance-grid .glance-cell:nth-child(n+3) { border-top: 1px solid var(--navy-light); }
 @media (min-width: 600px) {
   .glance-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); --glance-cols: 4; }
-  .glance-grid .glance-cell:nth-child(n+2) { padding-left: var(--space-sm); box-shadow: inset 1px 0 0 var(--navy-light); }
+  .glance-grid .glance-cell:nth-child(n+2) { padding-inline-start: var(--space-sm); box-shadow: inset 1px 0 0 var(--navy-light); }
   .glance-grid .glance-cell:nth-child(n+3) { border-top: 0; }
 }
 a.glance-cell[href]:hover { background: var(--navy-mid); color: inherit; }
@@ -3041,7 +3043,7 @@ a.glance-cell[href]:hover { background: var(--navy-mid); color: inherit; }
 .glance-bite .glance-value.glance-state { font-size: var(--text-label); align-items: center; }
 .glance-cell[data-empty] .glance-value.glance-state { color: var(--cream-dark); }
 .glance-head { flex-wrap: wrap; row-gap: 0; }
-.glance-head .glance-bite { margin-left: auto; min-height: 44px; margin-block: -6px; justify-content: center; }   /* 44px target, head stays 32px */
+.glance-head .glance-bite { margin-inline-start: auto; min-height: 44px; margin-block: -6px; justify-content: center; }   /* 44px target, head stays 32px */
 /* when the level and temp were read: the stamped snapshot ("Level last checked Nov. 2, 5 PM ET"), turned into
    "last updated X hours ago" by js/glance.js; two lines of room so it never moves the page as it changes */
 .glance-stamp {
@@ -3356,10 +3358,10 @@ html.nb-show-drafts .update.is-draft { display: block; border-left-style: dashed
 .site-nav a.is-new::before, .footer-inner a.is-new::before {
   content: ""; position: absolute; width: 6px; height: 6px; background: var(--amber); pointer-events: none;
 }
-.site-nav a.is-new::before { top: 10px; right: 0; }
-.site-nav .nav-more-panel a.is-new::before { top: 50%; right: 0.75rem; margin-top: -3px; }
+.site-nav a.is-new::before { top: 10px; inset-inline-end: 0; }
+.site-nav .nav-more-panel a.is-new::before { top: 50%; inset-inline-end: 0.75rem; margin-top: -3px; }
 .footer-inner a.is-new { position: relative; }
-.footer-inner a.is-new::before { top: 12px; right: 0; }
+.footer-inner a.is-new::before { top: 12px; inset-inline-end: 0; }
 .nav-more-btn.has-new {
   background-image: linear-gradient(var(--amber), var(--amber));
   background-size: 6px 6px; background-repeat: no-repeat; background-position: right 0 top 10px;
@@ -4012,7 +4014,7 @@ p.meta > a:only-child { padding-block: 0.75rem; }
 .nav-more-panel .a11y-open {
   display: flex; align-items: center; width: 100%; min-height: 44px; padding: 0 0.875rem;
   font: inherit; font-family: var(--font-display); font-variant-ligatures: none; font-size: 0.875rem; letter-spacing: 0.03em;
-  color: var(--cream-dark); background: transparent; border: 0; border-radius: var(--radius); cursor: pointer; text-align: left;
+  color: var(--cream-dark); background: transparent; border: 0; border-radius: var(--radius); cursor: pointer; text-align: start;
   border-top: 1px solid var(--navy-light); margin-top: 0.25rem;
 }
 .nav-more-panel .a11y-open:hover { color: var(--amber); background: var(--navy-light); }
@@ -4051,16 +4053,16 @@ p.meta > a:only-child { padding-block: 0.75rem; }
 .a11y-toggle { display: flex; align-items: center; gap: 0.75rem; min-height: 44px; cursor: pointer; }
 .a11y-toggle input { width: 1.375rem; height: 1.375rem; accent-color: var(--amber); flex: none; margin: 0; }
 .a11y-toggle input:disabled + .a11y-toggle-text { opacity: 0.75; }
-.a11y-note, .a11y-saved { margin: 0; font-size: var(--text-sm); color: var(--muted); padding-left: 2.125rem; }
-.a11y-saved { padding-left: 0; }
+.a11y-note, .a11y-saved { margin: 0; font-size: var(--text-sm); color: var(--muted); padding-inline-start: 2.125rem; }
+.a11y-saved { padding-inline-start: 0; }
 /* Language (S9; js/i18n.js). A native select in the Display panel, a footer entry point and a draft marker */
 .a11y-lang { gap: var(--space-xs); }
 .a11y-lang-label { font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-sm); color: var(--cream); }
 .a11y-lang select { min-height: 44px; width: 100%; padding: 0 0.75rem; font: inherit; font-family: var(--font-body);
   color: var(--cream); background: var(--navy); border: 1px solid var(--navy-light); border-radius: var(--radius); }
 .a11y-lang select:hover { border-color: var(--muted); }
-.a11y-lang .a11y-note { padding-left: 0; }
-.site-footer .lang-globe { display: inline-block; width: 0.8em; height: 0.8em; margin-right: 0.35em; vertical-align: -0.05em;
+.a11y-lang .a11y-note { padding-inline-start: 0; }
+.site-footer .lang-globe { display: inline-block; width: 0.8em; height: 0.8em; margin-inline-end: 0.35em; vertical-align: -0.05em;
   border: 2px solid currentColor; border-radius: var(--radius-pill);
   background: linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat, linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat; }
 .i18n-draft { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem;
@@ -4072,6 +4074,23 @@ html[data-contrast="more"] .i18n-draft, html[data-contrast="more"] .a11y-lang se
 /* Scripts the three site fonts don't cover use the phone's own font */
 html:is([lang|="zh"], [lang|="ko"], [lang|="ja"], [lang|="ar"], [lang|="fa"], [lang|="ur"], [lang|="hi"], [lang|="ru"]) {
   --font-display: system-ui, sans-serif; --font-heading: system-ui, sans-serif; --font-body: system-ui, sans-serif; }
+/* Translated labels run longer than English (Fischarten, Attrezzatura): on phones the nav row tightens to 11px with
+   3px side padding so Home, Species, Lake, Gear and More still fit beside the lantern at 375 to 440px; a label that
+   still won't fit ends in an ellipsis rather than pushing the page sideways. English is untouched. */
+@media (max-width: 440px) {
+  html[data-lang] .site-nav a, html[data-lang] .nav-more-btn { font-size: 0.6875rem; padding: 0 0.1875rem; }
+  html[data-lang] .site-nav { min-width: 0; }
+  html[data-lang] .site-nav > ul > li { min-width: 0; flex: 0 1 auto; }
+  html[data-lang] .site-nav a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* the "Choose a lake" label stays inside the wordmark's width so it never runs under the first nav item */
+  html[data-lang] .lake-pill-label { max-width: 5.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; letter-spacing: 0; }
+}
+/* Right to left (S9c: ar, ur, fa; js/a11y-boot.js sets <html dir> before paint). The chrome above uses logical
+   properties, so it mirrors by itself; these cover what logical properties can't (inset box-shadow dividers).
+   Facts (numbers, lake and ramp names, the rule chip) get dir="ltr" from js/i18n.js and keep the RTL edge. */
+html[dir="rtl"] .glance-grid .glance-cell:nth-child(even) { box-shadow: inset -1px 0 0 var(--navy-light); }
+@media (min-width: 600px) { html[dir="rtl"] .glance-grid .glance-cell:nth-child(n+2) { box-shadow: inset -1px 0 0 var(--navy-light); } }
+:where(html[dir="rtl"] [data-nb-ltr]) { text-align: end; }
 .a11y-actions { display: flex; gap: var(--space-xs); justify-content: flex-end; flex-wrap: wrap; }
 .a11y-actions .btn { min-height: 44px; }
 /* Large and XL on phones: the header row keeps a readable fixed size (system font) and the wordmark goes to
@@ -4136,7 +4155,7 @@ html[data-contrast="more"] .night-chip { border-color: var(--amber); background:
 .info-tip { margin: var(--space-sm) 0; max-width: var(--measure); font-size: var(--text-sm); color: var(--muted); }
 .info-tip > summary {
   list-style: none; display: inline-flex; align-items: center; justify-content: center;
-  min-width: 44px; min-height: 44px; margin-left: -0.75rem; cursor: pointer; border-radius: var(--radius);
+  min-width: 44px; min-height: 44px; margin-inline-start: -0.75rem; cursor: pointer; border-radius: var(--radius);
 }
 .info-tip > summary::-webkit-details-marker { display: none; }
 .info-i {

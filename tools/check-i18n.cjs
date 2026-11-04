@@ -7,7 +7,12 @@
  * by js/a11y-boot.js before any page script). A string file missing a key falls back to English for that key only.
  * Log in Spanish: form labels and placeholders swap, species and ramp options stay English. Red light and high contrast:
  * the marker stays readable (>= 4.5:1). Back to English: everything restores and nb-lang is cleared. No sideways scroll,
- * no page errors. Prints PASS/FAIL lines; exit 1 on any FAIL. Analytics blocked (tools/no-analytics.cjs).
+ * no page errors. Every other drafted language applies at 390 with the right html dir. RTL (ar, then ur and fa):
+ * dir="rtl" from the panel and kept on reload before page scripts, no sideways scroll at 390 on hoover/ and log, the
+ * header still fits (logo, lake pill and nav inside the row, nothing overlapping), Display panel and marker inside the
+ * viewport, the rule chip, glance numbers and English options marked dir="ltr", and switching to a left-to-right
+ * language or back to English resets dir="ltr" with no leftover marks. Prints PASS/FAIL lines; exit 1 on any FAIL.
+ * Analytics blocked (tools/no-analytics.cjs).
  */
 const fs = require('fs'), path = require('path'), os = require('os');
 const PW = process.env.PLAYWRIGHT_CORE || '/usr/local/lib/pnpm/5/.pnpm/playwright-core@1.59.1/node_modules/playwright-core';
@@ -24,10 +29,10 @@ function ok(name, cond, info) {
 const state = () => {
   const q = s => document.querySelector(s), t = s => ((q(s) || {}).textContent || '').replace(/\s+/g, ' ').trim();
   const m = q('#i18n-draft');
-  return { lang: document.documentElement.lang, store: localStorage.getItem('nb-lang'), marker: m && m.offsetParent ? m.textContent : '',
+  return { lang: document.documentElement.lang, dir: document.documentElement.dir || 'ltr', store: localStorage.getItem('nb-lang'), marker: m && m.offsetParent ? m.textContent : '',
     nav: t('.site-nav a[href="species/"]'), glance: t('#glance-title'), level: t('.glance-cell[data-cell="pool"] .glance-label'),
     poolVal: t('[data-glance="pool"]'), h1: t('main h1'), chip: t('.night-chip-text'), foot: t('.site-footer a[href="privacy"]'),
-    gear: t('.site-nav a[href="gear"]'), ov: document.documentElement.scrollWidth - innerWidth };
+    gear: t('.site-nav a[href="gear"]'), ov: document.documentElement.scrollWidth - 390 };
 };
 (async () => {
   const br = await chromium.launch({ executablePath: '/usr/bin/google-chrome', args: na.args() });
@@ -70,7 +75,7 @@ const state = () => {
   await p.goto(B + 'log', { waitUntil: 'networkidle' }); await p.waitForTimeout(600);
   const lg = await p.evaluate(() => ({ sum: (document.querySelector('#add-private summary') || {}).textContent, date: (document.querySelector('label[for="date"]') || {}).textContent,
     ph: (document.querySelector('#trip-form textarea') || {}).placeholder, opts: [...document.querySelectorAll('#trip-form option')].map(o => o.textContent).join('|'),
-    ov: document.documentElement.scrollWidth - innerWidth }));
+    ov: document.documentElement.scrollWidth - 390 }));
   ok('log es: form labels and placeholder in Spanish', lg.sum === 'Añadir una salida' && lg.date === 'Fecha' && /Tiempo, luna/.test(lg.ph || ''), lg);
   ok('log es: species and ramp options stay English', /Walleye/.test(lg.opts) && /Walnut Street ramp/.test(lg.opts) && /Channel catfish/.test(lg.opts), lg.opts.slice(0, 300));
   ok('log es: no sideways scroll', lg.ov <= 1, lg.ov);
@@ -89,6 +94,16 @@ const state = () => {
   const p2 = await c2.newPage(); await p2.goto(B + 'hoover/', { waitUntil: 'networkidle' }); await p2.waitForTimeout(700);
   const fb = await p2.evaluate(state);
   ok('missing key falls back to English (Gear), others Spanish', fb.gear === 'Gear' && fb.nav === 'Especies' && fb.lang === 'es', fb);
+  // header fit at 390: logo, lake pill and nav inside the row, nav on one row, nothing overlapping (S9c)
+  const fit = () => {
+    const W = 390, r = el => el && el.getBoundingClientRect(), inV = b => b && b.width > 0 && b.left >= -1 && b.right <= W + 1;
+    const hdr = document.querySelector('.header-inner'), logo = r(document.querySelector('.logo')), pill = r(document.querySelector('.lake-pill'));
+    const nav = [...document.querySelectorAll('.site-nav > ul > li')].filter(li => li.offsetParent).map(r);
+    const over = (a, b) => a && b && a.left < b.right - 1 && b.left < a.right - 1 && a.top < b.bottom - 1 && b.top < a.bottom - 1;
+    return { hdrOv: hdr.scrollWidth - hdr.clientWidth, logo: inV(logo), pill: inV(pill), nav: nav.length && nav.every(inV),
+      navHitsLogo: nav.some(b => over(b, logo)), navHitsPill: nav.some(b => over(b, pill)), oneRow: nav.every(b => Math.abs(b.top - nav[0].top) < 4),
+      ov: document.documentElement.scrollWidth - 390 };
+  };
   // every other drafted language (S9b+): applies (html lang, marker, Species nav from its file), facts untouched, no sideways scroll at 390
   const langs = fs.readdirSync(path.join(__dirname, '..', 'data', 'i18n')).map(f => f.replace(/\.json$/, '')).filter(l => l !== 'en' && l !== 'es');
   for (const l of langs) {
@@ -98,10 +113,58 @@ const state = () => {
     await c3.addInitScript(v => { try { localStorage.setItem('nb-lang', v); } catch (e) {} }, l);
     const p3 = await c3.newPage(); const e3 = []; p3.on('pageerror', e => e3.push(e.message));
     await p3.goto(B + 'hoover/', { waitUntil: 'networkidle' }); await p3.waitForTimeout(700);
-    const st = await p3.evaluate(state);
-    ok(`${l}: applies (lang, marker, nav), facts unchanged, no sideways scroll, no errors`, st.lang === l && /Draft translation/.test(st.marker) && st.nav === j.strings['nav.species'] && st.h1 === en.h1 && st.chip === en.chip && st.ov <= 1 && !e3.length, { st, e3 });
+    const st = await p3.evaluate(state), f3 = await p3.evaluate(fit);
+    ok(`${l}: applies (lang, dir ${(j._meta && j._meta.dir) || 'ltr'}, marker, nav), facts unchanged, no sideways scroll, no errors`, st.lang === l && st.dir === ((j._meta && j._meta.dir) || 'ltr') && /Draft translation/.test(st.marker) && st.nav === j.strings['nav.species'] && st.h1 === en.h1 && st.chip === en.chip && st.ov <= 1 && !e3.length, { st, e3 });
+    ok(`${l}: header fits at 390 (logo, lake pill, nav in view, one row, no overlap)`, f3.ov <= 1 && f3.hdrOv <= 1 && f3.logo && f3.pill && f3.nav && f3.oneRow && !f3.navHitsLogo && !f3.navHitsPill, f3);
     await c3.close();
   }
+  // RTL (S9c): Arabic from the panel, then reload, header fit, panel, Log, and back to LTR
+  const marks = () => ({ chip: (document.querySelector('.night-chip-text') || {}).dir, pool: (document.querySelector('[data-glance="pool"]') || {}).dir,
+    h1: (document.querySelector('main h1') || {}).dir, left: [...document.querySelectorAll('[data-nb-ltr]')].length });
+  const c4 = await br.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block' });
+  await na.block(c4);
+  const p4 = await c4.newPage(); const e4 = []; p4.on('pageerror', e => e4.push(e.message));
+  await p4.goto(B + 'hoover/', { waitUntil: 'networkidle' }); await p4.waitForTimeout(400);
+  const enFit = await p4.evaluate(fit);
+  await p4.locator('.site-footer [data-lang-open]').click(); await p4.waitForTimeout(300);
+  await p4.selectOption('#a11y-lang', 'ar'); await p4.waitForTimeout(800);
+  const panel = await p4.evaluate(() => { const b = document.querySelector('.a11y-panel').getBoundingClientRect(), s = document.querySelector('#a11y-lang').getBoundingClientRect();
+    return { dir: document.documentElement.dir, inV: b.left >= -1 && b.right <= 391 && s.left >= b.left - 1 && s.right <= b.right + 1, ov: document.documentElement.scrollWidth - 390 }; });
+  ok('ar: picking it sets html dir="rtl"; Display panel and its select fit at 390', panel.dir === 'rtl' && panel.inV && panel.ov <= 1, panel);
+  await p4.keyboard.press('Escape'); await p4.waitForTimeout(200);
+  await p4.reload({ waitUntil: 'load' });
+  const earlyDir = await p4.evaluate(() => document.documentElement.dir);
+  await p4.waitForLoadState('networkidle'); await p4.waitForTimeout(700);
+  const ar = await p4.evaluate(state), arFit = await p4.evaluate(fit), arMk = await p4.evaluate(marks);
+  ok('ar: dir="rtl" kept on reload, set before page scripts', earlyDir === 'rtl' && ar.dir === 'rtl' && ar.lang === 'ar' && ar.store === 'ar', { earlyDir, ar });
+  ok('ar: no sideways scroll at 390 (hoover/)', arFit.ov <= 1, arFit);
+  ok('ar: header still fits (logo, lake pill, nav in view, one row, no overlap)', arFit.hdrOv <= 1 && arFit.logo && arFit.pill && arFit.nav && arFit.oneRow && !arFit.navHitsLogo && !arFit.navHitsPill, { arFit, enFit });
+  ok('ar: Draft translation marker in view, nav in Arabic', /Draft translation/.test(ar.marker) && ar.nav === 'الأنواع', ar);
+  ok('ar: rule chip, level number and lake name unchanged and marked dir="ltr"', ar.chip === en.chip && ar.poolVal === en.poolVal && ar.h1 === en.h1 && arMk.chip === 'ltr' && arMk.pool === 'ltr' && arMk.h1 === 'ltr', { ar, arMk });
+  await p4.goto(B + 'log', { waitUntil: 'networkidle' }); await p4.waitForTimeout(700);
+  const alog = await p4.evaluate(() => { const o = [...document.querySelectorAll('#trip-form option')]; const w = o.find(x => /Walleye/.test(x.textContent));
+    return { dir: document.documentElement.dir, date: (document.querySelector('label[for="date"]') || {}).textContent, wdir: w && w.dir,
+      ov: document.documentElement.scrollWidth - 390, formIn: (() => { const b = document.querySelector('#trip-form').getBoundingClientRect(); return b.left >= -1 && b.right <= 391; })() }; });
+  ok('log ar: dir rtl, labels in Arabic, species option marked dir="ltr", form in view, no sideways scroll', alog.dir === 'rtl' && alog.date === 'التاريخ' && alog.wdir === 'ltr' && alog.formIn && alog.ov <= 1, alog);
+  // to a left-to-right language: dir resets, no leftover ltr marks
+  await p4.goto(B + 'hoover/', { waitUntil: 'networkidle' }); await p4.waitForTimeout(500);
+  await p4.locator('.site-footer [data-lang-open]').click(); await p4.waitForTimeout(300);
+  await p4.selectOption('#a11y-lang', 'fr'); await p4.waitForTimeout(800); await p4.keyboard.press('Escape');
+  const fr = await p4.evaluate(state), frMk = await p4.evaluate(marks);
+  ok('ar to fr: html dir="ltr", no leftover dir marks', fr.dir === 'ltr' && fr.lang === 'fr' && frMk.left === 0 && !frMk.chip, { fr, frMk });
+  for (const l of ['ur', 'fa']) {
+    await p4.locator('.site-footer [data-lang-open]').click(); await p4.waitForTimeout(300);
+    await p4.selectOption('#a11y-lang', l); await p4.waitForTimeout(800); await p4.keyboard.press('Escape');
+    const s4 = await p4.evaluate(state), f4 = await p4.evaluate(fit), m4 = await p4.evaluate(marks);
+    ok(`${l}: dir="rtl", header fits, no sideways scroll, chip marked ltr`, s4.dir === 'rtl' && s4.lang === l && f4.ov <= 1 && f4.hdrOv <= 1 && f4.nav && f4.logo && f4.pill && !f4.navHitsLogo && !f4.navHitsPill && m4.chip === 'ltr', { s4, f4, m4 });
+  }
+  await p4.locator('.site-footer [data-lang-open]').click(); await p4.waitForTimeout(300);
+  await p4.selectOption('#a11y-lang', 'en'); await p4.waitForTimeout(700); await p4.keyboard.press('Escape');
+  const b4 = await p4.evaluate(state), bm = await p4.evaluate(marks);
+  await p4.reload({ waitUntil: 'networkidle' }); const b5 = await p4.evaluate(state);
+  ok('RTL back to English: dir="ltr", marks gone, nb-lang cleared, still ltr after reload', b4.dir === 'ltr' && b4.lang === 'en' && bm.left === 0 && !b4.store && b5.dir === 'ltr' && b5.lang === 'en', { b4, bm, b5 });
+  ok('RTL run: no page errors', !e4.length, e4);
+  await c4.close();
   await br.close();
   console.log(`check-i18n: ${passes} pass, ${fails} fail`);
   process.exit(fails ? 1 : 0);
