@@ -8,7 +8,9 @@
   "ice.000b98e8": "Oficina de Lake Logan State Park:",
   "ice.1092dd58": "Oficina de Burr Oak State Park:",
   "ice.2cda21fd": "ODNR, Clear Fork Reservoir Fishing Area",
+  "ice.2e996862": "Oficina de Pymatuning State Park:",
   "ice.31074a64": "City of Mansfield, Clearfork Reservoir Park",
+  "ice.33c5bee0": "Oficina de Salt Fork State Park:",
   "ice.33e42ccc": "ODNR, Dillon Lake Fishing Area",
   "ice.35ddda02": "ODNR, Dillon State Park",
   "ice.38c160e3": "Columbus Recreation and Parks, Marinas & Docks",
@@ -22,6 +24,7 @@
   "ice.94fc17ee": "ODNR, Berlin Lake Fishing Area",
   "ice.9516ff11": "ODNR, Pymatuning State Park",
   "ice.95fe51e2": "Oficina de Alum Creek State Park:",
+  "ice.97db8149": "ODNR, descensos de invierno en los lagos de los parques estatales de Ohio",
   "ice.9d142bc6": "ODNR, Deer Creek State Park",
   "ice.9e24e097": "ODNR, Seneca Lake Fishing Area",
   "ice.a065743c": "Oficina de Buckeye Lake State Park:",
@@ -30,6 +33,7 @@
   "ice.aa69aa56": "Oficina de Deer Creek State Park:",
   "ice.ae1078ef": "ODNR, Lake Milton State Park",
   "ice.b290a95d": "ODNR, Buckeye Lake State Park",
+  "ice.b615c226": "Oficina de Strouds Run State Park:",
   "ice.b9a051f7": "Oficina de Indian Lake State Park:",
   "ice.bd2d60bc": "ODNR, Knox Lake Fishing Area",
   "ice.c9b670ad": "Oficina de Dillon State Park:",
@@ -37,11 +41,13 @@
   "ice.d8787ccb": "Oficina de Mosquito Lake State Park:",
   "ice.d9205da3": "ODNR, Mosquito Lake State Park",
   "ice.df3e26fb": "ODNR, Delaware State Park",
+  "ice.e0223fef": ". Revisado el",
   "ice.e1d6645b": "(lun a jue, 8 am a 5 pm)",
   "ice.e659157e": "ODNR, Alum Creek State Park",
   "ice.e7d6f281": "ODNR, Indian Lake State Park",
   "ice.eecaaadb": "ODNR, West Branch State Park",
   "ice.f06965a7": "ODNR, Lake Logan State Park",
-  "ice.f6dd0ceb": "(lun a vie, 8 am a 4:30 pm)"
+  "ice.f6dd0ceb": "(lun a vie, 8 am a 4:30 pm)",
+  "ice.f74255e7": "Oficina del parque (en Deer Creek State Park):"
  }
 }
