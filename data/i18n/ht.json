@@ -4,6 +4,7 @@
   "name": "Kreyòl ayisyen",
   "review": "draft",
   "pages": [
+   "404",
    "about",
    "alum",
    "berlin",
@@ -17,6 +18,7 @@
    "gear",
    "griggs",
    "hoover",
+   "ice",
    "index",
    "indian",
    "knox",
@@ -25,11 +27,14 @@
    "madison",
    "milton",
    "mosquito",
+   "offline",
    "oshaughnessy",
+   "privacy",
    "pymatuning",
    "saltfork",
    "seneca",
    "species",
+   "stocking",
    "water",
    "westbranch"
   ]
