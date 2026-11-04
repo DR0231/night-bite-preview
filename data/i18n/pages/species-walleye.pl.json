@@ -6,7 +6,16 @@
  },
  "strings": {
   "species-walleye.143fa4c4": "Walleye",
+  "species-walleye.18e1e6b6": "Wymieniony na stronie Indian Lake State Park od ODNR. Obowiązuje wspólny limit walleye, saugeye i sauger.",
+  "species-walleye.507a9068": "Zarybiany przez ODNR w Pymatuning w większość lat (293,132 narybku w 2025; brak wpisu dla 2023). Zasady Pymatuning: 6 dziennie, minimum 15″.",
+  "species-walleye.694cca65": "Zarybiany przez ODNR w Berlin Lake co roku (404,931 narybku w 2025, plus wylęg). Tutaj minimum 15″.",
+  "species-walleye.6d372800": "Zarybiany przez ODNR w Mosquito Creek Lake co roku (883,376 narybku w 2025, plus wylęg). Tutaj minimum 15″.",
   "species-walleye.9e89988c": "Brzeg",
-  "species-walleye.ef58de4f": "Łódź"
+  "species-walleye.a2528e44": "Zarybiany przez ODNR w Lake Milton co roku (254,873 narybku w 2025). Tutaj minimum 15″.",
+  "species-walleye.ba003615": "Przepisy wędkarskie ODNR 2026–27 (sprawdź aktualne)",
+  "species-walleye.c482e8b2": "Wpuszczone w 2019 w ramach badania porównawczego z saugeye. Są tu dzięki zarybieniu, więc nie zakładaj dużej dzikiej populacji.",
+  "species-walleye.e3ddf4a3": "Strona Salt Fork State Park od ODNR podaje spore populacje walleye.",
+  "species-walleye.ef58de4f": "Łódź",
+  "species-walleye.f94a4db0": "Zarybiany przez ODNR w West Branch w większość lat (264,996 narybku w 2025; brak wpisu dla 2023). Tutaj minimum 15″."
  }
 }
