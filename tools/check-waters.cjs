@@ -97,8 +97,12 @@ const PAGES = IDS.flatMap(l => [home(l), ...['water', 'stocking', 'gear', 'ice',
           const main = q('main') || document.body;
           const own = h => /^https:\/\/(nightbiteoh\.com|dr0231\.github\.io)\b/.test(h);
           const srcA = a => (/^https?:/.test(a.href) && !own(a.href)) || /^(\.\.\/)?(stocking|water|species\/[a-z-]+|[a-z-]+)(\?lake=[a-z]+)?(#[\w-]+)?$|^#[\w-]+$/.test(a.getAttribute('href'));
+          // user-entry boxes (forms and their inputs, the private trip list marked data-user-entry) hold what the reader types,
+          // not lake data, so their digits don't make a block need a source; everything else in the block still counts
+          const dataText = b => { const c = b.cloneNode(true); c.querySelectorAll('form, input, select, textarea, [data-user-entry]').forEach(x => x.remove());
+            if (b.matches('form, [data-user-entry]')) return ''; return c.textContent; };
           const blocks = [...main.querySelectorAll('.card, .how-to-read, .data-glance, .glance-cell, section.lake-section, .stock-lake, .rules-card')]
-            .filter(vis).filter(b => /\d/.test(b.innerText) && !b.closest('nav'))
+            .filter(vis).filter(b => /\d/.test(dataText(b)) && !b.closest('nav'))
             .filter(b => !b.querySelector('.card, .how-to-read'))
             .filter(b => !/^\/gear/.test(location.pathname.replace(/^\/night-bite-preview/, '')) || b.closest('[data-for]'))   // gear kits are general tackle, not lake data
             .map(b => { const own2 = [b, ...b.querySelectorAll('a[href]')].filter(a => a.matches('a[href]'));
