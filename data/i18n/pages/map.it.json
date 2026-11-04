@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "lang": "it",
+  "page": "map",
+  "review": "draft"
+ },
+ "strings": {
+  "map.0ffb0d56": "Accesso per barche a mano",
+  "map.22e4fa67": "Accesso da riva",
+  "map.6767bccf": "Senza scia entro 300 ft da qualsiasi terra e nelle zone segnalate (carta di pesca ODNR). Controlla gli orari affissi del parco statale prima di un’uscita notturna. Linea di costa tracciata da OpenStreetMap, non per la navigazione.",
+  "map.980a70c0": "Scivolo per kayak",
+  "map.b68e49a3": "Porticciolo",
+  "map.ca05721d": "Pontile da pesca, accesso da riva",
+  "map.dafc20cf": "Lato sud del lago.",
+  "map.dd7633ff": "Parco statale di Alum Creek e terreni del Corps of Engineers: controlla orari e regole affissi prima di un’uscita notturna. Potenza illimitata nel lago principale a sud, senza scia a nord. Linea di costa tracciata da OpenStreetMap, non per la navigazione.",
+  "map.e09749dd": "Pesca da riva",
+  "map.eb21ea50": "Scivolo per barche"
+ }
+}

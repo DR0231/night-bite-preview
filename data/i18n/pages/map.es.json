@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "lang": "es",
+  "page": "map",
+  "review": "draft"
+ },
+ "strings": {
+  "map.0ffb0d56": "Acceso para embarcaciones a mano",
+  "map.22e4fa67": "Acceso desde la orilla",
+  "map.6767bccf": "Sin oleaje a menos de 300 ft de cualquier tierra y en zonas señalizadas (mapa de pesca de ODNR). Revisa el horario publicado del parque estatal antes de salir de noche. Contorno de la orilla trazado con OpenStreetMap, no sirve para navegar.",
+  "map.980a70c0": "Botadero de kayak",
+  "map.b68e49a3": "Marina",
+  "map.ca05721d": "Muelle de pesca, acceso a la orilla",
+  "map.dafc20cf": "Lado sur del lago.",
+  "map.dd7633ff": "Terrenos de Alum Creek State Park y del Corps of Engineers: revisa el horario y las reglas publicadas antes de salir de noche. Potencia sin límite en el lago principal del sur, sin oleaje en el extremo norte. Contorno de la orilla trazado con OpenStreetMap, no sirve para navegar.",
+  "map.e09749dd": "Pesca desde la orilla",
+  "map.eb21ea50": "Rampa para botes"
+ }
+}

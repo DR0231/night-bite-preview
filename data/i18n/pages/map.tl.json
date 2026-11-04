@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "lang": "tl",
+  "page": "map",
+  "review": "draft"
+ },
+ "strings": {
+  "map.0ffb0d56": "Carry-in access",
+  "map.22e4fa67": "Daanan sa pampang",
+  "map.6767bccf": "No wake sa loob ng 300 ft mula sa anumang lupa at sa mga minarkahang lugar (fishing map ng ODNR). Tingnan ang nakapaskil na oras ng state park bago bumiyahe sa gabi. Ang baybayin ay hango sa OpenStreetMap, hindi para sa nabigasyon.",
+  "map.980a70c0": "Kayak launch",
+  "map.b68e49a3": "Marina",
+  "map.ca05721d": "Fishing pier, daanan sa pampang",
+  "map.dafc20cf": "Timog na bahagi ng lawa.",
+  "map.dd7633ff": "Lupa ng Alum Creek State Park at Corps of Engineers: tingnan ang nakapaskil na oras at patakaran bago bumiyahe sa gabi. Walang limit na horsepower sa south main lake, no wake sa hilagang dulo. Ang baybayin ay hango sa OpenStreetMap, hindi para sa nabigasyon.",
+  "map.e09749dd": "Pangingisda sa pampang",
+  "map.eb21ea50": "Boat ramp"
+ }
+}

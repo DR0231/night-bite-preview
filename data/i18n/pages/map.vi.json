@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "lang": "vi",
+  "page": "map",
+  "review": "draft"
+ },
+ "strings": {
+  "map.0ffb0d56": "Lối hạ thuyền khiêng tay",
+  "map.22e4fa67": "Lối câu trên bờ",
+  "map.6767bccf": "Cấm tạo sóng trong vòng 300 ft tính từ mọi khối đất và ở các khu có đánh dấu (bản đồ câu cá ODNR). Hãy xem giờ niêm yết của công viên tiểu bang trước khi đi đêm. Đường bờ vẽ theo OpenStreetMap, không dùng để đi thuyền.",
+  "map.980a70c0": "Chỗ hạ kayak",
+  "map.b68e49a3": "Bến thuyền",
+  "map.ca05721d": "Cầu câu cá, lối câu trên bờ",
+  "map.dafc20cf": "Phía nam của hồ.",
+  "map.dd7633ff": "Alum Creek State Park và đất của Corps of Engineers: hãy xem giờ và quy định niêm yết trước khi đi đêm. Không giới hạn mã lực ở hồ chính phía nam, cấm tạo sóng ở đầu phía bắc. Đường bờ vẽ theo OpenStreetMap, không dùng để đi thuyền.",
+  "map.e09749dd": "Câu trên bờ",
+  "map.eb21ea50": "Bến hạ thuyền"
+ }
+}

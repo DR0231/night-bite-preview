@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "lang": "pl",
+  "page": "map",
+  "review": "draft"
+ },
+ "strings": {
+  "map.0ffb0d56": "Dostęp dla łodzi wnoszonych",
+  "map.22e4fa67": "Dostęp z brzegu",
+  "map.6767bccf": "Zakaz fali w odległości 300 ft od każdego lądu i w oznaczonych strefach (mapa wędkarska ODNR). Przed nocnym wyjazdem sprawdź godziny parku stanowego. Linia brzegu z OpenStreetMap, nie do nawigacji.",
+  "map.980a70c0": "Wodowanie kajaków",
+  "map.b68e49a3": "Przystań",
+  "map.ca05721d": "Pomost wędkarski, dostęp z brzegu",
+  "map.dafc20cf": "Południowa strona jeziora.",
+  "map.dd7633ff": "Alum Creek State Park i tereny Korpusu Inżynieryjnego: przed nocnym wyjazdem sprawdź godziny i zasady. Bez limitu mocy na południowej części głównego jeziora, zakaz fali w północnej. Linia brzegu z OpenStreetMap, nie do nawigacji.",
+  "map.e09749dd": "Wędkowanie z brzegu",
+  "map.eb21ea50": "Slip dla łodzi"
+ }
+}

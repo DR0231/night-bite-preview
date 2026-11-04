@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "lang": "de",
+  "page": "map",
+  "review": "draft"
+ },
+ "strings": {
+  "map.0ffb0d56": "Zugang für getragene Boote",
+  "map.22e4fa67": "Uferzugang",
+  "map.6767bccf": "Kein Wellenschlag innerhalb von 300 ft von jedem Land und in markierten Bereichen (ODNR-Angelkarte). Prüfe vor einem Nachtausflug die ausgehängten State-Park-Zeiten. Uferlinie nach OpenStreetMap, nicht zur Navigation.",
+  "map.980a70c0": "Kajak-Einsetzstelle",
+  "map.b68e49a3": "Marina",
+  "map.ca05721d": "Angelsteg, Uferzugang",
+  "map.dafc20cf": "Südseite des Sees.",
+  "map.dd7633ff": "Alum Creek State Park und Gelände des Corps of Engineers: Prüfe vor einem Nachtausflug die ausgehängten Zeiten und Regeln. Unbegrenzte hp auf dem südlichen Hauptsee, kein Wellenschlag am Nordende. Uferlinie nach OpenStreetMap, nicht zur Navigation.",
+  "map.e09749dd": "Uferangeln",
+  "map.eb21ea50": "Bootsrampe"
+ }
+}

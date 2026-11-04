@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "lang": "ko",
+  "page": "map",
+  "review": "draft"
+ },
+ "strings": {
+  "map.0ffb0d56": "손으로 옮기는 보트용 접근로",
+  "map.22e4fa67": "물가 접근로",
+  "map.6767bccf": "모든 육지에서 300 ft 이내와 표시된 구역은 무항적(ODNR 낚시 지도). 밤 출조 전에 게시된 주립공원 운영 시간을 확인하세요. 호안선은 OpenStreetMap에서 따왔으며 항해용이 아니에요.",
+  "map.980a70c0": "카약 진수장",
+  "map.b68e49a3": "마리나",
+  "map.ca05721d": "낚시 부두, 물가 접근로",
+  "map.dafc20cf": "호수 남쪽.",
+  "map.dd7633ff": "Alum Creek State Park와 Corps of Engineers 부지: 밤 출조 전에 게시된 운영 시간과 규칙을 확인하세요. 남쪽 본 호수는 마력 무제한, 북쪽 끝은 무항적. 호안선은 OpenStreetMap에서 따왔으며 항해용이 아니에요.",
+  "map.e09749dd": "물가 낚시",
+  "map.eb21ea50": "보트 선착장"
+ }
+}

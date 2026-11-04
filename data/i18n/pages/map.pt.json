@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "lang": "pt",
+  "page": "map",
+  "review": "draft"
+ },
+ "strings": {
+  "map.0ffb0d56": "Acesso para embarcações carregadas à mão",
+  "map.22e4fa67": "Acesso pela margem",
+  "map.6767bccf": "Sem marola a menos de 300 ft de qualquer terra e nas áreas marcadas (mapa de pesca do ODNR). Confira os horários afixados do parque estadual antes de pescar à noite. Margem traçada do OpenStreetMap, não serve para navegação.",
+  "map.980a70c0": "Ponto para caiaques",
+  "map.b68e49a3": "Marina",
+  "map.ca05721d": "Píer de pesca, acesso pela margem",
+  "map.dafc20cf": "Lado sul do lago.",
+  "map.dd7633ff": "Alum Creek State Park e terras do Corps of Engineers: confira os horários e regras afixados antes de pescar à noite. Potência ilimitada no lago principal ao sul, sem marola no extremo norte. Margem traçada do OpenStreetMap, não serve para navegação.",
+  "map.e09749dd": "Pesca pela margem",
+  "map.eb21ea50": "Rampa para barcos"
+ }
+}

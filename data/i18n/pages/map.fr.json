@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "lang": "fr",
+  "page": "map",
+  "review": "draft"
+ },
+ "strings": {
+  "map.0ffb0d56": "Accès pour embarcations portées",
+  "map.22e4fa67": "Accès rive",
+  "map.6767bccf": "Sans sillage à moins de 300 ft de toute terre et dans les zones balisées (carte de pêche ODNR). Vérifiez les horaires affichés du parc d’État avant une sortie de nuit. Rive tracée d’après OpenStreetMap, pas pour la navigation.",
+  "map.980a70c0": "Mise à l’eau kayak",
+  "map.b68e49a3": "Marina",
+  "map.ca05721d": "Ponton de pêche, accès depuis la rive",
+  "map.dafc20cf": "Côté sud du lac.",
+  "map.dd7633ff": "Alum Creek State Park et terrains du Corps of Engineers : vérifiez les horaires et règles affichés avant une sortie de nuit. Puissance illimitée sur le grand lac sud, sans sillage au nord. Rive tracée d’après OpenStreetMap, pas pour la navigation.",
+  "map.e09749dd": "Pêche du bord",
+  "map.eb21ea50": "Mise à l’eau"
+ }
+}

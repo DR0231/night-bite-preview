@@ -265,11 +265,13 @@
       var has = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf(pageId()) >= 0;
       // S13: lines the scripts fill in from data (the "What's biting" cards) live in one shared "js" page file
       var js = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf("js") >= 0;
-      return Promise.all([r0[0], r0[1], has ? loadPage("en") : null, has ? loadPage(lang) : null, js ? loadPage("en", "js") : null, js ? loadPage(lang, "js") : null]);
+      var mp = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf("map") >= 0;
+      return Promise.all([r0[0], r0[1], has ? loadPage("en") : null, has ? loadPage(lang) : null, js ? loadPage("en", "js") : null, js ? loadPage(lang, "js") : null,
+        mp ? loadPage("en", "map") : null, mp ? loadPage(lang, "map") : null]);
     }).then(function (r) {
       cur = lang;
       var S = function (x) { return (x && x.strings) || {}; };
-      tbl = build(merge(merge(S(r[4]), S(r[2])), S(r[0])), merge(merge(S(r[5]), S(r[3])), S(r[1])));
+      tbl = build(merge(merge(merge(S(r[6]), S(r[4])), S(r[2])), S(r[0])), merge(merge(merge(S(r[7]), S(r[5])), S(r[3])), S(r[1])));
       var A = window.NB_A11Y, dir = (r[1] && r[1]._meta && r[1]._meta.dir) || (A && A.RTL && A.RTL[lang] ? "rtl" : "ltr");
       d.documentElement.lang = lang; d.documentElement.dir = lang === "en" ? "ltr" : dir;
       if (lang === "en") d.documentElement.removeAttribute("data-lang"); else d.documentElement.setAttribute("data-lang", lang);

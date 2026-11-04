@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "lang": "zh",
+  "page": "map",
+  "review": "draft"
+ },
+ "strings": {
+  "map.0ffb0d56": "手搬船下水点",
+  "map.22e4fa67": "岸边通道",
+  "map.6767bccf": "距任何陆地 300 ft 内及标示区域禁止起浪（ODNR 钓鱼地图）。夜钓前请查看州立公园公布的开放时间。湖岸线取自 OpenStreetMap，不可用于导航。",
+  "map.980a70c0": "皮划艇下水点",
+  "map.b68e49a3": "码头",
+  "map.ca05721d": "钓鱼栈桥，岸钓入口",
+  "map.dafc20cf": "湖的南侧。",
+  "map.dd7633ff": "Alum Creek State Park 和工程兵团（Corps of Engineers）用地：夜钓前请查看公布的开放时间和规定。南部主湖区马力不限，北端禁止起浪。湖岸线取自 OpenStreetMap，不可用于导航。",
+  "map.e09749dd": "岸钓",
+  "map.eb21ea50": "船坡道"
+ }
+}
