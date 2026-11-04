@@ -95,9 +95,9 @@
   "display.saved": "仅保存在这部手机上。",
   "display.reset": "重置",
   "display.done": "完成",
-  "display.language_note": "翻译为草稿。规则、水位和地名保留英文。",
+  "display.language_note": "翻译草稿。地名保留英文；规则以所附链接的官方来源为准。",
   "i18n.draft": "翻译草稿",
-  "i18n.facts_note": "规则、水位和地名按来源发布的英文显示。",
+  "i18n.facts_note": "规则和法规为翻译草稿。以每条所附链接的官方来源为准。",
   "glance.title": "今晚概览",
   "glance.bite": "咬钩",
   "glance.level": "湖水位",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "西南端",
   "pg.p_w_end": "西端",
   "pg.p_ne_end": "东北端",
-  "pg.p_e_end": "东端"
+  "pg.p_e_end": "东端",
+  "a11y.skip": "跳到正文",
+  "chip.city_11": "市立公园晚上 11 点关闭",
+  "chip.mwcd": "晚上 11 点至早上 6 点关闭，钓鱼除外（MWCD）",
+  "chip.no_parking": "露营区以外天黑至黎明禁止停车（市法规）",
+  "chip.odnr_11": "公园开放至晚上 11 点，之后允许钓鱼（ODNR）",
+  "chip.odnr_sunset": "公园开放至日落，之后允许钓鱼（ODNR）",
+  "chip.strouds": "Strouds Run 开放至晚上 11 点，之后允许钓鱼（ODNR）",
+  "pg.not_recorded_tag": "{lake} 无记录",
+  "ui.full_forecast": "完整预报",
+  "ui.near_me": "我附近",
+  "ui.no_gauge": "无水位计",
+  "ui.example_entry": "示例记录"
  }
 }

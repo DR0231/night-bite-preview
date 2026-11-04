@@ -95,9 +95,9 @@
   "display.saved": "Salvo só neste celular.",
   "display.reset": "Redefinir",
   "display.done": "Pronto",
-  "display.language_note": "Traduções em rascunho. Regras, níveis e nomes de lugares ficam em inglês.",
+  "display.language_note": "Traduções em rascunho. Nomes de lugares ficam em inglês; para regras, vale a fonte oficial vinculada.",
   "i18n.draft": "Tradução em rascunho",
-  "i18n.facts_note": "Regras, níveis e nomes de lugares aparecem em inglês, como a fonte publica.",
+  "i18n.facts_note": "Regras e regulamentos são traduções em rascunho. Vale a fonte oficial vinculada a cada um.",
   "glance.title": "Hoje à noite num relance",
   "glance.bite": "Beliscada",
   "glance.level": "Nível do lago",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "para a ponta sudoeste",
   "pg.p_w_end": "para a ponta oeste",
   "pg.p_ne_end": "para a ponta nordeste",
-  "pg.p_e_end": "para a ponta leste"
+  "pg.p_e_end": "para a ponta leste",
+  "a11y.skip": "Pular para o conteúdo",
+  "chip.city_11": "O parque municipal fecha às 23h",
+  "chip.mwcd": "Fechado das 23h às 6h, exceto para pesca (MWCD)",
+  "chip.no_parking": "Proibido estacionar do anoitecer ao amanhecer fora das áreas de camping (código municipal)",
+  "chip.odnr_11": "O horário do parque termina às 23h; pesca permitida depois (ODNR)",
+  "chip.odnr_sunset": "O horário do parque termina ao pôr do sol; pesca permitida depois (ODNR)",
+  "chip.strouds": "O horário de Strouds Run termina às 23h; pesca permitida depois (ODNR)",
+  "pg.not_recorded_tag": "Sem registro em {lake}",
+  "ui.full_forecast": "Previsão completa",
+  "ui.near_me": "Perto de mim",
+  "ui.no_gauge": "Sem medidor",
+  "ui.example_entry": "Registro de exemplo"
  }
 }

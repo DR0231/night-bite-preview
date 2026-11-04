@@ -25,7 +25,7 @@
  * glance stamp) is written with Intl in Ohio time. Units (°F, %, inHg, ft) and every number stay as written.
  */
 (function (d) {
-  var SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label";
+  var SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label, a.sr-only[href$=\"#main\"]";
   var ATTRS = ["placeholder", "aria-label", "data-short", "title"];
   var LTR = ".glance-value, .glance-sub, .glance-stamp, .lake-pill-name, .night-chip-text, main h1, .site-header option, #add-trip option, #my-trips option, [data-log-filter] option, .i18n-draft-en";
   var WIDE = "main, dialog:not(.a11y-panel)", KEEP = "h1, .cond-summary, [data-nb-keep]";
@@ -156,7 +156,19 @@
       t.tpl[i].names.forEach(function (nm, j) { var v = m[j + 1], vt = capT(t, norm(v)); if (vt != null) v = vt; out = out.split("{" + nm + "}").join(rtl() ? "\u2068" + v + "\u2069" : v); });
       return out;
     }
-    return timeT(n);
+    return monthT(n);
+  }
+  // S13: "November" (biting card) and "Hoover, November" (species heading, js/species-lake.js): the lake stays, the month is written with Intl
+  var LMON = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  function monthT(n) {
+    var m = /^(?:(.+), )?(January|February|March|April|May|June|July|August|September|October|November|December)$/.exec(n);
+    if (!m) return timeT(n);
+    try {
+      var mo = new Intl.DateTimeFormat(cur, { timeZone: "UTC", month: "long" }).format(Date.UTC(2026, LMON.indexOf(m[2]), 15));
+      var sep = cur === "ja" ? "\u3001" : cur === "zh" ? "\uff0c" : /^(ar|fa|ur)$/.test(cur) ? "\u060c " : ", ";
+      if (!m[1]) return mo;
+      return (rtl() ? "\u2068" + m[1] + "\u2069" : m[1]) + sep + mo;
+    } catch (e) { return null; }
   }
   function walk(root, wide) {
     var w = d.createTreeWalker(root, NodeFilter.SHOW_TEXT), n, list = [];

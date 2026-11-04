@@ -95,9 +95,9 @@
   "display.saved": "Enregistré sur ce téléphone seulement.",
   "display.reset": "Réinitialiser",
   "display.done": "OK",
-  "display.language_note": "Traductions provisoires. Les règles, les niveaux et les noms de lieux restent en anglais.",
+  "display.language_note": "Traductions provisoires. Les noms de lieux restent en anglais ; pour les règles, la source officielle liée fait foi.",
   "i18n.draft": "Traduction provisoire",
-  "i18n.facts_note": "Les règles, les niveaux et les noms de lieux sont en anglais, comme la source les publie.",
+  "i18n.facts_note": "Les règles et règlements sont des traductions provisoires. La source officielle liée à chacun fait foi.",
   "glance.title": "Ce soir en un coup d'œil",
   "glance.bite": "Touche",
   "glance.level": "Niveau du lac",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "vers l’extrémité sud-ouest",
   "pg.p_w_end": "vers l’extrémité ouest",
   "pg.p_ne_end": "vers l’extrémité nord-est",
-  "pg.p_e_end": "vers l’extrémité est"
+  "pg.p_e_end": "vers l’extrémité est",
+  "a11y.skip": "Aller au contenu",
+  "chip.city_11": "Le parc municipal ferme à 23 h",
+  "chip.mwcd": "Fermé de 23 h à 6 h, sauf pour la pêche (MWCD)",
+  "chip.no_parking": "Stationnement interdit de la nuit à l’aube hors des campings (code municipal)",
+  "chip.odnr_11": "Le parc ferme à 23 h, pêche autorisée après (ODNR)",
+  "chip.odnr_sunset": "Le parc ferme au coucher du soleil, pêche autorisée après (ODNR)",
+  "chip.strouds": "Strouds Run ferme à 23 h, pêche autorisée après (ODNR)",
+  "pg.not_recorded_tag": "Non signalé à {lake}",
+  "ui.full_forecast": "Prévisions complètes",
+  "ui.near_me": "Près de moi",
+  "ui.no_gauge": "Pas de jauge",
+  "ui.example_entry": "Exemple d’entrée"
  }
 }

@@ -29,7 +29,7 @@ from bs4 import BeautifulSoup, Comment, NavigableString
 ROOT = pathlib.Path(os.environ.get("NB_ROOT") or pathlib.Path(__file__).resolve().parent.parent)
 D = ROOT / "data" / "i18n"; PAGES = D / "pages"; TM = D / "tm"
 ATTRS = ["alt", "aria-label", "title", "placeholder"]
-SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label"
+SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label, a.sr-only[href$=\"#main\"]"
 KEEP = "h1, .cond-summary, [data-nb-keep]"
 # S13: text the scripts write after load (values, units, subs, status lines, the hourly strip) and <time> (Intl in the
 # browser). Their baked placeholders are never shown for long; js/i18n.js handles them with pg.* templates and Intl.

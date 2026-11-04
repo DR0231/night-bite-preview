@@ -95,9 +95,9 @@
   "display.saved": "このスマホにだけ保存されます。",
   "display.reset": "リセット",
   "display.done": "完了",
-  "display.language_note": "翻訳は下書きです。規則、水位、地名は英語のままです。",
+  "display.language_note": "翻訳の下書きです。地名は英語のままです。規則はリンク先の公式情報が正式です。",
   "i18n.draft": "下書きの翻訳",
-  "i18n.facts_note": "規則、水位、地名は情報源の表記どおり英語で表示します。",
+  "i18n.facts_note": "規則・規制は翻訳の下書きです。各項目にリンクした公式情報が正式なものです。",
   "glance.title": "今夜のひと目まとめ",
   "glance.bite": "食い",
   "glance.level": "湖の水位",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "南西端へ",
   "pg.p_w_end": "西端へ",
   "pg.p_ne_end": "北東端へ",
-  "pg.p_e_end": "東端へ"
+  "pg.p_e_end": "東端へ",
+  "a11y.skip": "本文へスキップ",
+  "chip.city_11": "市の公園は午後 11 時に閉園",
+  "chip.mwcd": "午後 11 時から午前 6 時まで閉鎖、釣りは除く（MWCD）",
+  "chip.no_parking": "キャンプ区域外は日没から夜明けまで駐車禁止（市条例）",
+  "chip.odnr_11": "公園は午後 11 時まで、その後の釣りは可（ODNR）",
+  "chip.odnr_sunset": "公園は日没まで、その後の釣りは可（ODNR）",
+  "chip.strouds": "Strouds Run は午後 11 時まで、その後の釣りは可（ODNR）",
+  "pg.not_recorded_tag": "{lake} では記録なし",
+  "ui.full_forecast": "詳しい予報",
+  "ui.near_me": "現在地の近く",
+  "ui.no_gauge": "水位計なし",
+  "ui.example_entry": "記入例"
  }
 }

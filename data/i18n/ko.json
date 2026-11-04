@@ -95,9 +95,9 @@
   "display.saved": "이 휴대폰에만 저장돼요.",
   "display.reset": "초기화",
   "display.done": "완료",
-  "display.language_note": "번역 초안입니다. 규정, 수위, 지명은 영어로 둡니다.",
+  "display.language_note": "번역 초안입니다. 지명은 영어로 둡니다. 규칙은 연결된 공식 출처가 기준입니다.",
   "i18n.draft": "번역 초안",
-  "i18n.facts_note": "규정, 수위, 지명은 출처에서 발표한 대로 영어로 표시돼요.",
+  "i18n.facts_note": "규칙과 규정은 번역 초안입니다. 각 항목에 연결된 공식 출처가 기준입니다.",
   "glance.title": "오늘 밤 한눈에",
   "glance.bite": "입질",
   "glance.level": "호수 수위",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "남서쪽 끝",
   "pg.p_w_end": "서쪽 끝",
   "pg.p_ne_end": "북동쪽 끝",
-  "pg.p_e_end": "동쪽 끝"
+  "pg.p_e_end": "동쪽 끝",
+  "a11y.skip": "본문으로 건너뛰기",
+  "chip.city_11": "시립 공원은 오후 11시에 닫습니다",
+  "chip.mwcd": "오후 11시부터 오전 6시까지 폐쇄, 낚시는 예외 (MWCD)",
+  "chip.no_parking": "캠핑 구역 밖은 해 질 녘부터 새벽까지 주차 금지 (시 조례)",
+  "chip.odnr_11": "공원 운영은 오후 11시까지, 이후 낚시 허용 (ODNR)",
+  "chip.odnr_sunset": "공원 운영은 일몰까지, 이후 낚시 허용 (ODNR)",
+  "chip.strouds": "Strouds Run 운영은 오후 11시까지, 이후 낚시 허용 (ODNR)",
+  "pg.not_recorded_tag": "{lake}에는 기록 없음",
+  "ui.full_forecast": "전체 예보",
+  "ui.near_me": "내 주변",
+  "ui.no_gauge": "수위계 없음",
+  "ui.example_entry": "예시 기록"
  }
 }

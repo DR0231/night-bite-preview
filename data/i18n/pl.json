@@ -95,9 +95,9 @@
   "display.saved": "Zapisane tylko na tym telefonie.",
   "display.reset": "Resetuj",
   "display.done": "Gotowe",
-  "display.language_note": "Tłumaczenia robocze. Przepisy, poziomy i nazwy miejsc zostają po angielsku.",
+  "display.language_note": "Robocze tłumaczenia. Nazwy miejsc zostają po angielsku; przy przepisach wiążące jest podlinkowane oficjalne źródło.",
   "i18n.draft": "Tłumaczenie robocze",
-  "i18n.facts_note": "Przepisy, poziomy i nazwy miejsc są po angielsku, tak jak publikuje je źródło.",
+  "i18n.facts_note": "Zasady i przepisy to robocze tłumaczenia. Wiążące jest oficjalne źródło podlinkowane przy każdym z nich.",
   "glance.title": "Dziś w nocy w skrócie",
   "glance.bite": "Brania",
   "glance.level": "Poziom jeziora",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "w stronę południowo-zachodniego krańca",
   "pg.p_w_end": "w stronę zachodniego krańca",
   "pg.p_ne_end": "w stronę północno-wschodniego krańca",
-  "pg.p_e_end": "w stronę wschodniego krańca"
+  "pg.p_e_end": "w stronę wschodniego krańca",
+  "a11y.skip": "Przejdź do treści",
+  "chip.city_11": "Park miejski zamykany o 23:00",
+  "chip.mwcd": "Zamknięte od 23:00 do 6:00, z wyjątkiem wędkowania (MWCD)",
+  "chip.no_parking": "Zakaz parkowania od zmroku do świtu poza polami kempingowymi (przepisy miejskie)",
+  "chip.odnr_11": "Park czynny do 23:00, wędkowanie dozwolone później (ODNR)",
+  "chip.odnr_sunset": "Park czynny do zachodu słońca, wędkowanie dozwolone później (ODNR)",
+  "chip.strouds": "Strouds Run czynny do 23:00, wędkowanie dozwolone później (ODNR)",
+  "pg.not_recorded_tag": "Brak notowań w {lake}",
+  "ui.full_forecast": "Pełna prognoza",
+  "ui.near_me": "W pobliżu",
+  "ui.no_gauge": "Brak wodowskazu",
+  "ui.example_entry": "Przykładowy wpis"
  }
 }

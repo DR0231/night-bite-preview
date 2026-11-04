@@ -95,9 +95,9 @@
   "display.saved": "Salvato solo su questo telefono.",
   "display.reset": "Ripristina",
   "display.done": "Fatto",
-  "display.language_note": "Traduzioni in bozza. Regole, livelli e nomi dei luoghi restano in inglese.",
+  "display.language_note": "Traduzioni in bozza. I nomi dei luoghi restano in inglese; per le regole fa fede la fonte ufficiale collegata.",
   "i18n.draft": "Traduzione in bozza",
-  "i18n.facts_note": "Regole, livelli e nomi dei luoghi sono in inglese, come li pubblica la fonte.",
+  "i18n.facts_note": "Regole e norme sono traduzioni in bozza. Fa fede la fonte ufficiale collegata a ciascuna.",
   "glance.title": "Stanotte in breve",
   "glance.bite": "Abboccate",
   "glance.level": "Livello del lago",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "verso l’estremità sud-ovest",
   "pg.p_w_end": "verso l’estremità ovest",
   "pg.p_ne_end": "verso l’estremità nord-est",
-  "pg.p_e_end": "verso l’estremità est"
+  "pg.p_e_end": "verso l’estremità est",
+  "a11y.skip": "Vai al contenuto",
+  "chip.city_11": "Il parco cittadino chiude alle 23",
+  "chip.mwcd": "Chiuso dalle 23 alle 6, tranne per la pesca (MWCD)",
+  "chip.no_parking": "Divieto di sosta dal buio all’alba fuori dalle aree campeggio (regolamento comunale)",
+  "chip.odnr_11": "L’orario del parco finisce alle 23, pesca consentita dopo (ODNR)",
+  "chip.odnr_sunset": "L’orario del parco finisce al tramonto, pesca consentita dopo (ODNR)",
+  "chip.strouds": "L’orario di Strouds Run finisce alle 23, pesca consentita dopo (ODNR)",
+  "pg.not_recorded_tag": "Non segnalato a {lake}",
+  "ui.full_forecast": "Previsioni complete",
+  "ui.near_me": "Vicino a me",
+  "ui.no_gauge": "Nessun idrometro",
+  "ui.example_entry": "Voce di esempio"
  }
 }

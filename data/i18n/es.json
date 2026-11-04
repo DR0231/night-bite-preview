@@ -95,9 +95,9 @@
   "display.saved": "Guardado solo en este teléfono.",
   "display.reset": "Restablecer",
   "display.done": "Listo",
-  "display.language_note": "Traducciones en borrador. Las reglas, los niveles y los nombres de lugares siguen en inglés.",
+  "display.language_note": "Traducciones en borrador. Los nombres de lugares quedan en inglés; para las reglas vale la fuente oficial enlazada.",
   "i18n.draft": "Traducción en borrador",
-  "i18n.facts_note": "Las reglas, los niveles y los nombres de lugares se muestran en inglés, tal como los publica la fuente.",
+  "i18n.facts_note": "Las reglas y normas son traducciones en borrador. La fuente oficial enlazada en cada una es la versión que vale.",
   "glance.title": "Esta noche de un vistazo",
   "glance.bite": "Picada",
   "glance.level": "Nivel del lago",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "hacia el extremo suroeste",
   "pg.p_w_end": "hacia el extremo oeste",
   "pg.p_ne_end": "hacia el extremo noreste",
-  "pg.p_e_end": "hacia el extremo este"
+  "pg.p_e_end": "hacia el extremo este",
+  "a11y.skip": "Saltar al contenido",
+  "chip.city_11": "El parque de la ciudad cierra a las 11 p.m.",
+  "chip.mwcd": "Cerrado de 11 p.m. a 6 a.m., salvo para pescar (MWCD)",
+  "chip.no_parking": "Prohibido estacionar del anochecer al amanecer fuera de las zonas de acampada (código de la ciudad)",
+  "chip.odnr_11": "El horario del parque termina a las 11 p.m.; se permite pescar después (ODNR)",
+  "chip.odnr_sunset": "El horario del parque termina al atardecer; se permite pescar después (ODNR)",
+  "chip.strouds": "El horario de Strouds Run termina a las 11 p.m.; se permite pescar después (ODNR)",
+  "pg.not_recorded_tag": "Sin registro en {lake}",
+  "ui.full_forecast": "Pronóstico completo",
+  "ui.near_me": "Cerca de mí",
+  "ui.no_gauge": "Sin medidor",
+  "ui.example_entry": "Entrada de ejemplo"
  }
 }

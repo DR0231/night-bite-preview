@@ -95,9 +95,9 @@
   "display.saved": "Nur auf diesem Handy gespeichert.",
   "display.reset": "Zurücksetzen",
   "display.done": "Fertig",
-  "display.language_note": "Übersetzungen sind Entwürfe. Regeln, Pegel und Ortsnamen bleiben auf Englisch.",
+  "display.language_note": "Übersetzungsentwürfe. Ortsnamen bleiben Englisch; bei Regeln gilt die verlinkte offizielle Quelle.",
   "i18n.draft": "Übersetzungsentwurf",
-  "i18n.facts_note": "Regeln, Pegel und Ortsnamen stehen auf Englisch, so wie die Quelle sie veröffentlicht.",
+  "i18n.facts_note": "Regeln und Vorschriften sind Übersetzungsentwürfe. Maßgeblich ist jeweils die verlinkte offizielle Quelle.",
   "glance.title": "Heute Nacht auf einen Blick",
   "glance.bite": "Beißen",
   "glance.level": "Seepegel",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "zum Südwestende",
   "pg.p_w_end": "zum Westende",
   "pg.p_ne_end": "zum Nordostende",
-  "pg.p_e_end": "zum Ostende"
+  "pg.p_e_end": "zum Ostende",
+  "a11y.skip": "Zum Inhalt springen",
+  "chip.city_11": "Stadtpark schließt um 23 Uhr",
+  "chip.mwcd": "Von 23 bis 6 Uhr geschlossen, außer zum Angeln (MWCD)",
+  "chip.no_parking": "Kein Parken von Dunkelheit bis Morgengrauen außerhalb der Campingbereiche (städtische Satzung)",
+  "chip.odnr_11": "Parköffnungszeit endet um 23 Uhr, Angeln danach erlaubt (ODNR)",
+  "chip.odnr_sunset": "Parköffnungszeit endet bei Sonnenuntergang, Angeln danach erlaubt (ODNR)",
+  "chip.strouds": "Strouds Run schließt um 23 Uhr, Angeln danach erlaubt (ODNR)",
+  "pg.not_recorded_tag": "Nicht nachgewiesen in {lake}",
+  "ui.full_forecast": "Vollständige Vorhersage",
+  "ui.near_me": "In meiner Nähe",
+  "ui.no_gauge": "Kein Pegel",
+  "ui.example_entry": "Beispieleintrag"
  }
 }

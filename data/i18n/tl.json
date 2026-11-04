@@ -95,9 +95,9 @@
   "display.saved": "Naka-save lang sa phone na ito.",
   "display.reset": "I-reset",
   "display.done": "Tapos",
-  "display.language_note": "Draft ang mga salin. Nasa English pa rin ang rules, levels at pangalan ng lugar.",
+  "display.language_note": "Mga draft na salin. Nananatiling Ingles ang mga pangalan ng lugar; sa mga patakaran, ang naka-link na opisyal na sanggunian ang masusunod.",
   "i18n.draft": "Draft na salin",
-  "i18n.facts_note": "Nasa English ang rules, levels at pangalan ng lugar, gaya ng pagkalathala ng source.",
+  "i18n.facts_note": "Mga draft na salin ang mga patakaran at regulasyon. Ang opisyal na sangguniang naka-link sa bawat isa ang masusunod.",
   "glance.title": "Ngayong gabi sa isang tingin",
   "glance.bite": "Kagat",
   "glance.level": "Level ng lawa",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "papunta sa dulong timog-kanluran",
   "pg.p_w_end": "papunta sa dulong kanluran",
   "pg.p_ne_end": "papunta sa dulong hilagang-silangan",
-  "pg.p_e_end": "papunta sa dulong silangan"
+  "pg.p_e_end": "papunta sa dulong silangan",
+  "a11y.skip": "Lumaktaw sa nilalaman",
+  "chip.city_11": "Nagsasara ang parke ng lungsod nang 11 p.m.",
+  "chip.mwcd": "Sarado mula 11 p.m. hanggang 6 a.m., maliban sa pangingisda (MWCD)",
+  "chip.no_parking": "Bawal pumarada mula dilim hanggang madaling-araw sa labas ng mga camping area (kodigo ng lungsod)",
+  "chip.odnr_11": "Natatapos ang oras ng parke nang 11 p.m.; puwedeng mangisda pagkatapos (ODNR)",
+  "chip.odnr_sunset": "Natatapos ang oras ng parke sa paglubog ng araw; puwedeng mangisda pagkatapos (ODNR)",
+  "chip.strouds": "Natatapos ang oras ng Strouds Run nang 11 p.m.; puwedeng mangisda pagkatapos (ODNR)",
+  "pg.not_recorded_tag": "Walang tala sa {lake}",
+  "ui.full_forecast": "Buong forecast",
+  "ui.near_me": "Malapit sa akin",
+  "ui.no_gauge": "Walang gauge",
+  "ui.example_entry": "Halimbawang tala"
  }
 }

@@ -95,9 +95,9 @@
   "display.saved": "Anrejistre sou telefòn sa a sèlman.",
   "display.reset": "Reyinisyalize",
   "display.done": "Fini",
-  "display.language_note": "Tradiksyon yo se bouyon. Règ, nivo ak non kote yo rete an anglè.",
+  "display.language_note": "Tradiksyon bouyon. Non kote yo rete an angle; pou règ yo, sous ofisyèl ki lye a se li ki konte.",
   "i18n.draft": "Bouyon tradiksyon",
-  "i18n.facts_note": "Règ, nivo ak non kote yo parèt an anglè, jan sous la pibliye yo.",
+  "i18n.facts_note": "Règ ak règleman yo se tradiksyon bouyon. Sous ofisyèl ki lye ak chak grenn lan se li ki konte.",
   "glance.title": "Aswè a an yon koudèy",
   "glance.bite": "Mòde",
   "glance.level": "Nivo lak la",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "nan direksyon pwent sidwès la",
   "pg.p_w_end": "nan direksyon pwent lwès la",
   "pg.p_ne_end": "nan direksyon pwent nòdès la",
-  "pg.p_e_end": "nan direksyon pwent lès la"
+  "pg.p_e_end": "nan direksyon pwent lès la",
+  "a11y.skip": "Ale nan kontni an",
+  "chip.city_11": "Pak vil la fèmen a 11 p.m.",
+  "chip.mwcd": "Fèmen de 11 p.m. rive 6 a.m., eksepte pou lapèch (MWCD)",
+  "chip.no_parking": "Pa gen pakin depi lannuit rive maten deyò zòn kan yo (kòd vil la)",
+  "chip.odnr_11": "Lè pak la fini a 11 p.m., yo pèmèt lapèch apre (ODNR)",
+  "chip.odnr_sunset": "Lè pak la fini lè solèy kouche, yo pèmèt lapèch apre (ODNR)",
+  "chip.strouds": "Lè Strouds Run fini a 11 p.m., yo pèmèt lapèch apre (ODNR)",
+  "pg.not_recorded_tag": "Pa anrejistre nan {lake}",
+  "ui.full_forecast": "Previzyon konplè",
+  "ui.near_me": "Toupre m",
+  "ui.no_gauge": "Pa gen jòj",
+  "ui.example_entry": "Egzanp antre"
  }
 }

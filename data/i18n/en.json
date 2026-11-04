@@ -40,9 +40,9 @@
   "display.saved": "Saved on this phone only.",
   "display.reset": "Reset",
   "display.done": "Done",
-  "display.language_note": "Draft translations. Rules, levels and place names stay in English.",
+  "display.language_note": "Draft translations. Place names stay in English; for rules, the linked official source counts.",
   "i18n.draft": "Draft translation",
-  "i18n.facts_note": "Rules, levels and place names are shown as the source publishes them, in English.",
+  "i18n.facts_note": "Rules and regulations are draft translations. The official source linked with each one is the version that counts.",
   "glance.title": "Tonight at a glance",
   "glance.bite": "Bite",
   "glance.level": "Lake level",
@@ -393,6 +393,18 @@
   "pg.p_sw_end": "toward the southwest end",
   "pg.p_w_end": "toward the west end",
   "pg.p_ne_end": "toward the northeast end",
-  "pg.p_e_end": "toward the east end"
+  "pg.p_e_end": "toward the east end",
+  "a11y.skip": "Skip to content",
+  "chip.city_11": "City park closes 11 p.m.",
+  "chip.mwcd": "Closed 11 p.m. to 6 a.m. except fishing (MWCD)",
+  "chip.no_parking": "No parking dark to dawn outside camping areas (City code)",
+  "chip.odnr_11": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+  "chip.odnr_sunset": "Park hours end at sunset, fishing allowed after (ODNR)",
+  "chip.strouds": "Strouds Run hours end 11 p.m., fishing allowed after (ODNR)",
+  "pg.not_recorded_tag": "Not recorded at {lake}",
+  "ui.full_forecast": "Full forecast",
+  "ui.near_me": "Near me",
+  "ui.no_gauge": "No gauge",
+  "ui.example_entry": "Example entry"
  }
 }

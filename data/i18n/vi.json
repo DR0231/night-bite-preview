@@ -95,9 +95,9 @@
   "display.saved": "Chỉ lưu trên điện thoại này.",
   "display.reset": "Đặt lại",
   "display.done": "Xong",
-  "display.language_note": "Bản dịch nháp. Quy định, mực nước và tên địa điểm giữ tiếng Anh.",
+  "display.language_note": "Bản dịch nháp. Tên địa danh giữ tiếng Anh; với quy định, nguồn chính thức được liên kết là bản có giá trị.",
   "i18n.draft": "Bản dịch nháp",
-  "i18n.facts_note": "Quy định, mực nước và tên địa điểm hiển thị bằng tiếng Anh, đúng như nguồn công bố.",
+  "i18n.facts_note": "Quy tắc và quy định là bản dịch nháp. Nguồn chính thức được liên kết ở từng mục là bản có giá trị.",
   "glance.title": "Tối nay trong nháy mắt",
   "glance.bite": "Cá cắn",
   "glance.level": "Mực nước hồ",
@@ -448,6 +448,18 @@
   "pg.p_sw_end": "về đầu tây nam",
   "pg.p_w_end": "về đầu tây",
   "pg.p_ne_end": "về đầu đông bắc",
-  "pg.p_e_end": "về đầu đông"
+  "pg.p_e_end": "về đầu đông",
+  "a11y.skip": "Bỏ qua đến nội dung",
+  "chip.city_11": "Công viên thành phố đóng cửa lúc 11 giờ tối",
+  "chip.mwcd": "Đóng cửa từ 11 giờ tối đến 6 giờ sáng, trừ câu cá (MWCD)",
+  "chip.no_parking": "Cấm đỗ xe từ tối đến sáng ngoài khu cắm trại (quy định thành phố)",
+  "chip.odnr_11": "Công viên mở đến 11 giờ tối, sau đó vẫn được câu cá (ODNR)",
+  "chip.odnr_sunset": "Công viên mở đến hoàng hôn, sau đó vẫn được câu cá (ODNR)",
+  "chip.strouds": "Strouds Run mở đến 11 giờ tối, sau đó vẫn được câu cá (ODNR)",
+  "pg.not_recorded_tag": "Không có ghi nhận tại {lake}",
+  "ui.full_forecast": "Dự báo đầy đủ",
+  "ui.near_me": "Gần tôi",
+  "ui.no_gauge": "Không có trạm đo",
+  "ui.example_entry": "Mục ví dụ"
  }
 }
