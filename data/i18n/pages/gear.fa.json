@@ -1,0 +1,13 @@
+{
+ "_meta": {
+  "lang": "fa",
+  "page": "gear",
+  "review": "draft"
+ },
+ "strings": {
+  "gear.27e90dfa": "در",
+  "gear.77edd4b4": "بدون محدودیت قدرت موتور",
+  "gear.9dcd2c3c": "قدرت موتور نامحدود",
+  "gear.e420a3cd": "محدودیت 10 hp"
+ }
+}
