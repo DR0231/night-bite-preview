@@ -6,7 +6,16 @@
  },
  "strings": {
   "species-walleye.143fa4c4": "Walleye",
+  "species-walleye.18e1e6b6": "列在 ODNR 的 Indian Lake State Park 页面上。它们共用 walleye、saugeye 和 sauger 合并限额。",
+  "species-walleye.507a9068": "ODNR 大多数年份在 Pymatuning 放流（2025 年 293,132 尾鱼种；2023 年未列出）。Pymatuning 规则：每日 6 条，最小尺寸 15″。",
+  "species-walleye.694cca65": "ODNR 每年在 Berlin Lake 放流（2025 年 404,931 尾鱼种，另有鱼苗）。这里最小尺寸 15″。",
+  "species-walleye.6d372800": "ODNR 每年在 Mosquito Creek Lake 放流（2025 年 883,376 尾鱼种，另有鱼苗）。这里最小尺寸 15″。",
   "species-walleye.9e89988c": "岸钓",
-  "species-walleye.ef58de4f": "船钓"
+  "species-walleye.a2528e44": "ODNR 每年在 Lake Milton 放流（2025 年 254,873 尾鱼种）。这里最小尺寸 15″。",
+  "species-walleye.ba003615": "ODNR 钓鱼法规 2026–27（请核实最新版本）",
+  "species-walleye.c482e8b2": "2019 年作为与 saugeye 对比研究的一部分放流。这里的鱼来自放流，所以别以为有庞大的野生种群。",
+  "species-walleye.e3ddf4a3": "ODNR 的 Salt Fork State Park 页面称 walleye 种群规模可观。",
+  "species-walleye.ef58de4f": "船钓",
+  "species-walleye.f94a4db0": "ODNR 大多数年份在 West Branch 放流（2025 年 264,996 尾鱼种；2023 年未列出）。这里最小尺寸 15″。"
  }
 }
