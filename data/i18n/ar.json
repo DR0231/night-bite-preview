@@ -311,6 +311,16 @@
   "pg.stamp_lt_fail": "فشل التحديث المباشر. تم تحديث المنسوب والحرارة {ago}",
   "pg.stamp_l_fail": "فشل التحديث المباشر. تم تحديث المنسوب {ago}",
   "pg.cond_status": "توقعات NWS بالساعة لـ {lake}، الضغط من {station} عند {t1}. تم التحقق {t2} ET.",
-  "pg.cond_status_nob": "توقعات NWS بالساعة لـ {lake}، الضغط من {station}. تم التحقق {t2} ET."
+  "pg.cond_status_nob": "توقعات NWS بالساعة لـ {lake}، الضغط من {station}. تم التحقق {t2} ET.",
+  "pg.refresh_failed_check": "فشل التحديث المباشر، راجع",
+  "pg.refresh_failed_short": "فشل التحديث، راجع",
+  "pg.showing_from": "تُعرض قراءة {when}.",
+  "pg.showing_last": "تُعرض آخر قراءة.",
+  "pg.unavail_check": "غير متاح، راجع",
+  "pg.miss_pool": "المنسوب غير متاح، راجع",
+  "pg.miss_temp": "الحرارة غير متاحة، راجع",
+  "pg.feels_at": "{time}، الإحساس {t}",
+  "pg.live_pool_p": "تحديث {src} المباشر حدّث المنسوب (مؤقت).",
+  "pg.live_temp_p": "تحديث {src} المباشر حدّث الحرارة (مؤقت)."
  }
 }

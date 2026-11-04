@@ -311,6 +311,16 @@
   "pg.stamp_lt_fail": "لائیو ریفریش ناکام۔ سطح اور درجہ حرارت اپڈیٹ {ago}",
   "pg.stamp_l_fail": "لائیو ریفریش ناکام۔ سطح اپڈیٹ {ago}",
   "pg.cond_status": "{lake} کے لیے NWS گھنٹہ وار پیشگوئی، بیرومیٹر {station} سے، {t1}۔ چیک کیا {t2} ET۔",
-  "pg.cond_status_nob": "{lake} کے لیے NWS گھنٹہ وار پیشگوئی، بیرومیٹر {station} سے۔ چیک کیا {t2} ET۔"
+  "pg.cond_status_nob": "{lake} کے لیے NWS گھنٹہ وار پیشگوئی، بیرومیٹر {station} سے۔ چیک کیا {t2} ET۔",
+  "pg.refresh_failed_check": "لائیو ریفریش ناکام، دیکھیں",
+  "pg.refresh_failed_short": "ریفریش ناکام، دیکھیں",
+  "pg.showing_from": "{when} کی ریڈنگ دکھائی جا رہی ہے۔",
+  "pg.showing_last": "آخری ریڈنگ دکھائی جا رہی ہے۔",
+  "pg.unavail_check": "دستیاب نہیں، دیکھیں",
+  "pg.miss_pool": "سطح دستیاب نہیں، دیکھیں",
+  "pg.miss_temp": "درجہ حرارت دستیاب نہیں، دیکھیں",
+  "pg.feels_at": "{time}، محسوس {t}",
+  "pg.live_pool_p": "{src} لائیو ریفریش نے سطح اپڈیٹ کی (عارضی)۔",
+  "pg.live_temp_p": "{src} لائیو ریفریش نے درجہ حرارت اپڈیٹ کیا (عارضی)۔"
  }
 }

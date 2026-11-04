@@ -131,7 +131,7 @@
     var f = tempF(p);
     if (f !== null) {
       var fl = feelsLike(f, windHi(p), p.relativeHumidity && p.relativeHumidity.value);
-      setCell("air", String(Math.round(f)), "°F", subNow === "Now" ? "Feels like " + Math.round(fl) + "°" : subNow + ", feels " + Math.round(fl) + "°");
+      setCell("air", String(Math.round(f)), "°F", subNow === "Now" ? "Feels like " + Math.round(fl) + "°" : subNow + ", feels " + Math.round(fl) + "°");   // pg.feels / pg.feels_at
     }
     var maxPop = null;
     for (var j = start; j < Math.min(periods.length, start + 12); j++) {

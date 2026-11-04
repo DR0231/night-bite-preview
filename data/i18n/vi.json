@@ -310,6 +310,16 @@
   "pg.stamp_lt_fail": "Làm mới trực tiếp thất bại. Mực nước và nhiệt độ cập nhật {ago}",
   "pg.stamp_l_fail": "Làm mới trực tiếp thất bại. Mực nước cập nhật {ago}",
   "pg.cond_status": "Dự báo theo giờ của NWS cho {lake}, áp kế từ {station} lúc {t1}. Đã kiểm tra {t2} ET.",
-  "pg.cond_status_nob": "Dự báo theo giờ của NWS cho {lake}, áp kế từ {station}. Đã kiểm tra {t2} ET."
+  "pg.cond_status_nob": "Dự báo theo giờ của NWS cho {lake}, áp kế từ {station}. Đã kiểm tra {t2} ET.",
+  "pg.refresh_failed_check": "Làm mới trực tiếp thất bại, xem",
+  "pg.refresh_failed_short": "Làm mới thất bại, xem",
+  "pg.showing_from": "Đang hiển thị số đo lúc {when}.",
+  "pg.showing_last": "Đang hiển thị số đo gần nhất.",
+  "pg.unavail_check": "không có, xem",
+  "pg.miss_pool": "không có mực nước, xem",
+  "pg.miss_temp": "không có nhiệt độ, xem",
+  "pg.feels_at": "{time}, cảm giác {t}",
+  "pg.live_pool_p": "Làm mới {src}: đã cập nhật mực nước (tạm thời).",
+  "pg.live_temp_p": "Làm mới {src}: đã cập nhật nhiệt độ (tạm thời)."
  }
 }

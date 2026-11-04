@@ -310,6 +310,16 @@
   "pg.stamp_lt_fail": "Odświeżanie na żywo nie powiodło się. Poziom i temperatura zaktualizowane {ago}",
   "pg.stamp_l_fail": "Odświeżanie na żywo nie powiodło się. Poziom zaktualizowany {ago}",
   "pg.cond_status": "Godzinowa prognoza NWS dla {lake}, barometr z {station} o {t1}. Sprawdzono {t2} ET.",
-  "pg.cond_status_nob": "Godzinowa prognoza NWS dla {lake}, barometr z {station}. Sprawdzono {t2} ET."
+  "pg.cond_status_nob": "Godzinowa prognoza NWS dla {lake}, barometr z {station}. Sprawdzono {t2} ET.",
+  "pg.refresh_failed_check": "Odświeżanie na żywo nie powiodło się, sprawdź",
+  "pg.refresh_failed_short": "Odświeżanie nie powiodło się, sprawdź",
+  "pg.showing_from": "Pokazany odczyt z {when}.",
+  "pg.showing_last": "Pokazany ostatni odczyt.",
+  "pg.unavail_check": "niedostępne, sprawdź",
+  "pg.miss_pool": "poziom niedostępny, sprawdź",
+  "pg.miss_temp": "temperatura niedostępna, sprawdź",
+  "pg.feels_at": "{time}, odczuwalna {t}",
+  "pg.live_pool_p": "Odświeżanie {src}: zaktualizowano poziom (wstępne).",
+  "pg.live_temp_p": "Odświeżanie {src}: zaktualizowano temperaturę (wstępne)."
  }
 }

@@ -310,6 +310,16 @@
   "pg.stamp_lt_fail": "ライブ更新に失敗。水位と水温の更新 {ago}",
   "pg.stamp_l_fail": "ライブ更新に失敗。水位の更新 {ago}",
   "pg.cond_status": "{lake} の NWS 1時間ごとの予報、気圧は {station}（{t1}）。確認 {t2} ET。",
-  "pg.cond_status_nob": "{lake} の NWS 1時間ごとの予報、気圧は {station}。確認 {t2} ET。"
+  "pg.cond_status_nob": "{lake} の NWS 1時間ごとの予報、気圧は {station}。確認 {t2} ET。",
+  "pg.refresh_failed_check": "ライブ更新に失敗しました。確認先:",
+  "pg.refresh_failed_short": "更新に失敗しました。確認先:",
+  "pg.showing_from": "{when} の測定値を表示しています。",
+  "pg.showing_last": "最新の測定値を表示しています。",
+  "pg.unavail_check": "利用できません。確認先:",
+  "pg.miss_pool": "水位は利用できません。確認先:",
+  "pg.miss_temp": "水温は利用できません。確認先:",
+  "pg.feels_at": "{time}、体感 {t}",
+  "pg.live_pool_p": "{src} ライブ更新で水位を更新しました（暫定）。",
+  "pg.live_temp_p": "{src} ライブ更新で水温を更新しました（暫定）。"
  }
 }

@@ -58,6 +58,17 @@ const state = () => {
   ok('es: Draft translation marker shown', /Draft translation/.test(es.marker) && /Traducci/.test(es.marker), es.marker);
   ok('es: nav, glance and footer labels in Spanish', es.nav === 'Especies' && es.glance === 'Esta noche de un vistazo' && es.level === 'Nivel del lago' && es.foot === 'Privacidad', es);
   ok('es: lake name, rule chip and level number unchanged', es.h1 === en.h1 && es.chip === en.chip && es.poolVal === en.poolVal, { en, es });
+  // S13: a time and a date actually show in Spanish (Intl), not just the labels
+  await p.waitForFunction(() => { const v = document.querySelector('[data-cond="sunset"] .cond-value'); return v && /\d/.test(v.textContent); }, null, { timeout: 8000 }).catch(() => {});
+  await p.waitForTimeout(300);
+  const tm = await p.evaluate(() => {
+    const t = s => ((document.querySelector(s) || {}).textContent || '').replace(/\s+/g, ' ').trim();
+    const d = [...document.querySelectorAll('main time[datetime]')].find(e => /^\d{4}-\d{2}-\d{2}$/.test(e.getAttribute('datetime')));
+    return { sunset: t('[data-cond="sunset"] .cond-value'), glance: t('[data-glance="sunset"]'), date: d ? d.textContent.trim() : null, dt: d && d.getAttribute('datetime') };
+  });
+  const want = tm.dt ? new Intl.DateTimeFormat('es', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }).format(Date.UTC(+tm.dt.slice(0, 4), +tm.dt.slice(5, 7) - 1, +tm.dt.slice(8, 10))) : '';
+  ok('es: sunset cell on hoover shows a 24 h Spanish time (no AM/PM)', /\d{1,2}:\d{2}/.test(tm.sunset) && !/\b(AM|PM)\b/.test(tm.sunset), tm);
+  ok('es: a <time datetime> date in <main> is written with Intl es', !!tm.date && tm.date === want && !/^[A-Z][a-z]{2}\.? \d/.test(tm.date), { tm, want });
   ok('es: no sideways scroll', es.ov <= 1, es.ov);
   await p.reload({ waitUntil: 'load' });
   const early = await p.evaluate(() => document.documentElement.lang);

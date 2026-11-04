@@ -310,6 +310,16 @@
   "pg.stamp_lt_fail": "लाइव रीफ़्रेश विफल। स्तर और तापमान अपडेट {ago}",
   "pg.stamp_l_fail": "लाइव रीफ़्रेश विफल। स्तर अपडेट {ago}",
   "pg.cond_status": "{lake} के लिए NWS घंटेवार पूर्वानुमान, बैरोमीटर {station} से, {t1}। जाँचा गया {t2} ET।",
-  "pg.cond_status_nob": "{lake} के लिए NWS घंटेवार पूर्वानुमान, बैरोमीटर {station} से। जाँचा गया {t2} ET।"
+  "pg.cond_status_nob": "{lake} के लिए NWS घंटेवार पूर्वानुमान, बैरोमीटर {station} से। जाँचा गया {t2} ET।",
+  "pg.refresh_failed_check": "लाइव रीफ़्रेश विफल, देखें",
+  "pg.refresh_failed_short": "रीफ़्रेश विफल, देखें",
+  "pg.showing_from": "{when} की रीडिंग दिखाई जा रही है।",
+  "pg.showing_last": "आखिरी रीडिंग दिखाई जा रही है।",
+  "pg.unavail_check": "उपलब्ध नहीं, देखें",
+  "pg.miss_pool": "स्तर उपलब्ध नहीं, देखें",
+  "pg.miss_temp": "तापमान उपलब्ध नहीं, देखें",
+  "pg.feels_at": "{time}, महसूस {t}",
+  "pg.live_pool_p": "{src} लाइव रीफ़्रेश ने स्तर अपडेट किया (अस्थायी)।",
+  "pg.live_temp_p": "{src} लाइव रीफ़्रेश ने तापमान अपडेट किया (अस्थायी)।"
  }
 }

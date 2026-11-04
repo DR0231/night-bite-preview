@@ -310,6 +310,16 @@
   "pg.stamp_lt_fail": "Pumalya ang live na pag-refresh. Antas at temperatura na-update {ago}",
   "pg.stamp_l_fail": "Pumalya ang live na pag-refresh. Antas na-update {ago}",
   "pg.cond_status": "Oras-oras na forecast ng NWS para sa {lake}, barometro mula {station} noong {t1}. Sinuri {t2} ET.",
-  "pg.cond_status_nob": "Oras-oras na forecast ng NWS para sa {lake}, barometro mula {station}. Sinuri {t2} ET."
+  "pg.cond_status_nob": "Oras-oras na forecast ng NWS para sa {lake}, barometro mula {station}. Sinuri {t2} ET.",
+  "pg.refresh_failed_check": "Hindi nag-refresh nang live, tingnan ang",
+  "pg.refresh_failed_short": "Hindi nag-refresh, tingnan ang",
+  "pg.showing_from": "Ipinapakita ang reading noong {when}.",
+  "pg.showing_last": "Ipinapakita ang huling reading.",
+  "pg.unavail_check": "hindi available, tingnan ang",
+  "pg.miss_pool": "hindi available ang lebel, tingnan ang",
+  "pg.miss_temp": "hindi available ang temperatura, tingnan ang",
+  "pg.feels_at": "{time}, pakiramdam {t}",
+  "pg.live_pool_p": "Live refresh ng {src}: na-update ang lebel (pansamantala).",
+  "pg.live_temp_p": "Live refresh ng {src}: na-update ang temperatura (pansamantala)."
  }
 }

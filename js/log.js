@@ -70,6 +70,18 @@
     var m = parseInt(parts[1], 10) - 1;
     return months[m] + " " + parseInt(parts[2], 10) + ", " + parts[0];
   }
+  // S13: the date as <time datetime>, English text; js/i18n.js rewrites it with Intl in the picked language
+  function dateTag(iso) {
+    var t = formatDate(iso);
+    return /^\d{4}-\d{2}-\d{2}$/.test(iso || "") ? '<time datetime="' + iso + '">' + escapeHtml(t) + "</time>" : escapeHtml(t);
+  }
+  // aria-label text is not walked as a date, so it uses Intl directly in the page language
+  function dateLabel(iso) {
+    var L = document.documentElement.lang || "en", p = (iso || "").split("-");
+    if (L === "en" || p.length !== 3) return formatDate(iso);
+    try { return new Intl.DateTimeFormat(L, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(Date.UTC(+p[0], +p[1] - 1, +p[2])); } catch (e) { return formatDate(iso); }
+  }
+
 
   function renderList() {
     var list = document.getElementById("log-list");
@@ -100,14 +112,14 @@
     list.innerHTML = entries.map(function (e) {
       var badge = '<span class="meta">Your trip</span>';
       var delBtn = '<div class="trip-actions"><button type="button" class="btn btn-danger" data-delete="' +
-          escapeAttr(e.id) + '" aria-label="Remove ' + escapeAttr((e.species || "trip") + ", " + formatDate(e.date)) + '">Remove</button></div>';
+          escapeAttr(e.id) + '" aria-label="Remove ' + escapeAttr((e.species || "trip") + ", " + dateLabel(e.date)) + '">Remove</button></div>';
       return (
         '<article class="paper-card" data-id="' + escapeAttr(e.id) + '">' +
         badge +
         ' <span class="lake-tag">' + escapeHtml(lakeShort(e.lake)) + "</span>" +
         "<h3>" + escapeHtml(e.species || "Unknown") + "</h3>" +
         '<dl class="trip-dl">' +
-        "<dt>Date</dt><dd>" + escapeHtml(formatDate(e.date)) + "</dd>" +
+        "<dt>Date</dt><dd>" + dateTag(e.date) + "</dd>" +
         "<dt>Spot</dt><dd>" + escapeHtml(spotName(e) || "—") + "</dd>" +
         "<dt>Bait</dt><dd>" + escapeHtml(e.bait || "—") + "</dd>" +
         "<dt>Keep?</dt><dd>" + escapeHtml(e.disposition || "—") + "</dd>" +
@@ -354,4 +366,5 @@
     initForm();
     initBackup();
   }
+  document.addEventListener("nb-lang", function () { renderList(); });
 })();

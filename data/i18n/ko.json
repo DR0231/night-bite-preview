@@ -310,6 +310,16 @@
   "pg.stamp_lt_fail": "실시간 새로고침 실패. 수위와 수온 업데이트 {ago}",
   "pg.stamp_l_fail": "실시간 새로고침 실패. 수위 업데이트 {ago}",
   "pg.cond_status": "{lake} NWS 시간별 예보, 기압은 {station} {t1} 기준. 확인 {t2} ET.",
-  "pg.cond_status_nob": "{lake} NWS 시간별 예보, 기압은 {station}. 확인 {t2} ET."
+  "pg.cond_status_nob": "{lake} NWS 시간별 예보, 기압은 {station}. 확인 {t2} ET.",
+  "pg.refresh_failed_check": "실시간 새로고침 실패, 확인:",
+  "pg.refresh_failed_short": "새로고침 실패, 확인:",
+  "pg.showing_from": "{when} 측정값을 표시합니다.",
+  "pg.showing_last": "마지막 측정값을 표시합니다.",
+  "pg.unavail_check": "사용할 수 없음, 확인:",
+  "pg.miss_pool": "수위 사용할 수 없음, 확인:",
+  "pg.miss_temp": "수온 사용할 수 없음, 확인:",
+  "pg.feels_at": "{time}, 체감 {t}",
+  "pg.live_pool_p": "{src} 실시간 새로고침으로 수위 업데이트(잠정).",
+  "pg.live_temp_p": "{src} 실시간 새로고침으로 수온 업데이트(잠정)."
  }
 }

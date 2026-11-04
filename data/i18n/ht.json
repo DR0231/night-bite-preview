@@ -339,6 +339,16 @@
   "pg.stamp_lt_fail": "Mizajou an dirèk la echwe. Nivo ak tanperati mete ajou {ago}",
   "pg.stamp_l_fail": "Mizajou an dirèk la echwe. Nivo mete ajou {ago}",
   "pg.cond_status": "Previzyon NWS pa lè pou {lake}, baromèt {station} a {t1}. Tcheke {t2} ET.",
-  "pg.cond_status_nob": "Previzyon NWS pa lè pou {lake}, baromèt {station}. Tcheke {t2} ET."
+  "pg.cond_status_nob": "Previzyon NWS pa lè pou {lake}, baromèt {station}. Tcheke {t2} ET.",
+  "pg.refresh_failed_check": "Mizajou an dirèk la echwe, tcheke",
+  "pg.refresh_failed_short": "Mizajou a echwe, tcheke",
+  "pg.showing_from": "N ap montre mezi {when}.",
+  "pg.showing_last": "N ap montre dènye mezi a.",
+  "pg.unavail_check": "pa disponib, tcheke",
+  "pg.miss_pool": "nivo pa disponib, tcheke",
+  "pg.miss_temp": "tanperati pa disponib, tcheke",
+  "pg.feels_at": "{time}, santi {t}",
+  "pg.live_pool_p": "Mizajou an dirèk {src}: nivo mete ajou (pwovizwa).",
+  "pg.live_temp_p": "Mizajou an dirèk {src}: tanperati mete ajou (pwovizwa)."
  }
 }

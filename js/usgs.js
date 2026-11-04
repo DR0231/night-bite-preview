@@ -101,7 +101,7 @@
       '" target="_blank" rel="noopener">' + SRC_NAME + '</a>';
     if (statusEl) {
       statusEl.innerHTML =
-        (msg || "unavailable, check " + SRC_NAME) + " · " + link + ".";
+        "unavailable, check " + link + ".";
     }
     if (lineEl) {
       lineEl.innerHTML =
@@ -244,15 +244,16 @@
             "Live " + SRC_NAME + " refresh updated " + bits.join(" + ") + " (provisional).";
         }
         if (!PARAM_TEMP && pool && statusEl) {
-          statusEl.textContent += " No public water temp gauge on this lake.";
+          statusEl.textContent += " No public water temp gauge on this lake.";   // pg.live_pool, one node
         } else if (!pool || !temp) {
           var miss = !pool ? "pool" : "temp";
           if (statusEl) {
+            // each piece its own text node so js/i18n.js can match it (pg.live_*_p, pg.miss_*)
             statusEl.innerHTML =
-              statusEl.textContent +
-              " · " +
+              "<span>" + statusEl.innerHTML +
+              "</span> · <span>" +
               miss +
-              ' unavailable, check <a href="' +
+              ' unavailable, check</span> <a href="' +
               GAUGE_URL +
               '" target="_blank" rel="noopener">' + SRC_NAME + '</a>.';
           }

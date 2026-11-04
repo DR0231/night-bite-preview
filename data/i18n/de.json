@@ -339,6 +339,16 @@
   "pg.stamp_lt_fail": "Live-Aktualisierung fehlgeschlagen. Pegel und Temperatur aktualisiert {ago}",
   "pg.stamp_l_fail": "Live-Aktualisierung fehlgeschlagen. Pegel aktualisiert {ago}",
   "pg.cond_status": "Stündliche NWS-Vorhersage für {lake}, Barometer von {station} um {t1}. Geprüft {t2} ET.",
-  "pg.cond_status_nob": "Stündliche NWS-Vorhersage für {lake}, Barometer von {station}. Geprüft {t2} ET."
+  "pg.cond_status_nob": "Stündliche NWS-Vorhersage für {lake}, Barometer von {station}. Geprüft {t2} ET.",
+  "pg.refresh_failed_check": "Live-Aktualisierung fehlgeschlagen, siehe",
+  "pg.refresh_failed_short": "Aktualisierung fehlgeschlagen, siehe",
+  "pg.showing_from": "Angezeigt wird der Messwert von {when}.",
+  "pg.showing_last": "Angezeigt wird der letzte Messwert.",
+  "pg.unavail_check": "nicht verfügbar, siehe",
+  "pg.miss_pool": "Pegel nicht verfügbar, siehe",
+  "pg.miss_temp": "Temperatur nicht verfügbar, siehe",
+  "pg.feels_at": "{time}, gefühlt {t}",
+  "pg.live_pool_p": "Live-Aktualisierung {src}: Pegel aktualisiert (vorläufig).",
+  "pg.live_temp_p": "Live-Aktualisierung {src}: Temperatur aktualisiert (vorläufig)."
  }
 }

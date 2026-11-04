@@ -339,6 +339,16 @@
   "pg.stamp_lt_fail": "Aggiornamento dal vivo non riuscito. Livello e temperatura aggiornati {ago}",
   "pg.stamp_l_fail": "Aggiornamento dal vivo non riuscito. Livello aggiornato {ago}",
   "pg.cond_status": "Previsioni orarie NWS per {lake}, barometro da {station} alle {t1}. Controllato {t2} ET.",
-  "pg.cond_status_nob": "Previsioni orarie NWS per {lake}, barometro da {station}. Controllato {t2} ET."
+  "pg.cond_status_nob": "Previsioni orarie NWS per {lake}, barometro da {station}. Controllato {t2} ET.",
+  "pg.refresh_failed_check": "Aggiornamento dal vivo non riuscito, controlla",
+  "pg.refresh_failed_short": "Aggiornamento non riuscito, controlla",
+  "pg.showing_from": "Lettura mostrata: {when}.",
+  "pg.showing_last": "Mostrata l’ultima lettura.",
+  "pg.unavail_check": "non disponibile, controlla",
+  "pg.miss_pool": "livello non disponibile, controlla",
+  "pg.miss_temp": "temperatura non disponibile, controlla",
+  "pg.feels_at": "{time}, percepita {t}",
+  "pg.live_pool_p": "Aggiornamento {src}: livello aggiornato (provvisorio).",
+  "pg.live_temp_p": "Aggiornamento {src}: temperatura aggiornata (provvisoria)."
  }
 }

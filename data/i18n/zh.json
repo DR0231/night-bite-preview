@@ -360,6 +360,16 @@
   "pg.stamp_lt_fail": "实时刷新失败。水位和水温更新于 {ago}",
   "pg.stamp_l_fail": "实时刷新失败。水位更新于 {ago}",
   "pg.cond_status": "{lake} 的 NWS 逐小时预报，气压来自 {station}，{t1}。检查于 {t2} ET。",
-  "pg.cond_status_nob": "{lake} 的 NWS 逐小时预报，气压来自 {station}。检查于 {t2} ET。"
+  "pg.cond_status_nob": "{lake} 的 NWS 逐小时预报，气压来自 {station}。检查于 {t2} ET。",
+  "pg.refresh_failed_check": "实时刷新失败，请查看",
+  "pg.refresh_failed_short": "刷新失败，请查看",
+  "pg.showing_from": "显示 {when} 的读数。",
+  "pg.showing_last": "显示最近一次读数。",
+  "pg.unavail_check": "不可用，请查看",
+  "pg.miss_pool": "水位不可用，请查看",
+  "pg.miss_temp": "水温不可用，请查看",
+  "pg.feels_at": "{time}，体感 {t}",
+  "pg.live_pool_p": "{src} 实时刷新已更新水位（临时数据）。",
+  "pg.live_temp_p": "{src} 实时刷新已更新水温（临时数据）。"
  }
 }

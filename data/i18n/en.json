@@ -309,6 +309,16 @@
   "pg.stamp_lt_fail": "Live refresh failed. Level and temp last updated {ago}",
   "pg.stamp_l_fail": "Live refresh failed. Level last updated {ago}",
   "pg.cond_status": "NWS hourly forecast for {lake}, barometer from {station} at {t1}. Checked {t2} ET.",
-  "pg.cond_status_nob": "NWS hourly forecast for {lake}, barometer from {station}. Checked {t2} ET."
+  "pg.cond_status_nob": "NWS hourly forecast for {lake}, barometer from {station}. Checked {t2} ET.",
+  "pg.refresh_failed_check": "Live refresh failed, check",
+  "pg.refresh_failed_short": "Refresh failed, check",
+  "pg.showing_from": "Showing the reading from {when}.",
+  "pg.showing_last": "Showing the last reading.",
+  "pg.unavail_check": "unavailable, check",
+  "pg.miss_pool": "pool unavailable, check",
+  "pg.miss_temp": "temp unavailable, check",
+  "pg.feels_at": "{time}, feels {t}",
+  "pg.live_pool_p": "Live {src} refresh updated pool (provisional).",
+  "pg.live_temp_p": "Live {src} refresh updated temp (provisional)."
  }
 }

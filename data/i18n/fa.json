@@ -311,6 +311,16 @@
   "pg.stamp_lt_fail": "به‌روزرسانی زنده ناموفق بود. تراز و دما به‌روز شد {ago}",
   "pg.stamp_l_fail": "به‌روزرسانی زنده ناموفق بود. تراز به‌روز شد {ago}",
   "pg.cond_status": "پیش‌بینی ساعتی NWS برای {lake}، فشارسنج از {station} در {t1}. بررسی شد {t2} ET.",
-  "pg.cond_status_nob": "پیش‌بینی ساعتی NWS برای {lake}، فشارسنج از {station}. بررسی شد {t2} ET."
+  "pg.cond_status_nob": "پیش‌بینی ساعتی NWS برای {lake}، فشارسنج از {station}. بررسی شد {t2} ET.",
+  "pg.refresh_failed_check": "به‌روزرسانی زنده ناموفق بود، ببینید",
+  "pg.refresh_failed_short": "به‌روزرسانی ناموفق بود، ببینید",
+  "pg.showing_from": "نمایش داده‌ی {when}.",
+  "pg.showing_last": "نمایش آخرین داده.",
+  "pg.unavail_check": "در دسترس نیست، ببینید",
+  "pg.miss_pool": "تراز در دسترس نیست، ببینید",
+  "pg.miss_temp": "دما در دسترس نیست، ببینید",
+  "pg.feels_at": "{time}، احساس {t}",
+  "pg.live_pool_p": "به‌روزرسانی زنده {src} تراز را به‌روز کرد (موقت).",
+  "pg.live_temp_p": "به‌روزرسانی زنده {src} دما را به‌روز کرد (موقت)."
  }
 }
