@@ -9,11 +9,16 @@
  * Right to left (ar, ur, fa: _meta.dir "rtl"): <html dir="rtl">, {time} values wrapped in Unicode isolates, and the
  * fact elements in LTR (numbers, lake and ramp names, the rule chip, untranslated options) get dir="ltr" while they hold
  * no RTL script; any left-to-right language, English included, removes it again.
+ * Page UI (S10): <main> is walked too, so headings, labels, buttons, fold summaries, glance subs and status lines swap
+ * when their whole text node equals an English string. In <main> only exact strings and the "pg." templates apply (a
+ * looser template could catch a prose line), and h1 (titles stay as they are), .cond-summary (NWS forecast words) and
+ * anything inside [data-nb-keep] are never touched. Long-form prose has no key, so it stays English.
  */
 (function (d) {
-  var SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft";
+  var SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label";
   var ATTRS = ["placeholder", "aria-label", "data-short", "title"];
   var LTR = ".glance-value, .glance-sub, .glance-stamp, .lake-pill-name, .night-chip-text, main h1, .site-header option, #add-trip option, #my-trips option, [data-log-filter] option, .i18n-draft-en";
+  var WIDE = "main, dialog:not(.a11y-panel)", KEEP = "h1, .cond-summary, [data-nb-keep]";
   var RTLSCRIPT = /[\u0590-\u08ff\ufb1d-\ufdff\ufe70-\ufeff]/;
   function rtl() { return d.documentElement.dir === "rtl"; }
   var me = d.currentScript, BASE = me ? me.src : location.href;
@@ -38,28 +43,31 @@
     });
     return { exact: exact, tpl: tpl, tr: tr };
   }
-  function lookup(t, s) {
+  function lookup(t, s, wide) {
     var n = norm(s); if (!n) return null;
     var k = t.exact[n];
     if (k) return t.tr[k] != null ? t.tr[k] : null;
     for (var i = 0; i < t.tpl.length; i++) {
+      if (wide && t.tpl[i].k.indexOf("pg.") !== 0) continue;
       var m = n.match(t.tpl[i].re); if (!m) continue;
       var out = t.tr[t.tpl[i].k]; if (out == null) return null;
-      t.tpl[i].names.forEach(function (nm, j) { out = out.split("{" + nm + "}").join(rtl() ? "\u2068" + m[j + 1] + "\u2069" : m[j + 1]); });
+      // a captured part can be a string too ("2 hours ago", "steady"); names and numbers match nothing and stay
+      t.tpl[i].names.forEach(function (nm, j) { var v = m[j + 1], vt = lookup(t, v, true); if (vt != null) v = vt; out = out.split("{" + nm + "}").join(rtl() ? "\u2068" + v + "\u2069" : v); });
       return out;
     }
     return null;
   }
-  function walk(root) {
+  function walk(root, wide) {
     var w = d.createTreeWalker(root, NodeFilter.SHOW_TEXT), n, list = [];
     while ((n = w.nextNode())) list.push(n);
     list.forEach(function (node) {
       var p = node.parentNode; if (!p || /^(SCRIPT|STYLE|NOSCRIPT)$/.test(p.nodeName)) return;
+      if (wide && p.closest && (p.closest(KEEP) || p.closest(SCOPES))) return;
       // its own script rewrote the text since we swapped it (a countdown, a state): the new text is the English now
       if (orig.has(node) && node.nodeValue !== node.__nbOut) orig.delete(node);
       var en = orig.has(node) ? orig.get(node) : node.nodeValue;
       if (!norm(en)) return;
-      var out = cur === "en" ? null : lookup(tbl, en), want;
+      var out = cur === "en" ? null : lookup(tbl, en, wide), want;
       if (out != null) { want = en.match(/^\s*/)[0] + out + en.match(/\s*$/)[0]; orig.set(node, en); node.__nbOut = want; }
       else { want = en; orig.delete(node); }
       if (node.nodeValue !== want) node.nodeValue = want;
@@ -70,7 +78,8 @@
       var o = attrOrig.get(el) || {};
       ATTRS.forEach(function (a) {
         if (!el.hasAttribute(a)) return;
-        var en = a in o ? o[a] : el.getAttribute(a), out = cur === "en" ? null : lookup(tbl, en);
+        if (wide && el.closest && (el.closest(KEEP) || el.closest(SCOPES))) return;
+        var en = a in o ? o[a] : el.getAttribute(a), out = cur === "en" ? null : lookup(tbl, en, wide);
         if (out != null) { o[a] = en; if (el.getAttribute(a) !== out) el.setAttribute(a, out); } else if (a in o) { el.setAttribute(a, o[a]); delete o[a]; }
       });
       attrOrig.set(el, o);
@@ -86,7 +95,7 @@
       else if (!want && el.hasAttribute("data-nb-ltr")) { el.removeAttribute("dir"); el.removeAttribute("data-nb-ltr"); }
     });
   }
-  function run() { if (busy) return; busy = true; try { scopes().forEach(walk); isolate(); } finally { busy = false; } }
+  function run() { if (busy) return; busy = true; try { scopes().forEach(function (r) { walk(r); }); [].slice.call(d.querySelectorAll(WIDE)).forEach(function (r) { walk(r, true); }); isolate(); } finally { busy = false; } }
   function marker(meta) {
     var m = d.getElementById("i18n-draft");
     if (cur === "en") { if (m) m.remove(); return; }

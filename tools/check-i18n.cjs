@@ -12,7 +12,8 @@
  * header still fits (logo, lake pill and nav inside the row, nothing overlapping), Display panel and marker inside the
  * viewport, the rule chip, glance numbers and English options marked dir="ltr", and switching to a left-to-right
  * language or back to English resets dir="ltr" with no leftover marks. Prints PASS/FAIL lines; exit 1 on any FAIL.
- * Analytics blocked (tools/no-analytics.cjs).
+ * S10: page UI coverage in ja, ar and de on /, hoover/, alum/, water, log and species/ (any visible heading, label, control,
+ * status line or intro without a key fails, English-kept terms aside), English restores the page UI. Analytics blocked (tools/no-analytics.cjs).
  */
 const fs = require('fs'), path = require('path'), os = require('os');
 const PW = process.env.PLAYWRIGHT_CORE || '/usr/local/lib/pnpm/5/.pnpm/playwright-core@1.59.1/node_modules/playwright-core';
@@ -165,6 +166,62 @@ const state = () => {
   ok('RTL back to English: dir="ltr", marks gone, nb-lang cleared, still ltr after reload', b4.dir === 'ltr' && b4.lang === 'en' && bm.left === 0 && !b4.store && b5.dir === 'ltr' && b5.lang === 'en', { b4, bm, b5 });
   ok('RTL run: no page errors', !e4.length, e4);
   await c4.close();
+
+  // UI coverage (S10): in ja, ar (no Latin script of their own) and de, on the home, two lake homes, Water, Log and Species,
+  // every visible UI element (headings, summaries, buttons, labels, legends, table heads, glance labels, subs and status
+  // lines, fold and filter controls, intro lines) is translated. ja/ar: its own text, minus the English-kept terms (lake,
+  // ramp and species names, agencies, brands, units), has no English word left. All three: no UI text still equals an
+  // English string that has a key. h1 (titles), options (names), NWS forecast words and [data-nb-keep] are exempt.
+  const EN = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'i18n', 'en.json'), 'utf8')).strings;
+  const enVals = Object.values(EN).map(v => v.replace(/\s+/g, ' ').trim()).filter(v => !/\{\w+\}/.test(v));
+  const UIPAGES = ['', 'hoover/', 'alum/', 'water', 'log', 'species/'];
+  const audit = ([enVals, trVals]) => {
+    const SEL = 'h2,h3,h4,h5,summary,button,label,legend,th,dt,.glance-label,.glance-sub,.glance-stamp,.cond-label,.cond-sub,.pool-readout-label,.pool-trend-label,.spy-label,.filter-chip,a.btn,.lead,.wp-lead,.wp-browse-sub,.get-app-lead,.bite-tonight';
+    const L = window.NightBiteLakes || {}, kept = ['The Night Bite', 'Whisperwood Vale', 'Whisperwood', 'ODNR', 'USGS', 'USACE', 'NWS', 'GitHub', 'iPhone', 'Android', 'iOS', 'Chrome', 'Ohio', 'PDF', 'Corps', 'markdown', 'URL', 'weather.gov', 'issue', 'Cats', 'Bass', 'Panfish', 'wiper'];
+    Object.values(L.all || {}).forEach(c => ['name', 'short'].forEach(k => c[k] && kept.push(c[k])));
+    const sp = L.speciesNames || {}; Object.keys(sp).forEach(k => { kept.push(k); if (typeof sp[k] === 'string') kept.push(sp[k]); });
+    kept.sort((a, b) => b.length - a.length);
+    const out = [];
+    document.querySelectorAll(SEL).forEach(el => {
+      if (!el.offsetParent || el.closest('h1, option, .cond-summary, [data-nb-keep], .i18n-draft, .map-card, .bait-list, .lake-sheet-list, .wp-grid')) return;
+      let t = ''; el.childNodes.forEach(n => { if (n.nodeType === 3) t += n.nodeValue; });
+      t = t.replace(/\s+/g, ' ').trim(); if (!t) return;
+      let r = t; kept.forEach(k => { r = r.split(k).join(' '); });
+      const nonLatin = /[^\u0000-\u024f\u2000-\u206f\u00a0-\u00ff]/.test(t);
+      out.push({ t: t.slice(0, 90), eng: !nonLatin && /[A-Za-z]{3,}/.test(r.replace(/\b(ft|mph|AM|PM|ET|min|hrs?)\b/g, '')), same: enVals.includes(t) && !trVals.includes(t) && !kept.includes(t) });
+    });
+    return out;
+  };
+  for (const l of ['ja', 'ar', 'de']) {
+    const c5 = await br.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block' });
+    await na.block(c5);
+    await c5.addInitScript(v => { try { localStorage.setItem('nb-lang', v); } catch (e) {} }, l);
+    const trVals = Object.values(JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'i18n', l + '.json'), 'utf8')).strings).map(v => v.replace(/\s+/g, ' ').trim());
+    const p5 = await c5.newPage(); const e5 = []; p5.on('pageerror', e => e5.push(e.message));
+    for (const pg of UIPAGES) {
+      await p5.goto(B + pg, { waitUntil: 'networkidle' }); await p5.waitForTimeout(900);
+      const a = await p5.evaluate(audit, [enVals, trVals]);
+      const bad = a.filter(x => x.same || (l !== 'de' && x.eng)).map(x => x.t);
+      ok(`${l} /${pg}: every visible heading, label, control and status line translated (${a.length} checked)`, a.length > 3 && !bad.length, bad.slice(0, 12));
+    }
+    ok(`${l} UI coverage run: no page errors`, !e5.length, e5);
+    await c5.close();
+  }
+  // back to English restores the page UI too
+  {
+    const c6 = await br.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block' });
+    await na.block(c6);
+    const p6 = await c6.newPage(); await p6.goto(B + 'hoover/', { waitUntil: 'networkidle' }); await p6.waitForTimeout(500);
+    const grab = () => [...document.querySelectorAll('main h2, main summary, main dt, .glance-sub, .cond-label')].map(e => e.textContent.replace(/\s+/g, ' ').trim()).join('|');
+    const before = await p6.evaluate(grab);
+    await p6.locator('.site-footer [data-lang-open]').click(); await p6.waitForTimeout(300);
+    await p6.selectOption('#a11y-lang', 'ja'); await p6.waitForTimeout(900);
+    const mid = await p6.evaluate(grab);
+    await p6.selectOption('#a11y-lang', 'en'); await p6.waitForTimeout(700); await p6.keyboard.press('Escape');
+    const after = await p6.evaluate(grab);
+    ok('hoover/ page UI: ja swaps headings and labels, English restores them exactly', mid !== before && /クイック|早わかり/.test(mid) && after === before, { before: before.slice(0, 160), after: after.slice(0, 160) });
+    await c6.close();
+  }
   await br.close();
   console.log(`check-i18n: ${passes} pass, ${fails} fail`);
   process.exit(fails ? 1 : 0);

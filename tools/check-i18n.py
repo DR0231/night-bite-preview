@@ -14,9 +14,11 @@ import json, os, pathlib, re, sys
 
 ROOT = pathlib.Path(os.environ.get("NB_ROOT") or pathlib.Path(__file__).resolve().parent.parent)
 D = ROOT / "data" / "i18n"
-PROTECTED = ["ODNR", "USGS", "NWS", "Columbus", "US\u00a0Army Corps of Engineers", "weather.gov", "The Night Bite", "markdown"]
+PROTECTED = ["Whisperwood", "GitHub", "ODNR", "USGS", "NWS", "Columbus", "US\u00a0Army Corps of Engineers", "weather.gov", "The Night Bite", "markdown"]
 FACTS = ["Hoover", "Alum", "Buckeye Lake", "Oxbow", "Sunbury Road", "Twin Bridges", "Red Bank", "Walnut Street", "Mudflats",
          "O'Shaughnessy", "Griggs", "ramp", "ft", "\u00b0F", "mph"]
+# generic UI labels that say "ramp" as a word, not a ramp name (S10)
+GENERIC = {"pg.public_area", "pg.water_lead_b"}
 errs, warns, fails = [], [], 0
 def ph(s): return sorted(re.findall(r"\{\w+\}", s))
 if not (D / "en.json").exists():
@@ -24,6 +26,7 @@ if not (D / "en.json").exists():
 en = json.loads((D / "en.json").read_text())["strings"]
 for k, v in en.items():
     for f in FACTS:
+        if k in GENERIC and f == "ramp": continue
         if re.search(r"(?<![A-Za-z])" + re.escape(f) + r"(?![A-Za-z])", v):
             errs.append(f"en.json {k}: holds a fact word '{f}' (lake, ramp or unit names stay out of the string files)")
 boot = (ROOT / "js" / "a11y-boot.js").read_text()
