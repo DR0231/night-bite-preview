@@ -25,7 +25,7 @@
  * glance stamp) is written with Intl in Ohio time. Units (°F, %, inHg, ft) and every number stay as written.
  */
 (function (d) {
-  var SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label, a.sr-only[href$=\"#main\"]";
+  var SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label, a.sr-only[href$=\"#main\"], .install-tip";
   var ATTRS = ["placeholder", "aria-label", "data-short", "title"];
   var LTR = ".glance-value, .glance-sub, .glance-stamp, .lake-pill-name, .night-chip-text, main h1, .site-header option, #add-trip option, #my-trips option, [data-log-filter] option, .i18n-draft-en";
   var WIDE = "main, dialog:not(.a11y-panel)", KEEP = "h1, .cond-summary, [data-nb-keep]";
