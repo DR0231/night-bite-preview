@@ -10,7 +10,7 @@
   "pymatuning.072dc887": ", steigt schnell",
   "pymatuning.07f6d49b": "Punkte oder mehr sind Gut,",
   "pymatuning.09ca55ca": "Teilen",
-  "pymatuning.0b45f36a": "ODNR-Angelkarte @ 1,008, Rampen auf der Ohio-Seite, 20-PS-Regeln, USGS-Pegel meldet nicht.",
+  "pymatuning.0b45f36a": "ODNR-Angelkarte @ 1,008, Rampen auf der Ohio-Seite, 20-hp-Regeln, USGS-Pegel meldet nicht.",
   "pymatuning.0b748050": ", die mittlere stündliche NWS-Windgeschwindigkeit heute Nacht von Sonnenuntergang bis 2 AM (jeweils der obere Wert). Unter",
   "pymatuning.0c8309d1": "PNG herunterladen",
   "pymatuning.0f01ed56": "Beispiel",
@@ -57,7 +57,7 @@
   "pymatuning.687ef1ca": ": Pegel 03100500 meldete zuletzt 1008.12 ft am",
   "pymatuning.6df2b200": "Der Biss ist die eigene Faustregel dieser Seite, keine Fischereiwissenschaft und keine Vorhersage. Er zählt Punkte aus Werten, die schon auf dieser Seite stehen.",
   "pymatuning.6e6b02b1": "Du nutzt die App. Bereits geöffnete Seiten funktionieren auch ohne Empfang.",
-  "pymatuning.6ee09a77": "20-PS-Grenze",
+  "pymatuning.6ee09a77": "20-hp-Grenze",
   "pymatuning.716520d0": ", fällt schnell",
   "pymatuning.7321b4ce": "Tippe auf Hinzufügen.",
   "pymatuning.74875b11": "oder über",
@@ -83,7 +83,7 @@
   "pymatuning.a7fa610c": "Logbuch öffnen",
   "pymatuning.a8d4cf97": ". Gleichbleibend heißt innerhalb von",
   "pymatuning.a9f3ee46": "Karte mit Bootsrampen",
-  "pymatuning.aa77ebe3": "20-PS-Grenze · Pennsylvania-Lizenz am Ufer von Pennsylvania · Lizenz ab 16+.",
+  "pymatuning.aa77ebe3": "20-hp-Grenze · Pennsylvania-Lizenz am Ufer von Pennsylvania · Lizenz ab 16+.",
   "pymatuning.b2f53719": "inHg oder mehr.",
   "pymatuning.b83bf8c4": "Arten ansehen",
   "pymatuning.bbfa773e": "Schließen",
@@ -113,6 +113,6 @@
   "pymatuning.f9bb7357": "Erinnerung abbrechen",
   "pymatuning.fa4885e0": "Inoffizielle Angelseite für Ohio mit Nachtsteg-Stimmung: Hoover, Alum Creek, Buckeye Lake, O’Shaughnessy, Griggs, Indian Lake, Delaware Lake, Deer Creek Lake, Madison Lake, Knox Lake, Clear Fork Reservoir, Seneca Lake, Dillon Lake, Lake Logan, Salt Fork Lake, Burr Oak Lake, Dow Lake, Mosquito Creek Lake, Berlin Lake, West Branch Reservoir, Pymatuning Lake, Lake Milton und Leesville Lake",
   "pymatuning.ff4d932c": "Fünf Ohio-State-Park-Rampen: Padanaram, Birches Landing, Cabin Beach, New Bowers und die Campingplatz-Rampe nur für Camper. Die Straße von Cabin Beach zur Birches Marina ist dauerhaft gesperrt.",
-  "pymatuning.ffb898cc": "Pymatuning State Park ist von 6 Uhr bis 23 Uhr geöffnet; ODNR erlaubt legitime Freizeitnutzung wie Angeln auch außerhalb dieser Zeiten. 20-PS-Grenze. Die Straße von Cabin Beach zur Birches Marina ist dauerhaft gesperrt. Die Rampen Cabin Beach und New Bowers sind nicht markiert. Das Ostufer gehört zu Pennsylvania, mit eigenen Regeln. Uferlinie nach OpenStreetMap, nicht zur Navigation."
+  "pymatuning.ffb898cc": "Pymatuning State Park ist von 6 Uhr bis 23 Uhr geöffnet; ODNR erlaubt legitime Freizeitnutzung wie Angeln auch außerhalb dieser Zeiten. 20-hp-Grenze. Die Straße von Cabin Beach zur Birches Marina ist dauerhaft gesperrt. Die Rampen Cabin Beach und New Bowers sind nicht markiert. Das Ostufer gehört zu Pennsylvania, mit eigenen Regeln. Uferlinie nach OpenStreetMap, nicht zur Navigation."
  }
 }
