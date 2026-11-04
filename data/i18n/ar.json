@@ -5,6 +5,7 @@
   "review": "draft",
   "dir": "rtl",
   "pages": [
+   "404",
    "about",
    "alum",
    "berlin",
@@ -28,6 +29,7 @@
    "madison",
    "milton",
    "mosquito",
+   "offline",
    "oshaughnessy",
    "privacy",
    "pymatuning",
