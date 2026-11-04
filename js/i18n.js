@@ -267,9 +267,9 @@
       // S13: lines the scripts fill in from data (the "What's biting" cards) live in one shared "js" page file
       var js = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf("js") >= 0;
       var mp = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf("map") >= 0;
-      var dk = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf("docks") >= 0 && !!d.querySelector(".docks-lake, .dock-status");
+      var dk = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf("docklist") >= 0 && !!d.querySelector(".docks-lake, .dock-status");
       return Promise.all([r0[0], r0[1], has ? loadPage("en") : null, has ? loadPage(lang) : null, js ? loadPage("en", "js") : null, js ? loadPage(lang, "js") : null,
-        mp ? loadPage("en", "map") : null, mp ? loadPage(lang, "map") : null, dk ? loadPage("en", "docks") : null, dk ? loadPage(lang, "docks") : null]);
+        mp ? loadPage("en", "map") : null, mp ? loadPage(lang, "map") : null, dk ? loadPage("en", "docklist") : null, dk ? loadPage(lang, "docklist") : null]);
     }).then(function (r) {
       cur = lang;
       var S = function (x) { return (x && x.strings) || {}; };
