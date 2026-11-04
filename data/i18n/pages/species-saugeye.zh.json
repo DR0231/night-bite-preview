@@ -5,6 +5,8 @@
   "review": "draft"
  },
  "strings": {
-  "species-saugeye.143fa4c4": "Walleye"
+  "species-saugeye.143fa4c4": "Walleye",
+  "species-saugeye.9e89988c": "岸钓",
+  "species-saugeye.ef58de4f": "船钓"
  }
 }
