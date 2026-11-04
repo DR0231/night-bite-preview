@@ -1,0 +1,31 @@
+{
+ "_meta": {
+  "lang": "ko",
+  "page": "water",
+  "review": "draft"
+ },
+ "strings": {
+  "water.19b5b4d8": "낮에는, 그리고",
+  "water.1eee969b": "실시간 USGS 수위계",
+  "water.38c160e3": "Columbus Recreation and Parks, Marinas & Docks",
+  "water.3bbdbfde": "는 USGS가 게시한 피트 단위 호수 수면 표고이며, 웅덩이나 수로의 수심이 아니에요.",
+  "water.4374aaee": "~",
+  "water.44100b3c": "USGS 값은",
+  "water.4e589220": "이며 수정될 수 있어요.",
+  "water.5175b841": "가 호수에 없어서 수온 칸은 n/a로 표시돼요. 추정한 값은 없어요.",
+  "water.523a36aa": "는 Corps가 게시한 피트 단위 호수 수면 표고이며, 웅덩이나 수로의 수심이 아니에요.",
+  "water.77edd4b4": "마력 제한 없음",
+  "water.8a9948ac": "Corps 여름 수위는",
+  "water.90471ca5": "잠정치",
+  "water.906ab80c": "는 호수 수면 표고(ft NGVD29)이며, 웅덩이나 수로의 수심이 아니에요.",
+  "water.9c69f0c5": "댐",
+  "water.9dcd2c3c": "마력 무제한",
+  "water.a39224a8": "ODNR, Winter Drawdowns",
+  "water.a5ff1c64": "수온",
+  "water.cbdd14f5": "일몰부터 일출까지 10 mph",
+  "water.d014c690": "ODNR 낚시 지도의 수심 기준:",
+  "water.d2964d49": "Columbus City Code 921.01-1(G)",
+  "water.e420a3cd": "10 hp 제한",
+  "water.f2eb9a7b": "공공 수온 측정기 없음"
+ }
+}

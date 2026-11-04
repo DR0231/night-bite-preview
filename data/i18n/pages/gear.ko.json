@@ -1,0 +1,13 @@
+{
+ "_meta": {
+  "lang": "ko",
+  "page": "gear",
+  "review": "draft"
+ },
+ "strings": {
+  "gear.27e90dfa": "위치:",
+  "gear.77edd4b4": "마력 제한 없음",
+  "gear.9dcd2c3c": "마력 무제한",
+  "gear.e420a3cd": "10 hp 제한"
+ }
+}
