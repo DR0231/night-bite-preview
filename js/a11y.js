@@ -44,7 +44,7 @@
       el("label", { "for": "a11y-lang", "class": "a11y-lang-label", text: "Language" }), lsel,
       el("p", { id: "a11y-lang-note", "class": "a11y-note", text: "Draft translations. Rules, levels and place names stay in English." })
     ]));
-    lsel.addEventListener("change", function (e) { e.stopPropagation(); setLang(lsel.value); });
+    lsel.addEventListener("change", function (e) { e.stopPropagation(); setLang(lsel.value); sync(form); });
     form.appendChild(el("p", { "class": "a11y-saved", text: "Saved on this phone only." }));
     var reset = el("button", { type: "button", "class": "btn btn-ghost a11y-reset", text: "Reset" });
     var done = el("button", { type: "submit", "class": "btn a11y-done", value: "done", text: "Done" });
@@ -60,7 +60,8 @@
   function collect(form) {
     var s = A.read(), r = form.querySelector('input[name="a11y-text"]:checked');
     if (r && r.value) s.text = r.value; else delete s.text;
-    form.querySelectorAll("input[data-key]").forEach(function (c) { if (c.checked) s[c.dataset.key] = c.value; else delete s[c.dataset.key]; });
+    // a locked toggle (Readable text for a script the pixel fonts can't draw, or under Large and XL) keeps the saved value
+    form.querySelectorAll("input[data-key]").forEach(function (c) { if (c.disabled) return; if (c.checked) s[c.dataset.key] = c.value; else delete s[c.dataset.key]; });
     if ((s.text === "lg" || s.text === "xl") && !s.font) s.font = "readable";
     return s;
   }
@@ -69,7 +70,10 @@
     var s = A.read(), big = s.text === "lg" || s.text === "xl";
     form.querySelectorAll('input[name="a11y-text"]').forEach(function (r) { r.checked = r.value === (s.text || ""); });
     form.querySelectorAll("input[data-key]").forEach(function (c) { c.checked = s[c.dataset.key] === c.value; });
-    var f = form.querySelector("#a11y-font"); f.disabled = big; if (big) f.checked = true;
+    var f = form.querySelector("#a11y-font"), sys = !!(A.SYSFONT && A.SYSFONT[A.lang()]);
+    f.disabled = big || sys; if (big || sys) f.checked = true;
+    var fn = form.querySelector("#a11y-font-note");
+    fn.textContent = sys ? "Always on for this language." : TOGGLES[0][3];
     var m = form.querySelector("#a11y-motion"), os = window.matchMedia && matchMedia.call(window, "(prefers-reduced-motion: reduce)").matches && s.motion !== "reduce";
     var note = form.querySelector("#a11y-motion-note");
     note.textContent = os ? "On already, because your phone asks for less motion." : "No sliding or fading.";

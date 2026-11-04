@@ -13,7 +13,9 @@
  * viewport, the rule chip, glance numbers and English options marked dir="ltr", and switching to a left-to-right
  * language or back to English resets dir="ltr" with no leftover marks. Prints PASS/FAIL lines; exit 1 on any FAIL.
  * S10: page UI coverage in ja, ar and de on /, hoover/, alum/, water, log and species/ (any visible heading, label, control,
- * status line or intro without a key fails, English-kept terms aside), English restores the page UI. Analytics blocked (tools/no-analytics.cjs).
+ * status line or intro without a key fails, English-kept terms aside), English restores the page UI, and Readable text:
+ * locked on with a translated note for zh, ja, ko, hi, ar, ur, fa, ru; working like English for Latin languages; the
+ * user's saved setting comes back in English. Analytics blocked (tools/no-analytics.cjs).
  */
 const fs = require('fs'), path = require('path'), os = require('os');
 const PW = process.env.PLAYWRIGHT_CORE || '/usr/local/lib/pnpm/5/.pnpm/playwright-core@1.59.1/node_modules/playwright-core';
@@ -221,6 +223,64 @@ const state = () => {
     const after = await p6.evaluate(grab);
     ok('hoover/ page UI: ja swaps headings and labels, English restores them exactly', mid !== before && /クイック|早わかり/.test(mid) && after === before, { before: before.slice(0, 160), after: after.slice(0, 160) });
     await c6.close();
+  }
+  // Readable text (S10): scripts the pixel fonts can't draw show it on and locked with a note; Latin languages keep the
+  // toggle working like English; the saved setting is never overwritten, so English gets the user's own choice back.
+  {
+    const c7 = await br.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, serviceWorkers: 'block' });
+    await na.block(c7);
+    const p7 = await c7.newPage(); const e7 = []; p7.on('pageerror', e => e7.push(e.message));
+    await p7.goto(B + 'hoover/', { waitUntil: 'networkidle' }); await p7.evaluate(() => localStorage.clear()); await p7.reload({ waitUntil: 'networkidle' });
+    const rd = () => { const f = document.querySelector('#a11y-font'), n = document.querySelector('#a11y-font-note'), h = document.documentElement;
+      return { checked: f.checked, disabled: f.disabled, note: n.textContent, attr: h.getAttribute('data-font'), saved: (JSON.parse(localStorage.getItem('nb-a11y') || '{}')).font || null,
+        bodyFont: getComputedStyle(document.body).fontFamily, lang: h.lang, dir: h.dir }; };
+    await p7.locator('.site-footer [data-lang-open]').click(); await p7.waitForTimeout(300);
+    const r0 = await p7.evaluate(rd);
+    ok('English, fresh: Readable text off and enabled', !r0.checked && !r0.disabled && !r0.attr, r0);
+    const SYS = ['zh', 'ja', 'ko', 'hi', 'ar', 'ur', 'fa', 'ru'];
+    for (const l of SYS) {
+      await p7.selectOption('#a11y-lang', l); await p7.waitForTimeout(700);
+      const r = await p7.evaluate(rd), lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'i18n', l + '.json'), 'utf8')).strings['display.readable_locked'];
+      ok(`${l}: Readable text shown on and locked, note "${lock}", system font in use, saved setting untouched`, r.checked && r.disabled && r.note === lock && !/Pixel/.test(r.bodyFont.split(',')[0]) && r.saved === null, r);
+    }
+    for (const l of ['fr', 'de', 'vi', 'es']) {
+      await p7.selectOption('#a11y-lang', l); await p7.waitForTimeout(700);
+      const a = await p7.evaluate(rd);
+      await p7.check('#a11y-font'); await p7.waitForTimeout(200); const b = await p7.evaluate(rd);
+      await p7.uncheck('#a11y-font'); await p7.waitForTimeout(200); const c = await p7.evaluate(rd);
+      ok(`${l}: Readable text works as in English (off, on, off; saved and applied each time)`, !a.checked && !a.disabled && b.checked && b.attr === 'readable' && b.saved === 'readable' && !c.checked && !c.attr && c.saved === null && !/Always/.test(a.note), { a, b, c });
+    }
+    // user turns Readable on in English, then a locked language, then back: still on; and off stays off
+    await p7.selectOption('#a11y-lang', 'en'); await p7.waitForTimeout(500);
+    await p7.check('#a11y-font'); await p7.waitForTimeout(200);
+    await p7.selectOption('#a11y-lang', 'ja'); await p7.waitForTimeout(700);
+    await p7.selectOption('#a11y-lang', 'en'); await p7.waitForTimeout(600);
+    const on = await p7.evaluate(rd);
+    await p7.uncheck('#a11y-font'); await p7.waitForTimeout(200);
+    await p7.selectOption('#a11y-lang', 'ar'); await p7.waitForTimeout(700);
+    const arL = await p7.evaluate(rd);
+    await p7.selectOption('#a11y-lang', 'en'); await p7.waitForTimeout(600);
+    const off = await p7.evaluate(rd);
+    ok('back to English restores the saved Readable setting (on stays on, off stays off)', on.checked && !on.disabled && on.attr === 'readable' && on.saved === 'readable' && !off.checked && !off.disabled && !off.attr && off.saved === null, { on, off });
+    ok('ar: locked Readable row stays inside the panel (RTL)', arL.dir === 'rtl' && arL.disabled && await p7.evaluate(() => { const b = document.querySelector('.a11y-panel').getBoundingClientRect(), r = document.querySelector('#a11y-font').closest('.a11y-row').getBoundingClientRect(); return r.left >= b.left - 1 && r.right <= b.right + 1; }), arL);
+    const noteCR = () => {
+      const lum = c => { const m = c.match(/[\d.]+/g).map(Number); const f = v => (v /= 255) <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); return 0.2126 * f(m[0]) + 0.7152 * f(m[1]) + 0.0722 * f(m[2]); };
+      const bgOf = el => { while (el) { const b = getComputedStyle(el).backgroundColor; if (b && !/rgba\(0, 0, 0, 0\)|transparent/.test(b)) return b; el = el.parentElement; } return 'rgb(0,0,0)'; };
+      const n = document.querySelector('#a11y-font-note'), x = lum(getComputedStyle(n).color), y = lum(bgOf(n));
+      return Math.round((Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05) * 100) / 100;
+    };
+    for (const mode of [['data-light', 'red'], ['data-contrast', 'more']]) {
+      await p7.evaluate(m => document.documentElement.setAttribute(m[0], m[1]), mode);
+      await p7.selectOption('#a11y-lang', 'en'); await p7.waitForTimeout(400);
+      const base = await p7.evaluate(noteCR);
+      await p7.selectOption('#a11y-lang', 'ko'); await p7.waitForTimeout(600);
+      const cr = await p7.evaluate(noteCR), r = await p7.evaluate(rd);
+      ok(mode.join('=') + `: locked Readable note keeps the mode's own note contrast (${cr}:1, English note ${base}:1)`, r.disabled && r.checked && cr >= base && cr >= 4, { cr, base });
+      await p7.evaluate(m => document.documentElement.removeAttribute(m[0]), mode);
+    }
+    await p7.selectOption('#a11y-lang', 'en'); await p7.waitForTimeout(400);
+    ok('Readable run: no page errors', !e7.length, e7);
+    await c7.close();
   }
   await br.close();
   console.log(`check-i18n: ${passes} pass, ${fails} fail`);
