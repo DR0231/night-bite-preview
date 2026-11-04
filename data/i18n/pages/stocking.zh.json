@@ -5,10 +5,14 @@
   "review": "draft"
  },
  "strings": {
+  "stocking.09a36db7": "放流",
   "stocking.12cdc674": "ODNR，Deer Creek Lake Fishing Area",
+  "stocking.143fa4c4": "Walleye",
   "stocking.28e22019": "ODNR，Pymatuning Lake Fishing Area",
+  "stocking.2a7afc2f": "Saugeye",
   "stocking.2cda21fd": "ODNR，Clear Fork Reservoir Fishing Area",
   "stocking.303b3b38": "ODNR，Lake Milton Fishing Area",
+  "stocking.336f323d": "Muskie",
   "stocking.33e42ccc": "ODNR，Dillon Lake Fishing Area",
   "stocking.3f9d277b": "ODNR，Dow Lake Fishing Area",
   "stocking.536759e0": "ODNR，Alum Creek Lake 钓鱼区",
@@ -22,6 +26,7 @@
   "stocking.94fc17ee": "ODNR，Berlin Lake Fishing Area",
   "stocking.9e24e097": "ODNR，Seneca Lake Fishing Area",
   "stocking.b2304907": "ODNR，O’Shaughnessy Reservoir Fishing Area",
+  "stocking.b39d3468": "Hybrid striped bass",
   "stocking.bd2d60bc": "ODNR，Knox Lake Fishing Area",
   "stocking.dcea8c5d": "ODNR，Burr Oak Lake Fishing Area",
   "stocking.e9d6e9b9": "ODNR，Kirwan Reservoir (West Branch) Fishing Area",
