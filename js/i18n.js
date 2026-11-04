@@ -99,7 +99,7 @@
       var e = norm(en[k]);
       if (k.indexOf("cmp.") === 0) { cap[e] = k; return; }
       if (/\{\w+\}/.test(e)) {
-        var names = [], re = "^" + esc(e).replace(/\\\{(\w+)\\\}/g, function (m, n) { names.push(n); return "(.+?)"; }) + "$";
+        var names = [], re = "^" + esc(e).replace(/\\\{(\w+)\\\}/g, function (m, n) { names.push(n); return /^num/.test(n) ? "(\\d[\\d.,]*)" : /^unit/.test(n) ? "(mph)" : "(.+?)"; }) + "$";   // {num}: digits only, so prose never lands in the slot
         tpl.push({ k: k, re: new RegExp(re), names: names });
       } else if (!(e in exact)) exact[e] = k;
     });

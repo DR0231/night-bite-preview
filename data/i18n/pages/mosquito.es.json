@@ -5,7 +5,6 @@
   "review": "draft"
  },
  "strings": {
-  "mosquito.041ed544": "Nivel del embalse en los últimos 7 días",
   "mosquito.072dc887": ", subiendo rápido",
   "mosquito.07f6d49b": "puntos o más es Bueno,",
   "mosquito.09ca55ca": "Compartir",
@@ -94,7 +93,7 @@
   "mosquito.c0908888": "Una entrada de ejemplo, marcada",
   "mosquito.c1266ad5": ", más fría que",
   "mosquito.c37cf838": "Hora",
-  "mosquito.c5b3aae4": "El nivel del lago viene del medidor USGS 03095000 near Cortland. Es",
+  "mosquito.c5b3aae4": "El nivel del lago viene del medidor USGS 03095000 cerca de Cortland. Es",
   "mosquito.c6d724fd": "(901 − nivel)",
   "mosquito.c91b436c": "El nivel normal de verano es 901 ft, el nivel con el que está dibujado el mapa de ODNR. Nivel en vivo:",
   "mosquito.c9bd5cd5": "Rampa para kayaks junto al refugio",

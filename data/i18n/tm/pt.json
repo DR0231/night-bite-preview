@@ -1003,7 +1003,7 @@
   "47a5e6b8": "Barragem / enrocamento baixo quando aberto e permitido",
   "47be250a": "Escolha sua água",
   "47c32b57": "nb-visit-day",
-  "47d47773": "As pesquisas de peixes do ODNR registram largemouth bass em Seneca Lake, and ODNR posts a Seneca largemouth survey.",
+  "47d47773": "As pesquisas de peixes do ODNR registram largemouth bass em Seneca Lake, e o ODNR publica uma pesquisa de largemouth de Seneca.",
   "47f2b495": "Espécies de inverno",
   "47f6897c": "Gateway Bait & Tackle",
   "4804e0a6": "Presente, mas menos abundante que o largemouth. Procure pedras, pontas e bordas mais claras do lago principal.",
@@ -1605,7 +1605,7 @@
   "7013129e": ". O medidor do USGS não publica nada desde",
   "704411df": "Margem: arremesse ao longo das quedas perto de Walnut / enrocamento público onde for seguro.",
   "708bf110": "Não é comum em Lake Logan, então não há notas de onde encontrá-lo neste lago. Veja as notas de Hoover na visão de Hoover.",
-  "709e9d8d": "As pesquisas de peixes do ODNR registram largemouth bass em Salt Fork Lake, and ODNR posts a Salt Fork largemouth survey.",
+  "709e9d8d": "As pesquisas de peixes do ODNR registram largemouth bass em Salt Fork Lake, e o ODNR publica uma pesquisa de largemouth de Salt Fork.",
   "70ab9a36": "No máximo 4 dos 30",
   "70ac01ec": "Extremo oeste",
   "70d78583": "Yellow perch",
@@ -2850,7 +2850,7 @@
   "cd8e4773": "Hair rigs ou chumbo corrediço simples com milho/boilies onde permitido.",
   "cde138f4": "Rampa municipal na parte alta do lago.",
   "cdf2adbb": "A segunda marina, Great Ohio Lodges, 740-432-8883. Não marcada no mapa.",
-  "ce12f542": "As pesquisas de peixes do ODNR registram smallmouth bass em Salt Fork Lake, and ODNR posts a Salt Fork smallmouth survey.",
+  "ce12f542": "As pesquisas de peixes do ODNR registram smallmouth bass em Salt Fork Lake, e o ODNR publica uma pesquisa de smallmouth de Salt Fork.",
   "ce243c80": "Primavera: vão para o raso perto de abrigos conforme a água esquenta.",
   "ce37a8f2": "15″ (regra do local)",
   "ce3df4d8": "Ver",
@@ -4057,6 +4057,13 @@
   "9e5daf48": "Sim, perto dos abrigos",
   "2db5403c": "Sim, estacionamento pavimentado",
   "631e681c": "Sim, portátil",
-  "5cba02f6": "Sim, estacionamento para reboques"
+  "5cba02f6": "Sim, estacionamento para reboques",
+  "1071ef5b": "Pensado para a realidade da margem e barcos pequenos. Knox Lake tem limite de 10 hp.",
+  "566f2e1b": "Pensado para a realidade da margem e barcos pequenos. Burr Oak Lake tem limite de 10 hp.",
+  "a8b40063": "Pensado para a realidade da margem e barcos pequenos. Dow Lake tem limite de 10 hp.",
+  "d2d5d705": "Pensado para a realidade da margem e barcos pequenos. Pymatuning tem limite de 20 hp.",
+  "b8743e57": "Pensado para a realidade da margem e barcos pequenos. Leesville Lake tem limite de 10 hp.",
+  "b9e355c5": "Sem limite de hp.",
+  "fc41ab77": "de cerca de 8 ft a partir de cerca de 15 de out. (ODNR). Sem limite de hp."
  }
 }

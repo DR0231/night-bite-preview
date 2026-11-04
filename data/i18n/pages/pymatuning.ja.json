@@ -5,7 +5,6 @@
   "review": "draft"
  },
  "strings": {
-  "pymatuning.041ed544": "過去7日間の水位",
   "pymatuning.0724cade": "の通常夏季水位です（等深線 3 ft、2008年測量）。現在の値がないため、水位補正は計算できません。",
   "pymatuning.072dc887": "、急上昇",
   "pymatuning.07f6d49b": "点以上は「良い」、",

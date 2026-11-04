@@ -72,7 +72,7 @@ def group(page, LAKES):
 def en_tables():
     en = json.loads((D / "en.json").read_text())["strings"]
     exact = {norm(v) for k, v in en.items() if not re.search(r"\{\w+\}", v)}
-    tpl = [re.compile("^" + re.sub(r"\\\{(\w+)\\\}", "(.+?)", re.escape(norm(v))) + "$") for k, v in en.items() if k.startswith("pg.") and re.search(r"\{\w+\}", v)]
+    tpl = [re.compile("^" + re.sub(r"\\\{(\w+)\\\}", lambda m: r"(\d[\d.,]*)" if m.group(1).startswith("num") else "(mph)" if m.group(1).startswith("unit") else "(.+?)", re.escape(norm(v))) + "$") for k, v in en.items() if k.startswith("pg.") and re.search(r"\{\w+\}", v)]
     return exact, tpl
 
 NAMEWORDS = None
