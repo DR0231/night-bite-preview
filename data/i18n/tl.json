@@ -278,6 +278,14 @@
   "pg.qf_about": "Tungkol sa impormasyong ito",
   "pg.trend_more": "Kailangan ng mas maraming reading para sa trend",
   "pg.qf_motors_alum": "Walang limitasyon sa horsepower sa timog na pangunahing lawa, bawal ang alon sa hilagang dulo. Inilalagay ng state park ang hangganan sa US 36/SR 37, ang Corps sa Cheshire Road, kaya sundin ang mga boya.",
-  "pg.qf_ramps_alum": "Apat na pampublikong ramp: New Galena, ang marina ramp sa Hollenback Road, Cheshire at Howard. May isa pa para sa mga nagkakamping."
+  "pg.qf_ramps_alum": "Apat na pampublikong ramp: New Galena, ang marina ramp sa Hollenback Road, Cheshire at Howard. May isa pa para sa mga nagkakamping.",
+  "pg.qf_pool_normal": "Ang normal na summer pool ay {n} ft, ang lebel na ginamit sa ODNR fishing map.",
+  "pg.qf_mwcd_night": "Sarado ang mga lugar ng MWCD mula 11 p.m. hanggang 6 a.m., maliban sa nangingisda, nangangaso o namamangka.",
+  "pg.qf_ramps_griggs": "Griggs boat launch sa timog ng Fishinger Road, kasama ang marina at mga pampublikong daungan.",
+  "pg.qf_motors_unl": "Walang limitasyon sa horsepower.",
+  "pg.qf_motors_nolimit": "Walang limitasyon sa horsepower.",
+  "pg.qf_hp_limit": "Limitang {n} hp.",
+  "pg.qf_hp_mph": "Limitang {n} hp at {m} mph.",
+  "pg.qf_electric": "Electric motor lang, sa bilis na walang alon."
  }
 }

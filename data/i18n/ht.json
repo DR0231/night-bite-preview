@@ -278,6 +278,14 @@
   "pg.qf_about": "Sou enfòmasyon sa yo",
   "pg.trend_more": "Tandans lan bezwen plis mezi",
   "pg.qf_motors_alum": "Pa gen limit horsepower sou gwo lak sid la, pa gen vag nan pwent nò a. Pak eta a mete limit la nan US 36/SR 37, Corps la nan Cheshire Road, kidonk swiv bouwe yo.",
-  "pg.qf_ramps_alum": "Kat ranp piblik: New Galena, ranp marina a sou Hollenback Road, Cheshire ak Howard. Youn anplis pou kanpè yo."
+  "pg.qf_ramps_alum": "Kat ranp piblik: New Galena, ranp marina a sou Hollenback Road, Cheshire ak Howard. Youn anplis pou kanpè yo.",
+  "pg.qf_pool_normal": "Nivo ete nòmal la se {n} ft, nivo yo itilize pou kat lapèch ODNR a.",
+  "pg.qf_mwcd_night": "Zòn MWCD yo fèmen de 11 p.m. rive 6 a.m., eksepte pou moun k ap peche, chase oswa fè bato.",
+  "pg.qf_ramps_griggs": "Ranp Griggs nan sid Fishinger Road, plis marina a ak waf piblik yo.",
+  "pg.qf_motors_unl": "Pa gen limit horsepower.",
+  "pg.qf_motors_nolimit": "Pa gen limit horsepower.",
+  "pg.qf_hp_limit": "Limit {n} hp.",
+  "pg.qf_hp_mph": "Limit {n} hp ak {m} mph.",
+  "pg.qf_electric": "Motè elektrik sèlman, san fè vag."
  }
 }

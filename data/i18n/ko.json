@@ -278,6 +278,14 @@
   "pg.qf_about": "이 정보에 대해",
   "pg.trend_more": "추세를 보려면 측정값이 더 필요합니다",
   "pg.qf_motors_alum": "남쪽 본 호수는 마력 제한 없음, 북쪽 끝은 물결 금지. 주립공원은 경계를 US 36/SR 37로, 공병대는 Cheshire Road로 정하므로 부표를 따르세요.",
-  "pg.qf_ramps_alum": "공공 진수 램프 4곳: New Galena, Hollenback Road의 마리나 램프, Cheshire, Howard. 캠핑객용 1곳 추가."
+  "pg.qf_ramps_alum": "공공 진수 램프 4곳: New Galena, Hollenback Road의 마리나 램프, Cheshire, Howard. 캠핑객용 1곳 추가.",
+  "pg.qf_pool_normal": "평상 여름 수위는 {n} ft로, ODNR 낚시 지도가 그려진 기준 수위입니다.",
+  "pg.qf_mwcd_night": "MWCD 구역은 오후 11시부터 오전 6시까지 닫힙니다. 낚시, 사냥, 보트 이용자는 예외입니다.",
+  "pg.qf_ramps_griggs": "Fishinger Road 남쪽의 Griggs 보트 진수장, 그리고 마리나와 공공 선착장.",
+  "pg.qf_motors_unl": "마력 제한 없음.",
+  "pg.qf_motors_nolimit": "마력 제한 없음.",
+  "pg.qf_hp_limit": "{n} hp 제한.",
+  "pg.qf_hp_mph": "{n} hp, {m} mph 제한.",
+  "pg.qf_electric": "전기 모터만, 물결 없는 속도로."
  }
 }

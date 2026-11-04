@@ -22,7 +22,7 @@ GENERIC = {"pg.public_area", "pg.water_lead_b"}
 # S11 page prose (quick facts, rule lines, units): D'Angelo wants every line translated, so these keys may hold
 # names, numbers and units; every proper name in the English must appear unchanged in each translation
 PROSE = ("pg.qf_", "pg.h_", "pg.mph")
-NAMES = [f for f in FACTS if f not in ("ramp", "ft", "\u00b0F", "mph")] + ["Home Road", "Bellepoint", "Twin Lakes", "Boardwalk", "New Galena", "Hollenback Road", "Cheshire", "Howard", "US 36/SR 37"]
+NAMES = [f for f in FACTS if f not in ("ramp", "ft", "\u00b0F", "mph")] + ["Home Road", "Bellepoint", "Twin Lakes", "Boardwalk", "New Galena", "Hollenback Road", "Cheshire", "Howard", "US 36/SR 37", "Fishinger Road", "MWCD"]
 def prose(k): return k.startswith(PROSE)
 errs, warns, fails = [], [], 0
 def ph(s): return sorted(re.findall(r"\{\w+\}", s))
@@ -58,7 +58,7 @@ for l in files:
             for w in NAMES:
                 if re.search(r"(?<![A-Za-z])" + re.escape(w) + r"(?![A-Za-z])", en[k]) and w not in tr[k]: errs.append(f"{l}.json {k}: name '{w}' changed or dropped")
             for num in re.findall(r"\d+(?:[.,]\d+)?", en[k]):
-                if num not in tr[k] and not k.startswith("pg.h_") and k != "pg.qf_docks_city": errs.append(f"{l}.json {k}: number {num} missing")
+                if num not in tr[k] and not k.startswith("pg.h_") and k not in ("pg.qf_docks_city", "pg.qf_mwcd_night"): errs.append(f"{l}.json {k}: number {num} missing")
         if not tr[k].strip(): errs.append(f"{l}.json {k}: empty")
     if "i18n.draft" not in tr: errs.append(f"{l}.json: no i18n.draft (the Draft translation marker)")
     report.append(f"{l} ({meta.get('name')}, {meta.get('review')}): {len(en) - len(miss)}/{len(en)} keys, {len(miss)} missing" + (": " + ", ".join(miss[:12]) if miss else ""))

@@ -278,6 +278,14 @@
   "pg.qf_about": "关于这些资料",
   "pg.trend_more": "趋势需要更多读数",
   "pg.qf_motors_alum": "南部主湖区马力不限，北端禁止起浪。州立公园把分界线定在 US 36/SR 37，陆军工程兵团定在 Cheshire Road，请以浮标为准。",
-  "pg.qf_ramps_alum": "四处公共下水坡道：New Galena、Hollenback Road 上的码头坡道、Cheshire 和 Howard。另有一处供露营者使用。"
+  "pg.qf_ramps_alum": "四处公共下水坡道：New Galena、Hollenback Road 上的码头坡道、Cheshire 和 Howard。另有一处供露营者使用。",
+  "pg.qf_pool_normal": "正常夏季水位为 {n} 英尺，即 ODNR 钓鱼地图绘制时的水位。",
+  "pg.qf_mwcd_night": "MWCD 区域晚上 11 点至早上 6 点关闭，钓鱼、狩猎或划船者除外。",
+  "pg.qf_ramps_griggs": "Fishinger Road 以南的 Griggs 下水坡道，另有码头和公共船坞。",
+  "pg.qf_motors_unl": "马力不限。",
+  "pg.qf_motors_nolimit": "没有马力限制。",
+  "pg.qf_hp_limit": "限 {n} 马力。",
+  "pg.qf_hp_mph": "限 {n} 马力、{m} 英里/时。",
+  "pg.qf_electric": "仅限电动马达，须无浪速度。"
  }
 }

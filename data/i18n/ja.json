@@ -278,6 +278,14 @@
   "pg.qf_about": "これらの情報について",
   "pg.trend_more": "傾向の表示には観測値が足りません",
   "pg.qf_motors_alum": "南側の本湖は馬力無制限、北端は引き波禁止。州立公園は境界を US 36/SR 37、陸軍工兵隊は Cheshire Road としているので、ブイに従ってください。",
-  "pg.qf_ramps_alum": "公共スロープは 4 か所：New Galena、Hollenback Road のマリーナスロープ、Cheshire、Howard。キャンプ客用がもう 1 か所。"
+  "pg.qf_ramps_alum": "公共スロープは 4 か所：New Galena、Hollenback Road のマリーナスロープ、Cheshire、Howard。キャンプ客用がもう 1 か所。",
+  "pg.qf_pool_normal": "通常の夏季水位は {n} ft で、ODNR の釣りマップはこの水位で作成されています。",
+  "pg.qf_mwcd_night": "MWCD の区域は午後 11 時から午前 6 時まで閉鎖されます。釣り、狩猟、ボートの人は除きます。",
+  "pg.qf_ramps_griggs": "Fishinger Road の南にある Griggs のボート乗り場、ほかにマリーナと公共桟橋。",
+  "pg.qf_motors_unl": "馬力無制限。",
+  "pg.qf_motors_nolimit": "馬力制限なし。",
+  "pg.qf_hp_limit": "{n} hp 制限。",
+  "pg.qf_hp_mph": "{n} hp・{m} mph 制限。",
+  "pg.qf_electric": "電動モーターのみ、引き波を立てない速度で。"
  }
 }

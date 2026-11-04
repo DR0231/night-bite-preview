@@ -278,6 +278,14 @@
   "pg.qf_about": "Về các thông tin này",
   "pg.trend_more": "Cần thêm số đo để xem xu hướng",
   "pg.qf_motors_alum": "Không giới hạn mã lực ở hồ chính phía nam, cấm tạo sóng ở đầu phía bắc. Công viên tiểu bang đặt ranh giới ở US 36/SR 37, Corps đặt ở Cheshire Road, nên hãy theo phao.",
-  "pg.qf_ramps_alum": "Bốn dốc hạ thuyền công cộng: New Galena, dốc bến du thuyền trên Hollenback Road, Cheshire và Howard. Thêm một dốc cho người cắm trại."
+  "pg.qf_ramps_alum": "Bốn dốc hạ thuyền công cộng: New Galena, dốc bến du thuyền trên Hollenback Road, Cheshire và Howard. Thêm một dốc cho người cắm trại.",
+  "pg.qf_pool_normal": "Mực nước mùa hè bình thường là {n} ft, mức dùng để vẽ bản đồ câu cá của ODNR.",
+  "pg.qf_mwcd_night": "Khu vực MWCD đóng cửa từ 11 giờ tối đến 6 giờ sáng, trừ người câu cá, săn bắn hoặc đi thuyền.",
+  "pg.qf_ramps_griggs": "Dốc hạ thuyền Griggs ở phía nam Fishinger Road, cùng bến du thuyền và bến công cộng.",
+  "pg.qf_motors_unl": "Không giới hạn mã lực.",
+  "pg.qf_motors_nolimit": "Không giới hạn mã lực.",
+  "pg.qf_hp_limit": "Giới hạn {n} hp.",
+  "pg.qf_hp_mph": "Giới hạn {n} hp và {m} mph.",
+  "pg.qf_electric": "Chỉ động cơ điện, chạy không tạo sóng."
  }
 }

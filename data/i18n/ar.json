@@ -279,6 +279,14 @@
   "pg.qf_about": "عن هذه المعلومات",
   "pg.trend_more": "يحتاج الاتجاه إلى قراءات أكثر",
   "pg.qf_motors_alum": "لا حد لقوة المحرك في البحيرة الرئيسية الجنوبية، وممنوع إحداث الأمواج في الطرف الشمالي. يضع المتنزه الحكومي الحد عند US 36/SR 37 ويضعه Corps عند Cheshire Road، فاتبع العوامات.",
-  "pg.qf_ramps_alum": "أربعة منحدرات عامة: New Galena ومنحدر المرسى على Hollenback Road وCheshire وHoward. وواحد آخر للمخيمين."
+  "pg.qf_ramps_alum": "أربعة منحدرات عامة: New Galena ومنحدر المرسى على Hollenback Road وCheshire وHoward. وواحد آخر للمخيمين.",
+  "pg.qf_pool_normal": "منسوب الصيف المعتاد {n} ft، وهو المنسوب الذي رُسمت عليه خريطة الصيد من ODNR.",
+  "pg.qf_mwcd_night": "تُغلق مناطق MWCD من 11 مساءً إلى 6 صباحًا إلا لمن يصطاد السمك أو يصيد أو يركب القوارب.",
+  "pg.qf_ramps_griggs": "منحدر قوارب Griggs جنوب Fishinger Road، إضافة إلى المرسى والأرصفة العامة.",
+  "pg.qf_motors_unl": "لا حد لقوة المحرك.",
+  "pg.qf_motors_nolimit": "لا حد لقوة المحرك.",
+  "pg.qf_hp_limit": "حد {n} hp.",
+  "pg.qf_hp_mph": "حد {n} hp و{m} ميل/س.",
+  "pg.qf_electric": "محركات كهربائية فقط، بسرعة لا تُحدث أمواجًا."
  }
 }

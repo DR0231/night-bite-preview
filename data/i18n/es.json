@@ -278,6 +278,14 @@
   "pg.qf_about": "Sobre estos datos",
   "pg.trend_more": "La tendencia necesita más lecturas",
   "pg.qf_motors_alum": "Caballos de fuerza sin límite en el lago principal sur, sin estela en el extremo norte. El parque estatal pone la línea en US 36/SR 37 y el Cuerpo en Cheshire Road, así que sigue las boyas.",
-  "pg.qf_ramps_alum": "Cuatro rampas públicas: New Galena, la rampa de la marina en Hollenback Road, Cheshire y Howard. Una más para campistas."
+  "pg.qf_ramps_alum": "Cuatro rampas públicas: New Galena, la rampa de la marina en Hollenback Road, Cheshire y Howard. Una más para campistas.",
+  "pg.qf_pool_normal": "El nivel normal de verano es {n} ft, el nivel con el que se dibujó el mapa de pesca de ODNR.",
+  "pg.qf_mwcd_night": "Las áreas de MWCD cierran de 11 p. m. a 6 a. m., excepto para quienes pescan, cazan o navegan.",
+  "pg.qf_ramps_griggs": "Rampa de Griggs al sur de Fishinger Road, más la marina y los muelles públicos.",
+  "pg.qf_motors_unl": "Caballos de fuerza sin límite.",
+  "pg.qf_motors_nolimit": "Sin límite de caballos de fuerza.",
+  "pg.qf_hp_limit": "Límite de {n} hp.",
+  "pg.qf_hp_mph": "Límite de {n} hp y {m} mph.",
+  "pg.qf_electric": "Solo motores eléctricos, a velocidad sin estela."
  }
 }

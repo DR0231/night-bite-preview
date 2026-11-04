@@ -278,6 +278,14 @@
   "pg.qf_about": "Informazioni su questi dati",
   "pg.trend_more": "Per la tendenza servono più letture",
   "pg.qf_motors_alum": "Potenza illimitata nel lago principale a sud, niente onda all’estremità nord. Il parco statale mette il confine a US 36/SR 37, il Corps a Cheshire Road, quindi segui le boe.",
-  "pg.qf_ramps_alum": "Quattro rampe pubbliche: New Galena, la rampa della marina su Hollenback Road, Cheshire e Howard. Un’altra per i campeggiatori."
+  "pg.qf_ramps_alum": "Quattro rampe pubbliche: New Galena, la rampa della marina su Hollenback Road, Cheshire e Howard. Un’altra per i campeggiatori.",
+  "pg.qf_pool_normal": "Il livello estivo normale è {n} ft, quello su cui è disegnata la mappa di pesca ODNR.",
+  "pg.qf_mwcd_night": "Le aree MWCD chiudono dalle 23 alle 6, tranne per chi pesca, caccia o va in barca.",
+  "pg.qf_ramps_griggs": "Scivolo di Griggs a sud di Fishinger Road, più la marina e i pontili pubblici.",
+  "pg.qf_motors_unl": "Potenza illimitata.",
+  "pg.qf_motors_nolimit": "Nessun limite di potenza.",
+  "pg.qf_hp_limit": "Limite di {n} hp.",
+  "pg.qf_hp_mph": "Limite di {n} hp e {m} mph.",
+  "pg.qf_electric": "Solo motori elettrici, senza onda."
  }
 }

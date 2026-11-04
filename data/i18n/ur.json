@@ -279,6 +279,14 @@
   "pg.qf_about": "ان معلومات کے بارے میں",
   "pg.trend_more": "رجحان کے لیے مزید ریڈنگز درکار ہیں",
   "pg.qf_motors_alum": "جنوبی مرکزی جھیل پر ہارس پاور کی کوئی حد نہیں، شمالی سرے پر لہر نہیں۔ اسٹیٹ پارک حد US 36/SR 37 پر رکھتا ہے، Corps اسے Cheshire Road پر، اس لیے بوائے کی پیروی کریں۔",
-  "pg.qf_ramps_alum": "چار عوامی ریمپ: New Galena، Hollenback Road پر مرینا ریمپ، Cheshire اور Howard۔ کیمپ والوں کے لیے ایک اور۔"
+  "pg.qf_ramps_alum": "چار عوامی ریمپ: New Galena، Hollenback Road پر مرینا ریمپ، Cheshire اور Howard۔ کیمپ والوں کے لیے ایک اور۔",
+  "pg.qf_pool_normal": "گرمیوں کی معمول کی سطح {n} ft ہے، اسی سطح پر ODNR کا ماہی گیری نقشہ بنا ہے۔",
+  "pg.qf_mwcd_night": "MWCD کے علاقے رات 11 سے صبح 6 بجے تک بند رہتے ہیں، سوائے ماہی گیری، شکار یا کشتی رانی کرنے والوں کے۔",
+  "pg.qf_ramps_griggs": "Fishinger Road کے جنوب میں Griggs کشتی اتارنے کی جگہ، ساتھ میں مرینا اور عوامی گودیاں۔",
+  "pg.qf_motors_unl": "ہارس پاور کی کوئی حد نہیں۔",
+  "pg.qf_motors_nolimit": "ہارس پاور کی کوئی حد نہیں۔",
+  "pg.qf_hp_limit": "{n} hp کی حد۔",
+  "pg.qf_hp_mph": "{n} hp اور {m} میل/گھنٹہ کی حد۔",
+  "pg.qf_electric": "صرف برقی موٹر، بغیر لہر کی رفتار پر۔"
  }
 }

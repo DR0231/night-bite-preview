@@ -278,6 +278,14 @@
   "pg.qf_about": "Über diese Fakten",
   "pg.trend_more": "Für den Trend braucht es mehr Messwerte",
   "pg.qf_motors_alum": "Unbegrenzte PS auf dem südlichen Hauptsee, kein Wellenschlag am Nordende. Der State Park zieht die Grenze bei US 36/SR 37, das Corps bei der Cheshire Road, also auf die Bojen achten.",
-  "pg.qf_ramps_alum": "Vier öffentliche Rampen: New Galena, die Marina-Rampe an der Hollenback Road, Cheshire und Howard. Eine weitere für Camper."
+  "pg.qf_ramps_alum": "Vier öffentliche Rampen: New Galena, die Marina-Rampe an der Hollenback Road, Cheshire und Howard. Eine weitere für Camper.",
+  "pg.qf_pool_normal": "Der normale Sommerpegel liegt bei {n} ft, dem Stand, für den die ODNR-Angelkarte gezeichnet ist.",
+  "pg.qf_mwcd_night": "MWCD-Gebiete schließen von 23 bis 6 Uhr, außer für Angler, Jäger und Bootsfahrer.",
+  "pg.qf_ramps_griggs": "Griggs-Slipstelle südlich der Fishinger Road, dazu die Marina und öffentliche Bootsstege.",
+  "pg.qf_motors_unl": "Unbegrenzte PS.",
+  "pg.qf_motors_nolimit": "Keine PS-Grenze.",
+  "pg.qf_hp_limit": "Limit {n} hp.",
+  "pg.qf_hp_mph": "Limit {n} hp und {m} mph.",
+  "pg.qf_electric": "Nur Elektromotoren, ohne Wellenschlag."
  }
 }

@@ -279,6 +279,14 @@
   "pg.qf_about": "درباره این اطلاعات",
   "pg.trend_more": "روند به خوانش‌های بیشتری نیاز دارد",
   "pg.qf_motors_alum": "در دریاچه اصلی جنوبی محدودیت قدرت موتور نیست، در انتهای شمالی موج ممنوع است. پارک ایالتی مرز را US 36/SR 37 و Corps آن را Cheshire Road می‌داند، پس از بویه‌ها پیروی کنید.",
-  "pg.qf_ramps_alum": "چهار رمپ عمومی: New Galena، رمپ مارینا در Hollenback Road، Cheshire و Howard. یکی دیگر برای کمپ‌نشینان."
+  "pg.qf_ramps_alum": "چهار رمپ عمومی: New Galena، رمپ مارینا در Hollenback Road، Cheshire و Howard. یکی دیگر برای کمپ‌نشینان.",
+  "pg.qf_pool_normal": "تراز تابستانی معمول {n} ft است، ترازی که نقشه ماهیگیری ODNR بر اساس آن کشیده شده.",
+  "pg.qf_mwcd_night": "مناطق MWCD از 11 شب تا 6 صبح بسته‌اند، مگر برای ماهیگیران، شکارچیان و قایق‌سواران.",
+  "pg.qf_ramps_griggs": "محل به آب انداختن قایق Griggs در جنوب Fishinger Road، به‌علاوه مارینا و اسکله‌های عمومی.",
+  "pg.qf_motors_unl": "بدون محدودیت قدرت موتور.",
+  "pg.qf_motors_nolimit": "بدون محدودیت قدرت موتور.",
+  "pg.qf_hp_limit": "حد {n} hp.",
+  "pg.qf_hp_mph": "حد {n} hp و {m} مایل/ساعت.",
+  "pg.qf_electric": "فقط موتور برقی، با سرعت بدون موج."
  }
 }

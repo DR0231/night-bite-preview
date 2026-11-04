@@ -278,6 +278,14 @@
   "pg.qf_about": "About these facts",
   "pg.trend_more": "Trend needs more readings",
   "pg.qf_motors_alum": "Unlimited horsepower on the south main lake, no wake on the north end. The state park puts the line at US 36/SR 37, the Corps at Cheshire Road, so follow the buoys.",
-  "pg.qf_ramps_alum": "Four public launch ramps: New Galena, the marina ramp on Hollenback Road, Cheshire and Howard. One more for campers."
+  "pg.qf_ramps_alum": "Four public launch ramps: New Galena, the marina ramp on Hollenback Road, Cheshire and Howard. One more for campers.",
+  "pg.qf_pool_normal": "Normal summer pool is {n} ft, the level the ODNR fishing map is drawn at.",
+  "pg.qf_mwcd_night": "MWCD areas close from 11 p.m. to 6 a.m. except to people fishing, hunting or boating.",
+  "pg.qf_ramps_griggs": "Griggs boat launch south of Fishinger Road, plus the marina and public boat docks.",
+  "pg.qf_motors_unl": "Unlimited horsepower.",
+  "pg.qf_motors_nolimit": "No horsepower limit.",
+  "pg.qf_hp_limit": "{n} hp limit.",
+  "pg.qf_hp_mph": "{n} hp limit and {m} mph.",
+  "pg.qf_electric": "Electric motors only, at no wake speed."
  }
 }
