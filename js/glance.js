@@ -48,7 +48,10 @@
     if (!el) return;
     el.classList.toggle("glance-state", !!state);
     var want = text + (unit ? " " + unit : "");
-    if (el.textContent === want) return;
+    // same English as last time: leave it, js/i18n.js may have swapped it for the picked language (rewriting it
+    // would flap between English and the translation, since i18n changes inside the conditions block wake wind())
+    if (el.textContent === want || el.__nbEn === want) return;
+    el.__nbEn = want;
     el.textContent = text;
     if (unit) { var u = document.createElement("span"); u.className = "glance-unit"; u.textContent = " " + unit; el.appendChild(u); }
   }
