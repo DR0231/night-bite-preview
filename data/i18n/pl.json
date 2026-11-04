@@ -557,9 +557,9 @@
   "cmp.dw_wsw": "zachód-południowy zachód",
   "cmp.dw_wnw": "zachód-północny zachód",
   "cmp.dw_nnw": "północ-północny zachód",
-  "cmp.dw_var": "zmienny"
- },
- "pg.log_empty": "Na tym telefonie nie ma jeszcze zapisanych wypraw. Dodaj pierwszą poniżej.",
- "pg.log_backup_note": "Zapisz plik kopii zapasowej, a potem otwórz go na nowym telefonie lub w przeglądarce. Wyprawy z pliku dołączają do tych tutaj; nic nie zostaje zastąpione.",
- "pg.log_share_note": "Tylko publiczne nazwy slipów i miejsc. Żadnego tajnego GPS, żadnej własności prywatnej. Tylko notatki tekstowe, bez zdjęć. Wysłane wyprawy czekają na sprawdzenie i pojawiają się dopiero po zatwierdzeniu."
+  "cmp.dw_var": "zmienny",
+  "pg.log_empty": "Na tym telefonie nie ma jeszcze zapisanych wypraw. Dodaj pierwszą poniżej.",
+  "pg.log_backup_note": "Zapisz plik kopii zapasowej, a potem otwórz go na nowym telefonie lub w przeglądarce. Wyprawy z pliku dołączają do tych tutaj; nic nie zostaje zastąpione.",
+  "pg.log_share_note": "Tylko publiczne nazwy slipów i miejsc. Żadnego tajnego GPS, żadnej własności prywatnej. Tylko notatki tekstowe, bez zdjęć. Wysłane wyprawy czekają na sprawdzenie i pojawiają się dopiero po zatwierdzeniu."
+ }
 }

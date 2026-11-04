@@ -557,9 +557,9 @@
   "cmp.dw_wsw": "West-Südwest",
   "cmp.dw_wnw": "West-Nordwest",
   "cmp.dw_nnw": "Nord-Nordwest",
-  "cmp.dw_var": "wechselnd"
- },
- "pg.log_empty": "Noch keine Touren auf diesem Telefon gespeichert. Füge unten deine erste hinzu.",
- "pg.log_backup_note": "Speichere eine Sicherungsdatei und öffne sie dann auf einem neuen Telefon oder Browser. Touren aus der Datei kommen zu den hier gespeicherten dazu; nichts wird ersetzt.",
- "pg.log_share_note": "Nur öffentliche Rampen- und Gebietsnamen. Keine geheimen GPS-Punkte, kein Privatgelände. Nur Textnotizen, keine Fotos. Eingesendete Touren werden geprüft und erst nach der Freigabe veröffentlicht."
+  "cmp.dw_var": "wechselnd",
+  "pg.log_empty": "Noch keine Touren auf diesem Telefon gespeichert. Füge unten deine erste hinzu.",
+  "pg.log_backup_note": "Speichere eine Sicherungsdatei und öffne sie dann auf einem neuen Telefon oder Browser. Touren aus der Datei kommen zu den hier gespeicherten dazu; nichts wird ersetzt.",
+  "pg.log_share_note": "Nur öffentliche Rampen- und Gebietsnamen. Keine geheimen GPS-Punkte, kein Privatgelände. Nur Textnotizen, keine Fotos. Eingesendete Touren werden geprüft und erst nach der Freigabe veröffentlicht."
+ }
 }

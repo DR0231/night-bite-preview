@@ -18,7 +18,7 @@ PROTECTED = ["Whisperwood", "GitHub", "ODNR", "USGS", "NWS", "Columbus", "US\u00
 FACTS = ["Hoover", "Alum", "Buckeye Lake", "Oxbow", "Sunbury Road", "Twin Bridges", "Red Bank", "Walnut Street", "Mudflats",
          "O'Shaughnessy", "Griggs", "ramp", "ft", "\u00b0F", "mph"]
 # generic UI labels that say "ramp" as a word, not a ramp name (S10)
-GENERIC = {"pg.public_area", "pg.water_lead_b"}
+GENERIC = {"pg.public_area", "pg.water_lead_b", "pg.log_share_note"}
 # S11 page prose (quick facts, rule lines, units): D'Angelo wants every line translated, so these keys may hold
 # names, numbers and units; every proper name in the English must appear unchanged in each translation
 PROSE = ("pg.qf_", "pg.h_", "pg.mph")
