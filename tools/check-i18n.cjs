@@ -176,10 +176,10 @@ const state = () => {
   // English string that has a key. h1 (titles), options (names), NWS forecast words and [data-nb-keep] are exempt.
   const EN = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'i18n', 'en.json'), 'utf8')).strings;
   const enVals = Object.values(EN).map(v => v.replace(/\s+/g, ' ').trim()).filter(v => !/\{\w+\}/.test(v));
-  const UIPAGES = ['', 'hoover/', 'alum/', 'water', 'log', 'species/'];
+  const UIPAGES = ['', 'hoover/', 'oshaughnessy/', 'alum/', 'water', 'log', 'species/'];
   const audit = ([enVals, trVals]) => {
-    const SEL = 'h2,h3,h4,h5,summary,button,label,legend,th,dt,.glance-label,.glance-sub,.glance-stamp,.cond-label,.cond-sub,.pool-readout-label,.pool-trend-label,.spy-label,.filter-chip,a.btn,.lead,.wp-lead,.wp-browse-sub,.get-app-lead,.bite-tonight';
-    const L = window.NightBiteLakes || {}, kept = ['The Night Bite', 'Whisperwood Vale', 'Whisperwood', 'ODNR', 'USGS', 'USACE', 'NWS', 'GitHub', 'iPhone', 'Android', 'iOS', 'Chrome', 'Ohio', 'PDF', 'Corps', 'markdown', 'URL', 'weather.gov', 'issue', 'Cats', 'Bass', 'Panfish', 'wiper'];
+    const SEL = 'h2,h3,h4,h5,summary,button,label,legend,th,dt,.glance-label,.glance-sub,.glance-stamp,.cond-label,.cond-sub,.pool-readout-label,.pool-trend-label,.spy-label,.filter-chip,a.btn,.lead,.wp-lead,.wp-browse-sub,.get-app-lead,.bite-tonight,.qf-checked,.qf-list dd,.qf-docks,.quick-facts .info-tip-body';
+    const L = window.NightBiteLakes || {}, kept = ['Columbus Recreation and Parks', 'Oxbow Road', 'Sunbury Road', 'Twin Bridges', 'Red Bank', 'Walnut Street', 'Mudflats Boardwalk', 'Home Road', 'Bellepoint', 'Twin Lakes', 'New Galena', 'Hollenback Road', 'Cheshire Road', 'Cheshire', 'Howard', 'US 36/SR 37', 'The Night Bite', 'Whisperwood Vale', 'Whisperwood', 'ODNR', 'USGS', 'USACE', 'NWS', 'GitHub', 'iPhone', 'Android', 'iOS', 'Chrome', 'Ohio', 'PDF', 'Corps', 'markdown', 'URL', 'weather.gov', 'issue', 'Cats', 'Bass', 'Panfish', 'wiper'];
     Object.values(L.all || {}).forEach(c => ['name', 'short'].forEach(k => c[k] && kept.push(c[k])));
     const sp = L.speciesNames || {}; Object.keys(sp).forEach(k => { kept.push(k); if (typeof sp[k] === 'string') kept.push(sp[k]); });
     kept.sort((a, b) => b.length - a.length);
@@ -237,18 +237,19 @@ const state = () => {
     await p7.locator('.site-footer [data-lang-open]').click(); await p7.waitForTimeout(300);
     const r0 = await p7.evaluate(rd);
     ok('English, fresh: Readable text off and enabled', !r0.checked && !r0.disabled && !r0.attr, r0);
-    const SYS = ['zh', 'ja', 'ko', 'hi', 'ar', 'ur', 'fa', 'ru'];
+    // S11: every language other than English is locked (readable over pixel)
+    const SYS = ['zh', 'ja', 'ko', 'hi', 'ar', 'ur', 'fa', 'ru', 'es', 'tl', 'vi', 'fr', 'pt', 'ht', 'de', 'pl', 'it'];
     for (const l of SYS) {
       await p7.selectOption('#a11y-lang', l); await p7.waitForTimeout(700);
       const r = await p7.evaluate(rd), lock = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'i18n', l + '.json'), 'utf8')).strings['display.readable_locked'];
       ok(`${l}: Readable text shown on and locked, note "${lock}", system font in use, saved setting untouched`, r.checked && r.disabled && r.note === lock && !/Pixel/.test(r.bodyFont.split(',')[0]) && r.saved === null, r);
     }
-    for (const l of ['fr', 'de', 'vi', 'es']) {
-      await p7.selectOption('#a11y-lang', l); await p7.waitForTimeout(700);
+    { // English keeps the working toggle
+      await p7.selectOption('#a11y-lang', 'en'); await p7.waitForTimeout(500);
       const a = await p7.evaluate(rd);
       await p7.check('#a11y-font'); await p7.waitForTimeout(200); const b = await p7.evaluate(rd);
       await p7.uncheck('#a11y-font'); await p7.waitForTimeout(200); const c = await p7.evaluate(rd);
-      ok(`${l}: Readable text works as in English (off, on, off; saved and applied each time)`, !a.checked && !a.disabled && b.checked && b.attr === 'readable' && b.saved === 'readable' && !c.checked && !c.attr && c.saved === null && !/Always/.test(a.note), { a, b, c });
+      ok('en: Readable text toggle works (off, on, off; saved and applied each time)', !a.checked && !a.disabled && b.checked && b.attr === 'readable' && b.saved === 'readable' && !c.checked && !c.attr && c.saved === null, { a, b, c });
     }
     // user turns Readable on in English, then a locked language, then back: still on; and off stays off
     await p7.selectOption('#a11y-lang', 'en'); await p7.waitForTimeout(500);

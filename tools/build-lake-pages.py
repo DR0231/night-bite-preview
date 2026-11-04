@@ -145,7 +145,8 @@ def quick_facts(lake):
             night += f' Source: <a href="{H["source"][1]}" target="_blank" rel="noopener">{t(H["source"][0])}</a>.'
         rows.append(("Night rules", night))
     srcs = "; ".join(f'<a href="{u}" target="_blank" rel="noopener">{t(n)}</a>' for n, u in F["sources"])
-    dl = "\n".join(f"          <div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in rows)
+    # rule lines get data-nb-rule: js/i18n.js adds a translated "draft, check the official source" note in other languages
+    dl = "\n".join(f"          <div><dt>{k}</dt><dd{' data-nb-rule' if k in ('Motors and speed', 'Night rules') else ''}>{v}</dd></div>" for k, v in rows)
     return (
         '    <!-- nb:quick-facts (tools/build-lake-pages.py) -->\n'
         '    <details class="how-to-read quick-facts" id="quick-facts">\n'

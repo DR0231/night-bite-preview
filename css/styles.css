@@ -4071,9 +4071,16 @@ p.meta > a:only-child { padding-block: 0.75rem; }
 .i18n-draft-tag { font-family: var(--font-display); font-variant-ligatures: none; color: var(--amber);
   padding: 0.0625rem 0.5rem; border: 1px solid currentColor; border-radius: var(--radius-pill); }
 html[data-contrast="more"] .i18n-draft, html[data-contrast="more"] .a11y-lang select { border-color: var(--cream); color: var(--cream); }
-/* Scripts the three site fonts don't cover use the phone's own font */
-html:is([lang|="zh"], [lang|="ko"], [lang|="ja"], [lang|="ar"], [lang|="fa"], [lang|="ur"], [lang|="hi"], [lang|="ru"]) {
-  --font-display: system-ui, sans-serif; --font-heading: system-ui, sans-serif; --font-body: system-ui, sans-serif; }
+/* Every language other than English reads in the phone's own font (D'Angelo: readable over pixel, S11) */
+html[data-lang] {
+  --font-display: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; --font-heading: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+html[data-lang] body { letter-spacing: normal; }
+html[data-lang] .site-nav a, html[data-lang] .nav-more-btn, html[data-lang] .nav-more-panel a { letter-spacing: 0; }
+html[data-lang] .logo-text, html[data-lang] .hero-brand { font-family: "Night Bite Pixel", "Pixelify Sans", monospace; }
+/* Translated rule lines carry a small draft note pointing to the official source (js/i18n.js) */
+.i18n-rule-note { display: block; margin-top: 0.25rem; font-size: 0.8125rem; font-style: italic; color: var(--amber); }
+html[data-light="red"] .i18n-rule-note { color: inherit; }
+html[data-contrast="more"] .i18n-rule-note { color: var(--cream); }
 /* Translated labels run longer than English (Fischarten, Attrezzatura): on phones the nav row tightens to 11px with
    3px side padding so Home, Species, Lake, Gear and More still fit beside the lantern at 375 to 440px; a label that
    still won't fit ends in an ellipsis rather than pushing the page sideways. English is untouched. */

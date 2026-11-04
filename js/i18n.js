@@ -13,6 +13,10 @@
  * when their whole text node equals an English string. In <main> only exact strings and the "pg." templates apply (a
  * looser template could catch a prose line), and h1 (titles stay as they are), .cond-summary (NWS forecast words) and
  * anything inside [data-nb-keep] are never touched. Long-form prose has no key, so it stays English.
+ * S11: dates in <time datetime="YYYY-MM-DD"> inside <main> are written in the picked language (Intl); "cmp." keys
+ * (compass words) apply only to a captured template value ("mph {dir}"), never to a whole text node; a text node that
+ * starts with ": " or ends with "Source:" / "Live level:" is matched without that piece and the piece added back
+ * translated; [data-nb-rule] (rule lines, translated as drafts) gets a small note pointing to the linked official source.
  */
 (function (d) {
   var SCOPES = ".site-header, .site-footer, .glance, #glance-actions, .a11y-panel, .night-chip, .nws-alert, #my-trips, #add-trip, [data-log-filter], .i18n-draft, .spy-label";
@@ -33,18 +37,41 @@
   function norm(s) { return s.replace(/\s+/g, " ").trim(); }
   function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
   function build(en, tr) {
-    var exact = {}, tpl = [];
+    var exact = {}, tpl = [], cap = {};
     Object.keys(en).forEach(function (k) {
       var e = norm(en[k]);
+      if (k.indexOf("cmp.") === 0) { cap[e] = k; return; }
       if (/\{\w+\}/.test(e)) {
         var names = [], re = "^" + esc(e).replace(/\\\{(\w+)\\\}/g, function (m, n) { names.push(n); return "(.+?)"; }) + "$";
         tpl.push({ k: k, re: new RegExp(re), names: names });
       } else if (!(e in exact)) exact[e] = k;
     });
-    return { exact: exact, tpl: tpl, tr: tr };
+    return { exact: exact, tpl: tpl, tr: tr, cap: cap };
   }
+  var TAILS = ["Source:", "Live level:"];
   function lookup(t, s, wide) {
     var n = norm(s); if (!n) return null;
+    var r = lookup1(t, n, wide); if (r != null || !wide) return r;
+    // ": The city lists ... Source:" (text between a <time> and a link): peel the joins, translate the middle
+    var pre = "", post = "", m0 = n.match(/^([:;,.]\s*)(.+)$/);
+    if (m0) { pre = m0[1].trim() + " "; n = m0[2]; }
+    for (var i = 0; i < TAILS.length; i++) {
+      var tl = TAILS[i];
+      if (n.length > tl.length && n.slice(-tl.length) === tl) { var tt = t.tr[t.exact[tl]]; post = " " + (tt != null ? tt : tl); n = n.slice(0, -tl.length).trim(); break; }
+    }
+    if (!pre && !post) return null;
+    if (pre && !post && !n) return null;
+    r = n ? lookup1(t, n, wide) : "";
+    return r == null ? null : (pre + r + post).replace(/^\s+/, pre ? "" : "");
+  }
+  // a captured value: compass words first ("SE"; "NNE" = N + NE), then any exact or page string
+  function capT(t, v) {
+    var c = function (x) { var k = t.cap[x]; return k && t.tr[k] != null ? t.tr[k] : null; };
+    var r = c(v); if (r != null) return r;
+    if (/^[NSEW]{3}$/.test(v) && c(v[0]) != null && c(v.slice(1)) != null) return c(v[0]) + c(v.slice(1));
+    return lookup1(t, v, true);
+  }
+  function lookup1(t, n, wide) {
     var k = t.exact[n];
     if (k) return t.tr[k] != null ? t.tr[k] : null;
     for (var i = 0; i < t.tpl.length; i++) {
@@ -52,7 +79,7 @@
       var m = n.match(t.tpl[i].re); if (!m) continue;
       var out = t.tr[t.tpl[i].k]; if (out == null) return null;
       // a captured part can be a string too ("2 hours ago", "steady"); names and numbers match nothing and stay
-      t.tpl[i].names.forEach(function (nm, j) { var v = m[j + 1], vt = lookup(t, v, true); if (vt != null) v = vt; out = out.split("{" + nm + "}").join(rtl() ? "\u2068" + v + "\u2069" : v); });
+      t.tpl[i].names.forEach(function (nm, j) { var v = m[j + 1], vt = capT(t, norm(v)); if (vt != null) v = vt; out = out.split("{" + nm + "}").join(rtl() ? "\u2068" + v + "\u2069" : v); });
       return out;
     }
     return null;
@@ -95,7 +122,25 @@
       else if (!want && el.hasAttribute("data-nb-ltr")) { el.removeAttribute("dir"); el.removeAttribute("data-nb-ltr"); }
     });
   }
-  function run() { if (busy) return; busy = true; try { scopes().forEach(function (r) { walk(r); }); [].slice.call(d.querySelectorAll(WIDE)).forEach(function (r) { walk(r, true); }); isolate(); } finally { busy = false; } }
+  var dateOrig = new WeakMap();
+  function dates() {
+    [].slice.call(d.querySelectorAll("main time[datetime], dialog time[datetime]")).forEach(function (el) {
+      var dt = el.getAttribute("datetime"); if (!/^\d{4}-\d{2}-\d{2}$/.test(dt) || el.children.length) return;
+      if (!dateOrig.has(el)) dateOrig.set(el, el.textContent);
+      var want = dateOrig.get(el);
+      if (cur !== "en") { try { var p = dt.split("-"); want = new Intl.DateTimeFormat(cur, { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(Date.UTC(+p[0], +p[1] - 1, +p[2])); } catch (e) {} }
+      if (el.textContent !== want) el.textContent = want;
+    });
+  }
+  function rules() {
+    [].slice.call(d.querySelectorAll("[data-nb-rule]")).forEach(function (el) {
+      var n = el.querySelector(":scope > .i18n-rule-note"), txt = cur !== "en" && tbl.tr["pg.rule_note"];
+      if (!txt) { if (n) n.remove(); return; }
+      if (!n) { n = d.createElement("span"); n.className = "i18n-rule-note"; el.appendChild(n); }
+      if (n.textContent !== txt) n.textContent = txt;
+    });
+  }
+  function run() { if (busy) return; busy = true; try { scopes().forEach(function (r) { walk(r); }); [].slice.call(d.querySelectorAll(WIDE)).forEach(function (r) { walk(r, true); }); dates(); rules(); isolate(); } finally { busy = false; } }
   function marker(meta) {
     var m = d.getElementById("i18n-draft");
     if (cur === "en") { if (m) m.remove(); return; }
