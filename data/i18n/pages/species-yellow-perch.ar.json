@@ -5,7 +5,29 @@
   "review": "draft"
  },
  "strings": {
+  "species-yellow-perch.0929c2dc": "تذكير، تحقّق",
+  "species-yellow-perch.15df0dbb": "الحصة اليومية",
+  "species-yellow-perch.172fe660": "الحد الأدنى للطول",
+  "species-yellow-perch.210d78e9": "تذكير فقط. تأكد على",
+  "species-yellow-perch.2732b4bc": "ولوائح ODNR الحالية قبل الاحتفاظ بالأسماك. المرجع:",
+  "species-yellow-perch.306460f2": "خرائط المياه",
+  "species-yellow-perch.3a0a165f": "تذكير (تحقّق من 2026–27)",
+  "species-yellow-perch.40af0815": "المياه والخرائط",
+  "species-yellow-perch.416b27a5": "عن هذه الصفحة",
+  "species-yellow-perch.525f61b6": "المكان",
+  "species-yellow-perch.5b7c80a8": "سجّل رحلة",
+  "species-yellow-perch.5d410e64": "الخطوط الكنتورية، تصحيح المنسوب، المنحدرات العامة.",
+  "species-yellow-perch.61a0ae3b": "الحدود",
+  "species-yellow-perch.62255f56": "الموسم",
+  "species-yellow-perch.6a48c0a8": "وقت اليوم",
+  "species-yellow-perch.6eef6648": "لا يوجد",
+  "species-yellow-perch.78e1790e": "القاعدة",
+  "species-yellow-perch.7e439c35": "في هذه الصفحة",
+  "species-yellow-perch.80946517": "HuntFish OH / ODNR licenses",
   "species-yellow-perch.9e89988c": "الشاطئ",
+  "species-yellow-perch.ba003615": "ODNR Fishing Regulations 2026–27 (تحقّق من الإصدار الحالي)",
+  "species-yellow-perch.d554eecb": "الطُّعم وطريقة العرض",
+  "species-yellow-perch.ddaf2b13": "بلا حد (كل الأسماك الأخرى)",
   "species-yellow-perch.ef58de4f": "القارب"
  }
 }
