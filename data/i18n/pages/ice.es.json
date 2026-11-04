@@ -5,6 +5,7 @@
   "review": "draft"
  },
  "strings": {
+  "ice.1092dd58": "Oficina de Burr Oak State Park:",
   "ice.2cda21fd": "ODNR, Clear Fork Reservoir Fishing Area",
   "ice.31074a64": "City of Mansfield, Clearfork Reservoir Park",
   "ice.33e42ccc": "ODNR, Dillon Lake Fishing Area",
@@ -18,18 +19,24 @@
   "ice.8696eec3": "ODNR, Leesville Lake Fishing Area",
   "ice.94fc17ee": "ODNR, Berlin Lake Fishing Area",
   "ice.9516ff11": "ODNR, Pymatuning State Park",
+  "ice.95fe51e2": "Oficina de Alum Creek State Park:",
   "ice.9d142bc6": "ODNR, Deer Creek State Park",
   "ice.9e24e097": "ODNR, Seneca Lake Fishing Area",
+  "ice.a065743c": "Oficina de Buckeye Lake State Park:",
   "ice.a39224a8": "ODNR, Winter Drawdowns",
+  "ice.aa69aa56": "Oficina de Deer Creek State Park:",
   "ice.ae1078ef": "ODNR, Lake Milton State Park",
   "ice.b290a95d": "ODNR, Buckeye Lake State Park",
   "ice.bd2d60bc": "ODNR, Knox Lake Fishing Area",
+  "ice.c9b670ad": "Oficina de Dillon State Park:",
   "ice.cd48465e": "no es ODNR",
   "ice.d9205da3": "ODNR, Mosquito Lake State Park",
   "ice.df3e26fb": "ODNR, Delaware State Park",
+  "ice.e1d6645b": "(lun a jue, 8 am a 5 pm)",
   "ice.e659157e": "ODNR, Alum Creek State Park",
   "ice.e7d6f281": "ODNR, Indian Lake State Park",
   "ice.eecaaadb": "ODNR, West Branch State Park",
-  "ice.f06965a7": "ODNR, Lake Logan State Park"
+  "ice.f06965a7": "ODNR, Lake Logan State Park",
+  "ice.f6dd0ceb": "(lun a vie, 8 am a 4:30 pm)"
  }
 }
