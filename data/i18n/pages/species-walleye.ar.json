@@ -17,6 +17,7 @@
   "species-walleye.1c370ffc": "مناسب لواقع الصيد من الضفة والقوارب الصغيرة. تسمح Dillon Lake بقوة محرك غير محدودة، والمنسوب يتحرك مع السيطرة على الفيضانات.",
   "species-walleye.1d186513": "لا حد لقوة المحرك؛ بلا أمواج ضمن 300 ft من الشاطئ، وممنوع التزلج والأنابيب العائمة والدراجات المائية شمال جسر SR 88 (ODNR). 24 ft في أعمق نقطة.",
   "species-walleye.1d5bbfdf": "خرائط المياه",
+  "species-walleye.1d9b8c34": "غير موجود في سجلات المسح أو التزويد من ODNR لـ O’Shaughnessy. وباقي هذه الصفحة ملاحظات عن Hoover.",
   "species-walleye.210d78e9": "تذكير فقط. تأكد على",
   "species-walleye.2321e470": "مناسب لواقع الصيد من الضفة والقوارب الصغيرة. في Seneca Lake حد 399 hp ومياه مفتوحة طويلة.",
   "species-walleye.2732b4bc": "ولوائح ODNR الحالية قبل الاحتفاظ بالأسماك. المرجع:",
@@ -30,6 +31,7 @@
   "species-walleye.3e193768": "المكان في",
   "species-walleye.40af0815": "المياه والخرائط",
   "species-walleye.416b27a5": "عن هذه الصفحة",
+  "species-walleye.4518cd08": "ليس من الأنواع المعتادة في Dillon Lake، لذلك لا توجد ملاحظات أماكن لهذه البحيرة. انظر ملاحظات Hoover في عرض Hoover.",
   "species-walleye.457f0993": "قوة محرك غير محدودة؛ بلا أمواج ضمن 300 ft من الشاطئ وغرب جسر Rock Spring Road (ODNR).",
   "species-walleye.45928bc1": "المنحدرات العامة وشاطئ Corps. منحدر Bonner Road مغلق حتى",
   "species-walleye.4cd4a1bf": "ليس من الأنواع المعتادة في Leesville Lake، لذلك لا توجد ملاحظات أماكن لهذه البحيرة. انظر ملاحظات Hoover في عرض Hoover.",
@@ -43,7 +45,9 @@
   "species-walleye.5deea676": "ليس من الأنواع المعتادة في Clear Fork Reservoir، لذلك لا توجد ملاحظات أماكن لهذه البحيرة. انظر ملاحظات Hoover في عرض Hoover.",
   "species-walleye.61a0ae3b": "الحدود",
   "species-walleye.62255f56": "الموسم",
+  "species-walleye.655ae7ad": "ليس من الأنواع المعتادة في Seneca Lake: لا يذكره ODNR هناك. وباقي هذه الصفحة ملاحظات عن Hoover.",
   "species-walleye.6a48c0a8": "وقت اليوم",
+  "species-walleye.6afabc41": "ليس من الأنواع المعتادة في Seneca Lake، لذلك لا توجد ملاحظات أماكن لهذه البحيرة. انظر ملاحظات Hoover في عرض Hoover.",
   "species-walleye.6ca39126": "ليس من الأنواع المعتادة في Leesville Lake: لا يذكره ODNR هناك. وباقي هذه الصفحة ملاحظات عن Hoover.",
   "species-walleye.6cbcf056": "مناسب لواقع الصيد من الضفة والقوارب بقوة ≤10 hp. Hoover خزان لمياه الشرب.",
   "species-walleye.6eeeac04": "مناسب لواقع الصيد من الضفة والقوارب الصغيرة. تسمح Deer Creek Lake بقوة محرك غير محدودة، والمنسوب يتحرك مع السيطرة على الفيضانات.",
@@ -64,8 +68,11 @@
   "species-walleye.a968417d": "غير موجود في سجلات المسح أو التزويد من ODNR لـ Griggs. وباقي هذه الصفحة ملاحظات عن Hoover.",
   "species-walleye.ad45d769": "موجود في Alum Creek (قائمة أنواع ODNR).",
   "species-walleye.b19f91e8": "مناسب لواقع الصيد من الضفة والقوارب الصغيرة. يسمح Delaware بقوة محرك غير محدودة، والمنسوب يتحرك مع السيطرة على الفيضانات.",
+  "species-walleye.b8ef5eb1": "ليس من الأنواع المعتادة في Burr Oak Lake، لذلك لا توجد ملاحظات أماكن لهذه البحيرة. انظر ملاحظات Hoover في عرض Hoover.",
   "species-walleye.ba003615": "ODNR Fishing Regulations 2026–27 (تحقّق من الإصدار الحالي)",
   "species-walleye.ba5907c2": "مناسب لواقع الصيد من الضفة والقوارب الصغيرة. Indian Lake ضحلة وفيها جزر وقنوات: اسِر بسرعة الخمول في منطقة بلا أمواج بعرض 300 ft.",
+  "species-walleye.bab5c82b": "غير موجود في سجلات ODNR لـ O’Shaughnessy، لذلك لا توجد ملاحظات أماكن لهذه البحيرة. انظر ملاحظات Hoover في عرض Hoover.",
+  "species-walleye.bded3ac9": "ليس من الأنواع المعتادة في Burr Oak Lake: لا يذكره ODNR هناك. وباقي هذه الصفحة ملاحظات عن Hoover.",
   "species-walleye.c1f56e38": "مناسب لواقع الصيد من الضفة والقوارب الصغيرة. تسمح Salt Fork Lake بقوة محرك غير محدودة، مع مناطق للسرعة والتزلج.",
   "species-walleye.c3b9e77c": "الشاطئ في Mosquito Lake State Park وعلى طول جسر SR 88 (ODNR). في مواقف المرسى والشاطئ أعمال إنشاء منذ",
   "species-walleye.c8bdb96e": "شاطئ Lake Milton State Park والمنحدرات العامة (ODNR).",
@@ -85,6 +92,7 @@
   "species-walleye.f02a11a0": "ليس من الأنواع المعتادة في Dow Lake، لذلك لا توجد ملاحظات أماكن لهذه البحيرة. انظر ملاحظات Hoover في عرض Hoover.",
   "species-walleye.f56050ff": "مناسب لواقع الصيد من الضفة والقوارب الصغيرة. لا حد لقوة المحرك في Mosquito Creek Lake، وبلا أمواج ضمن 300 ft من الشاطئ.",
   "species-walleye.f89dcc7b": "ليس من الأنواع المعتادة في Delaware Lake، لذلك لا توجد ملاحظات أماكن لهذه البحيرة. انظر ملاحظات Hoover في عرض Hoover.",
-  "species-walleye.faa24a10": "ليس من الأنواع المعتادة في Buckeye Lake، لذلك لا توجد ملاحظات أماكن لهذه البحيرة. انظر ملاحظات Hoover في عرض Hoover."
+  "species-walleye.faa24a10": "ليس من الأنواع المعتادة في Buckeye Lake، لذلك لا توجد ملاحظات أماكن لهذه البحيرة. انظر ملاحظات Hoover في عرض Hoover.",
+  "species-walleye.fb88d7d3": "ليس من الأنواع المعتادة في Dillon Lake: لا يذكره ODNR هناك. وباقي هذه الصفحة ملاحظات عن Hoover."
  }
 }
