@@ -5,8 +5,27 @@
   "review": "draft"
  },
  "strings": {
+  "privacy.2723ba9d": "개인 낚시 기록(",
+  "privacy.38493166": "The Night Bite와 Whisperwood Vale에는 계정, 쿠키, 광고가 없어요. 방문은 쿠키나 개인 정보 없이 숫자만 세요. 여기서 하는 일 대부분은 내 브라우저에만 남아요.",
+  "privacy.46c83dda": ")와 기슭 / 보트 전환(",
+  "privacy.583c9e23": "마지막 업데이트",
+  "privacy.64592809": "nb-cond-last",
+  "privacy.68bdec6c": "). “백업 저장”은 기록을 내 휴대폰이나 컴퓨터의 파일로 쓰고, “백업 열기”는 고른 파일을 읽어 그 기록을 여기에 더해요. 둘 다 기기 안에서 일어나고, 아무것도 업로드되지 않아요.",
+  "privacy.69ff6f0d": "nightbite-mode-v1",
+  "privacy.72cf4eb7": "The Log:",
+  "privacy.7e521927": "짐 체크리스트 표시(",
   "privacy.81c61b31": "localStorage",
+  "privacy.8582b709": "브라우저에 남는 것",
+  "privacy.887a6024": "nb-trend-last",
   "privacy.93ef0dd8": "다음:",
-  "privacy.b8316845": "nightbite-log-v1"
+  "privacy.9fb17cbb": "장비:",
+  "privacy.b8316845": "nightbite-log-v1",
+  "privacy.c1c3ef8a": "오프라인 정보:",
+  "privacy.c241002b": "몇몇 기능은 브라우저의 다음 공간에 작은 메모를 저장해요:",
+  "privacy.c27d1d20": "브라우저가 받아 온 마지막 수위, 7일 수위 추세, 날씨 예보(",
+  "privacy.daa1f2da": "그래서 다음에 와도 그대로 있어요. The Night Bite로 보내지지 않아요. 브라우저에서 이 사이트 데이터를 지우면 함께 지워져요.",
+  "privacy.e04368be": "nightbite-pack-v1",
+  "privacy.f289d890": "nb-usgs-last",
+  "privacy.f9eb0f74": "), 그래서 신호가 없을 때도 홈에서 “Offline” 표시와 함께 보여 줘요."
  }
 }
