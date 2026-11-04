@@ -422,6 +422,14 @@ button, .btn, .site-nav a, .nav-more-btn, .species-subnav a, .gear-sticky-nav a,
   .site-nav .nav-extra { display: list-item; }
   .nav-label-full { display: inline; }
 }
+/* Wide screens: Whisperwood Vale sits in More (tools/nav-desk-more.py marks the nav; whisperwood.html is unmarked).
+   Log, About and What's new stay in the row, so the panel shows only Whisperwood and Display there. */
+@media (min-width: 901px) {
+  .site-nav .nav-extra.nav-ww { display: none; }
+  .site-nav .nav-more-item.nav-more-desk { display: list-item !important; }
+  .nav-more-desk .nav-more-panel a:not([href*="whisperwood"]) { display: none; }
+  .nav-more-desk .nav-more-btn.has-new { background-image: none; }
+}
 
 /* Phones + small tablets: Home · Species · Lake · Log · More */
 @media (max-width: 900px) {

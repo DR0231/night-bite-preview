@@ -47,6 +47,8 @@ for p in sorted(root.rglob("*.html")):
     err = lambda m: errors.append(f"{rel}: {m}")
     if 'class="nav-label-short"' in src and not rel.startswith("whisperwood"):
         err("old two-span nav labels (run python3 tools/nav-labels.py)")
+    if 'class="nav-more-item"' in src and not rel.startswith("whisperwood"):
+        err("nav More not marked for desktop (run python3 tools/nav-desk-more.py)")
     titles = re.findall(r"<title>([^<]*)</title>", head)
     descs = metas(head, "name", "description")
     if len(titles) != 1 or not titles[0].strip():
