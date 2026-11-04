@@ -1,0 +1,34 @@
+{
+ "_meta": {
+  "lang": "es",
+  "page": "species-yellow-perch",
+  "review": "draft"
+ },
+ "strings": {
+  "species-yellow-perch.0929c2dc": "recordatorio, verifica",
+  "species-yellow-perch.15df0dbb": "Límite diario",
+  "species-yellow-perch.172fe660": "Longitud mínima",
+  "species-yellow-perch.210d78e9": "Solo es un recordatorio. Confírmalo en",
+  "species-yellow-perch.2732b4bc": "y el reglamento vigente de ODNR antes de quedarte con peces. Fuente:",
+  "species-yellow-perch.306460f2": "mapas del agua",
+  "species-yellow-perch.3a0a165f": "Recordatorio (verifica 2026–27)",
+  "species-yellow-perch.40af0815": "Agua y mapas",
+  "species-yellow-perch.416b27a5": "Sobre esta página",
+  "species-yellow-perch.525f61b6": "Dónde",
+  "species-yellow-perch.5b7c80a8": "Anotar una salida",
+  "species-yellow-perch.5d410e64": "Curvas de nivel, corrección por nivel del embalse, rampas públicas.",
+  "species-yellow-perch.61a0ae3b": "Límites",
+  "species-yellow-perch.62255f56": "Temporada",
+  "species-yellow-perch.6a48c0a8": "Hora del día",
+  "species-yellow-perch.6eef6648": "Ninguno",
+  "species-yellow-perch.78e1790e": "Regla",
+  "species-yellow-perch.7e439c35": "En esta página",
+  "species-yellow-perch.80946517": "HuntFish OH / licencias de ODNR",
+  "species-yellow-perch.9e89988c": "Orilla",
+  "species-yellow-perch.ba003615": "Reglamento de pesca de ODNR 2026–27 (verifica que esté vigente)",
+  "species-yellow-perch.d554eecb": "Carnada y presentación",
+  "species-yellow-perch.da0b1457": "Solo es un cuaderno no oficial; no es ODNR, el Corps of Engineers ni USGS. Se requiere licencia desde los 16 años (16+). Confirma el reglamento antes de quedarte con peces.",
+  "species-yellow-perch.ddaf2b13": "Sin límite (todos los demás peces)",
+  "species-yellow-perch.ef58de4f": "Bote"
+ }
+}
