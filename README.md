@@ -89,9 +89,15 @@ Home · Species · Water · Log · Tournaments · Gear · About
 
 3. **Zero invented events.** Empty list is the honest default. This site is not a tournament director.
 
-## SAMPLE private log entries
+## Log page (dev notes)
 
-Log shows exactly one SAMPLE card. It normally comes from `data/community-log.json`; `js/log.js` (`SAMPLE_TRIPS`) only renders its copy when that JSON fails to load, and `log.html` has a noscript copy. SAMPLE demos are never stored. Storage key: `nightbite-log-v1` (user entries only).
+These notes used to sit on the Log page itself; the page now says only "saved on this phone only".
+
+- Community trips load from `data/community-log.json` (`js/community-log.js`). Entries with `"sample": true` are never shown. The Community section stays hidden until a real (non-sample) trip matches the lake filter, and also when the JSON fails to load.
+- Share a trip (folded on the page) builds a mailto draft to `contact@nightbiteoh.com`, or markdown for `.github/ISSUE_TEMPLATE/trip-report.yml`. Text only, public ramp names only. The moderated Worker form replaces this in S7b.
+- Your trips: `js/log.js`, localStorage `nightbite-log-v1`, user entries only (samples are never stored; `nightbite-samples-seeded-v2` is an old flag that gets removed). Entries without `lake` are Hoover trips. Old Hoover ramp names stay as saved and show as the official names (`spotName` in `js/lakes.js`).
+- Empty states: with no trips the list is hidden, one line says so, and "Add a trip" opens.
+- Backup: "Save a backup" downloads `night-bite-log-YYYY-MM-DD.json` as `{"app":"the-night-bite","kind":"trip-log","version":1,"exported":ISO,"entries":[...]}`. "Open a backup" reads that file, or a bare array (a raw `nightbite-log-v1` copy), with FileReader. Each entry needs a `YYYY-MM-DD` date, a known lake id (missing means `hoover`), string fields only (clipped to the form limits) and at least one of species, spot, bait or notes; samples are dropped. Trips are merged, never replaced: a trip that matches one already saved (same lake, date, spot after the ramp-name mapping, species, bait, keep and notes) is counted as already here. No network. `window.NightBiteLogIO` is the hook `tools/check-log-io.cjs` tests.
 
 ## Water numbers
 
@@ -112,7 +118,7 @@ Limit tables are **reminders only** — confirm on [HuntFish OH / ODNR licenses]
 | `species/*.html` | Per-species Season · Where · Limits · Gear · Bait, with an "at <lake> this month" note under the title |
 | `water.html` | Maps, pool correction, structure, ramps, dock season (from `data/docks.json` via `tools/build-docks.py`; `docks.html` is the short /docks link), link to Ice season |
 | `ice.html` | Ice season: ODNR ice safety, who to call per lake, winter species from the monthly notes. No ice reports |
-| `log.html` | Community JSON + private localStorage + submit |
+| `log.html` | Your trips (this device, backup file), community trips, share a trip, tournaments |
 | `tournaments.html` | Redirect to `log#tournaments` (list + submit now live at the bottom of the Log) |
 | `gear.html` | Short kits (affiliate placeholders) |
 | `whisperwood.html` | Game teaser (kept) |

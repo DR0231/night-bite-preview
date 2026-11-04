@@ -1,11 +1,12 @@
 /**
- * The Night Bite — community log from data/community-log.json
- * Phase 1: fetch static JSON; submit via mailto or markdown / GitHub issue.
- * No accounts. Photos Phase 2.
+ * The Night Bite: community trips on the Log page, from data/community-log.json.
+ * Example (sample) trips are never shown. The Community section stays hidden until a real trip matches the lake
+ * filter, and also when the file can't load. Share a trip builds a mailto draft or GitHub issue markdown. No accounts.
  */
 (function () {
   var MAILTO = "contact@nightbiteoh.com";
   var listEl = document.getElementById("community-log-list");
+  var sectionEl = document.getElementById("community");
   var form = document.getElementById("community-trip-form");
   var preview = document.getElementById("submit-preview");
   var statusEl = document.getElementById("mailto-status");
@@ -25,7 +26,7 @@
   }
 
   function formatDate(iso) {
-    if (!iso) return "—";
+    if (!iso) return "";
     var parts = iso.split("-");
     if (parts.length !== 3) return iso;
     var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -35,22 +36,16 @@
 
   function renderTrips(trips) {
     if (!listEl) return;
-    trips = (trips || []).filter(function (t) { return window.NightBiteLogFilter === "all" || (t.lake || "hoover") === LAKE; });
-    if (!trips.length) {
-      listEl.innerHTML = LAKE === "hoover" || window.NightBiteLogFilter === "all"
-        ? '<div class="empty-log"><p>None yet. Submit a trip below (mailto or GitHub issue).</p></div>'
-        : '<div class="empty-log"><p>No community trips at ' + escapeHtml(lakeShort(LAKE)) + ' yet. Submit one below (mailto or GitHub issue).</p></div>';
-      return;
-    }
+    trips = (trips || []).filter(function (t) { return t && !t.sample && (window.NightBiteLogFilter === "all" || (t.lake || "hoover") === LAKE); });
+    if (sectionEl) sectionEl.hidden = !trips.length;
+    if (!trips.length) { listEl.innerHTML = ""; return; }
     listEl.innerHTML = trips
       .slice()
       .sort(function (a, b) {
         return (b.date || "").localeCompare(a.date || "");
       })
       .map(function (e) {
-        var badge = e.sample
-          ? '<span class="sample-badge" title="Demo entry, not a live bite report">Example</span>'
-          : '<span class="meta">Community</span>';
+        var badge = '<span class="meta">Community</span>';
         return (
           '<article class="paper-card">' +
           badge +
@@ -109,8 +104,8 @@
         announce("ok");
       })
       .catch(function () {
-        listEl.innerHTML =
-          '<div class="empty-log"><p>Could not load community log (open via a local server, not file://). None shown.</p></div>';
+        listEl.innerHTML = "";
+        if (sectionEl) sectionEl.hidden = true;
         announce("failed");
       });
   }

@@ -1062,6 +1062,15 @@ a.sr-only:focus-visible {
 }
 .trip-actions { margin-top: 0.75rem; display: flex; gap: 0.5rem; }
 .trip-actions .btn { font-size: var(--text-label); padding: 0.45rem 0.8rem; min-height: 44px; }
+/* Log (S7a): your trips first, the add form, backup and share folded */
+.log-mine, .log-community { margin-top: var(--space-md, 1.5rem); }
+.log-mine h2, .log-community h2 { margin-top: 0; }
+#log-list[hidden], #log-empty[hidden] { display: none; }
+.log-fold { margin-top: 0.75rem; }
+.log-fold .form-block { margin-top: 0.25rem; }
+.log-io { margin-top: 0.5rem; }
+.log-io-status { margin: 0.75rem 0 0; padding: 0.5rem 0.75rem; border-left: 3px solid var(--amber); color: var(--cream); }
+html[data-contrast="high"] .log-io-status { border-left-color: currentColor; }
 
 /* ==========================================================================
    Water maps / access
