@@ -9,7 +9,7 @@
   "pymatuning.072dc887": "، افزایش سریع",
   "pymatuning.07f6d49b": "امتیاز یا بیشتر خوب است،",
   "pymatuning.09ca55ca": "اشتراک‌گذاری",
-  "pymatuning.0b45f36a": "نقشه ماهیگیری ODNR در 1,008، سکوهای سمت اوهایو، قوانین 20 hp، سنجه USGS گزارش نمی‌دهد.",
+  "pymatuning.0b45f36a": "نقشه ماهیگیری ODNR در 1,008، سکوهای سمت Ohio، قوانین 20 hp، سنجه USGS گزارش نمی‌دهد.",
   "pymatuning.0b748050": "، میانگین سرعت ساعتی NWS امشب از غروب تا 2 بامداد (بالاترین مقدار بازه هر ساعت). کمتر از",
   "pymatuning.0c8309d1": "دانلود PNG",
   "pymatuning.0f01ed56": "نمونه",
@@ -82,7 +82,7 @@
   "pymatuning.a7fa610c": "باز کردن گزارش",
   "pymatuning.a8d4cf97": ". ثابت یعنی در محدوده",
   "pymatuning.a9f3ee46": "نقشه با سکوهای قایق",
-  "pymatuning.aa77ebe3": "محدودیت 20 hp · مجوز پنسیلوانیا در ساحل پنسیلوانیا · مجوز از 16 سالگی به بالا.",
+  "pymatuning.aa77ebe3": "محدودیت 20 hp · مجوز Pennsylvania در ساحل Pennsylvania · مجوز از 16 سالگی به بالا.",
   "pymatuning.b2f53719": "inHg یا بیشتر.",
   "pymatuning.b83bf8c4": "مرور گونه‌ها",
   "pymatuning.bbfa773e": "بستن",
@@ -100,7 +100,7 @@
   "pymatuning.ddfa8117": "گزارشی نداده است از",
   "pymatuning.df406055": "inHg؛ سریع یعنی",
   "pymatuning.e13f20bc": ")",
-  "pymatuning.e3c5a42c": "(ODNR). اینجا فقط سمت اوهایو: مجوز اوهایو یا پنسیلوانیا روی قایق معتبر است، اما در ساحل پنسیلوانیا یا هر جزیره‌ای مجوز پنسیلوانیا لازم است (قوانین ODNR 2026–27).",
+  "pymatuning.e3c5a42c": "(ODNR). اینجا فقط سمت Ohio: مجوز Ohio یا Pennsylvania روی قایق معتبر است، اما در ساحل Pennsylvania یا هر جزیره‌ای مجوز Pennsylvania لازم است (قوانین ODNR 2026–27).",
   "pymatuning.e3e9f874": "امشب ساعت",
   "pymatuning.e5f79aa1": "نصب اپ",
   "pymatuning.ed3280ca": "و فروشگاه‌های طعمه",
@@ -110,8 +110,8 @@
   "pymatuning.f2eb9a7b": "سنجه عمومی دمای آب وجود ندارد",
   "pymatuning.f82eb2f1": "ق.ظ یا ب.ظ",
   "pymatuning.f9bb7357": "لغو یادآوری",
-  "pymatuning.fa4885e0": "مرکز غیررسمی ماهیگیری اوهایو با حال‌وهوای اسکله در شب: Hoover، Alum Creek، Buckeye Lake، O’Shaughnessy، Griggs، Indian Lake، Delaware Lake، Deer Creek Lake، Madison Lake، Knox Lake، Clear Fork Reservoir، Seneca Lake، Dillon Lake، Lake Logan، Salt Fork Lake، Burr Oak Lake، Dow Lake، Mosquito Creek Lake، Berlin Lake، West Branch Reservoir، Pymatuning Lake، Lake Milton و Leesville Lake",
-  "pymatuning.ff4d932c": "پنج سکوی پارک ایالتی اوهایو: Padanaram، Birches Landing، Cabin Beach، New Bowers و سکوی مخصوص کمپ‌نشینان. جاده Cabin Beach به Birches Marina برای همیشه بسته است.",
-  "pymatuning.ffb898cc": "ساعات کاری Pymatuning State Park از 6 صبح تا 11 شب است؛ ODNR تفریح مشروع مانند ماهیگیری را بیرون از این ساعات مجاز می‌داند. محدودیت 20 hp. جاده Cabin Beach به Birches Marina برای همیشه بسته است. سکوهای Cabin Beach و New Bowers روی نقشه نشانه ندارند. ساحل شرقی پنسیلوانیا است و قوانین خودش را دارد. خط ساحل از OpenStreetMap ترسیم شده و برای ناوبری نیست."
+  "pymatuning.fa4885e0": "مرکز غیررسمی ماهیگیری Ohio با حال‌وهوای اسکله در شب: Hoover، Alum Creek، Buckeye Lake، O’Shaughnessy، Griggs، Indian Lake، Delaware Lake، Deer Creek Lake، Madison Lake، Knox Lake، Clear Fork Reservoir، Seneca Lake، Dillon Lake، Lake Logan، Salt Fork Lake، Burr Oak Lake، Dow Lake، Mosquito Creek Lake، Berlin Lake، West Branch Reservoir، Pymatuning Lake، Lake Milton و Leesville Lake",
+  "pymatuning.ff4d932c": "پنج سکوی پارک ایالتی Ohio: Padanaram، Birches Landing، Cabin Beach، New Bowers و سکوی مخصوص کمپ‌نشینان. جاده Cabin Beach به Birches Marina برای همیشه بسته است.",
+  "pymatuning.ffb898cc": "ساعات کاری Pymatuning State Park از 6 صبح تا 11 شب است؛ ODNR تفریح مشروع مانند ماهیگیری را بیرون از این ساعات مجاز می‌داند. محدودیت 20 hp. جاده Cabin Beach به Birches Marina برای همیشه بسته است. سکوهای Cabin Beach و New Bowers روی نقشه نشانه ندارند. ساحل شرقی Pennsylvania است و قوانین خودش را دارد. خط ساحل از OpenStreetMap ترسیم شده و برای ناوبری نیست."
  }
 }

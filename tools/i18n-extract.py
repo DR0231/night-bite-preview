@@ -36,7 +36,7 @@ KEEP = "h1, .cond-summary, [data-nb-keep]"
 DYN = ".cond-value, .cond-unit, .glance-unit, .cond-sub, .cond-asof, .cond-hours-list, .cond-storm, .cond-bite-rate, .cond-bite-why, .cond-line-text, .cond-x-value, .cond-status, .bait-status, .get-app-status, [id$=status], [class*=-status], time[datetime], [data-nb-dyn]"
 SKIP_PAGES = {"whisperwood"}
 # page groups for the coverage report; check-i18n.py fails on gaps only in STRICT_GROUPS (grow it as groups finish)
-STRICT_GROUPS = ["lake homes", "species", "picker + water", "log", "other pages"]
+STRICT_GROUPS = ["lake homes", "species", "picker + water", "log", "other pages", "script cards", "map cards", "dock cards"]
 
 def norm(s): return re.sub(r"\s+", " ", s).strip()
 def h8(s): return hashlib.sha1(norm(s).encode()).hexdigest()[:8]
