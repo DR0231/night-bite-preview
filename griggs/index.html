@@ -35,10 +35,10 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="js/a11y-boot.js?v=v82-2026-11-03"></script>
-  <link rel="stylesheet" href="css/styles.css?v=v82-2026-11-03">
+  <script src="js/a11y-boot.js?v=v83-2026-11-03"></script>
+  <link rel="stylesheet" href="css/styles.css?v=v83-2026-11-03">
   <noscript><style>.glance-actions{display:none}.pool-trend[data-pending]{display:none!important}</style></noscript>
-  <script src="js/lakes.js?v=v82-2026-11-03"></script>
+  <script src="js/lakes.js?v=v83-2026-11-03"></script>
   <!-- nb:jsonld (tools/build-lake-pages.py) -->
   <script type="application/ld+json">
   [{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://nightbiteoh.com/griggs/#webpage", "url": "https://nightbiteoh.com/griggs/", "name": "Griggs Reservoir Fishing: Level, Rules | The Night Bite", "isPartOf": {"@id": "https://nightbiteoh.com/#website"}, "about": {"@type": "Reservoir", "name": "Griggs Reservoir"}, "dateModified": "2026-10-31", "inLanguage": "en-US"}]
@@ -94,7 +94,7 @@
       <!-- baked by tools/glance_bake.py from this page's pool card; js/glance.js keeps it current -->
       <div class="glance-head">
         <h2 class="glance-title" id="glance-title">Tonight at a glance</h2>
-        <a class="glance-cell glance-bite" href="griggs/#conditions" data-empty>
+        <a class="glance-cell glance-bite" href="griggs/#bite-how" data-empty>
           <span class="glance-label">Bite</span>
           <span class="glance-value glance-state" data-glance="bite">Needs forecast</span>
         </a>
@@ -183,7 +183,7 @@
       <section class="bento-card bento-pool" id="pool-snapshot" aria-labelledby="snapshot-title">
         <h2 id="snapshot-title">Today’s pool &amp; temp</h2>
         <p class="pool-lead" id="correction-line">755.64 ft · 59°F · ~0.5 ft below full pool</p>
-        <script src="js/pool-readout.js?v=v82-2026-11-03"></script>
+        <script src="js/pool-readout.js?v=v83-2026-11-03"></script>
         <p class="meta" id="correction-checked">
           Checked: <time datetime="2026-10-29T12:45:00-04:00">2026-10-29 12:45 ET</time>. <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03221500/" target="_blank" rel="noopener">Live USGS gauge</a>.
         </p>
@@ -194,7 +194,7 @@
         <p class="meta" id="usgs-live-status" style="margin-bottom:0.5rem;margin-top:0.5rem;">
           Provisional snapshot; your browser may refresh it from USGS. Never invented.
         </p>
-        <script src="js/lake-snapshot.js?v=v82-2026-11-03"></script>
+        <script src="js/lake-snapshot.js?v=v83-2026-11-03"></script>
         <div class="pool-trend" id="pool-trend" hidden data-pending>
           <div class="pool-trend-head">
             <span class="pool-trend-label">Pool, last 7 days</span>
@@ -232,6 +232,21 @@
           <p class="cond-bite-line"><span class="cond-label">Tonight&rsquo;s bite</span> <span class="cond-bite-rate"></span> <span class="cond-bite-why"></span></p>
           <p class="cond-bite-note">A rule of thumb guide, not a promise.</p>
         </div>
+        <details class="how-to-read bite-how" id="bite-how">
+          <summary>How the bite is rated</summary>
+          <div class="how-to-read-body">
+            <p>The Bite is this site&rsquo;s own rule of thumb, not fishing science and not a forecast. It adds points from readings already on this page.</p>
+            <ul class="bite-rules">
+              <li data-rule="pressure"><strong>Barometer</strong>, the change over the last 3 hours at <span data-bite-src="station">the lake&rsquo;s NWS station</span>. Falling slowly <b data-r="pressure.pts.fallSlow">+2</b>, steady <b data-r="pressure.pts.steady">+1</b>, rising slowly <b data-r="pressure.pts.riseSlow">0</b>, falling fast <b data-r="pressure.pts.fallFast">0</b>, rising fast <b data-r="pressure.pts.riseFast">&minus;1</b>. Steady means within <b data-r="pressure.steady">0.02</b> inHg; fast means <b data-r="pressure.fast">0.06</b> inHg or more. <span class="bite-now" data-bite-now="pressure" hidden></span></li>
+              <li data-rule="wind"><strong>Wind</strong>, tonight&rsquo;s average NWS hourly speed from sunset to 2 AM (the top of each hour&rsquo;s range). Under <b data-r="wind.calm">3</b> mph <b data-r="wind.pts.calm">0</b>, 3 to <b data-r="wind.chop">12</b> mph <b data-r="wind.pts.chop">+1</b>, 13 to <b data-r="wind.breezy">18</b> mph <b data-r="wind.pts.breezy">0</b>, over 18 mph <b data-r="wind.pts.strong">&minus;2</b>. <span class="bite-now" data-bite-now="wind" hidden></span></li>
+              <li data-rule="moon"><strong>Moon</strong>, worked out on this phone. New or full moon tonight (or under <b data-r="moon.dark" data-fmt="pct">10%</b> or over <b data-r="moon.bright" data-fmt="pct">90%</b> lit) <b data-r="moon.pts.major">+1</b>, otherwise <b data-r="moon.pts.other">0</b>. <span class="bite-now" data-bite-now="moon" hidden></span></li>
+              <li data-rule="water"><strong>Water temp</strong>, from this lake&rsquo;s USGS gauge where one reports it. <b data-r="water.goodLo">55</b> to <b data-r="water.goodHi">80</b>&deg;F <b data-r="water.pts.good">+1</b>, colder than <b data-r="water.okLo">45</b> or warmer than <b data-r="water.okHi">86</b>&deg;F <b data-r="water.pts.bad">&minus;1</b>, anything between <b data-r="water.pts.ok">0</b>. It never makes a rating alone. <span class="bite-now" data-bite-now="water" hidden></span></li>
+              <li data-rule="storm"><strong>Thunder</strong> anywhere in tonight&rsquo;s NWS forecast makes it Tough, whatever the points. <span class="bite-now" data-bite-now="storm" hidden></span></li>
+            </ul>
+            <p><b data-r="rate.good">4</b> points or more is Good, <b data-r="rate.fair">2</b> or 3 is Fair, less is Tough. A missing reading counts 0, and with no barometer trend and no wind there is no rating.</p>
+            <p class="bite-tonight" data-bite-tonight hidden></p>
+          </div>
+        </details>
         <div class="cond-grid">
           <div class="cond-cell cond-wind" data-cond="wind" data-empty><span class="cond-label">Wind</span><span class="cond-wind-row"><span class="wind-sprite" role="img" aria-label="Wind not loaded yet"></span><span class="cond-value" aria-hidden="true">--</span></span><span class="cond-sub" aria-hidden="true"></span></div>
           <div class="cond-cell" data-cond="air" data-empty><span class="cond-label">Air</span><span class="cond-value">--</span><span class="cond-sub"></span></div>
@@ -269,7 +284,7 @@
         </details>
         <p class="meta bait-foot">Drive times are rough. <a class="bait-tell" href="mailto:contact@nightbiteoh.com?subject=Bait%20shop">Know a shop? Tell us</a></p>
       </section>
-      <script src="js/bait-nearby.js?v=v82-2026-11-03"></script>
+      <script src="js/bait-nearby.js?v=v83-2026-11-03"></script>
 
       <a class="bento-card bento-maps" href="water#maps">
         <h3>Water / maps</h3>
@@ -294,7 +309,7 @@
         <span class="card-cue" aria-hidden="true">Open the log</span>
       </a>
     </div>
-    <script src="js/glance.js?v=v82-2026-11-03"></script>
+    <script src="js/glance.js?v=v83-2026-11-03"></script>
 
     <section class="bento-card get-app" id="get-the-app" aria-labelledby="get-app-title">
       <div class="get-app-head">
@@ -330,7 +345,7 @@
         </details>
       </div>
     </section>
-    <script src="js/get-app.js?v=v82-2026-11-03"></script>
+    <script src="js/get-app.js?v=v83-2026-11-03"></script>
 
     <hr class="divider">
 
@@ -392,21 +407,21 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js?v=v82-2026-11-03"></script>
-  <script src="js/sw-update.js?v=v82-2026-11-03"></script>
-  <script src="js/alerts.js?v=v82-2026-11-03"></script>
-  <script src="js/nav.js?v=v82-2026-11-03"></script>
-  <script src="js/visits.js?v=v82-2026-11-03"></script>
-  <script src="js/lake-picker.js?v=v82-2026-11-03"></script>
-  <script src="js/usgs.js?v=v82-2026-11-03"></script>
-  <script src="js/home-log.js?v=v82-2026-11-03"></script>
-  <script src="js/astro.js?v=v82-2026-11-03"></script>
-  <script src="js/conditions.js?v=v82-2026-11-03"></script>
-  <script src="js/pool-trend.js?v=v82-2026-11-03"></script>
-  <script src="js/lake-map-data-griggs.js?v=v82-2026-11-03"></script>
-  <script src="js/hoover-map.js?v=v82-2026-11-03"></script>
-  <script src="js/install-tip.js?v=v82-2026-11-03"></script>
-  <script src="js/tonight-tools.js?v=v82-2026-11-03"></script>
-  <script src="js/a11y.js?v=v82-2026-11-03" defer></script>
+  <script src="js/refresh.js?v=v83-2026-11-03"></script>
+  <script src="js/sw-update.js?v=v83-2026-11-03"></script>
+  <script src="js/alerts.js?v=v83-2026-11-03"></script>
+  <script src="js/nav.js?v=v83-2026-11-03"></script>
+  <script src="js/visits.js?v=v83-2026-11-03"></script>
+  <script src="js/lake-picker.js?v=v83-2026-11-03"></script>
+  <script src="js/usgs.js?v=v83-2026-11-03"></script>
+  <script src="js/home-log.js?v=v83-2026-11-03"></script>
+  <script src="js/astro.js?v=v83-2026-11-03"></script>
+  <script src="js/conditions.js?v=v83-2026-11-03"></script>
+  <script src="js/pool-trend.js?v=v83-2026-11-03"></script>
+  <script src="js/lake-map-data-griggs.js?v=v83-2026-11-03"></script>
+  <script src="js/hoover-map.js?v=v83-2026-11-03"></script>
+  <script src="js/install-tip.js?v=v83-2026-11-03"></script>
+  <script src="js/tonight-tools.js?v=v83-2026-11-03"></script>
+  <script src="js/a11y.js?v=v83-2026-11-03" defer></script>
 </body>
 </html>

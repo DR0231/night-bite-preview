@@ -67,6 +67,22 @@ async function read(page) {
       const hs = [r.pool.h, r.temp.h, r.sunset.h, r.wind.h];
       check(t + ' equal cell heights (1px row rule), no clipped values', Math.max(...hs) - Math.min(...hs) <= 1 && ![r.pool, r.temp, r.sunset, r.wind].some(c => c.over), hs.join(','));
       check(t + ' no sideways scroll', !r.sideways);
+      // S4: the "How the bite is rated" explainer lists the same inputs and numbers as RULES in js/conditions.js
+      const bx = await page.evaluate(() => {
+        const R = window.NightBiteBiteRules, d = document.getElementById('bite-how'); if (!R || !d) return { missing: !R ? 'RULES' : '#bite-how' };
+        const get = p => p.split('.').reduce((o, k) => o == null ? undefined : o[k], R);
+        const fmt = (el, v) => el.getAttribute('data-fmt') === 'pct' ? Math.round(v * 100) + '%' : /\.pts\./.test(el.getAttribute('data-r')) ? (v > 0 ? '+' + v : v < 0 ? '\u2212' + Math.abs(v) : '0') : String(v);
+        const bad = [...d.querySelectorAll('[data-r]')].filter(el => { const v = get(el.getAttribute('data-r')); return typeof v !== 'number' || fmt(el, v) !== el.textContent.trim(); })
+          .map(el => el.getAttribute('data-r') + '=' + el.textContent.trim());
+        const pts = []; const walk = (o, pre) => Object.keys(o).forEach(k => typeof o[k] === 'object' && !Array.isArray(o[k]) ? walk(o[k], pre + k + '.') : typeof o[k] === 'number' && pts.push(pre + k)); walk(R, '');
+        const shown = new Set([...d.querySelectorAll('[data-r]')].map(el => el.getAttribute('data-r')));
+        const glance = document.querySelector('#glance .glance-bite');
+        return { inputs: [...d.querySelectorAll('[data-rule]')].map(li => li.getAttribute('data-rule')).join(','), want: R.inputs.join(','), bad, unshown: pts.filter(p => !shown.has(p)),
+          tonight: (d.querySelector('[data-bite-tonight]') || {}).textContent || '', link: glance ? /#bite-how$/.test(glance.getAttribute('href') || '') : false };
+      });
+      check(t + ' bite explainer: same inputs as RULES', !bx.missing && bx.inputs === bx.want, bx.missing || bx.inputs + ' vs ' + bx.want);
+      check(t + ' bite explainer: every RULES number shown and matching', !bx.missing && !bx.bad.length && !bx.unshown.length, bx.missing || JSON.stringify({ bad: bx.bad, unshown: bx.unshown }));
+      check(t + ' bite explainer: tonight line filled, glance Bite links to it', !bx.missing && /^Tonight: /.test(bx.tonight) && bx.link, bx.missing || bx.tonight);
       const errs = errsNow();
       check(t + ' no console or CSP errors', errs.length === 0, errs.join(' | ').slice(0, 300));
       if (lake === 'hoover' && name === 'phone') {

@@ -135,7 +135,7 @@ def glance(page, pool, nws_page, prefix=""):
         '      <!-- baked by tools/glance_bake.py from this page\'s pool card; js/glance.js keeps it current -->\n'
         '      <div class="glance-head">\n'
         '        <h2 class="glance-title" id="glance-title">Tonight at a glance</h2>\n'
-        f'        <a class="glance-cell glance-bite" href="{prefix}#conditions" data-empty>\n'
+        f'        <a class="glance-cell glance-bite" href="{prefix}#bite-how" data-empty>\n'
         '          <span class="glance-label">Bite</span>\n'
         '          <span class="glance-value glance-state" data-glance="bite">Needs forecast</span>\n'
         '        </a>\n'
