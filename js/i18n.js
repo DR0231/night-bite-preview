@@ -87,7 +87,8 @@
     if (num == null || unit == null || !/^\d{1,2}(:\d{2})?$/.test(norm(num)) || !/^[AP]M( \w{3})?$/.test(norm(unit))) return null;
     var q = tparse(norm(num) + " " + norm(unit)); if (!q) return null;
     var r = tfmt(q, true); if (!r) return null;
-    return isUnit ? (r.x || "\u200b") : r.t;
+    // the day sits in its own element: keep a real space before it so copied/read text never joins ("17:27mié")
+    return isUnit ? (r.x ? (/^\s/.test(en) ? "" : " ") + r.x : "\u200b") : r.t;
   }
   function merge(a, b) { var o = {}, k; for (k in a) o[k] = a[k]; for (k in b) o[k] = b[k]; return o; }
   function norm(s) { return s.replace(/\s+/g, " ").trim(); }
