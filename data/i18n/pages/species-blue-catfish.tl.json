@@ -5,6 +5,7 @@
   "review": "draft"
  },
  "strings": {
+  "species-blue-catfish.00ce69b4": "Ini-stock ng ODNR sa Seneca Lake sa karamihan ng taon mula 2016 (37,140 advanced fingerling noong 2024), at nakatala sa mga fish survey ng ODNR.",
   "species-blue-catfish.04cc5ad0": "Pampublikong ramp, parke at pampang lang. Mga pin sa",
   "species-blue-catfish.05961218": "Contour sa fishing map ng ODNR; tingnan ang mga no wake zone bago bumiyahe sa gabi.",
   "species-blue-catfish.066afe6e": "Ang wheelchair accessible na fishing pier malapit sa marina at pampang ng state park (ODNR).",
@@ -24,6 +25,7 @@
   "species-blue-catfish.3608ba17": "Hindi karaniwan sa Deer Creek Lake, kaya walang tala kung saan para sa lawang ito. Tingnan ang mga tala para sa Hoover sa Hoover view.",
   "species-blue-catfish.3a0a165f": "Paalala (tiyakin 2026–27)",
   "species-blue-catfish.3e193768": "Saan sa",
+  "species-blue-catfish.402d61e1": "Ini-stock ng ODNR sa Dillon Lake bawat taon mula 2022, bilang fry at advanced fingerling.",
   "species-blue-catfish.40af0815": "Tubig at mga mapa",
   "species-blue-catfish.416b27a5": "Tungkol sa pahinang ito",
   "species-blue-catfish.457f0993": "Walang limit na horsepower; no wake sa loob ng 300 ft mula sa pampang at sa kanluran ng Rock Spring Road causeway (ODNR).",
@@ -54,6 +56,7 @@
   "species-blue-catfish.7e439c35": "Sa pahinang ito",
   "species-blue-catfish.7f5a1491": "Hindi karaniwan sa Lake Milton: hindi ito nakalista ng ODNR doon. Ang natitira sa pahinang ito ay mga tala para sa Hoover.",
   "species-blue-catfish.80946517": "HuntFish OH / mga lisensiya ng ODNR",
+  "species-blue-catfish.80c7cb46": "Ini-stock ng ODNR sa Burr Oak bawat taon mula 2022 (6,886 advanced fingerling noong 2025).",
   "species-blue-catfish.8926273f": "Angkop sa totoong pampang at maliliit na bangka. Mababaw ang Buckeye Lake at maraming tuod: dahan-dahan malapit sa pampang (no wake sa loob ng 300 ft).",
   "species-blue-catfish.8a80ee36": "Hindi karaniwan sa Pymatuning Lake: hindi ito nakalista ng ODNR doon. Ang natitira sa pahinang ito ay mga tala para sa Hoover.",
   "species-blue-catfish.8c3cdaed": "Hindi karaniwan sa Madison Lake, kaya walang tala kung saan para sa lawang ito. Tingnan ang mga tala para sa Hoover sa Hoover view.",
@@ -85,7 +88,9 @@
   "species-blue-catfish.e65ed298": "Hindi karaniwan sa Mosquito Creek Lake, kaya walang tala kung saan para sa lawang ito. Tingnan ang mga tala para sa Hoover sa Hoover view.",
   "species-blue-catfish.e7070e72": "ODNR depth PDF (2001 @ 894 ft)",
   "species-blue-catfish.e77824ef": "Hindi karaniwan sa Lake Logan: hindi ito nakalista ng ODNR doon. Ang natitira sa pahinang ito ay mga tala para sa Hoover.",
+  "species-blue-catfish.e86de957": "Trophy fishery. Unang na-stock ang blues noong 2011 at naging highlight na ng Hoover.",
   "species-blue-catfish.ef58de4f": "Bangka",
+  "species-blue-catfish.ef78680e": "Ini-stock ng ODNR sa West Branch bawat taon mula 2023 (27,612 noong 2025).",
   "species-blue-catfish.f02a11a0": "Hindi karaniwan sa Dow Lake, kaya walang tala kung saan para sa lawang ito. Tingnan ang mga tala para sa Hoover sa Hoover view.",
   "species-blue-catfish.f1cbe8a4": "Ang marina at mga ramp ng Lake Park, ang accessible na pier at pampublikong pampang (MWCD).",
   "species-blue-catfish.f56050ff": "Angkop sa totoong pampang at maliliit na bangka. Walang limit sa horsepower ang Mosquito Creek Lake, no wake sa 300 ft mula sa pampang.",
