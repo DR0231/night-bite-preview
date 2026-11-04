@@ -1,0 +1,31 @@
+{
+ "_meta": {
+  "lang": "pt",
+  "page": "stocking",
+  "review": "draft"
+ },
+ "strings": {
+  "stocking.12cdc674": "ODNR, área de pesca de Deer Creek Lake",
+  "stocking.28e22019": "ODNR, área de pesca de Pymatuning Lake",
+  "stocking.2cda21fd": "ODNR, área de pesca de Clear Fork Reservoir",
+  "stocking.303b3b38": "ODNR, área de pesca de Lake Milton",
+  "stocking.33e42ccc": "ODNR, área de pesca de Dillon Lake",
+  "stocking.3f9d277b": "ODNR, área de pesca de Dow Lake",
+  "stocking.5374e95a": "ODNR, área de pesca de Delaware Lake",
+  "stocking.6c3d4afe": "ODNR, área de pesca de Buckeye Lake",
+  "stocking.6d19867e": "ODNR, área de pesca de Indian Lake",
+  "stocking.809be87a": "ODNR, Madison Lake State Park",
+  "stocking.809eecda": "ODNR, área de pesca de Salt Fork Lake",
+  "stocking.8451c5c9": "ODNR, área de pesca de Mosquito Creek Lake",
+  "stocking.8696eec3": "ODNR, área de pesca de Leesville Lake",
+  "stocking.94fc17ee": "ODNR, área de pesca de Berlin Lake",
+  "stocking.9e24e097": "ODNR, área de pesca de Seneca Lake",
+  "stocking.b2304907": "ODNR, área de pesca de O’Shaughnessy Reservoir",
+  "stocking.bd2d60bc": "ODNR, área de pesca de Knox Lake",
+  "stocking.dcea8c5d": "ODNR, área de pesca de Burr Oak Lake",
+  "stocking.e9d6e9b9": "ODNR, área de pesca de Kirwan Reservoir (West Branch)",
+  "stocking.ee02e4a4": "ODNR, área de pesca de Griggs Reservoir",
+  "stocking.f111fa3d": "ODNR, área de pesca de Lake Logan",
+  "stocking.f44f8a5c": "ODNR, área de pesca de Hoover Reservoir"
+ }
+}

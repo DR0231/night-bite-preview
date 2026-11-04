@@ -1,0 +1,33 @@
+{
+ "_meta": {
+  "lang": "pt",
+  "page": "ice",
+  "review": "draft"
+ },
+ "strings": {
+  "ice.2cda21fd": "ODNR, área de pesca de Clear Fork Reservoir",
+  "ice.31074a64": "Cidade de Mansfield, Clearfork Reservoir Park",
+  "ice.33e42ccc": "ODNR, área de pesca de Dillon Lake",
+  "ice.35ddda02": "ODNR, Dillon State Park",
+  "ice.38c160e3": "Columbus Recreation and Parks, marinas e píeres",
+  "ice.438756ac": "ODNR, Burr Oak State Park",
+  "ice.44c91bfe": "ODNR, Strouds Run State Park",
+  "ice.4e116c45": "ODNR, Salt Fork State Park",
+  "ice.809be87a": "ODNR, Madison Lake State Park",
+  "ice.8696eec3": "ODNR, área de pesca de Leesville Lake",
+  "ice.94fc17ee": "ODNR, área de pesca de Berlin Lake",
+  "ice.9516ff11": "ODNR, Pymatuning State Park",
+  "ice.9d142bc6": "ODNR, Deer Creek State Park",
+  "ice.9e24e097": "ODNR, área de pesca de Seneca Lake",
+  "ice.a39224a8": "ODNR, rebaixamentos de inverno",
+  "ice.ae1078ef": "ODNR, Lake Milton State Park",
+  "ice.b290a95d": "ODNR, Buckeye Lake State Park",
+  "ice.bd2d60bc": "ODNR, área de pesca de Knox Lake",
+  "ice.d9205da3": "ODNR, Mosquito Lake State Park",
+  "ice.df3e26fb": "ODNR, Delaware State Park",
+  "ice.e659157e": "ODNR, Alum Creek State Park",
+  "ice.e7d6f281": "ODNR, Indian Lake State Park",
+  "ice.eecaaadb": "ODNR, West Branch State Park",
+  "ice.f06965a7": "ODNR, Lake Logan State Park"
+ }
+}
