@@ -461,6 +461,26 @@
   "ui.full_forecast": "پیش‌بینی کامل",
   "ui.near_me": "نزدیک من",
   "ui.no_gauge": "بدون سنجه",
-  "ui.example_entry": "نمونهٔ ورودی"
+  "ui.example_entry": "نمونهٔ ورودی",
+  "pg.new_mark": "(جدید)",
+  "pg.trend_up": "در حال افزایش",
+  "pg.trend_down": "در حال کاهش",
+  "pg.trend_flat": "ثابت",
+  "pg.moon_new": "ماه نو",
+  "pg.moon_wxc": "هلال رو به افزایش",
+  "pg.moon_fq": "تربیع اول",
+  "pg.moon_wxg": "ماه برآمده رو به افزایش",
+  "pg.moon_full": "ماه کامل",
+  "pg.moon_wng": "ماه برآمده رو به کاهش",
+  "pg.moon_lq": "تربیع دوم",
+  "pg.moon_wnc": "هلال رو به کاهش",
+  "pg.about_min": "حدود {n} دقیقه",
+  "pg.about_min_you": "حدود {n} دقیقه از شما",
+  "pg.finding_shops": "در حال یافتن فروشگاه‌های نزدیک شما…",
+  "pg.no_trips_lake": "هنوز سفر جمعی در {lake} ثبت نشده. یکی ثبت کنید و بفرستید.",
+  "pg.mw_baro": "روند فشارسنج",
+  "pg.mw_wind": "باد",
+  "pg.mw_moon": "ماه",
+  "pg.mw_water": "دمای آب"
  }
 }

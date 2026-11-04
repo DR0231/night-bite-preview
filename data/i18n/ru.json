@@ -460,6 +460,26 @@
   "ui.full_forecast": "Полный прогноз",
   "ui.near_me": "Рядом со мной",
   "ui.no_gauge": "Нет датчика",
-  "ui.example_entry": "Пример записи"
+  "ui.example_entry": "Пример записи",
+  "pg.new_mark": "(новое)",
+  "pg.trend_up": "Растёт",
+  "pg.trend_down": "Падает",
+  "pg.trend_flat": "Без изменений",
+  "pg.moon_new": "Новолуние",
+  "pg.moon_wxc": "Растущий серп",
+  "pg.moon_fq": "Первая четверть",
+  "pg.moon_wxg": "Растущая луна",
+  "pg.moon_full": "Полнолуние",
+  "pg.moon_wng": "Убывающая луна",
+  "pg.moon_lq": "Последняя четверть",
+  "pg.moon_wnc": "Убывающий серп",
+  "pg.about_min": "около {n} мин",
+  "pg.about_min_you": "около {n} мин от вас",
+  "pg.finding_shops": "Ищем магазины рядом с вами…",
+  "pg.no_trips_lake": "Пока нет поездок сообщества на {lake}. Запишите свою и отправьте.",
+  "pg.mw_baro": "тренд барометра",
+  "pg.mw_wind": "ветер",
+  "pg.mw_moon": "луна",
+  "pg.mw_water": "температура воды"
  }
 }

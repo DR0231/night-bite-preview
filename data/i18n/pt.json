@@ -460,6 +460,26 @@
   "ui.full_forecast": "Previsão completa",
   "ui.near_me": "Perto de mim",
   "ui.no_gauge": "Sem medidor",
-  "ui.example_entry": "Registro de exemplo"
+  "ui.example_entry": "Registro de exemplo",
+  "pg.new_mark": "(novo)",
+  "pg.trend_up": "Subindo",
+  "pg.trend_down": "Descendo",
+  "pg.trend_flat": "Estável",
+  "pg.moon_new": "Lua nova",
+  "pg.moon_wxc": "Lua crescente",
+  "pg.moon_fq": "Quarto crescente",
+  "pg.moon_wxg": "Gibosa crescente",
+  "pg.moon_full": "Lua cheia",
+  "pg.moon_wng": "Gibosa minguante",
+  "pg.moon_lq": "Quarto minguante",
+  "pg.moon_wnc": "Lua minguante",
+  "pg.about_min": "cerca de {n} min",
+  "pg.about_min_you": "cerca de {n} min de você",
+  "pg.finding_shops": "Procurando lojas perto de você…",
+  "pg.no_trips_lake": "Ainda não há saídas da comunidade em {lake}. Registre uma e envie.",
+  "pg.mw_baro": "tendência do barômetro",
+  "pg.mw_wind": "vento",
+  "pg.mw_moon": "lua",
+  "pg.mw_water": "temperatura da água"
  }
 }

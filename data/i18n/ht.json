@@ -460,6 +460,26 @@
   "ui.full_forecast": "Previzyon konplè",
   "ui.near_me": "Toupre m",
   "ui.no_gauge": "Pa gen jòj",
-  "ui.example_entry": "Egzanp antre"
+  "ui.example_entry": "Egzanp antre",
+  "pg.new_mark": "(nouvo)",
+  "pg.trend_up": "Ap monte",
+  "pg.trend_down": "Ap desann",
+  "pg.trend_flat": "Estab",
+  "pg.moon_new": "Nouvèl lin",
+  "pg.moon_wxc": "Kwasan k ap grandi",
+  "pg.moon_fq": "Premye katye",
+  "pg.moon_wxg": "Lin k ap plen",
+  "pg.moon_full": "Lin plen",
+  "pg.moon_wng": "Lin k ap diminye",
+  "pg.moon_lq": "Dènye katye",
+  "pg.moon_wnc": "Kwasan k ap diminye",
+  "pg.about_min": "anviwon {n} min",
+  "pg.about_min_you": "anviwon {n} min de ou",
+  "pg.finding_shops": "N ap chèche boutik toupre ou…",
+  "pg.no_trips_lake": "Poko gen vwayaj kominote nan {lake}. Anrejistre youn epi voye l.",
+  "pg.mw_baro": "tandans bawomèt la",
+  "pg.mw_wind": "van",
+  "pg.mw_moon": "lalin",
+  "pg.mw_water": "tanperati dlo a"
  }
 }

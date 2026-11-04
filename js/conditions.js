@@ -566,7 +566,7 @@
     var m = line && /~?\s*([\d.]+)\s*ft\s+(below|above)\s+full pool/i.exec((line.getAttribute("data-nb-out") === line.textContent && line.getAttribute("data-en") || line.textContent || ""));
     if (m) out.push("pool " + m[1] + " ft " + m[2].toLowerCase() + " full");
     var tr = document.getElementById("pool-trend"), w = document.getElementById("pool-trend-word");
-    var word = tr && !tr.hidden && w && (w.textContent || "").trim().toLowerCase();
+    var word = tr && !tr.hidden && w && (w.getAttribute("data-en") || w.textContent || "").trim().toLowerCase();
     if (word && /^(rising|falling|steady)$/.test(word)) out.push(word + " over 7 days");
     return out.length ? [out.join(", ")] : [];
   }
@@ -599,7 +599,9 @@
     bits = bits.concat(poolBits());
     if (!bits.length) { lineEl.hidden = true; return; }
     var txt = bits.join(", ");
-    lineEl.querySelector(".cond-line-text").textContent = txt.charAt(0).toUpperCase() + txt.slice(1) + ".";
+    var lt = lineEl.querySelector(".cond-line-text"), en = txt.charAt(0).toUpperCase() + txt.slice(1) + ".";
+    // same English as last time: keep it (js/i18n.js may have translated it; rewriting would flap back to English)
+    if (lt.__nbEn !== en || !lt.textContent) { lt.__nbEn = en; lt.textContent = en; }
     lineEl.hidden = false;
   }
 

@@ -460,6 +460,26 @@
   "ui.full_forecast": "Vollständige Vorhersage",
   "ui.near_me": "In meiner Nähe",
   "ui.no_gauge": "Kein Pegel",
-  "ui.example_entry": "Beispieleintrag"
+  "ui.example_entry": "Beispieleintrag",
+  "pg.new_mark": "(neu)",
+  "pg.trend_up": "Steigend",
+  "pg.trend_down": "Fallend",
+  "pg.trend_flat": "Gleichbleibend",
+  "pg.moon_new": "Neumond",
+  "pg.moon_wxc": "Zunehmende Sichel",
+  "pg.moon_fq": "Erstes Viertel",
+  "pg.moon_wxg": "Zunehmender Mond",
+  "pg.moon_full": "Vollmond",
+  "pg.moon_wng": "Abnehmender Mond",
+  "pg.moon_lq": "Letztes Viertel",
+  "pg.moon_wnc": "Abnehmende Sichel",
+  "pg.about_min": "etwa {n} Min.",
+  "pg.about_min_you": "etwa {n} Min. von dir",
+  "pg.finding_shops": "Suche Läden in deiner Nähe…",
+  "pg.no_trips_lake": "Noch keine Community-Ausflüge am {lake}. Trag einen ein und schick ihn ein.",
+  "pg.mw_baro": "Barometertrend",
+  "pg.mw_wind": "Wind",
+  "pg.mw_moon": "Mond",
+  "pg.mw_water": "Wassertemperatur"
  }
 }

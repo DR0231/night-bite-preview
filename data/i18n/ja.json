@@ -460,6 +460,26 @@
   "ui.full_forecast": "詳しい予報",
   "ui.near_me": "現在地の近く",
   "ui.no_gauge": "水位計なし",
-  "ui.example_entry": "記入例"
+  "ui.example_entry": "記入例",
+  "pg.new_mark": "（新着）",
+  "pg.trend_up": "上昇",
+  "pg.trend_down": "下降",
+  "pg.trend_flat": "横ばい",
+  "pg.moon_new": "新月",
+  "pg.moon_wxc": "三日月",
+  "pg.moon_fq": "上弦の月",
+  "pg.moon_wxg": "十三夜月",
+  "pg.moon_full": "満月",
+  "pg.moon_wng": "寝待月",
+  "pg.moon_lq": "下弦の月",
+  "pg.moon_wnc": "有明月",
+  "pg.about_min": "約{n}分",
+  "pg.about_min_you": "現在地から約{n}分",
+  "pg.finding_shops": "近くの釣具店を探しています…",
+  "pg.no_trips_lake": "{lake}のコミュニティ釣行はまだありません。記録して送ってください。",
+  "pg.mw_baro": "気圧の傾向",
+  "pg.mw_wind": "風",
+  "pg.mw_moon": "月",
+  "pg.mw_water": "水温"
  }
 }

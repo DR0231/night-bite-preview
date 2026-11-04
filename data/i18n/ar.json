@@ -461,6 +461,26 @@
   "ui.full_forecast": "التوقعات كاملة",
   "ui.near_me": "بالقرب مني",
   "ui.no_gauge": "لا يوجد مقياس",
-  "ui.example_entry": "مثال على إدخال"
+  "ui.example_entry": "مثال على إدخال",
+  "pg.new_mark": "(جديد)",
+  "pg.trend_up": "يرتفع",
+  "pg.trend_down": "ينخفض",
+  "pg.trend_flat": "ثابت",
+  "pg.moon_new": "محاق",
+  "pg.moon_wxc": "هلال متزايد",
+  "pg.moon_fq": "تربيع أول",
+  "pg.moon_wxg": "أحدب متزايد",
+  "pg.moon_full": "بدر",
+  "pg.moon_wng": "أحدب متناقص",
+  "pg.moon_lq": "تربيع أخير",
+  "pg.moon_wnc": "هلال متناقص",
+  "pg.about_min": "نحو {n} دقيقة",
+  "pg.about_min_you": "نحو {n} دقيقة منك",
+  "pg.finding_shops": "جارٍ البحث عن متاجر قريبة منك…",
+  "pg.no_trips_lake": "لا توجد رحلات من المجتمع في {lake} بعد. سجّل رحلة وأرسلها.",
+  "pg.mw_baro": "اتجاه الضغط الجوي",
+  "pg.mw_wind": "الرياح",
+  "pg.mw_moon": "القمر",
+  "pg.mw_water": "حرارة الماء"
  }
 }

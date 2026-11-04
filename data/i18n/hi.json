@@ -460,6 +460,26 @@
   "ui.full_forecast": "पूरा पूर्वानुमान",
   "ui.near_me": "मेरे पास",
   "ui.no_gauge": "कोई गेज नहीं",
-  "ui.example_entry": "उदाहरण प्रविष्टि"
+  "ui.example_entry": "उदाहरण प्रविष्टि",
+  "pg.new_mark": "(नया)",
+  "pg.trend_up": "बढ़ रहा है",
+  "pg.trend_down": "घट रहा है",
+  "pg.trend_flat": "स्थिर",
+  "pg.moon_new": "अमावस्या",
+  "pg.moon_wxc": "बढ़ता अर्धचंद्र",
+  "pg.moon_fq": "शुक्ल अष्टमी",
+  "pg.moon_wxg": "बढ़ता गिब्बस",
+  "pg.moon_full": "पूर्णिमा",
+  "pg.moon_wng": "घटता गिब्बस",
+  "pg.moon_lq": "कृष्ण अष्टमी",
+  "pg.moon_wnc": "घटता अर्धचंद्र",
+  "pg.about_min": "लगभग {n} मिनट",
+  "pg.about_min_you": "आपसे लगभग {n} मिनट",
+  "pg.finding_shops": "आपके पास की दुकानें खोजी जा रही हैं…",
+  "pg.no_trips_lake": "{lake} पर अभी तक कोई समुदाय ट्रिप नहीं है। एक लॉग करें और भेजें।",
+  "pg.mw_baro": "बैरोमीटर का रुझान",
+  "pg.mw_wind": "हवा",
+  "pg.mw_moon": "चाँद",
+  "pg.mw_water": "पानी का तापमान"
  }
 }

@@ -461,6 +461,26 @@
   "ui.full_forecast": "مکمل پیش گوئی",
   "ui.near_me": "میرے قریب",
   "ui.no_gauge": "کوئی گیج نہیں",
-  "ui.example_entry": "مثالی اندراج"
+  "ui.example_entry": "مثالی اندراج",
+  "pg.new_mark": "(نیا)",
+  "pg.trend_up": "بڑھ رہا ہے",
+  "pg.trend_down": "گر رہا ہے",
+  "pg.trend_flat": "مستحکم",
+  "pg.moon_new": "نیا چاند",
+  "pg.moon_wxc": "بڑھتا ہلال",
+  "pg.moon_fq": "پہلا چوتھائی",
+  "pg.moon_wxg": "بڑھتا کُبڑا چاند",
+  "pg.moon_full": "پورا چاند",
+  "pg.moon_wng": "گھٹتا کُبڑا چاند",
+  "pg.moon_lq": "آخری چوتھائی",
+  "pg.moon_wnc": "گھٹتا ہلال",
+  "pg.about_min": "تقریباً {n} منٹ",
+  "pg.about_min_you": "آپ سے تقریباً {n} منٹ",
+  "pg.finding_shops": "آپ کے قریب دکانیں تلاش ہو رہی ہیں…",
+  "pg.no_trips_lake": "{lake} پر ابھی کوئی کمیونٹی ٹرپ نہیں۔ ایک لاگ کریں اور بھیجیں۔",
+  "pg.mw_baro": "بیرومیٹر کا رجحان",
+  "pg.mw_wind": "ہوا",
+  "pg.mw_moon": "چاند",
+  "pg.mw_water": "پانی کا درجہ حرارت"
  }
 }

@@ -460,6 +460,26 @@
   "ui.full_forecast": "完整预报",
   "ui.near_me": "我附近",
   "ui.no_gauge": "无水位计",
-  "ui.example_entry": "示例记录"
+  "ui.example_entry": "示例记录",
+  "pg.new_mark": "（新）",
+  "pg.trend_up": "上升",
+  "pg.trend_down": "下降",
+  "pg.trend_flat": "平稳",
+  "pg.moon_new": "新月",
+  "pg.moon_wxc": "娥眉月",
+  "pg.moon_fq": "上弦月",
+  "pg.moon_wxg": "盈凸月",
+  "pg.moon_full": "满月",
+  "pg.moon_wng": "亏凸月",
+  "pg.moon_lq": "下弦月",
+  "pg.moon_wnc": "残月",
+  "pg.about_min": "约 {n} 分钟",
+  "pg.about_min_you": "距你约 {n} 分钟",
+  "pg.finding_shops": "正在查找你附近的店铺…",
+  "pg.no_trips_lake": "{lake} 还没有社区钓行记录。记录一次并提交吧。",
+  "pg.mw_baro": "气压趋势",
+  "pg.mw_wind": "风",
+  "pg.mw_moon": "月亮",
+  "pg.mw_water": "水温"
  }
 }

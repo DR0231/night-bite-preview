@@ -460,6 +460,26 @@
   "ui.full_forecast": "Buong forecast",
   "ui.near_me": "Malapit sa akin",
   "ui.no_gauge": "Walang gauge",
-  "ui.example_entry": "Halimbawang tala"
+  "ui.example_entry": "Halimbawang tala",
+  "pg.new_mark": "(bago)",
+  "pg.trend_up": "Tumataas",
+  "pg.trend_down": "Bumababa",
+  "pg.trend_flat": "Matatag",
+  "pg.moon_new": "Bagong buwan",
+  "pg.moon_wxc": "Lumalaking gasuklay",
+  "pg.moon_fq": "Unang kapat",
+  "pg.moon_wxg": "Lumalaking umbok",
+  "pg.moon_full": "Kabilugan",
+  "pg.moon_wng": "Lumiliit na umbok",
+  "pg.moon_lq": "Huling kapat",
+  "pg.moon_wnc": "Lumiliit na gasuklay",
+  "pg.about_min": "mga {n} min",
+  "pg.about_min_you": "mga {n} min mula sa iyo",
+  "pg.finding_shops": "Naghahanap ng tindahan malapit sa iyo…",
+  "pg.no_trips_lake": "Wala pang trip ng komunidad sa {lake}. Mag-log ng isa at ipadala.",
+  "pg.mw_baro": "takbo ng barometro",
+  "pg.mw_wind": "hangin",
+  "pg.mw_moon": "buwan",
+  "pg.mw_water": "temperatura ng tubig"
  }
 }

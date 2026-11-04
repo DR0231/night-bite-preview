@@ -460,6 +460,26 @@
   "ui.full_forecast": "전체 예보",
   "ui.near_me": "내 주변",
   "ui.no_gauge": "수위계 없음",
-  "ui.example_entry": "예시 기록"
+  "ui.example_entry": "예시 기록",
+  "pg.new_mark": "(새 소식)",
+  "pg.trend_up": "상승",
+  "pg.trend_down": "하강",
+  "pg.trend_flat": "변화 없음",
+  "pg.moon_new": "삭",
+  "pg.moon_wxc": "초승달",
+  "pg.moon_fq": "상현달",
+  "pg.moon_wxg": "차오르는 달",
+  "pg.moon_full": "보름달",
+  "pg.moon_wng": "기우는 달",
+  "pg.moon_lq": "하현달",
+  "pg.moon_wnc": "그믐달",
+  "pg.about_min": "약 {n}분",
+  "pg.about_min_you": "현재 위치에서 약 {n}분",
+  "pg.finding_shops": "근처 낚시점을 찾는 중…",
+  "pg.no_trips_lake": "{lake}에는 아직 커뮤니티 조행 기록이 없습니다. 기록해서 보내 주세요.",
+  "pg.mw_baro": "기압 추세",
+  "pg.mw_wind": "바람",
+  "pg.mw_moon": "달",
+  "pg.mw_water": "수온"
  }
 }

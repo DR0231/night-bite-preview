@@ -460,6 +460,26 @@
   "ui.full_forecast": "Dự báo đầy đủ",
   "ui.near_me": "Gần tôi",
   "ui.no_gauge": "Không có trạm đo",
-  "ui.example_entry": "Mục ví dụ"
+  "ui.example_entry": "Mục ví dụ",
+  "pg.new_mark": "(mới)",
+  "pg.trend_up": "Đang lên",
+  "pg.trend_down": "Đang xuống",
+  "pg.trend_flat": "Ổn định",
+  "pg.moon_new": "Trăng non",
+  "pg.moon_wxc": "Trăng lưỡi liềm đầu tháng",
+  "pg.moon_fq": "Bán nguyệt đầu tháng",
+  "pg.moon_wxg": "Trăng khuyết đầu tháng",
+  "pg.moon_full": "Trăng tròn",
+  "pg.moon_wng": "Trăng khuyết cuối tháng",
+  "pg.moon_lq": "Bán nguyệt cuối tháng",
+  "pg.moon_wnc": "Trăng lưỡi liềm cuối tháng",
+  "pg.about_min": "khoảng {n} phút",
+  "pg.about_min_you": "cách bạn khoảng {n} phút",
+  "pg.finding_shops": "Đang tìm cửa hàng gần bạn…",
+  "pg.no_trips_lake": "Chưa có chuyến câu cộng đồng nào ở {lake}. Hãy ghi một chuyến và gửi.",
+  "pg.mw_baro": "xu hướng khí áp",
+  "pg.mw_wind": "gió",
+  "pg.mw_moon": "trăng",
+  "pg.mw_water": "nhiệt độ nước"
  }
 }
