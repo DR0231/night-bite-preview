@@ -139,7 +139,11 @@ def quick_facts(lake):
         pool += "No public gauge, so this site shows no live level."
     rows.append(("Normal pool", pool))
     if F.get("night"):
-        rows.append(("Night rules", t(F["night"])))
+        night = t(F["night"])
+        H = F.get("hours") or {}
+        if H.get("source"):
+            night += f' Source: <a href="{H["source"][1]}" target="_blank" rel="noopener">{t(H["source"][0])}</a>.'
+        rows.append(("Night rules", night))
     srcs = "; ".join(f'<a href="{u}" target="_blank" rel="noopener">{t(n)}</a>' for n, u in F["sources"])
     dl = "\n".join(f"          <div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in rows)
     return (
@@ -155,6 +159,38 @@ def quick_facts(lake):
         '      </div>\n'
         '    </details>\n'
         '    <!-- /nb:quick-facts -->'
+    )
+
+
+def clock_label(hhmm):
+    """"23:00" -> "11 p.m.", "06:30" -> "6:30 a.m." (the site's AP style)."""
+    h, m = (int(x) for x in hhmm.split(":"))
+    ap = "a.m." if h < 12 else "p.m."
+    h12 = h % 12 or 12
+    return f"{h12}{':%02d' % m if m else ''} {ap}"
+
+
+def night_chip(lake):
+    """Night-rules chip under the hero (S5), from data/quick-facts.json "hours". Official source only; no hours, no chip.
+    Static text works without JS; js/night-rules.js adds the live ET countdown from the data-* attributes."""
+    H = FACTS[lake].get("hours")
+    if not H or H.get("none"):
+        return '    <!-- nb:night-rules (tools/build-lake-pages.py) -->\n    <!-- /nb:night-rules -->'
+    o, c = H.get("open"), H.get("close")
+    attrs = f' data-open="{o or ""}" data-close="{c or ""}" data-authority="{H["authority"]}"'
+    if H.get("fishing_after_hours"):
+        attrs += ' data-after="fishing"'
+    reopen = clock_label(o) if o and ":" in o else ""
+    if reopen:
+        attrs += f' data-reopen="{reopen}"'
+    return (
+        '    <!-- nb:night-rules (tools/build-lake-pages.py) -->\n'
+        f'    <a class="night-chip" id="night-rules" href="{H["source"][1]}" target="_blank" rel="noopener"{attrs}>\n'
+        f'      <span class="night-chip-text">{t(H["chip"])}</span>\n'
+        '      <span class="night-chip-left" data-nr="left" hidden></span>\n'
+        f'      <span class="sr-only"> Source: {t(H["source"][0])} (opens in a new tab)</span>\n'
+        '    </a>\n'
+        '    <!-- /nb:night-rules -->'
     )
 
 
@@ -175,6 +211,7 @@ def jsonld(lake, name, url, title):
 
 def fill(h, lake, name, url, title):
     h = sub1(r"[ \t]*<!-- nb:quick-facts.*?<!-- /nb:quick-facts -->", lambda m: quick_facts(lake), h, re.S)
+    h = sub1(r"[ \t]*<!-- nb:night-rules.*?<!-- /nb:night-rules -->", lambda m: night_chip(lake), h, re.S)
     h = sub1(r"[ \t]*<!-- nb:jsonld.*?<!-- /nb:jsonld -->", lambda m: jsonld(lake, name, url, title), h, re.S)
     return h
 

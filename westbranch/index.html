@@ -35,10 +35,10 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="js/a11y-boot.js?v=v83-2026-11-03"></script>
-  <link rel="stylesheet" href="css/styles.css?v=v83-2026-11-03">
+  <script src="js/a11y-boot.js?v=v84-2026-11-03"></script>
+  <link rel="stylesheet" href="css/styles.css?v=v84-2026-11-03">
   <noscript><style>.glance-actions{display:none}.pool-trend[data-pending]{display:none!important}</style></noscript>
-  <script src="js/lakes.js?v=v83-2026-11-03"></script>
+  <script src="js/lakes.js?v=v84-2026-11-03"></script>
   <!-- nb:jsonld (tools/build-lake-pages.py) -->
   <script type="application/ld+json">
   [{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://nightbiteoh.com/westbranch/#webpage", "url": "https://nightbiteoh.com/westbranch/", "name": "West Branch Reservoir Fishing: Level, Ramps, Rules | The Night Bite", "isPartOf": {"@id": "https://nightbiteoh.com/#website"}, "about": {"@type": "Reservoir", "name": "West Branch Reservoir"}, "dateModified": "2026-11-03", "inLanguage": "en-US"}]
@@ -88,6 +88,13 @@
       </div>
       <p class="hero-brand">The Night Bite</p>
       <h1 class="tagline" id="home-title"><span data-lk="name">West Branch Reservoir</span> fishing</h1>
+    <!-- nb:night-rules (tools/build-lake-pages.py) -->
+    <a class="night-chip" id="night-rules" href="https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/west-branch-state-park" target="_blank" rel="noopener" data-open="sunrise" data-close="sunset" data-authority="odnr" data-after="fishing">
+      <span class="night-chip-text">Park hours end at sunset, fishing allowed after (ODNR)</span>
+      <span class="night-chip-left" data-nr="left" hidden></span>
+      <span class="sr-only"> Source: ODNR, West Branch State Park (opens in a new tab)</span>
+    </a>
+    <!-- /nb:night-rules -->
     </section>
 
     <section class="glance" id="glance" aria-labelledby="glance-title" data-baked="snapshot">
@@ -172,7 +179,7 @@
           <div><dt>Motors and speed</dt><dd>Unlimited horsepower. No wake within 300 ft of shore and everywhere west of the Rock Spring Road causeway.</dd></div>
           <div><dt>Ramps and access</dt><dd>Five state park ramps: East and West (two lanes, lit), the campground ramp, and gravel ramps at Rock Spring Road and Knapp Road. Marina with an accessible fishing pier.</dd></div>
           <div><dt>Normal pool</dt><dd>Summer pool is 985.5 ft, the level the ODNR fishing map is drawn at. Live level: <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03092450/" target="_blank" rel="noopener">USGS gauge 03092450</a>.</dd></div>
-          <div><dt>Night rules</dt><dd>Park hours are sunup to sundown; ODNR allows legitimate recreation, like fishing, outside those hours.</dd></div>
+          <div><dt>Night rules</dt><dd>Park hours are sunup to sundown; ODNR allows legitimate recreation, like fishing, outside those hours. Source: <a href="https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/west-branch-state-park" target="_blank" rel="noopener">ODNR, West Branch State Park</a>.</dd></div>
         </dl>
         <p class="meta qf-src">Sources: <a href="https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/west-branch-state-park" target="_blank" rel="noopener">ODNR, West Branch State Park</a>; <a href="https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/kirwan-reservoir-west-branch-fishing-area" target="_blank" rel="noopener">ODNR, Kirwan Reservoir (West Branch) Fishing Area</a>; <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/mjkirwanreservoir.pdf" target="_blank" rel="noopener">ODNR fishing map</a>. Unofficial summary; posted signs and the agencies above have the final word.</p>
       </div>
@@ -183,7 +190,7 @@
       <section class="bento-card bento-pool" id="pool-snapshot" aria-labelledby="snapshot-title">
         <h2 id="snapshot-title">Today’s pool &amp; temp</h2>
         <p class="pool-lead" id="correction-line">980.44 ft · no temp · ~5.1 ft below full pool</p>
-        <script src="js/pool-readout.js?v=v83-2026-11-03"></script>
+        <script src="js/pool-readout.js?v=v84-2026-11-03"></script>
         <p class="meta" id="correction-checked">
           Checked: <time datetime="2026-11-03T11:15:00-05:00">2026-11-03 11:15 ET</time>. <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03092450/" target="_blank" rel="noopener">Live USGS gauge</a>.
         </p>
@@ -194,7 +201,7 @@
         <p class="meta" id="usgs-live-status" style="margin-bottom:0.5rem;margin-top:0.5rem;">
           Provisional snapshot; your browser may refresh it from USGS. No public water temp gauge on this lake. Never invented.
         </p>
-        <script src="js/lake-snapshot.js?v=v83-2026-11-03"></script>
+        <script src="js/lake-snapshot.js?v=v84-2026-11-03"></script>
         <div class="pool-trend" id="pool-trend" hidden data-pending>
           <div class="pool-trend-head">
             <span class="pool-trend-label">Pool, last 7 days</span>
@@ -284,7 +291,7 @@
         </details>
         <p class="meta bait-foot">Drive times are rough. <a class="bait-tell" href="mailto:contact@nightbiteoh.com?subject=Bait%20shop">Know a shop? Tell us</a></p>
       </section>
-      <script src="js/bait-nearby.js?v=v83-2026-11-03"></script>
+      <script src="js/bait-nearby.js?v=v84-2026-11-03"></script>
 
       <a class="bento-card bento-maps" href="water#maps">
         <h3>Water / maps</h3>
@@ -309,7 +316,7 @@
         <span class="card-cue" aria-hidden="true">Open the log</span>
       </a>
     </div>
-    <script src="js/glance.js?v=v83-2026-11-03"></script>
+    <script src="js/glance.js?v=v84-2026-11-03"></script>
 
     <section class="bento-card get-app" id="get-the-app" aria-labelledby="get-app-title">
       <div class="get-app-head">
@@ -345,7 +352,7 @@
         </details>
       </div>
     </section>
-    <script src="js/get-app.js?v=v83-2026-11-03"></script>
+    <script src="js/get-app.js?v=v84-2026-11-03"></script>
 
     <hr class="divider">
 
@@ -407,21 +414,22 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js?v=v83-2026-11-03"></script>
-  <script src="js/sw-update.js?v=v83-2026-11-03"></script>
-  <script src="js/alerts.js?v=v83-2026-11-03"></script>
-  <script src="js/nav.js?v=v83-2026-11-03"></script>
-  <script src="js/visits.js?v=v83-2026-11-03"></script>
-  <script src="js/lake-picker.js?v=v83-2026-11-03"></script>
-  <script src="js/usgs.js?v=v83-2026-11-03"></script>
-  <script src="js/home-log.js?v=v83-2026-11-03"></script>
-  <script src="js/astro.js?v=v83-2026-11-03"></script>
-  <script src="js/conditions.js?v=v83-2026-11-03"></script>
-  <script src="js/pool-trend.js?v=v83-2026-11-03"></script>
-  <script src="js/lake-map-data-westbranch.js?v=v83-2026-11-03"></script>
-  <script src="js/hoover-map.js?v=v83-2026-11-03"></script>
-  <script src="js/install-tip.js?v=v83-2026-11-03"></script>
-  <script src="js/tonight-tools.js?v=v83-2026-11-03"></script>
-  <script src="js/a11y.js?v=v83-2026-11-03" defer></script>
+  <script src="js/refresh.js?v=v84-2026-11-03"></script>
+  <script src="js/sw-update.js?v=v84-2026-11-03"></script>
+  <script src="js/alerts.js?v=v84-2026-11-03"></script>
+  <script src="js/nav.js?v=v84-2026-11-03"></script>
+  <script src="js/visits.js?v=v84-2026-11-03"></script>
+  <script src="js/lake-picker.js?v=v84-2026-11-03"></script>
+  <script src="js/usgs.js?v=v84-2026-11-03"></script>
+  <script src="js/home-log.js?v=v84-2026-11-03"></script>
+  <script src="js/astro.js?v=v84-2026-11-03"></script>
+  <script src="js/night-rules.js?v=v84-2026-11-03"></script>
+  <script src="js/conditions.js?v=v84-2026-11-03"></script>
+  <script src="js/pool-trend.js?v=v84-2026-11-03"></script>
+  <script src="js/lake-map-data-westbranch.js?v=v84-2026-11-03"></script>
+  <script src="js/hoover-map.js?v=v84-2026-11-03"></script>
+  <script src="js/install-tip.js?v=v84-2026-11-03"></script>
+  <script src="js/tonight-tools.js?v=v84-2026-11-03"></script>
+  <script src="js/a11y.js?v=v84-2026-11-03" defer></script>
 </body>
 </html>

@@ -22,6 +22,7 @@ Lake scope (check-waters, check-glance, check-glance-fallback, check-bait). A ru
 Builds (in this checkout, skipped with --no-build and always skipped for live), in order:
     build-lake-pages, build-docks, build-meta, stamp-version, build-updates
 Checks: check-meta (0 errors), check-radius, check-docks (report only: a CHANGED dock page is a note, never a failure),
+check-hours (night-rules data has official sources and every chip matches it; static),
 check-lake-isolation (each lake home in scope ships only its own blocks, chart and map data; static, fast),
 check-glance, check-glance-fallback (USGS and NWS blocked, and JavaScript off, at 320 and 430 px: no placeholder,
 a visible timestamp), check-bait, check-waters (the lake scope above), check-picker-flow (the water picker and switching
@@ -43,7 +44,7 @@ TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
 BUILDS = ["build-lake-pages.py", "build-docks.py", "build-meta.py", "stamp-version.py", "build-updates.py"]
-CHECKS = ["check-meta", "check-radius", "check-docks", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "sweep"]
+CHECKS = ["check-meta", "check-radius", "check-hours", "check-docks", "check-lake-isolation", "check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "sweep"]
 BROWSER = {"check-glance", "check-glance-fallback", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "sweep"}
 
 ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -223,7 +224,7 @@ log(f"base {base}\n")
 def fail_lines(name, out):
     if name in ("check-meta",):
         return [l[len("ERROR:"):].strip() for l in out.splitlines() if l.startswith("ERROR:")]
-    if name == "check-radius":
+    if name in ("check-radius", "check-hours"):
         return [l[len("ERROR"):].strip() for l in out.splitlines() if l.startswith("ERROR ")]
     return [l[len("FAIL"):].strip() for l in out.splitlines() if l.startswith("FAIL ")]
 
@@ -245,6 +246,7 @@ def cmd_for(name):
     return {
         "check-meta": ([py, str(TOOLS / "check-meta.py")], static_env),
         "check-radius": ([py, str(TOOLS / "check-radius.py")], static_env),
+        "check-hours": ([py, str(TOOLS / "check-hours.py")], static_env),
         "check-docks": ([py, str(TOOLS / "check-docks.py")], {}),
         "check-lake-isolation": ([py, str(TOOLS / "check-lake-isolation.py")], dict(static_env, NB_LAKES=",".join(LAKES))),
         "check-glance": (["node", str(TOOLS / "check-glance.cjs"), base, d], {"NB_LAKES": ",".join(LAKES)}),

@@ -300,6 +300,14 @@ js = re.sub(r"(var ORDER = \[[^\]]*)\]", lambda x: x.group(1) + f', "{slug}"]', 
 # ---------------------------------------------------------------- data files and sitemap
 L = {"checked": E.get("checked") or today, "title": title, "description": desc}
 L.update(facts)
+# night-rules chip (S5): "hours" from the entry, only with an official source; otherwise say so (tools/check-hours.py)
+H = E.get("hours")
+if H and H.get("source"):
+    need_source("hours", H["source"])
+    L["hours"] = dict(H, checked=H.get("checked") or today)
+else:
+    L["hours"] = {"none": True, "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.", "checked": today}
+    missing.append("hours: no official source, so no night-rules chip (the Night rules row says so)")
 L["sources"] = sources
 qf["lakes"][slug] = L
 bait_text = read("data/bait-shops.json"); bait = json.loads(bait_text)
