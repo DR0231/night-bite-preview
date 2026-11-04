@@ -42,7 +42,7 @@ python3 tools/check-all.py --target local --all-lakes --group 3   # one group on
 * Start each run in the background and wait on it no more than about 5 minutes at a time. One lake group takes about 4 to 5 minutes.
 * `node tools/registry.cjs --changed [REF]` prints the changed lakes and files on their own.
 
-* Checks: check-meta, check-radius, check-docks (report only), check-hours, check-lake-isolation, check-glance, check-glance-fallback, check-bait, check-waters (the lake scope above), check-picker-flow, check-night-rules and sweep.
+* Checks: check-meta, check-radius, check-docks (report only), check-hours, check-ramp-names, check-lake-isolation, check-glance, check-glance-fallback, check-bait, check-waters (the lake scope above), check-picker-flow, check-night-rules and sweep.
 * `--skip` leaves checks out.
 * A scoped run takes a few minutes. A full `--all-lakes` run takes over 30 minutes across 23 lakes, which is why it is split into groups.
 * Known failures go in `tools/known-failures.json` as `{check, match, target?, why}`. Add an entry only for a failure you have looked at and accepted. Then remove it once the failure is fixed.
@@ -185,3 +185,5 @@ python3 tools/build-tile-charts.py --check         # change nothing; exit 1 if a
 ## Night-rules chip (S5)
 * `data/quick-facts.json` `hours` per lake feeds the chip under each lake hero (built by `build-lake-pages.py`, countdown in `js/night-rules.js`, Eastern time). Only from an official city, ODNR, Army Corps or MWCD page, linked as `source`. `fishing_after_hours` is `true` only when the source says so, otherwise `null`. No official hours: `{"none": true, "note": "..."}`; no chip, and the Night rules row says so.
 * `check-hours.py` (static, all lakes): every entry parses, has an official https source, and each lake home's chip matches it. `check-night-rules.cjs [BASE] [OUT]` (`NB_LAKES=a,b`): chip above the fold at 390, source link, countdown text, red light and high contrast, plus a mocked NWS storm banner above the fold. `new-lake.py` takes an optional `hours` object (see `new-lake.example.json`).
+
+* `build-hoover-ramps.py [--check]`: Hoover ramp names come from one place, the pins in `js/hoover-map-data.js`. It rewrites the Hoover rows of the water.html Ramp / access table, both log.html Ramp selects and the Hoover `spots` and `spotAliases` in js/lakes.js (between `nb:hoover-ramps` markers). Table notes live in the script. `spotAliases` maps old saved names (Redbank, Walnut Road, Maxtown, Oxbow (upper ramp)) to the official ones, so old trips show the new name without rewriting what was saved. `check-ramp-names.py` (static, in check-all) fails on an old spelling anywhere in site copy, a list out of date with the pins, or a ramp pin without Directions.

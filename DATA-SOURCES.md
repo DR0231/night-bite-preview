@@ -59,6 +59,7 @@ The boardwalk pin is placed at the TrekOhio coordinate and snapped 1.6 to 1.9 ma
 
 Left out:
 - "Lit at night" for every ramp: no source says either way.
+- One list: the Water page Ramp / access table, both Log ramp selects and the Hoover `spots` in js/lakes.js are built from these pins by tools/build-hoover-ramps.py, and tools/check-ramp-names.py fails on an old spelling (Redbank, Walnut Road, Maxtown, Oxbow (upper ramp)). The city map marks the marina at Red Bank (RB), so the old "Marina / lower marina" row folded into Red Bank. Old saved trips with those names show the official name.
 - Restrooms at Oxbow, Sunbury Road, Red Bank and Walnut: not confirmed for those exact sites (an OpenStreetMap pit toilet near Sunbury Rd is about 0.5 mile from the ramp, so it wasn't used).
 - Shop hours: listings disagree (Old Dutchman shows 6 or 7 a.m. opening depending on the source).
 - Cheshire Market (5094 Cheshire Rd, Galena, live bait): real, but it is by Alum Creek, off this map.

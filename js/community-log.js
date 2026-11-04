@@ -63,7 +63,7 @@
           escapeHtml(formatDate(e.date)) +
           "</dd>" +
           "<dt>Spot</dt><dd>" +
-          escapeHtml(e.ramp || "—") +
+          escapeHtml(((window.NightBiteLakes && window.NightBiteLakes.spotName) ? window.NightBiteLakes.spotName(e.lake || "hoover", e.ramp) : e.ramp) || "—") +
           "</dd>" +
           "<dt>When</dt><dd>" +
           escapeHtml(e.time_window || "—") +

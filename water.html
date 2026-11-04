@@ -32,9 +32,9 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="js/a11y-boot.js?v=v85-2026-11-03"></script>
-  <link rel="stylesheet" href="css/styles.css?v=v85-2026-11-03">
-  <script src="js/lakes.js?v=v85-2026-11-03"></script>
+  <script src="js/a11y-boot.js?v=v86-2026-11-03"></script>
+  <link rel="stylesheet" href="css/styles.css?v=v86-2026-11-03">
+  <script src="js/lakes.js?v=v86-2026-11-03"></script>
 </head>
 <body>
   <a class="sr-only" href="#main">Skip to content</a>
@@ -1048,7 +1048,7 @@
       </p>
       <div class="card" id="pool-correction">
         <p class="pool-lead" id="correction-line">891.50 ft · 65°F · ~2.5 ft below full pool</p>
-        <script src="js/pool-readout.js?v=v85-2026-11-03"></script>
+        <script src="js/pool-readout.js?v=v86-2026-11-03"></script>
         <p class="meta" id="correction-checked">
           Checked: <time datetime="2026-10-19T08:00:00.000-04:00">2026-10-19 08:00 ET</time>.
           <a href="https://waterdata.usgs.gov/monitoring-location/USGS-03228400/" target="_blank" rel="noopener">Live USGS gauge</a>.
@@ -1060,7 +1060,7 @@
         <p class="meta" id="usgs-live-status" style="margin-bottom:0.5rem;margin-top:0.75rem;">
           Provisional snapshot; your browser may refresh it from USGS. If that fails it says unavailable. Never invented.
         </p>
-        <script src="js/lake-snapshot.js?v=v85-2026-11-03"></script>
+        <script src="js/lake-snapshot.js?v=v86-2026-11-03"></script>
         <details class="how-to-read" id="how-to-read">
           <summary>How to read this</summary>
           <div class="how-to-read-body">
@@ -1228,8 +1228,8 @@
       <h2 id="photos-title">Public shore snapshots</h2>
       <p class="meta">Four public shore spots worth knowing. Photos here will only ever be real ones from these spots, never stock or generated lake images.</p>
       <ul class="photo-slots" data-for="hoover">
-        <li class="photo-slot"><strong>Walnut</strong> Public ramp</li>
-        <li class="photo-slot"><strong>Oxbow</strong> Public ramp</li>
+        <li class="photo-slot"><strong>Walnut Street</strong> Public ramp</li>
+        <li class="photo-slot"><strong>Oxbow Road</strong> Public ramp</li>
         <li class="photo-slot"><strong>Dam riprap</strong> Public shore</li>
         <li class="photo-slot"><strong>Smothers</strong> Public area</li>
       </ul>
@@ -1360,8 +1360,8 @@
         <li><strong>Old Big Walnut channel</strong> still runs under the lake. I treat it as the buried highway, where bait and current often line up after dark.</li>
         <li><strong>Dam / main basin</strong> is the deepest water on the 894 map (50 to 60 ft on that chart). Big water, boat traffic by day, more room to dig at night.</li>
         <li><strong>Causeway / Smothers cuts</strong> are the pinch points: bridges, cuts, and current funnels where I listen for bait and watch the graph harder.</li>
-        <li><strong>Walnut Road lower ramp:</strong> nearby flat vs drop. I use the flats for bank work and the nearby break when I’m in a boat and want a quick edge.</li>
-        <li><strong>Oxbow / upper arms:</strong> shallower, more bank and night work. Quieter when the middle lake is busy; watch for silted edges.</li>
+        <li><strong>Walnut Street ramp (lower lake):</strong> nearby flat vs drop. I use the flats for bank work and the nearby break when I’m in a boat and want a quick edge.</li>
+        <li><strong>Oxbow Road ramp and upper arms:</strong> shallower, more bank and night work. Quieter when the middle lake is busy; watch for silted edges.</li>
         <li><strong>10 hp and 10 mph</strong> limits apply, with idle speed within 100 ft of shore. Hoover is a <strong>Columbus drinking-water reservoir</strong>: keep it clean, keep wakes down, follow posted limits.</li>
       </ul>
       <ul class="notebook-list" data-for="alum">
@@ -1913,31 +1913,38 @@
             </tr>
           </thead>
           <tbody>
+            <!-- nb:hoover-ramps:table -->
             <tr>
-              <td>Oxbow</td>
+              <td>Oxbow Road ramp</td>
               <td data-label="Boat vs bank">Boat + bank</td>
-              <td data-label="Useful note">Upper end; quieter after dark when traffic thins.</td>
+              <td data-label="Useful note">Upper end, off Oxbow Rd. Quieter after dark when traffic thins.</td>
             </tr>
             <tr>
-              <td>Redbank</td>
+              <td>Sunbury Road ramp</td>
+              <td data-label="Boat vs bank">Boat</td>
+              <td data-label="Useful note">Upper lake, at the Sunbury Rd causeway.</td>
+            </tr>
+            <tr>
+              <td>Twin Bridges ramp</td>
+              <td data-label="Boat vs bank">Boat</td>
+              <td data-label="Useful note">Upper lake, off Red Bank Rd. Portable restroom.</td>
+            </tr>
+            <tr>
+              <td>Red Bank ramp</td>
               <td data-label="Boat vs bank">Boat + bank</td>
-              <td data-label="Useful note">Middle-lake access.</td>
+              <td data-label="Useful note">Middle lake, off Maxtown Rd. The city map shows the marina and a reservable shelter here.</td>
             </tr>
             <tr>
-              <td>Walnut Road</td>
+              <td>Walnut Street ramp</td>
               <td data-label="Boat vs bank">Boat + bank</td>
-              <td data-label="Useful note">Lower ramp toward the dam; flats vs nearby drop.</td>
+              <td data-label="Useful note">Lower ramp toward the dam, off Walnut St. Flats next to a nearby drop.</td>
             </tr>
             <tr>
-              <td>Maxtown</td>
-              <td data-label="Boat vs bank">Boat + bank</td>
-              <td data-label="Useful note">Public ramp name on the city layout. Check hours.</td>
+              <td>Hoover Mudflats Boardwalk</td>
+              <td data-label="Boat vs bank">Bank</td>
+              <td data-label="Useful note">Shore access off Front St, Galena. Open 7 a.m. to 11 p.m.</td>
             </tr>
-            <tr>
-              <td>Marina / lower marina</td>
-              <td data-label="Boat vs bank">Boat (services vary)</td>
-              <td data-label="Useful note">Lower-end marina area on public maps; confirm open status.</td>
-            </tr>
+            <!-- /nb:hoover-ramps:table -->
             <tr>
               <td>General bank</td>
               <td data-label="Boat vs bank">Bank</td>
@@ -3129,17 +3136,17 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js?v=v85-2026-11-03"></script>
-  <script src="js/sw-update.js?v=v85-2026-11-03"></script>
-  <script src="js/alerts.js?v=v85-2026-11-03"></script>
-  <script src="js/nav.js?v=v85-2026-11-03"></script>
-  <script src="js/visits.js?v=v85-2026-11-03"></script>
-  <script src="js/lake-picker.js?v=v85-2026-11-03"></script>
-  <script src="js/usgs.js?v=v85-2026-11-03"></script>
-  <script src="js/local-notes.js?v=v85-2026-11-03"></script>
-  <script src="js/fold-anchors.js?v=v85-2026-11-03"></script>
-  <script src="js/docks.js?v=v85-2026-11-03"></script>
-  <script src="js/scrollspy.js?v=v85-2026-11-03"></script>
-  <script src="js/a11y.js?v=v85-2026-11-03" defer></script>
+  <script src="js/refresh.js?v=v86-2026-11-03"></script>
+  <script src="js/sw-update.js?v=v86-2026-11-03"></script>
+  <script src="js/alerts.js?v=v86-2026-11-03"></script>
+  <script src="js/nav.js?v=v86-2026-11-03"></script>
+  <script src="js/visits.js?v=v86-2026-11-03"></script>
+  <script src="js/lake-picker.js?v=v86-2026-11-03"></script>
+  <script src="js/usgs.js?v=v86-2026-11-03"></script>
+  <script src="js/local-notes.js?v=v86-2026-11-03"></script>
+  <script src="js/fold-anchors.js?v=v86-2026-11-03"></script>
+  <script src="js/docks.js?v=v86-2026-11-03"></script>
+  <script src="js/scrollspy.js?v=v86-2026-11-03"></script>
+  <script src="js/a11y.js?v=v86-2026-11-03" defer></script>
 </body>
 </html>

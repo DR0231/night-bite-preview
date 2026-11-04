@@ -57,7 +57,7 @@ Home · Species · Water · Log · Tournaments · Gear · About
   "sample": false,
   "date": "2026-09-01",
   "species": "Channel catfish",
-  "ramp": "Oxbow (upper ramp)",
+  "ramp": "Oxbow Road ramp",
   "time_window": "Night",
   "bait": "Cut shad",
   "keep_release": "Released",
@@ -78,7 +78,7 @@ Home · Species · Water · Log · Tournaments · Gear · About
   "lake": "hoover",
   "name": "Example club night",
   "date": "2026-10-01",
-  "ramp": "Walnut Road (public)",
+  "ramp": "Walnut Street ramp",
   "club": "Example club",
   "url": "https://example.com",
   "notes": "Third-party only."

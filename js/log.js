@@ -15,6 +15,8 @@
   var LK = window.NightBiteLake, LAKES = window.NightBiteLakes;
   var LAKE = LK ? LK.id : "hoover";
   function lakeShort(id) { return (LAKES && LAKES.all[id] && LAKES.all[id].short) || "Hoover"; }
+  // old Hoover ramp spellings show as the official names (the saved text is left as it was)
+  function spotName(e) { return (LAKES && LAKES.spotName) ? LAKES.spotName(e.lake || "hoover", e.location) : e.location; }
   function showAll() { return window.NightBiteLogFilter === "all"; }
 
   var SAMPLE_TRIPS = [
@@ -23,7 +25,7 @@
       sample: true,
       lake: "hoover",
       date: "2025-07-12",
-      location: "Oxbow (upper ramp)",
+      location: "Oxbow Road ramp",
       bait: "Cut shad",
       species: "Channel catfish",
       disposition: "Released",
@@ -122,7 +124,7 @@
         "<h3>" + escapeHtml(e.species || "Unknown") + "</h3>" +
         '<dl class="trip-dl">' +
         "<dt>Date</dt><dd>" + escapeHtml(formatDate(e.date)) + "</dd>" +
-        "<dt>Spot</dt><dd>" + escapeHtml(e.location || "—") + "</dd>" +
+        "<dt>Spot</dt><dd>" + escapeHtml(spotName(e) || "—") + "</dd>" +
         "<dt>Bait</dt><dd>" + escapeHtml(e.bait || "—") + "</dd>" +
         "<dt>Keep?</dt><dd>" + escapeHtml(e.disposition || "—") + "</dd>" +
         "</dl>" +
