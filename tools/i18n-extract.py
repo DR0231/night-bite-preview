@@ -66,6 +66,7 @@ def group(page, LAKES):
     if page == "log": return "log"
     if page == "js": return "script cards"
     if page == "map": return "map cards"
+    if page == "docks": return "dock cards"
     return "other pages"
 
 def en_tables():
@@ -135,6 +136,16 @@ def map_lines():
     out = json.loads(subprocess.run(["node", "-e", code], capture_output=True, text=True, check=True).stdout)
     return sorted({norm(x) for x in out if x and norm(x) and words_left(norm(x))})
 
+# S13 seg7: dock season lines from data/docks.json (item names, pills, notes and their after-season swaps) go into
+# the virtual page "docks"; js/docks.js swaps in data-after-label/-note, which i18n.js then matches here
+def docks_lines():
+    d = json.loads((ROOT / "data" / "docks.json").read_text(encoding="utf-8")); s = set()
+    for L in d.get("lakes", {}).values():
+        for it in L.get("items", []):
+            for f in ("name", "label", "after_label", "note", "after_note"):
+                if isinstance(it.get(f), str): s.add(html.unescape(it[f]))
+    return sorted({norm(x) for x in s if x and norm(x) and words_left(norm(x))})
+
 def write(p, obj, check, changed):
     txt = json.dumps(obj, ensure_ascii=False, indent=1, sort_keys=True) + "\n"
     if p.exists() and p.read_text(encoding="utf-8") == txt: return
@@ -152,11 +163,11 @@ def main():
     langs = sorted(p.stem for p in D.glob("*.json") if p.stem != "en")
     tm = {l: (json.loads((TM / f"{l}.json").read_text())["strings"] if (TM / f"{l}.json").exists() else {}) for l in langs}
     changed, keep_files, cov, gaps = [], set(), {}, []
-    for page, path in pages() + [("js", None), ("map", None)]:
-        lines = (js_lines() if page == "js" else map_lines()) if path is None else extract(path, exact, tpl)
+    for page, path in pages() + [("js", None), ("map", None), ("docks", None)]:
+        lines = (js_lines() if page == "js" else docks_lines() if page == "docks" else map_lines()) if path is None else extract(path, exact, tpl)
         src = {f"{page}.{h8(s)}": s for s in lines}
         f = PAGES / f"{page}.en.json"; keep_files.add(f.name)
-        write(f, {"_meta": {"page": page, "source": str(path.relative_to(ROOT)) if path else (", ".join(JS_DATA) if page == "js" else "js/*map-data*.js")}, "strings": src}, a.check, changed)
+        write(f, {"_meta": {"page": page, "source": str(path.relative_to(ROOT)) if path else (", ".join(JS_DATA) if page == "js" else "data/docks.json" if page == "docks" else "js/*map-data*.js")}, "strings": src}, a.check, changed)
         g = group(page, LAKES)
         for l in langs:
             tr = {k: tm[l][k.split(".", 1)[1]] for k in src if k.split(".", 1)[1] in tm[l]}

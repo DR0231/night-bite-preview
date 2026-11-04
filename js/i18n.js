@@ -142,7 +142,7 @@
     var r = c(v); if (r != null) return r;
     r = timeT(v); if (r != null) return r;
     if (/^[NSEW]{3}$/.test(v) && c(v[0]) != null && c(v.slice(1)) != null) return c(v[0]) + c(v.slice(1));
-    return lookup1(t, v, true);
+    return lookup1(t, v, true, true);
   }
   function lookup1(t, n, wide, part) {
     var k = t.exact[n];
@@ -195,8 +195,9 @@
       ATTRS.forEach(function (a) {
         if (!el.hasAttribute(a)) return;
         if (wide && el.closest && (el.closest(KEEP) || el.closest(SCOPES))) return;
-        var en = a in o ? o[a] : el.getAttribute(a), out = cur === "en" ? null : lookup(tbl, en, wide);
-        if (out != null) { o[a] = en; if (el.getAttribute(a) !== out) el.setAttribute(a, out); } else if (a in o) { el.setAttribute(a, o[a]); delete o[a]; }
+        var cv = el.getAttribute(a); if (a in o && cv !== o["~" + a]) delete o[a];   // a script set new English since our last write
+        var en = a in o ? o[a] : cv, out = cur === "en" ? null : lookup(tbl, en, wide);
+        if (out != null) { o[a] = en; o["~" + a] = out; if (cv !== out) el.setAttribute(a, out); } else if (a in o) { el.setAttribute(a, o[a]); delete o[a]; }
       });
       attrOrig.set(el, o);
     });
@@ -266,12 +267,13 @@
       // S13: lines the scripts fill in from data (the "What's biting" cards) live in one shared "js" page file
       var js = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf("js") >= 0;
       var mp = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf("map") >= 0;
+      var dk = lang !== "en" && r0[1] && r0[1]._meta && (r0[1]._meta.pages || []).indexOf("docks") >= 0 && !!d.querySelector(".docks-lake, .dock-status");
       return Promise.all([r0[0], r0[1], has ? loadPage("en") : null, has ? loadPage(lang) : null, js ? loadPage("en", "js") : null, js ? loadPage(lang, "js") : null,
-        mp ? loadPage("en", "map") : null, mp ? loadPage(lang, "map") : null]);
+        mp ? loadPage("en", "map") : null, mp ? loadPage(lang, "map") : null, dk ? loadPage("en", "docks") : null, dk ? loadPage(lang, "docks") : null]);
     }).then(function (r) {
       cur = lang;
       var S = function (x) { return (x && x.strings) || {}; };
-      tbl = build(merge(merge(merge(S(r[6]), S(r[4])), S(r[2])), S(r[0])), merge(merge(merge(S(r[7]), S(r[5])), S(r[3])), S(r[1])));
+      tbl = build(merge(merge(merge(merge(S(r[8]), S(r[6])), S(r[4])), S(r[2])), S(r[0])), merge(merge(merge(merge(S(r[9]), S(r[7])), S(r[5])), S(r[3])), S(r[1])));
       var A = window.NB_A11Y, dir = (r[1] && r[1]._meta && r[1]._meta.dir) || (A && A.RTL && A.RTL[lang] ? "rtl" : "ltr");
       d.documentElement.lang = lang; d.documentElement.dir = lang === "en" ? "ltr" : dir;
       if (lang === "en") d.documentElement.removeAttribute("data-lang"); else d.documentElement.setAttribute("data-lang", lang);
@@ -279,7 +281,7 @@
       run();
       if (!obs && window.MutationObserver) {
         obs = new MutationObserver(function () { if (!busy && cur !== "en") { clearTimeout(obs.t); obs.t = setTimeout(run, 30); } });
-        obs.observe(d.body, { childList: true, subtree: true, characterData: true });
+        obs.observe(d.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ATTRS });
       }
       d.dispatchEvent(new CustomEvent("nb-lang", { detail: { lang: lang } }));
       return lang;
