@@ -51,7 +51,7 @@
   "pymatuning.548812d4": "で、それ以降更新がないため水位欄は「報告なし」です。古い値を現在値としては表示しません。",
   "pymatuning.5610f4f5": "凡例",
   "pymatuning.56f508b5": "、過去3時間の変化（地点：",
-  "pymatuning.5af92387": "州立公園の開園時間は 6 a.m. から 11 p.m. までです。ODNR は時間外の釣りなど正当なレクリエーションを認めています。出典：",
+  "pymatuning.5af92387": "州立公園の開園時間は 6:00 から 23:00 までです。ODNR は時間外の釣りなど正当なレクリエーションを認めています。出典：",
   "pymatuning.5cba4b24": "）。ゆっくり下降",
   "pymatuning.67de10b1": "餌店を表示",
   "pymatuning.687ef1ca": "：水位計 03100500 の最後の値は 1008.12 ft、日付",
@@ -113,6 +113,6 @@
   "pymatuning.f9bb7357": "リマインダーを取り消す",
   "pymatuning.fa4885e0": "夜の桟橋の雰囲気がある非公式のオハイオ釣り情報ハブ：Hoover、Alum Creek、Buckeye Lake、O’Shaughnessy、Griggs、Indian Lake、Delaware Lake、Deer Creek Lake、Madison Lake、Knox Lake、Clear Fork Reservoir、Seneca Lake、Dillon Lake、Lake Logan、Salt Fork Lake、Burr Oak Lake、Dow Lake、Mosquito Creek Lake、Berlin Lake、West Branch Reservoir、Pymatuning Lake、Lake Milton、Leesville Lake",
   "pymatuning.ff4d932c": "オハイオ州立公園のスロープ5か所：Padanaram、Birches Landing、Cabin Beach、New Bowers、キャンプ利用者専用のキャンプ場スロープ。Cabin Beach から Birches Marina への道路は恒久的に閉鎖されています。",
-  "pymatuning.ffb898cc": "Pymatuning State Park の開園時間は 6 a.m. から 11 p.m. までです。ODNR は時間外の釣りなど正当なレクリエーションを認めています。20 hp 制限。Cabin Beach から Birches Marina への道路は恒久的に閉鎖。Cabin Beach と New Bowers のスロープはピンなし。東岸はペンシルベニア州で、独自の規則があります。湖岸線は OpenStreetMap からのトレースで、航行用ではありません。"
+  "pymatuning.ffb898cc": "Pymatuning State Park の開園時間は 6:00 から 23:00 までです。ODNR は時間外の釣りなど正当なレクリエーションを認めています。20 hp 制限。Cabin Beach から Birches Marina への道路は恒久的に閉鎖。Cabin Beach と New Bowers のスロープはピンなし。東岸はペンシルベニア州で、独自の規則があります。湖岸線は OpenStreetMap からのトレースで、航行用ではありません。"
  }
 }

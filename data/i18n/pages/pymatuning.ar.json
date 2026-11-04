@@ -51,7 +51,7 @@
   "pymatuning.548812d4": "ولا شيء منذ ذلك، لذلك تظهر خانة المنسوب لا يرسل. تلك القراءة القديمة لا تُعرض كقراءة حالية.",
   "pymatuning.5610f4f5": "مفتاح الخريطة",
   "pymatuning.56f508b5": "، التغير خلال آخر 3 ساعات عند",
-  "pymatuning.5af92387": "ساعات المتنزه الحكومي من 6 a.m. إلى 11 p.m.؛ ويسمح ODNR بالترفيه المشروع، مثل الصيد، خارج هذه الساعات. المصدر:",
+  "pymatuning.5af92387": "ساعات المتنزه الحكومي من 6:00 إلى 23:00؛ ويسمح ODNR بالترفيه المشروع، مثل الصيد، خارج هذه الساعات. المصدر:",
   "pymatuning.5cba4b24": ". انخفاض بطيء",
   "pymatuning.67de10b1": "الطُّعم",
   "pymatuning.687ef1ca": ": آخر ما نشره المقياس 03100500 كان 1008.12 ft في",
@@ -113,6 +113,6 @@
   "pymatuning.f9bb7357": "إلغاء التذكير",
   "pymatuning.fa4885e0": "مركز صيد غير رسمي في Ohio بأجواء الرصيف الليلي: Hoover، Alum Creek، Buckeye Lake، O’Shaughnessy، Griggs، Indian Lake، Delaware Lake، Deer Creek Lake، Madison Lake، Knox Lake، Clear Fork Reservoir، Seneca Lake، Dillon Lake، Lake Logan، Salt Fork Lake، Burr Oak Lake، Dow Lake، Mosquito Creek Lake، Berlin Lake، West Branch Reservoir، Pymatuning Lake، Lake Milton و Leesville Lake",
   "pymatuning.ff4d932c": "خمسة منحدرات في متنزهات Ohio الحكومية: Padanaram و Birches Landing و Cabin Beach و New Bowers ومنحدر المخيم الخاص بالمخيمين فقط. الطريق من Cabin Beach إلى Birches Marina مغلق نهائيًا.",
-  "pymatuning.ffb898cc": "ساعات Pymatuning State Park من 6 a.m. إلى 11 p.m.؛ ويسمح ODNR بالترفيه المشروع، مثل الصيد، خارج هذه الساعات. حد 20 hp. الطريق من Cabin Beach إلى Birches Marina مغلق نهائيًا. منحدرا Cabin Beach و New Bowers غير مثبتين على الخريطة. الشاطئ الشرقي في Pennsylvania، وله قواعده الخاصة. الشاطئ مرسوم من OpenStreetMap، وليس للملاحة."
+  "pymatuning.ffb898cc": "ساعات Pymatuning State Park من 6:00 إلى 23:00؛ ويسمح ODNR بالترفيه المشروع، مثل الصيد، خارج هذه الساعات. حد 20 hp. الطريق من Cabin Beach إلى Birches Marina مغلق نهائيًا. منحدرا Cabin Beach و New Bowers غير مثبتين على الخريطة. الشاطئ الشرقي في Pennsylvania، وله قواعده الخاصة. الشاطئ مرسوم من OpenStreetMap، وليس للملاحة."
  }
 }
