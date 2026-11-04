@@ -1,0 +1,13 @@
+{
+ "_meta": {
+  "lang": "pl",
+  "page": "gear",
+  "review": "draft"
+ },
+ "strings": {
+  "gear.27e90dfa": "o",
+  "gear.77edd4b4": "Bez limitu mocy silnika",
+  "gear.9dcd2c3c": "Bez limitu mocy",
+  "gear.e420a3cd": "Limit 10 hp"
+ }
+}

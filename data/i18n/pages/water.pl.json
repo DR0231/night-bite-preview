@@ -1,0 +1,25 @@
+{
+ "_meta": {
+  "lang": "pl",
+  "page": "water",
+  "review": "draft"
+ },
+ "strings": {
+  "water.1eee969b": "Wodowskaz USGS na żywo",
+  "water.38c160e3": "Columbus Recreation and Parks, przystanie i pomosty",
+  "water.3bbdbfde": "to wysokość lustra wody w stopach, tak jak podaje USGS, a nie głębokość dołka czy kanału.",
+  "water.4374aaee": "do",
+  "water.44100b3c": "Wartości USGS są",
+  "water.4e589220": "i mogą zostać zmienione.",
+  "water.5175b841": "na jeziorze, więc pole temperatury pokazuje n/d. Nic nie jest szacowane.",
+  "water.77edd4b4": "Bez limitu mocy silnika",
+  "water.90471ca5": "wstępne",
+  "water.906ab80c": "to wysokość lustra wody (ft NGVD29), a nie głębokość dołka czy kanału.",
+  "water.9c69f0c5": "Zapora",
+  "water.9dcd2c3c": "Bez limitu mocy",
+  "water.a5ff1c64": "Temp.",
+  "water.d014c690": "Głębokości na mapie wędkarskiej ODNR opierają się na",
+  "water.e420a3cd": "Limit 10 hp",
+  "water.f2eb9a7b": "Brak publicznego pomiaru temperatury wody"
+ }
+}
