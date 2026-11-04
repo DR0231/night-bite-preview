@@ -5,6 +5,9 @@
   "review": "draft"
  },
  "strings": {
+  "species-yellow-perch.00b61bc3": "Não é comum em Dow Lake: o ODNR não o lista lá. Esta página trata de Buckeye Lake.",
+  "species-yellow-perch.057035b3": "Não está nos registros de pesquisa ou peixamento do ODNR para O’Shaughnessy. Esta página trata de Buckeye Lake.",
+  "species-yellow-perch.07416113": "Não é comum em Dillon Lake: o ODNR não o lista lá. Esta página trata de Buckeye Lake.",
   "species-yellow-perch.0929c2dc": "lembrete, confira",
   "species-yellow-perch.15df0dbb": "Limite diário",
   "species-yellow-perch.172fe660": "Tamanho mínimo",
@@ -14,19 +17,31 @@
   "species-yellow-perch.3a0a165f": "Lembrete (confira 2026–27)",
   "species-yellow-perch.40af0815": "Água e mapas",
   "species-yellow-perch.416b27a5": "Sobre esta página",
+  "species-yellow-perch.479a3fa8": "Não é comum em Deer Creek Lake: o ODNR não o lista lá. Esta página trata de Buckeye Lake.",
   "species-yellow-perch.525f61b6": "Onde",
+  "species-yellow-perch.56310159": "Não está nos registros de pesquisa ou peixamento do ODNR para Griggs. Esta página trata de Buckeye Lake.",
+  "species-yellow-perch.595dfac2": "Só rampas, parques, margens públicas e o píer de Mud Island. Marcadores nos",
   "species-yellow-perch.5b7c80a8": "Registrar uma saída",
   "species-yellow-perch.5d410e64": "Contornos, correção de cota, rampas públicas.",
   "species-yellow-perch.61a0ae3b": "Limites",
   "species-yellow-perch.62255f56": "Temporada",
+  "species-yellow-perch.66472801": "Não é comum em Clear Fork Reservoir: o ODNR não o lista lá. Esta página trata de Buckeye Lake.",
   "species-yellow-perch.6a48c0a8": "Hora do dia",
   "species-yellow-perch.6eef6648": "Nenhum",
+  "species-yellow-perch.74f03d48": "Não é comum em Lake Logan: o ODNR não o lista lá. Esta página trata de Buckeye Lake.",
   "species-yellow-perch.78e1790e": "Regra",
+  "species-yellow-perch.7bea8b0d": "Onde em Buckeye Lake",
   "species-yellow-perch.7e439c35": "Nesta página",
   "species-yellow-perch.80946517": "HuntFish OH / licenças do ODNR",
+  "species-yellow-perch.841f95e0": "Não é comum em Delaware Lake: o ODNR não o lista lá. Esta página trata de Buckeye Lake.",
   "species-yellow-perch.9e89988c": "Margem",
   "species-yellow-perch.ba003615": "Regulamentos de pesca do ODNR 2026–27 (confira a versão atual)",
+  "species-yellow-perch.c220864e": "Mapas da água de Buckeye Lake",
   "species-yellow-perch.d554eecb": "Isca e apresentação",
-  "species-yellow-perch.ef58de4f": "Barco"
+  "species-yellow-perch.da0b1457": "Só um caderno não oficial, não é o ODNR, o Corps of Engineers nem o USGS. Licença obrigatória a partir de 16 anos. Confirme os regulamentos antes de ficar com peixes.",
+  "species-yellow-perch.ddaf2b13": "Sem limite (todos os outros peixes)",
+  "species-yellow-perch.ef58de4f": "Barco",
+  "species-yellow-perch.f7e0f475": "Não é comum em Berlin Lake: o ODNR não o lista lá. Esta página trata de Buckeye Lake.",
+  "species-yellow-perch.f9f612e7": "Não é comum em Burr Oak Lake: o ODNR não o lista lá. Esta página trata de Buckeye Lake."
  }
 }
