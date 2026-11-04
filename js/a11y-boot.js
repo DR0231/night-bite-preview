@@ -5,6 +5,8 @@
  *   data-motion   reduce                  (also makes matchMedia('(prefers-reduced-motion: reduce)') report true)
  *   data-contrast more                    (high contrast, still navy and cream)
  *   data-light    red                     (red light: dim red on black; the phone's toolbar color follows)
+ * Language: localStorage "nb-lang" (absent = English). Sets <html lang> and data-lang here, before paint; js/a11y.js
+ * then loads js/i18n.js, which swaps the UI chrome strings. LANGS lists the languages with a string file.
  */
 (function (d) {
   var KEY = "nb-a11y", OK = { text: ["sm", "lg", "xl"], font: ["readable"], motion: ["reduce"], contrast: ["more"], light: ["red"] };
@@ -24,7 +26,12 @@
     }
     return mm.call(window, q);
   };
-  window.NB_A11Y = { KEY: KEY, OK: OK, read: read, apply: apply,
+  var LKEY = "nb-lang", LANGS = { en: "English", es: "Espa\u00f1ol" };
+  function lang() { try { var l = localStorage.getItem(LKEY); return LANGS[l] ? l : "en"; } catch (e) { return "en"; } }
+  function applyLang(l) { var h = d.documentElement; h.lang = l === "en" ? "en" : l; if (l === "en") h.removeAttribute("data-lang"); else h.setAttribute("data-lang", l); }
+  window.NB_A11Y = { KEY: KEY, OK: OK, read: read, apply: apply, LKEY: LKEY, LANGS: LANGS, lang: lang,
+    setLang: function (l) { l = LANGS[l] ? l : "en"; try { if (l === "en") localStorage.removeItem(LKEY); else localStorage.setItem(LKEY, l); } catch (e) {} applyLang(l); return l; },
     save: function (s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} apply(s); } };
   apply(read());
+  applyLang(lang());
 })(document);

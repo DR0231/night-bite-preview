@@ -4053,6 +4053,25 @@ p.meta > a:only-child { padding-block: 0.75rem; }
 .a11y-toggle input:disabled + .a11y-toggle-text { opacity: 0.75; }
 .a11y-note, .a11y-saved { margin: 0; font-size: var(--text-sm); color: var(--muted); padding-left: 2.125rem; }
 .a11y-saved { padding-left: 0; }
+/* Language (S9; js/i18n.js). A native select in the Display panel, a footer entry point and a draft marker */
+.a11y-lang { gap: var(--space-xs); }
+.a11y-lang-label { font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-sm); color: var(--cream); }
+.a11y-lang select { min-height: 44px; width: 100%; padding: 0 0.75rem; font: inherit; font-family: var(--font-body);
+  color: var(--cream); background: var(--navy); border: 1px solid var(--navy-light); border-radius: var(--radius); }
+.a11y-lang select:hover { border-color: var(--muted); }
+.a11y-lang .a11y-note { padding-left: 0; }
+.site-footer .lang-globe { display: inline-block; width: 0.8em; height: 0.8em; margin-right: 0.35em; vertical-align: -0.05em;
+  border: 2px solid currentColor; border-radius: var(--radius-pill);
+  background: linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat, linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat; }
+.i18n-draft { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.5rem;
+  margin: var(--space-xs) 0; padding: 0.375rem 0.75rem; font-size: var(--text-sm); color: var(--cream-dark);
+  border: 1px solid var(--navy-light); border-radius: var(--radius); background: var(--navy-mid); }
+.i18n-draft-tag { font-family: var(--font-display); font-variant-ligatures: none; color: var(--amber);
+  padding: 0.0625rem 0.5rem; border: 1px solid currentColor; border-radius: var(--radius-pill); }
+html[data-contrast="more"] .i18n-draft, html[data-contrast="more"] .a11y-lang select { border-color: var(--cream); color: var(--cream); }
+/* Scripts the three site fonts don't cover use the phone's own font */
+html:is([lang|="zh"], [lang|="ko"], [lang|="ja"], [lang|="ar"], [lang|="fa"], [lang|="ur"], [lang|="hi"], [lang|="ru"]) {
+  --font-display: system-ui, sans-serif; --font-heading: system-ui, sans-serif; --font-body: system-ui, sans-serif; }
 .a11y-actions { display: flex; gap: var(--space-xs); justify-content: flex-end; flex-wrap: wrap; }
 .a11y-actions .btn { min-height: 44px; }
 /* Large and XL on phones: the header row keeps a readable fixed size (system font) and the wordmark goes to

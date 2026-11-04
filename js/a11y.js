@@ -38,14 +38,21 @@
         el("p", { id: id + "-note", "class": "a11y-note", text: t[3] })
       ]));
     });
+    var lsel = el("select", { id: "a11y-lang", "aria-describedby": "a11y-lang-note" });
+    Object.keys(A.LANGS).forEach(function (k) { lsel.appendChild(el("option", { value: k, lang: k, text: A.LANGS[k] })); });
+    form.appendChild(el("div", { "class": "a11y-row a11y-lang" }, [
+      el("label", { "for": "a11y-lang", "class": "a11y-lang-label", text: "Language" }), lsel,
+      el("p", { id: "a11y-lang-note", "class": "a11y-note", text: "Draft translations. Rules, levels and place names stay in English." })
+    ]));
+    lsel.addEventListener("change", function (e) { e.stopPropagation(); setLang(lsel.value); });
     form.appendChild(el("p", { "class": "a11y-saved", text: "Saved on this phone only." }));
     var reset = el("button", { type: "button", "class": "btn btn-ghost a11y-reset", text: "Reset" });
     var done = el("button", { type: "submit", "class": "btn a11y-done", value: "done", text: "Done" });
     form.appendChild(el("div", { "class": "a11y-actions" }, [reset, done]));
     dlg.appendChild(form);
     document.body.appendChild(dlg);
-    form.addEventListener("change", function () { A.save(collect(form)); sync(form); });
-    reset.addEventListener("click", function () { A.save({}); sync(form); });
+    form.addEventListener("change", function (e) { if (e.target && e.target.id === "a11y-lang") return; A.save(collect(form)); sync(form); });
+    reset.addEventListener("click", function () { A.save({}); setLang("en"); sync(form); });
     dlg.addEventListener("close", function () { if (lastBtn) lastBtn.focus(); });
     dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
     return form;
@@ -58,6 +65,7 @@
     return s;
   }
   function sync(form) {
+    var ls = form.querySelector("#a11y-lang"); if (ls) ls.value = A.lang();
     var s = A.read(), big = s.text === "lg" || s.text === "xl";
     form.querySelectorAll('input[name="a11y-text"]').forEach(function (r) { r.checked = r.value === (s.text || ""); });
     form.querySelectorAll("input[data-key]").forEach(function (c) { c.checked = s[c.dataset.key] === c.value; });
@@ -71,13 +79,36 @@
     lastBtn = btn; sync(form);
     var nm = document.getElementById("nav-more-panel"); if (nm && !nm.hidden) { var mb = document.querySelector(".nav-more-btn"); if (mb) mb.click(); lastBtn = mb || btn; }
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
-    var first = form.querySelector('input[name="a11y-text"]:checked') || form.querySelector("input");
+    var first = (btn && btn.hasAttribute("data-lang-open") && form.querySelector("#a11y-lang")) || form.querySelector('input[name="a11y-text"]:checked') || form.querySelector("input");
     if (first) first.focus();
   }
+  // js/i18n.js is only fetched when a language other than English is in use
+  var ME = document.currentScript ? document.currentScript.src : "", i18nP = null;
+  function i18n() {
+    if (window.NB_I18N) return Promise.resolve(window.NB_I18N);
+    if (!i18nP) i18nP = new Promise(function (ok, no) {
+      var sc = document.createElement("script"); sc.src = new URL("i18n.js" + (ME.split("?")[1] ? "?" + ME.split("?")[1] : ""), ME || location.href).href;
+      sc.onload = function () { ok(window.NB_I18N); }; sc.onerror = function () { i18nP = null; no(); };
+      document.head.appendChild(sc);
+    });
+    return i18nP;
+  }
+  function setLang(l) {
+    l = A.setLang(l);
+    if (l === "en" && !window.NB_I18N) return;
+    i18n().then(function (I) { I.set(l); }, function () {});
+  }
+  if (A.lang() !== "en") i18n().catch(function () {});
+  document.querySelectorAll('nav[aria-label="Footer"]').forEach(function (n) {
+    if (n.querySelector("[data-lang-open]")) return;
+    var b = el("button", { type: "button", "class": "a11y-open", "data-a11y-open": "", "data-lang-open": "", text: "Language" });
+    b.insertBefore(el("span", { "class": "lang-globe", "aria-hidden": "true" }), b.firstChild);
+    n.appendChild(b);
+  });
   document.addEventListener("click", function (e) {
     var b = e.target.closest && e.target.closest("[data-a11y-open]");
     if (b) { e.preventDefault(); open(b); }
   });
   document.querySelectorAll("[data-a11y-open]").forEach(function (b) { b.hidden = false; });
-  window.addEventListener("storage", function (e) { if (e.key === A.KEY) { A.apply(A.read()); if (dlg) sync(dlg.querySelector("form")); } });
+  window.addEventListener("storage", function (e) { if (e.key === A.LKEY) { setLang(A.lang()); if (dlg) sync(dlg.querySelector("form")); } if (e.key === A.KEY) { A.apply(A.read()); if (dlg) sync(dlg.querySelector("form")); } });
 })();
