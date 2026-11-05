@@ -27,6 +27,8 @@
   var windC = cond && cond.querySelector('[data-cond="wind"]');
   function q(k) { return box.querySelector('[data-glance="' + k + '"]'); }
   var poolV = q("pool"), poolS = q("pool-sub"), tempV = q("temp"), tempS = q("temp-sub");
+  // Numeric pool correction mirrors a live value, not a static interface label.
+  if (poolS) poolS.setAttribute("data-nb-keep", "");
   var sunV = q("sunset"), sunS = q("sunset-sub"), windV = q("wind"), windS = q("wind-sub"), biteV = q("bite");
   var stampEl = q("stamp");
   var RE = /^\s*([\d.]+)\s*ft\s*·\s*(?:(-?\d+(?:\.\d+)?)\s*°F|no temp|temp —)\s*·\s*~?([\d.]+)\s*ft\s+(above|below)\s+full pool\s*$/;

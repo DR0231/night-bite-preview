@@ -48,7 +48,9 @@
     readout.textContent = "";
     readout.appendChild(cell("Pool", m[1], "ft"));
     readout.appendChild(cell("Water", m[2] !== undefined ? m[2] : "n/a", m[2] !== undefined ? "°F" : ""));
-    readout.appendChild(cell(m[4] === "above" ? "Above full pool" : "Below full pool", "~" + m[3], "ft"));
+    var correction = cell(m[4] === "above" ? "Above full pool" : "Below full pool", "~" + m[3], "ft");
+    correction.setAttribute("data-nb-keep", "");
+    readout.appendChild(correction);
     readout.hidden = false;
     line.classList.add("is-mirrored");
   }

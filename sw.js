@@ -19,7 +19,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v113-2026-11-04";
+var VERSION = "v114-2026-11-05";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -197,6 +197,8 @@ var PRECACHE = [
   "assets/tiles/milton.png",
   "assets/tiles/leesville.png",
   "assets/hoover-chart.png",
+  "assets/maps/hoover-depth-contours.svg",
+  "assets/maps/hoover-depth-contours.webp",
   "assets/alum-chart.png",
   "assets/buckeye-chart.png",
   "assets/oshaughnessy-chart.png",
