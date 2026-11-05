@@ -70,7 +70,7 @@ const state = () => {
   ok('es: sunset cell on hoover shows a 24 h Spanish time (no AM/PM)', /\d{1,2}:\d{2}/.test(tm.sunset) && !/\b(AM|PM)\b/.test(tm.sunset), tm);
   ok('es: a <time datetime> date in <main> is written with Intl es', !!tm.date && tm.date === want && !/^[A-Z][a-z]{2}\.? \d/.test(tm.date), { tm, want });
   const contourAlt = await p.locator('#depth-contours img').getAttribute('alt');
-  ok('es: Hoover contour image alt text switches', !!contourAlt && /Curvas de profundidad/.test(contourAlt), contourAlt);
+  ok('es: Hoover contour image alt text switches', !!contourAlt && /profundidad/i.test(contourAlt) && /Hoover/.test(contourAlt) && !/ODNR-style/.test(contourAlt), contourAlt);
   ok('es: no sideways scroll', es.ov <= 1, es.ov);
   await p.reload({ waitUntil: 'load' });
   const early = await p.evaluate(() => document.documentElement.lang);

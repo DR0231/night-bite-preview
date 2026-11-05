@@ -4227,12 +4227,16 @@ html[data-contrast="more"] .night-chip { border-color: var(--amber); background:
 .contour-map > summary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-xs); }
 .contour-map-summary-note { color: var(--muted); font-family: var(--font-display); font-size: var(--text-label); text-transform: uppercase; letter-spacing: .05em; }
 .contour-map-figure { margin: var(--space-md) 0 0; }
-.contour-map-figure picture { display: block; max-width: 28rem; margin: 0 auto; border: 1px solid var(--navy-light); border-radius: var(--radius); overflow: hidden; }
-.contour-map-figure img { display: block; width: 100%; height: auto; background: var(--navy); }
+.contour-map-open { display: block; max-width: 28rem; margin: 0 auto; border: 1px solid var(--navy-light); border-radius: var(--radius); overflow: hidden; color: var(--cream); }
+.contour-map-open picture { display: block; }
+.contour-map-figure img { display: block; width: 100%; height: auto; background: #e0e0e0; }
+.contour-map-fullsize { display: block; padding: var(--space-sm); background: var(--navy-mid); color: var(--amber); text-align: center; font-family: var(--font-display); font-size: var(--text-sm); }
 .contour-map-figure figcaption { margin-top: var(--space-sm); color: var(--cream-dark); font-size: var(--text-sm); line-height: 1.5; }
+.contour-map-figure figcaption > span:not(.contour-map-key) { display: block; margin-bottom: var(--space-xs); }
 .contour-map-figure figcaption strong { color: var(--amber); }
 .contour-map-key { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .55rem; margin-bottom: var(--space-xs); font-family: var(--font-display); font-size: var(--text-label); }
-.contour-key-amber, .contour-key-cream { display: inline-block; width: 1.5rem; height: 2px; }
-.contour-key-amber { background: var(--amber); }
-.contour-key-cream { background: var(--cream); margin-left: var(--space-xs); }
+.contour-map-key-item { display: inline-flex; align-items: center; gap: .35rem; }
+.contour-key-shallow, .contour-key-deep { display: inline-block; width: 1.25rem; height: .75rem; border: 1px solid var(--cream-dark); }
+.contour-key-shallow { background: #c9eaf5; }
+.contour-key-deep { background: #174e7d; }
 .contour-map-credit { overflow-wrap: anywhere; }

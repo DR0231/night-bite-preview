@@ -37,6 +37,12 @@ Checked 2026-10-22 (ET). Only details confirmed by a source below are shown on t
 - Parity check, Oct. 27, 2026: Hoover 62614 890.60 ft and 00010 18.0 C, Buckeye 62614 891.45 ft, same in both APIs; 7 day series had the same point counts (Hoover 167, Buckeye 667).
 - `window.NightBiteUsgsVia` shows which API answered last ("ogcapi" or "waterservices").
 
+## Hoover depth contours (tools/build-odnr-contours.py)
+- Static ODNR-only map, rebuilt Nov. 5, 2026 under ODNR GIS Administrator Joe Wells's written Hoover permission. Real 10, 20, 30, 40, 50 and 60 ft contours from retained `data/odnr/hoover/bathymetry.geojson`; shoreline from retained `lake-background.geojson`. No intermediate depths or contours are invented. Survey 2001, map revision 2010, normal summer pool 894 ft.
+- Roads, small contour labels, Galena, Westerville, the dam, north arrow, access/facility symbols and stream channels are redrawn from the official ODNR fishing-map PDF: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/hooverreservoir2.pdf . The PDF and its extracted stream vectors are retained under `data/odnr/hoover/` for offline rebuilding.
+- Named ramp markers are Oxbow Road, Sunbury Road, Twin Bridges, Red Bank and Walnut Street. Names and coordinates come from `js/hoover-map-data.js` and the official City of Columbus map sources in the table below. The scale bar is calculated from the ODNR PDF's printed UTM NAD83 Zone 17 grid.
+- The public page loads only the self-hosted SVG/WebP; it makes no ODNR map or PDF requests. The SVG is self-contained and opens on demand; the WebP is in the offline cache.
+
 ## Map pins (js/hoover-map-data.js)
 Map art: the same traced outline as assets/hoover-chart.png (trace of a Google Maps screenshot, web mercator, north up). The trace was georeferenced to the OpenStreetMap Hoover Reservoir polygon (relation 241088, IoU 0.89), and each pin is the real lat/lng projected through that fit. Ramps within 2.5 map pixels of the traced shore are snapped onto it; Oxbow sits in a cove the trace filled in, so it keeps its true position.
 
