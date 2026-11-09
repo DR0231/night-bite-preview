@@ -17,7 +17,7 @@ Checked 2026-10-22 (ET). Only details confirmed by a source below are shown on t
   - Pressure, last 3 hours at KCMH: falling slowly (0.02 to 0.06 inHg) +2, steady +1, rising slowly 0, falling fast 0, rising fast -1.
   - Wind, average sustained NWS hourly speed over tonight's window: under 3 mph 0, 3 to 12 mph +1, 13 to 18 mph 0, over 18 mph -2.
   - Moon: new or full (the principal phase falls tonight, or under 10% or over 90% lit) +1.
-  - Water temp from USGS 03228400 when the gauge sends one: 55 to 80 F +1, 45 to 54 or 81 to 86 F 0, colder or warmer -1. Water temp alone never makes a rating; pressure or wind must be known.
+  - Water temp from USGS 03228400 when the gauge sends one (lake surface gauges only; a Corps outflow temperature, as at Alum Creek and Deer Creek Lake, is shown labelled outflow and never counts here): 55 to 80 F +1, 45 to 54 or 81 to 86 F 0, colder or warmer -1. Water temp alone never makes a rating; pressure or wind must be known.
   - 4 or more is Good, 2 or 3 is Fair, 1 or less is Tough. Thunder in tonight's window always makes it Tough.
   - Every number above lives in one `RULES` object in js/conditions.js (also `window.NightBiteBiteRules`). Each lake home's "How the bite is rated" box (`#bite-how`, under the bite line; the glance Bite cell links to it) prints the same numbers, and tools/check-glance.cjs fails if any differ or an input is missing. With JS on, the box adds what each input gave tonight and which readings were missing. The station name is the lake's own NWS station; water temp only where the lake's USGS gauge reports it. No new inputs, no estimates.
 - Sunset, last light (end of civil twilight, Sun 6 degrees down), moonrise and moonset: computed in the browser (js/astro.js, port of SunCalc by Vladimir Agafonkin, BSD 2-Clause, with the Moon's position from the Meeus main terms and the standard parallax corrected rise and set altitude). Checked against the US Naval Observatory (aa.usno.navy.mil rstt/oneday) at 40.11 N 82.88 W for 2026-10-24, 10-25, 10-28, 11-02 and 11-10: sunset and last light within 2 minutes, moonrise and moonset within 2 minutes.
@@ -86,7 +86,7 @@ Hoover stays the default. The active lake comes from `?lake=hoover|alum|buckeye`
 | Setting | Alum Creek Lake | Buckeye Lake |
 |---|---|---|
 | Lake level | US Army Corps of Engineers, Huntington District (LRH), CWMS Data API time series `AlumCr-Lake.Elev.Inst.15Minutes.0.OBS`, https://cwms-data.usace.army.mil/cwms-data/timeseries (public, CORS open, provisional). Page: https://water.usace.army.mil/overview/lrh/locations/alumcr . There is no USGS gauge on the lake. | USGS 395540082291600, Buckeye Lake, param 62614 (lake elevation, provisional), https://waterdata.usgs.gov/monitoring-location/USGS-395540082291600/ |
-| Water temp | None. No public lake temp gauge (the Corps temp sensor is in the outflow below the dam), so the site says "No public water temp gauge". | None. The USGS gauge measures level only. |
+| Water temp | USACE outflow water temperature, LRH CWMS time series `AlumCr-Outflow.Temp-Water.Inst.1Hour.0.OBS` (hourly, asked for with `unit=EN`, so F; a C series would be converted). Project page: https://water.usace.army.mil/office/lrh/project/alumcr (checked Nov. 9, 2026: 59.7 F at 3:00 p.m. ET). Labelled "outflow" on the pool card, the glance strip and the lake facts; never shown as lake surface temperature and never used by the bite rating. No lake surface temperature is posted. | None. The USGS gauge measures level only. |
 | Map pool (contour datum) | 888 ft normal summer pool, 5 ft contours, surveyed 2001, 3,330 acres: ODNR fishing map https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/alumcreeklake2.pdf | 891.75 ft normal summer pool, 2 ft contours, surveyed 1998, 2,873 acres, 300 ft no wake zone: ODNR fishing map https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/buckeyelake2.pdf |
 | Tonight forecast | NWS grid ILN 85,94 (https://api.weather.gov/points/40.24,-82.97) | NWS grid ILN 103,81 (https://api.weather.gov/points/39.93,-82.49) |
 | Barometer / observations | KDLZ, Delaware airport (sea level pressure is null there, so the existing fallback to station pressure is used) | KVTA, Newark airport (same fallback) |
@@ -117,7 +117,7 @@ Map pins (`js/lake-map-data-alum.js`, `js/lake-map-data-buckeye.js`, built by a 
 What's biting now and species "Where" notes for these lakes (`js/biting-data-lakes.js`, species pages): ODNR lake pages above; Outdoor News, Jan 27, 2026, https://www.outdoornews.com/2026/01/27/alum-creeks-big-water-worth-the-angling-effort-in-delaware-county-ohio/ (coves north of the Cheshire Road bridge); Mount Vernon News, Mar 29, 2025, https://mountvernonnews.com/central-ohio-spring-fishing-forecast-buckeye-lake-alum-creek-knox-lake-and-pleasant-hill-lake (Buckeye warms first, crappie and saugeye in under 2 ft; Alum smallmouth move up early); Best Fishing in America lake guides (https://www.bestfishinginamerica.com/ohio-alum-creek-lake-fishing.html, https://www.bestfishinginamerica.com/ohio-buckeye-lake-fishing.html), used for typical structure only. Typical patterns, not a fishing report.
 
 Gaps (said on the site, never filled in):
-- No public water temperature for either lake.
+- No public lake surface temperature for either lake. Alum Creek shows the Corps outflow temperature instead, always labelled outflow.
 - Alum Creek's lake level is the Corps of Engineers reading, not USGS; values are provisional.
 - Ramp lighting, restrooms and shop hours are not shown unless a source says so.
 - No community trips logged at either lake yet; the sample trip is Hoover's.
@@ -186,7 +186,7 @@ Same system as the other lakes: `?lake=deercreek|madison|knox|clearfork`, home p
 |---|---|---|---|---|
 | Owner (boating rules) | US Army Corps of Engineers dam (finished 1968); ODNR runs the state park and fishing area | ODNR Ohio State Parks | ODNR Division of Wildlife | City of Mansfield water supply lake (finished 1949) |
 | Lake level | USACE Huntington District (LRH), CWMS time series `DeerCr-Lake.Elev.Inst.15Minutes.0.OBS`. Page: https://water.usace.army.mil/overview/lrh/locations/deercr | None (no public gauge) | None (the USGS Kokosing River gauge is on the river, not the lake) | None (no public gauge) |
-| Water temp | None. The Corps posts an outflow temperature only. | None | None | None |
+| Water temp | USACE outflow water temperature, LRH CWMS time series `DeerCr-Outflow.Temp-Water.Inst.1Hour.0.OBS` (hourly, `unit=EN`). Project page: https://water.usace.army.mil/office/lrh/project/deercr (checked Nov. 9, 2026: 52.54 F at 3:00 p.m. ET). Labelled "outflow"; never lake surface temperature, never in the bite rating. | None | None | None |
 | Full pool used | 810.5 ft, ODNR fishing map | 965 ft, ODNR fishing map | 1,100 ft, ODNR fishing map | 1,202 ft, ODNR fishing map (the City lists the spillway at 1202) |
 | Map pool (contour datum) | 810.5 ft, 5 ft contours, surveyed 1999, 1,301 acres, 17.9 mi shoreline: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/deercreeklake2.pdf | 965 ft, 2 ft contours, surveyed 2006, 98 acres: .../wildlife/maps/madisonlake2.pdf | 1,100 ft, 3 ft contours, surveyed 2003, 476 acres: .../wildlife/maps/knoxlake2.pdf | 1,202 ft, 3 ft contours, surveyed 1999, 1,033 acres: .../wildlife/maps/clearforkreservoir2.pdf |
 | Tonight forecast | NWS grid ILN 78,65 | NWS grid ILN 72,76 | NWS grid CLE 60,17 | NWS grid CLE 55,26 |
@@ -218,7 +218,7 @@ Map pins (`js/lake-map-data-deercreek.js`, `-madison.js`, `-knox.js`, `-clearfor
 No bait shop pins for these four: no official source was used for shops.
 
 Gaps (said on the site, never filled in):
-- No public lake level or water temperature at Madison Lake, Knox Lake or Clear Fork Reservoir; no public water temperature at Deer Creek Lake.
+- No public lake level or water temperature at Madison Lake, Knox Lake or Clear Fork Reservoir; no lake surface temperature at Deer Creek Lake (the site shows the Corps outflow temperature, labelled outflow).
 - Deer Creek Lake's level is the Corps of Engineers reading; values are provisional. It is drawn down in the fall, so fall readings sit below full pool.
 - No ODNR stocking or survey PDFs for these four on the Stocking page beyond the dashboard numbers above.
 - No ice reports, no 2026 dock pull dates, and no community trips logged at these lakes yet.
@@ -334,6 +334,35 @@ Gaps (said on the site, never filled in):
 - No max depth listed by ODNR for West Branch, Lake Milton or Leesville. ODNR gives Lake Milton's build year as 1916 on the fishing page and 1913 on the park page.
 - No 2023 walleye stocking listed at Pymatuning or West Branch. No northern pike species page.
 - Berlin's ODNR survey PDFs are linked, not copied. No ODNR ice reports, and no community trips logged at these lakes yet.
+
+## Lakes: Grand Lake St. Marys, Caesar Creek Lake and East Fork Lake (preview), checked Nov. 9, 2026
+
+Same system as the other lakes: `?lake=grandlakestmarys|caesarcreek|eastfork`, home pages at `/grandlakestmarys/`, `/caesarcreek/`, `/eastfork/` (built by `tools/build-lake-pages.py`), per lake settings in `js/lakes.js`. Grand Lake St. Marys is region `northwest` ("West central Ohio"); Caesar Creek and East Fork are region `southwest` ("Southwest Ohio"). All three have a USGS lake gauge. None has a public lake surface temperature gauge. East Fork shows the Corps outflow temperature, labelled outflow; Caesar Creek names the Corps temperature profile with its date. Neither feeds the bite rating.
+
+| Setting | Grand Lake St. Marys | Caesar Creek Lake | East Fork Lake (William H. Harsha Lake) |
+|---|---|---|---|
+| Lake level | USGS 403204084342601, parameter 62614: https://waterdata.usgs.gov/monitoring-location/USGS-403204084342601/ | USGS 03242340, parameter 62614: https://waterdata.usgs.gov/monitoring-location/USGS-03242340/ | USGS 03247040, parameter 62614: https://waterdata.usgs.gov/monitoring-location/USGS-03247040/ |
+| Water temp | None. The site says "No public temperature gauge on this water" | No live temperature. USACE Louisville District temperature profile, latest Oct. 19, 2026: https://www.lrl-wc.usace.army.mil/reports/wq/CCK.html (named with its date, never shown as live). The unlabeled daily CWMS series CaesarCreek.Temp-Water.Inst.~1Day.0.lrldlb-raw is not used | USACE outflow temperature, every 15 minutes, CWMS LRL WHHarshaTW.Temp-Water.Inst.15Minutes.0.USGS-raw: https://cwms-data.usace.army.mil/cwms-data/timeseries?office=LRL&name=WHHarshaTW.Temp-Water.Inst.15Minutes.0.USGS-raw (65.66 F at 3:00 p.m. ET Nov. 9, 2026). Labelled outflow, not lake surface. The Corps profile (latest Oct. 16, 2026, https://www.lrl-wc.usace.army.mil/reports/wq/EFR.html) is named on the pool card |
+| Full pool used | 871 ft, ODNR fishing map | 849 ft, ODNR fishing map (Corps winter pool 846 ft) | 733 ft summer pool, ODNR fishing map (winter pool 729 ft) |
+| Map pool (contour datum) | 871 ft: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/grandlakestmarys2.pdf | 849 ft: .../caesarcreeklake2.pdf | 733 ft: .../eastforklake2.pdf |
+| Tonight forecast | NWS grid ILN 31,102 | NWS grid ILN 52,59 | NWS grid ILN 49,35 |
+| Barometer / observations | KAXV, Neil Armstrong airport | KGDK, Xenia airport | KI69, Batavia airport |
+| Alerts | OHC107, OHZ034 | OHC165, OHZ071 | OHC025, OHZ078 |
+| Boating rules shown | ODNR Grand Lake St. Marys State Park and Fishing Area: unlimited hp, no wake within 300 ft of shore, the state wildlife refuge on the southwest corner closed to boats | ODNR Caesar Creek State Park and Reservoir Fishing Area: unlimited hp | ODNR East Fork State Park and Lake Fishing Area: no hp limit, two of eight ramps hand powered only |
+
+Regulations (2026–27, ODNR Fishing Regulations PDF): crappie 30 a day, 9″ minimum at all three. Grand Lake St. Marys trotlines only in the area bounded by Prairie Creek, Big Chickasaw Creek and the buoy line. No paddlefish may be taken in Caesar Creek Lake or East Fork Lake or within 2,000 ft of either lake and dam. Muskellunge: 1 a day statewide, no minimum.
+
+ODNR Fish Stocking dashboard (https://analytics.das.ohio.gov/t/DOPPUB/views/ODNR_Fish_Stocking/FishStocking, read Nov. 9, 2026), 2016 to 2025: Grand Lake St. Marys yellow perch most years (2025: 397,834 fingerlings), triploid saugeye in 2025 (214,403 fingerlings plus fry) and channel catfish in 2017 (15,898); Caesar Creek saugeye every year (2025: 2,984,565 fry), muskellunge every year (2025: 1,828 advanced fingerlings), blue catfish 2018 to 2022 and 2024 (2024: 14,739) and rainbow trout in 2025; East Fork hybrid striped bass every year (2025: 1,150,000 fry), saugeye every year since 2018 (2025: 212,290), blue catfish every year since 2022 (2025: 21,091) and muskellunge only in 2016 (not listed as stocked on the site).
+
+Map pins (`js/lake-map-data-grandlakestmarys.js`, `-caesarcreek.js`, `-eastfork.js`; shorelines traced from OpenStreetMap, not for navigation): ramp names, roads and coordinates from the ODNR Watercraft boating facilities layer (gis.ohiodnr.gov FacilityGuide), checked against each ODNR state park and fishing area page. Grand Lake St. Marys: seven state ramps plus the City of Celina (Mercelina Park) and Village of Montezuma ramps. Caesar Creek: Wellman Meadows, Furnas Shores, North Pool, Campground and Haines (Young Rd). East Fork: North Shore (with fishing pier), Campground, Slade Road, Tate, Reisinger and Tunnel Mill. The chart mark is the state park marina ramp (Grand Lake St. Marys) or the dam (Caesar Creek Dam and William H. Harsha Dam, Corps CWMS locations).
+
+Bait nearby (`data/bait-shops.json`): each shop's Google Maps listing was open with recent reviews on Nov. 9, 2026. Drive times are OSRM estimates rounded to 5 minutes. Caesar Creek's are measured from the state park marina, because the lake's center point gave times that did not match the roads.
+
+Gaps (said on the site, never filled in):
+- No lake surface water temperature at any of the three. East Fork's is an outflow reading; Caesar Creek's profile is dated, not live.
+- Hand launches not pinned: Caesar Creek's North Pool hand launch and East Fork's two hand powered ramps.
+- ODNR's Grand Lake St. Marys park page says eight ramps; the fishing area page and boating layer list seven state ramps.
+- No ODNR ice reports, and no community trips logged at these lakes yet.
 
 ## Lake-aware Species (js/species-lake.js)
 

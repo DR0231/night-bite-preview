@@ -32,9 +32,9 @@
   <link rel="preload" href="../assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="../js/a11y-boot.js?v=v116-2026-11-05"></script>
-  <link rel="stylesheet" href="../css/styles.css?v=v116-2026-11-05">
-  <script src="../js/lakes.js?v=v116-2026-11-05"></script>
+  <script src="../js/a11y-boot.js?v=v117-2026-11-09"></script>
+  <link rel="stylesheet" href="../css/styles.css?v=v117-2026-11-09">
+  <script src="../js/lakes.js?v=v117-2026-11-09"></script>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nightbiteoh.com/"}, {"@type": "ListItem", "position": 2, "name": "Species", "item": "https://nightbiteoh.com/species/"}, {"@type": "ListItem", "position": 3, "name": "Black crappie", "item": "https://nightbiteoh.com/species/black-crappie"}]}
   </script>
@@ -101,6 +101,9 @@
     <p class="lake-note" data-for="pymatuning">ODNR lists black crappie at Pymatuning Lake.</p>
     <p class="lake-note" data-for="milton">ODNR lists black crappie at Lake Milton.</p>
     <p class="lake-note" data-for="leesville">ODNR lists black crappie at Leesville Lake.</p>
+    <p class="lake-note" data-for="grandlakestmarys">ODNR lists black crappie at Grand Lake St. Marys.</p>
+    <p class="lake-note" data-for="caesarcreek">ODNR lists black crappie at Caesar Creek Lake.</p>
+    <p class="lake-note" data-for="eastfork">ODNR lists black crappie at East Fork Lake.</p>
     <!-- stocking-line -->
     <p class="meta sp-stock" data-for="hoover">ODNR trap nets: Hoover crappie average 9.9 in at age 3 (Ohio 9.5). <a href="../stocking?lake=hoover#growth">Stocking &amp; surveys</a></p>
     <p class="meta sp-stock" data-for="alum">ODNR trap nets: Alum Creek crappie average 10.8 in at age 3 (Ohio 9.5). <a href="../stocking?lake=alum#growth">Stocking &amp; surveys</a></p>
@@ -110,9 +113,9 @@
 
     <div class="sp-now" id="sp-now" data-species="black-crappie" hidden></div>
     <!-- filled right here, before paint, from the month's picks for the active lake -->
-    <script src="../js/biting-data.js?v=v116-2026-11-05"></script>
-    <script src="../js/biting-data-lakes.js?v=v116-2026-11-05"></script>
-    <script src="../js/species-lake.js?v=v116-2026-11-05"></script>
+    <script src="../js/biting-data.js?v=v117-2026-11-09"></script>
+    <script src="../js/biting-data-lakes.js?v=v117-2026-11-09"></script>
+    <script src="../js/species-lake.js?v=v117-2026-11-09"></script>
 
     <nav class="species-subnav" aria-label="On this page">
       <a href="#season">Season</a>
@@ -433,12 +436,54 @@
       </ul>
       </div>
       </div>
+      <div data-for="grandlakestmarys">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>State park shore, the accessible pier at East Bank and the accessible fishing access at West Bank (ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>Unlimited horsepower; no wake within 300 ft of shore, and the southwest refuge is closed to boats (ODNR). Most of the lake is under 7 ft.</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="caesarcreek">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>State park shore and the Corps fishing access at the dam and tailwater (ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>Unlimited horsepower (ODNR). Steep shorelines drop fast into deep water; bays hold standing timber and brush.</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="eastfork">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>The fishing pier at the North Shore ramp and any pond on park land (ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>No horsepower limit (ODNR). The shoreline is steep and rocky; timber was left standing up the creeks.</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
     </section>
 
     <section id="limits" class="species-section">
       <h2>Limits <span class="regs-tag">reminder, verify</span></h2>
-      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito milton"><span data-lk="short">Hoover</span> has its own crappie rule in the 2026–27 booklet: 30 a day, 9″ minimum. ODNR has proposed dropping the 9″ minimum from <time datetime="2027-03-01">March 1, 2027</time>, so check the current rules before you keep fish.</p>
-      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito milton">
+      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito milton grandlakestmarys caesarcreek eastfork"><span data-lk="short">Hoover</span> has its own crappie rule in the 2026–27 booklet: 30 a day, 9″ minimum. ODNR has proposed dropping the 9″ minimum from <time datetime="2027-03-01">March 1, 2027</time>, so check the current rules before you keep fish.</p>
+      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito milton grandlakestmarys caesarcreek eastfork">
         <table class="access-table regs-table">
           <thead>
             <tr><th scope="col">Rule</th><th scope="col">Reminder (verify 2026–27)</th></tr>
@@ -502,6 +547,9 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="meta" data-for="pymatuning">Sized for bank reality and small boats. Pymatuning has a 20 hp limit.</p>
       <p class="meta" data-for="milton">Sized for bank reality and small boats. Lake Milton has no horsepower restrictions.</p>
       <p class="meta" data-for="leesville">Sized for bank reality and small boats. Leesville Lake has a 10 hp limit.</p>
+      <p class="meta" data-for="grandlakestmarys">Sized for bank reality and small boats. Grand Lake St. Marys has no horsepower limit; watch the wind on open water.</p>
+      <p class="meta" data-for="caesarcreek">Sized for bank reality and small boats. Caesar Creek Lake has no horsepower limit; the lower lake is deep and steep.</p>
+      <p class="meta" data-for="eastfork">Sized for bank reality and small boats. East Fork Lake has no horsepower limit; the shoreline drops fast into deep water.</p>
       <div class="mode-panel" data-mode="bank">
       <ul>
         <li>Light spinning, 4–6 lb line, bobbers or light jigs.</li>
@@ -564,15 +612,15 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="../js/refresh.js?v=v116-2026-11-05"></script>
-  <script src="../js/sw-update.js?v=v116-2026-11-05"></script>
-  <script src="../js/alerts.js?v=v116-2026-11-05"></script>
-  <script src="../js/nav.js?v=v116-2026-11-05"></script>
-  <script src="../js/visits.js?v=v116-2026-11-05"></script>
-  <script src="../js/lake-picker.js?v=v116-2026-11-05"></script>
-  <script src="../js/sticky-nav.js?v=v116-2026-11-05"></script>
-  <script src="../js/mode-toggle.js?v=v116-2026-11-05"></script>
+  <script src="../js/refresh.js?v=v117-2026-11-09"></script>
+  <script src="../js/sw-update.js?v=v117-2026-11-09"></script>
+  <script src="../js/alerts.js?v=v117-2026-11-09"></script>
+  <script src="../js/nav.js?v=v117-2026-11-09"></script>
+  <script src="../js/visits.js?v=v117-2026-11-09"></script>
+  <script src="../js/lake-picker.js?v=v117-2026-11-09"></script>
+  <script src="../js/sticky-nav.js?v=v117-2026-11-09"></script>
+  <script src="../js/mode-toggle.js?v=v117-2026-11-09"></script>
 
-  <script src="../js/a11y.js?v=v116-2026-11-05" defer></script>
+  <script src="../js/a11y.js?v=v117-2026-11-09" defer></script>
 </body>
 </html>

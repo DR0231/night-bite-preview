@@ -2,6 +2,41 @@
   "about": "What's new on The Night Bite, newest first. Edit this file, then run: python3 tools/build-updates.py (see README, 'What's new'). Entries come from what actually shipped to nightbiteoh.com. An entry with \"draft\": true and \"date\": null is on the preview only: it shows on the preview, and is hidden on nightbiteoh.com until you set the date and remove the draft flag at promotion.",
   "entries": [
     {
+      "id": "draft-tier-b-three",
+      "date": null,
+      "draft": true,
+      "tag": "New",
+      "title": "Grand Lake St. Marys, Caesar Creek Lake and East Fork Lake",
+      "bullets": [
+        "Pick Grand Lake St. Marys, Caesar Creek Lake or East Fork Lake with the lake picker, under the new Northwest and Southwest headings. Each has its own home page.",
+        "Each lake has its own map and ramps, lake rules, species notes, dock season and Bait nearby, and reads its USGS lake gauge.",
+        "Water temp is labelled for what it is: East Fork, Alum Creek and Deer Creek Lake show the Army Corps outflow temperature, marked outflow and never counted in the bite rating. Caesar Creek names the Corps temperature profile with its date. Grand Lake St. Marys has no public temperature gauge and says so.",
+        "Stocking & surveys adds ten years of ODNR stocking for all three, from ODNR’s Fish Stocking dashboard."
+      ],
+      "links": [
+        {
+          "label": "Water",
+          "href": "water"
+        },
+        {
+          "label": "Stocking & surveys",
+          "href": "stocking"
+        },
+        {
+          "label": "Grand Lake St. Marys",
+          "href": "grandlakestmarys/"
+        },
+        {
+          "label": "Caesar Creek Lake",
+          "href": "caesarcreek/"
+        },
+        {
+          "label": "East Fork Lake",
+          "href": "eastfork/"
+        }
+      ]
+    },
+    {
       "id": "draft-six-east-southeast",
       "date": null,
       "draft": true,

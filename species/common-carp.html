@@ -32,9 +32,9 @@
   <link rel="preload" href="../assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="../js/a11y-boot.js?v=v116-2026-11-05"></script>
-  <link rel="stylesheet" href="../css/styles.css?v=v116-2026-11-05">
-  <script src="../js/lakes.js?v=v116-2026-11-05"></script>
+  <script src="../js/a11y-boot.js?v=v117-2026-11-09"></script>
+  <link rel="stylesheet" href="../css/styles.css?v=v117-2026-11-09">
+  <script src="../js/lakes.js?v=v117-2026-11-09"></script>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nightbiteoh.com/"}, {"@type": "ListItem", "position": 2, "name": "Species", "item": "https://nightbiteoh.com/species/"}, {"@type": "ListItem", "position": 3, "name": "Common carp", "item": "https://nightbiteoh.com/species/common-carp"}]}
   </script>
@@ -101,12 +101,15 @@
     <p class="lake-note" data-for="pymatuning">Not a regular at Pymatuning Lake: ODNR doesn't list it there. The rest of this page is Hoover notes.</p>
     <p class="lake-note" data-for="milton">Not a regular at Lake Milton: ODNR doesn't list it there. The rest of this page is Hoover notes.</p>
     <p class="lake-note" data-for="leesville">Not a regular at Leesville Lake: ODNR doesn't list it there. The rest of this page is Hoover notes.</p>
+    <p class="lake-note" data-for="grandlakestmarys">ODNR lists common carp at Grand Lake St. Marys.</p>
+    <p class="lake-note" data-for="caesarcreek">Not a regular at Caesar Creek Lake: ODNR doesn't list it there. The rest of this page is Hoover notes.</p>
+    <p class="lake-note" data-for="eastfork">Not a regular at East Fork Lake: ODNR doesn't list it there. The rest of this page is Hoover notes.</p>
 
     <div class="sp-now" id="sp-now" data-species="common-carp" hidden></div>
     <!-- filled right here, before paint, from the month's picks for the active lake -->
-    <script src="../js/biting-data.js?v=v116-2026-11-05"></script>
-    <script src="../js/biting-data-lakes.js?v=v116-2026-11-05"></script>
-    <script src="../js/species-lake.js?v=v116-2026-11-05"></script>
+    <script src="../js/biting-data.js?v=v117-2026-11-09"></script>
+    <script src="../js/biting-data-lakes.js?v=v117-2026-11-09"></script>
+    <script src="../js/species-lake.js?v=v117-2026-11-09"></script>
 
     <nav class="species-subnav" aria-label="On this page">
       <a href="#season">Season</a>
@@ -179,12 +182,28 @@
       <p data-for="pymatuning">Not a regular at Pymatuning Lake, so there are no where notes for this lake. See the Hoover notes on the Hoover view.</p>
       <p data-for="milton">Not a regular at Lake Milton, so there are no where notes for this lake. See the Hoover notes on the Hoover view.</p>
       <p data-for="leesville">Not a regular at Leesville Lake, so there are no where notes for this lake. See the Hoover notes on the Hoover view.</p>
+      <div data-for="grandlakestmarys">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>State park shore, the accessible pier at East Bank and the accessible fishing access at West Bank (ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>Unlimited horsepower; no wake within 300 ft of shore, and the southwest refuge is closed to boats (ODNR). Most of the lake is under 7 ft.</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
+      <p data-for="caesarcreek">Not a regular at Caesar Creek Lake, so there are no where notes for this lake. See the Hoover notes on the Hoover view.</p>
+      <p data-for="eastfork">Not a regular at East Fork Lake, so there are no where notes for this lake. See the Hoover notes on the Hoover view.</p>
     </section>
 
     <section id="limits" class="species-section">
       <h2>Limits <span class="regs-tag">reminder, verify</span></h2>
-      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville">Carp aren’t on the statewide limits table; confirm in the current booklet before you keep fish.</p>
-      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville">
+      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork">Carp aren’t on the statewide limits table; confirm in the current booklet before you keep fish.</p>
+      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork">
         <table class="access-table regs-table">
           <thead>
             <tr><th scope="col">Rule</th><th scope="col">Reminder (verify 2026–27)</th></tr>
@@ -235,6 +254,9 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="meta" data-for="pymatuning">Sized for bank reality and small boats. Pymatuning has a 20 hp limit.</p>
       <p class="meta" data-for="milton">Sized for bank reality and small boats. Lake Milton has no horsepower restrictions.</p>
       <p class="meta" data-for="leesville">Sized for bank reality and small boats. Leesville Lake has a 10 hp limit.</p>
+      <p class="meta" data-for="grandlakestmarys">Sized for bank reality and small boats. Grand Lake St. Marys has no horsepower limit; watch the wind on open water.</p>
+      <p class="meta" data-for="caesarcreek">Sized for bank reality and small boats. Caesar Creek Lake has no horsepower limit; the lower lake is deep and steep.</p>
+      <p class="meta" data-for="eastfork">Sized for bank reality and small boats. East Fork Lake has no horsepower limit; the shoreline drops fast into deep water.</p>
       <div class="mode-panel" data-mode="bank">
       <ul>
         <li>Hair rigs or simple slip-sinker with corn/boilies where allowed.</li>
@@ -295,15 +317,15 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="../js/refresh.js?v=v116-2026-11-05"></script>
-  <script src="../js/sw-update.js?v=v116-2026-11-05"></script>
-  <script src="../js/alerts.js?v=v116-2026-11-05"></script>
-  <script src="../js/nav.js?v=v116-2026-11-05"></script>
-  <script src="../js/visits.js?v=v116-2026-11-05"></script>
-  <script src="../js/lake-picker.js?v=v116-2026-11-05"></script>
-  <script src="../js/sticky-nav.js?v=v116-2026-11-05"></script>
-  <script src="../js/mode-toggle.js?v=v116-2026-11-05"></script>
+  <script src="../js/refresh.js?v=v117-2026-11-09"></script>
+  <script src="../js/sw-update.js?v=v117-2026-11-09"></script>
+  <script src="../js/alerts.js?v=v117-2026-11-09"></script>
+  <script src="../js/nav.js?v=v117-2026-11-09"></script>
+  <script src="../js/visits.js?v=v117-2026-11-09"></script>
+  <script src="../js/lake-picker.js?v=v117-2026-11-09"></script>
+  <script src="../js/sticky-nav.js?v=v117-2026-11-09"></script>
+  <script src="../js/mode-toggle.js?v=v117-2026-11-09"></script>
 
-  <script src="../js/a11y.js?v=v116-2026-11-05" defer></script>
+  <script src="../js/a11y.js?v=v117-2026-11-09" defer></script>
 </body>
 </html>

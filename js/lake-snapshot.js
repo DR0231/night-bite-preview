@@ -52,9 +52,10 @@
     checked.appendChild(a(P.gaugeUrl, "Live " + P.srcName + " gauge"));
     checked.appendChild(document.createTextNode("."));
   }
-  if (temp && !P.temp) temp.textContent = "No public water temp gauge";
+  var note = P.temp ? "" : P.outflow ? " USACE outflow temp; it is not lake surface temperature." :
+    P.profile ? " No live water temp; the Corps posts a temperature profile." : " No public water temp gauge on this lake.";
+  if (temp && !P.temp) temp.textContent = P.outflow ? "USACE outflow temp, not lake surface" : P.profile ? "No live water temp" : "No public water temp gauge";
   if (status) {
-    status.textContent = "Provisional snapshot; your browser may refresh it from " + P.srcName + "." +
-      (P.temp ? "" : " No public water temp gauge on this lake.") + " Never invented.";
+    status.textContent = "Provisional snapshot; your browser may refresh it from " + P.srcName + "." + note + " Never invented.";
   }
 })();

@@ -32,9 +32,9 @@
   <link rel="preload" href="../assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="../js/a11y-boot.js?v=v116-2026-11-05"></script>
-  <link rel="stylesheet" href="../css/styles.css?v=v116-2026-11-05">
-  <script src="../js/lakes.js?v=v116-2026-11-05"></script>
+  <script src="../js/a11y-boot.js?v=v117-2026-11-09"></script>
+  <link rel="stylesheet" href="../css/styles.css?v=v117-2026-11-09">
+  <script src="../js/lakes.js?v=v117-2026-11-09"></script>
 </head>
 <body>
   <a class="sr-only" href="#main">Skip to content</a>
@@ -98,6 +98,9 @@
       <span data-for="pymatuning">Pymatuning hub: walleye, muskie, perch and crappie under the Ohio–Pennsylvania rules, plus bass, white bass, channel cats and bluegill.</span>
       <span data-for="milton">Lake Milton hub: stocked walleye and muskie, plus white bass, smallmouth and largemouth, crappie, channel cats, bluegill, perch and bullhead.</span>
       <span data-for="leesville">Leesville Lake hub: stocked muskie, saugeye and channel cats, plus hybrid stripers, bass, crappie, bluegill and perch.</span>
+      <span data-for="grandlakestmarys">Grand Lake St. Marys hub: crappie under a 30 fish, 9″ rule, stocked perch and saugeye, plus walleye, largemouth, channel and flathead cats, bluegill, bullhead and carp.</span>
+      <span data-for="caesarcreek">Caesar Creek Lake hub: stocked muskie, saugeye and blue cats, plus channel cats, largemouth and smallmouth bass, white bass, crappie under a 30 fish, 9″ rule and yellow perch.</span>
+      <span data-for="eastfork">East Fork Lake hub: stocked hybrid stripers, saugeye and blue cats, plus largemouth and smallmouth bass, crappie under a 30 fish, 9″ rule, bluegill and white bass.</span>
       <span data-for="hoover">Night is especially useful for channel and flathead (blues too); it is not the best approach for every species.</span>
       <span data-for="alum">Night is especially useful for saugeye and channel cats; muskie and crappie are mostly low light and daytime fish.</span>
       <span data-for="buckeye">Night is especially useful for saugeye and channel cats; crappie, perch and bluegill are mostly daytime fish.</span>
@@ -121,6 +124,9 @@
       <span data-for="pymatuning">Night is especially useful for walleye and channel cats; perch and crappie are mostly daytime fish.</span>
       <span data-for="milton">Night is especially useful for walleye and channel cats; muskie and crappie are mostly low light and daytime fish.</span>
       <span data-for="leesville">Night is especially useful for saugeye and channel cats; muskie and crappie are mostly low light and daytime fish.</span>
+      <span data-for="grandlakestmarys">Night is especially useful for saugeye, walleye and catfish; crappie and perch are mostly daytime fish.</span>
+      <span data-for="caesarcreek">Night is especially useful for saugeye and catfish; muskie and crappie are mostly daytime fish.</span>
+      <span data-for="eastfork">Night is especially useful for saugeye, hybrid stripers and blue cats; crappie and bluegill are mostly daytime fish.</span>
       Filter the grid, then open a species card for season · where · limits · gear · bait.
     </p>
     <section class="bento-card biting-card" id="biting" aria-labelledby="biting-title" hidden>
@@ -131,9 +137,9 @@
       <p class="meta biting-note">Changes each month. Typical patterns from the species pages and ODNR, not a fishing report.</p>
     </section>
     <!-- rendered right here, before the filters and grid below exist, so filling the card never pushes them down -->
-    <script src="../js/biting-data.js?v=v116-2026-11-05"></script>
-    <script src="../js/biting-data-lakes.js?v=v116-2026-11-05"></script>
-    <script src="../js/biting.js?v=v116-2026-11-05"></script>
+    <script src="../js/biting-data.js?v=v117-2026-11-09"></script>
+    <script src="../js/biting-data-lakes.js?v=v117-2026-11-09"></script>
+    <script src="../js/biting.js?v=v117-2026-11-09"></script>
     <div class="filter-chips" role="group" aria-label="Filter species">
       <button type="button" class="filter-chip is-active" data-filter="all">All</button>
       <button type="button" class="filter-chip" data-filter="cats">Cats</button>
@@ -150,7 +156,7 @@
       <button type="button" class="filter-chip" data-mode-filter="boat">Boat-friendly</button>
     </div>
     <div class="card-grid cols-2" id="species-grid">
-      <a class="card species-card" data-group="cats" href="channel-catfish" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork dillon logan burroak dow mosquito berlin westbranch pymatuning milton leesville" data-season="night" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="cats" href="channel-catfish" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork dillon logan burroak dow mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek" data-season="night" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-channel-catfish.svg" alt="" width="32" height="32"> Channel catfish</h3>
         <p class="meta" data-for="hoover">Hoover’s workhorse night fish, reliable on cut bait and crawlers from the bank or a 10 hp boat.</p>
         <p class="meta" data-for="alum">Present at Alum Creek. Night flats and creek channel edges with cut bait or crawlers; not the headline fish here.</p>
@@ -173,8 +179,10 @@
         <p class="meta" data-for="pymatuning">ODNR lists channel catfish at Pymatuning Lake.</p>
         <p class="meta" data-for="milton">ODNR lists channel catfish at Lake Milton.</p>
         <p class="meta" data-for="leesville">Stocked by ODNR at Leesville Lake every other year (10,125 in 2025).</p>
+        <p class="meta" data-for="grandlakestmarys">ODNR lists channel catfish at Grand Lake St. Marys and stocked 15,898 fingerlings in 2017.</p>
+        <p class="meta" data-for="caesarcreek">ODNR lists channel catfish at Caesar Creek Lake.</p>
       </a>
-      <a class="card species-card" data-group="cats" href="blue-catfish" data-lakes="hoover alum oshaughnessy seneca dillon burroak westbranch" data-season="night" data-mode="boat" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="cats" href="blue-catfish" data-lakes="hoover alum oshaughnessy seneca dillon burroak westbranch caesarcreek eastfork" data-season="night" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-blue-catfish.svg" alt="" width="32" height="32"> Blue catfish</h3>
         <p class="meta" data-for="hoover">Trophy fishery. Blues were first stocked in 2011 and have become a Hoover highlight.</p>
         <p class="meta" data-for="alum">Stocked by ODNR at Alum Creek in 2023, 2024 and 2025.</p>
@@ -183,22 +191,26 @@
         <p class="meta" data-for="dillon">Stocked by ODNR at Dillon Lake every year since 2022, as fry and advanced fingerlings.</p>
         <p class="meta" data-for="burroak">Stocked by ODNR at Burr Oak every year since 2022 (6,886 advanced fingerlings in 2025).</p>
         <p class="meta" data-for="westbranch">Stocked by ODNR at West Branch every year since 2023 (27,612 in 2025).</p>
+        <p class="meta" data-for="caesarcreek">Stocked by ODNR at Caesar Creek Lake 2018 to 2022 and in 2024 (14,739 advanced fingerlings in 2024).</p>
+        <p class="meta" data-for="eastfork">Stocked by ODNR at East Fork Lake every year since 2022: 21,091 advanced fingerlings in 2025.</p>
       </a>
-      <a class="card species-card" data-group="cats" href="flathead-catfish" data-lakes="hoover indian knox burroak" data-season="night" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="cats" href="flathead-catfish" data-lakes="hoover indian knox burroak grandlakestmarys" data-season="night" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-flathead-catfish.svg" alt="" width="32" height="32"> Flathead catfish</h3>
         <p class="meta" data-for="hoover">Strong flathead presence. Live or fresh bait near wood, rock, and channel structure after dark.</p>
         <p class="meta" data-for="indian">A natural flathead population that has grown over the past decade, ODNR says, with 20 to 30 lb fish caught every year.</p>
         <p class="meta" data-for="knox">ODNR says Knox Lake is heavily targeted for large trophy flathead catfish.</p>
         <p class="meta" data-for="burroak">ODNR says flathead catfish are occasionally caught at Burr Oak.</p>
+        <p class="meta" data-for="grandlakestmarys">ODNR lists flathead catfish at Grand Lake St. Marys.</p>
       </a>
-      <a class="card species-card" data-group="cats" href="bullhead" data-lakes="buckeye madison westbranch milton" data-season="night" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="cats" href="bullhead" data-lakes="buckeye madison westbranch milton grandlakestmarys" data-season="night" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-bullhead.svg" alt="" width="32" height="32"> Bullhead</h3>
         <p class="meta" data-for="buckeye">Listed by ODNR at Buckeye Lake. Small, easy night cats on crawlers from the bank; no Ohio daily limit listed.</p>
         <p class="meta" data-for="madison">Listed on ODNR&rsquo;s Madison Lake State Park page among its plentiful catches.</p>
         <p class="meta" data-for="westbranch">ODNR lists bullhead at West Branch Reservoir.</p>
         <p class="meta" data-for="milton">ODNR lists bullhead at Lake Milton.</p>
+        <p class="meta" data-for="grandlakestmarys">ODNR lists bullhead at Grand Lake St. Marys.</p>
       </a>
-      <a class="card species-card" data-group="bass" href="largemouth-bass" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch pymatuning milton leesville" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="bass" href="largemouth-bass" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek eastfork" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-largemouth-bass.svg" alt="" width="32" height="32"> Largemouth bass</h3>
         <p class="meta" data-for="hoover">More abundant than smallmouth on Hoover. Docks, weeds, and shoreline cover (public water).</p>
         <p class="meta" data-for="alum">Cove cover and shoreline wood, best in the coves north of Cheshire Road.</p>
@@ -223,8 +235,11 @@
         <p class="meta" data-for="pymatuning">ODNR lists largemouth bass at Pymatuning Lake.</p>
         <p class="meta" data-for="milton">ODNR lists largemouth bass at Lake Milton.</p>
         <p class="meta" data-for="leesville">ODNR lists largemouth bass at Leesville Lake.</p>
+        <p class="meta" data-for="grandlakestmarys">ODNR lists largemouth bass at Grand Lake St. Marys.</p>
+        <p class="meta" data-for="caesarcreek">ODNR lists largemouth bass at Caesar Creek Lake.</p>
+        <p class="meta" data-for="eastfork">ODNR lists largemouth bass at East Fork Lake.</p>
       </a>
-      <a class="card species-card" data-group="bass" href="smallmouth-bass" data-lakes="hoover alum oshaughnessy griggs indian delaware deercreek seneca dillon saltfork berlin westbranch pymatuning milton leesville" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="bass" href="smallmouth-bass" data-lakes="hoover alum oshaughnessy griggs indian delaware deercreek seneca dillon saltfork berlin westbranch pymatuning milton leesville caesarcreek eastfork" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-smallmouth-bass.svg" alt="" width="32" height="32"> Smallmouth bass</h3>
         <p class="meta" data-for="hoover">Present but less abundant than largemouth. Look to rock, points, and clearer main-lake edges.</p>
         <p class="meta" data-for="alum">A real Alum Creek target. Rock, points and clearer main lake edges, moving up early in spring.</p>
@@ -241,8 +256,10 @@
         <p class="meta" data-for="pymatuning">ODNR lists smallmouth bass at Pymatuning Lake.</p>
         <p class="meta" data-for="milton">ODNR lists smallmouth bass at Lake Milton.</p>
         <p class="meta" data-for="leesville">ODNR lists smallmouth bass at Leesville Lake.</p>
+        <p class="meta" data-for="caesarcreek">ODNR lists smallmouth bass at Caesar Creek Lake.</p>
+        <p class="meta" data-for="eastfork">ODNR lists smallmouth bass at East Fork Lake.</p>
       </a>
-      <a class="card species-card" data-group="panfish" href="black-crappie" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak mosquito berlin westbranch pymatuning milton leesville" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="panfish" href="black-crappie" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek eastfork" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-black-crappie.svg" alt="" width="32" height="32"> Black crappie</h3>
         <p class="meta" data-for="hoover">Solid Hoover panfish: spring banks and brush, then deeper wood and channel edges.</p>
         <p class="meta" data-for="alum">Coves north of Cheshire Road in spring, then brush, docks and standing wood.</p>
@@ -266,8 +283,11 @@
         <p class="meta" data-for="pymatuning">ODNR lists black crappie at Pymatuning Lake.</p>
         <p class="meta" data-for="milton">ODNR lists black crappie at Lake Milton.</p>
         <p class="meta" data-for="leesville">ODNR lists black crappie at Leesville Lake.</p>
+        <p class="meta" data-for="grandlakestmarys">ODNR lists black crappie at Grand Lake St. Marys.</p>
+        <p class="meta" data-for="caesarcreek">ODNR lists black crappie at Caesar Creek Lake.</p>
+        <p class="meta" data-for="eastfork">ODNR lists black crappie at East Fork Lake.</p>
       </a>
-      <a class="card species-card" data-group="panfish" href="white-crappie" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch pymatuning milton leesville" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="panfish" href="white-crappie" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek eastfork" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-white-crappie.svg" alt="" width="32" height="32"> White crappie</h3>
         <p class="meta" data-for="hoover">Shares Hoover with black crappie, with the same spring bank push and deeper summer brush.</p>
         <p class="meta" data-for="alum">Shares the coves and wood with black crappie, with the same spring push.</p>
@@ -292,8 +312,11 @@
         <p class="meta" data-for="pymatuning">ODNR lists white crappie at Pymatuning Lake.</p>
         <p class="meta" data-for="milton">ODNR lists white crappie at Lake Milton.</p>
         <p class="meta" data-for="leesville">ODNR lists white crappie at Leesville Lake.</p>
+        <p class="meta" data-for="grandlakestmarys">ODNR lists white crappie at Grand Lake St. Marys.</p>
+        <p class="meta" data-for="caesarcreek">ODNR lists white crappie at Caesar Creek Lake.</p>
+        <p class="meta" data-for="eastfork">ODNR lists white crappie at East Fork Lake.</p>
       </a>
-      <a class="card species-card" data-group="panfish" href="bluegill" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox seneca dillon logan saltfork burroak mosquito westbranch pymatuning milton leesville" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="panfish" href="bluegill" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox seneca dillon logan saltfork burroak mosquito westbranch pymatuning milton leesville grandlakestmarys eastfork" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-bluegill.svg" alt="" width="32" height="32"> Bluegill / sunfish</h3>
         <p class="meta" data-for="hoover">Good bluegill fishing at Hoover: easy bank sessions, and bait for the cooler where legal.</p>
         <p class="meta" data-for="alum">Easy bank fishing in the coves and around docks at the beach and marina areas (public access only).</p>
@@ -315,8 +338,10 @@
         <p class="meta" data-for="pymatuning">ODNR lists bluegill at Pymatuning Lake.</p>
         <p class="meta" data-for="milton">ODNR lists bluegill at Lake Milton.</p>
         <p class="meta" data-for="leesville">ODNR lists bluegill at Leesville Lake.</p>
+        <p class="meta" data-for="grandlakestmarys">ODNR lists bluegill at Grand Lake St. Marys.</p>
+        <p class="meta" data-for="eastfork">ODNR lists bluegill at East Fork Lake.</p>
       </a>
-      <a class="card species-card" data-group="panfish" href="yellow-perch" data-lakes="hoover alum buckeye indian knox seneca saltfork mosquito westbranch pymatuning milton leesville" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="panfish" href="yellow-perch" data-lakes="hoover alum buckeye indian knox seneca saltfork mosquito westbranch pymatuning milton leesville grandlakestmarys caesarcreek" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-yellow-perch.svg" alt="" width="32" height="32"> Yellow perch</h3>
         <p class="meta" data-for="hoover">Recorded in ODNR fish surveys at Hoover.</p>
         <p class="meta" data-for="alum">Recorded in ODNR fish surveys at Alum Creek.</p>
@@ -330,8 +355,10 @@
         <p class="meta" data-for="pymatuning">ODNR lists yellow perch at Pymatuning Lake.</p>
         <p class="meta" data-for="milton">ODNR lists yellow perch at Lake Milton.</p>
         <p class="meta" data-for="leesville">ODNR lists yellow perch at Leesville Lake.</p>
+        <p class="meta" data-for="grandlakestmarys">Stocked by ODNR at Grand Lake St. Marys most years (397,834 fingerlings in 2025).</p>
+        <p class="meta" data-for="caesarcreek">ODNR lists yellow perch at Caesar Creek Lake.</p>
       </a>
-      <a class="card species-card" data-group="bass" href="white-bass" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek seneca saltfork berlin westbranch pymatuning milton" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="bass" href="white-bass" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek seneca saltfork berlin westbranch pymatuning milton caesarcreek eastfork" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-white-bass.svg" alt="" width="32" height="32"> White bass</h3>
         <p class="meta" data-for="hoover">Confirmed on the ODNR Hoover page, with a spring run up Big Walnut Creek and summer schools chasing shad.</p>
         <p class="meta" data-for="alum">Listed by ODNR for Alum Creek. Schools chasing shad in summer and fall.</p>
@@ -347,8 +374,10 @@
         <p class="meta" data-for="westbranch">ODNR lists white bass at West Branch Reservoir.</p>
         <p class="meta" data-for="pymatuning">ODNR lists white bass at Pymatuning Lake.</p>
         <p class="meta" data-for="milton">ODNR lists white bass at Lake Milton.</p>
+        <p class="meta" data-for="caesarcreek">ODNR lists white bass at Caesar Creek Lake.</p>
+        <p class="meta" data-for="eastfork">ODNR lists white bass at East Fork Lake.</p>
       </a>
-      <a class="card species-card" data-group="bass" href="hybrid-striped-bass" data-lakes="hoover buckeye oshaughnessy griggs dillon leesville" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="bass" href="hybrid-striped-bass" data-lakes="hoover buckeye oshaughnessy griggs dillon leesville eastfork" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-hybrid-striped-bass.svg" alt="" width="32" height="32"> Hybrid striped bass (wiper)</h3>
         <p class="meta" data-for="hoover">Possible in many Ohio reservoirs and share the striped/white combined limit. White bass are confirmed at Hoover; treat hybrids as “possible / verify reports,” not a guarantee.</p>
         <p class="meta" data-for="buckeye">Stocked by ODNR at Buckeye Lake most years, and recorded in its fish surveys.</p>
@@ -356,8 +385,9 @@
         <p class="meta" data-for="griggs">ODNR says Griggs has a strong population of large hybrids, often over 20 inches. In summer heat, watch for schools chasing shad and gulls diving.</p>
         <p class="meta" data-for="dillon">Stocked by ODNR at Dillon Lake every year (21,131 fingerlings in 2025), and listed as plentiful on ODNR&rsquo;s Dillon State Park page.</p>
         <p class="meta" data-for="leesville">ODNR lists hybrid striped bass at Leesville Lake.</p>
+        <p class="meta" data-for="eastfork">Stocked by ODNR at East Fork Lake every year: 1,150,000 fry in 2025.</p>
       </a>
-      <a class="card species-card" data-group="others" href="saugeye" data-lakes="hoover alum buckeye oshaughnessy griggs indian deercreek seneca dillon logan saltfork dow leesville" data-season="night" data-mode="boat" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="others" href="saugeye" data-lakes="hoover alum buckeye oshaughnessy griggs indian deercreek seneca dillon logan saltfork dow leesville grandlakestmarys caesarcreek eastfork" data-season="night" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-saugeye.svg" alt="" width="32" height="32"> Saugeye</h3>
         <p class="meta" data-for="hoover">Stocked saugeye have rebounded since about 2017, a real Hoover target for low-light trolling and casting.</p>
         <p class="meta" data-for="alum">A main Alum Creek target. Dam riprap, causeway rock and channel ledges, best at dusk and after dark.</p>
@@ -372,8 +402,11 @@
         <p class="meta" data-for="saltfork">Stocked by ODNR at Salt Fork Lake every year (458,583 fingerlings in 2025), and recorded in ODNR fish surveys.</p>
         <p class="meta" data-for="dow">Stocked by ODNR at Dow Lake every year (17,963 fingerlings in 2025).</p>
         <p class="meta" data-for="leesville">Stocked by ODNR at Leesville Lake every year (101,544 fingerlings in 2025).</p>
+        <p class="meta" data-for="grandlakestmarys">Stocked by ODNR at Grand Lake St. Marys in 2025 as triploid saugeye (214,403 fingerlings plus fry).</p>
+        <p class="meta" data-for="caesarcreek">Stocked by ODNR at Caesar Creek Lake every year: 2,984,565 fry in 2025.</p>
+        <p class="meta" data-for="eastfork">Stocked by ODNR at East Fork Lake every year since 2018: 212,290 fingerlings in 2025.</p>
       </a>
-      <a class="card species-card" data-group="others" href="walleye" data-lakes="hoover alum indian saltfork mosquito berlin westbranch pymatuning milton" data-season="night" data-mode="boat" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="others" href="walleye" data-lakes="hoover alum indian saltfork mosquito berlin westbranch pymatuning milton grandlakestmarys" data-season="night" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-walleye.svg" alt="" width="32" height="32"> Walleye</h3>
         <p class="meta" data-for="hoover">Stocked in 2019 as part of a study against saugeye. They’re here through stocking, so don’t assume a huge wild population.</p>
         <p class="meta" data-for="alum">Listed for Alum Creek alongside saugeye; they share the combined walleye/saugeye/sauger limit.</p>
@@ -384,8 +417,9 @@
         <p class="meta" data-for="westbranch">Stocked by ODNR at West Branch most years (264,996 fingerlings in 2025; none listed for 2023). 15″ minimum here.</p>
         <p class="meta" data-for="pymatuning">Stocked by ODNR at Pymatuning most years (293,132 fingerlings in 2025; none listed for 2023). Pymatuning rules: 6 a day, 15″ minimum.</p>
         <p class="meta" data-for="milton">Stocked by ODNR at Lake Milton every year (254,873 fingerlings in 2025). 15″ minimum here.</p>
+        <p class="meta" data-for="grandlakestmarys">ODNR lists walleye at Grand Lake St. Marys.</p>
       </a>
-      <a class="card species-card" data-group="others" href="muskellunge" data-lakes="alum clearfork logan saltfork westbranch pymatuning milton leesville" data-mode="boat" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="others" href="muskellunge" data-lakes="alum clearfork logan saltfork westbranch pymatuning milton leesville caesarcreek" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-muskellunge.svg" alt="" width="32" height="32"> Muskellunge</h3>
         <p class="meta" data-for="alum">Stocked by ODNR at Alum Creek. A fish of 10,000 casts, best in fall on big baits along weed edges and causeways.</p>
         <p class="meta" data-for="clearfork">Stocked by ODNR at Clear Fork every year: 664 to 1,482 advanced fingerlings a year from 2021 to 2025.</p>
@@ -395,10 +429,12 @@
         <p class="meta" data-for="pymatuning">ODNR lists muskie at Pymatuning. ODNR&rsquo;s stocking records since 2016 show no muskie stocked on the Ohio side. Pymatuning rules: 2 a day, 30″ minimum.</p>
         <p class="meta" data-for="milton">Stocked by ODNR at Lake Milton every year: 1,096 advanced fingerlings in 2025.</p>
         <p class="meta" data-for="leesville">Stocked by ODNR at Leesville Lake every year: 985 advanced fingerlings in 2025.</p>
+        <p class="meta" data-for="caesarcreek">Stocked by ODNR at Caesar Creek Lake every year: 1,828 advanced fingerlings in 2025.</p>
       </a>
-      <a class="card species-card" data-group="others" href="common-carp" data-lakes="hoover" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="others" href="common-carp" data-lakes="hoover grandlakestmarys" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-common-carp.svg" alt="" width="32" height="32"> Common carp</h3>
         <p class="meta" data-for="hoover">Incidental and intentional carp fishing on public banks. A good fight, and not on the statewide limits table.</p>
+        <p class="meta" data-for="grandlakestmarys">ODNR lists common carp at Grand Lake St. Marys.</p>
       </a>
       <a class="card species-card" data-group="others" href="longnose-gar" data-lakes="hoover" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-longnose-gar.svg" alt="" width="32" height="32"> Longnose gar</h3>
@@ -412,14 +448,14 @@
       <p class="meta"><a href="../water#access">Full access table on the Water page</a></p>
     </section>
     <!-- right after the grid and the access card, before paint: tags this month's picks, moves species not at the lake into their own group -->
-    <script src="../js/hoover-map-data.js?v=v116-2026-11-05"></script>
-    <script src="../js/lake-map-data-alum.js?v=v116-2026-11-05"></script>
-    <script src="../js/lake-map-data-buckeye.js?v=v116-2026-11-05"></script>
-    <script src="../js/lake-map-data-oshaughnessy.js?v=v116-2026-11-05"></script>
-    <script src="../js/lake-map-data-griggs.js?v=v116-2026-11-05"></script>
-    <script src="../js/lake-map-data-indian.js?v=v116-2026-11-05"></script>
-    <script src="../js/lake-map-data-delaware.js?v=v116-2026-11-05"></script>
-    <script src="../js/species-lake.js?v=v116-2026-11-05"></script>
+    <script src="../js/hoover-map-data.js?v=v117-2026-11-09"></script>
+    <script src="../js/lake-map-data-alum.js?v=v117-2026-11-09"></script>
+    <script src="../js/lake-map-data-buckeye.js?v=v117-2026-11-09"></script>
+    <script src="../js/lake-map-data-oshaughnessy.js?v=v117-2026-11-09"></script>
+    <script src="../js/lake-map-data-griggs.js?v=v117-2026-11-09"></script>
+    <script src="../js/lake-map-data-indian.js?v=v117-2026-11-09"></script>
+    <script src="../js/lake-map-data-delaware.js?v=v117-2026-11-09"></script>
+    <script src="../js/species-lake.js?v=v117-2026-11-09"></script>
     <p class="meta">
       Limits on species pages are reminders only. Confirm on HuntFish OH /
       <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/laws-regs-licenses/OhioFishingRegs_English.pdf" target="_blank" rel="noopener">ODNR Fishing Regulations 2026–27 (verify current)</a>.
@@ -445,13 +481,13 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="../js/refresh.js?v=v116-2026-11-05"></script>
-  <script src="../js/sw-update.js?v=v116-2026-11-05"></script>
-  <script src="../js/alerts.js?v=v116-2026-11-05"></script>
-  <script src="../js/nav.js?v=v116-2026-11-05"></script>
-  <script src="../js/visits.js?v=v116-2026-11-05"></script>
-  <script src="../js/lake-picker.js?v=v116-2026-11-05"></script>
-  <script src="../js/species-filter.js?v=v116-2026-11-05"></script>
-  <script src="../js/a11y.js?v=v116-2026-11-05" defer></script>
+  <script src="../js/refresh.js?v=v117-2026-11-09"></script>
+  <script src="../js/sw-update.js?v=v117-2026-11-09"></script>
+  <script src="../js/alerts.js?v=v117-2026-11-09"></script>
+  <script src="../js/nav.js?v=v117-2026-11-09"></script>
+  <script src="../js/visits.js?v=v117-2026-11-09"></script>
+  <script src="../js/lake-picker.js?v=v117-2026-11-09"></script>
+  <script src="../js/species-filter.js?v=v117-2026-11-09"></script>
+  <script src="../js/a11y.js?v=v117-2026-11-09" defer></script>
 </body>
 </html>

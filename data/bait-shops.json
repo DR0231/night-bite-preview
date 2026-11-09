@@ -1,5 +1,5 @@
 {
- "_note": "Bait and tackle shops near each lake, shown on each lake home (js/bait-nearby.js). Each shop was checked open on its Google Maps listing or own site, Oct 30, 2026 (the six east and southeast lakes Oct 31, 2026; the six northeast lakes Nov 3, 2026); evidence in the build notes. min is an estimated drive from the lake, rounded to 5 minutes; lists are in drive time order. lat/lng let a visitor sort from their own location on the device. A lake with an empty list shows No shops confirmed yet. q, when present, is the exact Google Maps search that opens that shop’s own listing (its name plus address opens another business at the same address).",
+ "_note": "Bait and tackle shops near each lake, shown on each lake home (js/bait-nearby.js). Each shop was checked open on its Google Maps listing or own site, Oct 30, 2026 (the six east and southeast lakes Oct 31, 2026; the six northeast lakes Nov 3, 2026; Grand Lake St. Marys, Caesar Creek Lake and East Fork Lake Nov 9, 2026); evidence in the build notes. min is an estimated drive from the lake, rounded to 5 minutes; lists are in drive time order. lat/lng let a visitor sort from their own location on the device. A lake with an empty list shows No shops confirmed yet. q, when present, is the exact Google Maps search that opens that shop’s own listing (its name plus address opens another business at the same address).",
  "lakes": {
   "hoover": [
    {
@@ -358,6 +358,68 @@
     "lat": 40.3638639,
     "lng": -81.2916961,
     "q": "Last Stop Tackle Shop 7815 OH-800, Uhrichsville, OH 44683"
+   }
+  ],
+  "grandlakestmarys": [
+   {
+    "name": "The Outdoorsman",
+    "address": "172 E Bank Rd, St Marys, OH 45885",
+    "min": 15,
+    "lat": 40.5431847,
+    "lng": -84.415272,
+    "q": "The Outdoorsman 172 E Bank Rd, St Marys, OH 45885"
+   },
+   {
+    "name": "East Side Bait & Tackle",
+    "address": "360 Northway Dr, St Marys, OH 45885",
+    "min": 15,
+    "lat": 40.5450114,
+    "lng": -84.4209769,
+    "q": "East Side Bait & Tackle 360 Northway Dr, St Marys, OH 45885"
+   }
+  ],
+  "caesarcreek": [
+   {
+    "name": "Caesar Creek State Park Marina",
+    "address": "8574 OH-73, Waynesville, OH 45068",
+    "min": 5,
+    "lat": 39.5097688,
+    "lng": -84.0213272,
+    "q": "Caesar Creek State Park Marina 8574 OH-73, Waynesville, OH 45068"
+   },
+   {
+    "name": "B & B Carryout",
+    "address": "2028 OH-73, Waynesville, OH 45068",
+    "min": 15,
+    "lat": 39.5468117,
+    "lng": -84.1562727,
+    "q": "B & B Carryout 2028 OH-73, Waynesville, OH 45068"
+   },
+   {
+    "name": "Spillway Party Supply",
+    "address": "7646 Oregonia Rd, Waynesville, OH 45068",
+    "min": 20,
+    "lat": 39.4703369,
+    "lng": -84.0542097,
+    "q": "Spillway Party Supply 7646 Oregonia Rd, Waynesville, OH 45068"
+   }
+  ],
+  "eastfork": [
+   {
+    "name": "Legacy Angler Outfitters",
+    "address": "299 Haskell Ln Building A, Door 23, Batavia, OH 45103",
+    "min": 25,
+    "lat": 39.0835828,
+    "lng": -84.18005,
+    "q": "Legacy Angler Outfitters 299 Haskell Ln Building A, Door 23, Batavia, OH 45103"
+   },
+   {
+    "name": "Boars Head Bait & Carry Out",
+    "address": "2818 Old State Rte 32, Batavia, OH 45103",
+    "min": 30,
+    "lat": 39.0586371,
+    "lng": -84.1018352,
+    "q": "Boars Head Bait & Carry Out 2818 Old State Rte 32, Batavia, OH 45103"
    }
   ]
  }

@@ -16,7 +16,8 @@
  * chosen their Home links point at that lake's home page.
  *
  * Also the shared gauge fetchers: USGS (usgsLatest, usgsSeries: new Water Data API first, legacy IV as fallback) and the
- * Corps CWMS API (cwmsFor, Alum Creek, Delaware Lake, Deer Creek Lake, Dillon Lake and Burr Oak Lake). Madison Lake, Knox Lake,
+ * Corps CWMS API (cwmsFor, Alum Creek, Delaware Lake, Deer Creek Lake, Dillon Lake and Burr Oak Lake), plus the Corps outflow water
+ * temperature where pool.outflow is set (outflowTemp: Alum Creek, Deer Creek Lake), always labelled outflow, never lake surface. Madison Lake, Knox Lake,
  * Clear Fork Reservoir, Lake Logan, Salt Fork Lake and Dow Lake have no public lake gauge (pool.src null): nothing is fetched and the pool card says so.
  * Pymatuning Lake has a USGS gauge that stopped reporting (pool.src null plus pool.stale): the pool card names the gauge and its last date, never its old reading as current. js/usgs.js, js/pool-trend.js and js/lake-picker.js all use them.
  *
@@ -68,10 +69,13 @@
         // no USGS gauge on the lake itself; the Corps of Engineers posts the lake level every 15 minutes
         src: "cwms", srcName: "USACE",
         office: "LRH", ts: "AlumCr-Lake.Elev.Inst.15Minutes.0.OBS",
-        temp: null,     // no public lake temperature gauge (the Corps temp sensor is in the outflow, below the dam)
+        temp: null,     // lake surface temperature: none posted
+        // USACE outflow water temperature, hourly (CWMS LRH, checked Nov. 9, 2026). Shown labelled "outflow" on the pool
+        // card and the glance strip, never as lake surface temperature, and never fed to the bite rating.
+        outflow: { office: "LRH", ts: "AlumCr-Outflow.Temp-Water.Inst.1Hour.0.OBS", url: "https://water.usace.army.mil/office/lrh/project/alumcr" },
         fullPool: 888,
         gaugeUrl: "https://water.usace.army.mil/overview/lrh/locations/alumcr",
-        snapshot: { line: "887.27 ft · no temp · ~0.7 ft below full pool", at: "2026-10-24T02:45:00-04:00", when: "2026-10-24 02:45 ET" }
+        snapshot: { line: "886.45 ft · 60°F outflow · ~1.5 ft below full pool", at: "2026-11-09T15:00:00-05:00", when: "2026-11-09 15:00 ET" }
       },
       nws: {
         hourly: "https://api.weather.gov/gridpoints/ILN/85,94/forecast/hourly",
@@ -247,10 +251,12 @@
         // ODNR draws it down about 14 ft to winter pool Oct. 1 to Nov. 30, so fall readings sit well below full pool.
         src: "cwms", srcName: "USACE",
         office: "LRH", ts: "DeerCr-Lake.Elev.Inst.15Minutes.0.OBS",
-        temp: null,     // no public lake temperature gauge (the Corps posts an outflow temp only)
+        temp: null,     // lake surface temperature: none posted
+        // USACE outflow water temperature, hourly (CWMS LRH, checked Nov. 9, 2026): labelled "outflow", never lake surface, not in the bite rating
+        outflow: { office: "LRH", ts: "DeerCr-Outflow.Temp-Water.Inst.1Hour.0.OBS", url: "https://water.usace.army.mil/office/lrh/project/deercr" },
         fullPool: 810.5,   // ODNR fishing map pool
         gaugeUrl: "https://water.usace.army.mil/overview/lrh/locations/deercr",
-        snapshot: { line: "804.72 ft · no temp · ~5.8 ft below full pool", at: "2026-10-30T10:30:00-04:00", when: "2026-10-30 10:30 ET" }
+        snapshot: { line: "802.19 ft · 53°F outflow · ~8.3 ft below full pool", at: "2026-11-09T15:00:00-05:00", when: "2026-11-09 15:00 ET" }
       },
       nws: {
         hourly: "https://api.weather.gov/gridpoints/ILN/78,65/forecast/hourly",
@@ -693,9 +699,104 @@
       map: { data: "NightBiteMapDataLeesville", chart: "assets/leesville-chart.png" },
       spots: ["South Fork Marina ramp", "North Fork Marina ramp", "Bank (other)", "Kayak launch"],
       species: ["muskellunge", "saugeye", "hybrid-striped-bass", "largemouth-bass", "smallmouth-bass", "black-crappie", "white-crappie", "channel-catfish", "bluegill", "yellow-perch"]
+    },
+    grandlakestmarys: {
+      id: "grandlakestmarys",
+      name: "Grand Lake St. Marys",
+      short: "Grand Lake St. Marys",
+      area: "West central Ohio",
+      lat: 40.52, lng: -84.5,
+      region: "northwest", owner: "ODNR Ohio State Parks",
+      aliases: ["Grand Lake", "GLSM", "Grand Lake St Marys", "Grand Lake Saint Marys", "Grand Lake St. Marys State Park", "Celina", "St. Marys", "Montezuma"],
+      pool: {
+        src: "usgs", srcName: "USGS",
+        site: "403204084342601", param: "62614", temp: null,   // USGS 403204084342601 Grand Lake St Marys near Celina: lake elevation (62614, NGVD29), no water temp
+        fullPool: 871,     // ODNR fishing map normal summer pool (2 ft contours)
+        gaugeUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-403204084342601/",
+        snapshot: { line: "870.79 ft · no temp · ~0.2 ft below full pool", at: "2026-11-09T15:15:00-05:00", when: "2026-11-09 15:15 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/31,102/forecast/hourly",
+        point: "https://api.weather.gov/points/40.52,-84.5",
+        grid: "https://api.weather.gov/gridpoints/ILN/31,102",
+        station: "KAXV",
+        stationName: "Neil Armstrong Airport (KAXV)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.52&lon=-84.5"
+      },
+      alerts: { zones: "OHC107,OHZ034", counties: "the Grand Lake St. Marys area" },
+      push: null,
+      map: { data: "NightBiteMapDataGrandlakestmarys", chart: "assets/grandlakestmarys-chart.png" },
+      spots: ["Marina ramp", "Fries Channel ramp", "Boat Club ramp", "Campground ramp", "West Bank ramp", "Its It ramp", "Windy Point ramp", "Mercelina Park ramp", "Montezuma ramp", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "walleye", "black-crappie", "white-crappie", "yellow-perch", "channel-catfish", "flathead-catfish", "largemouth-bass", "bluegill", "bullhead", "common-carp"]
+    },
+    caesarcreek: {
+      id: "caesarcreek",
+      name: "Caesar Creek Lake",
+      short: "Caesar Creek Lake",
+      area: "Southwest Ohio",
+      lat: 39.53, lng: -83.99,
+      region: "southwest", owner: "US Army Corps of Engineers; ODNR Ohio State Parks",
+      aliases: ["Caesar Creek", "Caesar Creek Reservoir", "Caesars Creek", "Caesar Creek State Park", "Waynesville", "Harveysburg"],
+      pool: {
+        src: "usgs", srcName: "USGS",
+        site: "03242340", param: "62614", temp: null,   // USGS 03242340 Caesar Creek Lake near Wellman: lake elevation (62614), no water temp
+        // no live lake temperature: the Corps posts a dated temperature profile only (USACE Louisville District, checked Nov. 9, 2026).
+        // Named with its date and link on the pool card and the glance strip, never shown as live and never fed to the bite rating.
+        // The unlabeled daily CWMS series CaesarCreek.Temp-Water.Inst.~1Day.0.lrldlb-raw is not used.
+        profile: { date: "2026-10-19", short: "Oct. 19", long: "Oct. 19, 2026", url: "https://www.lrl-wc.usace.army.mil/reports/wq/CCK.html" },
+        fullPool: 849,     // ODNR fishing map normal summer pool; Corps top of conservation 849 ft (846 winter)
+        gaugeUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03242340/",
+        snapshot: { line: "846.91 ft · Corps profile Oct. 19 · ~2.1 ft below full pool", at: "2026-11-09T14:45:00-05:00", when: "2026-11-09 14:45 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/52,59/forecast/hourly",
+        point: "https://api.weather.gov/points/39.53,-83.99",
+        grid: "https://api.weather.gov/gridpoints/ILN/52,59",
+        station: "KGDK",
+        stationName: "Xenia airport (KGDK)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.53&lon=-83.99"
+      },
+      alerts: { zones: "OHC165,OHZ071", counties: "the Caesar Creek Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataCaesarcreek", chart: "assets/caesarcreek-chart.png" },
+      spots: ["Wellman Meadows ramp", "Furnas Shores ramp", "North Pool ramp", "Campground ramp", "Haines ramp, Young Rd", "Dam and tailwater (Corps)", "Bank (other)", "Kayak launch"],
+      species: ["muskellunge", "saugeye", "blue-catfish", "channel-catfish", "largemouth-bass", "smallmouth-bass", "white-bass", "black-crappie", "white-crappie", "yellow-perch"]
+    },
+    eastfork: {
+      id: "eastfork",
+      name: "East Fork Lake",
+      short: "East Fork Lake",
+      area: "Southwest Ohio",
+      lat: 39.02, lng: -84.13,
+      region: "southwest", owner: "US Army Corps of Engineers; ODNR Ohio State Parks",
+      aliases: ["East Fork", "William H. Harsha Lake", "Harsha Lake", "Lake Harsha", "William H Harsha Lake", "East Fork State Park", "Batavia", "Bethel"],
+      pool: {
+        src: "usgs", srcName: "USGS",
+        site: "03247040", param: "62614", temp: null,   // USGS 03247040 East Fork Lake near Bantam: lake elevation (62614), no water temp
+        // USACE outflow water temperature: the William H. Harsha Lake tailwater series, every 15 minutes (CWMS LRL, checked Nov. 9, 2026).
+        // Labelled "outflow" everywhere, never lake surface temperature, never fed to the bite rating. The Corps also posts a dated
+        // temperature profile (latest Oct. 16, 2026, https://www.lrl-wc.usace.army.mil/reports/wq/EFR.html), named on the pool card.
+        outflow: { office: "LRL", ts: "WHHarshaTW.Temp-Water.Inst.15Minutes.0.USGS-raw", url: "https://cwms-data.usace.army.mil/cwms-data/timeseries?office=LRL&name=WHHarshaTW.Temp-Water.Inst.15Minutes.0.USGS-raw" },
+        fullPool: 733,     // ODNR fishing map summer pool; ODNR winter pool 729 ft
+        gaugeUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03247040/",
+        snapshot: { line: "730.31 ft · 66°F outflow · ~2.7 ft below full pool", at: "2026-11-09T15:30:00-05:00", when: "2026-11-09 15:30 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/49,35/forecast/hourly",
+        point: "https://api.weather.gov/points/39.02,-84.13",
+        grid: "https://api.weather.gov/gridpoints/ILN/49,35",
+        station: "KI69",
+        stationName: "Batavia airport (KI69)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.02&lon=-84.13"
+      },
+      alerts: { zones: "OHC025,OHZ078", counties: "the East Fork Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataEastfork", chart: "assets/eastfork-chart.png" },
+      spots: ["North Shore ramp", "Campground ramp", "Slade Road ramp", "Tate ramp", "Reisinger ramp", "Tunnel Mill ramp", "Hand launch (main beach)", "Bank (other)", "Kayak launch"],
+      species: ["largemouth-bass", "smallmouth-bass", "black-crappie", "white-crappie", "bluegill", "hybrid-striped-bass", "saugeye", "blue-catfish", "white-bass"]
     }
   };
-  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville"];
+  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork"];
   // picker regions, in this order (js/lake-picker.js). A region with no lakes yet is hidden. Every lake above sets
   // region to one of these ids; lat and lng above (the lake's NWS forecast point, on the water) give Near me distances.
   var REGIONS = [
@@ -796,6 +897,30 @@
   }
   function cwms(hours) { return cwmsFor(id, hours); }
 
+  // USACE outflow water temperature (pool.outflow: CWMS office + time series, hourly or 15 minute). Asked for in
+  // English units; a series that comes back in C is converted. The newest reading of the last few hours, or null.
+  // Labelled "outflow" wherever it shows; js/usgs.js never hands it to the bite rating as lake surface temperature.
+  function outflowTemp(lake, hours) {
+    var O = LAKES[lake] && LAKES[lake].pool && LAKES[lake].pool.outflow;
+    if (!O) return Promise.resolve(null);
+    var begin = new Date(Date.now() - (hours || 6) * 36e5).toISOString().replace(/\.\d+Z$/, "Z");
+    var url = "https://cwms-data.usace.army.mil/cwms-data/timeseries?office=" + O.office + "&name=" + encodeURIComponent(O.ts) +
+      "&unit=EN&begin=" + begin + "&page-size=1000";
+    return fetch(url, { headers: { Accept: "application/json;version=2" } })
+      .then(function (r) { if (!r.ok) throw new Error("cwms " + r.status); return r.json(); })
+      .then(function (j) {
+        var c = /^(C|degC|celsius)$/i.test(String(j.units || "")), last = null;
+        (j.values || []).forEach(function (row) {
+          var v = row && row[1];
+          if (typeof v === "number" && isFinite(v)) last = row;
+        });
+        if (!last) return null;
+        var f = c ? last[1] * 9 / 5 + 32 : last[1];
+        if (f < 28 || f > 100) return null;   // not a water temperature: show nothing rather than a bad number
+        return { f: Math.round(f * 10) / 10, c: Math.round((f - 32) * 5 / 9 * 10) / 10, dateTime: new Date(last[0]).toISOString() };
+      });
+  }
+
   // USGS lake gauges (Hoover, Buckeye Lake, O'Shaughnessy, Griggs, Indian Lake). The legacy WaterServices IV API (waterservices.usgs.gov/nwis/iv) slows down
   // from Nov. 16, 2026 and is switched off Feb. 22, 2027 (DATA-SOURCES.md). So every reading asks the new USGS Water
   // Data API first (api.waterdata.usgs.gov/ogcapi, public, CORS open, no key) and only tries the legacy API if the
@@ -877,7 +1002,7 @@
   }
   window.NightBiteLakes = { all: LAKES, order: ORDER, regions: REGIONS, speciesNames: SPECIES, storageKey: KEY, hrefFor: hrefFor, homeFor: homeFor, base: BASE, cwmsFor: cwmsFor,
     usgsLatest: usgsLatest, usgsSeries: usgsSeries, bitingVar: bitingVar, mapFile: mapFile, spotName: spotName };
-  window.NightBiteLake = { id: id, cfg: LAKES[id], key: key, cwms: cwms, home: homeLake, chosen: chosen, root: atRoot, browsing: browsing };
+  window.NightBiteLake = { id: id, cfg: LAKES[id], key: key, cwms: cwms, outflow: function (h) { return outflowTemp(id, h); }, home: homeLake, chosen: chosen, root: atRoot, browsing: browsing };
 
   // Lake switches only (js/lake-picker.js sets the flag): a short cross-fade into the new page.
   // Registered here in <head> so it is in place before the first frame; every other navigation stays instant.

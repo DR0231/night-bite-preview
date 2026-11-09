@@ -32,9 +32,9 @@
   <link rel="preload" href="../assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="../js/a11y-boot.js?v=v116-2026-11-05"></script>
-  <link rel="stylesheet" href="../css/styles.css?v=v116-2026-11-05">
-  <script src="../js/lakes.js?v=v116-2026-11-05"></script>
+  <script src="../js/a11y-boot.js?v=v117-2026-11-09"></script>
+  <link rel="stylesheet" href="../css/styles.css?v=v117-2026-11-09">
+  <script src="../js/lakes.js?v=v117-2026-11-09"></script>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nightbiteoh.com/"}, {"@type": "ListItem", "position": 2, "name": "Species", "item": "https://nightbiteoh.com/species/"}, {"@type": "ListItem", "position": 3, "name": "Smallmouth bass", "item": "https://nightbiteoh.com/species/smallmouth-bass"}]}
   </script>
@@ -101,12 +101,15 @@
     <p class="lake-note" data-for="pymatuning">ODNR lists smallmouth bass at Pymatuning Lake.</p>
     <p class="lake-note" data-for="milton">ODNR lists smallmouth bass at Lake Milton.</p>
     <p class="lake-note" data-for="leesville">ODNR lists smallmouth bass at Leesville Lake.</p>
+    <p class="lake-note" data-for="grandlakestmarys">Not a regular at Grand Lake St. Marys: ODNR doesn't list it there. The rest of this page is Hoover notes.</p>
+    <p class="lake-note" data-for="caesarcreek">ODNR lists smallmouth bass at Caesar Creek Lake.</p>
+    <p class="lake-note" data-for="eastfork">ODNR lists smallmouth bass at East Fork Lake.</p>
 
     <div class="sp-now" id="sp-now" data-species="smallmouth-bass" hidden></div>
     <!-- filled right here, before paint, from the month's picks for the active lake -->
-    <script src="../js/biting-data.js?v=v116-2026-11-05"></script>
-    <script src="../js/biting-data-lakes.js?v=v116-2026-11-05"></script>
-    <script src="../js/species-lake.js?v=v116-2026-11-05"></script>
+    <script src="../js/biting-data.js?v=v117-2026-11-09"></script>
+    <script src="../js/biting-data-lakes.js?v=v117-2026-11-09"></script>
+    <script src="../js/species-lake.js?v=v117-2026-11-09"></script>
 
     <nav class="species-subnav" aria-label="On this page">
       <a href="#season">Season</a>
@@ -322,12 +325,41 @@
       </ul>
       </div>
       </div>
+      <p data-for="grandlakestmarys">Not a regular at Grand Lake St. Marys, so there are no where notes for this lake. See the Hoover notes on the Hoover view.</p>
+      <div data-for="caesarcreek">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>State park shore and the Corps fishing access at the dam and tailwater (ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>Unlimited horsepower (ODNR). Steep shorelines drop fast into deep water; bays hold standing timber and brush.</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="eastfork">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>The fishing pier at the North Shore ramp and any pond on park land (ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>No horsepower limit (ODNR). The shoreline is steep and rocky; timber was left standing up the creeks.</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
     </section>
 
     <section id="limits" class="species-section">
       <h2>Limits <span class="regs-tag">reminder, verify</span></h2>
-      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville">Same combined black bass limit (ODNR Fishing Regulations 2026–27); <span data-lk="short">Hoover</span> has no bass exception.</p>
-      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville">
+      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork">Same combined black bass limit (ODNR Fishing Regulations 2026–27); <span data-lk="short">Hoover</span> has no bass exception.</p>
+      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork">
         <table class="access-table regs-table">
           <thead>
             <tr><th scope="col">Rule</th><th scope="col">Reminder (verify 2026–27)</th></tr>
@@ -379,6 +411,9 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="meta" data-for="pymatuning">Sized for bank reality and small boats. Pymatuning has a 20 hp limit.</p>
       <p class="meta" data-for="milton">Sized for bank reality and small boats. Lake Milton has no horsepower restrictions.</p>
       <p class="meta" data-for="leesville">Sized for bank reality and small boats. Leesville Lake has a 10 hp limit.</p>
+      <p class="meta" data-for="grandlakestmarys">Sized for bank reality and small boats. Grand Lake St. Marys has no horsepower limit; watch the wind on open water.</p>
+      <p class="meta" data-for="caesarcreek">Sized for bank reality and small boats. Caesar Creek Lake has no horsepower limit; the lower lake is deep and steep.</p>
+      <p class="meta" data-for="eastfork">Sized for bank reality and small boats. East Fork Lake has no horsepower limit; the shoreline drops fast into deep water.</p>
       <div class="mode-panel" data-mode="bank">
       <ul>
         <li>Medium spinning, lighter line than cat gear (6–10 lb).</li>
@@ -452,15 +487,15 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="../js/refresh.js?v=v116-2026-11-05"></script>
-  <script src="../js/sw-update.js?v=v116-2026-11-05"></script>
-  <script src="../js/alerts.js?v=v116-2026-11-05"></script>
-  <script src="../js/nav.js?v=v116-2026-11-05"></script>
-  <script src="../js/visits.js?v=v116-2026-11-05"></script>
-  <script src="../js/lake-picker.js?v=v116-2026-11-05"></script>
-  <script src="../js/sticky-nav.js?v=v116-2026-11-05"></script>
-  <script src="../js/mode-toggle.js?v=v116-2026-11-05"></script>
+  <script src="../js/refresh.js?v=v117-2026-11-09"></script>
+  <script src="../js/sw-update.js?v=v117-2026-11-09"></script>
+  <script src="../js/alerts.js?v=v117-2026-11-09"></script>
+  <script src="../js/nav.js?v=v117-2026-11-09"></script>
+  <script src="../js/visits.js?v=v117-2026-11-09"></script>
+  <script src="../js/lake-picker.js?v=v117-2026-11-09"></script>
+  <script src="../js/sticky-nav.js?v=v117-2026-11-09"></script>
+  <script src="../js/mode-toggle.js?v=v117-2026-11-09"></script>
 
-  <script src="../js/a11y.js?v=v116-2026-11-05" defer></script>
+  <script src="../js/a11y.js?v=v117-2026-11-09" defer></script>
 </body>
 </html>
