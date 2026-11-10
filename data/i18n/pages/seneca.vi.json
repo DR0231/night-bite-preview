@@ -20,6 +20,7 @@
   "seneca.1257cdcc": "Hồ MWCD: giới hạn 399 hp, chạy không tải hoặc không tạo sóng trong các khu có phao và khu gần bờ. Các khu MWCD đóng cửa từ 11 giờ tối đến 6 giờ sáng, trừ người câu cá, săn bắn hoặc đi thuyền. MWCD ghi năm bến hạ thuyền công cộng; hai bến được ghim ở đây có tọa độ trên bản đồ. Đường bờ vẽ theo OpenStreetMap, không dùng để đi thuyền.",
   "seneca.134e9305": "Sấm sét",
   "seneca.13f453a4": "Thời gian lái xe chỉ là ước chừng.",
+  "seneca.17419612": "Seneca Lake đi vào toàn tiểu bang 5 mỗi ngày, tối thiểu 12″ (",
   "seneca.1928f95c": "Android",
   "seneca.19d18626": "Giờ nhắc",
   "seneca.1b95a586": "↑ Bắc",
@@ -53,12 +54,14 @@
   "seneca.5370c168": "(ba chấm)",
   "seneca.546d378a": ", từ trạm đo USGS của hồ này nếu có báo số liệu.",
   "seneca.5610f4f5": "Chú giải bản đồ",
+  "seneca.56c8d0ec": "Sắp có sự thay đổi quy tắc âm trầm.",
   "seneca.56f508b5": ", mức thay đổi trong 3 giờ qua tại",
   "seneca.59f536ef": "Giới hạn 399 hp",
   "seneca.5cba4b24": ". Giảm chậm",
   "seneca.64cdcc1e": "(832 − mực nước)",
   "seneca.6df2b200": "The Bite là cách ước lượng riêng của trang này, không phải khoa học câu cá và không phải dự báo. Nó cộng điểm từ các số đo đã có trên trang này.",
   "seneca.6e6b02b1": "Bạn đang dùng ứng dụng. Các trang bạn đã mở vẫn dùng được khi không có sóng.",
+  "seneca.70158bea": "Bản tin ODNR",
   "seneca.716520d0": ", giảm nhanh",
   "seneca.7321b4ce": "Chạm Thêm.",
   "seneca.7486f86b": "Bản đồ câu cá ODNR @ 832, bến hạ thuyền MWCD, mực nước hồ USGS, hiệu chỉnh mực nước.",
@@ -72,9 +75,11 @@
   "seneca.86df14bd": ", trên 18 mph",
   "seneca.8ae9ad38": "Chưa tải được gió",
   "seneca.8c0da1be": "Trung tâm câu cá không chính thức của Ohio với bầu không khí bến tàu về đêm: Hoover, Alum Creek, Buckeye Lake, O'Shaughnessy, Griggs, Indian Lake, Delaware Lake Madison Lake, Deer Deer Creek Lake Knox Lake, Seneca Lake, Dillon Lake, Clear Fork Reservoir, Seneca Lake, Lake Logan, Salt Fork Lake Burr Oak Lake Dow Lake Lake, Mosquito Creek Lake, Berlin Lake, West Branch Reservoir, Pymatuning Lake, Lake Milton, Leesville Lake, Grand Lake St. Marys, Caesar Creek Lake, East Fork Lake, CJ Brown Reservoir, Rocky Fork Lake, Hồ LaDue Reservoir, Paint Creek Lake, Portage Lakes, Hồ Mogadore Reservoir, Lake Loramie, Nimisila Reservoir, Hồ Cowan Lake, Hồ Acton Lake, Hồ Tappan Lake, Piedmont Lake, Hồ Clendening Lake, Atwood Lake, Charles Mill Lake, Pleasant Hill Lake và Beach City Lake",
+  "seneca.8ea1575d": "). Crappie ở 30 một ngày, tối thiểu 9″.",
   "seneca.90468774": "Bến hạ thuyền công cộng",
   "seneca.90471ca5": "tạm thời",
   "seneca.93e91965": "trạm NWS của hồ",
+  "seneca.960aa84d": "bỏ quy tắc đó; từ",
   "seneca.96bb7bdb": "biểu tượng Chia sẻ",
   "seneca.97f2142c": "iPhone",
   "seneca.9b03b878": "Trình duyệt sẽ hỏi trước khi thêm.",
@@ -112,6 +117,7 @@
   "seneca.f132d7dd": "Bến hạ thuyền và",
   "seneca.f2eb9a7b": "Không có trạm đo nhiệt độ nước công khai",
   "seneca.f82eb2f1": "SA hoặc CH",
-  "seneca.f9bb7357": "Hủy nhắc"
+  "seneca.f9bb7357": "Hủy nhắc",
+  "seneca.ffe0851b": "Ngày nay, âm trầm của Seneca Lake là 5 mỗi ngày với mức tối thiểu 15″ (quy tắc 2026, 27). Hội đồng Động vật Hoang dã Ohio đã bỏ phiếu về"
  }
 }

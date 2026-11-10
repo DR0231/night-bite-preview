@@ -20,6 +20,7 @@
   "seneca.1257cdcc": "MWCD झील: 399 hp की सीमा, बॉय वाले और किनारे के ज़ोन में आइडल या नो वेक। MWCD के इलाके रात 11 बजे से सुबह 6 बजे तक बंद रहते हैं, सिवाय मछली पकड़ने, शिकार या नाव चलाने वालों के। MWCD पाँच सार्वजनिक लॉन्च रैंप बताता है; यहाँ पिन किए गए दो के निर्देशांक मैप पर हैं। किनारा OpenStreetMap से बना है, नेविगेशन के लिए नहीं।",
   "seneca.134e9305": "गरज",
   "seneca.13f453a4": "गाड़ी से लगने वाला समय मोटा अंदाज़ा है।",
+  "seneca.17419612": "Seneca Lake राज्य भर में प्रतिदिन 5 जाती है, न्यूनतम 12″ (",
   "seneca.1928f95c": "Android",
   "seneca.19d18626": "रिमाइंडर का समय",
   "seneca.1b95a586": "↑ उत्तर",
@@ -53,12 +54,14 @@
   "seneca.5370c168": "(तीन बिंदु)",
   "seneca.546d378a": ", इस झील के USGS गेज से, जहाँ वह बताता है।",
   "seneca.5610f4f5": "मैप की कुंजी",
+  "seneca.56c8d0ec": "बास नियम में बदलाव आ रहा है.",
   "seneca.56f508b5": ", पिछले 3 घंटों का बदलाव, यहाँ:",
   "seneca.59f536ef": "399 hp की सीमा",
   "seneca.5cba4b24": "। धीरे गिर रहा",
   "seneca.64cdcc1e": "(832 − पूल)",
   "seneca.6df2b200": "The Bite इस साइट का अपना अंदाज़ा है, न मछली विज्ञान, न पूर्वानुमान। यह इसी पेज पर पहले से मौजूद रीडिंग से अंक जोड़ता है।",
   "seneca.6e6b02b1": "आप ऐप इस्तेमाल कर रहे हैं। जो पेज आपने खोले हैं, वे बिना सिग्नल के भी चलते हैं।",
+  "seneca.70158bea": "ODNR समाचार विज्ञप्ति",
   "seneca.716520d0": ", तेज़ी से गिर रहा",
   "seneca.7321b4ce": "Add पर टैप करें।",
   "seneca.7486f86b": "ODNR फ़िशिंग मैप @ 832, MWCD रैंप, USGS झील स्तर, पूल सुधार।",
@@ -72,9 +75,11 @@
   "seneca.86df14bd": ", 18 mph से ज़्यादा",
   "seneca.8ae9ad38": "हवा अभी लोड नहीं हुई",
   "seneca.8c0da1be": "नाइट-डॉक वातावरण के साथ अनौपचारिक ओहियो मछली पकड़ने का केंद्र: Hoover, Alum Creek, Buckeye Lake, ओ'शॉघनेसी, Griggs, Indian Lake, Delaware Lake Madison Lake Deer Creek Lake Salt Fork Lake, Burr Oak Lake Seneca Lake, Knox Lake Dillon Lake क्लियर Mosquito Creek Lake Clear Fork Reservoir, Lake Milton, Berlin Lake Lake Logan, Dow Lake, Grand Lake St. Marys फोर्क झील, बूर Leesville Lake झील, LaDue Reservoir Pymatuning Lake Paint Creek Lake Rocky Fork Lake Portage Lakes Atwood Lake West Branch Reservoir East Fork Lake Caesar Creek Lake CJ Brown Reservoir Acton Lake Piedmont Lake Tappan Lake Mogadore Reservoir Clendening Lake Charles Mill Lake Lake Loramie Nimisila Reservoir Pleasant Hill Lake Cowan Lake Beach City Lake",
+  "seneca.8ea1575d": "). क्रैपी प्रति दिन 30 पर रुकें, न्यूनतम 9″ ।",
   "seneca.90468774": "सार्वजनिक बोट रैंप",
   "seneca.90471ca5": "अस्थायी हैं",
   "seneca.93e91965": "झील का NWS स्टेशन",
+  "seneca.960aa84d": "उस नियम को छोड़ना; से",
   "seneca.96bb7bdb": "शेयर आइकन",
   "seneca.97f2142c": "iPhone",
   "seneca.9b03b878": "जोड़ने से पहले आपका ब्राउज़र पूछेगा।",
@@ -112,6 +117,7 @@
   "seneca.f132d7dd": "रैंप और",
   "seneca.f2eb9a7b": "पानी के तापमान का कोई सार्वजनिक गेज नहीं",
   "seneca.f82eb2f1": "AM या PM",
-  "seneca.f9bb7357": "रिमाइंडर रद्द करें"
+  "seneca.f9bb7357": "रिमाइंडर रद्द करें",
+  "seneca.ffe0851b": "आज Seneca Lake बास 15″ न्यूनतम (2026, 27 नियम) के साथ प्रतिदिन 5 हैं। ओहियो वन्यजीव परिषद ने मतदान किया"
  }
 }
