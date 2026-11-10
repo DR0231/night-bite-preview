@@ -398,7 +398,7 @@ window.NightBiteBitingKnox = {
     { note: "Cold water. Wear a life jacket on every early season boat trip.", picks: [
       { id: "black-crappie", where: "Standing timber and felled trees. Small jigs and minnows under a float.", when: "Afternoon into dusk", night: false },
       { id: "yellow-perch", where: "Moving shallow to spawn. Small minnows near the bottom.", when: "Morning", night: false },
-      { id: "largemouth-bass", where: "Wood and rock. Jigs and creature baits. Keep only 18 inches and up.", when: "Afternoon", night: false } ] },
+      { id: "largemouth-bass", where: "Wood and rock. Jigs and creature baits. Keep only 18 inches and up until March 1, 2027, then 12.", when: "Afternoon", night: false } ] },
     { picks: [
       { id: "largemouth-bass", where: "Shallow wood in the upper lake and felled trees in the lower. Spinnerbaits and soft plastics.", when: "Morning and dusk", night: false },
       { id: "bluegill", where: "Spawning beds in 1 to 2 ft of water. Wax worms or crickets.", when: "Morning", night: false },
