@@ -31,6 +31,7 @@
   "updates.3b470165": "Bảy hồ MWCD: Tappan đến Beach City",
   "updates.3b6e3e93": "Mỗi hồ có bản đồ và đường dốc riêng, quy tắc hồ, ghi chú loài, mùa cập bến và Mồi gần đó, đồng thời đọc thước đo hồ USGS của nó.",
   "updates.42bc867e": "Thêm thời tiết cho tối nay",
+  "updates.42fd452e": "Guilford Lake được hạ thấp khoảng 20 ft để phục hồi đập ODNR, dự kiến ​​sẽ được bổ sung nước vào mùa xuân 2027; trang liên kết cập nhật dự án của ODNR.",
   "updates.45fbd713": "Mỗi hồ có bản đồ và bến riêng, thước đo mực nước hồ (USGS, hoặc US Army Corps of Engineers ở Delaware Lake), quy định hồ, ghi chú loài và mùa cầu tàu.",
   "updates.4652d8da": "Các trang loài giờ hiển thị những gì ODNR đã thả cho từng loài.",
   "updates.4af0b2c3": "Hoover liệt kê văn phòng cầu tàu ở số",
@@ -52,6 +53,7 @@
   "updates.682295ed": "Tối nay trong nháy mắt ở mọi hồ",
   "updates.68dc6aa7": "Mỗi trang hiển thị đợt giảm giá mùa đông của MWCD cùng với ngày và cấp độ chính thức. Beach City không có trong lịch trình và không có đường dốc công cộng, và trang của nó nói như vậy.",
   "updates.6a5cfba1": "Theo dõi mùa cầu tàu",
+  "updates.6cfc3e24": "Wingfoot, Guilford và Highlandtown thể hiện quy tắc âm trầm của trang web ngày nay với",
   "updates.6eb8afd2": "và Columbus Watershed Management ở số",
   "updates.6f0739af": "Mỗi hồ có bản đồ và bến riêng, quy định hồ, ghi chú loài, mùa cầu tàu và Mồi gần đây. Seneca đọc thước đo hồ USGS, Dillon và Burr Oak đọc của Army Corps; Lake Logan, Salt Fork và Dow ghi Không có thước đo công cộng.",
   "updates.70158bea": "Bản tin ODNR",
@@ -81,6 +83,8 @@
   "updates.a97f7c64": ", một chạm để gọi.",
   "updates.ab3abbcd": "Chỉ bản xem trước: ngày được đặt khi phát hành",
   "updates.aebf51b3": "Alum Creek Lake và Buckeye Lake có trang chủ riêng.",
+  "updates.afbd0a2f": "Mỗi hồ có bản đồ và đường dốc riêng, quy tắc hồ, ghi chú loài, mùa cập bến và Mồi gần đó. Không cái nào trong số sáu cái có thước đo mức công cộng hoặc nhiệt độ nước, và mỗi trang đều nói như vậy.",
+  "updates.b159a329": "Chọn Wingfoot Lake, East Branch Reservoir, Guilford Lake, Highlandtown Lake, Punderson Lake hoặc Wellington Upground Reservoir ở Đông Bắc Ohio. Mỗi người đều có trang chủ riêng.",
   "updates.b2f79f7e": "Một bộ biểu tượng pixel, với một con cá cho mỗi loài.",
   "updates.b584d3cf": "Chọn Grand Lake St. Marys, Caesar Creek Lake hoặc East Fork Lake bằng công cụ chọn hồ, dưới các tiêu đề Tây Bắc và Tây Nam mới. Mỗi người đều có trang chủ riêng.",
   "updates.b81b943a": "Báo cáo chuyến đi cho mọi hồ",
@@ -105,9 +109,12 @@
   "updates.ed3bc72a": "Mười hồ nữa: C.J. Brown đến Acton",
   "updates.f078762f": "Việc thả giống & khảo sát bổ sung thêm 10 năm thả giống ODNR cho cả ba, từ bảng điều khiển Thả cá của ODNR.",
   "updates.f40b5838": "Dải dưới tên hồ giờ hiển thị mực nước hồ, nhiệt độ nước, hoàng hôn và gió tối nay, với đánh giá cá ăn mồi cạnh tiêu đề.",
+  "updates.f57ac6a4": "Ngày thay đổi toàn tiểu bang bên cạnh nó, được liên kết với bản tin của ODNR.",
   "updates.f5e02579": "Water thêm thẻ quy định hồ, liên kết chất lượng nước tới BeachGuard và cập nhật tảo của Ohio EPA, và dữ kiện Buckeye Lake.",
+  "updates.f6cf9abb": "Việc thả giống & khảo sát bổ sung thêm mười năm thả giống ODNR trong đó ODNR thả giống những vùng nước này, từ bảng điều khiển Thả cá của ODNR.",
   "updates.f960638f": "Lịch sử thả cá, trang Dụng cụ mới và hơn nữa",
   "updates.f9a1402a": "Tối nay ở Hoover trên Trang chủ: khí áp với xu hướng 12 giờ, gió kèm gió giật, và pha trăng tối nay.",
-  "updates.faa7450e": "Cho đến lúc đó, quy tắc 2026, 27 vẫn có hiệu lực và mỗi trang hồ hiển thị quy tắc ngày nay với ngày thay đổi bên cạnh, được liên kết với bản tin của ODNR."
+  "updates.faa7450e": "Cho đến lúc đó, quy tắc 2026, 27 vẫn có hiệu lực và mỗi trang hồ hiển thị quy tắc ngày nay với ngày thay đổi bên cạnh, được liên kết với bản tin của ODNR.",
+  "updates.ff1b60b9": "Thêm sáu vùng biển Đông Bắc Ohio: Wingfoot đến Wellington"
  }
 }

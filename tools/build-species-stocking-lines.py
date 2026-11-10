@@ -97,6 +97,11 @@ LINES = {
         ("nimisila", "stocked", "ODNR stocked channel catfish in Nimisila Reservoir every other year from 2016 to 2024."),
         ("atwood", "stocked", "ODNR stocked channel catfish in Atwood Lake in 2020."),
         ("pleasanthill", "stocked", "ODNR stocked catchable channel catfish in Pleasant Hill Lake in 2016 to 2018 and 2021 to 2023."),
+        ("wingfoot", "stocked", "ODNR stocked channel catfish in Wingfoot Lake in 2016, 2022 and 2024."),
+        ("guilford", "stocked", "ODNR stocked channel catfish in Guilford Lake in 2016, 2018 and 2020."),
+        ("highlandtown", "stocked", "ODNR stocked channel catfish in Highlandtown Lake in 2016 and 2020."),
+        ("punderson", "stocked", "ODNR stocked channel catfish in Punderson Lake every other year from 2017 to 2025."),
+        ("wellington", "stocked", "ODNR stocked channel catfish in Wellington Upground Reservoir every other year from 2016 to 2024."),
     ],
     "bluegill": [
         ("mosquito", "stocked", "ODNR stocked 125 bluegill catchables in Mosquito Creek Lake in 2025."),
@@ -104,6 +109,7 @@ LINES = {
     "yellow-perch": [
         ("knox", "stocked", "ODNR stocked yellow perch fingerlings in Knox Lake in 2019 and every year from 2022 to 2025."),
         ("grandlakestmarys", "stocked", "ODNR stocked yellow perch in Grand Lake St. Marys in most years from 2016 to 2025."),
+        ("wellington", "stocked", "ODNR stocked yellow perch in Wellington Upground Reservoir in nine of the ten years from 2016 to 2025."),
     ],
     "hybrid-striped-bass": [
         ("oshaughnessy", "stocked", "ODNR lists O’Shaughnessy among the lakes it stocks with hybrid striped bass; no numbers are posted."),
@@ -111,6 +117,7 @@ LINES = {
         ("dillon", "stocked", "ODNR stocked hybrid striped bass fingerlings in Dillon Lake every year from 2016 to 2025."),
         ("eastfork", "stocked", "ODNR stocked hybrid striped bass in East Fork Lake every year from 2016 to 2025."),
         ("charlesmill", "stocked", "ODNR stocked hybrid striped bass in Charles Mill Lake in 2016 to 2020 and 2022 to 2025."),
+        ("guilford", "stocked", "ODNR stocked hybrid striped bass in Guilford Lake most years from 2016 to 2023."),
     ],
 }
 LINES["white-crappie"] = LINES["black-crappie"]

@@ -2911,6 +2911,12 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
 .pool-chart img[data-for="charlesmill"] { width: 72px; height: 96px; }
 .pool-chart img[data-for="pleasanthill"] { width: 152px; height: 96px; }
 .pool-chart img[data-for="beachcity"] { width: 82px; height: 68px; }
+.pool-chart img[data-for="wingfoot"] { width: 106px; height: 96px; }
+.pool-chart img[data-for="eastbranch"] { width: 36px; height: 96px; }
+.pool-chart img[data-for="guilford"] { width: 114px; height: 96px; }
+.pool-chart img[data-for="highlandtown"] { width: 130px; height: 94px; }
+.pool-chart img[data-for="punderson"] { width: 54px; height: 86px; }
+.pool-chart img[data-for="wellington"] { width: 96px; height: 96px; }
 @media (max-width: 359px) {
   .pool-chart img[data-for="alum"] { width: 134px; height: 37px; }
   .pool-chart img[data-for="buckeye"] { width: 92px; height: 48px; }
@@ -2954,6 +2960,12 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
   .pool-chart img[data-for="charlesmill"] { width: 36px; height: 48px; }
   .pool-chart img[data-for="pleasanthill"] { width: 76px; height: 48px; }
   .pool-chart img[data-for="beachcity"] { width: 41px; height: 34px; }
+  .pool-chart img[data-for="wingfoot"] { width: 53px; height: 48px; }
+  .pool-chart img[data-for="eastbranch"] { width: 18px; height: 48px; }
+  .pool-chart img[data-for="guilford"] { width: 57px; height: 48px; }
+  .pool-chart img[data-for="highlandtown"] { width: 65px; height: 47px; }
+  .pool-chart img[data-for="punderson"] { width: 27px; height: 43px; }
+  .pool-chart img[data-for="wellington"] { width: 48px; height: 48px; }
 }
 .pool-chart-key > span[data-for="buckeye"] { margin-right: 0.5rem; }
 @media (min-width: 560px) { .pool-chart-key > span[data-for="buckeye"] { margin-right: 0; } }

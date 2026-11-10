@@ -32,9 +32,9 @@
   <link rel="preload" href="../assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="../js/a11y-boot.js?v=v120-2026-11-09"></script>
-  <link rel="stylesheet" href="../css/styles.css?v=v120-2026-11-09">
-  <script src="../js/lakes.js?v=v120-2026-11-09"></script>
+  <script src="../js/a11y-boot.js?v=v121-2026-11-10"></script>
+  <link rel="stylesheet" href="../css/styles.css?v=v121-2026-11-10">
+  <script src="../js/lakes.js?v=v121-2026-11-10"></script>
 </head>
 <body>
   <a class="sr-only" href="#main">Skip to content</a>
@@ -118,6 +118,12 @@
       <span data-for="charlesmill">Charles Mill Lake hub: stocked saugeye and hybrid striped bass, plus largemouth bass, white and black crappie and channel cats.</span>
       <span data-for="pleasanthill">Pleasant Hill Lake hub: stocked saugeye, plus largemouth and smallmouth bass, crappie under a 30 fish, 9″ rule, white bass, bluegill, channel cats and bullhead.</span>
       <span data-for="beachcity">Beach City Lake hub: saugeye in the lake and below the dam, largemouth bass, crappie, bluegill, bullhead and carp, all from the bank.</span>
+      <span data-for="wingfoot">Wingfoot Lake hub: largemouth under a 3 fish slot rule until March 2027, crappie, bluegill and stocked channel cats.</span>
+      <span data-for="eastbranch">East Branch Reservoir hub: largemouth bass on an electric only water supply lake.</span>
+      <span data-for="guilford">Guilford Lake hub: largemouth under a 3 fish slot rule until March 2027, crappie, bluegill, stocked hybrid stripers and channel cats. Drawn down for dam work.</span>
+      <span data-for="highlandtown">Highlandtown Lake hub: largemouth under a 4 fish split rule until March 2027, crappie, bluegill, perch and channel cats.</span>
+      <span data-for="punderson">Punderson Lake hub: largemouth, bluegill and stocked channel cats in a deep natural kettle lake.</span>
+      <span data-for="wellington">Wellington Upground Reservoir hub: stocked yellow perch, largemouth and smallmouth bass, crappie and channel cats. Daylight only.</span>
       <span data-for="hoover">Night is especially useful for channel and flathead (blues too); it is not the best approach for every species.</span>
       <span data-for="alum">Night is especially useful for saugeye and channel cats; muskie and crappie are mostly low light and daytime fish.</span>
       <span data-for="buckeye">Night is especially useful for saugeye and channel cats; crappie, perch and bluegill are mostly daytime fish.</span>
@@ -161,6 +167,12 @@
       <span data-for="charlesmill">Night is especially useful for saugeye, hybrid stripers and catfish; crappie are mostly daytime fish.</span>
       <span data-for="pleasanthill">Night is especially useful for saugeye, which ODNR says to fish off the beach area after dark; crappie and bluegill are mostly daytime fish.</span>
       <span data-for="beachcity">Night is especially useful for saugeye; bluegill and crappie are mostly daytime fish.</span>
+      <span data-for="wingfoot">Night is especially useful for catfish; crappie and bluegill are mostly daytime fish.</span>
+      <span data-for="eastbranch">Night is mostly a dusk and dawn window here: ODNR lists only largemouth bass.</span>
+      <span data-for="guilford">Night is especially useful for catfish and hybrid stripers at dusk; crappie and bluegill are mostly daytime fish.</span>
+      <span data-for="highlandtown">Night is especially useful for catfish; crappie and bluegill are mostly daytime fish.</span>
+      <span data-for="punderson">Night is especially useful for catfish; bluegill are mostly daytime fish.</span>
+      <span data-for="wellington">Night is off limits here: public access is sunrise to sunset (ODNR). Perch and crappie bite by day.</span>
       Filter the grid, then open a species card for season · where · limits · gear · bait.
     </p>
     <section class="bento-card biting-card" id="biting" aria-labelledby="biting-title" hidden>
@@ -171,9 +183,9 @@
       <p class="meta biting-note">Changes each month. Typical patterns from the species pages and ODNR, not a fishing report.</p>
     </section>
     <!-- rendered right here, before the filters and grid below exist, so filling the card never pushes them down -->
-    <script src="../js/biting-data.js?v=v120-2026-11-09"></script>
-    <script src="../js/biting-data-lakes.js?v=v120-2026-11-09"></script>
-    <script src="../js/biting.js?v=v120-2026-11-09"></script>
+    <script src="../js/biting-data.js?v=v121-2026-11-10"></script>
+    <script src="../js/biting-data-lakes.js?v=v121-2026-11-10"></script>
+    <script src="../js/biting.js?v=v121-2026-11-10"></script>
     <div class="filter-chips" role="group" aria-label="Filter species">
       <button type="button" class="filter-chip is-active" data-filter="all">All</button>
       <button type="button" class="filter-chip" data-filter="cats">Cats</button>
@@ -190,7 +202,7 @@
       <button type="button" class="filter-chip" data-mode-filter="boat">Boat-friendly</button>
     </div>
     <div class="card-grid cols-2" id="species-grid">
-      <a class="card species-card" data-group="cats" href="channel-catfish" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork dillon logan burroak dow mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan tappan clendening atwood charlesmill pleasanthill" data-season="night" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="cats" href="channel-catfish" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork dillon logan burroak dow mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan tappan clendening atwood charlesmill pleasanthill wingfoot guilford highlandtown punderson wellington" data-season="night" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-channel-catfish.svg" alt="" width="32" height="32"> Channel catfish</h3>
         <p class="meta" data-for="hoover">Hoover’s workhorse night fish, reliable on cut bait and crawlers from the bank or a 10 hp boat.</p>
         <p class="meta" data-for="alum">Present at Alum Creek. Night flats and creek channel edges with cut bait or crawlers; not the headline fish here.</p>
@@ -229,6 +241,11 @@
         <p class="meta" data-for="atwood">Stocked by ODNR at Atwood Lake in 2020.</p>
         <p class="meta" data-for="charlesmill">ODNR lists channel catfish at Charles Mill Lake.</p>
         <p class="meta" data-for="pleasanthill">Catchables stocked by ODNR at Pleasant Hill Lake in 2016 to 2018 and 2021 to 2023.</p>
+        <p class="meta" data-for="wingfoot">Stocked by ODNR at Wingfoot Lake every other year: 10,000 advanced fingerlings in 2024.</p>
+        <p class="meta" data-for="guilford">Stocked by ODNR at Guilford Lake in 2016, 2018 and 2020.</p>
+        <p class="meta" data-for="highlandtown">Stocked by ODNR at Highlandtown Lake in 2016 and 2020.</p>
+        <p class="meta" data-for="punderson">Stocked by ODNR at Punderson Lake every other year: 960 advanced fingerlings in 2025.</p>
+        <p class="meta" data-for="wellington">Stocked by ODNR at Wellington Upground Reservoir every other year: 1,908 yearlings in 2024.</p>
       </a>
       <a class="card species-card" data-group="cats" href="blue-catfish" data-lakes="hoover alum oshaughnessy seneca dillon burroak westbranch caesarcreek eastfork clendening atwood" data-season="night" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-blue-catfish.svg" alt="" width="32" height="32"> Blue catfish</h3>
@@ -266,7 +283,7 @@
         <p class="meta" data-for="pleasanthill">ODNR lists bullhead at Pleasant Hill Lake.</p>
         <p class="meta" data-for="beachcity">ODNR lists bullhead at Beach City Lake.</p>
       </a>
-      <a class="card species-card" data-group="bass" href="largemouth-bass" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="bass" href="largemouth-bass" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity wingfoot eastbranch guilford highlandtown punderson wellington" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-largemouth-bass.svg" alt="" width="32" height="32"> Largemouth bass</h3>
         <p class="meta" data-for="hoover">More abundant than smallmouth on Hoover. Docks, weeds, and shoreline cover (public water).</p>
         <p class="meta" data-for="alum">Cove cover and shoreline wood, best in the coves north of Cheshire Road.</p>
@@ -311,8 +328,14 @@
         <p class="meta" data-for="charlesmill">ODNR lists largemouth bass at Charles Mill Lake.</p>
         <p class="meta" data-for="pleasanthill">ODNR lists largemouth bass at Pleasant Hill Lake.</p>
         <p class="meta" data-for="beachcity">ODNR lists largemouth bass at Beach City Lake.</p>
+        <p class="meta" data-for="wingfoot">ODNR lists largemouth bass at Wingfoot Lake.</p>
+        <p class="meta" data-for="eastbranch">ODNR lists largemouth bass at East Branch Reservoir.</p>
+        <p class="meta" data-for="guilford">ODNR lists largemouth bass at Guilford Lake.</p>
+        <p class="meta" data-for="highlandtown">ODNR lists largemouth bass at Highlandtown Lake.</p>
+        <p class="meta" data-for="punderson">ODNR lists largemouth bass at Punderson Lake.</p>
+        <p class="meta" data-for="wellington">ODNR lists largemouth bass at Wellington Upground Reservoir.</p>
       </a>
-      <a class="card species-card" data-group="bass" href="smallmouth-bass" data-lakes="hoover alum oshaughnessy griggs indian delaware deercreek seneca dillon saltfork berlin westbranch pymatuning milton leesville caesarcreek eastfork cjbrown ladue tappan piedmont atwood pleasanthill" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="bass" href="smallmouth-bass" data-lakes="hoover alum oshaughnessy griggs indian delaware deercreek seneca dillon saltfork berlin westbranch pymatuning milton leesville caesarcreek eastfork cjbrown ladue tappan piedmont atwood pleasanthill wellington" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-smallmouth-bass.svg" alt="" width="32" height="32"> Smallmouth bass</h3>
         <p class="meta" data-for="hoover">Present but less abundant than largemouth. Look to rock, points, and clearer main-lake edges.</p>
         <p class="meta" data-for="alum">A real Alum Creek target. Rock, points and clearer main lake edges, moving up early in spring.</p>
@@ -337,8 +360,9 @@
         <p class="meta" data-for="piedmont">ODNR lists smallmouth bass at Piedmont Lake.</p>
         <p class="meta" data-for="atwood">ODNR lists smallmouth bass at Atwood Lake.</p>
         <p class="meta" data-for="pleasanthill">ODNR lists smallmouth bass at Pleasant Hill Lake.</p>
+        <p class="meta" data-for="wellington">ODNR lists smallmouth bass at Wellington Upground Reservoir.</p>
       </a>
-      <a class="card species-card" data-group="panfish" href="black-crappie" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont atwood charlesmill pleasanthill beachcity" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="panfish" href="black-crappie" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont atwood charlesmill pleasanthill beachcity wingfoot guilford highlandtown wellington" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-black-crappie.svg" alt="" width="32" height="32"> Black crappie</h3>
         <p class="meta" data-for="hoover">Solid Hoover panfish: spring banks and brush, then deeper wood and channel edges.</p>
         <p class="meta" data-for="alum">Coves north of Cheshire Road in spring, then brush, docks and standing wood.</p>
@@ -381,8 +405,12 @@
         <p class="meta" data-for="charlesmill">ODNR lists black crappie at Charles Mill Lake.</p>
         <p class="meta" data-for="pleasanthill">ODNR lists black crappie at Pleasant Hill Lake.</p>
         <p class="meta" data-for="beachcity">ODNR lists black crappie at Beach City Lake.</p>
+        <p class="meta" data-for="wingfoot">ODNR lists black crappie at Wingfoot Lake.</p>
+        <p class="meta" data-for="guilford">ODNR lists black crappie at Guilford Lake.</p>
+        <p class="meta" data-for="highlandtown">ODNR lists black crappie at Highlandtown Lake.</p>
+        <p class="meta" data-for="wellington">ODNR lists black crappie at Wellington Upground Reservoir.</p>
       </a>
-      <a class="card species-card" data-group="panfish" href="white-crappie" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="panfish" href="white-crappie" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch pymatuning milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity wingfoot guilford highlandtown" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-white-crappie.svg" alt="" width="32" height="32"> White crappie</h3>
         <p class="meta" data-for="hoover">Shares Hoover with black crappie, with the same spring bank push and deeper summer brush.</p>
         <p class="meta" data-for="alum">Shares the coves and wood with black crappie, with the same spring push.</p>
@@ -427,8 +455,11 @@
         <p class="meta" data-for="charlesmill">ODNR lists white crappie at Charles Mill Lake.</p>
         <p class="meta" data-for="pleasanthill">ODNR lists white crappie at Pleasant Hill Lake.</p>
         <p class="meta" data-for="beachcity">ODNR lists white crappie at Beach City Lake.</p>
+        <p class="meta" data-for="wingfoot">ODNR lists white crappie at Wingfoot Lake.</p>
+        <p class="meta" data-for="guilford">ODNR lists white crappie at Guilford Lake.</p>
+        <p class="meta" data-for="highlandtown">ODNR lists white crappie at Highlandtown Lake.</p>
       </a>
-      <a class="card species-card" data-group="panfish" href="bluegill" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox seneca dillon logan saltfork burroak mosquito westbranch pymatuning milton leesville grandlakestmarys eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont pleasanthill beachcity" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="panfish" href="bluegill" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox seneca dillon logan saltfork burroak mosquito westbranch pymatuning milton leesville grandlakestmarys eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont pleasanthill beachcity wingfoot guilford highlandtown punderson" data-season="spring" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-bluegill.svg" alt="" width="32" height="32"> Bluegill / sunfish</h3>
         <p class="meta" data-for="hoover">Good bluegill fishing at Hoover: easy bank sessions, and bait for the cooler where legal.</p>
         <p class="meta" data-for="alum">Easy bank fishing in the coves and around docks at the beach and marina areas (public access only).</p>
@@ -466,8 +497,12 @@
         <p class="meta" data-for="piedmont">ODNR lists bluegill at Piedmont Lake.</p>
         <p class="meta" data-for="pleasanthill">ODNR lists bluegill at Pleasant Hill Lake.</p>
         <p class="meta" data-for="beachcity">ODNR lists bluegill at Beach City Lake.</p>
+        <p class="meta" data-for="wingfoot">ODNR lists bluegill at Wingfoot Lake.</p>
+        <p class="meta" data-for="guilford">ODNR lists bluegill at Guilford Lake.</p>
+        <p class="meta" data-for="highlandtown">ODNR lists bluegill at Highlandtown Lake.</p>
+        <p class="meta" data-for="punderson">ODNR stocked 125 catchable bluegill at Punderson Lake in 2025.</p>
       </a>
-      <a class="card species-card" data-group="panfish" href="yellow-perch" data-lakes="hoover alum buckeye indian knox seneca saltfork mosquito westbranch pymatuning milton leesville grandlakestmarys caesarcreek rockyfork ladue tappan atwood pleasanthill" data-mode="bank" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="panfish" href="yellow-perch" data-lakes="hoover alum buckeye indian knox seneca saltfork mosquito westbranch pymatuning milton leesville grandlakestmarys caesarcreek rockyfork ladue tappan atwood pleasanthill highlandtown wellington" data-mode="bank" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-yellow-perch.svg" alt="" width="32" height="32"> Yellow perch</h3>
         <p class="meta" data-for="hoover">Recorded in ODNR fish surveys at Hoover.</p>
         <p class="meta" data-for="alum">Recorded in ODNR fish surveys at Alum Creek.</p>
@@ -488,6 +523,8 @@
         <p class="meta" data-for="tappan">ODNR lists yellow perch at Tappan Lake.</p>
         <p class="meta" data-for="atwood">ODNR lists yellow perch at Atwood Lake.</p>
         <p class="meta" data-for="pleasanthill">ODNR lists yellow perch at Pleasant Hill Lake.</p>
+        <p class="meta" data-for="highlandtown">ODNR lists yellow perch at Highlandtown Lake.</p>
+        <p class="meta" data-for="wellington">Stocked by ODNR at Wellington Upground Reservoir nearly every year: 39,918 fingerlings in 2025.</p>
       </a>
       <a class="card species-card" data-group="bass" href="white-bass" data-lakes="hoover alum buckeye oshaughnessy griggs indian delaware deercreek seneca saltfork berlin westbranch pymatuning milton caesarcreek eastfork cjbrown rockyfork paintcreek tappan piedmont clendening atwood pleasanthill" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-white-bass.svg" alt="" width="32" height="32"> White bass</h3>
@@ -516,7 +553,7 @@
         <p class="meta" data-for="atwood">ODNR lists white bass at Atwood Lake.</p>
         <p class="meta" data-for="pleasanthill">ODNR lists white bass at Pleasant Hill Lake.</p>
       </a>
-      <a class="card species-card" data-group="bass" href="hybrid-striped-bass" data-lakes="hoover buckeye oshaughnessy griggs dillon leesville eastfork charlesmill" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
+      <a class="card species-card" data-group="bass" href="hybrid-striped-bass" data-lakes="hoover buckeye oshaughnessy griggs dillon leesville eastfork charlesmill guilford" data-season="spring" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-hybrid-striped-bass.svg" alt="" width="32" height="32"> Hybrid striped bass (wiper)</h3>
         <p class="meta" data-for="hoover">Possible in many Ohio reservoirs and share the striped/white combined limit. White bass are confirmed at Hoover; treat hybrids as “possible / verify reports,” not a guarantee.</p>
         <p class="meta" data-for="buckeye">Stocked by ODNR at Buckeye Lake most years, and recorded in its fish surveys.</p>
@@ -526,6 +563,7 @@
         <p class="meta" data-for="leesville">ODNR lists hybrid striped bass at Leesville Lake.</p>
         <p class="meta" data-for="eastfork">Stocked by ODNR at East Fork Lake every year: 1,150,000 fry in 2025.</p>
         <p class="meta" data-for="charlesmill">Stocked by ODNR at Charles Mill Lake in 2016 to 2020 and 2022 to 2025 (22,665 fingerlings in 2025).</p>
+        <p class="meta" data-for="guilford">Stocked by ODNR at Guilford Lake most years from 2016 to 2023: 36,176 fingerlings in 2023.</p>
       </a>
       <a class="card species-card" data-group="others" href="saugeye" data-lakes="hoover alum buckeye oshaughnessy griggs indian deercreek seneca dillon logan saltfork dow leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity" data-season="night" data-mode="boat" style="text-decoration:none;color:inherit;">
         <h3><img class="icon-inline" src="../assets/icons/fish-saugeye.svg" alt="" width="32" height="32"> Saugeye</h3>
@@ -613,14 +651,14 @@
       <p class="meta"><a href="../water#access">Full access table on the Water page</a></p>
     </section>
     <!-- right after the grid and the access card, before paint: tags this month's picks, moves species not at the lake into their own group -->
-    <script src="../js/hoover-map-data.js?v=v120-2026-11-09"></script>
-    <script src="../js/lake-map-data-alum.js?v=v120-2026-11-09"></script>
-    <script src="../js/lake-map-data-buckeye.js?v=v120-2026-11-09"></script>
-    <script src="../js/lake-map-data-oshaughnessy.js?v=v120-2026-11-09"></script>
-    <script src="../js/lake-map-data-griggs.js?v=v120-2026-11-09"></script>
-    <script src="../js/lake-map-data-indian.js?v=v120-2026-11-09"></script>
-    <script src="../js/lake-map-data-delaware.js?v=v120-2026-11-09"></script>
-    <script src="../js/species-lake.js?v=v120-2026-11-09"></script>
+    <script src="../js/hoover-map-data.js?v=v121-2026-11-10"></script>
+    <script src="../js/lake-map-data-alum.js?v=v121-2026-11-10"></script>
+    <script src="../js/lake-map-data-buckeye.js?v=v121-2026-11-10"></script>
+    <script src="../js/lake-map-data-oshaughnessy.js?v=v121-2026-11-10"></script>
+    <script src="../js/lake-map-data-griggs.js?v=v121-2026-11-10"></script>
+    <script src="../js/lake-map-data-indian.js?v=v121-2026-11-10"></script>
+    <script src="../js/lake-map-data-delaware.js?v=v121-2026-11-10"></script>
+    <script src="../js/species-lake.js?v=v121-2026-11-10"></script>
     <p class="meta">
       Limits on species pages are reminders only. Confirm on HuntFish OH /
       <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/laws-regs-licenses/OhioFishingRegs_English.pdf" target="_blank" rel="noopener">ODNR Fishing Regulations 2026–27 (verify current)</a>.
@@ -646,13 +684,13 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="../js/refresh.js?v=v120-2026-11-09"></script>
-  <script src="../js/sw-update.js?v=v120-2026-11-09"></script>
-  <script src="../js/alerts.js?v=v120-2026-11-09"></script>
-  <script src="../js/nav.js?v=v120-2026-11-09"></script>
-  <script src="../js/visits.js?v=v120-2026-11-09"></script>
-  <script src="../js/lake-picker.js?v=v120-2026-11-09"></script>
-  <script src="../js/species-filter.js?v=v120-2026-11-09"></script>
-  <script src="../js/a11y.js?v=v120-2026-11-09" defer></script>
+  <script src="../js/refresh.js?v=v121-2026-11-10"></script>
+  <script src="../js/sw-update.js?v=v121-2026-11-10"></script>
+  <script src="../js/alerts.js?v=v121-2026-11-10"></script>
+  <script src="../js/nav.js?v=v121-2026-11-10"></script>
+  <script src="../js/visits.js?v=v121-2026-11-10"></script>
+  <script src="../js/lake-picker.js?v=v121-2026-11-10"></script>
+  <script src="../js/species-filter.js?v=v121-2026-11-10"></script>
+  <script src="../js/a11y.js?v=v121-2026-11-10" defer></script>
 </body>
 </html>

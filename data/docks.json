@@ -1681,6 +1681,195 @@
     "mwcd-beachcity",
     "mwcd-drawdowns"
    ]
+  },
+  "wingfoot": {
+   "name": "Wingfoot Lake",
+   "checked": "2026-11-10",
+   "items": [
+    {
+     "name": "Launches",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists two launches in the wildlife area, northeast through the park and northwest from Farr Ln.",
+     "source": "odnr-wingfoot"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Wingfoot Lake State Park office",
+     "+13306284720",
+     "(330) 628-4720",
+     ""
+    ],
+    [
+     "ODNR Wildlife District Three",
+     "+13306442293",
+     "(330) 644-2293",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-wingfoot"
+   ]
+  },
+  "eastbranch": {
+   "name": "East Branch Reservoir",
+   "checked": "2026-11-10",
+   "items": [
+    {
+     "name": "Boat borrowing",
+     "status": "out",
+     "label": "Done for 2026",
+     "note": "Geauga Park District says its boat borrowing season has ended for 2026 and starts again near Memorial Day 2027.",
+     "source": "gpd-headwaters"
+    },
+    {
+     "name": "Launch",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "Small craft launch at Headwaters Park, as weather and water levels allow (Geauga Park District).",
+     "source": "gpd-headwaters"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Geauga Park District",
+     "+14402869516",
+     "(440) 286-9516",
+     ""
+    ]
+   ],
+   "sources": [
+    "gpd-headwaters"
+   ]
+  },
+  "guilford": {
+   "name": "Guilford Lake",
+   "checked": "2026-11-10",
+   "items": [
+    {
+     "name": "Lake level",
+     "status": "unannounced",
+     "label": "Drawdown",
+     "note": "ODNR&rsquo;s Nov. 3, 2026 update: the lake is about 20 ft below normal pool at full drawdown for dam rehabilitation; refill may start before the end of 2026 and should finish in spring 2027, weather permitting.",
+     "source": "odnr-guilford-dam"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "Check the water",
+     "note": "ODNR lists three launch ramps; the dam work site is closed to the public.",
+     "source": "odnr-guilford"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Guilford Lake State Park office",
+     "+13302221712",
+     "(330) 222-1712",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-guilford",
+    "odnr-guilford-dam"
+   ]
+  },
+  "highlandtown": {
+   "name": "Highlandtown Lake",
+   "checked": "2026-11-10",
+   "items": [
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists two wildlife area ramps off SR 39.",
+     "source": "odnr-highlandtown"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Three",
+     "+13306442293",
+     "(330) 644-2293",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-highlandtown"
+   ]
+  },
+  "punderson": {
+   "name": "Punderson Lake",
+   "checked": "2026-11-10",
+   "items": [
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists one launch ramp. Electric only.",
+     "source": "odnr-punderson"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Punderson State Park office",
+     "+14405642279",
+     "(440) 564-2279",
+     ""
+    ],
+    [
+     "Camp store",
+     "+14405641195",
+     "(440) 564-1195",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-punderson"
+   ]
+  },
+  "wellington": {
+   "name": "Wellington Upground Reservoir",
+   "checked": "2026-11-10",
+   "items": [
+    {
+     "name": "Launch",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists one public launch off Jones Rd. Paddle and electric only.",
+     "source": "odnr-wellington"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Three",
+     "+13306442293",
+     "(330) 644-2293",
+     ""
+    ],
+    [
+     "Village of Wellington",
+     "+14406473164",
+     "(440) 647-3164",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-wellington"
+   ]
   }
  },
  "watch": [
@@ -2678,6 +2867,139 @@
    "url": "https://www.mwcd.org/places/beach-city-lake/",
    "lakes": [
     "beachcity"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-wingfoot",
+   "label": "ODNR, Wingfoot Lake State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wingfoot-lake-state-park",
+   "lakes": [
+    "wingfoot"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "gpd-headwaters",
+   "label": "Geauga Park District, Headwaters Park",
+   "url": "https://geaugaparkdistrict.org/park/headwaters-park/",
+   "lakes": [
+    "eastbranch"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-guilford",
+   "label": "ODNR, Guilford Lake State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/guilford-lake-state-park",
+   "lakes": [
+    "guilford"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-guilford-dam",
+   "label": "ODNR, Guilford Lake Dam Rehabilitation",
+   "url": "https://ohiodnr.gov/business-and-industry/business-opportunities/improvement-projects/guilford-lake-rehabilitation",
+   "lakes": [
+    "guilford"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-highlandtown",
+   "label": "ODNR, Highlandtown Lake Fishing Area",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/highlandtown-lake-fishing-area",
+   "lakes": [
+    "highlandtown"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-punderson",
+   "label": "ODNR, Punderson State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/punderson-state-park",
+   "lakes": [
+    "punderson"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-wellington",
+   "label": "ODNR, Wellington Upground Reservoir Fishing Area",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wellington-upground-reservoir-fishing-area",
+   "lakes": [
+    "wellington"
    ],
    "keywords": [
     "dock",

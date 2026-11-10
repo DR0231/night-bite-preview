@@ -9,7 +9,7 @@ head = ice[:ice.index("  <main id=\"main\">")]
 foot = ice[ice.index("  </main>"):]
 head = re.sub(r"<title>[^<]*</title>", "<title>Stocking &amp; surveys: Ohio lakes | The Night Bite</title>", head, count=1)
 head = re.sub(r'<meta name="description" content="[^"]*">',
-              '<meta name="description" content="ODNR stocking, net surveys and angler surveys for Hoover, Alum Creek, Buckeye Lake and 40 more Ohio lakes, with sources.">', head)
+              '<meta name="description" content="ODNR stocking, net surveys and angler surveys for Hoover, Alum Creek, Buckeye Lake and 46 more Ohio lakes, with sources.">', head)
 head = head.replace('<link rel="canonical" href="https://nightbiteoh.com/ice">', '<link rel="canonical" href="https://nightbiteoh.com/stocking">')
 assert "stocking" in head
 # ice.html's own scripts at the bottom stay (refresh, sw-update, alerts, nav, lake-picker); nothing else is needed
@@ -63,6 +63,12 @@ ODNR_MAP = {
     "charlesmill": "https://experience.arcgis.com/experience/2a39044c75b04e68872564b4c6ec0638",
     "pleasanthill": "https://experience.arcgis.com/experience/2a39044c75b04e68872564b4c6ec0638",
     "beachcity": "https://experience.arcgis.com/experience/2a39044c75b04e68872564b4c6ec0638",
+    "wingfoot": "https://experience.arcgis.com/experience/2a39044c75b04e68872564b4c6ec0638",
+    "eastbranch": "https://experience.arcgis.com/experience/2a39044c75b04e68872564b4c6ec0638",
+    "guilford": "https://experience.arcgis.com/experience/2a39044c75b04e68872564b4c6ec0638",
+    "highlandtown": "https://experience.arcgis.com/experience/2a39044c75b04e68872564b4c6ec0638",
+    "punderson": "https://experience.arcgis.com/experience/2a39044c75b04e68872564b4c6ec0638",
+    "wellington": "https://experience.arcgis.com/experience/2a39044c75b04e68872564b4c6ec0638",
 }
 AREA = {
     "hoover": ("ODNR, Hoover Reservoir Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/hoover-reservoir-fishing-area"),
@@ -108,6 +114,12 @@ AREA = {
     "charlesmill": ("ODNR, Charles Mill Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/charles-mill-lake-fishing-area"),
     "pleasanthill": ("ODNR, Pleasant Hill Reservoir Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/pleasant-hill-reservoir-fishing-area"),
     "beachcity": ("ODNR, Beach City Wildlife Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/beach-city-wildlife-area"),
+    "wingfoot": ("ODNR, Wingfoot Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wingfoot-lake-fishing-area"),
+    "eastbranch": ("Geauga Park District, Headwaters Park", "https://geaugaparkdistrict.org/park/headwaters-park/"),
+    "guilford": ("ODNR, Guilford Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/guilford-lake-fishing-area"),
+    "highlandtown": ("ODNR, Highlandtown Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/highlandtown-lake-fishing-area"),
+    "punderson": ("ODNR, Punderson Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/punderson-lake-fishing-area"),
+    "wellington": ("ODNR, Wellington Upground Reservoir Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wellington-upground-reservoir-fishing-area"),
 }
 PDFMAP = {
     "hoover": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/hooverreservoir2.pdf",
@@ -153,6 +165,12 @@ PDFMAP = {
     "charlesmill": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/charlesmilllake2.pdf",
     "pleasanthill": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/pleasanthillreservoir2.pdf",
     "beachcity": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/wildlife-area-maps/beachcity.pdf",
+    "wingfoot": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/wingfootlake2.pdf",
+    "eastbranch": "https://geaugaparkdistrict.org/park/headwaters-park/",
+    "guilford": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/guilfordlake2.pdf",
+    "highlandtown": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/highlandtownlake2.pdf",
+    "punderson": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/pundersonlake2.pdf",
+    "wellington": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/wellingtonupgroundreservoir.pdf",
 }
 STOCK_DB = "https://ohiodnr.gov/buy-and-apply/hunting-fishing-boating/fishing-resources/fish-stocking-records"
 
@@ -260,10 +278,10 @@ NOTE = "Copied from the PDF; a dash means none listed."
 
 # Lakes with no ODNR lake PDFs whose stocking is read from ODNR's public Fish Stocking dashboard (Tableau), last ten years.
 # Read Oct. 30, 2026 (dashboard "data updated 10/27/2026"). Deer Creek and Clear Fork list one species only.
-DB = ("deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity")
+DB = ("deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity", "wingfoot", "eastbranch", "guilford", "highlandtown", "punderson", "wellington")
 DB_NAME = {"deercreek": "Deer Creek Lake", "madison": "Madison Lake", "knox": "Knox Lake", "clearfork": "Clear Fork Reservoir",
            "seneca": "Seneca Lake", "dillon": "Dillon Lake", "logan": "Lake Logan", "saltfork": "Salt Fork Lake", "burroak": "Burr Oak Lake", "dow": "Dow Lake",
-           "mosquito": "Mosquito Creek Lake", "berlin": "Berlin Lake", "westbranch": "West Branch Reservoir", "pymatuning": "Pymatuning Lake", "milton": "Lake Milton", "leesville": "Leesville Lake", "grandlakestmarys": "Grand Lake St. Marys", "caesarcreek": "Caesar Creek Lake", "eastfork": "East Fork Lake", "cjbrown": "C.J. Brown Reservoir", "rockyfork": "Rocky Fork Lake", "ladue": "LaDue Reservoir", "paintcreek": "Paint Creek Lake", "portagelakes": "Portage Lakes", "mogadore": "Mogadore Reservoir", "loramie": "Lake Loramie", "nimisila": "Nimisila Reservoir", "cowan": "Cowan Lake", "acton": "Acton Lake", "tappan": "Tappan Lake", "piedmont": "Piedmont Lake", "clendening": "Clendening Lake", "atwood": "Atwood Lake", "charlesmill": "Charles Mill Lake", "pleasanthill": "Pleasant Hill Lake", "beachcity": "Beach City Lake"}
+           "mosquito": "Mosquito Creek Lake", "berlin": "Berlin Lake", "westbranch": "West Branch Reservoir", "pymatuning": "Pymatuning Lake", "milton": "Lake Milton", "leesville": "Leesville Lake", "grandlakestmarys": "Grand Lake St. Marys", "caesarcreek": "Caesar Creek Lake", "eastfork": "East Fork Lake", "cjbrown": "C.J. Brown Reservoir", "rockyfork": "Rocky Fork Lake", "ladue": "LaDue Reservoir", "paintcreek": "Paint Creek Lake", "portagelakes": "Portage Lakes", "mogadore": "Mogadore Reservoir", "loramie": "Lake Loramie", "nimisila": "Nimisila Reservoir", "cowan": "Cowan Lake", "acton": "Acton Lake", "tappan": "Tappan Lake", "piedmont": "Piedmont Lake", "clendening": "Clendening Lake", "atwood": "Atwood Lake", "charlesmill": "Charles Mill Lake", "pleasanthill": "Pleasant Hill Lake", "beachcity": "Beach City Lake", "wingfoot": "Wingfoot Lake", "eastbranch": "East Branch Reservoir", "guilford": "Guilford Lake", "highlandtown": "Highlandtown Lake", "punderson": "Punderson Lake", "wellington": "Wellington Upground Reservoir"}
 DASH = "https://analytics.das.ohio.gov/t/DOPPUB/views/ODNR_Fish_Stocking/FishStocking"
 DB_STOCK = {
     "deercreek": [("Saugeye", ("Fingerlings",), [
@@ -330,6 +348,12 @@ DB_STOCK = {
     "charlesmill": [('Saugeye', ('Fingerlings',), [(2016, '173,697'), (2017, '246,186'), (2018, '85,697'), (2019, '272,512'), (2020, '203,409'), (2021, '134,914'), (2022, '136,580'), (2023, '134,820'), (2024, '136,648'), (2025, '135,674')]), ('Hybrid striped bass', ('Fingerlings',), [(2016, '139,403'), (2017, '67,757'), (2018, '69,155'), (2019, '24,379'), (2020, '71,029'), (2022, '48,907'), (2023, '134,421'), (2024, '67,728'), (2025, '22,665')])],
     "pleasanthill": [('Saugeye', ('Fingerlings', 'Fry'), [(2016, '', '783,000'), (2017, '199,125', ''), (2018, '73,456', ''), (2019, '226,941', ''), (2020, '157,684', ''), (2021, '156,825', ''), (2022, '156,794', ''), (2023, '159,699', ''), (2024, '158,149', ''), (2025, '117,484', '')]), ('Channel catfish', ('Catchables',), [(2016, '1,523'), (2017, '1,533'), (2018, '1,000'), (2021, '505'), (2022, '750'), (2023, '1,000')])],
     "beachcity": [],
+    "wingfoot": [('Channel catfish', ('Advanced fingerlings', 'Fingerlings', 'Yearlings'), [(2016, '', '7,856', '9,864'), (2022, '10,000', '', ''), (2024, '10,000', '', '')])],
+    "eastbranch": [],
+    "guilford": [('Hybrid striped bass', ('Fingerlings',), [(2016, '49,124'), (2018, '19,077'), (2019, '10,479'), (2020, '19,817'), (2022, '9,000'), (2023, '36,176')]), ('Channel catfish', ('Yearlings',), [(2016, '5,076'), (2018, '1,008'), (2020, '1,893')])],
+    "highlandtown": [('Channel catfish', ('Fingerlings', 'Yearlings'), [(2016, '5,273', '3,196'), (2020, '', '1,008')])],
+    "punderson": [('Bluegill', ('Catchables',), [(2025, '125')]), ('Channel catfish', ('Advanced fingerlings', 'Yearlings'), [(2017, '', '2,025'), (2019, '', '2,025'), (2021, '', '2,089'), (2023, '960', ''), (2025, '960', '')]), ('Rainbow trout', ('Catchables',), [(2016, '2,500'), (2017, '3,724'), (2018, '4,306'), (2019, '2,501'), (2020, '2,835'), (2021, '2,005'), (2022, '2,004')]), ('Brown trout', ('Yearlings',), [(2016, '1,306')])],
+    "wellington": [('Yellow perch', ('Fingerlings',), [(2016, '87,057'), (2017, '40,596'), (2019, '64,155'), (2020, '39,760'), (2021, '79,982'), (2022, '79,707'), (2023, '40,103'), (2024, '39,750'), (2025, '39,918')]), ('Channel catfish', ('Fingerlings', 'Yearlings'), [(2016, '', '4,082'), (2018, '5,135', ''), (2020, '7,965', ''), (2022, '', '1,908'), (2024, '', '1,908')])],
 }
 DB_SAYS = {
     "deercreek": "What ODNR does say: the Corps of Engineers finished the dam in 1968. The lake impounds 1,290 acres from Deer Creek and Clark Run, and its level can change up to 20 ft because the watershed is large for the lake. ODNR says early spring saugeye below the dam is the fishery the park is famous for.",
@@ -368,6 +392,12 @@ DB_SAYS = {
     "charlesmill": "What ODNR does say: MWCD built Charles Mill Lake in 1935 by damming the Black Fork of the Mohican River. It holds 1,350 acres in three basins: north of SR 430 very shallow and often turbid, south of SR 430 mostly about 6 ft, and the east basin deepest, with a 27 ft hole and the clearest water.",
     "pleasanthill": "What ODNR does say: Pleasant Hill was built in 1938 on the Clear Fork of the Mohican River. The west end is under 10 ft, the middle reaches 20 ft and a steep gorge at the south bend drops to 35 ft. White bass run up the Clear Fork in spring, and saugeye bite at night off the beach area in 10 to 15 ft on a jig and minnow.",
     "beachcity": "What ODNR does say: the Beach City Wildlife Area map calls saugeye fishing good in the lake and below the dam, largemouth best in spring and early summer, northern pike a spring creek fish, and bluegill and crappie year round. It lists bluegill, largemouth bass, crappie, carp, bullhead and northern pike.",
+    "wingfoot": "What ODNR does say: Wingfoot Lake was created by the Wingfoot Lake Dam, completed in 1916, to supply water to Goodyear&rsquo;s Akron plant. ODNR bought the lake and park in 2009. Any motor is allowed at idle speed only, with no wake.",
+    "eastbranch": "What the official pages do say: East Branch Reservoir is the northernmost of the four City of Akron water supply reservoirs, at the headwaters of the Cuyahoga River. Headwaters Park, leased to Geauga Park District, has the only launch; the east shore and the islands are preserves.",
+    "guilford": "What ODNR does say: Guilford Lake was built in 1834 as a feeder for the Sandy and Beaver Canal and rebuilt in 1932. It covers 361 acres, is 22 ft deep at most, and is drawn down about 20 ft for a dam rehabilitation, with refill planned to finish in spring 2027.",
+    "highlandtown": "What ODNR does say: Highlandtown Lake was built in 1966 and first stocked in 1967 with muskellunge, largemouth bass, bluegill and channel catfish, after habitat work on the lake bottom. Boats with motors of 10 hp or less are allowed.",
+    "punderson": "What ODNR does say: Punderson Lake is a natural kettle lake, the largest and deepest in Ohio. It covers 80 acres, with steep drop offs into three kettles from 30 to 57 ft. Only electric motors are allowed. ODNR Wildlife bought it in 1948 and handed it to State Parks in 1951.",
+    "wellington": "What ODNR does say: Wellington Upground Reservoir is a 160 acre water supply reservoir built by the Village of Wellington in the 1970s. The village owns it; ODNR Wildlife manages the fish under an agreement. Paddle craft and electric motors only, up to 23 ft, and shore angling is abundant.",
 }
 
 DB_NETS = {k: "Linked by ODNR, not copied" for k in ("seneca", "saltfork", "burroak", "berlin")}
@@ -595,6 +625,18 @@ main = f'''  <main id="main">
 {db_block("pleasanthill")}    </div>
     <div data-for="beachcity">
 {db_block("beachcity")}    </div>
+    <div data-for="wingfoot">
+{db_block("wingfoot")}    </div>
+    <div data-for="eastbranch">
+{db_block("eastbranch")}    </div>
+    <div data-for="guilford">
+{db_block("guilford")}    </div>
+    <div data-for="highlandtown">
+{db_block("highlandtown")}    </div>
+    <div data-for="punderson">
+{db_block("punderson")}    </div>
+    <div data-for="wellington">
+{db_block("wellington")}    </div>
     <div data-for="buckeye">
       <div class="card data-glance">
         <p class="data-none">ODNR&rsquo;s Buckeye Lake fishing area page has no stocking tables, net surveys, angler survey or fishing forecast. This page says so rather than guess.</p>
@@ -616,7 +658,7 @@ main = f'''  <main id="main">
         Source: <a href="{AREA["griggs"][1]}"{EXT}>{AREA["griggs"][0]}</a>. ODNR&rsquo;s <a href="https://ohiodnr.gov/discover-and-learn/education-training/wild-ohio-harvest-community/fishing-tips"{EXT}>Hybrid Striped Bass Fishing Tips</a> list Griggs among the lakes stocked with hybrid striped bass, and ODNR&rsquo;s <a href="https://ohiodnr.gov/discover-and-learn/safety-conservation/about-ODNR/news/central-ohio-is-a-fishing-destination-for-crappie-bass-and-catfish"{EXT}>June 12, 2026 news release</a> says Griggs has a strong population of large hybrids, often over 20 inches. No numbers are posted.</p>
       </div>
     </div>
-    <p class="meta data-dates" data-for="{" ".join(DB)}">Stocking numbers for <span data-lk="name">Hoover Reservoir</span> are read from ODNR&rsquo;s public <a href="{DASH}"{EXT}>Fish Stocking dashboard</a> (data updated Oct. 27, 2026), last ten years. Checked Oct. 30, 2026; the six east and southeast lakes Oct. 31, 2026; the six northeast lakes Nov. 3, 2026; Grand Lake St. Marys, Caesar Creek Lake, East Fork Lake, C.J. Brown Reservoir, Rocky Fork Lake, LaDue Reservoir, Paint Creek Lake, the Portage Lakes, Mogadore Reservoir, Lake Loramie, Nimisila Reservoir, Cowan Lake, Acton Lake, Tappan Lake, Piedmont Lake, Clendening Lake, Atwood Lake, Charles Mill Lake, Pleasant Hill Lake and Beach City Lake Nov. 9, 2026.</p>
+    <p class="meta data-dates" data-for="{" ".join(DB)}">Stocking numbers for <span data-lk="name">Hoover Reservoir</span> are read from ODNR&rsquo;s public <a href="{DASH}"{EXT}>Fish Stocking dashboard</a> (data updated Oct. 27, 2026), last ten years. Checked Oct. 30, 2026; the six east and southeast lakes Oct. 31, 2026; the six northeast lakes Nov. 3, 2026; Grand Lake St. Marys, Caesar Creek Lake, East Fork Lake, C.J. Brown Reservoir, Rocky Fork Lake, LaDue Reservoir, Paint Creek Lake, the Portage Lakes, Mogadore Reservoir, Lake Loramie, Nimisila Reservoir, Cowan Lake, Acton Lake, Tappan Lake, Piedmont Lake, Clendening Lake, Atwood Lake, Charles Mill Lake, Pleasant Hill Lake and Beach City Lake Nov. 9, 2026; Wingfoot Lake, East Branch Reservoir, Guilford Lake, Highlandtown Lake, Punderson Lake and Wellington Upground Reservoir Nov. 10, 2026.</p>
     <p class="meta data-dates" data-for="{" ".join(DATA + NONE)}">ODNR&rsquo;s lake PDFs run through 2019. Newer stocking is in ODNR&rsquo;s <a href="{STOCK_DB}"{EXT}>Fish Stocking Database</a> on DataOhio, which asked for a sign in, so it isn&rsquo;t copied here. Checked Oct. 27, 2026.</p>
 '''
 main += section("stocked", "Fish stocked", stocked, "", db_stocked)

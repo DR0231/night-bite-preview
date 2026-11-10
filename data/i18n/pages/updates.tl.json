@@ -31,6 +31,7 @@
   "updates.3b470165": "Pitong MWCD lawa: Tappan hanggang Beach City",
   "updates.3b6e3e93": "Ang bawat lawa ay may sariling mapa at mga rampa, mga panuntunan sa lawa, tala ng mga species, panahon ng pantalan at Bait sa malapit, at binabasa ang sukat ng lawa USGS nito.",
   "updates.42bc867e": "Mas maraming panahon para ngayong gabi",
+  "updates.42fd452e": "Guilford Lake ay iginuhit pababa ng humigit-kumulang 20 ft para sa rehabilitasyon ODNR dam, na inaasahang refill sa tagsibol 2027; ang pahina ay nagli-link sa mga update sa proyekto ng ODNR.",
   "updates.45fbd713": "May sariling mapa at ramp, lake level gauge (USGS, o ang US Army Corps of Engineers sa Delaware Lake), patakaran sa lawa, tala sa species at dock season ang bawat lawa.",
   "updates.4652d8da": "Ipinapakita na ng mga pahina ng isda kung ano ang ini-stock ng ODNR para sa bawat isda.",
   "updates.4af0b2c3": "Nakalista sa Hoover ang dock office sa",
@@ -52,6 +53,7 @@
   "updates.682295ed": "Tonight at a glance sa bawat lawa",
   "updates.68dc6aa7": "Ang bawat pahina ay nagpapakita ng winter drawdown ng MWCD kasama ang mga opisyal na petsa at antas. Beach City ay wala sa iskedyul at walang pampublikong rampa, at sinasabi ng pahina nito.",
   "updates.6a5cfba1": "Tracker ng dock season",
+  "updates.6cfc3e24": "Wingfoot, Guilford at Highlandtown ay nagpapakita ng site bass rule ngayon kasama ang",
   "updates.6eb8afd2": "at Columbus Watershed Management sa",
   "updates.6f0739af": "May sariling mapa at ramp, patakaran sa lawa, tala sa species, dock season at Bait nearby ang bawat lawa. Binabasa ng Seneca ang USGS lake gauge, ng Dillon at Burr Oak ang Army Corps; sinasabi ng Lake Logan, Salt Fork at Dow na No public gauge.",
   "updates.70158bea": "Paglabas ng balita ODNR",
@@ -81,6 +83,8 @@
   "updates.a97f7c64": ", isang tap para tumawag.",
   "updates.ab3abbcd": "Preview lang: itatakda ang petsa kapag inilabas",
   "updates.aebf51b3": "May sariling home page na ang Alum Creek Lake at Buckeye Lake.",
+  "updates.afbd0a2f": "Ang bawat lawa ay may sariling mapa at mga rampa, mga panuntunan sa lawa, tala ng mga species, panahon ng pantalan at Bait sa malapit. Wala sa anim ang may pampublikong antas o water temp gauge, at sinasabi ng bawat pahina.",
+  "updates.b159a329": "Pumili ng Wingfoot Lake, East Branch Reservoir, Guilford Lake, Highlandtown Lake, Punderson Lake o Wellington Upground Reservoir sa ilalim ng Northeast Ohio. Ang bawat isa ay may sariling home page.",
   "updates.b2f79f7e": "Isang set ng pixel icon, may isda para sa bawat species.",
   "updates.b584d3cf": "Pumili ng Grand Lake St. Marys, Caesar Creek Lake o East Fork Lake gamit ang lake picker, sa ilalim ng bagong Northwest at Southwest heading. Ang bawat isa ay may sariling home page.",
   "updates.b81b943a": "Trip report para sa bawat lawa",
@@ -105,9 +109,12 @@
   "updates.ed3bc72a": "Sampung pang lawa: C.J. Brown hanggang Acton",
   "updates.f078762f": "Ang stocking at mga survey ay nagdaragdag ng sampung taon ng ODNR stocking para sa tatlo, mula sa dashboard ng Fish Stocking ng ODNR.",
   "updates.f40b5838": "Ipinapakita na ng strip sa ilalim ng pangalan ng lawa ang lake level, temperatura ng tubig, paglubog ng araw at hangin ngayong gabi, na may bite rating sa tabi ng pamagat.",
+  "updates.f57ac6a4": "pagbabago sa buong estado na may petsang katabi nito, na naka-link sa paglabas ng balita ng ODNR.",
   "updates.f5e02579": "Nagdagdag ang Water ng card ng patakaran sa lawa, link sa kalidad ng tubig papunta sa BeachGuard at mga update ng Ohio EPA sa algae, at impormasyon ng Buckeye Lake.",
+  "updates.f6cf9abb": "Ang pag-stock at mga survey ay nagdaragdag ng sampung taon ng ODNR stocking kung saan ini-stock ODNR ang mga tubig na ito, mula sa dashboard ng Fish Stocking ng ODNR.",
   "updates.f960638f": "Kasaysayan ng stocking, bagong pahina ng Gamit at iba pa",
   "updates.f9a1402a": "Tonight at Hoover sa Home: barometer na may 12 oras na trend, hangin na may bugso, at yugto ng buwan ngayong gabi.",
-  "updates.faa7450e": "Hanggang sa panahong iyon, nananatili ang 2026, 27 na mga panuntunan, at ipinapakita ng bawat pahina ng lawa ang panuntunan ngayon na may pagbabagong may petsa sa tabi nito, na naka-link sa release ng balita ng ODNR."
+  "updates.faa7450e": "Hanggang sa panahong iyon, nananatili ang 2026, 27 na mga panuntunan, at ipinapakita ng bawat pahina ng lawa ang panuntunan ngayon na may pagbabagong may petsa sa tabi nito, na naka-link sa release ng balita ng ODNR.",
+  "updates.ff1b60b9": "Anim pang Northeast Ohio na tubig: Wingfoot hanggang Wellington"
  }
 }

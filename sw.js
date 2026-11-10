@@ -9,7 +9,7 @@
  *    with last deploy's styles or scripts. (Up to v11 these were cache first, which showed the multi-lake
  *    picker unstyled and the old Hoover-only map script after a deploy.) Pages ask for them with ?v=VERSION.
  *  · Fonts, images: stale while revalidate (instant from cache, refreshed in the background).
- *  · Home pages: the root (the water picker) and every lake home page (hoover/, alum/, buckeye/, oshaughnessy/, griggs/, indian/, delaware/, deercreek/, madison/, knox/, clearfork/, seneca/, dillon/, logan/, saltfork/, burroak/, dow/, mosquito/, berlin/, westbranch/, pymatuning/, milton/, leesville/, grandlakestmarys/, caesarcreek/, eastfork/, cjbrown/, rockyfork/, ladue/, paintcreek/, portagelakes/, mogadore/, loramie/, nimisila/, cowan/, acton/, tappan/, piedmont/, clendening/, atwood/, charlesmill/, pleasanthill/, beachcity/) are precached, so each lake opens offline.
+ *  · Home pages: the root (the water picker) and every lake home page (hoover/, alum/, buckeye/, oshaughnessy/, griggs/, indian/, delaware/, deercreek/, madison/, knox/, clearfork/, seneca/, dillon/, logan/, saltfork/, burroak/, dow/, mosquito/, berlin/, westbranch/, pymatuning/, milton/, leesville/, grandlakestmarys/, caesarcreek/, eastfork/, cjbrown/, rockyfork/, ladue/, paintcreek/, portagelakes/, mogadore/, loramie/, nimisila/, cowan/, acton/, tappan/, piedmont/, clendening/, atwood/, charlesmill/, pleasanthill/, beachcity/, wingfoot/, eastbranch/, guilford/, highlandtown/, punderson/, wellington/) are precached, so each lake opens offline.
  *  · Whisperwood is never touched: nothing under whisperwood/ (or whisperwood.html) is cached or intercepted.
  *  · Cross origin requests (NWS, USGS, links out) pass straight through. The page itself keeps the last good
  *    readings in localStorage and labels them "Offline. Last updated ..." (js/refresh.js, NightBiteOffline).
@@ -19,7 +19,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v120-2026-11-09";
+var VERSION = "v121-2026-11-10";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -69,6 +69,12 @@ var PRECACHE = [
   "charlesmill/",
   "pleasanthill/",
   "beachcity/",
+  "wingfoot/",
+  "eastbranch/",
+  "guilford/",
+  "highlandtown/",
+  "punderson/",
+  "wellington/",
   "species/",
   "water.html",
   "ice.html",
@@ -176,6 +182,12 @@ var PRECACHE = [
   "js/lake-map-data-charlesmill.js",
   "js/lake-map-data-pleasanthill.js",
   "js/lake-map-data-beachcity.js",
+  "js/lake-map-data-wingfoot.js",
+  "js/lake-map-data-eastbranch.js",
+  "js/lake-map-data-guilford.js",
+  "js/lake-map-data-highlandtown.js",
+  "js/lake-map-data-punderson.js",
+  "js/lake-map-data-wellington.js",
   "js/lake-picker.js",
   "js/water-picker.js",
   "js/lake-snapshot.js",
@@ -256,6 +268,12 @@ var PRECACHE = [
   "assets/tiles/charlesmill.png",
   "assets/tiles/pleasanthill.png",
   "assets/tiles/beachcity.png",
+  "assets/tiles/wingfoot.png",
+  "assets/tiles/eastbranch.png",
+  "assets/tiles/guilford.png",
+  "assets/tiles/highlandtown.png",
+  "assets/tiles/punderson.png",
+  "assets/tiles/wellington.png",
   "assets/hoover-chart.png",
   "assets/maps/hoover-depth-contours.webp",
   "assets/alum-chart.png",
@@ -300,6 +318,12 @@ var PRECACHE = [
   "assets/charlesmill-chart.png",
   "assets/pleasanthill-chart.png",
   "assets/beachcity-chart.png",
+  "assets/wingfoot-chart.png",
+  "assets/eastbranch-chart.png",
+  "assets/guilford-chart.png",
+  "assets/highlandtown-chart.png",
+  "assets/punderson-chart.png",
+  "assets/wellington-chart.png",
   "assets/horizon-center.png",
   "assets/horizon-thin.png",
   "assets/horizon-tile.png",
@@ -414,6 +438,18 @@ var PRECACHE = [
   "assets/map/pleasanthill-map-wide.png",
   "assets/map/beachcity-map-tall.png",
   "assets/map/beachcity-map-wide.png",
+  "assets/map/wingfoot-map-tall.png",
+  "assets/map/wingfoot-map-wide.png",
+  "assets/map/eastbranch-map-tall.png",
+  "assets/map/eastbranch-map-wide.png",
+  "assets/map/guilford-map-tall.png",
+  "assets/map/guilford-map-wide.png",
+  "assets/map/highlandtown-map-tall.png",
+  "assets/map/highlandtown-map-wide.png",
+  "assets/map/punderson-map-tall.png",
+  "assets/map/punderson-map-wide.png",
+  "assets/map/wellington-map-tall.png",
+  "assets/map/wellington-map-wide.png",
   "assets/map/pin-access.png",
   "assets/map/pin-ramp.png",
   "assets/map/pin-shop.png",

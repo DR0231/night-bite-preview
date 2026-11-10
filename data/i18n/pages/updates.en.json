@@ -30,6 +30,7 @@
   "updates.3b470165": "Seven MWCD lakes: Tappan to Beach City",
   "updates.3b6e3e93": "Each lake has its own map and ramps, lake rules, species notes, dock season and Bait nearby, and reads its USGS lake gauge.",
   "updates.42bc867e": "More weather for tonight",
+  "updates.42fd452e": "Guilford Lake is drawn down about 20 ft for ODNR dam rehabilitation, with refill expected by spring 2027; the page links ODNR's project updates.",
   "updates.45fbd713": "Each lake has its own map and ramps, lake level gauge (USGS, or the US Army Corps of Engineers at Delaware Lake), lake rules, species notes and dock season.",
   "updates.4652d8da": "Species pages now show what ODNR has stocked for each fish.",
   "updates.4af0b2c3": "Hoover lists the dock office at",
@@ -51,6 +52,7 @@
   "updates.682295ed": "Tonight at a glance on every lake",
   "updates.68dc6aa7": "Each page shows MWCD’s winter drawdown with the official dates and levels. Beach City is not on the schedule and has no public ramp, and its page says so.",
   "updates.6a5cfba1": "Dock season tracker",
+  "updates.6cfc3e24": "Wingfoot, Guilford and Highlandtown show today's site bass rule with the",
   "updates.6eb8afd2": "and Columbus Watershed Management at",
   "updates.6f0739af": "Each lake has its own map and ramps, lake rules, species notes, dock season and Bait nearby. Seneca reads the USGS lake gauge, Dillon and Burr Oak the Army Corps; Lake Logan, Salt Fork and Dow say No public gauge.",
   "updates.70158bea": "ODNR news release",
@@ -80,6 +82,8 @@
   "updates.a97f7c64": ", one tap to call.",
   "updates.ab3abbcd": "Preview only: date set when it ships",
   "updates.aebf51b3": "Alum Creek Lake and Buckeye Lake have their own home pages.",
+  "updates.afbd0a2f": "Each lake has its own map and ramps, lake rules, species notes, dock season and Bait nearby. None of the six has a public level or water temp gauge, and each page says so.",
+  "updates.b159a329": "Pick Wingfoot Lake, East Branch Reservoir, Guilford Lake, Highlandtown Lake, Punderson Lake or Wellington Upground Reservoir under Northeast Ohio. Each has its own home page.",
   "updates.b2f79f7e": "One set of pixel icons, with a fish for each species.",
   "updates.b584d3cf": "Pick Grand Lake St. Marys, Caesar Creek Lake or East Fork Lake with the lake picker, under the new Northwest and Southwest headings. Each has its own home page.",
   "updates.b81b943a": "Trip reports for every lake",
@@ -104,9 +108,12 @@
   "updates.ed3bc72a": "Ten more lakes: C.J. Brown to Acton",
   "updates.f078762f": "Stocking & surveys adds ten years of ODNR stocking for all three, from ODNR’s Fish Stocking dashboard.",
   "updates.f40b5838": "The strip under the lake name now shows the lake level, water temp, sunset and tonight’s wind, with the bite rating beside the title.",
+  "updates.f57ac6a4": "statewide change dated next to it, linked to ODNR's news release.",
   "updates.f5e02579": "Water adds a lake rules card, a water quality link to BeachGuard and Ohio EPA algae updates, and Buckeye Lake facts.",
+  "updates.f6cf9abb": "Stocking & surveys adds ten years of ODNR stocking where ODNR stocks these waters, from ODNR's Fish Stocking dashboard.",
   "updates.f960638f": "Stocking history, a new Gear page and more",
   "updates.f9a1402a": "Tonight at Hoover on Home: barometer with its 12 hour trend, wind with gusts, and tonight's moon phase.",
-  "updates.faa7450e": "Until then the 2026–27 rules stand, and each lake page shows today's rule with the change dated next to it, linked to ODNR's news release."
+  "updates.faa7450e": "Until then the 2026–27 rules stand, and each lake page shows today's rule with the change dated next to it, linked to ODNR's news release.",
+  "updates.ff1b60b9": "Six more Northeast Ohio waters: Wingfoot to Wellington"
  }
 }

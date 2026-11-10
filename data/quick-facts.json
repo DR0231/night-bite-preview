@@ -1006,6 +1006,142 @@
         ["MWCD, Winter Drawdown Schedule (Oct. 2026)", "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/"],
         ["MWCD Rules and Regulations, rule 3.3", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"]
       ]
+    },
+    "wingfoot": {
+      "checked": "2026-11-10",
+      "title": "Wingfoot Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Wingfoot Lake fishing: any motor at idle speed, no wake, bass 3 a day under a 14 to 20 in slot until March 2027, ramp and pier, tonight's bite. Unofficial.",
+      "motors": "Any motor, idle speed only, no wake (ODNR).",
+      "ramps": "ODNR says two launch ramps are in Wingfoot Lake Wildlife Area next to the park; accessible fishing pier near the canteen.",
+      "pool": "Summer pool is 1,162 ft, the level the ODNR fishing map is drawn at.",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Wingfoot Lake State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wingfoot-lake-state-park"],
+        "checked": "2026-11-10"
+      },
+      "sources": [
+        ["ODNR, Wingfoot Lake State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wingfoot-lake-state-park"],
+        ["ODNR, Wingfoot Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wingfoot-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/wingfootlake2.pdf"],
+        ["OAC 1501:47-5-03", "https://codes.ohio.gov/ohio-administrative-code/rule-1501:47-5-03"]
+      ]
+    },
+    "eastbranch": {
+      "checked": "2026-11-10",
+      "title": "East Branch Reservoir Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "East Branch Reservoir fishing: electric motors only, bank closures north of US 322 and on the east shore, the Headwaters Park launch, tonight's bite. Unofficial.",
+      "motors": "Electric motors only; no gas motors or external fuel tanks (OAC 1501:47-5-03). Geauga Park District allows electric motors of 1.5 hp or less.",
+      "ramps": "One small craft launch at Headwaters Park, Geauga Park District.",
+      "hours": {
+        "authority": "city",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": null,
+        "chip": "Headwaters Park open 6 a.m. to 11 p.m. (Geauga Park District)",
+        "source": ["Geauga Park District, Headwaters Park", "https://geaugaparkdistrict.org/park/headwaters-park/"],
+        "checked": "2026-11-10"
+      },
+      "sources": [
+        ["Geauga Park District, Headwaters Park", "https://geaugaparkdistrict.org/park/headwaters-park/"],
+        ["Geauga Park District, canoeing, kayaking and boating", "https://geaugaparkdistrict.org/activity/canoeing-kayaking-boating/"],
+        ["OAC 1501:47-5-03", "https://codes.ohio.gov/ohio-administrative-code/rule-1501:47-5-03"],
+        ["OAC 1501:31-13-07", "https://codes.ohio.gov/ohio-administrative-code/rule-1501:31-13-07"]
+      ]
+    },
+    "guilford": {
+      "checked": "2026-11-10",
+      "title": "Guilford Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Guilford Lake fishing: drawn down about 20 ft for dam work until a spring 2027 refill, 10 hp limit, bass 3 a day under a slot, tonight's bite. Unofficial.",
+      "motors": "10 hp limit (ODNR).",
+      "ramps": "Three state park launch ramps and seasonal dock rentals; accessible fishing pier on Hanna Dr (ODNR). The lake is drawn down for dam work.",
+      "pool": "Summer pool is 1,090 ft on the ODNR fishing map. ODNR reported the lake 20 ft below normal pool for dam work on Nov. 3, 2026, with refill planned to finish in spring 2027.",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Guilford Lake State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/guilford-lake-state-park"],
+        "checked": "2026-11-10"
+      },
+      "sources": [
+        ["ODNR, Guilford Lake State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/guilford-lake-state-park"],
+        ["ODNR, Guilford Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/guilford-lake-fishing-area"],
+        ["ODNR, Guilford Lake Dam Rehabilitation", "https://ohiodnr.gov/business-and-industry/business-opportunities/improvement-projects/guilford-lake-rehabilitation"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/guilfordlake2.pdf"]
+      ]
+    },
+    "highlandtown": {
+      "checked": "2026-11-10",
+      "title": "Highlandtown Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Highlandtown Lake fishing: 10 hp limit, bass 4 a day split at 15 in until March 2027, two wildlife area ramps, tonight's bite. Unofficial.",
+      "motors": "10 hp or less (ODNR; OAC 1501:47-5-03).",
+      "ramps": "Two wildlife area ramps off SR 39 in ODNR's boating facilities list.",
+      "pool": "Summer pool is 1,070 ft, the level the ODNR fishing map is drawn at.",
+      "hours": {
+        "none": true,
+        "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.",
+        "checked": "2026-11-10"
+      },
+      "sources": [
+        ["ODNR, Highlandtown Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/highlandtown-lake-fishing-area"],
+        ["ODNR, Highlandtown Wildlife Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/highlandtown-wildlife-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/highlandtownlake2.pdf"],
+        ["OAC 1501:47-5-03", "https://codes.ohio.gov/ohio-administrative-code/rule-1501:47-5-03"]
+      ]
+    },
+    "punderson": {
+      "checked": "2026-11-10",
+      "title": "Punderson Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Punderson Lake fishing: natural kettle lake 57 ft deep, electric motors only, one ramp, bait at the camp store, stocked trout, tonight's bite. Unofficial.",
+      "motors": "Electric motors only (ODNR).",
+      "ramps": "One launch ramp; kayaks, canoes and paddleboards for rent at the camp store, (440) 564-1195 (ODNR).",
+      "pool": "Summer pool is 1,144 ft, the level the ODNR fishing map is drawn at.",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Punderson State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/punderson-state-park"],
+        "checked": "2026-11-10"
+      },
+      "sources": [
+        ["ODNR, Punderson State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/punderson-state-park"],
+        ["ODNR, Punderson Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/punderson-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/pundersonlake2.pdf"]
+      ]
+    },
+    "wellington": {
+      "checked": "2026-11-10",
+      "title": "Wellington Upground Reservoir Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Wellington Upground Reservoir fishing: paddle craft and electric motors only, yellow perch stocked yearly, open sunrise to sunset, the Jones Rd launch. Unofficial.",
+      "motors": "Paddle craft and electric motors only, boats up to 23 ft (ODNR).",
+      "ramps": "One public launch and parking lot on the south side off Jones Rd, west of SR 58 (ODNR).",
+      "pool": "Summer pool is 885 ft, the level the ODNR fishing map is drawn at.",
+      "night": "Public access is sunrise to sunset daily (ODNR Lake Erie Birding Trail page); follow posted signs after dark.",
+      "hours": {
+        "authority": "odnr",
+        "open": "sunrise",
+        "close": "sunset",
+        "fishing_after_hours": null,
+        "chip": "Open sunrise to sunset (ODNR)",
+        "source": ["ODNR, Lake Erie Birding Trail: Wellington Upground Reservoir", "https://ohiodnr.gov/go-and-do/see-the-sights/lake-erie-birding-trail/huron-lorain-loop/wellington-reservoir"],
+        "checked": "2026-11-10"
+      },
+      "sources": [
+        ["ODNR, Wellington Upground Reservoir Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wellington-upground-reservoir-fishing-area"],
+        ["ODNR, Lake Erie Birding Trail: Wellington Upground Reservoir", "https://ohiodnr.gov/go-and-do/see-the-sights/lake-erie-birding-trail/huron-lorain-loop/wellington-reservoir"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/wellingtonupgroundreservoir.pdf"],
+        ["OAC 1501:47-5-03", "https://codes.ohio.gov/ohio-administrative-code/rule-1501:47-5-03"]
+      ]
     }
   }
 }

@@ -36,7 +36,7 @@
   }
   if (NOGAUGE) {
     if (line) line.textContent = "No public lake level gauge";
-    if (checked) checked.textContent = "ODNR fishing map pool: " + P.fullPool + " ft. No USGS or Corps gauge posts this lake's level or water temp, so there is no live reading to show.";
+    if (checked) checked.textContent = (P.fullPool != null ? "ODNR fishing map pool: " + P.fullPool + " ft. " : "No ODNR fishing map pool is posted for this lake. ") + "No USGS or Corps gauge posts this lake's level or water temp, so there is no live reading to show.";
     if (temp) temp.textContent = "No public water temp gauge";
     if (status) status.textContent = "No public lake level or water temp gauge on this lake. Never invented.";
     return;

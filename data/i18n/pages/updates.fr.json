@@ -31,6 +31,7 @@
   "updates.3b470165": "Sept lacs MWCD: Tappan à Beach City",
   "updates.3b6e3e93": "Chaque lac a sa propre carte et ses propres rampes, ses règles du lac, ses notes sur les espèces, la saison des quais et les appâts à proximité, et lit sa jauge de lac USGS.",
   "updates.42bc867e": "Plus de météo pour ce soir",
+  "updates.42fd452e": "Guilford Lake est abaissé d'environ 20 ft pour la réhabilitation du barrage ODNR, dont le remplissage est prévu d'ici le printemps 2027; la page relie les mises à jour du projet de ODNR.",
   "updates.45fbd713": "Chaque lac a sa propre carte et ses mises à l’eau, sa jauge de niveau (USGS, ou l’US Army Corps of Engineers à Delaware Lake), ses règles, ses notes sur les espèces et sa saison des pontons.",
   "updates.4652d8da": "Les pages espèces montrent maintenant ce que l’ODNR a aleviné pour chaque poisson.",
   "updates.4af0b2c3": "Hoover indique le bureau des pontons au",
@@ -52,6 +53,7 @@
   "updates.682295ed": "Ce soir en un coup d’œil sur chaque lac",
   "updates.68dc6aa7": "Chaque page présente le tirage hivernal du MWCD avec les dates et niveaux officiels. Beach City ne figure pas au programme et n'a pas de rampe publique, et sa page l'indique.",
   "updates.6a5cfba1": "Suivi de la saison des pontons",
+  "updates.6cfc3e24": "Wingfoot, Guilford et Highlandtown affichent la règle des basses du site d'aujourd'hui avec le",
   "updates.6eb8afd2": "et Columbus Watershed Management au",
   "updates.6f0739af": "Chaque lac a sa propre carte et ses mises à l’eau, ses règles, ses notes sur les espèces, sa saison des pontons et Appâts à proximité. Seneca lit la jauge de lac USGS, Dillon et Burr Oak celle de l’Army Corps ; Lake Logan, Salt Fork et Dow indiquent Pas de jauge publique.",
   "updates.70158bea": "Communiqué de presse ODNR",
@@ -81,6 +83,8 @@
   "updates.a97f7c64": ", un appui pour appeler.",
   "updates.ab3abbcd": "Aperçu uniquement : date fixée à la mise en ligne",
   "updates.aebf51b3": "Alum Creek Lake et Buckeye Lake ont leurs propres pages d’accueil.",
+  "updates.afbd0a2f": "Chaque lac a sa propre carte et ses propres rampes, ses règles, ses notes sur les espèces, la saison des quais et les appâts à proximité. Aucun des six ne dispose d'une jauge de niveau public ou de température de l'eau, et chaque page l'indique.",
+  "updates.b159a329": "Choisissez Wingfoot Lake, East Branch Reservoir, Guilford Lake, Highlandtown Lake, Punderson Lake ou Wellington Upground Reservoir sous le nord-est de l'Ohio. Chacun a sa propre page d'accueil.",
   "updates.b2f79f7e": "Un seul jeu d’icônes pixel, avec un poisson pour chaque espèce.",
   "updates.b584d3cf": "Choisissez Grand Lake St. Marys, Caesar Creek Lake ou East Fork Lake avec le sélecteur de lac, sous les nouvelles rubriques Nord-Ouest et Sud-Ouest. Chacun a sa propre page d'accueil.",
   "updates.b81b943a": "Comptes rendus de sortie pour chaque lac",
@@ -105,9 +109,12 @@
   "updates.ed3bc72a": "Dix autres lacs: de C.J. Brown à Acton",
   "updates.f078762f": "Stocking & Surveys ajoute dix ans d'empoissonnement ODNR pour les trois, à partir du tableau de bord Fish Stocking de l' ODNR.",
   "updates.f40b5838": "La bande sous le nom du lac affiche maintenant le niveau, la température de l’eau, le coucher du soleil et le vent de ce soir, avec la note de touche à côté du titre.",
+  "updates.f57ac6a4": "changement à l'échelle de l'État daté à côté, lié au communiqué de presse de ODNR.",
   "updates.f5e02579": "Plans d’eau ajoute une fiche de règles du lac, un lien qualité de l’eau vers BeachGuard et les alertes algues de l’Ohio EPA, et les infos de Buckeye Lake.",
+  "updates.f6cf9abb": "Stockage et enquêtes ajoute dix années d'empoissonnement ODNR où ODNR stocke ces eaux, à partir du tableau de bord Fish Stocking de l' ODNR.",
   "updates.f960638f": "Historique d’alevinage, une nouvelle page Matériel et plus",
   "updates.f9a1402a": "Ce soir à Hoover sur l’Accueil : baromètre avec sa tendance sur 12 heures, vent avec rafales et phase de lune de ce soir.",
-  "updates.faa7450e": "D'ici là 27 les règles 2026 sont valables, et chaque page de lac affiche la règle d'aujourd'hui avec le changement daté à côté, lié au communiqué de presse de ODNR."
+  "updates.faa7450e": "D'ici là 27 les règles 2026 sont valables, et chaque page de lac affiche la règle d'aujourd'hui avec le changement daté à côté, lié au communiqué de presse de ODNR.",
+  "updates.ff1b60b9": "Six autres eaux du nord-est de l’Ohio: Wingfoot à Wellington"
  }
 }

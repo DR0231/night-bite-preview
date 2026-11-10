@@ -423,6 +423,33 @@ Gaps (said on the site, never filled in):
 - ODNR's Tappan, Clendening, Atwood and Charles Mill pages post no species list; the Waterbody Report and stocking are used instead.
 - No ODNR ice reports, and no community trips logged at these lakes yet.
 
+## Lakes: Tier C batch 1, Northeast Ohio (preview), checked Nov. 10, 2026
+
+Six more lakes, same system: `?lake=wingfoot|eastbranch|guilford|highlandtown|punderson|wellington`, home pages at `/<id>/`, per lake settings in `js/lakes.js`, region `northeast` ("Northeast Ohio"). Verification records: build notes progress.md, "Verification records, Tier C batch 1".
+
+Common sources: ODNR fishing area, wildlife area and state park pages; ODNR lake maps; ODNR GIS (DOW_LakeFishing layer 20 for acres and shoreline, DOW_LakeHPRestrictions, DOW_Facilities, Watercraft boating facilities); OAC 1501:47-5-03 (boating on DOW waters) and OAC 1501:31-13-07, -08 and -09 (2026–27 fishing rules, in force). The March 1, 2027 bass changes are linked to the ODNR news release (https://ohiodnr.gov/discover-and-learn/safety-conservation/about-ODNR/news/ohios-spring-2027-turkey-hunting-seasons-updated-bass-fishing-regulations-approved-by-wildlife-council). USGS site service: no active lake gauge at any of the six (only sampling sites). USACE CWMS: none of the six is a Corps lake (the LRP "EastBranch" location is East Branch Clarion River Lake in Pennsylvania).
+
+| Lake | Lake level | Water temp | Map pool (contours) | Rules shown | Forecast, observations, alerts |
+|---|---|---|---|---|---|
+| Wingfoot Lake | None | None | 1,162 ft, 3 ft contours, 2009: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/wingfootlake2.pdf | Any motor, idle speed, no wake (OAC 1501:47-5-03(E)); bass 3 a day, 14″ to 20″ slot until Mar. 1, 2027 | NWS grid CLE 97,44; observations KAKR; alerts OHC133, OHZ022 |
+| East Branch Reservoir | None | None | No ODNR fishing page or contour map. City of Akron water supply; Headwaters Park run by Geauga Park District (https://www.geaugaparkdistrict.org/) | Electric only (OAC 1501:47-5-03(B)), 1.5 hp or less at the Headwaters Park launch (Geauga Park District); statewide limits; Geauga Park District hours 6 a.m. to 11 p.m. | NWS grid CLE 104,68; observations Ashtabula airport (KHZY); alerts OHC055, OHZ013 |
+| Guilford Lake | None | None | 1,090 ft, 3 ft contours, 2008: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/guilfordlake2.pdf; ODNR acreage 361 (park page 396) | 10 hp; bass 3 a day, 14″ to 20″ slot until Mar. 1, 2027; dam rehabilitation drawdown about 20 ft (ODNR update Nov. 3, 2026) | NWS grid PBZ 45,79; observations Beaver Falls, Pa. airport (KBVI); alerts OHC029, OHZ041 |
+| Highlandtown Lake | None | None | 1,070 ft, 3 ft contours, 2008: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/highlandtownlake2.pdf | 10 hp (OAC 1501:47-5-03(C); ODNR's HP map layer says electric only); bass 4 a day, 2 under 15″ and 2 15″ or longer until Mar. 1, 2027 | NWS grid PBZ 50,72; observations KBVI; alerts OHC029, OHZ041 |
+| Punderson Lake | None | None | 1,144 ft, 5 ft contours, 2009: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/pundersonlake2.pdf; 80 acres | Electric only (ODNR); statewide limits | NWS grid CLE 100,65; observations KBKL; alerts OHC055, OHZ013 |
+| Wellington Upground Reservoir | None | None | 885 ft, 3 ft contours, 2012: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/wellingtonupgroundreservoir.pdf | Electric only (OAC 1501:47-5-03(A)); sunrise to sunset access; statewide bass (the 15″ rule is for Wellington South Reservoir, a separate 26.5 acre water in ODNR GIS) | NWS grid CLE 66,48; observations Lorain / Elyria airport (KLPR); alerts OHC093, OHZ010 |
+
+ODNR Fish Stocking dashboard (read Nov. 10, 2026), 2016 to 2025: Wingfoot channel catfish 2016, 2022, 2024; Guilford hybrid striped bass 2016, 2018, 2019, 2020, 2022, 2023, channel catfish 2016, 2018, 2020; Highlandtown channel catfish 2016, 2020; Punderson bluegill 2025, channel catfish 2017, 2019, 2021, 2023, 2025, rainbow trout 2016, 2017, 2018, 2019, 2020, 2021, 2022, brown trout 2016; Wellington Upground yellow perch 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025, channel catfish 2016, 2018, 2020, 2022, 2024. East Branch has no stocking rows; Wellington Reservoir South is a separate water and not shown.
+
+Map pins: ramp names and coordinates from the ODNR Watercraft boating facilities and DOW_Facilities layers (gis.ohiodnr.gov), checked against ODNR park and wildlife area maps; East Branch's Headwaters Park launch from Geauga Park District. Wingfoot's northwest launch (Farr Ln, ODNR wildlife area map) is named in the text, not pinned. Shorelines traced from OpenStreetMap, not for navigation.
+
+Bait nearby (`data/bait-shops.json`): each shop's Google Maps listing was open with recent reviews on Nov. 10, 2026. Punderson has no shop confirmed; ODNR says the park camp store sells bait.
+
+Gaps (said on the site, never filled in):
+- No public lake level or water temperature at any of the six.
+- East Branch: no ODNR fishing page, contour map, stocking rows or survey list beyond largemouth bass.
+- Guilford depths are far below the map until the dam refill (ODNR expects spring 2027).
+- No ODNR ice reports, and no community trips logged at these lakes yet.
+
 ## Lake-aware Species (js/species-lake.js)
 
 Which species live at each lake: the `species` list for each lake in `js/lakes.js` (the script also rewrites

@@ -31,6 +31,7 @@
   "updates.3b470165": "Siedem jezior MWCD: Tappan do Beach City",
   "updates.3b6e3e93": "Każde jezioro ma własną mapę i rampy, zasady dotyczące jeziora, notatki dotyczące gatunków, sezon dokowy i pobliską przynętę, a także odczytuje wskaźnik jeziora USGS.",
   "updates.42bc867e": "Więcej pogody na dziś wieczór",
+  "updates.42fd452e": "Guilford Lake zostało zanurzone na głębokość około 20 ft w celu renowacji tamy ODNR, a ponowne napełnienie spodziewane jest do wiosny 2027.; strona zawiera linki do aktualizacji projektu ODNR.",
   "updates.45fbd713": "Każde jezioro ma własną mapę i slipy, wodowskaz poziomu (USGS, a na Delaware Lake US Army Corps of Engineers), zasady jeziora, notatki o gatunkach i sezon pomostów.",
   "updates.4652d8da": "Strony gatunków pokazują teraz, czym ODNR zarybił każdą rybę.",
   "updates.4af0b2c3": "Hoover podaje biuro pomostów pod numerem",
@@ -52,6 +53,7 @@
   "updates.682295ed": "Dziś wieczorem w skrócie na każdym jeziorze",
   "updates.68dc6aa7": "Każda strona pokazuje zimowe wypłaty MWCD wraz z oficjalnymi datami i poziomami. Beach City nie jest ujęte w harmonogramie i nie ma publicznej rampy, a na jego stronie jest to napisane.",
   "updates.6a5cfba1": "Śledzenie sezonu pomostów",
+  "updates.6cfc3e24": "Wingfoot, Guilford i Highlandtown pokazują dzisiejszą regułę basową w witrynie",
   "updates.6eb8afd2": "i Columbus Watershed Management pod numerem",
   "updates.6f0739af": "Każde jezioro ma własną mapę i slipy, zasady jeziora, notatki o gatunkach, sezon pomostów i Przynęty w pobliżu. Seneca czyta wodowskaz jeziora USGS, Dillon i Burr Oak wodowskazy Army Corps; Lake Logan, Salt Fork i Dow pokazują Brak publicznego wodowskazu.",
   "updates.70158bea": "Komunikat prasowy ODNR",
@@ -81,6 +83,8 @@
   "updates.a97f7c64": ", jedno stuknięcie, aby zadzwonić.",
   "updates.ab3abbcd": "Tylko podgląd: data ustalana przy publikacji",
   "updates.aebf51b3": "Alum Creek Lake i Buckeye Lake mają własne strony główne.",
+  "updates.afbd0a2f": "Każde jezioro ma własną mapę i rampy, zasady jeziora, notatki dotyczące gatunków, sezon dokowy i pobliską przynętę. Żaden z sześciu nie ma publicznego wskaźnika poziomu ani temperatury wody i każda strona tak mówi.",
+  "updates.b159a329": "Wybierz Wingfoot Lake, East Branch Reservoir, Guilford Lake, Highlandtown Lake, Punderson Lake lub Wellington Upground Reservoir pod północno-wschodnim Ohio. Każdy ma swoją własną stronę główną.",
   "updates.b2f79f7e": "Jeden zestaw pikselowych ikon, z rybą dla każdego gatunku.",
   "updates.b584d3cf": "Wybierz Grand Lake St. Marys, Caesar Creek Lake lub East Fork Lake za pomocą narzędzia do wybierania jezior, pod nowymi nagłówkami Northwest i Southwest. Każdy ma swoją własną stronę główną.",
   "updates.b81b943a": "Raporty z wypadów dla każdego jeziora",
@@ -105,9 +109,12 @@
   "updates.ed3bc72a": "Jeszcze dziesięć jezior: C.J. Brown do Acton",
   "updates.f078762f": "Zarybianie i ankiety dodają dziesięć lat zarybiania ODNR dla wszystkich trzech z poziomu panelu obsady rybnej ODNR.",
   "updates.f40b5838": "Pasek pod nazwą jeziora pokazuje teraz poziom jeziora, temperaturę wody, zachód słońca i dzisiejszy wiatr, z oceną brań obok tytułu.",
+  "updates.f57ac6a4": "obok znajduje się zmiana obejmująca cały stan, powiązana z komunikatem prasowym ODNR.",
   "updates.f5e02579": "Water dodaje kartę zasad jeziora, link o jakości wody do BeachGuard i aktualizacji Ohio EPA o glonach oraz fakty o Buckeye Lake.",
+  "updates.f6cf9abb": "Zarybianie i ankiety dodają dziesięć lat zarybiania ODNR tam, gdzie ODNR dokonuje zarybiania tych wód, z poziomu pulpitu nawigacyjnego zarybiania ODNR.",
   "updates.f960638f": "Historia zarybień, nowa strona Sprzęt i więcej",
   "updates.f9a1402a": "Dziś wieczorem na Hoover na stronie głównej: barometr z 12-godzinnym trendem, wiatr z porywami i dzisiejsza faza księżyca.",
-  "updates.faa7450e": "Do tego czasu obowiązują zasady na 27 2026, a na każdej stronie jeziora widnieje dzisiejsza zasada z datą zmiany obok niej, powiązaną z komunikatem prasowym ODNR."
+  "updates.faa7450e": "Do tego czasu obowiązują zasady na 27 2026, a na każdej stronie jeziora widnieje dzisiejsza zasada z datą zmiany obok niej, powiązaną z komunikatem prasowym ODNR.",
+  "updates.ff1b60b9": "Sześć kolejnych wód północno-wschodniego Ohio: Wingfoot do Wellington"
  }
 }

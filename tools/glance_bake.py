@@ -60,7 +60,9 @@ def pool_card(page, pool):
         temp, status = "No public water temp gauge", "The USGS lake level gauge here is not reporting right now. No water temp gauge. Never invented."
     elif not pool.get("src"):
         line = "No public lake level gauge"
-        checked = (f'ODNR fishing map pool: {t(pool["fullPool"])} ft. No USGS or Corps gauge posts this lake\u2019s level or '
+        fp = (f'ODNR fishing map pool: {t(pool["fullPool"])} ft. ' if pool.get("fullPool") is not None
+              else "No ODNR fishing map pool is posted for this lake. ")
+        checked = (fp + "No USGS or Corps gauge posts this lake\u2019s level or "
                    "water temp, so there is no live reading to show.").replace("\u2019", "'")
         temp, status = "No public water temp gauge", "No public lake level or water temp gauge on this lake. Never invented."
     elif S:

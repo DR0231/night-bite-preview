@@ -69,6 +69,54 @@
       ]
     },
     {
+      "id": "draft-tierc-northeast-six",
+      "date": null,
+      "draft": true,
+      "tag": "New",
+      "title": "Six more Northeast Ohio waters: Wingfoot to Wellington",
+      "bullets": [
+        "Pick Wingfoot Lake, East Branch Reservoir, Guilford Lake, Highlandtown Lake, Punderson Lake or Wellington Upground Reservoir under Northeast Ohio. Each has its own home page.",
+        "Each lake has its own map and ramps, lake rules, species notes, dock season and Bait nearby. None of the six has a public level or water temp gauge, and each page says so.",
+        "Guilford Lake is drawn down about 20 ft for ODNR dam rehabilitation, with refill expected by spring 2027; the page links ODNR's project updates.",
+        "Wingfoot, Guilford and Highlandtown show today's site bass rule with the March 1, 2027 statewide change dated next to it, linked to ODNR's news release.",
+        "Stocking & surveys adds ten years of ODNR stocking where ODNR stocks these waters, from ODNR's Fish Stocking dashboard."
+      ],
+      "links": [
+        {
+          "label": "Water",
+          "href": "water"
+        },
+        {
+          "label": "Stocking & surveys",
+          "href": "stocking"
+        },
+        {
+          "label": "Wingfoot Lake",
+          "href": "wingfoot/"
+        },
+        {
+          "label": "East Branch Reservoir",
+          "href": "eastbranch/"
+        },
+        {
+          "label": "Guilford Lake",
+          "href": "guilford/"
+        },
+        {
+          "label": "Highlandtown Lake",
+          "href": "highlandtown/"
+        },
+        {
+          "label": "Punderson Lake",
+          "href": "punderson/"
+        },
+        {
+          "label": "Wellington Upground Reservoir",
+          "href": "wellington/"
+        }
+      ]
+    },
+    {
       "id": "draft-mwcd-seven",
       "date": null,
       "draft": true,

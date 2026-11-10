@@ -31,6 +31,7 @@
   "updates.3b470165": "MWCD七个湖泊： Tappan到Beach City",
   "updates.3b6e3e93": "每个湖泊都有自己的地图和坡道、湖泊规则、物种注释、码头季节和附近的诱饵，并读取其USGS湖水测量仪。",
   "updates.42bc867e": "今晚更多天气信息",
+  "updates.42fd452e": "由于ODNR大坝修复， Guilford Lake下降约20 ft，预计到2027春季重新注水；该页面链接ODNR的项目更新。",
   "updates.45fbd713": "每个湖都有自己的地图和下水坡道、湖泊水位计（USGS，Delaware Lake 为 US Army Corps of Engineers）、湖泊规定、鱼种笔记和码头季节。",
   "updates.4652d8da": "鱼种页面现在显示 ODNR 为每种鱼放流了什么。",
   "updates.4af0b2c3": "Hoover 列出码头办公室电话",
@@ -52,6 +53,7 @@
   "updates.682295ed": "每个湖的今晚速览",
   "updates.68dc6aa7": "每页都显示了MWCD的冬季缩减以及官方日期和级别。 Beach City不在时间表上，也没有公共坡道，其页面也是如此。",
   "updates.6a5cfba1": "码头季节追踪",
+  "updates.6cfc3e24": "Wingfoot、 Guilford和Highlandtown展示了今天的现场低音规则",
   "updates.6eb8afd2": "以及 Columbus Watershed Management 电话",
   "updates.6f0739af": "每个湖都有自己的地图和下水坡道、湖泊规定、鱼种笔记、码头季节和附近鱼饵。Seneca 读取 USGS 湖泊水位计，Dillon 和 Burr Oak 读取 Army Corps；Lake Logan、Salt Fork 和 Dow 显示“没有公共水位计”。",
   "updates.70158bea": "ODNR新闻稿",
@@ -81,6 +83,8 @@
   "updates.a97f7c64": "，一点即可拨打。",
   "updates.ab3abbcd": "仅限预览：上线时设定日期",
   "updates.aebf51b3": "Alum Creek Lake 和 Buckeye Lake 有了自己的首页。",
+  "updates.afbd0a2f": "每个湖泊都有自己的地图和坡道、湖泊规则、物种注释、码头季节和附近的诱饵。这六个都没有公共水位或水温计，每页都这么说。",
+  "updates.b159a329": "选择俄亥俄州东北部的Wingfoot Lake、 East Branch Reservoir、 Guilford Lake、 Highlandtown Lake、 Punderson Lake或Wellington Upground Reservoir。每个都有自己的主页。",
   "updates.b2f79f7e": "统一的一套像素图标，每个鱼种都有一条鱼。",
   "updates.b584d3cf": "使用湖泊选择器在新的西北和西南标题下选择Grand Lake St. Marys、 Caesar Creek Lake或East Fork Lake。每个都有自己的主页。",
   "updates.b81b943a": "每个湖的出钓报告",
@@ -105,9 +109,12 @@
   "updates.ed3bc72a": "另外十个湖泊：CJ 布朗到阿克顿",
   "updates.f078762f": "放养和调查为这三者添加了十年的ODNR放养，来自ODNR的鱼类放养仪表板。",
   "updates.f40b5838": "湖名下方的信息条现在显示湖泊水位、水温、日落和今晚的风，标题旁显示咬口评级。",
+  "updates.f57ac6a4": "旁边注明了全州范围内的变更，并链接到ODNR的新闻稿。",
   "updates.f5e02579": "Water 新增湖泊规定卡、BeachGuard 水质链接和 Ohio EPA 藻类更新，以及 Buckeye Lake 资料。",
+  "updates.f6cf9abb": "放养和调查添加了十年的ODNR放养，其中ODNR在这些水域放养，来自ODNR的鱼类放养仪表板。",
   "updates.f960638f": "放流历史、新的装备页面等",
   "updates.f9a1402a": "首页的今晚 Hoover：气压及其 12 小时趋势、风和阵风，以及今晚的月相。",
-  "updates.faa7450e": "在此之前， 2026, 27规则仍然有效，每个湖泊页面都会显示今天的规则以及旁边注明的更改日期，并链接到ODNR的新闻稿。"
+  "updates.faa7450e": "在此之前， 2026, 27规则仍然有效，每个湖泊页面都会显示今天的规则以及旁边注明的更改日期，并链接到ODNR的新闻稿。",
+  "updates.ff1b60b9": "俄亥俄州东北部另外六个水域： Wingfoot至Wellington"
  }
 }

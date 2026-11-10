@@ -31,6 +31,7 @@
   "updates.3b470165": "Sieben MWCD Seen: Tappan bis Beach City",
   "updates.3b6e3e93": "Jeder See verfügt über eine eigene Karte und Rampen, Seeregeln, Artenhinweise, Anlegesaison und Köder in der Nähe und zeigt seinen USGS Seepegel an.",
   "updates.42bc867e": "Mehr Wetter für heute Nacht",
+  "updates.42fd452e": "Guilford Lake wird für die Sanierung ODNR Staudamms um etwa 20 ft abgesenkt. Die Wiederauffüllung wird bis zum Frühjahr 2027 erwartet. Die Seite verlinkt die Projektaktualisierungen von ODNR.",
   "updates.45fbd713": "Jeder See hat eigene Karte und Slipanlagen, Seepegel (USGS, oder das US Army Corps of Engineers am Delaware Lake), Seeregeln, Artennotizen und Steg-Saison.",
   "updates.4652d8da": "Artenseiten zeigen jetzt, was die ODNR von jedem Fisch besetzt hat.",
   "updates.4af0b2c3": "Hoover nennt das Steg-Büro unter",
@@ -52,6 +53,7 @@
   "updates.682295ed": "Heute Nacht auf einen Blick an jedem See",
   "updates.68dc6aa7": "Jede Seite zeigt MWCD Winter-Inanspruchnahme mit den offiziellen Daten und Niveaus. Beach City steht nicht auf dem Fahrplan und hat keine öffentliche Rampe, wie auf der Seite angegeben.",
   "updates.6a5cfba1": "Steg-Saison-Tracker",
+  "updates.6cfc3e24": "Wingfoot, Guilford und Highlandtown zeigen die heutige Site-Bass-Regel mit dem",
   "updates.6eb8afd2": "und Columbus Watershed Management unter",
   "updates.6f0739af": "Jeder See hat eigene Karte und Slipanlagen, Seeregeln, Artennotizen, Steg-Saison und Köder in der Nähe. Seneca liest den USGS-Seepegel, Dillon und Burr Oak den des Army Corps; Lake Logan, Salt Fork und Dow zeigen Kein öffentlicher Pegel.",
   "updates.70158bea": "ODNR -Pressemitteilung",
@@ -81,6 +83,8 @@
   "updates.a97f7c64": ", ein Tipp zum Anrufen.",
   "updates.ab3abbcd": "Nur Vorschau: Datum wird beim Veröffentlichen gesetzt",
   "updates.aebf51b3": "Alum Creek Lake und Buckeye Lake haben eigene Startseiten.",
+  "updates.afbd0a2f": "Jeder See hat seine eigene Karte und Rampen, Seeregeln, Artenhinweise, Hafensaison und Köder in der Nähe. Keiner der sechs hat eine öffentliche Wasserstands- oder Wassertemperaturanzeige, und das steht auf jeder Seite.",
+  "updates.b159a329": "Wählen Sie Wingfoot Lake, East Branch Reservoir, Guilford Lake, Highlandtown Lake, Punderson Lake oder Wellington Upground Reservoir im Nordosten von Ohio. Jeder hat seine eigene Homepage.",
   "updates.b2f79f7e": "Ein einheitlicher Satz Pixel-Icons, mit einem Fisch für jede Art.",
   "updates.b584d3cf": "Wählen Sie Grand Lake St. Marys, Caesar Creek Lake oder East Fork Lake mit der Seeauswahl unter den neuen Überschriften Nordwest und Südwest aus. Jeder hat seine eigene Homepage.",
   "updates.b81b943a": "Ausflugsberichte für jeden See",
@@ -105,9 +109,12 @@
   "updates.ed3bc72a": "Zehn weitere Seen: C.J. Brown nach Acton",
   "updates.f078762f": "Stocking & Surveys fügt über das Fish Stocking Dashboard von ODNR zehn Jahre ODNR -Besatz für alle drei hinzu.",
   "updates.f40b5838": "Der Streifen unter dem Seenamen zeigt jetzt Pegel, Wassertemperatur, Sonnenuntergang und den Wind heute Nacht, mit der Beißbewertung neben dem Titel.",
+  "updates.f57ac6a4": "daneben datierte landesweite Änderung, verknüpft mit der Pressemitteilung von ODNR.",
   "updates.f5e02579": "Gewässer ergänzt eine Karte mit Seeregeln, einen Wasserqualitäts-Link zu BeachGuard und Algen-Updates der Ohio EPA sowie Fakten zum Buckeye Lake.",
+  "updates.f6cf9abb": "Besatz und Erhebungen fügen zehn Jahre ODNR -Besatz hinzu, wenn ODNR diese Gewässer aus dem Fischbesatz-Dashboard von ODNR bestückt.",
   "updates.f960638f": "Besatzgeschichte, eine neue Ausrüstungsseite und mehr",
   "updates.f9a1402a": "Heute Nacht am Hoover auf der Startseite: Luftdruck mit 12-Stunden-Trend, Wind mit Böen und die Mondphase heute Nacht.",
-  "updates.faa7450e": "Bis dahin gelten die Regeln 27 2026, und auf jeder Lake-Seite wird die heutige Regel mit dem datierten Änderungsdatum daneben angezeigt, verlinkt mit der Pressemitteilung von ODNR."
+  "updates.faa7450e": "Bis dahin gelten die Regeln 27 2026, und auf jeder Lake-Seite wird die heutige Regel mit dem datierten Änderungsdatum daneben angezeigt, verlinkt mit der Pressemitteilung von ODNR.",
+  "updates.ff1b60b9": "Sechs weitere Gewässer im Nordosten Ohios: Wingfoot bis Wellington"
  }
 }

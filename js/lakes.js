@@ -1301,9 +1301,183 @@
       map: { data: "NightBiteMapDataBeachcity", chart: "assets/beachcity-chart.png" },
       spots: ["Dam day use area", "Below the dam", "Bank (other)"],
       species: ["saugeye", "largemouth-bass", "white-crappie", "black-crappie", "bluegill", "bullhead", "common-carp"]
+    },
+    wingfoot: {
+      id: "wingfoot",
+      name: "Wingfoot Lake",
+      short: "Wingfoot",
+      area: "Northeast Ohio",
+      lat: 41.016, lng: -81.36,
+      region: "northeast", owner: "ODNR (Division of Wildlife and Ohio State Parks)",
+      aliases: ["Wingfoot", "Wingfoot Lake State Park", "Wingfoot Lake Wildlife Area", "Suffield", "Goodyear"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 410106081222500 Wingfoot Lk Goodyear Tire is a sampling site, no live data)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 1162,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/97,44/forecast/hourly",
+        point: "https://api.weather.gov/points/41.016,-81.36",
+        grid: "https://api.weather.gov/gridpoints/CLE/97,44",
+        station: "KAKR",
+        stationName: "Akron, Akron Fulton International Airport (KAKR)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=41.016&lon=-81.36"
+      },
+      alerts: { zones: "OHC133,OHZ022", counties: "the Wingfoot area" },
+      push: null,
+      map: { data: "NightBiteMapDataWingfoot", chart: "assets/wingfoot-chart.png" },
+      spots: ["Northeast launch (wildlife area)", "Northwest launch, Farr Ln", "Accessible pier", "Paddle dock", "Bank (other)"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
+    },
+    eastbranch: {
+      id: "eastbranch",
+      name: "East Branch Reservoir",
+      short: "East Branch",
+      area: "Northeast Ohio",
+      lat: 41.52, lng: -81.098,
+      region: "northeast", owner: "City of Akron (water supply); Headwaters Park leased to Geauga Park District",
+      aliases: ["East Branch", "Headwaters Park", "Cuyahoga River headwaters", "Burton", "Claridon", "Huntsburg"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 413016081054200 East Branch Re above the dam is a sampling site); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: null,    // no ODNR fishing map found; no pool elevation
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/104,68/forecast/hourly",
+        point: "https://api.weather.gov/points/41.52,-81.098",
+        grid: "https://api.weather.gov/gridpoints/CLE/104,68",
+        station: "KHZY",
+        stationName: "Ashtabula airport (KHZY)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=41.52&lon=-81.098"
+      },
+      alerts: { zones: "OHC055,OHZ013", counties: "the East Branch area" },
+      push: null,
+      map: { data: "NightBiteMapDataEastbranch", chart: "assets/eastbranch-chart.png" },
+      spots: ["Headwaters Park launch", "West shore, Buckeye Trail", "Bank (other)"],
+      species: ["largemouth-bass"]
+    },
+    guilford: {
+      id: "guilford",
+      name: "Guilford Lake",
+      short: "Guilford",
+      area: "Northeast Ohio",
+      lat: 40.8, lng: -80.88,
+      region: "northeast", owner: "ODNR Ohio State Parks",
+      aliases: ["Guilford", "Guilford Lake State Park", "Lisbon", "Hanoverton"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 404742080522000 and 404746080520900 are sampling sites); ODNR has the lake about 20 ft down for dam work (Nov. 3, 2026 update)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 1090,    // ODNR fishing map summer pool (3 ft contours); drawn down about 20 ft for dam work (ODNR)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/PBZ/45,79/forecast/hourly",
+        point: "https://api.weather.gov/points/40.8,-80.88",
+        grid: "https://api.weather.gov/gridpoints/PBZ/45,79",
+        station: "KBVI",
+        stationName: "Beaver Falls, Pa. airport (KBVI)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.8&lon=-80.88"
+      },
+      alerts: { zones: "OHC029,OHZ041", counties: "the Guilford area" },
+      push: null,
+      map: { data: "NightBiteMapDataGuilford", chart: "assets/guilford-chart.png" },
+      spots: ["Dam ramp", "Campground ramp", "Red Maple ramp", "Hanna Dr pier", "Bank (other)"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish", "hybrid-striped-bass"]
+    },
+    highlandtown: {
+      id: "highlandtown",
+      name: "Highlandtown Lake",
+      short: "Highlandtown",
+      area: "Northeast Ohio",
+      lat: 40.64, lng: -80.765,
+      region: "northeast", owner: "ODNR Division of Wildlife",
+      aliases: ["Highlandtown", "Highlandtown Wildlife Area", "Salineville", "Lisbon"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 403815080450100 Highlandtown Re above the dam is a sampling site)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 1070,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/PBZ/50,72/forecast/hourly",
+        point: "https://api.weather.gov/points/40.64,-80.765",
+        grid: "https://api.weather.gov/gridpoints/PBZ/50,72",
+        station: "KBVI",
+        stationName: "Beaver Falls, Pa. airport (KBVI)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.64&lon=-80.765"
+      },
+      alerts: { zones: "OHC029,OHZ041", counties: "the Highlandtown area" },
+      push: null,
+      map: { data: "NightBiteMapDataHighlandtown", chart: "assets/highlandtown-chart.png" },
+      spots: ["North ramp", "South ramp", "Bank (other)"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "yellow-perch", "channel-catfish"]
+    },
+    punderson: {
+      id: "punderson",
+      name: "Punderson Lake",
+      short: "Punderson",
+      area: "Northeast Ohio",
+      lat: 41.455, lng: -81.208,
+      region: "northeast", owner: "ODNR Ohio State Parks",
+      aliases: ["Punderson", "Punderson State Park", "Newbury", "Burton", "Punderson Manor"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 412718081122600 Punderson Lk at midpoint is a sampling site)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 1144,    // ODNR fishing map summer pool (5 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/100,65/forecast/hourly",
+        point: "https://api.weather.gov/points/41.455,-81.208",
+        grid: "https://api.weather.gov/gridpoints/CLE/100,65",
+        station: "KBKL",
+        stationName: "Cleveland, Burke Lakefront Airport (KBKL)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=41.455&lon=-81.208"
+      },
+      alerts: { zones: "OHC055,OHZ013", counties: "the Punderson area" },
+      push: null,
+      map: { data: "NightBiteMapDataPunderson", chart: "assets/punderson-chart.png" },
+      spots: ["Launch ramp", "Fishing pier", "Bank (other)", "Kayak rental"],
+      species: ["largemouth-bass", "bluegill", "channel-catfish"]
+    },
+    wellington: {
+      id: "wellington",
+      name: "Wellington Upground Reservoir",
+      short: "Wellington",
+      area: "Northeast Ohio",
+      lat: 41.157, lng: -82.233,
+      region: "northeast", owner: "Village of Wellington; ODNR Division of Wildlife fishing agreement",
+      aliases: ["Wellington", "Wellington Reservoir", "Wellington Upground", "Jones Road"],
+      pool: {
+        // no public lake level or temperature gauge (USGS Wellington Re sites are sampling sites)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 885,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/66,48/forecast/hourly",
+        point: "https://api.weather.gov/points/41.157,-82.233",
+        grid: "https://api.weather.gov/gridpoints/CLE/66,48",
+        station: "KLPR",
+        stationName: "Lorain / Elyria airport (KLPR)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=41.157&lon=-82.233"
+      },
+      alerts: { zones: "OHC093,OHZ010", counties: "the Wellington area" },
+      push: null,
+      map: { data: "NightBiteMapDataWellington", chart: "assets/wellington-chart.png" },
+      spots: ["Jones Rd launch", "Bank (other)"],
+      species: ["yellow-perch", "largemouth-bass", "smallmouth-bass", "black-crappie", "channel-catfish"]
     }
   };
-  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity"];
+  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity", "wingfoot", "eastbranch", "guilford", "highlandtown", "punderson", "wellington"];
   // picker regions, in this order (js/lake-picker.js). A region with no lakes yet is hidden. Every lake above sets
   // region to one of these ids; lat and lng above (the lake's NWS forecast point, on the water) give Near me distances.
   var REGIONS = [

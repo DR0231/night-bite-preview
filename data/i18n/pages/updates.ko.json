@@ -31,6 +31,7 @@
   "updates.3b470165": "7개의 MWCD 호수: Tappan 에서 Beach City 까지",
   "updates.3b6e3e93": "각 호수에는 자체 지도와 경사로, 호수 규칙, 종 기록, 부두 시즌 및 인근 미끼가 있으며 USGS 호수 게이지를 읽습니다.",
   "updates.42bc867e": "오늘 밤 날씨 더 보기",
+  "updates.42fd452e": "Guilford Lake ODNR 댐 재활을 위해 약 20 ft 아래로 내려졌으며 2027 봄까지 보충될 것으로 예상됩니다. 페이지는 ODNR 의 프로젝트 업데이트를 링크합니다.",
   "updates.45fbd713": "호수마다 지도와 램프, 호수 수위 관측소(USGS, Delaware Lake는 US Army Corps of Engineers), 호수 규정, 어종 노트, 선착장 시즌이 있어요.",
   "updates.4652d8da": "어종 페이지에 이제 ODNR이 물고기별로 방류한 내용이 나와요.",
   "updates.4af0b2c3": "Hoover는 선착장 사무소를",
@@ -52,6 +53,7 @@
   "updates.682295ed": "모든 호수에 오늘 밤 한눈에 보기",
   "updates.68dc6aa7": "각 페이지에는 공식 날짜 및 수준과 함께 MWCD 의 겨울 하락폭이 표시됩니다. Beach City 일정에 없고 공공 경사로도 없으며 해당 페이지에 그렇게 나와 있습니다.",
   "updates.6a5cfba1": "선착장 시즌 추적",
+  "updates.6cfc3e24": "Wingfoot, Guilford 및 Highlandtown 오늘날의 사이트 베이스 규칙을 보여줍니다.",
   "updates.6eb8afd2": "에, Columbus Watershed Management를",
   "updates.6f0739af": "호수마다 지도와 램프, 호수 규정, 어종 노트, 선착장 시즌, 근처 미끼 가게가 있어요. Seneca는 USGS 호수 관측소, Dillon과 Burr Oak은 Army Corps를 읽고, Lake Logan, Salt Fork, Dow는 공공 관측소 없음이라고 표시해요.",
   "updates.70158bea": "ODNR 보도 자료",
@@ -81,6 +83,8 @@
   "updates.a97f7c64": "에 안내해요. 한 번 누르면 전화가 걸려요.",
   "updates.ab3abbcd": "미리보기 전용: 출시할 때 날짜를 정해요",
   "updates.aebf51b3": "Alum Creek Lake와 Buckeye Lake에 홈 페이지가 생겼어요.",
+  "updates.afbd0a2f": "각 호수에는 자체 지도와 경사로, 호수 규칙, 종 기록, 부두 시즌 및 인근 미끼가 있습니다. 6개 중 어느 것도 공개 수위나 수온 게이지가 없으며 각 페이지에는 그렇게 명시되어 있습니다.",
+  "updates.b159a329": "오하이오 북동부의 Wingfoot Lake, East Branch Reservoir, Guilford Lake, Highlandtown Lake, Punderson Lake 또는 Wellington Upground Reservoir 선택하세요. 각각에는 자체 홈 페이지가 있습니다.",
   "updates.b2f79f7e": "픽셀 아이콘 한 세트, 어종마다 물고기 하나씩.",
   "updates.b584d3cf": "새로운 북서부 및 남서부 제목 아래에서 호수 선택기를 사용하여 Grand Lake St. Marys, Caesar Creek Lake 또는 East Fork Lake 선택하십시오. 각각에는 자체 홈 페이지가 있습니다.",
   "updates.b81b943a": "모든 호수의 낚시 보고",
@@ -105,9 +109,12 @@
   "updates.ed3bc72a": "10개의 추가 호수: C.J. Brown부터 Acton까지",
   "updates.f078762f": "Stocking & Surveys는 ODNR 의 Fish Stocking 대시보드에서 세 가지 모두에 대해 10년 간의 ODNR 스타킹을 추가합니다.",
   "updates.f40b5838": "호수 이름 아래 줄에 이제 호수 수위, 수온, 일몰, 오늘 밤 바람이 나오고, 제목 옆에 입질 등급이 있어요.",
+  "updates.f57ac6a4": "ODNR 의 보도 자료와 연결된 옆에 날짜가 적힌 주 전체 변경 사항입니다.",
   "updates.f5e02579": "Water에 호수 규정 카드, BeachGuard와 Ohio EPA 조류 소식으로 가는 수질 링크, Buckeye Lake 정보가 생겼어요.",
+  "updates.f6cf9abb": "Stocking & Surveys는 ODNR 의 Fish Stocking 대시보드에서 ODNR 이러한 물을 비축하는 10년 간의 ODNR 스타킹을 추가합니다.",
   "updates.f960638f": "방류 기록, 새 장비 페이지 외",
   "updates.f9a1402a": "홈의 Hoover 오늘 밤: 12시간 추세가 있는 기압, 돌풍 포함 바람, 오늘 밤 달 모양.",
-  "updates.faa7450e": "그때까지는 2026, 27 규칙이 유효하며 각 레이크 페이지에는 ODNR 의 보도 자료에 링크된 변경 날짜와 함께 오늘의 규칙이 표시됩니다."
+  "updates.faa7450e": "그때까지는 2026, 27 규칙이 유효하며 각 레이크 페이지에는 ODNR 의 보도 자료에 링크된 변경 날짜와 함께 오늘의 규칙이 표시됩니다.",
+  "updates.ff1b60b9": "오하이오주 북동부 해역 6개 추가: Wingfoot 부터 Wellington 까지"
  }
 }

@@ -31,6 +31,7 @@
   "updates.3b470165": "Sete lagos MWCD: Tappan a Beach City",
   "updates.3b6e3e93": "Cada lago tem seu próprio mapa e rampas, regras do lago, notas sobre espécies, temporada de docas e iscas próximas, e lê o medidor do lago USGS.",
   "updates.42bc867e": "Mais tempo para esta noite",
+  "updates.42fd452e": "Guilford Lake foi rebaixado cerca de 20 ft para a reabilitação da barragem ODNR, com reabastecimento esperado na primavera 2027; a página vincula as atualizações do projeto do ODNR.",
   "updates.45fbd713": "Cada lago tem seu mapa e rampas, medidor de nível (USGS, ou o US Army Corps of Engineers em Delaware Lake), regras do lago, notas de espécies e temporada dos píeres.",
   "updates.4652d8da": "As páginas de espécies agora mostram o que o ODNR soltou de cada peixe.",
   "updates.4af0b2c3": "Hoover lista o escritório dos píeres em",
@@ -52,6 +53,7 @@
   "updates.682295ed": "Esta noite num relance em todos os lagos",
   "updates.68dc6aa7": "Cada página mostra a redução de inverno do MWCD com as datas e níveis oficiais. Beach City não está na programação e não tem rampa pública, e sua página diz isso.",
   "updates.6a5cfba1": "Acompanhamento da temporada dos píeres",
+  "updates.6cfc3e24": "Wingfoot, Guilford e Highlandtown mostram a atual regra do baixo local com o",
   "updates.6eb8afd2": "e o Columbus Watershed Management em",
   "updates.6f0739af": "Cada lago tem seu mapa e rampas, regras do lago, notas de espécies, temporada dos píeres e Iscas por perto. Seneca lê o medidor do USGS, Dillon e Burr Oak o do Army Corps; Lake Logan, Salt Fork e Dow dizem Sem medidor público.",
   "updates.70158bea": "Comunicado de imprensa ODNR",
@@ -81,6 +83,8 @@
   "updates.a97f7c64": ", a um toque para ligar.",
   "updates.ab3abbcd": "Só prévia: a data é definida quando for publicado",
   "updates.aebf51b3": "Alum Creek Lake e Buckeye Lake têm suas próprias páginas iniciais.",
+  "updates.afbd0a2f": "Cada lago tem seu próprio mapa e rampas, regras do lago, notas sobre espécies, temporada de docas e iscas próximas. Nenhum dos seis tem nível público ou medidor de temperatura da água, e cada página diz isso.",
+  "updates.b159a329": "Escolha Wingfoot Lake, East Branch Reservoir, Guilford Lake, Highlandtown Lake, Punderson Lake ou Wellington Upground Reservoir sob o nordeste de Ohio. Cada um tem sua própria página inicial.",
   "updates.b2f79f7e": "Um único conjunto de ícones em pixel, com um peixe para cada espécie.",
   "updates.b584d3cf": "Escolha Grand Lake St. Marys, Caesar Creek Lake ou East Fork Lake com o seletor de lago, sob os novos títulos Noroeste e Sudoeste. Cada um tem sua própria página inicial.",
   "updates.b81b943a": "Relatos de saída para todos os lagos",
@@ -105,9 +109,12 @@
   "updates.ed3bc72a": "Mais dez lagos: C.J. Brown para Acton",
   "updates.f078762f": "Estocagem e pesquisas adicionam dez anos de lotação ODNR para todos os três, do painel de estocagem de peixes do ODNR.",
   "updates.f40b5838": "A faixa sob o nome do lago agora mostra o nível, a temperatura da água, o pôr do sol e o vento desta noite, com a nota de mordida ao lado do título.",
+  "updates.f57ac6a4": "mudança estadual datada ao lado, vinculada ao comunicado à imprensa do ODNR.",
   "updates.f5e02579": "A página da água ganha um cartão de regras do lago, um link de qualidade da água para o BeachGuard e as atualizações sobre algas da Ohio EPA, e dados de Buckeye Lake.",
+  "updates.f6cf9abb": "Estocagem e pesquisas adicionam dez anos de lotação ODNR onde ODNR estoca essas águas, do painel de estocagem de peixes do ODNR.",
   "updates.f960638f": "Histórico de peixamento, uma nova página de equipamento e mais",
   "updates.f9a1402a": "Esta noite em Hoover na página inicial: barômetro com tendência de 12 horas, vento com rajadas e a fase da lua desta noite.",
-  "updates.faa7450e": "Até então 27 as regras de 2026 permanecem, e cada página do lago mostra a regra de hoje com a mudança datada ao lado, vinculada ao comunicado à imprensa do ODNR."
+  "updates.faa7450e": "Até então 27 as regras de 2026 permanecem, e cada página do lago mostra a regra de hoje com a mudança datada ao lado, vinculada ao comunicado à imprensa do ODNR.",
+  "updates.ff1b60b9": "Mais seis águas do nordeste de Ohio: Wingfoot até Wellington"
  }
 }
