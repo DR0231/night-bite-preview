@@ -1104,6 +1104,321 @@
    "sources": [
     "odnr-eastfork"
    ]
+  },
+  "cjbrown": {
+   "name": "C.J. Brown Reservoir",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Seasonal slips",
+     "status": "unannounced",
+     "label": "Seasonal",
+     "note": "ODNR lists seasonal slips at the five lane ramp. No 2026 date for pulling docks is posted.",
+     "source": "odnr-cjbrown"
+    },
+    {
+     "name": "Marina store",
+     "status": "unannounced",
+     "label": "Weekends",
+     "note": "ODNR: open 11 a.m. to 7 p.m. Fridays and Saturdays and 11 a.m. to 4 p.m. Sundays. No closing date is posted.",
+     "source": "odnr-cjbrown"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Buck Creek State Park office",
+     "+19373225284",
+     "(937) 322-5284",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-cjbrown"
+   ]
+  },
+  "rockyfork": {
+   "name": "Rocky Fork Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Seasonal docks",
+     "status": "unannounced",
+     "label": "Seasonal",
+     "note": "ODNR lists more than 700 docks; call the park office about seasonal or overnight docks. No 2026 removal date is posted.",
+     "source": "odnr-rockyfork"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists six lighted ramps.",
+     "source": "odnr-rockyfork"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Rocky Fork State Park office",
+     "+19373934284",
+     "(937) 393-4284",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-rockyfork"
+   ]
+  },
+  "ladue": {
+   "name": "LaDue Reservoir",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists two ramps, off Washington St and on SR 44. Electric only.",
+     "source": "odnr-ladue"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Three",
+     "+13306442293",
+     "(330) 644-2293",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-ladue"
+   ]
+  },
+  "paintcreek": {
+   "name": "Paint Creek Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Seasonal docks",
+     "status": "unannounced",
+     "label": "Seasonal",
+     "note": "ODNR: fuel and dock rentals are seasonal. No 2026 removal date is posted.",
+     "source": "odnr-paintcreek"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists three ramps.",
+     "source": "odnr-paintcreek"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Paint Creek State Park office",
+     "+19373934284",
+     "(937) 393-4284",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-paintcreek"
+   ]
+  },
+  "portagelakes": {
+   "name": "Portage Lakes",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists eight state park ramps.",
+     "source": "odnr-portagelakes"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Portage Lakes State Park office",
+     "+13306442220",
+     "(330) 644-2220",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-portagelakes"
+   ]
+  },
+  "mogadore": {
+   "name": "Mogadore Reservoir",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch sites",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists the boat house, the Ticknor Rd ramp and a boat stake area. Electric only.",
+     "source": "odnr-mogadore"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Three",
+     "+13306442293",
+     "(330) 644-2293",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-mogadore"
+   ]
+  },
+  "loramie": {
+   "name": "Lake Loramie",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Seasonal docks",
+     "status": "unannounced",
+     "label": "Seasonal",
+     "note": "ODNR lists 91 docks and 54 tie ups. No 2026 removal date is posted.",
+     "source": "odnr-loramie"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists six ramps.",
+     "source": "odnr-loramie"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Lake Loramie State Park office",
+     "+19372952011",
+     "(937) 295-2011",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-loramie"
+   ]
+  },
+  "nimisila": {
+   "name": "Nimisila Reservoir",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Lake level",
+     "status": "unannounced",
+     "label": "Being lowered",
+     "note": "ODNR, Nov. 3, 2026: Nimisila Reservoir is being temporarily lowered while engineers study the dams. No target or end date is posted.",
+     "source": "odnr-nimisila"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists four electric only ramps.",
+     "source": "odnr-nimisila"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Three",
+     "+13306442293",
+     "(330) 644-2293",
+     ""
+    ],
+    [
+     "Portage Lakes State Park office",
+     "+13306442220",
+     "(330) 644-2220",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-nimisila"
+   ]
+  },
+  "cowan": {
+   "name": "Cowan Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Lake level",
+     "status": "unannounced",
+     "label": "Drawdown",
+     "note": "ODNR: the lake is being drawn down 13.5 ft from Nov. 1, 2026 for dam work, with construction from early 2027 to spring 2028 and a refill target of summer 2028.",
+     "source": "odnr-cowan"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "Open at your own risk",
+     "note": "ODNR: open until there is not enough water and the ramps cannot be used.",
+     "source": "odnr-cowan"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Cowan Lake State Park office",
+     "+19373821096",
+     "(937) 382-1096",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-cowan"
+   ]
+  },
+  "acton": {
+   "name": "Acton Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Seasonal docks",
+     "status": "unannounced",
+     "label": "Seasonal",
+     "note": "ODNR lists 132 seasonal docks. No 2026 removal date is posted.",
+     "source": "odnr-acton"
+    },
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists one five lane ramp.",
+     "source": "odnr-acton"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR, Acton Lake",
+     "+15135236347",
+     "(513) 523-6347",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-acton"
+   ]
   }
  },
  "watch": [
@@ -1771,6 +2086,196 @@
    "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/east-fork-state-park",
    "lakes": [
     "eastfork"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-cjbrown",
+   "label": "ODNR, Buck Creek State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/buck-creek-state-park",
+   "lakes": [
+    "cjbrown"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-rockyfork",
+   "label": "ODNR, Rocky Fork State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/rocky-fork-state-park",
+   "lakes": [
+    "rockyfork"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-ladue",
+   "label": "ODNR, LaDue Reservoir Fishing Area",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/ladue-reservoir-fishing-area",
+   "lakes": [
+    "ladue"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-paintcreek",
+   "label": "ODNR, Paint Creek State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/paint-creek-state-park",
+   "lakes": [
+    "paintcreek"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-portagelakes",
+   "label": "ODNR, Portage Lakes State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/portage-lakes-state-park",
+   "lakes": [
+    "portagelakes"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-mogadore",
+   "label": "ODNR, Mogadore Reservoir Fishing Area",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/mogadore-reservoir-fishing-area",
+   "lakes": [
+    "mogadore"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-loramie",
+   "label": "ODNR, Lake Loramie State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-loramie-state-park",
+   "lakes": [
+    "loramie"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-nimisila",
+   "label": "ODNR, Portage Lakes State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/portage-lakes-state-park",
+   "lakes": [
+    "nimisila"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-cowan",
+   "label": "ODNR, Cowan Lake State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/cowan-lake-state-park",
+   "lakes": [
+    "cowan"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-acton",
+   "label": "ODNR, Hueston Woods State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/hueston-woods-state-park",
+   "lakes": [
+    "acton"
    ],
    "keywords": [
     "dock",

@@ -605,7 +605,7 @@
         point: "https://api.weather.gov/points/41.14,-81.11",
         grid: "https://api.weather.gov/gridpoints/CLE/105,51",
         station: "KAKR",
-        stationName: "Akron, Akron Fulton International Airport (KAKR)",
+        stationName: "Akron Fulton airport (KAKR)",
         page: "https://forecast.weather.gov/MapClick.php?lat=41.14&lon=-81.11"
       },
       alerts: { zones: "OHC133,OHZ022", counties: "the West Branch area" },
@@ -720,7 +720,7 @@
         point: "https://api.weather.gov/points/40.52,-84.5",
         grid: "https://api.weather.gov/gridpoints/ILN/31,102",
         station: "KAXV",
-        stationName: "Neil Armstrong Airport (KAXV)",
+        stationName: "Wapakoneta airport (KAXV)",
         page: "https://forecast.weather.gov/MapClick.php?lat=40.52&lon=-84.5"
       },
       alerts: { zones: "OHC107,OHZ034", counties: "the Grand Lake St. Marys area" },
@@ -794,9 +794,307 @@
       map: { data: "NightBiteMapDataEastfork", chart: "assets/eastfork-chart.png" },
       spots: ["North Shore ramp", "Campground ramp", "Slade Road ramp", "Tate ramp", "Reisinger ramp", "Tunnel Mill ramp", "Hand launch (main beach)", "Bank (other)", "Kayak launch"],
       species: ["largemouth-bass", "smallmouth-bass", "black-crappie", "white-crappie", "bluegill", "hybrid-striped-bass", "saugeye", "blue-catfish", "white-bass"]
+    },
+    cjbrown: {
+      id: "cjbrown",
+      name: "C.J. Brown Reservoir",
+      short: "C.J. Brown",
+      area: "Southwest Ohio",
+      lat: 39.968, lng: -83.729,
+      region: "southwest", owner: "US Army Corps of Engineers; ODNR Ohio State Parks",
+      aliases: ["C.J. Brown", "CJ Brown", "Clarence J. Brown Reservoir", "CJ Brown Reservoir", "Buck Creek", "Buck Creek Lake", "Buck Creek State Park", "Springfield"],
+      pool: {
+        src: "usgs", srcName: "USGS",
+        site: "03268090", param: "62614", temp: null,   // USGS 03268090 Clarence J Brown Reservoir near Springfield: lake elevation (62614, NGVD29), no water temp
+        // no live lake temperature: the Corps posts a dated temperature profile only (USACE Louisville District, checked Nov. 9, 2026).
+        // Named with its date and link on the pool card and the glance strip, never shown as live and never fed to the bite rating.
+        // The unlabeled daily CWMS series is not used. USGS 03268100 (Buck Creek below the dam) is a stream gauge and is not used either.
+        profile: { date: "2026-10-07", short: "Oct. 7", long: "Oct. 7, 2026", url: "https://www.lrl-wc.usace.army.mil/reports/wq/CBR.html" },
+        fullPool: 1012,     // ODNR fishing map normal summer pool (5 ft contours)
+        gaugeUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03268090/",
+        snapshot: { line: "1009.89 ft · Corps profile Oct. 7 · ~2.1 ft below full pool", at: "2026-11-09T18:45:00-05:00", when: "2026-11-09 18:45 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/60,79/forecast/hourly",
+        point: "https://api.weather.gov/points/39.968,-83.729",
+        grid: "https://api.weather.gov/gridpoints/ILN/60,79",
+        station: "KSGH",
+        stationName: "Springfield airport (KSGH)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.968&lon=-83.729"
+      },
+      alerts: { zones: "OHC023,OHZ053", counties: "the C.J. Brown area" },
+      push: null,
+      map: { data: "NightBiteMapDataCjbrown", chart: "assets/cjbrown-chart.png" },
+      spots: ["Main ramp (Buck Creek Lane)", "Marina ramp", "North End ramp", "Corps area, Grant Rd", "Marina fishing pier", "Bank (other)", "Kayak launch"],
+      species: ["walleye", "saugeye", "muskellunge", "largemouth-bass", "smallmouth-bass", "white-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
+    },
+    rockyfork: {
+      id: "rockyfork",
+      name: "Rocky Fork Lake",
+      short: "Rocky Fork",
+      area: "Southwest Ohio",
+      lat: 39.186, lng: -83.482,
+      region: "southwest", owner: "ODNR Ohio State Parks",
+      aliases: ["Rocky Fork", "Rocky Fork State Park", "Hillsboro"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 391111083263200 was a 1975 water quality site only)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 880,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/71,45/forecast/hourly",
+        point: "https://api.weather.gov/points/39.186,-83.482",
+        grid: "https://api.weather.gov/gridpoints/ILN/71,45",
+        station: "KILN",
+        stationName: "Wilmington airport (KILN)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.186&lon=-83.482"
+      },
+      alerts: { zones: "OHC071,OHZ080", counties: "the Rocky Fork area" },
+      push: null,
+      map: { data: "NightBiteMapDataRockyfork", chart: "assets/rockyfork-chart.png" },
+      spots: ["North Beach ramp", "Campground ramp", "East Shore ramp", "East Shore Drive ramp", "South Beach ramp", "Fishermans Wharf ramp", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "largemouth-bass", "black-crappie", "white-crappie", "white-bass", "channel-catfish", "flathead-catfish", "bluegill", "yellow-perch", "common-carp"]
+    },
+    ladue: {
+      id: "ladue",
+      name: "LaDue Reservoir",
+      short: "LaDue",
+      area: "Northeast Ohio",
+      lat: 41.379, lng: -81.217,
+      region: "northeast", owner: "City of Akron; fishery managed by ODNR Division of Wildlife",
+      aliases: ["LaDue", "La Due", "Ladue Reservoir", "La Due Reservoir", "Wendell R. LaDue Reservoir", "Auburn"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 04201900 Ladue Reservoir near Burton posts no data)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 1127,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/100,61/forecast/hourly",
+        point: "https://api.weather.gov/points/41.379,-81.217",
+        grid: "https://api.weather.gov/gridpoints/CLE/100,61",
+        station: "KBKL",
+        stationName: "Cleveland Burke Lakefront airport (KBKL)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=41.379&lon=-81.217"
+      },
+      alerts: { zones: "OHC055,OHZ013", counties: "the LaDue area" },
+      push: null,
+      map: { data: "NightBiteMapDataLadue", chart: "assets/ladue-chart.png" },
+      spots: ["SR 44 ramp", "Auburn Rd ramp", "Boat house, Valley Rd", "Bank (other)", "Kayak launch"],
+      species: ["walleye", "saugeye", "largemouth-bass", "smallmouth-bass", "black-crappie", "white-crappie", "channel-catfish", "bluegill", "yellow-perch"]
+    },
+    paintcreek: {
+      id: "paintcreek",
+      name: "Paint Creek Lake",
+      short: "Paint Creek",
+      area: "Southwest Ohio",
+      lat: 39.269, lng: -83.397,
+      region: "southwest", owner: "US Army Corps of Engineers; ODNR Ohio State Parks",
+      aliases: ["Paint Creek", "Paint Creek State Park", "Bainbridge", "Greenfield"],
+      pool: {
+        // no live USGS gauge on the lake (USGS 03232460 posts no data); the Corps of Engineers posts the lake level every 15 minutes
+        src: "cwms", srcName: "USACE",
+        office: "LRH", ts: "PaintCr-Lake.Elev.Inst.15Minutes.0.OBS",
+        temp: null,     // lake surface temperature: none posted
+        // USACE outflow water temperature, hourly (CWMS LRH, checked Nov. 9, 2026): labelled "outflow", never lake surface, not in the bite rating
+        outflow: { office: "LRH", ts: "PaintCr-Outflow.Temp-Water.Inst.1Hour.0.OBS", url: "https://water.usace.army.mil/office/lrh/project/paintcr" },
+        fullPool: 798,     // ODNR fishing map normal summer pool; the Corps rule curve holds 798 ft in summer and 787.5 ft in winter
+        gaugeUrl: "https://water.usace.army.mil/office/lrh/project/paintcr",
+        snapshot: { line: "793.58 ft · 56°F outflow · ~4.4 ft below full pool", at: "2026-11-09T19:30:00-05:00", when: "2026-11-09 19:30 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/74,49/forecast/hourly",
+        point: "https://api.weather.gov/points/39.269,-83.397",
+        grid: "https://api.weather.gov/gridpoints/ILN/74,49",
+        station: "KI23",
+        stationName: "Washington Court House airport (KI23)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.269&lon=-83.397"
+      },
+      alerts: { zones: "OHC071,OHZ080", counties: "the Paint Creek area" },
+      push: null,
+      map: { data: "NightBiteMapDataPaintcreek", chart: "assets/paintcreek-chart.png" },
+      spots: ["Taylor Rd ramp (campground)", "Deer Park ramp", "Rattlesnake ramp", "Marina", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "largemouth-bass", "white-bass", "black-crappie", "white-crappie", "channel-catfish", "bluegill"]
+    },
+    portagelakes: {
+      id: "portagelakes",
+      name: "Portage Lakes",
+      short: "Portage Lakes",
+      area: "Northeast Ohio",
+      lat: 40.985, lng: -81.54,
+      region: "northeast", owner: "ODNR Ohio State Parks",
+      aliases: ["Portage Lakes", "Turkeyfoot Lake", "Turkeyfoot", "East Reservoir", "West Reservoir", "North Reservoir", "Long Lake", "Rex Lake", "Portage Lakes State Park", "Akron", "New Franklin"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 405747081321700 was a 1977 water quality site; the Long Lake feeder gauge is on the canal)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: null,    // the ODNR fishing map prints no pool elevation
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/91,42/forecast/hourly",
+        point: "https://api.weather.gov/points/40.985,-81.54",
+        grid: "https://api.weather.gov/gridpoints/CLE/91,42",
+        station: "KAKR",
+        stationName: "Akron Fulton airport (KAKR)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.985&lon=-81.54"
+      },
+      alerts: { zones: "OHC153,OHZ021", counties: "the Portage Lakes area" },
+      push: null,
+      map: { data: "NightBiteMapDataPortagelakes", chart: "assets/portagelakes-chart.png" },
+      spots: ["Turkeyfoot ramp (New Ramp)", "Old State Park ramp", "North Reservoir ramp", "Long Lake ramp", "New Ramp fishing pier", "Bank (other)", "Kayak launch"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish", "bullhead", "common-carp"]
+    },
+    mogadore: {
+      id: "mogadore",
+      name: "Mogadore Reservoir",
+      short: "Mogadore",
+      area: "Northeast Ohio",
+      lat: 41.062, lng: -81.35,
+      region: "northeast", owner: "City of Akron; fishery managed by ODNR Division of Wildlife",
+      aliases: ["Mogadore", "Mogadore Lake", "Mogadore Reservoir Fishing Area"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 04203990 Mogadore Reservoir at Mogadore posts no data)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 1090,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/97,46/forecast/hourly",
+        point: "https://api.weather.gov/points/41.062,-81.35",
+        grid: "https://api.weather.gov/gridpoints/CLE/97,46",
+        station: "KAKR",
+        stationName: "Akron Fulton airport (KAKR)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=41.062&lon=-81.35"
+      },
+      alerts: { zones: "OHC133,OHZ022", counties: "the Mogadore area" },
+      push: null,
+      map: { data: "NightBiteMapDataMogadore", chart: "assets/mogadore-chart.png" },
+      spots: ["Boat house, SR 43", "Ticknor Rd ramp", "Boat stake area, Lansinger Rd", "Bank (other)", "Kayak launch"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
+    },
+    loramie: {
+      id: "loramie",
+      name: "Lake Loramie",
+      short: "Lake Loramie",
+      area: "West central Ohio",
+      lat: 40.376, lng: -84.323,
+      region: "northwest", owner: "ODNR Ohio State Parks",
+      aliases: ["Loramie", "Lake Loramie State Park", "Minster", "Fort Loramie"],
+      pool: {
+        src: "usgs", srcName: "USGS",
+        site: "03261800", param: "62615", temp: null,   // USGS 03261800 Lake Loramie near Fort Loramie: lake elevation (62615, NAVD88), no water temp
+        fullPool: 955,     // ODNR fishing map normal summer pool (2 ft contours); the map names no datum and USGS reads in NAVD88, so the difference is approximate
+        gaugeUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03261800/",
+        snapshot: { line: "953.81 ft · no temp · ~1.2 ft below full pool", at: "2026-11-09T19:00:00-05:00", when: "2026-11-09 19:00 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/38,96/forecast/hourly",
+        point: "https://api.weather.gov/points/40.376,-84.323",
+        grid: "https://api.weather.gov/gridpoints/ILN/38,96",
+        station: "KAXV",
+        stationName: "Wapakoneta airport (KAXV)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.376&lon=-84.323"
+      },
+      alerts: { zones: "OHC149,OHZ043", counties: "the Lake Loramie area" },
+      push: null,
+      map: { data: "NightBiteMapDataLoramie", chart: "assets/loramie-chart.png" },
+      spots: ["Campground ramp", "West Bank ramp", "Earl's Island ramp", "Filburn's ramp", "Luthman Rd ramp", "Schmitmeyer-Baker access", "Fishing pier", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish", "bullhead", "common-carp"]
+    },
+    nimisila: {
+      id: "nimisila",
+      name: "Nimisila Reservoir",
+      short: "Nimisila",
+      area: "Northeast Ohio",
+      lat: 40.938, lng: -81.523,
+      region: "northeast", owner: "ODNR Division of Wildlife (fishery); Summit Metro Parks manages the park land",
+      aliases: ["Nimisila", "Nimisila Lake", "Lake Nimisila", "Nimisila Reservoir Fishing Area", "New Franklin"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 03116400 Nimisila Reservoir near Barberton posts no data); ODNR says the lake is being lowered for a dam study (Nov. 3, 2026)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 871,    // ODNR fishing map summer pool (5 ft contours); the lake is being lowered (ODNR, Nov. 3, 2026)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/92,40/forecast/hourly",
+        point: "https://api.weather.gov/points/40.938,-81.523",
+        grid: "https://api.weather.gov/gridpoints/CLE/92,40",
+        station: "KCAK",
+        stationName: "Akron Canton airport (KCAK)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.938&lon=-81.523"
+      },
+      alerts: { zones: "OHC153,OHZ021", counties: "the Nimisila area" },
+      push: null,
+      map: { data: "NightBiteMapDataNimisila", chart: "assets/nimisila-chart.png" },
+      spots: ["C1 ramp", "C6 ramp", "CG ramp", "SM2 ramp", "Bank (other)", "Kayak launch"],
+      species: ["walleye", "saugeye", "largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
+    },
+    cowan: {
+      id: "cowan",
+      name: "Cowan Lake",
+      short: "Cowan Lake",
+      area: "Southwest Ohio",
+      lat: 39.388, lng: -83.895,
+      region: "southwest", owner: "ODNR Ohio State Parks",
+      aliases: ["Cowan", "Cowan Lake State Park", "Wilmington", "Clarksville"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 03243800 Cowan Lake near Clarksville has one 1980 sample); ODNR is drawing the lake down 13.5 ft from Nov. 1, 2026 for dam work
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 960,    // ODNR fishing map summer pool (5 ft contours); the lake is being drawn down 13.5 ft through 2028 (ODNR)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/56,53/forecast/hourly",
+        point: "https://api.weather.gov/points/39.388,-83.895",
+        grid: "https://api.weather.gov/gridpoints/ILN/56,53",
+        station: "KILN",
+        stationName: "Wilmington airport (KILN)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.388&lon=-83.895"
+      },
+      alerts: { zones: "OHC027,OHZ072", counties: "the Cowan Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataCowan", chart: "assets/cowan-chart.png" },
+      spots: ["West End ramp", "South Shore Marina", "Campground ramp", "East End ramp", "Pine Tree fishing pier", "Bank (other)", "Kayak launch"],
+      species: ["largemouth-bass", "saugeye", "black-crappie", "white-crappie", "bluegill", "channel-catfish", "flathead-catfish"]
+    },
+    acton: {
+      id: "acton",
+      name: "Acton Lake",
+      short: "Acton Lake",
+      area: "Southwest Ohio",
+      lat: 39.572, lng: -84.751,
+      region: "southwest", owner: "ODNR Ohio State Parks",
+      aliases: ["Acton", "Hueston Woods", "Hueston Woods State Park", "Oxford", "College Corner"],
+      pool: {
+        // no public lake level or temperature gauge (USGS 03272450 Acton Lake near Oxford posts no data)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 863,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/26,59/forecast/hourly",
+        point: "https://api.weather.gov/points/39.572,-84.751",
+        grid: "https://api.weather.gov/gridpoints/ILN/26,59",
+        station: "KOXD",
+        stationName: "Oxford airport (KOXD)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.572&lon=-84.751"
+      },
+      alerts: { zones: "OHC135,OHZ060", counties: "the Acton Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataActon", chart: "assets/acton-chart.png" },
+      spots: ["Main ramp", "Marina", "Lodge courtesy docks", "West shore fishing pier", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "largemouth-bass", "white-crappie", "black-crappie", "bluegill"]
     }
   };
-  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork"];
+  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton"];
   // picker regions, in this order (js/lake-picker.js). A region with no lakes yet is hidden. Every lake above sets
   // region to one of these ids; lat and lng above (the lake's NWS forecast point, on the water) give Near me distances.
   var REGIONS = [

@@ -85,7 +85,7 @@ Home · Species · Water · Log · Tournaments · Gear · About
 }
 ```
 
-`lake` is `hoover`, `alum`, `buckeye`, `oshaughnessy`, `griggs`, `indian`, `delaware`, `deercreek`, `madison`, `knox`, `clearfork`, `seneca`, `dillon`, `logan`, `saltfork`, `burroak`, `dow`, `mosquito`, `berlin`, `westbranch`, `pymatuning`, `milton`, `leesville`, `grandlakestmarys`, `caesarcreek` or `eastfork` (missing means `hoover`). Each lake view lists only its own events.
+`lake` is `hoover`, `alum`, `buckeye`, `oshaughnessy`, `griggs`, `indian`, `delaware`, `deercreek`, `madison`, `knox`, `clearfork`, `seneca`, `dillon`, `logan`, `saltfork`, `burroak`, `dow`, `mosquito`, `berlin`, `westbranch`, `pymatuning`, `milton`, `leesville`, `grandlakestmarys`, `caesarcreek`, `eastfork`, `cjbrown`, `rockyfork`, `ladue`, `paintcreek`, `portagelakes`, `mogadore`, `loramie`, `nimisila`, `cowan` or `acton` (missing means `hoover`). Each lake view lists only its own events.
 
 3. **Zero invented events.** Empty list is the honest default. This site is not a tournament director.
 

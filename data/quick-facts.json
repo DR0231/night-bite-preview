@@ -617,6 +617,214 @@
         ["ODNR, East Fork Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/east-fork-lake-fishing-area"],
         ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/eastforklake2.pdf"]
       ]
+    },
+    "cjbrown": {
+      "checked": "2026-11-09",
+      "title": "C.J. Brown Reservoir Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "C.J. Brown Reservoir fishing: live USGS lake level, Corps temp profile, unlimited hp, walleye 6 a day and 15 in, ramps, tonight's bite. Unofficial.",
+      "motors": "No horsepower limit (ODNR).",
+      "ramps": "Five lane launch ramp near the park office, a marina ramp with fuel, and north end and Corps ramps (ODNR).",
+      "pool": "Summer pool is 1,012 ft, the level the ODNR fishing map is drawn at.",
+      "night": "State park hours are 7 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "07:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Buck Creek State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/buck-creek-state-park"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["ODNR, Buck Creek State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/buck-creek-state-park"],
+        ["ODNR, C.J. Brown Reservoir Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/c-j-brown-reservoir-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/cjbrownreservoir2.pdf"]
+      ]
+    },
+    "rockyfork": {
+      "checked": "2026-11-09",
+      "title": "Rocky Fork Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Rocky Fork Lake fishing: unlimited hp, six state park ramps, crappie 30 a day and 9 in, the lake map, tonight's bite. No public level gauge. Unofficial.",
+      "motors": "No horsepower limit (ODNR).",
+      "ramps": "Six state park launch ramps, all lighted, plus seasonal docks (ODNR).",
+      "pool": "Summer pool is 880 ft, the level the ODNR fishing map is drawn at.",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Rocky Fork State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/rocky-fork-state-park"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["ODNR, Rocky Fork State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/rocky-fork-state-park"],
+        ["ODNR, Rocky Fork Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/rocky-fork-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/rockyforklake2.pdf"]
+      ]
+    },
+    "ladue": {
+      "checked": "2026-11-09",
+      "title": "LaDue Reservoir Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "LaDue Reservoir fishing: electric motors only, walleye 6 a day and 15 in, two ramps, the lake map, tonight's bite. No public level gauge. Unofficial.",
+      "motors": "Electric motors only; no gas motors or external fuel tanks (ODNR).",
+      "ramps": "Two boat ramps: off Washington St north of US 422, and on SR 44 south of Taylor-May Rd (ODNR).",
+      "pool": "Summer pool is 1,127 ft, the level the ODNR fishing map is drawn at.",
+      "hours": {
+        "none": true,
+        "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.",
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["ODNR, LaDue Reservoir Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/ladue-reservoir-fishing-area"],
+        ["ODNR, LaDue Hunting Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/ladue-hunting-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/laduereservoir2.pdf"]
+      ]
+    },
+    "paintcreek": {
+      "checked": "2026-11-09",
+      "title": "Paint Creek Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Paint Creek Lake fishing: live Corps lake level and outflow temp, unlimited hp, three ramps, crappie and bass rules, tonight's bite. Unofficial.",
+      "motors": "No horsepower limit (ODNR).",
+      "ramps": "Three launch ramps: Taylor Rd (campground), Deer Park and Rattlesnake (ODNR).",
+      "pool": "Summer pool is 798 ft, the level the ODNR fishing map is drawn at; the Corps holds 787.5 ft in winter.",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Paint Creek State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/paint-creek-state-park"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["ODNR, Paint Creek State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/paint-creek-state-park"],
+        ["ODNR, Paint Creek Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/paint-creek-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/paintcreeklake2.pdf"]
+      ]
+    },
+    "portagelakes": {
+      "checked": "2026-11-09",
+      "title": "Portage Lakes Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Portage Lakes fishing: Turkeyfoot, East, West and North Reservoir, 400 hp, no wake rules, crappie 30 a day and 9 in, ramps, tonight's bite. Unofficial.",
+      "motors": "400 hp limit; no wake everywhere except parts of Turkeyfoot Lake and East Reservoir on a posted schedule (ODNR).",
+      "ramps": "The state park lists eight ramps; New Ramp on Manchester Rd has an accessible fishing pier (ODNR).",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Portage Lakes State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/portage-lakes-state-park"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["ODNR, Portage Lakes State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/portage-lakes-state-park"],
+        ["ODNR, Portage Lakes Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/portage-lakes-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/portagelakes2.pdf"]
+      ]
+    },
+    "mogadore": {
+      "checked": "2026-11-09",
+      "title": "Mogadore Reservoir Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Mogadore Reservoir fishing: electric motors only, bank closures by the dam and roads, ramps, the lake map, tonight's bite. No public level gauge. Unofficial.",
+      "motors": "Electric motors only; no gas motors or external fuel tanks (ODNR).",
+      "ramps": "City of Akron boat house on SR 43, Ticknor Rd ramp and a boat stake area on Lansinger Rd (ODNR boating facilities list).",
+      "pool": "Summer pool is 1,090 ft, the level the ODNR fishing map is drawn at.",
+      "hours": {
+        "none": true,
+        "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.",
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["ODNR, Mogadore Reservoir Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/mogadore-reservoir-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/mogadorereservoir2.pdf"]
+      ]
+    },
+    "loramie": {
+      "checked": "2026-11-09",
+      "title": "Lake Loramie Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Lake Loramie fishing: live USGS lake level, no wake except the west speed zone, six ramps, crappie 30 a day and 9 in, tonight's bite. Unofficial.",
+      "motors": "No horsepower limit, but the whole lake is no wake except the speed zone at the west end; no skiing or tubing (ODNR).",
+      "ramps": "Six launch ramps, 91 docks and 54 tie-ups, and an adaptive launch (ODNR).",
+      "pool": "Summer pool is 955 ft, the level the ODNR fishing map is drawn at.",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Lake Loramie State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-loramie-state-park"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["ODNR, Lake Loramie State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-loramie-state-park"],
+        ["ODNR, Lake Loramie Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-loramie-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/lakeloramie2.pdf"]
+      ]
+    },
+    "nimisila": {
+      "checked": "2026-11-09",
+      "title": "Nimisila Reservoir Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Nimisila Reservoir fishing: electric motors only, the lake is being lowered for a dam study, four ramps, the map, tonight's bite. No level gauge. Unofficial.",
+      "motors": "Electric motors only (ODNR).",
+      "ramps": "Four ramps off Christman Rd and South Main St (ODNR boating facilities list).",
+      "pool": "Summer pool is 871 ft, the level the ODNR fishing map is drawn at. ODNR posted on Nov. 3, 2026 that the lake is being lowered for a dam study.",
+      "hours": {
+        "none": true,
+        "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.",
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["ODNR, Nimisila Reservoir Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/nimisila-reservoir-fishing-area"],
+        ["ODNR, Portage Lakes State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/portage-lakes-state-park"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/nimisilalake2.pdf"]
+      ]
+    },
+    "cowan": {
+      "checked": "2026-11-09",
+      "title": "Cowan Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Cowan Lake fishing: 13.5 ft drawdown for dam work from Nov. 1, 2026, 10 hp limit, bass 5 a day and 15 in, ramps, tonight's bite. Unofficial.",
+      "motors": "10 hp limit (ODNR).",
+      "ramps": "Three boat ramps, an accessible kayak launch and South Shore Marina; ramps close if the drawdown leaves too little water (ODNR).",
+      "pool": "Summer pool is 960 ft on the ODNR fishing map. ODNR is lowering the lake 13.5 ft from Nov. 1, 2026 for dam work, with a target to refill in summer 2028.",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Cowan Lake State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/cowan-lake-state-park"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["ODNR, Cowan Lake State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/cowan-lake-state-park"],
+        ["ODNR, Cowan Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/cowan-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/cowanlake2.pdf"]
+      ]
+    },
+    "acton": {
+      "checked": "2026-11-09",
+      "title": "Acton Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Acton Lake fishing: boats over 10 hp at no wake, one five lane ramp, bass 4 a day split rule, the lake map, tonight's bite. No public level gauge. Unofficial.",
+      "motors": "Any motor size, but boats over 10 hp must run at no wake speed (ODNR).",
+      "ramps": "One five lane launch ramp; the marina has a kayak launch, rentals and fuel (ODNR).",
+      "pool": "Summer pool is 863 ft, the level the ODNR fishing map is drawn at.",
+      "hours": {
+        "none": true,
+        "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.",
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["ODNR, Hueston Woods State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/hueston-woods-state-park"],
+        ["ODNR, Acton Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/acton-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/actonlake2.pdf"]
+      ]
     }
   }
 }

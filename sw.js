@@ -9,7 +9,7 @@
  *    with last deploy's styles or scripts. (Up to v11 these were cache first, which showed the multi-lake
  *    picker unstyled and the old Hoover-only map script after a deploy.) Pages ask for them with ?v=VERSION.
  *  · Fonts, images: stale while revalidate (instant from cache, refreshed in the background).
- *  · Home pages: the root (the water picker) and every lake home page (hoover/, alum/, buckeye/, oshaughnessy/, griggs/, indian/, delaware/, deercreek/, madison/, knox/, clearfork/, seneca/, dillon/, logan/, saltfork/, burroak/, dow/, mosquito/, berlin/, westbranch/, pymatuning/, milton/, leesville/, grandlakestmarys/, caesarcreek/, eastfork/) are precached, so each lake opens offline.
+ *  · Home pages: the root (the water picker) and every lake home page (hoover/, alum/, buckeye/, oshaughnessy/, griggs/, indian/, delaware/, deercreek/, madison/, knox/, clearfork/, seneca/, dillon/, logan/, saltfork/, burroak/, dow/, mosquito/, berlin/, westbranch/, pymatuning/, milton/, leesville/, grandlakestmarys/, caesarcreek/, eastfork/, cjbrown/, rockyfork/, ladue/, paintcreek/, portagelakes/, mogadore/, loramie/, nimisila/, cowan/, acton/) are precached, so each lake opens offline.
  *  · Whisperwood is never touched: nothing under whisperwood/ (or whisperwood.html) is cached or intercepted.
  *  · Cross origin requests (NWS, USGS, links out) pass straight through. The page itself keeps the last good
  *    readings in localStorage and labels them "Offline. Last updated ..." (js/refresh.js, NightBiteOffline).
@@ -19,7 +19,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v117-2026-11-09";
+var VERSION = "v118-2026-11-09";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -52,6 +52,16 @@ var PRECACHE = [
   "grandlakestmarys/",
   "caesarcreek/",
   "eastfork/",
+  "cjbrown/",
+  "rockyfork/",
+  "ladue/",
+  "paintcreek/",
+  "portagelakes/",
+  "mogadore/",
+  "loramie/",
+  "nimisila/",
+  "cowan/",
+  "acton/",
   "species/",
   "water.html",
   "ice.html",
@@ -142,6 +152,16 @@ var PRECACHE = [
   "js/lake-map-data-grandlakestmarys.js",
   "js/lake-map-data-caesarcreek.js",
   "js/lake-map-data-eastfork.js",
+  "js/lake-map-data-cjbrown.js",
+  "js/lake-map-data-rockyfork.js",
+  "js/lake-map-data-ladue.js",
+  "js/lake-map-data-paintcreek.js",
+  "js/lake-map-data-portagelakes.js",
+  "js/lake-map-data-mogadore.js",
+  "js/lake-map-data-loramie.js",
+  "js/lake-map-data-nimisila.js",
+  "js/lake-map-data-cowan.js",
+  "js/lake-map-data-acton.js",
   "js/lake-picker.js",
   "js/water-picker.js",
   "js/lake-snapshot.js",
@@ -205,6 +225,16 @@ var PRECACHE = [
   "assets/tiles/grandlakestmarys.png",
   "assets/tiles/caesarcreek.png",
   "assets/tiles/eastfork.png",
+  "assets/tiles/cjbrown.png",
+  "assets/tiles/rockyfork.png",
+  "assets/tiles/ladue.png",
+  "assets/tiles/paintcreek.png",
+  "assets/tiles/portagelakes.png",
+  "assets/tiles/mogadore.png",
+  "assets/tiles/loramie.png",
+  "assets/tiles/nimisila.png",
+  "assets/tiles/cowan.png",
+  "assets/tiles/acton.png",
   "assets/hoover-chart.png",
   "assets/maps/hoover-depth-contours.webp",
   "assets/alum-chart.png",
@@ -232,6 +262,16 @@ var PRECACHE = [
   "assets/grandlakestmarys-chart.png",
   "assets/caesarcreek-chart.png",
   "assets/eastfork-chart.png",
+  "assets/cjbrown-chart.png",
+  "assets/rockyfork-chart.png",
+  "assets/ladue-chart.png",
+  "assets/paintcreek-chart.png",
+  "assets/portagelakes-chart.png",
+  "assets/mogadore-chart.png",
+  "assets/loramie-chart.png",
+  "assets/nimisila-chart.png",
+  "assets/cowan-chart.png",
+  "assets/acton-chart.png",
   "assets/horizon-center.png",
   "assets/horizon-thin.png",
   "assets/horizon-tile.png",
@@ -312,6 +352,26 @@ var PRECACHE = [
   "assets/map/caesarcreek-map-wide.png",
   "assets/map/eastfork-map-tall.png",
   "assets/map/eastfork-map-wide.png",
+  "assets/map/cjbrown-map-tall.png",
+  "assets/map/cjbrown-map-wide.png",
+  "assets/map/rockyfork-map-tall.png",
+  "assets/map/rockyfork-map-wide.png",
+  "assets/map/ladue-map-tall.png",
+  "assets/map/ladue-map-wide.png",
+  "assets/map/paintcreek-map-tall.png",
+  "assets/map/paintcreek-map-wide.png",
+  "assets/map/portagelakes-map-tall.png",
+  "assets/map/portagelakes-map-wide.png",
+  "assets/map/mogadore-map-tall.png",
+  "assets/map/mogadore-map-wide.png",
+  "assets/map/loramie-map-tall.png",
+  "assets/map/loramie-map-wide.png",
+  "assets/map/nimisila-map-tall.png",
+  "assets/map/nimisila-map-wide.png",
+  "assets/map/cowan-map-tall.png",
+  "assets/map/cowan-map-wide.png",
+  "assets/map/acton-map-tall.png",
+  "assets/map/acton-map-wide.png",
   "assets/map/pin-access.png",
   "assets/map/pin-ramp.png",
   "assets/map/pin-shop.png",

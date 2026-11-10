@@ -2,6 +2,70 @@
   "about": "What's new on The Night Bite, newest first. Edit this file, then run: python3 tools/build-updates.py (see README, 'What's new'). Entries come from what actually shipped to nightbiteoh.com. An entry with \"draft\": true and \"date\": null is on the preview only: it shows on the preview, and is hidden on nightbiteoh.com until you set the date and remove the draft flag at promotion.",
   "entries": [
     {
+      "id": "draft-tier-b-ten",
+      "date": null,
+      "draft": true,
+      "tag": "New",
+      "title": "Ten more lakes: C.J. Brown to Acton",
+      "bullets": [
+        "Pick C.J. Brown Reservoir, Rocky Fork Lake, Paint Creek Lake, Cowan Lake or Acton Lake under Southwest, LaDue Reservoir, the Portage Lakes, Mogadore Reservoir or Nimisila Reservoir under Northeast, or Lake Loramie under Northwest. Each has its own home page.",
+        "Each lake has its own map and ramps, lake rules, species notes, dock season and Bait nearby.",
+        "C.J. Brown and Lake Loramie read their USGS lake gauges, and Paint Creek reads the Army Corps lake level. Paint Creek shows the Corps outflow temperature, marked outflow and never counted in the bite rating; C.J. Brown names the Corps temperature profile with its date. The other seven have no public level or temperature gauge and say so.",
+        "Cowan Lake is being drawn down 13.5 ft for dam work through 2028, and Nimisila Reservoir is being lowered for a dam study (ODNR), and both pages say so.",
+        "Stocking & surveys adds ten years of ODNR stocking for all ten, from ODNR’s Fish Stocking dashboard."
+      ],
+      "links": [
+        {
+          "label": "Water",
+          "href": "water"
+        },
+        {
+          "label": "Stocking & surveys",
+          "href": "stocking"
+        },
+        {
+          "label": "C.J. Brown Reservoir",
+          "href": "cjbrown/"
+        },
+        {
+          "label": "Rocky Fork Lake",
+          "href": "rockyfork/"
+        },
+        {
+          "label": "LaDue Reservoir",
+          "href": "ladue/"
+        },
+        {
+          "label": "Paint Creek Lake",
+          "href": "paintcreek/"
+        },
+        {
+          "label": "Portage Lakes",
+          "href": "portagelakes/"
+        },
+        {
+          "label": "Mogadore Reservoir",
+          "href": "mogadore/"
+        },
+        {
+          "label": "Lake Loramie",
+          "href": "loramie/"
+        },
+        {
+          "label": "Nimisila Reservoir",
+          "href": "nimisila/"
+        },
+        {
+          "label": "Cowan Lake",
+          "href": "cowan/"
+        },
+        {
+          "label": "Acton Lake",
+          "href": "acton/"
+        }
+      ]
+    },
+    {
       "id": "draft-tier-b-three",
       "date": null,
       "draft": true,

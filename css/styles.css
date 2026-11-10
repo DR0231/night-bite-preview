@@ -2894,6 +2894,16 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
 .pool-chart img[data-for="grandlakestmarys"] { width: 178px; height: 94px; }
 .pool-chart img[data-for="caesarcreek"] { width: 96px; height: 96px; }
 .pool-chart img[data-for="eastfork"] { width: 126px; height: 96px; }
+.pool-chart img[data-for="cjbrown"] { width: 78px; height: 96px; }
+.pool-chart img[data-for="rockyfork"] { width: 214px; height: 96px; }
+.pool-chart img[data-for="ladue"] { width: 88px; height: 80px; }
+.pool-chart img[data-for="paintcreek"] { width: 96px; height: 80px; }
+.pool-chart img[data-for="portagelakes"] { width: 50px; height: 94px; }
+.pool-chart img[data-for="mogadore"] { width: 146px; height: 96px; }
+.pool-chart img[data-for="loramie"] { width: 122px; height: 94px; }
+.pool-chart img[data-for="nimisila"] { width: 54px; height: 96px; }
+.pool-chart img[data-for="cowan"] { width: 198px; height: 96px; }
+.pool-chart img[data-for="acton"] { width: 84px; height: 96px; }
 @media (max-width: 359px) {
   .pool-chart img[data-for="alum"] { width: 134px; height: 37px; }
   .pool-chart img[data-for="buckeye"] { width: 92px; height: 48px; }
@@ -2920,6 +2930,16 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
   .pool-chart img[data-for="grandlakestmarys"] { width: 89px; height: 47px; }
   .pool-chart img[data-for="caesarcreek"] { width: 48px; height: 48px; }
   .pool-chart img[data-for="eastfork"] { width: 63px; height: 48px; }
+  .pool-chart img[data-for="cjbrown"] { width: 39px; height: 48px; }
+  .pool-chart img[data-for="rockyfork"] { width: 107px; height: 48px; }
+  .pool-chart img[data-for="ladue"] { width: 44px; height: 40px; }
+  .pool-chart img[data-for="paintcreek"] { width: 48px; height: 40px; }
+  .pool-chart img[data-for="portagelakes"] { width: 25px; height: 47px; }
+  .pool-chart img[data-for="mogadore"] { width: 73px; height: 48px; }
+  .pool-chart img[data-for="loramie"] { width: 61px; height: 47px; }
+  .pool-chart img[data-for="nimisila"] { width: 27px; height: 48px; }
+  .pool-chart img[data-for="cowan"] { width: 99px; height: 48px; }
+  .pool-chart img[data-for="acton"] { width: 42px; height: 48px; }
 }
 .pool-chart-key > span[data-for="buckeye"] { margin-right: 0.5rem; }
 @media (min-width: 560px) { .pool-chart-key > span[data-for="buckeye"] { margin-right: 0; } }

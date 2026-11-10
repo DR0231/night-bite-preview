@@ -1,5 +1,5 @@
 {
- "_note": "Bait and tackle shops near each lake, shown on each lake home (js/bait-nearby.js). Each shop was checked open on its Google Maps listing or own site, Oct 30, 2026 (the six east and southeast lakes Oct 31, 2026; the six northeast lakes Nov 3, 2026; Grand Lake St. Marys, Caesar Creek Lake and East Fork Lake Nov 9, 2026); evidence in the build notes. min is an estimated drive from the lake, rounded to 5 minutes; lists are in drive time order. lat/lng let a visitor sort from their own location on the device. A lake with an empty list shows No shops confirmed yet. q, when present, is the exact Google Maps search that opens that shop’s own listing (its name plus address opens another business at the same address).",
+ "_note": "Bait and tackle shops near each lake, shown on each lake home (js/bait-nearby.js). Each shop was checked open on its Google Maps listing or own site, Oct 30, 2026 (the six east and southeast lakes Oct 31, 2026; the six northeast lakes Nov 3, 2026; Grand Lake St. Marys, Caesar Creek Lake, East Fork Lake, C.J. Brown Reservoir, Rocky Fork Lake, LaDue Reservoir, Paint Creek Lake, the Portage Lakes, Mogadore Reservoir, Lake Loramie, Nimisila Reservoir, Cowan Lake and Acton Lake Nov 9, 2026); evidence in the build notes. min is an estimated drive from the lake, rounded to 5 minutes; lists are in drive time order. lat/lng let a visitor sort from their own location on the device. A lake with an empty list shows No shops confirmed yet. q, when present, is the exact Google Maps search that opens that shop’s own listing (its name plus address opens another business at the same address).",
  "lakes": {
   "hoover": [
    {
@@ -420,6 +420,146 @@
     "lat": 39.0586371,
     "lng": -84.1018352,
     "q": "Boars Head Bait & Carry Out 2818 Old State Rte 32, Batavia, OH 45103"
+   }
+  ],
+  "cjbrown": [
+   {
+    "name": "Howard's Lakeside General Store",
+    "address": "1919 Croft Rd, Springfield, OH",
+    "min": 10,
+    "lat": 39.9477041,
+    "lng": -83.7489264,
+    "q": "Howard's Lakeside General Store 1919 Croft Rd, Springfield, OH"
+   },
+   {
+    "name": "Buck Creek State Park marina store",
+    "address": "2451 Grant Rd, Springfield, OH",
+    "min": 10,
+    "lat": 39.9566241,
+    "lng": -83.7208478,
+    "q": "Buck Creek State Park marina store 2451 Grant Rd, Springfield, OH"
+   }
+  ],
+  "rockyfork": [
+   {
+    "name": "Bayview Bait & Tackle",
+    "address": "11104 N Shore Dr, Hillsboro, OH",
+    "min": 5,
+    "lat": 39.1978083,
+    "lng": -83.4846906,
+    "q": "Bayview Bait & Tackle 11104 N Shore Dr, Hillsboro, OH"
+   },
+   {
+    "name": "Crossroads Bait Tackle and Ammo",
+    "address": "12882 US-50, Hillsboro, OH",
+    "min": 10,
+    "lat": 39.2196578,
+    "lng": -83.4217201,
+    "q": "Crossroads Bait Tackle and Ammo 12882 US-50, Hillsboro, OH"
+   }
+  ],
+  "ladue": [
+   {
+    "name": "Bows & Reels",
+    "address": "18225 Madison Rd, Middlefield, OH",
+    "min": 15,
+    "lat": 41.3737182,
+    "lng": -81.0636919,
+    "q": "Bows & Reels 18225 Madison Rd, Middlefield, OH"
+   }
+  ],
+  "paintcreek": [
+   {
+    "name": "Crossroads Bait Tackle and Ammo",
+    "address": "12882 US-50, Hillsboro, OH",
+    "min": 20,
+    "lat": 39.2196578,
+    "lng": -83.4217201,
+    "q": "Crossroads Bait Tackle and Ammo 12882 US-50, Hillsboro, OH"
+   }
+  ],
+  "portagelakes": [
+   {
+    "name": "Fisherman's Central",
+    "address": "5461 Manchester Rd, Akron, OH",
+    "min": 5,
+    "lat": 40.9568195,
+    "lng": -81.5652927,
+    "q": "Fisherman's Central 5461 Manchester Rd, Akron, OH"
+   },
+   {
+    "name": "Cast Cray PLX Bait & Tackle",
+    "address": "656 W Turkeyfoot Lake Rd, Akron, OH",
+    "min": 10,
+    "lat": 40.9811819,
+    "lng": -81.5450317,
+    "q": "Cast Cray PLX Bait & Tackle 656 W Turkeyfoot Lake Rd, Akron, OH"
+   },
+   {
+    "name": "Long Lake Bait & Tackle",
+    "address": "855 Portage Lakes Dr, Akron, OH",
+    "min": 10,
+    "lat": 41.0036991,
+    "lng": -81.5446969,
+    "q": "Long Lake Bait & Tackle 855 Portage Lakes Dr, Akron, OH"
+   }
+  ],
+  "mogadore": [
+   {
+    "name": "Mogadore Bait, Tackle & Marine Repair",
+    "address": "780 Randolph Rd, Mogadore, OH",
+    "min": 5,
+    "lat": 41.0473092,
+    "lng": -81.3652267,
+    "q": "Mogadore Bait, Tackle & Marine Repair 780 Randolph Rd, Mogadore, OH"
+   }
+  ],
+  "loramie": [
+   {
+    "name": "Spillway Bait & Tackle",
+    "address": "12201 OH-362, Minster, OH",
+    "min": 5,
+    "lat": 40.371625,
+    "lng": -84.3641204,
+    "q": "Spillway Bait & Tackle 12201 OH-362, Minster, OH"
+   }
+  ],
+  "nimisila": [
+   {
+    "name": "Eddie's Wholesale Live Bait",
+    "address": "600 E Comet Rd, Clinton, OH",
+    "min": 5,
+    "lat": 40.923897,
+    "lng": -81.515888,
+    "q": "Eddie's Wholesale Live Bait 600 E Comet Rd, Clinton, OH"
+   },
+   {
+    "name": "Fisherman's Central",
+    "address": "5461 Manchester Rd, Akron, OH",
+    "min": 10,
+    "lat": 40.9568195,
+    "lng": -81.5652927,
+    "q": "Fisherman's Central 5461 Manchester Rd, Akron, OH"
+   }
+  ],
+  "cowan": [
+   {
+    "name": "Fishing Pole Bait Shop",
+    "address": "5071 OH-350, Clarksville, OH",
+    "min": 5,
+    "lat": 39.3786111,
+    "lng": -83.95,
+    "q": "Fishing Pole Bait Shop 5071 OH-350, Clarksville, OH"
+   }
+  ],
+  "acton": [
+   {
+    "name": "Colony Food Mart",
+    "address": "5284 College Corner Pike, Oxford, OH",
+    "min": 15,
+    "lat": 39.5203951,
+    "lng": -84.7586694,
+    "q": "Colony Food Mart 5284 College Corner Pike, Oxford, OH"
    }
   ]
  }

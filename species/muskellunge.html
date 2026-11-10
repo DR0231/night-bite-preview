@@ -32,9 +32,9 @@
   <link rel="preload" href="../assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="../js/a11y-boot.js?v=v117-2026-11-09"></script>
-  <link rel="stylesheet" href="../css/styles.css?v=v117-2026-11-09">
-  <script src="../js/lakes.js?v=v117-2026-11-09"></script>
+  <script src="../js/a11y-boot.js?v=v118-2026-11-09"></script>
+  <link rel="stylesheet" href="../css/styles.css?v=v118-2026-11-09">
+  <script src="../js/lakes.js?v=v118-2026-11-09"></script>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nightbiteoh.com/"}, {"@type": "ListItem", "position": 2, "name": "Species", "item": "https://nightbiteoh.com/species/"}, {"@type": "ListItem", "position": 3, "name": "Muskellunge", "item": "https://nightbiteoh.com/species/muskellunge"}]}
   </script>
@@ -104,6 +104,16 @@
     <p class="lake-note" data-for="grandlakestmarys">Not a regular at Grand Lake St. Marys: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
     <p class="lake-note" data-for="caesarcreek">Stocked by ODNR at Caesar Creek Lake every year: 1,828 advanced fingerlings in 2025.</p>
     <p class="lake-note" data-for="eastfork">Not a regular at East Fork Lake: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
+    <p class="lake-note" data-for="cjbrown">Stocked by ODNR at C.J. Brown Reservoir every year since 2018 (1,152 advanced fingerlings in 2025).</p>
+    <p class="lake-note" data-for="rockyfork">Not a regular at Rocky Fork Lake: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
+    <p class="lake-note" data-for="ladue">Not a regular at LaDue Reservoir: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
+    <p class="lake-note" data-for="paintcreek">Not a regular at Paint Creek Lake: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
+    <p class="lake-note" data-for="portagelakes">Not a regular at Portage Lakes: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
+    <p class="lake-note" data-for="mogadore">Not a regular at Mogadore Reservoir: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
+    <p class="lake-note" data-for="loramie">Not a regular at Lake Loramie: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
+    <p class="lake-note" data-for="nimisila">Not a regular at Nimisila Reservoir: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
+    <p class="lake-note" data-for="cowan">Not a regular at Cowan Lake: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
+    <p class="lake-note" data-for="acton">Not a regular at Acton Lake: ODNR doesn't list it there. This page covers Alum Creek Lake.</p>
     <!-- stocking-line -->
     <p class="meta sp-stock" data-for="alum">ODNR stocked muskellunge in Alum Creek every year from 2010 to 2019. <a href="../stocking?lake=alum#stocked">Stocking &amp; surveys</a></p>
     <p class="meta sp-stock" data-for="clearfork">ODNR stocked muskellunge in Clear Fork Reservoir every year from 2016 to 2025. <a href="../stocking?lake=clearfork#stocked">Stocking &amp; surveys</a></p>
@@ -112,13 +122,14 @@
     <p class="meta sp-stock" data-for="milton">ODNR stocked muskellunge in Lake Milton every year from 2016 to 2025. <a href="../stocking?lake=milton#stocked">Stocking &amp; surveys</a></p>
     <p class="meta sp-stock" data-for="leesville">ODNR stocked muskellunge in Leesville Lake every year from 2016 to 2025. <a href="../stocking?lake=leesville#stocked">Stocking &amp; surveys</a></p>
     <p class="meta sp-stock" data-for="caesarcreek">ODNR stocked muskellunge in Caesar Creek Lake every year from 2016 to 2025. <a href="../stocking?lake=caesarcreek#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="cjbrown">ODNR stocked muskellunge in C.J. Brown Reservoir every year from 2018 to 2025. <a href="../stocking?lake=cjbrown#stocked">Stocking &amp; surveys</a></p>
     <!-- /stocking-line -->
 
     <div class="sp-now" id="sp-now" data-species="muskellunge" hidden></div>
     <!-- filled right here, before paint, from the month's picks for the active lake -->
-    <script src="../js/biting-data.js?v=v117-2026-11-09"></script>
-    <script src="../js/biting-data-lakes.js?v=v117-2026-11-09"></script>
-    <script src="../js/species-lake.js?v=v117-2026-11-09"></script>
+    <script src="../js/biting-data.js?v=v118-2026-11-09"></script>
+    <script src="../js/biting-data-lakes.js?v=v118-2026-11-09"></script>
+    <script src="../js/species-lake.js?v=v118-2026-11-09"></script>
 
     <nav class="species-subnav" aria-label="On this page">
       <a href="#season">Season</a>
@@ -164,8 +175,8 @@
 
     <section id="limits" class="species-section">
       <h2>Limits <span class="regs-tag">reminder, verify</span></h2>
-      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork">Statewide muskie rule from the Ohio Administrative Code and the ODNR Fishing Regulations 2026–27. Alum Creek has no muskie exception.</p>
-      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork">
+      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton">Statewide muskie rule from the Ohio Administrative Code and the ODNR Fishing Regulations 2026–27. Alum Creek has no muskie exception.</p>
+      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton">
         <table class="access-table regs-table">
           <thead>
             <tr><th scope="col">Rule</th><th scope="col">Reminder (verify 2026–27)</th></tr>
@@ -248,15 +259,15 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="../js/refresh.js?v=v117-2026-11-09"></script>
-  <script src="../js/sw-update.js?v=v117-2026-11-09"></script>
-  <script src="../js/alerts.js?v=v117-2026-11-09"></script>
-  <script src="../js/nav.js?v=v117-2026-11-09"></script>
-  <script src="../js/visits.js?v=v117-2026-11-09"></script>
-  <script src="../js/lake-picker.js?v=v117-2026-11-09"></script>
-  <script src="../js/sticky-nav.js?v=v117-2026-11-09"></script>
-  <script src="../js/mode-toggle.js?v=v117-2026-11-09"></script>
+  <script src="../js/refresh.js?v=v118-2026-11-09"></script>
+  <script src="../js/sw-update.js?v=v118-2026-11-09"></script>
+  <script src="../js/alerts.js?v=v118-2026-11-09"></script>
+  <script src="../js/nav.js?v=v118-2026-11-09"></script>
+  <script src="../js/visits.js?v=v118-2026-11-09"></script>
+  <script src="../js/lake-picker.js?v=v118-2026-11-09"></script>
+  <script src="../js/sticky-nav.js?v=v118-2026-11-09"></script>
+  <script src="../js/mode-toggle.js?v=v118-2026-11-09"></script>
 
-  <script src="../js/a11y.js?v=v117-2026-11-09" defer></script>
+  <script src="../js/a11y.js?v=v118-2026-11-09" defer></script>
 </body>
 </html>
