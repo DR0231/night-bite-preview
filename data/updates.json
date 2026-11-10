@@ -2,6 +2,58 @@
   "about": "What's new on The Night Bite, newest first. Edit this file, then run: python3 tools/build-updates.py (see README, 'What's new'). Entries come from what actually shipped to nightbiteoh.com. An entry with \"draft\": true and \"date\": null is on the preview only: it shows on the preview, and is hidden on nightbiteoh.com until you set the date and remove the draft flag at promotion.",
   "entries": [
     {
+      "id": "draft-mwcd-seven",
+      "date": null,
+      "draft": true,
+      "tag": "New",
+      "title": "Seven MWCD lakes: Tappan to Beach City",
+      "bullets": [
+        "Pick Tappan Lake, Piedmont Lake or Clendening Lake under East and Southeast Ohio, Atwood Lake or Beach City Lake under Northeast Ohio, or Charles Mill Lake or Pleasant Hill Lake under Central Ohio. Each has its own home page.",
+        "Each lake has its own map and ramps, lake rules, species notes, dock season and Bait nearby. MWCD areas close 11 p.m. to 6 a.m. except to people fishing, and each page says so.",
+        "Tappan, Piedmont, Clendening and Atwood read their USGS lake gauges; Charles Mill, Pleasant Hill and Beach City read the Army Corps lake level. None of the seven has a public water temp gauge, and the pages say so.",
+        "Each page shows MWCD’s winter drawdown with the official dates and levels. Beach City is not on the schedule and has no public ramp, and its page says so.",
+        "Stocking & surveys adds ten years of ODNR stocking for all seven, from ODNR’s Fish Stocking dashboard."
+      ],
+      "links": [
+        {
+          "label": "Water",
+          "href": "water"
+        },
+        {
+          "label": "Stocking & surveys",
+          "href": "stocking"
+        },
+        {
+          "label": "Tappan Lake",
+          "href": "tappan/"
+        },
+        {
+          "label": "Piedmont Lake",
+          "href": "piedmont/"
+        },
+        {
+          "label": "Clendening Lake",
+          "href": "clendening/"
+        },
+        {
+          "label": "Atwood Lake",
+          "href": "atwood/"
+        },
+        {
+          "label": "Charles Mill Lake",
+          "href": "charlesmill/"
+        },
+        {
+          "label": "Pleasant Hill Lake",
+          "href": "pleasanthill/"
+        },
+        {
+          "label": "Beach City Lake",
+          "href": "beachcity/"
+        }
+      ]
+    },
+    {
       "id": "draft-tier-b-ten",
       "date": null,
       "draft": true,

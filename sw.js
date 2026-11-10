@@ -9,7 +9,7 @@
  *    with last deploy's styles or scripts. (Up to v11 these were cache first, which showed the multi-lake
  *    picker unstyled and the old Hoover-only map script after a deploy.) Pages ask for them with ?v=VERSION.
  *  · Fonts, images: stale while revalidate (instant from cache, refreshed in the background).
- *  · Home pages: the root (the water picker) and every lake home page (hoover/, alum/, buckeye/, oshaughnessy/, griggs/, indian/, delaware/, deercreek/, madison/, knox/, clearfork/, seneca/, dillon/, logan/, saltfork/, burroak/, dow/, mosquito/, berlin/, westbranch/, pymatuning/, milton/, leesville/, grandlakestmarys/, caesarcreek/, eastfork/, cjbrown/, rockyfork/, ladue/, paintcreek/, portagelakes/, mogadore/, loramie/, nimisila/, cowan/, acton/) are precached, so each lake opens offline.
+ *  · Home pages: the root (the water picker) and every lake home page (hoover/, alum/, buckeye/, oshaughnessy/, griggs/, indian/, delaware/, deercreek/, madison/, knox/, clearfork/, seneca/, dillon/, logan/, saltfork/, burroak/, dow/, mosquito/, berlin/, westbranch/, pymatuning/, milton/, leesville/, grandlakestmarys/, caesarcreek/, eastfork/, cjbrown/, rockyfork/, ladue/, paintcreek/, portagelakes/, mogadore/, loramie/, nimisila/, cowan/, acton/, tappan/, piedmont/, clendening/, atwood/, charlesmill/, pleasanthill/, beachcity/) are precached, so each lake opens offline.
  *  · Whisperwood is never touched: nothing under whisperwood/ (or whisperwood.html) is cached or intercepted.
  *  · Cross origin requests (NWS, USGS, links out) pass straight through. The page itself keeps the last good
  *    readings in localStorage and labels them "Offline. Last updated ..." (js/refresh.js, NightBiteOffline).
@@ -19,7 +19,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v118-2026-11-09";
+var VERSION = "v119-2026-11-09";
 var CACHE = PREFIX + VERSION;
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
@@ -62,6 +62,13 @@ var PRECACHE = [
   "nimisila/",
   "cowan/",
   "acton/",
+  "tappan/",
+  "piedmont/",
+  "clendening/",
+  "atwood/",
+  "charlesmill/",
+  "pleasanthill/",
+  "beachcity/",
   "species/",
   "water.html",
   "ice.html",
@@ -162,6 +169,13 @@ var PRECACHE = [
   "js/lake-map-data-nimisila.js",
   "js/lake-map-data-cowan.js",
   "js/lake-map-data-acton.js",
+  "js/lake-map-data-tappan.js",
+  "js/lake-map-data-piedmont.js",
+  "js/lake-map-data-clendening.js",
+  "js/lake-map-data-atwood.js",
+  "js/lake-map-data-charlesmill.js",
+  "js/lake-map-data-pleasanthill.js",
+  "js/lake-map-data-beachcity.js",
   "js/lake-picker.js",
   "js/water-picker.js",
   "js/lake-snapshot.js",
@@ -235,6 +249,13 @@ var PRECACHE = [
   "assets/tiles/nimisila.png",
   "assets/tiles/cowan.png",
   "assets/tiles/acton.png",
+  "assets/tiles/tappan.png",
+  "assets/tiles/piedmont.png",
+  "assets/tiles/clendening.png",
+  "assets/tiles/atwood.png",
+  "assets/tiles/charlesmill.png",
+  "assets/tiles/pleasanthill.png",
+  "assets/tiles/beachcity.png",
   "assets/hoover-chart.png",
   "assets/maps/hoover-depth-contours.webp",
   "assets/alum-chart.png",
@@ -272,6 +293,13 @@ var PRECACHE = [
   "assets/nimisila-chart.png",
   "assets/cowan-chart.png",
   "assets/acton-chart.png",
+  "assets/tappan-chart.png",
+  "assets/piedmont-chart.png",
+  "assets/clendening-chart.png",
+  "assets/atwood-chart.png",
+  "assets/charlesmill-chart.png",
+  "assets/pleasanthill-chart.png",
+  "assets/beachcity-chart.png",
   "assets/horizon-center.png",
   "assets/horizon-thin.png",
   "assets/horizon-tile.png",
@@ -372,6 +400,20 @@ var PRECACHE = [
   "assets/map/cowan-map-wide.png",
   "assets/map/acton-map-tall.png",
   "assets/map/acton-map-wide.png",
+  "assets/map/tappan-map-tall.png",
+  "assets/map/tappan-map-wide.png",
+  "assets/map/piedmont-map-tall.png",
+  "assets/map/piedmont-map-wide.png",
+  "assets/map/clendening-map-tall.png",
+  "assets/map/clendening-map-wide.png",
+  "assets/map/atwood-map-tall.png",
+  "assets/map/atwood-map-wide.png",
+  "assets/map/charlesmill-map-tall.png",
+  "assets/map/charlesmill-map-wide.png",
+  "assets/map/pleasanthill-map-tall.png",
+  "assets/map/pleasanthill-map-wide.png",
+  "assets/map/beachcity-map-tall.png",
+  "assets/map/beachcity-map-wide.png",
   "assets/map/pin-access.png",
   "assets/map/pin-ramp.png",
   "assets/map/pin-shop.png",

@@ -825,6 +825,187 @@
         ["ODNR, Acton Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/acton-lake-fishing-area"],
         ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/actonlake2.pdf"]
       ]
+    },
+    "tappan": {
+      "checked": "2026-11-09",
+      "title": "Tappan Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Tappan Lake fishing: live USGS lake level, MWCD winter drawdown, 399 hp limit, crappie 30 a day and 9 in, ramps, tonight's bite. Unofficial.",
+      "motors": "399 hp limit (MWCD).",
+      "ramps": "MWCD lists two public launch ramps, two kayak launches and two accessible fishing piers, plus Tappan Lake Marina.",
+      "pool": "Summer pool is 899.3 ft, the level the ODNR fishing map is drawn at.",
+      "night": "MWCD areas close from 11 p.m. to 6 a.m. except to people fishing, hunting or boating.",
+      "hours": {
+        "authority": "mwcd",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Closed 11 p.m. to 6 a.m. except fishing (MWCD)",
+        "source": ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["MWCD, Tappan Lake", "https://www.mwcd.org/places/tappan-lake/"],
+        ["ODNR, Tappan Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/tappan-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/tappanlake2.pdf"],
+        ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        ["MWCD, Winter Drawdown Schedule (Oct. 2026)", "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/"],
+        ["MWCD Rules and Regulations, rule 3.3", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"]
+      ]
+    },
+    "piedmont": {
+      "checked": "2026-11-09",
+      "title": "Piedmont Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Piedmont Lake fishing: live USGS lake level, MWCD winter drawdown, 10 hp limit, muskie and saugeye stocking, crappie 30 and 9 in, tonight's bite. Unofficial.",
+      "motors": "10 hp limit (MWCD).",
+      "ramps": "MWCD lists two public launch ramps, two kayak launches and a fishing pier at the Reynolds Rd ramp, plus Piedmont Marina.",
+      "pool": "Summer pool is 913 ft, the level the ODNR fishing map is drawn at.",
+      "night": "MWCD areas close from 11 p.m. to 6 a.m. except to people fishing, hunting or boating.",
+      "hours": {
+        "authority": "mwcd",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Closed 11 p.m. to 6 a.m. except fishing (MWCD)",
+        "source": ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["MWCD, Piedmont Lake", "https://www.mwcd.org/places/piedmont-lake/"],
+        ["ODNR, Piedmont Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/piedmont-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/piedmontlake2.pdf"],
+        ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        ["MWCD, Winter Drawdown Schedule (Oct. 2026)", "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/"],
+        ["MWCD Rules and Regulations, rule 3.3", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"]
+      ]
+    },
+    "clendening": {
+      "checked": "2026-11-09",
+      "title": "Clendening Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Clendening Lake fishing: live USGS lake level, MWCD winter drawdown, 10 hp limit, saugeye and blue catfish stocking, ramps, tonight's bite. Unofficial.",
+      "motors": "10 hp limit (MWCD).",
+      "ramps": "MWCD lists three public launch ramps, an accessible kayak launch and an accessible fishing pier, plus Clendening Marina.",
+      "pool": "Summer pool is 898 ft, the level the ODNR fishing map is drawn at.",
+      "night": "MWCD areas close from 11 p.m. to 6 a.m. except to people fishing, hunting or boating.",
+      "hours": {
+        "authority": "mwcd",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Closed 11 p.m. to 6 a.m. except fishing (MWCD)",
+        "source": ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["MWCD, Clendening Lake", "https://www.mwcd.org/places/clendening-lake/"],
+        ["ODNR, Clendening Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/clendening-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/clendeninglake2.pdf"],
+        ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        ["MWCD, Winter Drawdown Schedule (Oct. 2026)", "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/"],
+        ["MWCD Rules and Regulations, rule 3.3", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"]
+      ]
+    },
+    "atwood": {
+      "checked": "2026-11-09",
+      "title": "Atwood Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Atwood Lake fishing: live USGS lake level, 8 ft MWCD winter drawdown, 25 hp limit, saugeye stocking, ramps and marinas, tonight's bite. Unofficial.",
+      "motors": "25 hp limit (MWCD).",
+      "ramps": "MWCD lists two public launch ramps, two accessible fishing piers and a kayak launch, plus two marinas.",
+      "pool": "Summer pool is 928 ft, the level the ODNR fishing map is drawn at.",
+      "night": "MWCD areas close from 11 p.m. to 6 a.m. except to people fishing, hunting or boating.",
+      "hours": {
+        "authority": "mwcd",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Closed 11 p.m. to 6 a.m. except fishing (MWCD)",
+        "source": ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["MWCD, Atwood Lake Park", "https://www.mwcd.org/places/atwood-lake-park/"],
+        ["ODNR, Atwood Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/atwood-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/atwoodlake2.pdf"],
+        ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        ["MWCD, Winter Drawdown Schedule (Oct. 2026)", "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/"],
+        ["MWCD Rules and Regulations, rule 3.3", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"]
+      ]
+    },
+    "charlesmill": {
+      "checked": "2026-11-09",
+      "title": "Charles Mill Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Charles Mill Lake fishing: live Corps lake level, MWCD winter drawdown, 10 hp limit, saugeye and hybrid striper stocking, ramps, tonight's bite. Unofficial.",
+      "motors": "10 hp limit; electric motors only on Sites Lake (MWCD).",
+      "ramps": "MWCD lists two public launch ramps, one at the marina and one on SR 430, two kayak launches and an accessible fishing pier.",
+      "pool": "Summer pool is 997 ft, the level the ODNR fishing map is drawn at.",
+      "night": "MWCD areas close from 11 p.m. to 6 a.m. except to people fishing, hunting or boating.",
+      "hours": {
+        "authority": "mwcd",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Closed 11 p.m. to 6 a.m. except fishing (MWCD)",
+        "source": ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["MWCD, Charles Mill Lake Park", "https://www.mwcd.org/places/charles-mill-lake-park/"],
+        ["ODNR, Charles Mill Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/charles-mill-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/charlesmilllake2.pdf"],
+        ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        ["MWCD, Winter Drawdown Schedule (Oct. 2026)", "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/"],
+        ["MWCD Rules and Regulations, rule 3.3", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"]
+      ]
+    },
+    "pleasanthill": {
+      "checked": "2026-11-09",
+      "title": "Pleasant Hill Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Pleasant Hill Lake fishing: live Corps lake level, 8 ft MWCD winter drawdown, unlimited hp, crappie 30 a day and 9 in, the ramp, tonight's bite. Unofficial.",
+      "motors": "No horsepower limit (MWCD).",
+      "ramps": "MWCD lists one public launch ramp by the marina, two accessible kayak ramps and two accessible fishing piers.",
+      "pool": "Summer pool is 1,020 ft, the level the ODNR fishing map is drawn at.",
+      "night": "MWCD areas close from 11 p.m. to 6 a.m. except to people fishing, hunting or boating.",
+      "hours": {
+        "authority": "mwcd",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Closed 11 p.m. to 6 a.m. except fishing (MWCD)",
+        "source": ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["MWCD, Pleasant Hill Lake", "https://www.mwcd.org/places/pleasant-hill-lake/"],
+        ["ODNR, Pleasant Hill Reservoir Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/pleasant-hill-reservoir-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/pleasanthillreservoir2.pdf"],
+        ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        ["MWCD, Winter Drawdown Schedule (Oct. 2026)", "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/"]
+      ]
+    },
+    "beachcity": {
+      "checked": "2026-11-09",
+      "title": "Beach City Lake Fishing: Level, Ramps, Rules | The Night Bite",
+      "description": "Beach City Lake fishing: live Corps lake level, 10 hp limit, no public boat ramp, bank fishing at the dam day use area, tonight's bite. Unofficial.",
+      "motors": "10 hp limit (MWCD).",
+      "ramps": "No public boat ramp; MWCD and the Corps say sedimentation ended it. Fishing is allowed at the Corps day use area and below the dam.",
+      "pool": "Normal pool is 948 ft (MWCD). ODNR has no fishing map for this lake.",
+      "night": "MWCD areas close from 11 p.m. to 6 a.m. except to people fishing, hunting or boating.",
+      "hours": {
+        "authority": "mwcd",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Closed 11 p.m. to 6 a.m. except fishing (MWCD)",
+        "source": ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        "checked": "2026-11-09"
+      },
+      "sources": [
+        ["MWCD, Beach City Lake", "https://www.mwcd.org/places/beach-city-lake/"],
+        ["USACE Huntington District, Beach City Lake", "https://www.lrd.usace.army.mil/Submit-ArticleCS/Recreation/Article/3632236/beach-city-lake/"],
+        ["ODNR, Beach City Wildlife Area map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/wildlife-area-maps/beachcity.pdf"],
+        ["MWCD Rules and Regulations, rule 1.13", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"],
+        ["MWCD, Winter Drawdown Schedule (Oct. 2026)", "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/"],
+        ["MWCD Rules and Regulations, rule 3.3", "https://www.mwcd.org/wp-content/uploads/2023/11/rules_and_regulations_for_web.pdf"]
+      ]
     }
   }
 }

@@ -1092,9 +1092,218 @@
       map: { data: "NightBiteMapDataActon", chart: "assets/acton-chart.png" },
       spots: ["Main ramp", "Marina", "Lodge courtesy docks", "West shore fishing pier", "Bank (other)", "Kayak launch"],
       species: ["saugeye", "largemouth-bass", "white-crappie", "black-crappie", "bluegill"]
+    },
+    tappan: {
+      id: "tappan",
+      name: "Tappan Lake",
+      short: "Tappan Lake",
+      area: "East central Ohio",
+      lat: 40.342, lng: -81.173,
+      region: "southeast", owner: "Muskingum Watershed Conservancy District",
+      aliases: ["Tappan", "Tappan Lake Park", "Deersville", "Scio", "MWCD"],
+      pool: {
+        src: "usgs", srcName: "USGS",
+        site: "03128000", param: "62614", temp: null,   // USGS 03128000 Tappan Lake at Tappan: lake elevation (62614, NGVD29), no water temp
+        fullPool: 899.3,     // ODNR fishing map normal summer pool (3 ft contours); MWCD normal pool 899.30 ft
+        gaugeUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03128000/",
+        snapshot: { line: "898.95 ft · no temp · ~0.4 ft below full pool", at: "2026-11-09T20:15:00-05:00", when: "2026-11-09 20:15 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/PBZ/37,57/forecast/hourly",
+        point: "https://api.weather.gov/points/40.342,-81.173",
+        grid: "https://api.weather.gov/gridpoints/PBZ/37,57",
+        station: "KPHD",
+        stationName: "Harry Clever Field Airport (KPHD)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.342&lon=-81.173"
+      },
+      alerts: { zones: "OHC067,OHZ049", counties: "the Tappan Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataTappan", chart: "assets/tappan-chart.png" },
+      spots: ["Tappan Lake Park ramp", "US 250 ramp", "Fire Station ramps", "Tappan Lake Marina", "Fishing piers", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "largemouth-bass", "smallmouth-bass", "white-bass", "white-crappie", "black-crappie", "bluegill", "channel-catfish", "yellow-perch"]
+    },
+    piedmont: {
+      id: "piedmont",
+      name: "Piedmont Lake",
+      short: "Piedmont Lake",
+      area: "East central Ohio",
+      lat: 40.146, lng: -81.186,
+      region: "southeast", owner: "Muskingum Watershed Conservancy District",
+      aliases: ["Piedmont", "Piedmont Marina", "Freeport", "MWCD"],
+      pool: {
+        src: "usgs", srcName: "USGS",
+        site: "03125500", param: "62614", temp: null,   // USGS 03125500 Piedmont Lake at Piedmont: lake elevation (62614, NGVD29), no water temp
+        fullPool: 913,     // ODNR fishing map pool (3 ft contours); ODNR and MWCD give 913 ft
+        gaugeUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03125500/",
+        snapshot: { line: "912.19 ft · no temp · ~0.8 ft below full pool", at: "2026-11-09T20:15:00-05:00", when: "2026-11-09 20:15 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/PBZ/38,49/forecast/hourly",
+        point: "https://api.weather.gov/points/40.146,-81.186",
+        grid: "https://api.weather.gov/gridpoints/PBZ/38,49",
+        station: "KPHD",
+        stationName: "Harry Clever Field Airport (KPHD)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.146&lon=-81.186"
+      },
+      alerts: { zones: "OHC013,OHZ059", counties: "the Piedmont Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataPiedmont", chart: "assets/piedmont-chart.png" },
+      spots: ["Piedmont Marina", "Reynolds Rd ramp and pier", "Kirkwood ramp", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "muskellunge", "walleye", "largemouth-bass", "smallmouth-bass", "white-bass", "white-crappie", "black-crappie", "bluegill"]
+    },
+    clendening: {
+      id: "clendening",
+      name: "Clendening Lake",
+      short: "Clendening Lake",
+      area: "East central Ohio",
+      lat: 40.26, lng: -81.218,
+      region: "southeast", owner: "Muskingum Watershed Conservancy District",
+      aliases: ["Clendening", "Clendening Marina", "Tippecanoe", "Freeport", "MWCD"],
+      pool: {
+        src: "usgs", srcName: "USGS",
+        site: "03126500", param: "62614", temp: null,   // USGS 03126500 Clendening Lake at Tippecanoe: lake elevation (62614, NGVD29), no water temp
+        fullPool: 898,     // ODNR fishing map pool (5 ft contours); MWCD normal pool 898.00 ft
+        gaugeUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03126500/",
+        snapshot: { line: "897.92 ft · no temp · ~0.1 ft below full pool", at: "2026-11-09T20:15:00-05:00", when: "2026-11-09 20:15 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/PBZ/36,54/forecast/hourly",
+        point: "https://api.weather.gov/points/40.26,-81.218",
+        grid: "https://api.weather.gov/gridpoints/PBZ/36,54",
+        station: "KPHD",
+        stationName: "Harry Clever Field Airport (KPHD)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.26&lon=-81.218"
+      },
+      alerts: { zones: "OHC067,OHZ049", counties: "the Clendening Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataClendening", chart: "assets/clendening-chart.png" },
+      spots: ["Clendening Marina", "Simpson Rd ramp", "County Rd 6 ramp", "Fishing pier", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "blue-catfish", "channel-catfish", "largemouth-bass", "white-bass", "white-crappie"]
+    },
+    atwood: {
+      id: "atwood",
+      name: "Atwood Lake",
+      short: "Atwood Lake",
+      area: "East central Ohio",
+      lat: 40.544, lng: -81.239,
+      region: "northeast", owner: "Muskingum Watershed Conservancy District",
+      aliases: ["Atwood", "Atwood Lake Park", "Dellroy", "Mineral City", "MWCD"],
+      pool: {
+        src: "usgs", srcName: "USGS",
+        site: "03121000", param: "62614", temp: null,   // USGS 03121000 Atwood Lake near New Cumberland: lake elevation (62614, NGVD29), no water temp
+        fullPool: 928,     // ODNR fishing map pool (3 ft contours); MWCD normal pool 928.00 ft
+        gaugeUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03121000/",
+        snapshot: { line: "927.56 ft · no temp · ~0.4 ft below full pool", at: "2026-11-09T20:15:00-05:00", when: "2026-11-09 20:15 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/PBZ/34,66/forecast/hourly",
+        point: "https://api.weather.gov/points/40.544,-81.239",
+        grid: "https://api.weather.gov/gridpoints/PBZ/34,66",
+        station: "KPHD",
+        stationName: "Harry Clever Field Airport (KPHD)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.544&lon=-81.239"
+      },
+      alerts: { zones: "OHC019,OHZ040", counties: "the Atwood Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataAtwood", chart: "assets/atwood-chart.png" },
+      spots: ["Shop Rd ramp", "Atwood Marina West", "East marina", "Beach courtesy docks", "Fishing piers", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "blue-catfish", "channel-catfish", "largemouth-bass", "smallmouth-bass", "white-bass", "white-crappie", "black-crappie", "yellow-perch"]
+    },
+    charlesmill: {
+      id: "charlesmill",
+      name: "Charles Mill Lake",
+      short: "Charles Mill",
+      area: "Central Ohio",
+      lat: 40.764, lng: -82.378,
+      region: "central", owner: "Muskingum Watershed Conservancy District",
+      aliases: ["Charles Mill", "Charles Mill Reservoir", "Charles Mill Lake Park", "Mifflin", "Mansfield", "MWCD"],
+      pool: {
+        // USACE CWMS LRH CharlesMill-Lake.Elev, 15 minute lake elevation (USGS 03129500 posts no data); no water temp
+        src: "cwms", srcName: "USACE",
+        office: "LRH", ts: "CharlesMill-Lake.Elev.Inst.15Minutes.0.OBS",
+        temp: null,     // lake surface temperature: none posted
+        fullPool: 997,     // ODNR fishing map pool (3 ft contours); MWCD normal pool 997.00 ft
+        gaugeUrl: "https://water.usace.army.mil/office/lrh/basin/mus",
+        snapshot: { line: "996.22 ft · no temp · ~0.8 ft below full pool", at: "2026-11-09T20:15:00-05:00", when: "2026-11-09 20:15 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/63,30/forecast/hourly",
+        point: "https://api.weather.gov/points/40.764,-82.378",
+        grid: "https://api.weather.gov/gridpoints/CLE/63,30",
+        station: "KMFD",
+        stationName: "Mansfield airport (KMFD)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.764&lon=-82.378"
+      },
+      alerts: { zones: "OHC005,OHZ030", counties: "the Charles Mill area" },
+      push: null,
+      map: { data: "NightBiteMapDataCharlesmill", chart: "assets/charlesmill-chart.png" },
+      spots: ["SR 430 ramp", "Charles Mill Marina", "Fishing pier", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "hybrid-striped-bass", "largemouth-bass", "white-crappie", "black-crappie", "channel-catfish"]
+    },
+    pleasanthill: {
+      id: "pleasanthill",
+      name: "Pleasant Hill Lake",
+      short: "Pleasant Hill",
+      area: "Central Ohio",
+      lat: 40.636, lng: -82.349,
+      region: "central", owner: "Muskingum Watershed Conservancy District",
+      aliases: ["Pleasant Hill", "Pleasant Hill Reservoir", "Pleasant Hill Lake Park", "Perrysville", "Mohican", "MWCD"],
+      pool: {
+        // USACE CWMS LRH PleasantHill-Lake.Elev, 15 minute lake elevation (USGS 03133000 posts no data); no water temp
+        src: "cwms", srcName: "USACE",
+        office: "LRH", ts: "PleasantHill-Lake.Elev.Inst.15Minutes.0.OBS",
+        temp: null,     // lake surface temperature: none posted
+        fullPool: 1020,     // ODNR fishing map pool (3 ft contours); MWCD normal pool 1020.00 ft
+        gaugeUrl: "https://water.usace.army.mil/office/lrh/basin/mus",
+        snapshot: { line: "1020.80 ft · no temp · ~0.8 ft above full pool", at: "2026-11-09T20:15:00-05:00", when: "2026-11-09 20:15 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/65,24/forecast/hourly",
+        point: "https://api.weather.gov/points/40.636,-82.349",
+        grid: "https://api.weather.gov/gridpoints/CLE/65,24",
+        station: "KMFD",
+        stationName: "Mansfield airport (KMFD)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.636&lon=-82.349"
+      },
+      alerts: { zones: "OHC139,OHZ029", counties: "the Pleasant Hill area" },
+      push: null,
+      map: { data: "NightBiteMapDataPleasanthill", chart: "assets/pleasanthill-chart.png" },
+      spots: ["Pleasant Hill Marina ramp", "Beach area", "Fishing piers", "Bank (other)", "Kayak launch"],
+      species: ["saugeye", "largemouth-bass", "smallmouth-bass", "white-bass", "white-crappie", "black-crappie", "bluegill", "channel-catfish", "bullhead", "yellow-perch"]
+    },
+    beachcity: {
+      id: "beachcity",
+      name: "Beach City Lake",
+      short: "Beach City",
+      area: "East central Ohio",
+      lat: 40.632, lng: -81.569,
+      region: "northeast", owner: "Muskingum Watershed Conservancy District",
+      aliases: ["Beach City", "Beach City Reservoir", "Beach City Dam", "Dundee", "Brewster", "MWCD"],
+      pool: {
+        // USACE CWMS LRH BeachCity-Lake.Elev, 15 minute lake elevation (USGS 03123500 posts no data); no water temp
+        src: "cwms", srcName: "USACE",
+        office: "LRH", ts: "BeachCity-Lake.Elev.Inst.15Minutes.0.OBS",
+        temp: null,     // lake surface temperature: none posted
+        fullPool: 948,     // MWCD conservation (normal) pool; no ODNR contour map
+        gaugeUrl: "https://water.usace.army.mil/office/lrh/basin/mus",
+        snapshot: { line: "948.37 ft · no temp · ~0.4 ft above full pool", at: "2026-11-09T19:30:00-05:00", when: "2026-11-09 19:30 ET" }
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/PBZ/23,69/forecast/hourly",
+        point: "https://api.weather.gov/points/40.632,-81.569",
+        grid: "https://api.weather.gov/gridpoints/PBZ/23,69",
+        station: "KPHD",
+        stationName: "Harry Clever Field Airport (KPHD)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.632&lon=-81.569"
+      },
+      alerts: { zones: "OHC157,OHZ039", counties: "the Beach City area" },
+      push: null,
+      map: { data: "NightBiteMapDataBeachcity", chart: "assets/beachcity-chart.png" },
+      spots: ["Dam day use area", "Below the dam", "Bank (other)"],
+      species: ["saugeye", "largemouth-bass", "white-crappie", "black-crappie", "bluegill", "bullhead", "common-carp"]
     }
   };
-  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton"];
+  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity"];
   // picker regions, in this order (js/lake-picker.js). A region with no lakes yet is hidden. Every lake above sets
   // region to one of these ids; lat and lng above (the lake's NWS forecast point, on the water) give Near me distances.
   var REGIONS = [

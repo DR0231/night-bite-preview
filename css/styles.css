@@ -2904,6 +2904,13 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
 .pool-chart img[data-for="nimisila"] { width: 54px; height: 96px; }
 .pool-chart img[data-for="cowan"] { width: 198px; height: 96px; }
 .pool-chart img[data-for="acton"] { width: 84px; height: 96px; }
+.pool-chart img[data-for="tappan"] { width: 128px; height: 96px; }
+.pool-chart img[data-for="piedmont"] { width: 72px; height: 92px; }
+.pool-chart img[data-for="clendening"] { width: 174px; height: 96px; }
+.pool-chart img[data-for="atwood"] { width: 144px; height: 96px; }
+.pool-chart img[data-for="charlesmill"] { width: 72px; height: 96px; }
+.pool-chart img[data-for="pleasanthill"] { width: 152px; height: 96px; }
+.pool-chart img[data-for="beachcity"] { width: 82px; height: 68px; }
 @media (max-width: 359px) {
   .pool-chart img[data-for="alum"] { width: 134px; height: 37px; }
   .pool-chart img[data-for="buckeye"] { width: 92px; height: 48px; }
@@ -2940,6 +2947,13 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
   .pool-chart img[data-for="nimisila"] { width: 27px; height: 48px; }
   .pool-chart img[data-for="cowan"] { width: 99px; height: 48px; }
   .pool-chart img[data-for="acton"] { width: 42px; height: 48px; }
+  .pool-chart img[data-for="tappan"] { width: 64px; height: 48px; }
+  .pool-chart img[data-for="piedmont"] { width: 36px; height: 46px; }
+  .pool-chart img[data-for="clendening"] { width: 87px; height: 48px; }
+  .pool-chart img[data-for="atwood"] { width: 72px; height: 48px; }
+  .pool-chart img[data-for="charlesmill"] { width: 36px; height: 48px; }
+  .pool-chart img[data-for="pleasanthill"] { width: 76px; height: 48px; }
+  .pool-chart img[data-for="beachcity"] { width: 41px; height: 34px; }
 }
 .pool-chart-key > span[data-for="buckeye"] { margin-right: 0.5rem; }
 @media (min-width: 560px) { .pool-chart-key > span[data-for="buckeye"] { margin-right: 0; } }

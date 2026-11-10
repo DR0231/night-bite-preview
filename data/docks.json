@@ -1419,6 +1419,268 @@
    "sources": [
     "odnr-acton"
    ]
+  },
+  "tappan": {
+   "name": "Tappan Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Winter level",
+     "status": "ending",
+     "ends": "2026-11-14",
+     "label": "Drawdown Nov. 15",
+     "after_label": "Drawdown under way",
+     "note": "MWCD says the winter drawdown starts Nov. 15: 5 ft, from 899.3 ft to 894.3 ft over about 35 days. The USGS gauge at Tappan shows the level.",
+     "after_note": "MWCD started the winter drawdown Nov. 15: 5 ft, from 899.3 ft to 894.3 ft over about 35 days, with a partial refill to 897.3 ft by Mar. 15, 2027. The USGS gauge at Tappan shows the level.",
+     "source": "mwcd-drawdowns"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "MWCD lists two public launch ramps, two kayak launches and the marina.",
+     "source": "mwcd-tappan"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Tappan Lake Park office",
+     "+17409223649",
+     "(740) 922-3649",
+     ""
+    ],
+    [
+     "Tappan Lake Marina",
+     "+17402692031",
+     "(740) 269-2031",
+     ""
+    ]
+   ],
+   "sources": [
+    "mwcd-tappan",
+    "mwcd-drawdowns"
+   ]
+  },
+  "piedmont": {
+   "name": "Piedmont Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Winter level",
+     "status": "ending",
+     "ends": "2026-10-31",
+     "label": "Drawdown Nov. 1",
+     "after_label": "Drawdown under way",
+     "note": "MWCD says the winter drawdown starts Nov. 1: 5 ft, from 913 ft to 908 ft over about 35 days. The USGS gauge at Piedmont shows the level.",
+     "after_note": "MWCD started the winter drawdown Nov. 1: 5 ft, from 913 ft to 908 ft over about 35 days, with a partial refill to 911 ft by Mar. 15, 2027. The USGS gauge at Piedmont shows the level.",
+     "source": "mwcd-drawdowns"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "MWCD lists two public launch ramps, two kayak launches and the marina.",
+     "source": "mwcd-piedmont"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Piedmont Marina",
+     "+17404334847",
+     "(740) 433-4847",
+     ""
+    ]
+   ],
+   "sources": [
+    "mwcd-piedmont",
+    "mwcd-drawdowns"
+   ]
+  },
+  "clendening": {
+   "name": "Clendening Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Winter level",
+     "status": "ending",
+     "ends": "2026-11-14",
+     "label": "Drawdown Nov. 15",
+     "after_label": "Drawdown under way",
+     "note": "MWCD says the winter drawdown starts Nov. 15: 5 ft, from 898 ft to 893 ft over about 35 days. The USGS gauge at Tippecanoe shows the level.",
+     "after_note": "MWCD started the winter drawdown Nov. 15: 5 ft, from 898 ft to 893 ft over about 35 days, with a partial refill to 896 ft by Mar. 15, 2027. The USGS gauge at Tippecanoe shows the level.",
+     "source": "mwcd-drawdowns"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "MWCD lists three public launch ramps, a kayak launch and the marina.",
+     "source": "mwcd-clendening"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Clendening Marina",
+     "+17404334858",
+     "(740) 433-4858",
+     ""
+    ]
+   ],
+   "sources": [
+    "mwcd-clendening",
+    "mwcd-drawdowns"
+   ]
+  },
+  "atwood": {
+   "name": "Atwood Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Winter level",
+     "status": "ending",
+     "ends": "2026-11-07",
+     "label": "Drawdown Nov. 8",
+     "after_label": "Drawdown under way",
+     "note": "MWCD says the winter drawdown starts Nov. 8: 8 ft, from 928 ft to 920 ft over about 42 days. The USGS gauge near New Cumberland shows the level.",
+     "after_note": "MWCD started the winter drawdown Nov. 8: 8 ft, from 928 ft to 920 ft over about 42 days, with a partial refill to 926 ft by Mar. 15, 2027. The USGS gauge near New Cumberland shows the level.",
+     "source": "mwcd-drawdowns"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "MWCD lists two public launch ramps, an accessible kayak launch and two marinas.",
+     "source": "mwcd-atwood"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Atwood Lake Park office",
+     "+13303436780",
+     "(330) 343-6780",
+     ""
+    ]
+   ],
+   "sources": [
+    "mwcd-atwood",
+    "mwcd-drawdowns"
+   ]
+  },
+  "charlesmill": {
+   "name": "Charles Mill Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Winter level",
+     "status": "ending",
+     "ends": "2026-10-31",
+     "label": "Drawdown Nov. 1",
+     "after_label": "Drawdown under way",
+     "note": "MWCD says the winter drawdown starts Nov. 1: 5 ft, from 997 ft to 992 ft over about 35 days. The Corps of Engineers gauge shows the level.",
+     "after_note": "MWCD started the winter drawdown Nov. 1: 5 ft, from 997 ft to 992 ft over about 35 days, with a partial refill to 995 ft by Mar. 15, 2027. The Corps of Engineers gauge shows the level.",
+     "source": "mwcd-drawdowns"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "MWCD lists two public launch ramps off SR 430, one at the marina.",
+     "source": "mwcd-charlesmill"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Charles Mill Lake Park office",
+     "+14193686885",
+     "(419) 368-6885",
+     ""
+    ]
+   ],
+   "sources": [
+    "mwcd-charlesmill",
+    "mwcd-drawdowns"
+   ]
+  },
+  "pleasanthill": {
+   "name": "Pleasant Hill Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Winter level",
+     "status": "ending",
+     "ends": "2026-11-14",
+     "label": "Drawdown Nov. 15",
+     "after_label": "Drawdown under way",
+     "note": "MWCD says the winter drawdown starts Nov. 15: 8 ft, from 1,020 ft to 1,012 ft over about 42 days. The Corps of Engineers gauge shows the level.",
+     "after_note": "MWCD started the winter drawdown Nov. 15: 8 ft, from 1,020 ft to 1,012 ft over about 42 days, with a partial refill to 1,018 ft by Mar. 15, 2027. The Corps of Engineers gauge shows the level.",
+     "source": "mwcd-drawdowns"
+    },
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "MWCD lists one public launch ramp, at Pleasant Hill Marina.",
+     "source": "mwcd-pleasanthill"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Pleasant Hill Lake Park office",
+     "+14199387884",
+     "(419) 938-7884",
+     ""
+    ]
+   ],
+   "sources": [
+    "mwcd-pleasanthill",
+    "mwcd-drawdowns"
+   ]
+  },
+  "beachcity": {
+   "name": "Beach City Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Winter level",
+     "status": "unannounced",
+     "label": "Not on the schedule",
+     "note": "MWCD&rsquo;s Oct. 29, 2026 winter drawdown schedule does not list Beach City Lake. The Corps of Engineers gauge shows the level.",
+     "source": "mwcd-drawdowns"
+    },
+    {
+     "name": "Launch ramp",
+     "status": "out",
+     "label": "No public ramp",
+     "note": "MWCD says a public boat launch ramp no longer is available; USACE lists no ramp or marina.",
+     "source": "mwcd-beachcity"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "USACE, Beach City Lake",
+     "+13308787391",
+     "(330) 878-7391",
+     ""
+    ]
+   ],
+   "sources": [
+    "mwcd-beachcity",
+    "mwcd-drawdowns"
+   ]
   }
  },
  "watch": [
@@ -1822,7 +2084,14 @@
    "label": "MWCD, Winter Drawdown Schedule (Oct. 2026)",
    "url": "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/",
    "lakes": [
-    "seneca"
+    "seneca",
+    "tappan",
+    "piedmont",
+    "clendening",
+    "atwood",
+    "charlesmill",
+    "pleasanthill",
+    "beachcity"
    ],
    "keywords": [
     "seneca",
@@ -2276,6 +2545,139 @@
    "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/hueston-woods-state-park",
    "lakes": [
     "acton"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "mwcd-tappan",
+   "label": "Muskingum Watershed Conservancy District, Tappan Lake",
+   "url": "https://www.mwcd.org/places/tappan-lake/",
+   "lakes": [
+    "tappan"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "mwcd-piedmont",
+   "label": "Muskingum Watershed Conservancy District, Piedmont Lake",
+   "url": "https://www.mwcd.org/places/piedmont-lake/",
+   "lakes": [
+    "piedmont"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "mwcd-clendening",
+   "label": "Muskingum Watershed Conservancy District, Clendening Lake",
+   "url": "https://www.mwcd.org/places/clendening-lake/",
+   "lakes": [
+    "clendening"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "mwcd-atwood",
+   "label": "Muskingum Watershed Conservancy District, Atwood Lake Park",
+   "url": "https://www.mwcd.org/places/atwood-lake-park/",
+   "lakes": [
+    "atwood"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "mwcd-charlesmill",
+   "label": "Muskingum Watershed Conservancy District, Charles Mill Lake Park",
+   "url": "https://www.mwcd.org/places/charles-mill-lake-park/",
+   "lakes": [
+    "charlesmill"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "mwcd-pleasanthill",
+   "label": "Muskingum Watershed Conservancy District, Pleasant Hill Lake",
+   "url": "https://www.mwcd.org/places/pleasant-hill-lake/",
+   "lakes": [
+    "pleasanthill"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "mwcd-beachcity",
+   "label": "Muskingum Watershed Conservancy District, Beach City Lake",
+   "url": "https://www.mwcd.org/places/beach-city-lake/",
+   "lakes": [
+    "beachcity"
    ],
    "keywords": [
     "dock",

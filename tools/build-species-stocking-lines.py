@@ -27,6 +27,12 @@ LINES = {
         ("loramie", "stocked", "ODNR stocked saugeye in Lake Loramie every year from 2016 to 2025."),
         ("cowan", "stocked", "ODNR stocked saugeye in Cowan Lake every year from 2016 to 2025."),
         ("acton", "stocked", "ODNR stocked saugeye in Acton Lake every year from 2016 to 2025."),
+        ("tappan", "stocked", "ODNR stocked saugeye in Tappan Lake every year from 2016 to 2025."),
+        ("piedmont", "stocked", "ODNR stocked saugeye in Piedmont Lake every year from 2016 to 2025."),
+        ("clendening", "stocked", "ODNR stocked saugeye in Clendening Lake every year from 2016 to 2025."),
+        ("atwood", "stocked", "ODNR stocked saugeye in Atwood Lake every year from 2016 to 2025."),
+        ("charlesmill", "stocked", "ODNR stocked saugeye in Charles Mill Lake every year from 2016 to 2025."),
+        ("pleasanthill", "stocked", "ODNR stocked saugeye in Pleasant Hill Lake every year from 2016 to 2025."),
     ],
     "blue-catfish": [
         ("hoover", "stocked", "ODNR stocked blue catfish in Hoover in 7 of the years from 2011 to 2018."),
@@ -36,6 +42,8 @@ LINES = {
         ("westbranch", "stocked", "ODNR stocked blue catfish in West Branch Reservoir every year from 2023 to 2025."),
         ("caesarcreek", "stocked", "ODNR stocked blue catfish in Caesar Creek Lake in 6 of the years from 2018 to 2024."),
         ("eastfork", "stocked", "ODNR stocked blue catfish in East Fork Lake every year from 2022 to 2025."),
+        ("clendening", "stocked", "ODNR stocked blue catfish in Clendening Lake in 2016 to 2019, 2021, 2023 and 2025."),
+        ("atwood", "stocked", "ODNR stocked blue catfish in Atwood Lake in 2023, 2024 and 2025."),
     ],
     "walleye": [
         ("hoover", "stocked", "ODNR stocked 288,728 walleye fingerlings in Hoover in 2019."),
@@ -57,6 +65,7 @@ LINES = {
         ("leesville", "stocked", "ODNR stocked muskellunge in Leesville Lake every year from 2016 to 2025."),
         ("caesarcreek", "stocked", "ODNR stocked muskellunge in Caesar Creek Lake every year from 2016 to 2025."),
         ("cjbrown", "stocked", "ODNR stocked muskellunge in C.J. Brown Reservoir every year from 2018 to 2025."),
+        ("piedmont", "stocked", "ODNR stocked muskellunge in Piedmont Lake every year from 2016 to 2025."),
     ],
     "black-crappie": [
         ("hoover", "growth", "ODNR trap nets: Hoover crappie average 9.9 in at age 3 (Ohio 9.5)."),
@@ -86,6 +95,8 @@ LINES = {
         ("mogadore", "stocked", "ODNR stocked channel catfish in Mogadore Reservoir every other year from 2017 to 2025."),
         ("loramie", "stocked", "ODNR stocked channel catfish in Lake Loramie in 7 of the years from 2016 to 2023."),
         ("nimisila", "stocked", "ODNR stocked channel catfish in Nimisila Reservoir every other year from 2016 to 2024."),
+        ("atwood", "stocked", "ODNR stocked channel catfish in Atwood Lake in 2020."),
+        ("pleasanthill", "stocked", "ODNR stocked catchable channel catfish in Pleasant Hill Lake in 2016 to 2018 and 2021 to 2023."),
     ],
     "bluegill": [
         ("mosquito", "stocked", "ODNR stocked 125 bluegill catchables in Mosquito Creek Lake in 2025."),
@@ -99,6 +110,7 @@ LINES = {
         ("griggs", "stocked", "ODNR lists Griggs among the lakes it stocks with hybrid striped bass; no numbers are posted."),
         ("dillon", "stocked", "ODNR stocked hybrid striped bass fingerlings in Dillon Lake every year from 2016 to 2025."),
         ("eastfork", "stocked", "ODNR stocked hybrid striped bass in East Fork Lake every year from 2016 to 2025."),
+        ("charlesmill", "stocked", "ODNR stocked hybrid striped bass in Charles Mill Lake in 2016 to 2020 and 2022 to 2025."),
     ],
 }
 LINES["white-crappie"] = LINES["black-crappie"]

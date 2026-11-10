@@ -32,9 +32,9 @@
   <link rel="preload" href="../assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="../js/a11y-boot.js?v=v118-2026-11-09"></script>
-  <link rel="stylesheet" href="../css/styles.css?v=v118-2026-11-09">
-  <script src="../js/lakes.js?v=v118-2026-11-09"></script>
+  <script src="../js/a11y-boot.js?v=v119-2026-11-09"></script>
+  <link rel="stylesheet" href="../css/styles.css?v=v119-2026-11-09">
+  <script src="../js/lakes.js?v=v119-2026-11-09"></script>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nightbiteoh.com/"}, {"@type": "ListItem", "position": 2, "name": "Species", "item": "https://nightbiteoh.com/species/"}, {"@type": "ListItem", "position": 3, "name": "Saugeye", "item": "https://nightbiteoh.com/species/saugeye"}]}
   </script>
@@ -114,6 +114,13 @@
     <p class="lake-note" data-for="nimisila">ODNR lists saugeye at Nimisila Reservoir.</p>
     <p class="lake-note" data-for="cowan">Stocked by ODNR at Cowan Lake every year: 104,229 fingerlings in 2025.</p>
     <p class="lake-note" data-for="acton">Stocked by ODNR at Acton Lake every year: 89,006 fingerlings in 2025.</p>
+    <p class="lake-note" data-for="tappan">Stocked by ODNR at Tappan Lake every year: 341,199 fingerlings in 2025.</p>
+    <p class="lake-note" data-for="piedmont">Stocked by ODNR at Piedmont Lake every year: 356,689 fingerlings in 2025.</p>
+    <p class="lake-note" data-for="clendening">Stocked by ODNR at Clendening Lake every year: 171,308 fingerlings in 2025.</p>
+    <p class="lake-note" data-for="atwood">Stocked by ODNR at Atwood Lake every year: 234,488 fingerlings in 2025.</p>
+    <p class="lake-note" data-for="charlesmill">Stocked by ODNR at Charles Mill Lake every year: 135,674 fingerlings in 2025.</p>
+    <p class="lake-note" data-for="pleasanthill">Stocked by ODNR at Pleasant Hill Lake every year: 117,484 fingerlings in 2025.</p>
+    <p class="lake-note" data-for="beachcity">ODNR lists saugeye at Beach City Lake.</p>
     <!-- stocking-line -->
     <p class="meta sp-stock" data-for="hoover">ODNR stocked saugeye in Hoover every year from 2010 to 2019. <a href="../stocking?lake=hoover#stocked">Stocking &amp; surveys</a></p>
     <p class="meta sp-stock" data-for="alum">ODNR stocked saugeye in Alum Creek every year from 2010 to 2019. <a href="../stocking?lake=alum#stocked">Stocking &amp; surveys</a></p>
@@ -133,13 +140,19 @@
     <p class="meta sp-stock" data-for="loramie">ODNR stocked saugeye in Lake Loramie every year from 2016 to 2025. <a href="../stocking?lake=loramie#stocked">Stocking &amp; surveys</a></p>
     <p class="meta sp-stock" data-for="cowan">ODNR stocked saugeye in Cowan Lake every year from 2016 to 2025. <a href="../stocking?lake=cowan#stocked">Stocking &amp; surveys</a></p>
     <p class="meta sp-stock" data-for="acton">ODNR stocked saugeye in Acton Lake every year from 2016 to 2025. <a href="../stocking?lake=acton#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="tappan">ODNR stocked saugeye in Tappan Lake every year from 2016 to 2025. <a href="../stocking?lake=tappan#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="piedmont">ODNR stocked saugeye in Piedmont Lake every year from 2016 to 2025. <a href="../stocking?lake=piedmont#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="clendening">ODNR stocked saugeye in Clendening Lake every year from 2016 to 2025. <a href="../stocking?lake=clendening#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="atwood">ODNR stocked saugeye in Atwood Lake every year from 2016 to 2025. <a href="../stocking?lake=atwood#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="charlesmill">ODNR stocked saugeye in Charles Mill Lake every year from 2016 to 2025. <a href="../stocking?lake=charlesmill#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="pleasanthill">ODNR stocked saugeye in Pleasant Hill Lake every year from 2016 to 2025. <a href="../stocking?lake=pleasanthill#stocked">Stocking &amp; surveys</a></p>
     <!-- /stocking-line -->
 
     <div class="sp-now" id="sp-now" data-species="saugeye" hidden></div>
     <!-- filled right here, before paint, from the month's picks for the active lake -->
-    <script src="../js/biting-data.js?v=v118-2026-11-09"></script>
-    <script src="../js/biting-data-lakes.js?v=v118-2026-11-09"></script>
-    <script src="../js/species-lake.js?v=v118-2026-11-09"></script>
+    <script src="../js/biting-data.js?v=v119-2026-11-09"></script>
+    <script src="../js/biting-data-lakes.js?v=v119-2026-11-09"></script>
+    <script src="../js/species-lake.js?v=v119-2026-11-09"></script>
 
     <nav class="species-subnav" aria-label="On this page">
       <a href="#season">Season</a>
@@ -497,12 +510,110 @@
       </ul>
       </div>
       </div>
+      <div data-for="tappan">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>MWCD shore, the two accessible fishing piers and US 250 pull offs (MWCD, ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>399 hp limit (MWCD). Long main lake along US 250 with three bays on the north side (ODNR).</li>
+        <li>Contours on the ODNR fishing map; the MWCD winter drawdown lowers the lake from Nov. 15.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="piedmont">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>MWCD shore and the fishing pier at the Reynolds Rd ramp (MWCD).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>10 hp limit (MWCD). About 10 miles long, 38 ft at its deepest (ODNR).</li>
+        <li>Contours on the ODNR fishing map; the MWCD winter drawdown has the lake lower since Nov. 1.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="clendening">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>MWCD shore and the accessible fishing pier (MWCD).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>10 hp limit (MWCD). Long, narrow and winding; SR 799 crosses the lake (ODNR).</li>
+        <li>Contours on the ODNR fishing map; the MWCD winter drawdown lowers the lake from Nov. 15.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="atwood">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>MWCD shore and the two accessible fishing piers (MWCD).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>25 hp limit (MWCD, ODNR). 28 miles of shoreline (ODNR).</li>
+        <li>Contours on the ODNR fishing map; the MWCD winter drawdown has the lake lower since Nov. 8.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="charlesmill">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>MWCD shore and the accessible fishing pier (MWCD).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>10 hp limit (MWCD). The east basin is deepest, with a 27 ft hole; the north basin is very shallow (ODNR).</li>
+        <li>Contours on the ODNR fishing map; the MWCD winter drawdown has the lake lower since Nov. 1.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="pleasanthill">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>MWCD shore, the two accessible fishing piers and the beach area (MWCD, ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>Unlimited horsepower (MWCD). Shallow west end, a 35 ft gorge at the south bend (ODNR).</li>
+        <li>Contours on the ODNR fishing map; the MWCD winter drawdown lowers the lake from Nov. 15.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="beachcity">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>The Beach City Lake Day Use Area and below the dam (USACE).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>No public ramp (MWCD, USACE); 10 hp limit (MWCD).</li>
+        <li>No ODNR contour map is posted for this lake.</li>
+      </ul>
+      </div>
+      </div>
     </section>
 
     <section id="limits" class="species-section">
       <h2>Limits <span class="regs-tag">reminder, verify</span></h2>
-      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow leesville grandlakestmarys caesarcreek eastfork rockyfork paintcreek portagelakes mogadore loramie nimisila cowan acton">Statewide combined daily limit of 6 from the ODNR Fishing Regulations 2026–27. <span data-lk="short">Hoover</span> has no minimum size for these fish.</p>
-      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow leesville grandlakestmarys caesarcreek eastfork rockyfork paintcreek portagelakes mogadore loramie nimisila cowan acton">
+      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow leesville grandlakestmarys caesarcreek eastfork rockyfork paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity">Statewide combined daily limit of 6 from the ODNR Fishing Regulations 2026–27. <span data-lk="short">Hoover</span> has no minimum size for these fish.</p>
+      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow leesville grandlakestmarys caesarcreek eastfork rockyfork paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity">
         <table class="access-table regs-table">
           <thead>
             <tr><th scope="col">Rule</th><th scope="col">Reminder (verify 2026–27)</th></tr>
@@ -579,6 +690,13 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="meta" data-for="nimisila">Sized for bank reality and small boats. Nimisila Reservoir is electric only, so plan for a trolling motor and battery.</p>
       <p class="meta" data-for="cowan">Sized for bank reality and small boats. Cowan Lake has a 10 hp limit and is drawn down 13.5 ft for dam work through 2028.</p>
       <p class="meta" data-for="acton">Sized for bank reality and small boats. Acton Lake keeps boats over 10 hp at no wake, so a small motor does the job.</p>
+      <p class="meta" data-for="tappan">Sized for bank reality and small boats. Tappan Lake allows up to 399 hp; the main lake is long and open.</p>
+      <p class="meta" data-for="piedmont">Sized for bank reality and small boats. Piedmont Lake has a 10 hp limit, so a small motor or a kayak does the job.</p>
+      <p class="meta" data-for="clendening">Sized for bank reality and small boats. Clendening Lake has a 10 hp limit, so a small motor or a kayak does the job.</p>
+      <p class="meta" data-for="atwood">Sized for bank reality and small boats. Atwood Lake has a 25 hp limit, so a mid size outboard or a kayak does the job.</p>
+      <p class="meta" data-for="charlesmill">Sized for bank reality and small boats. Charles Mill Lake has a 10 hp limit, so a small motor or a kayak does the job.</p>
+      <p class="meta" data-for="pleasanthill">Sized for bank reality and small boats. Pleasant Hill Lake has no horsepower limit; the west end is under 10 ft.</p>
+      <p class="meta" data-for="beachcity">Sized for bank reality and small boats. Beach City Lake has no public ramp, so this is bank water.</p>
       <div class="mode-panel" data-mode="bank">
       <ul>
         <li>Medium spinning/baitcasting, 8–12 lb.</li>
@@ -641,15 +759,15 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="../js/refresh.js?v=v118-2026-11-09"></script>
-  <script src="../js/sw-update.js?v=v118-2026-11-09"></script>
-  <script src="../js/alerts.js?v=v118-2026-11-09"></script>
-  <script src="../js/nav.js?v=v118-2026-11-09"></script>
-  <script src="../js/visits.js?v=v118-2026-11-09"></script>
-  <script src="../js/lake-picker.js?v=v118-2026-11-09"></script>
-  <script src="../js/sticky-nav.js?v=v118-2026-11-09"></script>
-  <script src="../js/mode-toggle.js?v=v118-2026-11-09"></script>
+  <script src="../js/refresh.js?v=v119-2026-11-09"></script>
+  <script src="../js/sw-update.js?v=v119-2026-11-09"></script>
+  <script src="../js/alerts.js?v=v119-2026-11-09"></script>
+  <script src="../js/nav.js?v=v119-2026-11-09"></script>
+  <script src="../js/visits.js?v=v119-2026-11-09"></script>
+  <script src="../js/lake-picker.js?v=v119-2026-11-09"></script>
+  <script src="../js/sticky-nav.js?v=v119-2026-11-09"></script>
+  <script src="../js/mode-toggle.js?v=v119-2026-11-09"></script>
 
-  <script src="../js/a11y.js?v=v118-2026-11-09" defer></script>
+  <script src="../js/a11y.js?v=v119-2026-11-09" defer></script>
 </body>
 </html>
