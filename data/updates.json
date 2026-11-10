@@ -2,6 +2,73 @@
   "about": "What's new on The Night Bite, newest first. Edit this file, then run: python3 tools/build-updates.py (see README, 'What's new'). Entries come from what actually shipped to nightbiteoh.com. An entry with \"draft\": true and \"date\": null is on the preview only: it shows on the preview, and is hidden on nightbiteoh.com until you set the date and remove the draft flag at promotion.",
   "entries": [
     {
+      "id": "draft-bass-rules-march-2027",
+      "date": null,
+      "draft": true,
+      "tag": "Improved",
+      "title": "Bass rules get simpler on March 1, 2027",
+      "bullets": [
+        "The Ohio Wildlife Council voted on Oct. 28, 2026 to drop most lake-by-lake bass rules. From March 1, 2027, Knox Lake, Seneca Lake, Salt Fork, Burr Oak, Dow Lake, Paint Creek Lake, Cowan Lake, Acton Lake and Long Lake in the Portage Lakes go to the statewide 5 a day, 12 in minimum. Other Ohio waters are on ODNR's list too.",
+        "Hoover's crappie rule comes off the same day: no daily limit and no 9 in minimum from March 1, 2027. Every other 30 a day, 9 in crappie water keeps its rule, Paint Creek, Salt Fork, Seneca and the Portage Lakes included.",
+        "Until then the 2026–27 rules stand, and each lake page shows today's rule with the change dated next to it, linked to ODNR's news release.",
+        "Fixed: the crappie and bass species pages now show the right 2026–27 rule for every lake."
+      ],
+      "links": [
+        {
+          "label": "ODNR news release",
+          "href": "https://ohiodnr.gov/discover-and-learn/safety-conservation/about-ODNR/news/ohios-spring-2027-turkey-hunting-seasons-updated-bass-fishing-regulations-approved-by-wildlife-council"
+        },
+        {
+          "label": "Hoover Reservoir",
+          "href": "hoover/"
+        },
+        {
+          "label": "Knox Lake",
+          "href": "knox/"
+        },
+        {
+          "label": "Seneca Lake",
+          "href": "seneca/"
+        },
+        {
+          "label": "Salt Fork Lake",
+          "href": "saltfork/"
+        },
+        {
+          "label": "Burr Oak Lake",
+          "href": "burroak/"
+        },
+        {
+          "label": "Dow Lake",
+          "href": "dow/"
+        },
+        {
+          "label": "Paint Creek Lake",
+          "href": "paintcreek/"
+        },
+        {
+          "label": "Cowan Lake",
+          "href": "cowan/"
+        },
+        {
+          "label": "Acton Lake",
+          "href": "acton/"
+        },
+        {
+          "label": "Portage Lakes",
+          "href": "portagelakes/"
+        },
+        {
+          "label": "Largemouth bass",
+          "href": "species/largemouth-bass"
+        },
+        {
+          "label": "Black crappie",
+          "href": "species/black-crappie"
+        }
+      ]
+    },
+    {
       "id": "draft-tier-b-ten",
       "date": null,
       "draft": true,
