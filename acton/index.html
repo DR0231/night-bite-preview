@@ -35,10 +35,10 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="js/a11y-boot.js?v=v129-2026-11-11"></script>
-  <link rel="stylesheet" href="css/styles.css?v=v129-2026-11-11">
+  <script src="js/a11y-boot.js?v=v130-2026-11-11"></script>
+  <link rel="stylesheet" href="css/styles.css?v=v130-2026-11-11">
   <noscript><style>.glance-actions{display:none}.pool-trend[data-pending]{display:none!important}</style></noscript>
-  <script src="js/lakes.js?v=v129-2026-11-11"></script>
+  <script src="js/lakes.js?v=v130-2026-11-11"></script>
   <!-- nb:jsonld (tools/build-lake-pages.py) -->
   <script type="application/ld+json">
   [{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://nightbiteoh.com/acton/#webpage", "url": "https://nightbiteoh.com/acton/", "name": "Acton Lake Fishing: Level, Ramps, Rules | The Night Bite", "isPartOf": {"@id": "https://nightbiteoh.com/#website"}, "about": {"@type": "LakeBodyOfWater", "name": "Acton Lake"}, "dateModified": "2026-11-11", "inLanguage": "en-US", "breadcrumb": {"@id": "https://nightbiteoh.com/acton/#breadcrumb"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://nightbiteoh.com/acton/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nightbiteoh.com/"}, {"@type": "ListItem", "position": 2, "name": "Acton Lake", "item": "https://nightbiteoh.com/acton/"}]}]
@@ -191,7 +191,7 @@
       <section class="bento-card bento-pool" id="pool-snapshot" aria-labelledby="snapshot-title">
         <h2 id="snapshot-title">Today’s pool &amp; temp</h2>
         <p class="pool-lead" id="correction-line">No public lake level gauge</p>
-        <script src="js/pool-readout.js?v=v129-2026-11-11"></script>
+        <script src="js/pool-readout.js?v=v130-2026-11-11"></script>
         <p class="meta" id="correction-checked">
           ODNR fishing map pool: 863 ft. No USGS or Corps gauge posts this lake's level or water temp, so there is no live reading to show.
         </p>
@@ -202,7 +202,7 @@
         <p class="meta" id="usgs-live-status" style="margin-bottom:0.5rem;margin-top:0.5rem;">
           No public lake level or water temp gauge on this lake. Never invented.
         </p>
-        <script src="js/lake-snapshot.js?v=v129-2026-11-11"></script>
+        <script src="js/lake-snapshot.js?v=v130-2026-11-11"></script>
         <div class="pool-trend" id="pool-trend" hidden data-pending>
           <div class="pool-trend-head">
             <span class="pool-trend-label">Pool, last 7 days</span>
@@ -292,7 +292,7 @@
         </details>
         <p class="meta bait-foot">Drive times are rough. <a class="bait-tell" href="mailto:contact@nightbiteoh.com?subject=Bait%20shop">Know a shop? Tell us</a></p>
       </section>
-      <script src="js/bait-nearby.js?v=v129-2026-11-11"></script>
+      <script src="js/bait-nearby.js?v=v130-2026-11-11"></script>
 
       <a class="bento-card bento-maps" href="water#maps">
         <h3>Water / maps</h3>
@@ -317,9 +317,22 @@
         <span class="card-cue" aria-hidden="true">Open the log</span>
       </a>
     </div>
-    <script src="js/glance.js?v=v129-2026-11-11"></script>
+    <script src="js/glance.js?v=v130-2026-11-11"></script>
 
 
+
+    <!-- nb:lake-links (tools/build-lake-pages.py) -->
+    <section class="bento-card lake-links" id="more-waters" aria-labelledby="more-waters-title">
+      <h2 id="more-waters-title">Species and more waters</h2>
+      <h3 class="lake-links-label">Species pages for this water</h3>
+      <ul class="lake-chips"><li><a class="lake-chip" href="species/saugeye">Saugeye</a></li><li><a class="lake-chip" href="species/largemouth-bass">Largemouth bass</a></li><li><a class="lake-chip" href="species/white-crappie">White crappie</a></li><li><a class="lake-chip" href="species/black-crappie">Black crappie</a></li><li><a class="lake-chip" href="species/bluegill">Bluegill / sunfish</a></li></ul>
+      <details class="how-to-read lake-links-more">
+        <summary>More waters in Southwest Ohio</summary>
+        <div class="how-to-read-body"><ul class="lake-chips"><li><a class="lake-chip" href="caesarcreek/">Caesar Creek Lake</a></li><li><a class="lake-chip" href="eastfork/">East Fork Lake</a></li><li><a class="lake-chip" href="cjbrown/">C.J. Brown Reservoir</a></li><li><a class="lake-chip" href="rockyfork/">Rocky Fork Lake</a></li><li><a class="lake-chip" href="paintcreek/">Paint Creek Lake</a></li><li><a class="lake-chip" href="cowan/">Cowan Lake</a></li></ul></div>
+      </details>
+      <p class="meta lake-links-also"><a href="stocking?lake=acton#stocked">Stocking records</a> &middot; <a href="water?lake=acton#docks">Dock season</a> &middot; <a href="./?pick">All waters</a></p>
+    </section>
+    <!-- /nb:lake-links -->
 
     <section class="bento-card get-app" id="get-the-app" aria-labelledby="get-app-title">
       <div class="get-app-head">
@@ -355,7 +368,7 @@
         </details>
       </div>
     </section>
-    <script src="js/get-app.js?v=v129-2026-11-11"></script>
+    <script src="js/get-app.js?v=v130-2026-11-11"></script>
 
     <hr class="divider">
 
@@ -423,22 +436,22 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js?v=v129-2026-11-11"></script>
-  <script src="js/sw-update.js?v=v129-2026-11-11"></script>
-  <script src="js/alerts.js?v=v129-2026-11-11"></script>
-  <script src="js/nav.js?v=v129-2026-11-11"></script>
-  <script src="js/visits.js?v=v129-2026-11-11"></script>
-  <script src="js/lake-picker.js?v=v129-2026-11-11"></script>
-  <script src="js/usgs.js?v=v129-2026-11-11"></script>
-  <script src="js/home-log.js?v=v129-2026-11-11"></script>
-  <script src="js/astro.js?v=v129-2026-11-11"></script>
-  <script src="js/night-rules.js?v=v129-2026-11-11"></script>
-  <script src="js/conditions.js?v=v129-2026-11-11"></script>
-  <script src="js/pool-trend.js?v=v129-2026-11-11"></script>
-  <script src="js/lake-map-data-acton.js?v=v129-2026-11-11"></script>
-  <script src="js/hoover-map.js?v=v129-2026-11-11"></script>
-  <script src="js/install-tip.js?v=v129-2026-11-11"></script>
-  <script src="js/tonight-tools.js?v=v129-2026-11-11"></script>
-  <script src="js/a11y.js?v=v129-2026-11-11" defer></script>
+  <script src="js/refresh.js?v=v130-2026-11-11"></script>
+  <script src="js/sw-update.js?v=v130-2026-11-11"></script>
+  <script src="js/alerts.js?v=v130-2026-11-11"></script>
+  <script src="js/nav.js?v=v130-2026-11-11"></script>
+  <script src="js/visits.js?v=v130-2026-11-11"></script>
+  <script src="js/lake-picker.js?v=v130-2026-11-11"></script>
+  <script src="js/usgs.js?v=v130-2026-11-11"></script>
+  <script src="js/home-log.js?v=v130-2026-11-11"></script>
+  <script src="js/astro.js?v=v130-2026-11-11"></script>
+  <script src="js/night-rules.js?v=v130-2026-11-11"></script>
+  <script src="js/conditions.js?v=v130-2026-11-11"></script>
+  <script src="js/pool-trend.js?v=v130-2026-11-11"></script>
+  <script src="js/lake-map-data-acton.js?v=v130-2026-11-11"></script>
+  <script src="js/hoover-map.js?v=v130-2026-11-11"></script>
+  <script src="js/install-tip.js?v=v130-2026-11-11"></script>
+  <script src="js/tonight-tools.js?v=v130-2026-11-11"></script>
+  <script src="js/a11y.js?v=v130-2026-11-11" defer></script>
 </body>
 </html>
