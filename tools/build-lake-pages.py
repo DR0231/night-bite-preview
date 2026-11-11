@@ -143,12 +143,16 @@ def quick_facts(lake):
     else:
         pool += "No public gauge, so this site shows no live level."
     rows.append(("Normal pool", pool))
-    if F.get("night"):
-        night = t(F["night"])
-        H = F.get("hours") or {}
-        if H.get("source"):
-            night += f' Source: <a href="{H["source"][1]}" target="_blank" rel="noopener">{t(H["source"][0])}</a>.'
-        rows.append(("Night rules", night))
+    # Night rules is never left out: a sourced line, or the plain absence note from hours {none: true, note}.
+    # On a night fishing site a missing row could read as permission, so a water with neither stops the build.
+    H = F.get("hours") or {}
+    night = F.get("night") or (H.get("note") if H.get("none") else None)
+    if not night:
+        raise SystemExit(f"{lake}: data/quick-facts.json needs a night line or hours {{none: true, note}}")
+    night = t(night)
+    if H.get("source"):
+        night += f' Source: <a href="{H["source"][1]}" target="_blank" rel="noopener">{t(H["source"][0])}</a>.'
+    rows.append(("Night rules", night))
     srcs = "; ".join(f'<a href="{u}" target="_blank" rel="noopener">{t(n)}</a>' for n, u in F["sources"])
     # rule lines get data-nb-rule: js/i18n.js adds a translated "draft, check the official source" note in other languages
     dl = "\n".join(f"          <div><dt>{k}</dt><dd{' data-nb-rule' if k in ('Motors and speed', 'Night rules') else ''}>{v}</dd></div>" for k, v in rows)
@@ -207,9 +211,13 @@ def jsonld(lake, name, url, title):
         "@context": "https://schema.org", "@type": "WebPage", "@id": url + "#webpage", "url": url, "name": title,
         "isPartOf": {"@id": WEBSITE_ID},
         "about": {"@type": "Reservoir" if name.endswith("Reservoir") else "LakeBodyOfWater", "name": name},
-        "dateModified": F["checked"], "inLanguage": "en-US",
+        "dateModified": F["checked"], "inLanguage": "en-US", "breadcrumb": {"@id": url + "#breadcrumb"},
     }
-    items = [page]
+    # Home (the water picker) > this water: the same trail the header's Pick your water link gives
+    crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "@id": url + "#breadcrumb", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE},
+        {"@type": "ListItem", "position": 2, "name": name, "item": url}]}
+    items = [page, crumbs]
     body = json.dumps(items, ensure_ascii=False)
     return ('  <!-- nb:jsonld (tools/build-lake-pages.py) -->\n'
             f'  <script type="application/ld+json">\n  {body}\n  </script>\n'
