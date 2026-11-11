@@ -29,7 +29,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v130-2026-11-11";
+var VERSION = "v131-2026-11-11";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -439,7 +439,7 @@ var REVISIONS = {
   "favicon.svg": "a4203bb6ec2d",
   "favicon.ico": "ec8fafebba48",
   "apple-touch-icon.png": "ae1b52f0a95b",
-  "css/styles.css": "9718c9ecc389",
+  "css/styles.css": "48590be1aeb9",
   "js/alerts.js": "2c7b980aa108",
   "js/astro.js": "a3ec0945f030",
   "js/night-rules.js": "c14111456232",

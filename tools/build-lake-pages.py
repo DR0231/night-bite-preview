@@ -301,7 +301,7 @@ def species_lakes(sp, name):
             if not ls:
                 continue
             parts += ['      <details class="how-to-read species-waters-region">',
-                      f'        <summary>{t(r["name"])} <span class="species-waters-n">({len(ls)})</span></summary>',
+                      f'        <summary>{t(r["name"])}</summary>',
                       f'        <div class="how-to-read-body"><ul class="lake-chips">{chips([("../" + registry.home(o), REG["lakes"][o]["name"]) for o in ls])}</ul></div>',
                       '      </details>']
     parts += ['    </section>', '    <!-- /nb:species-lakes -->']
