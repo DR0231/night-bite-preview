@@ -7,30 +7,64 @@ Files: `sw.js` (site root), `js/sw-update.js` (every page except whisperwood.htm
 
 * Scope is the folder `sw.js` sits in: `/night-bite-preview/` on the preview, `/` on nightbiteoh.com. Every path in
   `sw.js` and the manifest is relative, so the same files work in both places.
-* Install precaches the core pages, `css/styles.css`, all of `js/`, the Latin fonts, icons, map art and `data/*.json`.
-  Home pages: the root (`./`, the water picker) and every lake home, `hoover/` included (since v65).
-* Pages (navigations and `text/html`): network first with a 4 second timeout, then the saved copy, then `offline.html`.
-* `data/*.json`: network first, saved copy when offline.
-* CSS and JS: network first with the same 4 second timeout, saved copy when offline or slow. (Through v11 they were
-  stale while revalidate, so right after a deploy a page could get new HTML with last deploy's `styles.css` and
-  `hoover-map.js`: the lake picker showed unstyled and every map opened Hoover.)
-* Everything else on this site (fonts, images): stale while revalidate.
+* Precache (since v127, the "diet"): the shell only, 149 files, about 1.6 MB. The water picker (`./`), `hoover/`,
+  `offline.html`, the manifest, favicons and icons, `css/styles.css`, the 44 shared scripts in `js/` (not the
+  per lake `js/lake-map-data-*.js`), the Latin fonts, the picker tiles, Hoover's chart, map and depth contours, the
+  map pins, moon and wind sprites, and `data/quick-facts.json`, `bait-shops.json`, `community-log.json` and
+  `tournaments.json`. Up to v126 it was all 436 files (about 6.4 MB): every lake home, every page, all 18 language
+  files and every lake's maps.
+* Content hashes: `REVISIONS` in `sw.js` holds a 12 hex sha256 per precached file, written by
+  `tools/sw-precache.py`. The precache (`PREFIX + "precache"`) is kept across deploys and each copy is saved under its
+  hash, so a new worker downloads only the files whose hash changed. HTML hashes blank the `?v=` stamps first,
+  because `stamp-version.py` rewrites them on every deploy without changing the page. A changed file is fetched with
+  `cache: "no-cache"` (a 304 when the server copy is the same) and checked against its hash; if a cache in between
+  still hands out last deploy's copy, it asks once more past it (`?nbrev=<hash>`, `cache: "reload"`) and keeps that.
+  On the first install after v126 the worker also reuses any copy in the old per version cache whose hash matches,
+  so that upgrade only downloaded `sw.js` and the newly precached `quick-facts.json`.
+* Runtime caches, kept across deploys and capped by count (newest kept): `PREFIX + "pages"` (40) for every page
+  opened online, so a lake you visited opens offline; `PREFIX + "data"` (60) for `data/*.json` and the language
+  files; `PREFIX + "assets"` (200) for lake only scripts, lake maps and other images and fonts.
+* Pages (navigations and `text/html`): network first with a 4 second timeout, then the saved copy (precache for
+  `./` and `hoover/`, else the pages cache), then `offline.html`. An unvisited lake offline shows `offline.html`.
+* `data/*.json`: network first, then the newest saved copy, then the precached one. The worker only answers the
+  site's own pages; it never changes headers, so `data/advisor-rules.json` for the Android app (which fetches it
+  directly over HTTPS) is exactly what GitHub Pages serves.
+* CSS and JS: network first with the same 4 second timeout, saved copy when offline or slow. A precached script or
+  style is not saved again at runtime: its offline copy is the one that matches the precached shell. (Through v11
+  they were stale while revalidate, so right after a deploy a page could get new HTML with last deploy's
+  `styles.css` and `hoover-map.js`: the lake picker showed unstyled and every map opened Hoover.)
+* Fonts and images: precached ones come straight from the precache (they change only with their hash); the rest
+  are stale while revalidate in the assets cache.
 * Every page links its own CSS and JS with `?v=VERSION`, which skips GitHub Pages' 10 minute HTTP cache. The worker
-  strips `?v=` when it saves a copy, so offline copies still match.
+  strips `?v=` (and any query) when it saves or looks up a copy, so offline copies still match.
 * `js/sw-update.js` (renamed from `sw-register.js` in v12 so an older worker has never cached it) reloads the page
-  once when a new worker takes over a page an older one was controlling, only in the first 20 seconds.
+  once when a new worker takes over a page an older one was controlling, only in the first 20 seconds, and only if
+  the old worker doesn't answer the `nb-hello` message with `assets: "network-first"` (v19 and newer do, v127
+  included). There is no update toast; the update is silent.
+* Activate deletes every other cache with this `PREFIX` (the old per version caches like `nb-preview-v126-...`
+  included) and every precache entry that is no longer listed, then claims open pages. Other projects on the same
+  origin (other github.io repos) are never cleared.
 
 ## Every deploy
 
 1. Bump `VERSION` in `sw.js`.
-2. Run `python3 tools/stamp-version.py` from the repo root (rewrites every `?v=` to match; skips Whisperwood).
+2. Run `python3 tools/stamp-version.py` from the repo root. It rewrites every `?v=` to match (skips Whisperwood) and
+   then runs `tools/sw-precache.py`, which refreshes `REVISIONS`. Run `sw-precache.py` again after any later build
+   that touches a precached file; `tools/check-all.py` and `tools/promote.py` run it last on their own.
+3. `python3 tools/sw-precache.py --check` (in the GitHub static checks and in check-all as `check-sw-precache`)
+   fails when `REVISIONS` is stale or a precached file is missing (a missing file would fail every install).
+* A precached file without a hash (say a line added by hand without running the tool) is keyed by `VERSION`
+  instead, so it is downloaded again on every deploy, which is the old behaviour and never stale.
+* To precache another file, add its path to `PRECACHE` and run `sw-precache.py`. Keep the list small: anything a
+  visitor opens online is saved at runtime anyway. New lakes need no `sw.js` edit except the picker tile line that
+  `build-tile-charts.py` writes.
 * Never touched: anything under `whisperwood/` and `whisperwood.html` (no `respondWith`, nothing cached), the
   service worker file itself, any other origin (NWS, USGS, Google Maps, GitHub). Non GET requests pass through.
 * Live readings are not cached by the service worker. The page keeps the last good USGS reading, 7 day trend and NWS
   forecast in localStorage (`nb-usgs-last`, `nb-trend-last`, `nb-cond-last`) and, with no signal, shows them with
   "Offline. Last updated HH:MM ET." Values only ever come from a real fetch.
-* Cache name is `PREFIX + VERSION`, for example `nb-preview-v1-2026-10-22`. Activate deletes caches with the same
-  prefix only, so other projects on the same origin (other github.io repos) are never cleared.
+* Measured on the v127 change (details in /workspace/nb-research/sw-diet-2026-11-11/): a deploy with one changed
+  page moved 437 files and 6.44 MB to each installed phone before, and 2 files (`sw.js` and the page) and 63 KB after.
 
 ## Moving it to nightbiteoh.com
 
@@ -44,7 +78,8 @@ Files: `sw.js` (site root), `js/sw-update.js` (every page except whisperwood.htm
    its own saves in localStorage and is never served from this cache.
 4. Change `worker-src 'none'` to `worker-src 'self'` in the CSP meta of the pages that load `sw-update.js`.
 5. Manifest: drop "(Preview)" from `name`. Keep `id`, `start_url` and `scope` as `./`.
-6. Bump `VERSION` on every deploy that changes a precached file, so phones pick up the new copies.
+6. Every promotion bumps `VERSION` (promote.py does it) and runs `sw-precache.py` on the live tree last, so the
+   hashes are those of the live files. Phones download only the files whose hash changed.
 
 ## Kill switch
 
@@ -64,6 +99,7 @@ self.addEventListener("activate", function (event) {
 });
 ```
 
-Also make `js/sw-update.js` stop registering (or replace its body with
+The kill switch removes every cache whose name starts with `nb-`, which covers the v127 precache, pages, data
+and assets caches too (tested on the v127 change). Also make `js/sw-update.js` stop registering (or replace its body with
 `navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); });`).
 Don't delete `sw.js` outright: a 404 leaves already installed workers running until they expire.
