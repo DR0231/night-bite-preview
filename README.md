@@ -4,7 +4,7 @@ Test copy of nightbiteoh.com, served at https://dr0231.github.io/night-bite-prev
 
 # The Night Bite
 
-Static website: **Hoover Reservoir** fishing hub (Delaware / Franklin County, Ohio) — species pages, water/maps, trip log, tournaments, and gear kits. Cozy cabin-notebook look. Night fishing still a strength. Unofficial personal project — **not ODNR, not City of Columbus, not USGS**.
+Static website: unofficial night fishing notebook for 49 Ohio waters, starting at Hoover Reservoir. Species pages, water and maps, trip log, tournaments, and gear kits. Cabin-notebook look. Night fishing is still a strength. Not ODNR, not City of Columbus, not USGS.
 
 **Site name spelling:** *The Night Bite* (Night, not Nite).  
 **Live domain:** `nightbiteoh.com` (CNAME in repo). Serve over **HTTPS** in production.
@@ -101,11 +101,11 @@ These notes used to sit on the Log page itself; the page now says only "saved on
 
 ## Water numbers
 
-Hoover's home (`hoover/`) + Water show a **labeled provisional USGS snapshot** (pool param 62614, temp param 00010). `js/water.js` may refresh pool from the public IV JSON; **on failure it keeps the static snapshot and never invents**. Depth map: ODNR 2001 @ 894 ft — PDF linked, not for navigation. No Garmin/Navionics.
+Hoover's home (`hoover/`) + Water show a **labeled provisional USGS snapshot** (pool param 62614, temp param 00010). `js/water.js` may refresh pool from the public IV JSON; **on failure it keeps the static snapshot and never invents**. Depth map: ODNR 2001 @ 894 ft, PDF linked, not for navigation. No Garmin/Navionics.
 
 ## Regs
 
-Limit tables are **reminders only** — confirm on [HuntFish OH / ODNR licenses](https://ohiodnr.gov/buy-and-apply/hunting-and-fishing-licenses) and [ODNR Fishing Regulations 2026–27 (verify current)](https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/laws-regs-licenses/OhioFishingRegs_English.pdf).
+Limit tables are **reminders only**. Confirm on [HuntFish OH / ODNR licenses](https://ohiodnr.gov/buy-and-apply/hunting-and-fishing-licenses) and [ODNR Fishing Regulations 2026–27 (verify current)](https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/laws-regs-licenses/OhioFishingRegs_English.pdf).
 
 ## Pages
 
@@ -234,7 +234,7 @@ Our own screenshot, CLS and test runs must never load it, or they show up as vis
 
 ## Fonts
 
-- **Pixelify Sans** (display) + **Source Serif 4** (body) via Google Fonts.
+- **Night Bite Pixel**, **Pixelify Sans** and **Source Serif 4**, self-hosted (see `css/styles.css` and `assets/fonts/`).
 
 ## License note
 
