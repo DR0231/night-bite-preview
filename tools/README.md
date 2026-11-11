@@ -108,8 +108,10 @@ python3 tools/build-updates.py      # What's new page from data/updates.json
 python3 tools/sw-precache.py        # last: content hashes of the precached files into sw.js REVISIONS
 ```
 
-`python3 tools/sw-precache.py --check` changes nothing and exits 1 when sw.js `REVISIONS` is stale or a precached file
-is missing (GitHub static checks, and check-all as `check-sw-precache`). See SERVICE-WORKER.md.
+`python3 tools/sw-precache.py --check` changes nothing and exits 1 when sw.js `REVISIONS` is stale, the lake precache
+list is out of step with `js/lakes.js`, or a precached file is missing (GitHub static checks, and check-all as
+`check-sw-precache`). The lake list (every home plus its chart, map script and map images) is generated from the
+registry, so a new water is picked up automatically. See SERVICE-WORKER.md.
 
 ## Picker tile charts (`build-tile-charts.py`)
 

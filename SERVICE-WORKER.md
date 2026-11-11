@@ -7,12 +7,14 @@ Files: `sw.js` (site root), `js/sw-update.js` (every page except whisperwood.htm
 
 * Scope is the folder `sw.js` sits in: `/night-bite-preview/` on the preview, `/` on nightbiteoh.com. Every path in
   `sw.js` and the manifest is relative, so the same files work in both places.
-* Precache (since v127, the "diet"): the shell only, 149 files, about 1.6 MB. The water picker (`./`), `hoover/`,
-  `offline.html`, the manifest, favicons and icons, `css/styles.css`, the 44 shared scripts in `js/` (not the
-  per lake `js/lake-map-data-*.js`), the Latin fonts, the picker tiles, Hoover's chart, map and depth contours, the
-  map pins, moon and wind sprites, and `data/quick-facts.json`, `bait-shops.json`, `community-log.json` and
-  `tournaments.json`. Up to v126 it was all 436 files (about 6.4 MB): every lake home, every page, all 18 language
-  files and every lake's maps.
+* Precache (since v127, the "diet"; v128 adds every lake home): 389 files, about 3.9 MB. The water picker (`./`),
+  `offline.html`, the manifest, favicons and icons, `css/styles.css`, the 44 shared scripts in `js/`, the Latin
+  fonts, the picker tiles, Hoover's depth contours, the map pins, moon and wind sprites, and `data/quick-facts.json`,
+  `bait-shops.json`, `community-log.json` and `tournaments.json`, plus every lake home and the chart, map script
+  (`js/lake-map-data-*.js`, or `js/hoover-map-data.js` for Hoover) and map images that home needs offline. The lake
+  list is written by `tools/sw-precache.py` from `js/lakes.js`, so a new water is picked up automatically. Up to v126
+  it was all 436 files (about 6.4 MB): every page, all 18 language files and every lake's maps. v127 cut that to the
+  shell only (149 files, about 1.6 MB) and left unvisited lake homes offline until they were opened online.
 * Content hashes: `REVISIONS` in `sw.js` holds a 12 hex sha256 per precached file, written by
   `tools/sw-precache.py`. The precache (`PREFIX + "precache"`) is kept across deploys and each copy is saved under its
   hash, so a new worker downloads only the files whose hash changed. HTML hashes blank the `?v=` stamps first,
@@ -25,7 +27,8 @@ Files: `sw.js` (site root), `js/sw-update.js` (every page except whisperwood.htm
   opened online, so a lake you visited opens offline; `PREFIX + "data"` (60) for `data/*.json` and the language
   files; `PREFIX + "assets"` (200) for lake only scripts, lake maps and other images and fonts.
 * Pages (navigations and `text/html`): network first with a 4 second timeout, then the saved copy (precache for
-  `./` and `hoover/`, else the pages cache), then `offline.html`. An unvisited lake offline shows `offline.html`.
+  `./` and every lake home, else the pages cache), then `offline.html`. An unvisited deeper page (for example
+  `water.html` or a species page) shows `offline.html`.
 * `data/*.json`: network first, then the newest saved copy, then the precached one. The worker only answers the
   site's own pages; it never changes headers, so `data/advisor-rules.json` for the Android app (which fetches it
   directly over HTTPS) is exactly what GitHub Pages serves.
@@ -56,8 +59,9 @@ Files: `sw.js` (site root), `js/sw-update.js` (every page except whisperwood.htm
 * A precached file without a hash (say a line added by hand without running the tool) is keyed by `VERSION`
   instead, so it is downloaded again on every deploy, which is the old behaviour and never stale.
 * To precache another file, add its path to `PRECACHE` and run `sw-precache.py`. Keep the list small: anything a
-  visitor opens online is saved at runtime anyway. New lakes need no `sw.js` edit except the picker tile line that
-  `build-tile-charts.py` writes.
+  visitor opens online is saved at runtime anyway. New waters need no hand edit of `sw.js`: `sw-precache.py` adds
+  the new lake home and its first-paint assets from `js/lakes.js`, and `build-tile-charts.py` writes the picker tile
+  line.
 * Never touched: anything under `whisperwood/` and `whisperwood.html` (no `respondWith`, nothing cached), the
   service worker file itself, any other origin (NWS, USGS, Google Maps, GitHub). Non GET requests pass through.
 * Live readings are not cached by the service worker. The page keeps the last good USGS reading, 7 day trend and NWS
@@ -65,6 +69,8 @@ Files: `sw.js` (site root), `js/sw-update.js` (every page except whisperwood.htm
   "Offline. Last updated HH:MM ET." Values only ever come from a real fetch.
 * Measured on the v127 change (details in /workspace/nb-research/sw-diet-2026-11-11/): a deploy with one changed
   page moved 437 files and 6.44 MB to each installed phone before, and 2 files (`sw.js` and the page) and 63 KB after.
+  v128 keeps that hashed update: a bump that changes one page still downloads only that page (and `sw.js`). The first
+  install is larger than v127 because every lake home is saved up front (see all-lakes.md in that same folder).
 
 ## Moving it to nightbiteoh.com
 
