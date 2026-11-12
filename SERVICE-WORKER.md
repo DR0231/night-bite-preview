@@ -7,11 +7,15 @@ Files: `sw.js` (site root), `js/sw-update.js` (every page except whisperwood.htm
 
 * Scope is the folder `sw.js` sits in: `/night-bite-preview/` on the preview, `/` on nightbiteoh.com. Every path in
   `sw.js` and the manifest is relative, so the same files work in both places.
-* Precache (since v127, the "diet"; v128 adds every lake home): 389 files, about 3.9 MB. The water picker (`./`),
-  `offline.html`, the manifest, favicons and icons, `css/styles.css`, the 44 shared scripts in `js/`, the Latin
+* Precache (since v127, the "diet"; v128 adds every lake home; v132 splits "what's biting" per lake): 436 files,
+  about 4.1 MB. The water picker (`./`),
+  `offline.html`, the manifest, favicons and icons, `css/styles.css`, the 42 shared scripts in `js/`, the Latin
   fonts, the picker tiles, Hoover's depth contours, the map pins, moon and wind sprites, and `data/quick-facts.json`,
   `bait-shops.json`, `community-log.json` and `tournaments.json`, plus every lake home and the chart, map script
-  (`js/lake-map-data-*.js`, or `js/hoover-map-data.js` for Hoover) and map images that home needs offline. The lake
+  (`js/lake-map-data-*.js`, or `js/hoover-map-data.js` for Hoover), map images and its own "what's biting" set
+  (`js/biting/<id>.js`, from `tools/biting-split.py`; the species and ice pages and the share card read it) that
+  its pages need offline. Before v132 every install also took the combined `js/biting-data.js` and
+  `js/biting-data-lakes.js` (about 263 KB) and every species page loaded both. The lake
   list is written by `tools/sw-precache.py` from `js/lakes.js`, so a new water is picked up automatically. Up to v126
   it was all 436 files (about 6.4 MB): every page, all 18 language files and every lake's maps. v127 cut that to the
   shell only (149 files, about 1.6 MB) and left unvisited lake homes offline until they were opened online.
