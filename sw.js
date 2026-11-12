@@ -29,7 +29,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v133-2026-11-12";
+var VERSION = "v134-2026-11-12";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -520,7 +520,7 @@ var REVISIONS = {
   "js/species-lake.js": "ac4ac5d278c6",
   "js/sticky-nav.js": "320454e88b43",
   "js/sw-update.js": "6e734dea5cc5",
-  "js/tonight-tools.js": "7f1228fa0caf",
+  "js/tonight-tools.js": "1e186a856022",
   "js/tournaments.js": "fd4ba507c0c4",
   "js/usgs.js": "c3f519eee62d",
   "js/water.js": "23040b9980b5",

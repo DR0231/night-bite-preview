@@ -106,7 +106,7 @@ async function scenario(browser, name, opts, fn) {
     await page.click('[data-act="share"]');
     await page.waitForFunction(() => { const i = document.getElementById('tt-share-img'); return i && i.getAttribute('src'); }, null, { timeout: 15000 });
     const alt = await page.getAttribute('#tt-share-img', 'alt');
-    const want = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: 'numeric', minute: '2-digit' }).format(new Date(now - 9 * 24 * H));
+    const want = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }).format(new Date(now - 9 * 24 * H));   // over 6 days: dated, not a weekday
     check('stale-9d: share image carries the reading time', alt.includes('(reading ' + want + ' ET)'), alt);
     await page.locator('#tt-share-img').screenshot({ path: OUT + 'share-stale-9d.png' }).catch(() => {});
   });

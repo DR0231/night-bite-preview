@@ -54,7 +54,10 @@
   function etShort(iso) {
     var d = new Date(iso);
     if (!iso || isNaN(d.valueOf())) return "";
-    try { return new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short", hour: "numeric", minute: "2-digit" }).format(d); }
+    // a weekday alone reads as this week, so a reading 6 or more days old carries its date
+    var o = Date.now() - d.valueOf() >= 6 * 864e5 ? { month: "short", day: "numeric" } : { weekday: "short" };
+    o.timeZone = "America/New_York"; o.hour = "numeric"; o.minute = "2-digit";
+    try { return new Intl.DateTimeFormat("en-US", o).format(d); }
     catch (e) { return ""; }
   }
   function monthEt() {
