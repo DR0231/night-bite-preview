@@ -88,7 +88,8 @@ def night():
             else:
                 body = '<span class="summary-note">No night rule sourced yet. Check posted signs, and the lake page for who runs the water.</span>'
             chip = f'<span class="summary-chip">{html.escape(h["chip"])}</span>' if h.get("chip") else ""
-            out.append(f'        <li><p class="summary-head"><a href="{l}/">{html.escape(name(l))}</a>{chip}</p><p class="summary-body">{body}</p></li>')
+            lid = f' id="{html.escape(l, quote=True)}"' if line else ""
+            out.append(f'        <li{lid}><p class="summary-head"><a href="{l}/">{html.escape(name(l))}</a>{chip}</p><p class="summary-body">{body}</p></li>')
         out.append('      </ul>')
     return "\n".join(out)
 
