@@ -60,3 +60,6 @@ jobs:
           python3 tools/serve.py --port 8642 &
           sleep 2
           node tools/check-live-readings.cjs http://127.0.0.1:8642/night-bite-preview/ /tmp/nb-live-readings
+
+      - name: Deploys never mix in the service worker (browser)
+        run: node tools/check-sw-deploys.cjs /tmp/nb-sw-deploys

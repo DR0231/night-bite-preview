@@ -44,7 +44,7 @@ python3 tools/check-all.py --target local --all-lakes --group 3   # one group on
 * Start each run in the background and wait on it no more than about 5 minutes at a time. One lake group takes about 4 to 5 minutes.
 * `node tools/registry.cjs --changed [REF]` prints the changed lakes and files on their own.
 
-* Checks: check-meta, check-radius, check-docks (report only), check-hours, check-ramp-names, check-lake-isolation, check-glance-bake, check-precache-refs, check-glance, check-glance-fallback, check-live-readings, check-bait, check-waters (the lake scope above), check-picker-flow, check-a11y-settings, check-log-io, check-trip-queue, check-night-rules, check-i18n, check-manifest, check-i18n-browser and sweep.
+* Checks: check-meta, check-radius, check-docks (report only), check-hours, check-ramp-names, check-lake-isolation, check-glance-bake, check-precache-refs, check-glance, check-glance-fallback, check-live-readings, check-sw-deploys, check-bait, check-waters (the lake scope above), check-picker-flow, check-a11y-settings, check-log-io, check-trip-queue, check-night-rules, check-i18n, check-manifest, check-i18n-browser and sweep.
 * `--skip` leaves checks out.
 * A scoped run takes a few minutes. A full `--all-lakes` run takes over 30 minutes across 49 waters, which is why it is split into groups.
 * Known failures go in `tools/known-failures.json` as `{check, match, target?, why}`. Add an entry only for a failure you have looked at and accepted. Then remove it once the failure is fixed.
@@ -229,6 +229,20 @@ replaces a newer one; the share image prints the reading's own time; nothing fet
 * `python3 tools/check-precache-refs.py [--lakes a,b]` fails when a lake home, tools/lake-home.html or offline.html
   loads a script, stylesheet or first-paint image that sw.js PRECACHE doesn't list (static; in the gate and check-all).
 * `check-lake-isolation.py` also fails when a gauged lake has no `pool.snapshot` (water.html would keep Hoover's line).
+
+## Deploys never mix (`check-sw-deploys.cjs`, Nov. 16, 2026)
+
+The rule: a page never shows one deploy's HTML with another deploy's styles or scripts, on a slow connection, offline
+or across an update, and the kill switch leaves no `nb-` cache behind (SERVICE-WORKER.md, "Deploys never mix" and
+"Kill switch").
+
+* `node tools/check-sw-deploys.cjs [OUT] [--legacy DIR] [--code DIR] [--only a,b] [--expect-fail]` copies this
+  checkout into fake deploys (a marker in a page, in styles.css and in nav.js, its own VERSION, stamp-version.py),
+  serves them on its own Pages-like local server and drives Chrome through them: a 6 second styles.css or page after a
+  deploy, a saved page offline or slow after a deploy, four deploys in a row, a normal deploy with no reload, and the
+  kill switch alone or with tools/sw-kill-switch-page.js. `--legacy <older checkout>` adds the cases where the v134
+  worker hands over to this one. `--code <v134 checkout> --expect-fail` shows the old bugs (N1 and N2 fail there).
+  Each case gets its own browser. About 2 minutes. In the GitHub gate and check-all.
 
 ## Night-rules chip (S5)
 * `data/quick-facts.json` `hours` per lake feeds the chip under each lake hero (built by `build-lake-pages.py`, countdown in `js/night-rules.js`, Eastern time). Only from an official city, ODNR, Army Corps or MWCD page, linked as `source`. `fishing_after_hours` is `true` only when the source says so, otherwise `null`. No official hours: `{"none": true, "note": "..."}`; no chip, and the Night rules row says so.

@@ -15,9 +15,12 @@
  *    is saved (PREFIX + "pages", newest 40). An unvisited deeper page (water.html, a species page) shows offline.html.
  *  · data/*.json: network first, saved copy when offline (PREFIX + "data", newest 60; the precached copy is the
  *    last resort). The worker never adds headers: data/advisor-rules.json for the Android app is plain GitHub Pages.
- *  · CSS and JS: network first too, saved copy when offline or slow, so a page never mixes this deploy's HTML
- *    with last deploy's styles or scripts. (Up to v11 these were cache first, which showed the multi-lake
- *    picker unstyled and the old Hoover-only map script after a deploy.) Pages ask for them with ?v=VERSION.
+ *  · CSS and JS by deploy (v135): every page asks for them with ?v=<its deploy>. This deploy's come from the
+ *    precache; a deploy a saved page still needs, from that deploy's kept copies; a newer deploy, from the network
+ *    only. Saved pages carry their deploy and are only served with their own deploy's files, so a page never mixes
+ *    two deploys, slow signal or offline. (Up to v11 these were cache first with no deploy check, which showed the
+ *    multi-lake picker unstyled after a deploy; v12 to v134 were network first with a 4 second fallback, which
+ *    could still pair a slow page or a slow styles.css with the other deploy.)
  *  · Fonts and images: precached ones straight from the precache; the rest stale while revalidate
  *    (PREFIX + "assets", newest 200, which also holds the lake only scripts).
  *  · Whisperwood is never touched: nothing under whisperwood/ (or whisperwood.html) is cached or intercepted.
@@ -29,11 +32,15 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v134-2026-11-12";
+var VERSION = "v135-2026-11-16";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
 var RUNTIME = { pages: PREFIX + "pages", data: PREFIX + "data", assets: PREFIX + "assets" };
+// one small manifest per deploy (its CSS and JS hashes), so a page saved under one deploy keeps that deploy's styles
+// and scripts (see "Deploys never mix" in SERVICE-WORKER.md)
+var DEPLOYS_CACHE = PREFIX + "deploys";
+var DEPLOY_HEADER = "X-NB-Deploy";
 var LIMITS = { pages: 40, data: 60, assets: 200 };
 
 var PRECACHE = [
@@ -490,7 +497,7 @@ var REVISIONS = {
   "js/alerts.js": "b41431d3558c",
   "js/astro.js": "a3ec0945f030",
   "js/night-rules.js": "c14111456232",
-  "js/i18n.js": "e4390c024f98",
+  "js/i18n.js": "360faa624090",
   "js/bait-nearby.js": "b75e87af32d4",
   "js/biting.js": "2035244affef",
   "js/community-log.js": "8115f19147eb",
@@ -515,12 +522,12 @@ var REVISIONS = {
   "js/pack-list.js": "f9a5e5d83c93",
   "js/pool-readout.js": "8d7a2674f345",
   "js/pool-trend.js": "893f312f7b4a",
-  "js/refresh.js": "5cf574dfd455",
+  "js/refresh.js": "5b0ca98fef84",
   "js/species-filter.js": "454f000c5ba6",
   "js/species-lake.js": "ac4ac5d278c6",
   "js/sticky-nav.js": "320454e88b43",
-  "js/sw-update.js": "6e734dea5cc5",
-  "js/tonight-tools.js": "1e186a856022",
+  "js/sw-update.js": "626f1e2076eb",
+  "js/tonight-tools.js": "bb5b3b7ce377",
   "js/tournaments.js": "fd4ba507c0c4",
   "js/usgs.js": "c3f519eee62d",
   "js/water.js": "23040b9980b5",
@@ -944,7 +951,8 @@ function keyFor(url) {
 // ---------------------------------------------------------------- precache with content hashes
 
 // the precache key carries the file's hash, so two deploys' copies never collide
-function revKey(path) { return new URL(path, SCOPE).href + "?__nbrev=" + (REVISIONS[path] || VERSION); }
+function revKeyWith(path, rev) { return new URL(path, SCOPE).href + "?__nbrev=" + rev; }
+function revKey(path) { return revKeyWith(path, REVISIONS[path] || VERSION); }
 
 function isHtmlPath(path) { return path === "./" || /\/$/.test(path) || /\.html$/i.test(path); }
 
@@ -995,8 +1003,11 @@ function download(path, url) {
 }
 
 self.addEventListener("install", function (event) {
+  // before anything new goes in: which deploy the running worker is, and the precache keys it left (its own files)
+  var before = Promise.all([activeVersion(), caches.open(PRECACHE_CACHE).then(function (c) { return c.keys(); })])
+    .catch(function () { return [null, []]; });
   event.waitUntil(
-    caches.open(PRECACHE_CACHE).then(function (cache) {
+    before.then(function () { return caches.open(PRECACHE_CACHE); }).then(function (cache) {
       return Promise.all(PRECACHE.map(function (path) {
         var key = revKey(path), url = new URL(path, SCOPE).href;
         return cache.match(key).then(function (have) {
@@ -1008,11 +1019,134 @@ self.addEventListener("install", function (event) {
           });
         });
       }));
-    }).then(function () { return self.skipWaiting(); })
+    }).then(function () { return before; }).then(function (b) { return writeManifests(b[0], b[1]); })
+      .then(function () { return self.skipWaiting(); })
   );
 });
 
-function isRuntime(name) { return name === RUNTIME.pages || name === RUNTIME.data || name === RUNTIME.assets; }
+function isRuntime(name) { return name === RUNTIME.pages || name === RUNTIME.data || name === RUNTIME.assets || name === DEPLOYS_CACHE; }
+
+// ---------------------------------------------------------------- deploys: which copy of a style or script a page needs
+//
+// Every page links its CSS and JS with ?v=<deploy> (tools/stamp-version.py), so a request names the deploy its page
+// came from. This worker answers its own deploy from its precache, another deploy it still keeps from that deploy's
+// copies, and a deploy it doesn't know (a newer one) only from the network. Saved pages carry their deploy in a
+// header, and a saved page is only served when its deploy's files are all still here. Nothing ever pairs one
+// deploy's HTML with another deploy's styles or scripts.
+
+function isCode(path) { return /\.(css|js)$/i.test(path); }
+function manifestKey(v) { return SCOPE + "__nbdeploy/" + encodeURIComponent(v); }
+
+// the deploy a page was built for: the ?v= stamp on its own styles and scripts
+function stampOf(html) {
+  var m = /(?:css|js)\/[\w.\/-]+\.(?:css|js)\?v=([^"'<>&#) \t\n\r\f]+)/.exec(html);
+  return m ? m[1] : null;
+}
+
+// a precached page is this deploy's page (its hash ignores the stamps), so it asks for this deploy's files
+function restamp(res) {
+  return res.text().then(function (html) {
+    var h = new Headers(res.headers);
+    h.delete("Content-Length");
+    return new Response(html.replace(/(\.(?:css|js))\?v=[^"'<>&#) \t\n\r\f]*/g, "$1?v=" + encodeURIComponent(VERSION)), {
+      status: res.status, statusText: res.statusText, headers: h
+    });
+  });
+}
+
+var manifests = {};
+function readManifest(v) {
+  if (!v) return Promise.resolve(null);
+  if (v === VERSION) return Promise.resolve(ownFiles());
+  if (manifests[v]) return manifests[v];
+  manifests[v] = caches.open(DEPLOYS_CACHE).then(function (c) { return c.match(manifestKey(v)); })
+    .then(function (r) { return r ? r.json() : null; }).then(function (m) { return m && m.files ? m.files : null; })
+    .catch(function () { return null; });
+  return manifests[v];
+}
+
+function ownFiles() {
+  var m = {};
+  PRECACHE.forEach(function (p) { if (isCode(p)) m[p] = REVISIONS[p] || VERSION; });
+  return m;
+}
+
+// ask the running (older) worker which deploy it is; v19 and newer answer nb-hello
+function activeVersion() {
+  var a = self.registration && self.registration.active;
+  if (!a || typeof MessageChannel === "undefined") return Promise.resolve(null);
+  return new Promise(function (resolve) {
+    var ch = new MessageChannel();
+    ch.port1.onmessage = function (e) { resolve((e.data && e.data.version) || null); };
+    try { a.postMessage({ type: "nb-hello" }, [ch.port2]); } catch (e) { resolve(null); }
+    setTimeout(function () { resolve(null); }, 1500);
+  });
+}
+
+// this deploy's manifest, plus one for the deploy before it when that worker didn't write one (up to v134 / live
+// v41): its files are the precache keys it left, one per path (a path with two keys is left out, see N4)
+function writeManifests(prev, keysBefore) {
+  return caches.open(DEPLOYS_CACHE).then(function (c) {
+    var own = c.put(manifestKey(VERSION), new Response(JSON.stringify({ version: VERSION, files: ownFiles() }),
+      { headers: { "Content-Type": "application/json" } }));
+    if (!prev || prev === VERSION) return own;
+    return Promise.all([own, c.match(manifestKey(prev)).then(function (have) {
+      if (have) return;
+      var found = {}, files = {};
+      (keysBefore || []).forEach(function (r) {
+        var i = r.url.indexOf("?__nbrev=");
+        if (i < 0 || r.url.indexOf(SCOPE) !== 0) return;
+        var p = r.url.slice(SCOPE.length, i);
+        if (!isCode(p)) return;
+        (found[p] = found[p] || []).push(r.url.slice(i + 9));
+      });
+      Object.keys(found).forEach(function (p) { if (found[p].length === 1) files[p] = found[p][0]; });
+      if (!Object.keys(files).length) return;
+      return c.put(manifestKey(prev), new Response(JSON.stringify({ version: prev, files: files, from: "precache" }),
+        { headers: { "Content-Type": "application/json" } }));
+    })]);
+  }).catch(function () {});
+}
+
+// the deploy of a saved page: its header, or (pages saved before v135) the stamp in the page itself
+function deployOf(res) {
+  var d = res.headers.get(DEPLOY_HEADER);
+  if (d) return Promise.resolve(d);
+  return res.clone().text().then(stampOf, function () { return null; });
+}
+
+// every precache key a deploy needs that this deploy doesn't (its changed files)
+function extraKeys(files) {
+  var out = [];
+  Object.keys(files || {}).forEach(function (p) {
+    if (files[p] !== (REVISIONS[p] || VERSION)) out.push(revKeyWith(p, files[p]));
+  });
+  return out;
+}
+
+// a saved page of deploy d can be served when d is this deploy, or d's changed files are all still kept
+function complete(d) {
+  if (!d || d === VERSION) return Promise.resolve(true);
+  return readManifest(d).then(function (files) {
+    if (!files) return false;
+    return caches.open(PRECACHE_CACHE).then(function (c) {
+      return Promise.all(extraKeys(files).map(function (k) { return c.match(k); }));
+    }).then(function (hits) { return hits.every(Boolean); });
+  }).catch(function () { return false; });
+}
+
+// the deploys the saved pages still need, so activate keeps their changed files (and nothing else)
+function neededDeploys() {
+  return caches.open(RUNTIME.pages).then(function (c) {
+    return c.keys().then(function (reqs) {
+      return Promise.all(reqs.map(function (r) { return c.match(r).then(function (res) { return res ? deployOf(res) : null; }); }));
+    });
+  }).then(function (ds) {
+    var set = {};
+    ds.forEach(function (d) { if (d && d !== VERSION) set[d] = true; });
+    return Object.keys(set);
+  }).catch(function () { return []; });
+}
 
 self.addEventListener("activate", function (event) {
   var wanted = {};
@@ -1022,7 +1156,21 @@ self.addEventListener("activate", function (event) {
       return Promise.all(keys.map(function (k) {
         if (k.indexOf(PREFIX) === 0 && k !== PRECACHE_CACHE && !isRuntime(k)) return caches.delete(k);
       }));
+    }).then(neededDeploys).then(function (need) {
+      // keep the changed files of every deploy a saved page still needs; drop the other deploys' manifests
+      return caches.open(DEPLOYS_CACHE).then(function (dc) {
+        return dc.keys().then(function (reqs) {
+          var keep = {}; keep[manifestKey(VERSION)] = true;
+          need.forEach(function (d) { keep[manifestKey(d)] = true; });
+          return Promise.all(reqs.map(function (r) { if (!keep[r.url]) return dc.delete(r); }));
+        });
+      }).then(function () {
+        return Promise.all(need.map(function (d) {
+          return readManifest(d).then(function (files) { extraKeys(files).forEach(function (k) { wanted[k] = true; }); });
+        }));
+      });
     }).then(function () {
+      manifests = {};
       return caches.open(PRECACHE_CACHE).then(function (cache) {
         return cache.keys().then(function (reqs) {
           return Promise.all(reqs.map(function (r) { if (!wanted[r.url]) return cache.delete(r); }));
@@ -1075,7 +1223,21 @@ function fromRuntime(name, url) {
 // saved copy: data prefers the newest runtime copy; pages, CSS and JS prefer the precache (same deploy as the shell)
 function saved(kind, url) {
   if (kind === "data") return fromRuntime(RUNTIME.data, url).then(function (r) { return r || fromPrecache(url); });
+  if (kind === "pages") return savedPage(url);
   return fromPrecache(url).then(function (r) { return r || fromRuntime(RUNTIME[kind], url); });
+}
+
+// a saved page, only when its styles and scripts are here too: the precached copy (this deploy, stamped to match),
+// else the pages cache copy if its deploy's files are all kept. Otherwise nothing, so the caller waits for the
+// network or shows offline.html, never an old page dressed in new styles (N2).
+function savedPage(url) {
+  return fromPrecache(url).then(function (pre) {
+    if (pre) return restamp(pre);
+    return fromRuntime(RUNTIME.pages, url).then(function (hit) {
+      if (!hit) return undefined;
+      return deployOf(hit).then(complete).then(function (ok) { return ok ? hit : undefined; });
+    });
+  });
 }
 
 // keep each runtime cache to its newest LIMITS entries (put appends, so the oldest come first)
@@ -1088,9 +1250,23 @@ function trim(name, max) {
   });
 }
 
+// a saved page or script carries its deploy (DEPLOY_HEADER): a page its ?v= stamp, a script the ?v= it was asked with
+function tagged(kind, url, res) {
+  if (kind === "data") return Promise.resolve(res);
+  var get = kind === "pages" ? res.clone().text().then(stampOf) : Promise.resolve(url.searchParams.get("v"));
+  return get.then(function (d) {
+    if (!d) return res;
+    return res.blob().then(function (b) {
+      var h = new Headers(res.headers);
+      h.set(DEPLOY_HEADER, d);
+      return new Response(b, { status: res.status, statusText: res.statusText, headers: h });
+    });
+  });
+}
+
 function remember(kind, url, res) {
   var name = RUNTIME[kind], key = keyFor(url);
-  return clean(res).then(function (c) {
+  return clean(res).then(function (c) { return tagged(kind, url, c); }).then(function (c) {
     return caches.open(name).then(function (cache) {
       return cache.delete(key).then(function () { return cache.put(key, c); });
     });
@@ -1100,8 +1276,10 @@ function remember(kind, url, res) {
 function offlinePage() {
   return fromPrecache(new URL("offline.html", SCOPE)).then(function (res) {
     if (!res) return Response.error();
-    // links in offline.html are written from the site root; a <base> keeps them right from any folder
+    // links in offline.html are written from the site root; a <base> keeps them right from any folder, and its
+    // styles are asked for as this deploy's (the precached copy may carry an older stamp)
     return res.text().then(function (html) {
+      html = html.replace(/(\.(?:css|js))\?v=[^"'<>&#) \t\n\r\f]*/g, "$1?v=" + encodeURIComponent(VERSION));
       return new Response(html.replace("<head>", '<head><base href="' + SCOPE + '">'), {
         status: 200, headers: { "Content-Type": "text/html; charset=utf-8" }
       });
@@ -1131,6 +1309,53 @@ function networkFirst(event, url, kind) {
   });
 }
 
+// CSS and JS, by the deploy the page asked for (?v=). This deploy: the precached copy, which install checked against
+// its hash. A deploy this worker still keeps (a saved page of the last deploy, or a tab left open across the
+// update): that deploy's copy. A deploy it doesn't know, which is a newer one whose page came from the network
+// before this worker updated: the network only, however slow, since every copy here is older (N1). Only with no
+// network at all does that page get a saved copy, and then the page is told to heal (js/sw-update.js reloads once).
+function code(event, url) {
+  var want = url.searchParams.get("v");
+  var path = precachePath(url);
+  if (!want || want === VERSION) {
+    if (!path) return networkFirst(event, url, "assets");
+    return fromPrecache(url).then(function (hit) { return hit || networkFirst(event, url, "assets"); });
+  }
+  return readManifest(want).then(function (files) {
+    var p = path || rel(new URL(keyFor(url)));
+    if (!files || !files[p]) return otherDeploy(event, url, want);
+    return caches.open(PRECACHE_CACHE).then(function (c) { return c.match(revKeyWith(p, files[p])); })
+      .then(function (hit) { return hit || otherDeploy(event, url, want); });
+  });
+}
+
+function otherDeploy(event, url, want) {
+  return fetch(event.request).then(function (res) {
+    if (res.ok && res.type === "basic" && !precachePath(url)) event.waitUntil(remember("assets", url, res.clone()));
+    return res;
+  }).catch(function () {
+    return fromRuntime(RUNTIME.assets, url).then(function (hit) {
+      if (hit && hit.headers.get(DEPLOY_HEADER) === want) return hit;
+      return saved("assets", url).then(function (any) {
+        if (!any) return Response.error();
+        tellMixed(event);
+        return any;
+      });
+    });
+  });
+}
+
+// the page got a style or script from another deploy (no network for its own): ask it to reload once
+var mixed = {};
+function tellMixed(event) {
+  var id = event.clientId;
+  if (!id) return;
+  mixed[id] = true;
+  event.waitUntil(self.clients.get(id).then(function (c) {
+    if (c) c.postMessage({ type: "nb-mixed", version: VERSION });
+  }).catch(function () {}));
+}
+
 function staleWhileRevalidate(event, url) {
   return fromPrecache(url).then(function (pre) {
     if (pre) return pre;                                      // precached art changes only with its hash
@@ -1148,12 +1373,14 @@ function staleWhileRevalidate(event, url) {
   });
 }
 
-// js/sw-update.js asks before it heals a page: this worker keeps CSS and JS network first, so pages it served are
-// never a mix of two deploys and don't need the one time reload.
+// js/sw-update.js asks before it heals a page. "by-deploy" (v135 and newer): this worker hands each page the styles
+// and scripts of its own deploy, so a page it served needs no reload unless it says "mixed" (no network for a newer
+// deploy's files). Workers v19 to v134 (live v41) answered "network-first", which their 4 second fallback could break.
 self.addEventListener("message", function (event) {
   var d = event.data;
   if (d && d.type === "nb-hello" && event.ports && event.ports[0]) {
-    event.ports[0].postMessage({ version: VERSION, assets: "network-first" });
+    var id = event.source && event.source.id;
+    event.ports[0].postMessage({ version: VERSION, assets: "by-deploy", mixed: !!(id && mixed[id]) });
   }
 });
 
@@ -1189,7 +1416,7 @@ self.addEventListener("fetch", function (event) {
     return;
   }
   if (/\.(css|js)$/i.test(url.pathname)) {               // styles and scripts: always the same deploy as the page
-    event.respondWith(networkFirst(event, url, "assets"));
+    event.respondWith(code(event, url));
     return;
   }
   event.respondWith(staleWhileRevalidate(event, url));
