@@ -51,7 +51,7 @@ def drawdown():
            f'<th scope="col" class="num">Refill by {ap(d["refill_by"], year=False)}</th></tr></thead>',
            '        <tbody>']
     for r in rows:
-        out.append(f'          <tr><th scope="row"><a href="{r["lake"]}/">{html.escape(name(r["lake"]))}</a></th><td>{ap(r["begins"], year=False)}</td>'
+        out.append(f'          <tr id="{html.escape(r["lake"], quote=True)}"><th scope="row"><a href="{r["lake"]}/">{html.escape(name(r["lake"]))}</a></th><td>{ap(r["begins"], year=False)}</td>'
                    f'<td class="num">{ft(r["normal"])} ft</td><td class="num">{ft(r["winter"])} ft</td><td class="num">{ft(r["drop"])} ft</td>'
                    f'<td class="num">{r["days"]}</td><td class="num">{ft(r["refill"])} ft</td></tr>')
     out += ['        </tbody>', '      </table></div>']
