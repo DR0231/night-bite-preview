@@ -968,6 +968,16 @@
    "checked": "2026-11-03",
    "items": [
     {
+     "name": "Winter level",
+     "status": "ending",
+     "ends": "2026-10-31",
+     "label": "Drawdown Nov. 1",
+     "after_label": "Drawdown under way",
+     "note": "MWCD says the winter drawdown starts Nov. 1: 5 ft, from 963 ft to 958 ft over about 35 days. The USGS gauge near Bowerston shows the level.",
+     "after_note": "MWCD started the winter drawdown Nov. 1: 5 ft, from 963 ft to 958 ft over about 35 days, with a partial refill to 961 ft by Mar. 15, 2027. The USGS gauge near Bowerston shows the level.",
+     "source": "mwcd-drawdowns"
+    },
+    {
      "name": "Marina docks",
      "status": "unannounced",
      "label": "Not announced",
@@ -999,7 +1009,8 @@
     ]
    ],
    "sources": [
-    "mwcd-leesville"
+    "mwcd-leesville",
+    "mwcd-drawdowns"
    ]
   },
   "grandlakestmarys": {
@@ -2275,6 +2286,7 @@
    "label": "MWCD, Winter Drawdown Schedule (Oct. 2026)",
    "url": "https://www.mwcd.org/blog/mwcd-announces-winter-drawdown-schedule-and-reservoir-improvement-projects/",
    "lakes": [
+    "leesville",
     "seneca",
     "tappan",
     "piedmont",

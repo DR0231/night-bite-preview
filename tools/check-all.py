@@ -59,7 +59,7 @@ sys.stdout.reconfigure(line_buffering=True)
 TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
-BUILDS = ["build-lake-pages.py", "build-docks.py", "build-meta.py", "stamp-version.py", "build-updates.py", "footer-social.py", "wrap-dates.py", "i18n-extract.py", "sw-precache.py"]
+BUILDS = ["build-lake-pages.py", "build-docks.py", "build-summaries.py", "build-meta.py", "stamp-version.py", "build-updates.py", "footer-social.py", "wrap-dates.py", "i18n-extract.py", "sw-precache.py"]
 CHECKS = ["check-meta", "check-radius", "check-hours", "check-ramp-names", "check-docks", "check-lake-isolation", "check-glance-bake", "check-precache-refs", "check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-log-io", "check-trip-queue", "check-night-rules", "check-i18n", "check-manifest", "check-biting-split", "check-sw-precache", "check-i18n-browser", "sweep"]
 BROWSER = {"check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-log-io", "check-trip-queue", "check-i18n-browser", "sweep"}
 

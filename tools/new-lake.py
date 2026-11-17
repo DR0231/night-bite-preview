@@ -82,7 +82,7 @@ def build():
     if a.no_build or a.dry_run:
         print("build skipped" + (" (dry run)" if a.dry_run else ""))
         return
-    for b in ("build-tile-charts.py", "build-lake-pages.py", "build-docks.py", "build-meta.py", "biting-split.py", "stamp-version.py", "build-updates.py", "wrap-dates.py", "i18n-extract.py", "sw-precache.py"):
+    for b in ("build-tile-charts.py", "build-lake-pages.py", "build-docks.py", "build-summaries.py", "build-meta.py", "biting-split.py", "stamp-version.py", "build-updates.py", "wrap-dates.py", "i18n-extract.py", "sw-precache.py"):
         args = [sys.executable, str(ROOT / "tools" / b)]
         if b == "build-tile-charts.py":   # the north-up tile chart for the picker, plus its sw.js precache line
             args += ["--root", str(ROOT)] + (["--lake", BUILD_LAKE] if BUILD_LAKE else [])
