@@ -21,7 +21,7 @@
   function build() {
     dlg = el("dialog", { id: "a11y-panel", "class": "a11y-panel", "aria-labelledby": "a11y-title" });
     var form = el("form", { method: "dialog", "class": "a11y-form" });
-    var close = el("button", { type: "button", "class": "a11y-close", "aria-label": "Close" }, [el("span", { "aria-hidden": "true", "class": "a11y-close-x" })]);
+    var close = el("button", { type: "submit", "class": "a11y-close", value: "close", "aria-label": "Close" }, [el("span", { "aria-hidden": "true", "class": "a11y-close-x" })]);
     form.appendChild(el("div", { "class": "a11y-head" }, [el("h2", { id: "a11y-title", "class": "a11y-title", text: "Display" }), close]));
     function group(label, id, kids) {
       return el("section", { "class": "a11y-group", "aria-labelledby": id }, [el("h3", { id: id, "class": "a11y-group-label", text: label })].concat(kids));
@@ -60,7 +60,6 @@
     document.body.appendChild(dlg);
     form.addEventListener("change", function (e) { if (e.target && e.target.id === "a11y-lang") return; A.save(collect(form)); sync(form); });
     reset.addEventListener("click", function () { A.save({}); setLang("en"); sync(form); });
-    close.addEventListener("click", function () { dlg.close(); });
     dlg.addEventListener("close", function () { if (lastBtn && lastBtn.isConnected) lastBtn.focus(); });
     dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
     return form;
