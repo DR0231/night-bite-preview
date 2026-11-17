@@ -2922,6 +2922,11 @@ html[data-motion="reduce"]::view-transition-new(*) { animation: none !important;
 .pool-chart img[data-for="highlandtown"] { width: 130px; height: 94px; }
 .pool-chart img[data-for="punderson"] { width: 54px; height: 86px; }
 .pool-chart img[data-for="wellington"] { width: 96px; height: 96px; }
+.pool-chart img[data-for="kiser"] { width: 122px; height: 96px; }
+.pool-chart img[data-for="hargus"] { width: 62px; height: 96px; }
+.pool-chart img[data-for="stonelick"] { width: 196px; height: 96px; }
+.pool-chart img[data-for="grant"] { width: 42px; height: 96px; }
+.pool-chart img[data-for="lakewhite"] { width: 118px; height: 96px; }
 @media (max-width: 359px) {
   .pool-chart img[data-for="alum"] { width: 134px; height: 37px; }
   .pool-chart img[data-for="buckeye"] { width: 92px; height: 48px; }
@@ -2971,6 +2976,11 @@ html[data-motion="reduce"]::view-transition-new(*) { animation: none !important;
   .pool-chart img[data-for="highlandtown"] { width: 65px; height: 47px; }
   .pool-chart img[data-for="punderson"] { width: 27px; height: 43px; }
   .pool-chart img[data-for="wellington"] { width: 48px; height: 48px; }
+  .pool-chart img[data-for="kiser"] { width: 61px; height: 48px; }
+  .pool-chart img[data-for="hargus"] { width: 31px; height: 48px; }
+  .pool-chart img[data-for="stonelick"] { width: 98px; height: 48px; }
+  .pool-chart img[data-for="grant"] { width: 21px; height: 48px; }
+  .pool-chart img[data-for="lakewhite"] { width: 59px; height: 48px; }
 }
 .pool-chart-key > span[data-for="buckeye"] { margin-right: 0.5rem; }
 @media (min-width: 560px) { .pool-chart-key > span[data-for="buckeye"] { margin-right: 0; } }

@@ -2,6 +2,49 @@
   "about": "What's new on The Night Bite, newest first. Edit this file, then run: python3 tools/build-updates.py (see README, 'What's new'). Entries come from what actually shipped to nightbiteoh.com. An entry with \"draft\": true and \"date\": null is on the preview only: it shows on the preview, and is hidden on nightbiteoh.com until you set the date and remove the draft flag at promotion.",
   "entries": [
     {
+      "id": "draft-tierc-last13",
+      "date": null,
+      "draft": true,
+      "tag": "New",
+      "title": "Five more Ohio waters",
+      "bullets": [
+        "Pick Kiser Lake, Hargus Creek Lake, Stonelick Lake, Grant Lake or Lake White with the lake picker. Each has its own home page.",
+        "Each water has its own map and ramps, lake rules, species notes, dock season and Bait nearby. None has a public level or water temp gauge, and each page says so.",
+        "Kiser and Hargus show today's site bass rule with the March 1, 2027 statewide change dated next to it, linked to ODNR's news release.",
+        "Stocking & surveys adds ten years of ODNR stocking where ODNR stocks these waters, from ODNR's Fish Stocking dashboard."
+      ],
+      "links": [
+        {
+          "label": "Water",
+          "href": "water"
+        },
+        {
+          "label": "Stocking & surveys",
+          "href": "stocking"
+        },
+        {
+          "label": "Kiser Lake",
+          "href": "kiser/"
+        },
+        {
+          "label": "Hargus Creek Lake",
+          "href": "hargus/"
+        },
+        {
+          "label": "Stonelick Lake",
+          "href": "stonelick/"
+        },
+        {
+          "label": "Grant Lake",
+          "href": "grant/"
+        },
+        {
+          "label": "Lake White",
+          "href": "lakewhite/"
+        }
+      ]
+    },
+    {
       "id": "draft-six-east-southeast",
       "date": null,
       "draft": true,

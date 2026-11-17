@@ -46,7 +46,7 @@ python3 tools/check-all.py --target local --all-lakes --group 3   # one group on
 
 * Checks: check-meta, check-radius, check-docks (report only), check-hours, check-ramp-names, check-lake-isolation, check-glance-bake, check-precache-refs, check-glance, check-glance-fallback, check-live-readings, check-sw-deploys, check-bait, check-waters (the lake scope above), check-picker-flow, check-a11y-settings, check-log-io, check-trip-queue, check-night-rules, check-i18n, check-manifest, check-i18n-browser and sweep.
 * `--skip` leaves checks out.
-* A scoped run takes a few minutes. A full `--all-lakes` run takes over 30 minutes across 49 waters, which is why it is split into groups.
+* A scoped run takes a few minutes. A full `--all-lakes` run takes over 30 minutes across 54 waters, which is why it is split into groups.
 * Known failures go in `tools/known-failures.json` as `{check, match, target?, why}`. Add an entry only for a failure you have looked at and accepted. Then remove it once the failure is fixed.
 
 ### sweep.cjs

@@ -1475,9 +1475,154 @@
       map: { data: "NightBiteMapDataWellington", chart: "assets/wellington-chart.png" },
       spots: ["Jones Rd launch", "Bank (other)"],
       species: ["yellow-perch", "largemouth-bass", "smallmouth-bass", "black-crappie", "channel-catfish"]
+    },
+    kiser: {
+      id: "kiser",
+      name: "Kiser Lake",
+      short: "Kiser",
+      area: "West central Ohio",
+      lat: 40.19, lng: -83.965,
+      region: "central", owner: "ODNR Ohio State Parks",
+      aliases: ["Kiser", "Kiser Lake State Park", "St. Paris", "Conover"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 1067,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/51,89/forecast/hourly",
+        point: "https://api.weather.gov/points/40.19,-83.965",
+        grid: "https://api.weather.gov/gridpoints/ILN/51,89",
+        station: "KI74",
+        stationName: "Urbana Grimes Field (KI74)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.19&lon=-83.965"
+      },
+      alerts: { zones: "OHC021,OHZ052", counties: "the Kiser area" },
+      push: null,
+      map: { data: "NightBiteMapDataKiser", chart: "assets/kiser-chart.png" },
+      spots: ["Main launch ramp", "Nature center launch", "Grandview Heights launch", "Campground launch", "Fishing piers", "Bank (other)"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish", "hybrid-striped-bass", "yellow-perch"]
+    },
+    hargus: {
+      id: "hargus",
+      name: "Hargus Creek Lake",
+      short: "Hargus",
+      area: "Central Ohio",
+      lat: 39.63, lng: -82.882,
+      region: "central", owner: "ODNR Ohio State Parks",
+      aliases: ["Hargus", "Hargus Lake", "A.W. Marion State Park", "AW Marion", "Circleville"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 821.5,    // ODNR fishing map summer pool (5 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/90,67/forecast/hourly",
+        point: "https://api.weather.gov/points/39.63,-82.882",
+        grid: "https://api.weather.gov/gridpoints/ILN/90,67",
+        station: "KLCK",
+        stationName: "Rickenbacker Air National Guard Base (KLCK)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.63&lon=-82.882"
+      },
+      alerts: { zones: "OHC129,OHZ064", counties: "the Hargus area" },
+      push: null,
+      map: { data: "NightBiteMapDataHargus", chart: "assets/hargus-chart.png" },
+      spots: ["Launch ramp", "Marina", "Hargus Lake Trail", "Bank (other)"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
+    },
+    stonelick: {
+      id: "stonelick",
+      name: "Stonelick Lake",
+      short: "Stonelick",
+      area: "Southwest Ohio",
+      lat: 39.22, lng: -84.07,
+      region: "southwest", owner: "ODNR Ohio State Parks",
+      aliases: ["Stonelick", "Stonelick State Park", "Edenton", "Pleasant Plain"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only; the Corps lists a Stonelick location with no data posted)
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 874.2,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/51,45/forecast/hourly",
+        point: "https://api.weather.gov/points/39.22,-84.07",
+        grid: "https://api.weather.gov/gridpoints/ILN/51,45",
+        station: "KI69",
+        stationName: "Batavia airport (KI69)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.22&lon=-84.07"
+      },
+      alerts: { zones: "OHC025,OHZ078", counties: "the Stonelick area" },
+      push: null,
+      map: { data: "NightBiteMapDataStonelick", chart: "assets/stonelick-chart.png" },
+      spots: ["West ramp", "Campground hand launch", "Accessible pier by the dam", "Sycamore Day Use Area", "Bank (other)"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
+    },
+    grant: {
+      id: "grant",
+      name: "Grant Lake",
+      short: "Grant Lake",
+      area: "Southwest Ohio",
+      lat: 39.006, lng: -83.934,
+      region: "southwest", owner: "ODNR Division of Wildlife",
+      aliases: ["Grant Lake Wildlife Area", "Mt. Orab", "Mount Orab"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: null,    // no ODNR fishing map found; no pool elevation
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/56,35/forecast/hourly",
+        point: "https://api.weather.gov/points/39.006,-83.934",
+        grid: "https://api.weather.gov/gridpoints/ILN/56,35",
+        station: "KI69",
+        stationName: "Batavia airport (KI69)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.006&lon=-83.934"
+      },
+      alerts: { zones: "OHC015,OHZ079", counties: "the Grant Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataGrant", chart: "assets/grant-chart.png" },
+      spots: ["Grant Lake access, SR 68", "Accessible pier, Grant Rd", "Bank (other)"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
+    },
+    lakewhite: {
+      id: "lakewhite",
+      name: "Lake White",
+      short: "Lake White",
+      area: "Southeast Ohio",
+      lat: 39.105, lng: -83.025,
+      region: "southeast", owner: "ODNR Ohio State Parks",
+      aliases: ["Lake White State Park", "Waverly", "Pee Pee Creek"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 573.75,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/ILN/88,43/forecast/hourly",
+        point: "https://api.weather.gov/points/39.105,-83.025",
+        grid: "https://api.weather.gov/gridpoints/ILN/88,43",
+        station: "KEOP",
+        stationName: "Pike airport near Waverly (KEOP)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.105&lon=-83.025"
+      },
+      alerts: { zones: "OHC131,OHZ082", counties: "the Lake White area" },
+      push: null,
+      map: { data: "NightBiteMapDataLakewhite", chart: "assets/lakewhite-chart.png" },
+      spots: ["State park ramp, SR 551", "North launch, SR 552", "Bank (other)"],
+      species: ["saugeye", "largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
     }
   };
-  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity", "wingfoot", "eastbranch", "guilford", "highlandtown", "punderson", "wellington"];
+  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity", "wingfoot", "eastbranch", "guilford", "highlandtown", "punderson", "wellington", "kiser", "hargus", "stonelick", "grant", "lakewhite"];
   // picker regions, in this order (js/lake-picker.js). A region with no lakes yet is hidden. Every lake above sets
   // region to one of these ids; lat and lng above (the lake's NWS forecast point, on the water) give Near me distances.
   var REGIONS = [

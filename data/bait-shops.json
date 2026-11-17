@@ -737,6 +737,64 @@
     "lng": -82.023919,
     "q": "Chatham General Store 6403 Avon Lake Rd, Medina, OH"
    }
+  ],
+  "kiser": [
+   {
+    "name": "Tom's Tackle",
+    "address": "2200 US-68, Urbana, OH",
+    "min": 30,
+    "lat": 40.1148551,
+    "lng": -83.7384616,
+    "q": "Tom's Tackle 2200 US-68, Urbana, OH"
+   }
+  ],
+  "hargus": [
+   {
+    "name": "J & R Live Bait",
+    "address": "1815 Cedar Hill Rd, Lancaster, OH",
+    "min": 35,
+    "lat": 39.7142409,
+    "lng": -82.6303382,
+    "q": "J & R Live Bait 1815 Cedar Hill Rd, Lancaster, OH"
+   }
+  ],
+  "stonelick": [
+   {
+    "name": "Boars Head Bait & Carry Out",
+    "address": "2818 Old State Rte 32, Batavia, OH",
+    "min": 30,
+    "lat": 39.0586371,
+    "lng": -84.1018352,
+    "q": "Boars Head Bait & Carry Out 2818 Old State Rte 32, Batavia, OH"
+   }
+  ],
+  "grant": [
+   {
+    "name": "68 Bait & Tackle",
+    "address": "12540 US-68, Mt Orab, OH",
+    "min": 5,
+    "lat": 38.9823636,
+    "lng": -83.9164133,
+    "q": "68 Bait & Tackle 12540 US-68, Mt Orab, OH"
+   }
+  ],
+  "lakewhite": [
+   {
+    "name": "Bill's Bait House",
+    "address": "4308 OH-220, Waverly, OH",
+    "min": 5,
+    "lat": 39.1090179,
+    "lng": -83.0394793,
+    "q": "Bill's Bait House 4308 OH-220, Waverly, OH"
+   },
+   {
+    "name": "JR's Bait & Tackle",
+    "address": "6687 OH-104, Jasper, OH",
+    "min": 5,
+    "lat": 39.0499292,
+    "lng": -83.0513157,
+    "q": "JR's Bait & Tackle 6687 OH-104, Jasper, OH"
+   }
   ]
  }
 }

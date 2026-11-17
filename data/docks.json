@@ -1883,6 +1883,162 @@
    "sources": [
     "odnr-wellington"
    ]
+  },
+  "kiser": {
+   "name": "Kiser Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launches",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists one boat ramp and four small launch areas. No motors.",
+     "source": "odnr-kiser"
+    },
+    {
+     "name": "Marina",
+     "status": "unannounced",
+     "label": "Seasonal",
+     "note": "ODNR lists the marina April through October; Google shows its listing as permanently closed, so call first.",
+     "source": "odnr-kiser"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Kiser Lake State Park office",
+     "+19378432717",
+     "(937) 843-2717",
+     ""
+    ],
+    [
+     "Kiser Lake marina",
+     "+19373623565",
+     "(937) 362-3565",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-kiser"
+   ]
+  },
+  "hargus": {
+   "name": "Hargus Creek Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists one launch ramp. Electric and paddle only.",
+     "source": "odnr-hargus"
+    },
+    {
+     "name": "Marina",
+     "status": "unannounced",
+     "label": "Seasonal",
+     "note": "Seasonal boat rentals; call (740) 474-9201 for hours (ODNR).",
+     "source": "odnr-hargus"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "A.W. Marion State Park office (Deer Creek)",
+     "+17408693124",
+     "(740) 869-3124",
+     ""
+    ],
+    [
+     "Marina",
+     "+17404749201",
+     "(740) 474-9201",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-hargus"
+   ]
+  },
+  "stonelick": {
+   "name": "Stonelick Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists one ramp on SR 727 and hand launches in the campground and behind the Sycamore Day Use Area.",
+     "source": "odnr-stonelick"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Stonelick State Park office",
+     "+15137342730",
+     "(513) 734-2730",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-stonelick"
+   ]
+  },
+  "grant": {
+   "name": "Grant Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR&rsquo;s boating layer lists the Grant Lake access off SR 68. 10 hp limit.",
+     "source": "odnr-grant"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Five",
+     "+19373729261",
+     "(937) 372-9261",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-grant"
+   ]
+  },
+  "lakewhite": {
+   "name": "Lake White",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists one launch ramp at SR 551 and SR 104; a private marina offers more access.",
+     "source": "odnr-lakewhite"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Lake White State Park office (Pike Lake)",
+     "+17404932212",
+     "(740) 493-2212",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-lakewhite"
+   ]
   }
  },
  "watch": [
@@ -3014,6 +3170,101 @@
    "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wellington-upground-reservoir-fishing-area",
    "lakes": [
     "wellington"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-kiser",
+   "label": "ODNR, Kiser Lake State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/kiser-lake-state-park",
+   "lakes": [
+    "kiser"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-hargus",
+   "label": "ODNR, A.W. Marion State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/a-w-marion-state-park",
+   "lakes": [
+    "hargus"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-stonelick",
+   "label": "ODNR, Stonelick State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/stonelick-state-park",
+   "lakes": [
+    "stonelick"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-grant",
+   "label": "ODNR, Grant Lake Wildlife Area",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/grant-lake-wildlife-area",
+   "lakes": [
+    "grant"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-lakewhite",
+   "label": "ODNR, Lake White State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-white-state-park",
+   "lakes": [
+    "lakewhite"
    ],
    "keywords": [
     "dock",
