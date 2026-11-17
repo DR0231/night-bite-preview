@@ -3431,6 +3431,67 @@ html:not([data-lake]) .sp-away .species-card[data-lakes][data-lakes]:not([hidden
   margin: calc(-1 * var(--space-sm)) 0 var(--space-lg);
 }
 
+/* Night access: region dropdowns (same groups as the lake picker) and a name search */
+.night-search { margin: 0 0 var(--space-md); }
+.night-search[hidden], .night-empty[hidden], .night-region[hidden], .summary-list > li[hidden] { display: none; }
+.night-search label {
+  display: block;
+  margin: 0 0 0.375rem;
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: var(--text-label); letter-spacing: 0.04em;
+  color: var(--cream-dark);
+}
+.night-search .lp-search { width: 100%; min-height: 48px; }
+.night-empty {
+  margin: 0 0 var(--space-md);
+  padding: 0.75rem 0.875rem;
+  color: var(--cream-dark);
+  background: rgb(var(--cream-rgb) / 0.03);
+  border: 1px solid rgb(var(--cream-rgb) / 0.12);
+  border-radius: var(--radius);
+}
+.night-region { margin: 0; border-top: 1px solid rgb(var(--cream-rgb) / 0.08); }
+.night-region summary {
+  font-family: var(--font-display); font-variant-ligatures: none;
+  color: var(--cream-dark); cursor: pointer; list-style: none;
+  min-height: 44px; padding: 0.25rem 0;
+  display: flex; align-items: center; gap: 0.5rem;
+  transition: color var(--dur) var(--ease);
+}
+.night-region summary:hover, .night-region[open] summary { color: var(--amber); }
+.night-region summary::-webkit-details-marker { display: none; }
+.night-region summary::before {
+  content: ""; flex-shrink: 0; width: 6px; height: 8px; background: currentColor;
+  clip-path: polygon(0 0, 50% 0, 50% 25%, 100% 25%, 100% 75%, 50% 75%, 50% 100%, 0 100%);
+  transition: transform var(--dur) var(--ease);
+}
+.night-region[open] summary::before { transform: rotate(90deg); }
+.night-region summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius); }
+.night-region-title {
+  margin: 0;
+  font-family: inherit; font-size: 0.875rem; font-weight: 400; letter-spacing: 0.04em;
+  line-height: 1.2; color: inherit;
+}
+.night-region-n { margin-left: auto; color: var(--muted); font-size: var(--text-sm); letter-spacing: 0; }
+.night-region .summary-list { margin-bottom: var(--space-sm); }
+.summary-list > li { scroll-margin-top: calc(var(--header-h, 56px) + 1rem); }
+.summary-list > li:target {
+  border-left-color: var(--amber);
+  background: rgb(var(--amber-rgb) / 0.1);
+}
+@supports selector(::details-content) {
+  .night-region { interpolate-size: allow-keywords; }
+  .night-region::details-content {
+    block-size: 0; opacity: 0; overflow: clip;
+    transition: block-size 220ms var(--ease), opacity 180ms var(--ease), content-visibility 220ms allow-discrete;
+  }
+  .night-region[open]::details-content { block-size: auto; opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .night-region summary, .night-region summary::before, .night-search .lp-search { transition: none; }
+  .night-region::details-content { transition: none; }
+}
+
 /* Ice season (ice.html) */
 .ice-species { display: grid; gap: var(--space-sm); margin-top: var(--space-sm); }
 .ice-species-card h3 { margin: 0 0 var(--space-xs); }

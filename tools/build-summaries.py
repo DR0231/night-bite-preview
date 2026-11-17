@@ -8,8 +8,10 @@
   · drawdown.html: MWCD's winter drawdown table for the waters on this site, from data/drawdowns.json (MWCD's own
     numbers, with the source and the date checked). Waters MWCD does not list are named as not listed.
   · night.html: open hours and night rules for every water, from data/quick-facts.json (the same "night" line and
-    "hours" source each lake home shows in Quick facts), grouped by the picker regions in js/lakes.js. A water with no
-    night line gets a plain "no night rule sourced yet" line, never a guess.
+    "hours" source each lake home shows in Quick facts), grouped into native <details> dropdowns by the picker regions
+    in js/lakes.js, in that order, with a name search above the list. A region with no waters is left out. A water with
+    no night line gets a plain "no night rule sourced yet" line, never a guess. Each row keeps id="<lake>" so /night#<lake>
+    still lands on that water.
   · rules.html: add id="<lake>" to each bass-table row already on the page, and id="hoover" to the Hoover crappie
     paragraph, so lake-home also-links can go to /rules#<lake>. This does not add or rewrite rows.
 Only the part between <!-- nb:summary --> and <!-- /nb:summary --> is written on drawdown.html and night.html; the rest
@@ -67,15 +69,37 @@ def drawdown():
     return "\n".join(out)
 
 
+def search_q(lake):
+    """Visible name plus the short name, for the night page search (names only, not towns)."""
+    c = REG["lakes"][lake]
+    seen, bits = set(), []
+    for n in (c.get("name"), c.get("short")):
+        if not n or n in seen:
+            continue
+        seen.add(n)
+        bits.append(n)
+    return " ".join(bits)
+
+
 def night():
     q = json.loads((root / "data" / "quick-facts.json").read_text())["lakes"]
-    out = []
+    out = [
+        '      <form class="night-search" role="search" hidden>',
+        '        <label for="night-search">Find a water</label>',
+        '        <input class="lp-search" id="night-search" type="search" placeholder="Find a water" autocomplete="off" spellcheck="false" enterkeyhint="search">',
+        '      </form>',
+        '      <p class="night-empty" id="night-empty" role="status" hidden></p>',
+        '      <div id="night-regions">',
+    ]
     for reg in REG["regions"]:
         ids = [l for l in REG["order"] if REG["lakes"][l].get("region") == reg["id"]]
         if not ids:
             continue
-        out.append(f'      <h2 id="night-{reg["id"]}">{html.escape(reg["name"])}</h2>')
-        out.append('      <ul class="summary-list">')
+        rid = html.escape(reg["id"], quote=True)
+        out.append(f'      <details class="night-region" id="night-{rid}" data-region="{rid}">')
+        out.append(f'        <summary><h2 class="night-region-title">{html.escape(reg["name"])}</h2>'
+                   f'<span class="night-region-n" aria-hidden="true">{len(ids)}</span></summary>')
+        out.append('        <ul class="summary-list">')
         for l in ids:
             f = q.get(l) or {}
             h = f.get("hours") or {}
@@ -92,9 +116,12 @@ def night():
             else:
                 body = '<span class="summary-note">No night rule sourced yet. Check posted signs, and the lake page for who runs the water.</span>'
             chip = f'<span class="summary-chip">{html.escape(h["chip"])}</span>' if h.get("chip") else ""
-            lid = f' id="{html.escape(l, quote=True)}"' if line else ""
-            out.append(f'        <li{lid}><p class="summary-head"><a href="{l}/">{html.escape(name(l))}</a>{chip}</p><p class="summary-body">{body}</p></li>')
-        out.append('      </ul>')
+            lid = html.escape(l, quote=True)
+            dq = html.escape(search_q(l), quote=True)
+            out.append(f'          <li id="{lid}" data-q="{dq}"><p class="summary-head"><a href="{l}/">{html.escape(name(l))}</a>{chip}</p><p class="summary-body">{body}</p></li>')
+        out.append('        </ul>')
+        out.append('      </details>')
+    out.append('      </div>')
     return "\n".join(out)
 
 
