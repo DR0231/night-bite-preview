@@ -32,7 +32,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v135-2026-11-16";
+var VERSION = "v136-2026-11-16";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -509,7 +509,7 @@ var REVISIONS = {
   "js/hoover-map.js": "eb007aca9278",
   "js/ice-species.js": "4f21ddf4e05e",
   "js/install-tip.js": "066437822918",
-  "js/lake-picker.js": "03f6265ee9c9",
+  "js/lake-picker.js": "b89008e0dbeb",
   "js/water-picker.js": "b48ce9fb2f0d",
   "js/lake-snapshot.js": "79e1111b8d18",
   "js/lakes.js": "daf4a6d193d2",
@@ -517,7 +517,7 @@ var REVISIONS = {
   "js/mode-toggle.js": "842ee5852866",
   "js/nav.js": "85c14199105b",
   "js/a11y-boot.js": "dce50da82642",
-  "js/a11y.js": "285b620a50bc",
+  "js/a11y.js": "c04d17efba56",
   "js/updates-draft.js": "954b481592ef",
   "js/pack-list.js": "f9a5e5d83c93",
   "js/pool-readout.js": "8d7a2674f345",
