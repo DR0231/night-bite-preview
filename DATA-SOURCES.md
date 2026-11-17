@@ -450,7 +450,7 @@ Gaps (said on the site, never filled in):
 - Guilford depths are far below the map until the dam refill (ODNR expects spring 2027).
 - No ODNR ice reports, and no community trips logged at these lakes yet.
 
-## Lakes: Tier C, the last 58 waters (preview), checked Nov. 16, 2026
+## Lakes: Tier C, the last 62 waters (preview), checked Nov. 16, 2026
 
 Same system as the other lakes: `?lake=kiser|hargus|stonelick|grant|lakewhite`, home pages at `/<id>/`, per lake settings in `js/lakes.js`. Build notes and per-water gaps: /workspace/nb-research/tier-c-13-2026-11-16/notes.md.
 
@@ -478,9 +478,9 @@ Gaps (said on the site, never filled in):
 - Acreage differs between ODNR pages and maps on some waters; the page uses the map's figure and names it.
 - No ODNR ice reports, and no community trips logged at these lakes yet.
 
-## Lakes: Tier C, the last 13 waters (preview), checked Nov. 16, 2026
+## Lakes: Tier C, the last 62 waters (preview), checked Nov. 16, 2026
 
-Same system as the other lakes: `?lake=kiser|hargus|stonelick|grant|lakewhite|lakerupert|jackson|wolfrun|tycoon`, home pages at `/<id>/`, per lake settings in `js/lakes.js`. Build notes and per-water gaps: /workspace/nb-research/tier-c-13-2026-11-16/notes.md.
+Same system as the other lakes: `?lake=kiser|hargus|stonelick|grant|lakewhite|lakerupert|jackson|wolfrun|tycoon|lakehope|findlayreservoirs|bresler|fergusonmetzger`, home pages at `/<id>/`, per lake settings in `js/lakes.js`. Build notes and per-water gaps: /workspace/nb-research/tier-c-13-2026-11-16/notes.md.
 
 Common sources: ODNR fishing area, wildlife area and state park pages; ODNR lake maps; ODNR GIS (DOW_LakeFishing for acres and shoreline, DOW_LakeHPRestrictions, Watercraft boating facilities); OAC 1501:47-5-03 (boating on DOW waters) and OAC 1501:31-13-07 and -09 (2026–27 fishing rules, in force). The March 1, 2027 bass changes are linked to the ODNR news release (https://ohiodnr.gov/discover-and-learn/safety-conservation/about-ODNR/news/ohios-spring-2027-turkey-hunting-seasons-updated-bass-fishing-regulations-approved-by-wildlife-council). USGS site service: none of these waters has a lake gauge posting live level or temperature, and none is an Army Corps lake.
 
@@ -495,12 +495,18 @@ Common sources: ODNR fishing area, wildlife area and state park pages; ODNR lake
 | Jackson Lake | None | None | 700 ft, 3 ft contours, 2006: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/jacksonlake2.pdf; 252 acres on the map | 10 hp, bigger motors at no wake (ODNR fishing page; the park page says any hp at idle); statewide limits | NWS grid RLX 26,89; observations Jackson airport (KJRO); alerts OHC079, OHZ083 |
 | Wolf Run Lake | None | None | 798 ft, 3 ft contours, 2006: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/wolfrunlake2.pdf; 207 acres on the map | 10 hp (ODNR); bass 3 a day, 14″ to 20″ slot until Mar. 1, 2027; statewide crappie | NWS grid PBZ 28,32; observations Zanesville airport (KZZV); alerts OHC121, OHZ068 |
 | Tycoon Lake | None | None | 616.4 ft, 3 ft contours, 2003: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/tycoonlake2.pdf; 183 acres on the map | Any motor at idle speed, no wake (ODNR; OAC 1501:47-5-03(E)); bass 3 a day, 14″ to 20″ slot until Mar. 1, 2027; statewide crappie | NWS grid RLX 35,91; observations Jackson airport (KJRO); alerts OHC053, OHZ086 |
+| Lake Hope | None | None | Older scan, no pool elevation or survey year printed: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/lakehope1.pdf; 120 acres | Electric motors and hand powered boats only (ODNR); statewide limits | NWS grid RLX 33,109; observations Ohio University airport, Albany (KUNI); alerts OHC163, OHZ084 |
+| Findlay Reservoirs | None | None | 815 ft pool, 2003, no contour interval printed: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/findlayreservoirs2.pdf; Reservoir 1 186 acres, Reservoir 2 644 acres on the map | Reservoir 1 electric only, Reservoir 2 9.9 hp (ODNR); statewide limits | NWS grid CLE 21,37; observations Findlay Airport (KFDY); alerts OHC063, OHZ017 |
+| Bresler Reservoir | None | None | 850.5 ft pool: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/breslerreservoir2.pdf; 582 acres at maximum water level, 44 ft at most (ODNR) | Electric motors only (ODNR); statewide limits | NWS grid IWX 101,25; observations Lima airport (KAOH); alerts OHC003, OHZ025 |
+| Ferguson and Metzger Reservoirs | None | None | 921 ft pool, 3 ft contours, Ferguson 2006, Metzger 2008: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/fergusonmetzgerreservoirs2.pdf; 308 and 157 acres on the map | No gas motors (ODNR); crappie 30 a day, 9″ minimum | NWS grid IWX 108,26; observations Lima airport (KAOH); alerts OHC003, OHZ025 |
 
-ODNR Fish Stocking dashboard (read Nov. 16, 2026), 2016 to 2025: Kiser channel catfish 2016, 2017, 2019, 2021, 2023, 2025, yellow perch 2019 to 2025 every year, hybrid striped bass 2016 to 2024 every year; Hargus Creek channel catfish 2016, 2018, 2020, 2022, 2024; Stonelick channel catfish 2016, 2018, 2020, 2022, 2024, rainbow trout 2016 to 2022; Grant channel catfish 2016, 2018, 2020, 2024; Lake White saugeye 2017 to 2025 every year, channel catfish 2017, 2018, 2019, 2021, 2023, 2025, bluegill 2017; Lake Rupert saugeye 2016 to 2025 every year, channel catfish 2016, 2018, 2020; Jackson channel catfish 2017, 2019, 2021, 2023, 2025; Wolf Run saugeye 2016 to 2025 every year, yellow perch 2017, 2019, 2020, 2021, 2022, 2024, 2025, channel catfish 2016, 2018, 2020, 2022, rainbow trout 2016 to 2022, brown trout 2024; Tycoon channel catfish 2017, 2021, 2023, 2025.
+ODNR Fish Stocking dashboard (read Nov. 16, 2026), 2016 to 2025: Kiser channel catfish 2016, 2017, 2019, 2021, 2023, 2025, yellow perch 2019 to 2025 every year, hybrid striped bass 2016 to 2024 every year; Hargus Creek channel catfish 2016, 2018, 2020, 2022, 2024; Stonelick channel catfish 2016, 2018, 2020, 2022, 2024, rainbow trout 2016 to 2022; Grant channel catfish 2016, 2018, 2020, 2024; Lake White saugeye 2017 to 2025 every year, channel catfish 2017, 2018, 2019, 2021, 2023, 2025, bluegill 2017; Lake Rupert saugeye 2016 to 2025 every year, channel catfish 2016, 2018, 2020; Jackson channel catfish 2017, 2019, 2021, 2023, 2025; Wolf Run saugeye 2016 to 2025 every year, yellow perch 2017, 2019, 2020, 2021, 2022, 2024, 2025, channel catfish 2016, 2018, 2020, 2022, rainbow trout 2016 to 2022, brown trout 2024; Tycoon channel catfish 2017, 2021, 2023, 2025; Lake Hope yellow perch 2016, 2017, 2019 to 2022, channel catfish 2017, 2019, 2021; Findlay Reservoir 1 walleye 2016 to 2025, saugeye 2017 to 2025, yellow perch 2016, 2017, 2019 to 2025; Findlay Reservoir 2 walleye 2016 to 2025, saugeye 2017 to 2025, yellow perch 2016 to 2025; Bresler walleye 2016 to 2025, yellow perch 2016 to 2022, 2024, 2025; Ferguson walleye 2016 to 2025, saugeye 2017 to 2025, yellow perch 2016 to 2025; Metzger saugeye and yellow perch 2016 to 2025, channel catfish 2024.
 
 Map pins: ramp names and coordinates from the ODNR Watercraft boating facilities layer (gis.ohiodnr.gov), checked against ODNR park and wildlife area maps. Shorelines traced from OpenStreetMap, not for navigation.
 
 Bait nearby (`data/bait-shops.json`): each shop's Google Maps listing was open with recent reviews on Nov. 16, 2026; drive times are OSRM road times.
+
+The Findlay reservoirs, Bresler Reservoir and Ferguson and Metzger are city water supply reservoirs (City of Findlay, City of Lima) open to fishing; rules and facilities shown are ODNR's, from its fishing area pages.
 
 Gaps (said on the site, never filled in):
 - No public lake level or water temperature at any of these waters.
@@ -512,6 +518,9 @@ Gaps (said on the site, never filled in):
 - Jackson: ODNR's fishing area page says a 10 hp limit with bigger motors at no wake; the state park page says any horsepower at idle speed. Both are shown. Muskie and carp are named only on the park page. Acreage differs across ODNR pages (251, 242) and the map (252).
 - Wolf Run: crappie and trout are named on the park page; the species list shows only what survey or stocking data confirm, and trout are on the Trout page.
 - Tycoon: ODNR's fishing page and OAC 1501:47-5-03 say any motor at idle speed; ODNR's HP map layer says electric only. The page shows the fishing page and OAC rule.
+- Lake Hope: ODNR's map is an older scan with no pool elevation or survey year, so no contour correction is possible. Crappie are named on the park page only.
+- Findlay reservoirs: the map prints no contour interval; ODNR has one fishing page (Reservoir 2) covering both; the Blanchard River gauge nearby is a river gauge and is not used.
+- Ferguson and Metzger: ODNR's page says Ferguson is stocked with walleye and Metzger with saugeye; the stocking dashboard also lists saugeye in Ferguson since 2017. The page shows the dashboard numbers.
 - No ODNR ice reports, and no community trips logged at these lakes yet.
 
 ## Lake-aware Species (js/species-lake.js)

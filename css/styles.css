@@ -2931,6 +2931,10 @@ html[data-motion="reduce"]::view-transition-new(*) { animation: none !important;
 .pool-chart img[data-for="jackson"] { width: 50px; height: 96px; }
 .pool-chart img[data-for="wolfrun"] { width: 108px; height: 94px; }
 .pool-chart img[data-for="tycoon"] { width: 80px; height: 96px; }
+.pool-chart img[data-for="lakehope"] { width: 70px; height: 96px; }
+.pool-chart img[data-for="findlayreservoirs"] { width: 82px; height: 96px; }
+.pool-chart img[data-for="bresler"] { width: 88px; height: 96px; }
+.pool-chart img[data-for="fergusonmetzger"] { width: 124px; height: 96px; }
 @media (max-width: 359px) {
   .pool-chart img[data-for="alum"] { width: 134px; height: 37px; }
   .pool-chart img[data-for="buckeye"] { width: 92px; height: 48px; }
@@ -2989,6 +2993,10 @@ html[data-motion="reduce"]::view-transition-new(*) { animation: none !important;
   .pool-chart img[data-for="jackson"] { width: 25px; height: 48px; }
   .pool-chart img[data-for="wolfrun"] { width: 54px; height: 47px; }
   .pool-chart img[data-for="tycoon"] { width: 40px; height: 48px; }
+  .pool-chart img[data-for="lakehope"] { width: 35px; height: 48px; }
+  .pool-chart img[data-for="findlayreservoirs"] { width: 41px; height: 48px; }
+  .pool-chart img[data-for="bresler"] { width: 44px; height: 48px; }
+  .pool-chart img[data-for="fergusonmetzger"] { width: 62px; height: 48px; }
 }
 .pool-chart-key > span[data-for="buckeye"] { margin-right: 0.5rem; }
 @media (min-width: 560px) { .pool-chart-key > span[data-for="buckeye"] { margin-right: 0; } }

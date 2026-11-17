@@ -843,6 +843,46 @@
     "lng": -82.2932279,
     "q": "Outdoorsmen's Cave 14728 OH-554, Bidwell, OH"
    }
+  ],
+  "lakehope": [
+   {
+    "name": "Downs Bait & Guns",
+    "address": "30586 Lake Logan Rd, Logan, OH",
+    "min": 40,
+    "lat": 39.5413961,
+    "lng": -82.4506962,
+    "q": "Downs Bait & Guns 30586 Lake Logan Rd, Logan, OH"
+   }
+  ],
+  "findlayreservoirs": [
+   {
+    "name": "Findlay Bait and Tackle",
+    "address": "11729 Co Rd 9, Findlay, OH",
+    "min": 20,
+    "lat": 40.996994,
+    "lng": -83.6979122,
+    "q": "Findlay Bait and Tackle 11729 Co Rd 9, Findlay, OH"
+   }
+  ],
+  "bresler": [
+   {
+    "name": "Milans Bait & Archery",
+    "address": "2375 Reservoir Rd, Lima, OH",
+    "min": 20,
+    "lat": 40.7457505,
+    "lng": -84.0615668,
+    "q": "Milans Bait & Archery 2375 Reservoir Rd, Lima, OH"
+   }
+  ],
+  "fergusonmetzger": [
+   {
+    "name": "Milans Bait & Archery",
+    "address": "2375 Reservoir Rd, Lima, OH",
+    "min": 5,
+    "lat": 40.7457505,
+    "lng": -84.0615668,
+    "q": "Milans Bait & Archery 2375 Reservoir Rd, Lima, OH"
+   }
   ]
  }
 }

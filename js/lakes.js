@@ -1736,9 +1736,125 @@
       map: { data: "NightBiteMapDataTycoon", chart: "assets/tycoon-chart.png" },
       spots: ["Tycoon Rd ramp and accessible pier", "Bank (other)"],
       species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
+    },
+    lakehope: {
+      id: "lakehope",
+      name: "Lake Hope",
+      short: "Lake Hope",
+      area: "Southeast Ohio",
+      lat: 39.328, lng: -82.35,
+      region: "southeast", owner: "ODNR Ohio State Parks",
+      aliases: ["Lake Hope State Park", "Zaleski", "Zaleski State Forest"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: null,    // ODNR fishing map (an older scanned map; no pool elevation printed)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/RLX/33,109/forecast/hourly",
+        point: "https://api.weather.gov/points/39.328,-82.35",
+        grid: "https://api.weather.gov/gridpoints/RLX/33,109",
+        station: "KUNI",
+        stationName: "Ohio University airport, Albany (KUNI)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.328&lon=-82.35"
+      },
+      alerts: { zones: "OHC163,OHZ084", counties: "the Lake Hope area" },
+      push: null,
+      map: { data: "NightBiteMapDataLakehope", chart: "assets/lakehope-chart.png" },
+      spots: ["SR 278 ramp by the dam", "Bank (other)"],
+      species: ["largemouth-bass", "bluegill", "channel-catfish", "yellow-perch"]
+    },
+    findlayreservoirs: {
+      id: "findlayreservoirs",
+      name: "Findlay Reservoirs",
+      short: "Findlay",
+      area: "Northwest Ohio",
+      lat: 41.015, lng: -83.575,
+      region: "northwest", owner: "City of Findlay",
+      aliases: ["Findlay", "Findlay Reservoir", "Findlay Reservoir 1", "Findlay Reservoir 2", "Riverbend"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake; the Blanchard River gauge nearby measures the river, not the reservoirs
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 815,    // ODNR fishing map pool (no contour interval printed)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/CLE/21,37/forecast/hourly",
+        point: "https://api.weather.gov/points/41.015,-83.575",
+        grid: "https://api.weather.gov/gridpoints/CLE/21,37",
+        station: "KFDY",
+        stationName: "Findlay Airport (KFDY)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=41.015&lon=-83.575"
+      },
+      alerts: { zones: "OHC063,OHZ017", counties: "the Findlay area" },
+      push: null,
+      map: { data: "NightBiteMapDataFindlayreservoirs", chart: "assets/findlayreservoirs-chart.png" },
+      spots: ["Reservoir 1 ramp", "Reservoir 2 ramp", "Floating piers", "Dike bank (other)"],
+      species: ["walleye", "saugeye", "yellow-perch", "white-bass"]
+    },
+    bresler: {
+      id: "bresler",
+      name: "Bresler Reservoir",
+      short: "Bresler",
+      area: "Northwest Ohio",
+      lat: 40.735, lng: -84.235,
+      region: "northwest", owner: "City of Lima",
+      aliases: ["Bresler", "Lima", "Kemp Rd", "Kemp Road"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 850.5,    // ODNR fishing map pool (5 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/IWX/101,25/forecast/hourly",
+        point: "https://api.weather.gov/points/40.735,-84.235",
+        grid: "https://api.weather.gov/gridpoints/IWX/101,25",
+        station: "KAOH",
+        stationName: "Lima airport (KAOH)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.735&lon=-84.235"
+      },
+      alerts: { zones: "OHC003,OHZ025", counties: "the Bresler area" },
+      push: null,
+      map: { data: "NightBiteMapDataBresler", chart: "assets/bresler-chart.png" },
+      spots: ["Kemp Rd ramp", "Agerter Rd lot", "Grubb Rd lots", "Dike bank (other)"],
+      species: ["walleye", "yellow-perch", "white-bass"]
+    },
+    fergusonmetzger: {
+      id: "fergusonmetzger",
+      name: "Ferguson and Metzger Reservoirs",
+      short: "Ferguson & Metzger",
+      area: "Northwest Ohio",
+      lat: 40.745, lng: -84.04,
+      region: "northwest", owner: "City of Lima",
+      aliases: ["Ferguson", "Metzger", "Ferguson Reservoir", "Metzger Reservoir", "Lima", "Reservoir Rd"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 921,    // ODNR fishing map pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/IWX/108,26/forecast/hourly",
+        point: "https://api.weather.gov/points/40.745,-84.04",
+        grid: "https://api.weather.gov/gridpoints/IWX/108,26",
+        station: "KAOH",
+        stationName: "Lima airport (KAOH)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=40.745&lon=-84.04"
+      },
+      alerts: { zones: "OHC003,OHZ025", counties: "the Ferguson & Metzger area" },
+      push: null,
+      map: { data: "NightBiteMapDataFergusonmetzger", chart: "assets/fergusonmetzger-chart.png" },
+      spots: ["Reservoir Rd ramps", "North Mumaugh Rd lot", "Bank (other)"],
+      species: ["walleye", "saugeye", "yellow-perch", "white-bass", "black-crappie", "largemouth-bass", "smallmouth-bass", "channel-catfish"]
     }
   };
-  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity", "wingfoot", "eastbranch", "guilford", "highlandtown", "punderson", "wellington", "kiser", "hargus", "stonelick", "grant", "lakewhite", "lakerupert", "jackson", "wolfrun", "tycoon"];
+  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity", "wingfoot", "eastbranch", "guilford", "highlandtown", "punderson", "wellington", "kiser", "hargus", "stonelick", "grant", "lakewhite", "lakerupert", "jackson", "wolfrun", "tycoon", "lakehope", "findlayreservoirs", "bresler", "fergusonmetzger"];
   // picker regions, in this order (js/lake-picker.js). A region with no lakes yet is hidden. Every lake above sets
   // region to one of these ids; lat and lng above (the lake's NWS forecast point, on the water) give Near me distances.
   var REGIONS = [

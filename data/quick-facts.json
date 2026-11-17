@@ -1355,6 +1355,83 @@
         ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/tycoonlake2.pdf"],
         ["OAC 1501:47-5-03", "https://codes.ohio.gov/ohio-administrative-code/rule-1501:47-5-03"]
       ]
+    },
+    "lakehope": {
+      "checked": "2026-11-16",
+      "title": "Lake Hope Fishing: Map, Ramps, Rules | The Night Bite",
+      "description": "Lake Hope fishing: electric and hand powered only, one ramp on SR 278 by the dam, boathouse rentals, bluegill, crappie, bass and cats, tonight's bite. Unofficial.",
+      "motors": "Electric motors and hand powered boats only (ODNR).",
+      "ramps": "One boat ramp on SR 278 by the dam; the boathouse rents canoes, kayaks and pontoons spring to fall, (740) 596-4949 (ODNR).",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Lake Hope State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-hope-state-park"],
+        "checked": "2026-11-17"
+      },
+      "sources": [
+        ["ODNR, Lake Hope State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-hope-state-park"],
+        ["ODNR, Lake Hope Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-hope-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/lakehope1.pdf"]
+      ]
+    },
+    "findlayreservoirs": {
+      "checked": "2026-11-16",
+      "title": "Findlay Reservoirs Fishing: Map, Ramps, Rules | The Night Bite",
+      "description": "Findlay Reservoirs fishing: Reservoir 1 electric only, Reservoir 2 9.9 hp, city ramps, floating piers, walleye, saugeye, perch stocked, tonight's bite. Unofficial.",
+      "motors": "Reservoir 1: electric motors only. Reservoir 2: gas outboards up to 9.9 hp (ODNR).",
+      "ramps": "City operated ramps with floating fishing piers on both reservoirs; restrooms at the Reservoir 2 ramp (ODNR).",
+      "pool": "Summer pool is 815 ft, the level the ODNR fishing map is drawn at.",
+      "night": "ODNR's Findlay reservoir pages list no access hours, so there's no official night rule to show; follow posted signs.",
+      "hours": {
+        "none": true,
+        "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.",
+        "checked": "2026-11-17"
+      },
+      "sources": [
+        ["ODNR, Findlay Reservoir #1 Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/findlay-reservoir-1-fishing-area"],
+        ["ODNR, Findlay Reservoirs #2 Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/findlay-reservoirs-2-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/findlayreservoirs2.pdf"]
+      ]
+    },
+    "bresler": {
+      "checked": "2026-11-16",
+      "title": "Bresler Reservoir Fishing: Map, Ramps, Rules | The Night Bite",
+      "description": "Bresler Reservoir fishing: electric motors only, ramp off Kemp Rd, upground reservoir 44 ft deep, walleye and yellow perch stocked, tonight's bite. Unofficial.",
+      "motors": "Electric motors only (ODNR).",
+      "ramps": "Boat ramp and main parking on the east side off Kemp Rd; more lots off Agerter Rd and Grubb Rd (ODNR).",
+      "pool": "Summer pool is 850.5 ft, the level the ODNR fishing map is drawn at.",
+      "night": "ODNR's Bresler Reservoir Fishing Area page lists no hours, so there's no official night rule to show; follow posted signs.",
+      "hours": {
+        "none": true,
+        "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.",
+        "checked": "2026-11-17"
+      },
+      "sources": [
+        ["ODNR, Bresler Reservoir Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/bresler-reservoir-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/breslerreservoir2.pdf"]
+      ]
+    },
+    "fergusonmetzger": {
+      "checked": "2026-11-16",
+      "title": "Ferguson and Metzger Reservoirs Fishing: Map, Ramps, Rules | The Night Bite",
+      "description": "Ferguson and Metzger fishing: no gas motors, primitive ramps off Reservoir Rd, walleye, saugeye and perch stocked, crappie 30 a day, 9″ minimum. Unofficial.",
+      "motors": "Boats allowed on both reservoirs; gasoline motors prohibited (ODNR).",
+      "ramps": "Primitive boat ramps on both reservoirs near the Reservoir Rd entrance; two lots off Reservoir Rd and one off North Mumaugh Rd (ODNR).",
+      "pool": "Summer pool is 921 ft, the level the ODNR fishing map is drawn at.",
+      "night": "ODNR's Ferguson & Metzger Reservoirs Fishing Area page lists no hours, so there's no official night rule to show; follow posted signs.",
+      "hours": {
+        "none": true,
+        "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.",
+        "checked": "2026-11-17"
+      },
+      "sources": [
+        ["ODNR, Ferguson & Metzger Reservoirs Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/ferguson-metzger-reservoirs-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/fergusonmetzgerreservoirs2.pdf"]
+      ]
     }
   }
 }

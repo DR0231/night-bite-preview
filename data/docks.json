@@ -2143,6 +2143,142 @@
    "sources": [
     "odnr-tycoon"
    ]
+  },
+  "lakehope": {
+   "name": "Lake Hope",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists one ramp on SR 278 by the dam.",
+     "source": "odnr-lakehope"
+    },
+    {
+     "name": "Boathouse",
+     "status": "unannounced",
+     "label": "Seasonal",
+     "note": "Rentals in spring, summer and fall; call (740) 596-4949 (ODNR).",
+     "source": "odnr-lakehope"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Lake Hope State Park office",
+     "+17405964938",
+     "(740) 596-4938",
+     ""
+    ],
+    [
+     "Boathouse",
+     "+17405964949",
+     "(740) 596-4949",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-lakehope"
+   ]
+  },
+  "findlayreservoirs": {
+   "name": "Findlay Reservoirs",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Reservoir 1 ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "City operated ramp with a floating fishing pier. Electric only.",
+     "source": "odnr-findlayreservoirs"
+    },
+    {
+     "name": "Reservoir 2 ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "City operated ramp with restrooms and a floating fishing pier. 9.9 hp max.",
+     "source": "odnr-findlayreservoirs"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Two",
+     "+14194245000",
+     "(419) 424-5000",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-findlayreservoirs"
+   ]
+  },
+  "bresler": {
+   "name": "Bresler Reservoir",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists the ramp and main lot on the east side off Kemp Rd. Electric only.",
+     "source": "odnr-bresler"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Two",
+     "+14194245000",
+     "(419) 424-5000",
+     ""
+    ],
+    [
+     "City of Lima parks",
+     "+14192215195",
+     "(419) 221-5195",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-bresler"
+   ]
+  },
+  "fergusonmetzger": {
+   "name": "Ferguson and Metzger Reservoirs",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramps",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists primitive ramps on both reservoirs near the Reservoir Rd entrance. No gas motors.",
+     "source": "odnr-fergusonmetzger"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Two",
+     "+14194245000",
+     "(419) 424-5000",
+     ""
+    ],
+    [
+     "City of Lima parks",
+     "+14192215195",
+     "(419) 221-5195",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-fergusonmetzger"
+   ]
   }
  },
  "watch": [
@@ -3445,6 +3581,82 @@
    "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/tycoon-lake-fishing-area",
    "lakes": [
     "tycoon"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-lakehope",
+   "label": "ODNR, Lake Hope State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-hope-state-park",
+   "lakes": [
+    "lakehope"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-findlayreservoirs",
+   "label": "ODNR, Findlay Reservoirs #2 Fishing Area",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/findlay-reservoirs-2-fishing-area",
+   "lakes": [
+    "findlayreservoirs"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-bresler",
+   "label": "ODNR, Bresler Reservoir Fishing Area",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/bresler-reservoir-fishing-area",
+   "lakes": [
+    "bresler"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-fergusonmetzger",
+   "label": "ODNR, Ferguson & Metzger Reservoirs Fishing Area",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/ferguson-metzger-reservoirs-fishing-area",
+   "lakes": [
+    "fergusonmetzger"
    ],
    "keywords": [
     "dock",

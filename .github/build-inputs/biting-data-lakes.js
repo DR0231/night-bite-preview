@@ -3085,3 +3085,195 @@ window.NightBiteBitingTycoon = {
       { id: "largemouth-bass", where: "Deep drop offs. Slow jigs and blade baits.", when: "Midday", night: false } ] }
   ]
 };
+
+window.NightBiteBitingLakehope = {
+  species: {
+    "bluegill": "Bluegill", "largemouth-bass": "Largemouth bass", "channel-catfish": "Channel catfish"
+  },
+  months: [
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "bluegill", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false },
+      { id: "largemouth-bass", where: "Deep drop offs. Slow jigs and blade baits.", when: "Midday", night: false } ] },
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "bluegill", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false },
+      { id: "largemouth-bass", where: "Deep drop offs. Slow jigs and blade baits.", when: "Midday", night: false } ] },
+    { note: "Cold water. Wear a life jacket on every early season trip.", picks: [
+      { id: "largemouth-bass", where: "Banks warming in the sun. Jerkbaits and soft plastics.", when: "Afternoon", night: false },
+      { id: "bluegill", where: "Shallow flats warming in the sun. Small jigs or worms.", when: "Afternoon", night: false } ] },
+    { note: "Cold water. Wear a life jacket on every early season trip.", picks: [
+      { id: "largemouth-bass", where: "Banks warming in the sun. Jerkbaits and soft plastics.", when: "Afternoon", night: false },
+      { id: "channel-catfish", where: "Shallow flats after the first warm days. Cut bait or crawlers.", when: "After dark", night: true },
+      { id: "bluegill", where: "Shallow flats warming in the sun. Small jigs or worms.", when: "Afternoon", night: false } ] },
+    { picks: [
+      { id: "largemouth-bass", where: "Banks warming in the sun. Jerkbaits and soft plastics.", when: "Afternoon", night: false },
+      { id: "bluegill", where: "Shallow flats warming in the sun. Small jigs or worms.", when: "Afternoon", night: false } ] },
+    { picks: [
+      { id: "channel-catfish", where: "Flats next to deeper water. Chicken liver, shrimp or crawlers.", when: "After dark", night: true },
+      { id: "largemouth-bass", where: "Points and shallow flats. Topwater early, plastics later.", when: "Dawn and dusk", night: false },
+      { id: "bluegill", where: "Shallow flats. Small jigs or worms under a bobber.", when: "Morning", night: false } ] },
+    { picks: [
+      { id: "channel-catfish", where: "Flats next to deeper water. Chicken liver, shrimp or crawlers.", when: "After dark", night: true },
+      { id: "bluegill", where: "Shallow flats. Small jigs or worms under a bobber.", when: "Morning", night: false },
+      { id: "largemouth-bass", where: "Points and shallow flats. Topwater early, plastics later.", when: "Dawn and dusk", night: false } ] },
+    { picks: [
+      { id: "channel-catfish", where: "Flats next to deeper water. Chicken liver, shrimp or crawlers.", when: "After dark", night: true },
+      { id: "bluegill", where: "Shallow flats. Small jigs or worms under a bobber.", when: "Morning", night: false },
+      { id: "largemouth-bass", where: "Points and shallow flats. Topwater early, plastics later.", when: "Dawn and dusk", night: false } ] },
+    { picks: [
+      { id: "channel-catfish", where: "Flats near deeper water. Cut bait or crawlers.", when: "After dark", night: true },
+      { id: "largemouth-bass", where: "Points and shallow flats chasing baitfish. Spinnerbaits and crankbaits.", when: "Afternoon", night: false } ] },
+    { picks: [
+      { id: "largemouth-bass", where: "Points and shallow flats chasing baitfish. Spinnerbaits and crankbaits.", when: "Afternoon", night: false },
+      { id: "channel-catfish", where: "Flats near deeper water. Cut bait or crawlers.", when: "After dark", night: true } ] },
+    { note: "Cold water and long nights. Wear a life jacket and tell someone your plan.", picks: [
+      { id: "largemouth-bass", where: "Points and shallow flats chasing baitfish. Spinnerbaits and crankbaits.", when: "Afternoon", night: false },
+      { id: "channel-catfish", where: "Flats near deeper water. Cut bait or crawlers.", when: "After dark", night: true } ] },
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "bluegill", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false },
+      { id: "largemouth-bass", where: "Deep drop offs. Slow jigs and blade baits.", when: "Midday", night: false } ] }
+  ]
+};
+
+window.NightBiteBitingFindlayreservoirs = {
+  species: {
+    "walleye": "Walleye", "yellow-perch": "Yellow perch", "white-bass": "White bass"
+  },
+  months: [
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "walleye", where: "The conservation pool, the deepest water. Jigs with minnows, fished slow.", when: "Dusk", night: false },
+      { id: "yellow-perch", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false } ] },
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "walleye", where: "The conservation pool, the deepest water. Jigs with minnows, fished slow.", when: "Dusk", night: false },
+      { id: "yellow-perch", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false } ] },
+    { note: "Cold water. Wear a life jacket on every early season trip.", picks: [
+      { id: "walleye", where: "Riprap dikes and flats as the water warms. Jigs tipped with minnows.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "Shallow flats warming in the sun. Small jigs or worms.", when: "Afternoon", night: false } ] },
+    { note: "Cold water. Wear a life jacket on every early season trip.", picks: [
+      { id: "walleye", where: "Riprap dikes and flats as the water warms. Jigs tipped with minnows.", when: "Dusk and after dark", night: true },
+      { id: "white-bass", where: "Along the riprap dikes as the water warms. Small spinners and jigs.", when: "Afternoon", night: false },
+      { id: "yellow-perch", where: "Shallow flats warming in the sun. Small jigs or worms.", when: "Afternoon", night: false } ] },
+    { picks: [
+      { id: "walleye", where: "Riprap dikes and flats as the water warms. Jigs tipped with minnows.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "Shallow flats warming in the sun. Small jigs or worms.", when: "Afternoon", night: false } ] },
+    { picks: [
+      { id: "walleye", where: "Riprap dikes and flats. Crawler harnesses or small crankbaits.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "The fish attractors on the ODNR map. Small jigs or worms under a bobber.", when: "Morning", night: false } ] },
+    { picks: [
+      { id: "walleye", where: "Riprap dikes and flats. Crawler harnesses or small crankbaits.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "The fish attractors on the ODNR map. Small jigs or worms under a bobber.", when: "Morning", night: false },
+      { id: "white-bass", where: "Schools on shad near the surface. Spoons and small swimbaits.", when: "Dusk", night: false } ] },
+    { picks: [
+      { id: "white-bass", where: "Schools on shad near the surface. Spoons and small swimbaits.", when: "Dusk", night: false },
+      { id: "walleye", where: "Riprap dikes and flats. Crawler harnesses or small crankbaits.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "The fish attractors on the ODNR map. Small jigs or worms under a bobber.", when: "Morning", night: false } ] },
+    { picks: [
+      { id: "walleye", where: "Riprap dikes as the water cools. Crankbaits and jigs with minnows.", when: "Dusk and after dark", night: true } ] },
+    { picks: [
+      { id: "walleye", where: "Riprap dikes as the water cools. Crankbaits and jigs with minnows.", when: "Dusk and after dark", night: true } ] },
+    { note: "Cold water and long nights. Wear a life jacket and tell someone your plan.", picks: [
+      { id: "walleye", where: "Riprap dikes as the water cools. Crankbaits and jigs with minnows.", when: "Dusk and after dark", night: true } ] },
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "walleye", where: "The conservation pool, the deepest water. Jigs with minnows, fished slow.", when: "Dusk", night: false },
+      { id: "yellow-perch", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false } ] }
+  ]
+};
+
+window.NightBiteBitingBresler = {
+  species: {
+    "walleye": "Walleye", "yellow-perch": "Yellow perch", "white-bass": "White bass"
+  },
+  months: [
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "walleye", where: "The deepest water near the northeast corner. Jigs with minnows, fished slow.", when: "Dusk", night: false },
+      { id: "yellow-perch", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false } ] },
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "walleye", where: "The deepest water near the northeast corner. Jigs with minnows, fished slow.", when: "Dusk", night: false },
+      { id: "yellow-perch", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false } ] },
+    { note: "Cold water. Wear a life jacket on every early season trip.", picks: [
+      { id: "walleye", where: "Dikes and flats as the water warms. Jigs tipped with minnows.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "Shallow flats warming in the sun. Small jigs or worms.", when: "Afternoon", night: false } ] },
+    { note: "Cold water. Wear a life jacket on every early season trip.", picks: [
+      { id: "walleye", where: "Dikes and flats as the water warms. Jigs tipped with minnows.", when: "Dusk and after dark", night: true },
+      { id: "white-bass", where: "Along the dikes as the water warms. Small spinners and jigs.", when: "Afternoon", night: false },
+      { id: "yellow-perch", where: "Shallow flats warming in the sun. Small jigs or worms.", when: "Afternoon", night: false } ] },
+    { picks: [
+      { id: "walleye", where: "Dikes and flats as the water warms. Jigs tipped with minnows.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "Shallow flats warming in the sun. Small jigs or worms.", when: "Afternoon", night: false } ] },
+    { picks: [
+      { id: "walleye", where: "Dikes and flats. Crawler harnesses or small crankbaits.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "The weed beds around the underwater island. Small jigs or worms under a bobber.", when: "Morning", night: false } ] },
+    { picks: [
+      { id: "walleye", where: "Dikes and flats. Crawler harnesses or small crankbaits.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "The weed beds around the underwater island. Small jigs or worms under a bobber.", when: "Morning", night: false },
+      { id: "white-bass", where: "Schools on shad near the surface. Spoons and small swimbaits.", when: "Dusk", night: false } ] },
+    { picks: [
+      { id: "white-bass", where: "Schools on shad near the surface. Spoons and small swimbaits.", when: "Dusk", night: false },
+      { id: "walleye", where: "Dikes and flats. Crawler harnesses or small crankbaits.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "The weed beds around the underwater island. Small jigs or worms under a bobber.", when: "Morning", night: false } ] },
+    { picks: [
+      { id: "walleye", where: "Dikes as the water cools. Crankbaits and jigs with minnows.", when: "Dusk and after dark", night: true } ] },
+    { picks: [
+      { id: "walleye", where: "Dikes as the water cools. Crankbaits and jigs with minnows.", when: "Dusk and after dark", night: true } ] },
+    { note: "Cold water and long nights. Wear a life jacket and tell someone your plan.", picks: [
+      { id: "walleye", where: "Dikes as the water cools. Crankbaits and jigs with minnows.", when: "Dusk and after dark", night: true } ] },
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "walleye", where: "The deepest water near the northeast corner. Jigs with minnows, fished slow.", when: "Dusk", night: false },
+      { id: "yellow-perch", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false } ] }
+  ]
+};
+
+window.NightBiteBitingFergusonmetzger = {
+  species: {
+    "walleye": "Walleye", "black-crappie": "Crappie", "yellow-perch": "Yellow perch", "smallmouth-bass": "Smallmouth bass", "white-bass": "White bass", "largemouth-bass": "Largemouth bass", "channel-catfish": "Channel catfish"
+  },
+  months: [
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "walleye", where: "The deepest water, 33 ft at most. Jigs with minnows, fished slow.", when: "Dusk", night: false },
+      { id: "black-crappie", where: "Drop offs and deeper edges. Minnows or light jigs, very slow.", when: "Midday", night: false },
+      { id: "yellow-perch", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false } ] },
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "walleye", where: "The deepest water, 33 ft at most. Jigs with minnows, fished slow.", when: "Dusk", night: false },
+      { id: "black-crappie", where: "Drop offs and deeper edges. Minnows or light jigs, very slow.", when: "Midday", night: false },
+      { id: "yellow-perch", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false } ] },
+    { note: "Cold water. Wear a life jacket on every early season trip.", picks: [
+      { id: "walleye", where: "Banks and flats as the water warms. Jigs tipped with minnows.", when: "Dusk and after dark", night: true },
+      { id: "black-crappie", where: "Moving from deeper edges toward the shallows. Minnows under a float.", when: "Afternoon into dusk", night: false },
+      { id: "smallmouth-bass", where: "Rocky banks warming in the sun. Tubes and jerkbaits.", when: "Afternoon", night: false } ] },
+    { note: "Cold water. Wear a life jacket on every early season trip.", picks: [
+      { id: "walleye", where: "Banks and flats as the water warms. Jigs tipped with minnows.", when: "Dusk and after dark", night: true },
+      { id: "black-crappie", where: "Moving from deeper edges toward the shallows. Minnows under a float.", when: "Afternoon into dusk", night: false },
+      { id: "white-bass", where: "Along the banks as the water warms. Small spinners and jigs.", when: "Afternoon", night: false } ] },
+    { picks: [
+      { id: "black-crappie", where: "Shallow flats and banks on the spawn. Minnows under a float.", when: "Morning and dusk", night: false },
+      { id: "walleye", where: "Banks and flats as the water warms. Jigs tipped with minnows.", when: "Dusk and after dark", night: true },
+      { id: "largemouth-bass", where: "Banks warming in the sun. Jerkbaits and soft plastics.", when: "Afternoon", night: false } ] },
+    { picks: [
+      { id: "channel-catfish", where: "Flats next to deeper water. Chicken liver, shrimp or crawlers.", when: "After dark", night: true },
+      { id: "walleye", where: "Banks and flats. Crawler harnesses or small crankbaits.", when: "Dusk and after dark", night: true },
+      { id: "largemouth-bass", where: "Banks and flats. Topwater early, plastics later.", when: "Dawn and dusk", night: false } ] },
+    { picks: [
+      { id: "channel-catfish", where: "Flats next to deeper water. Chicken liver, shrimp or crawlers.", when: "After dark", night: true },
+      { id: "walleye", where: "Banks and flats. Crawler harnesses or small crankbaits.", when: "Dusk and after dark", night: true },
+      { id: "yellow-perch", where: "The cattail bed on the east shore of Ferguson. Small jigs or worms under a bobber.", when: "Morning", night: false } ] },
+    { picks: [
+      { id: "channel-catfish", where: "Flats next to deeper water. Chicken liver, shrimp or crawlers.", when: "After dark", night: true },
+      { id: "white-bass", where: "Schools on shad near the surface. Spoons and small swimbaits.", when: "Dusk", night: false },
+      { id: "walleye", where: "Banks and flats. Crawler harnesses or small crankbaits.", when: "Dusk and after dark", night: true } ] },
+    { picks: [
+      { id: "walleye", where: "Banks as the water cools. Crankbaits and jigs with minnows.", when: "Dusk and after dark", night: true },
+      { id: "channel-catfish", where: "Flats near deeper water. Cut bait or crawlers.", when: "After dark", night: true },
+      { id: "largemouth-bass", where: "Banks chasing baitfish. Spinnerbaits and crankbaits.", when: "Afternoon", night: false } ] },
+    { picks: [
+      { id: "walleye", where: "Banks as the water cools. Crankbaits and jigs with minnows.", when: "Dusk and after dark", night: true },
+      { id: "black-crappie", where: "Drop offs and deeper edges and baitfish schools. Jigs and minnows.", when: "Afternoon", night: false },
+      { id: "largemouth-bass", where: "Banks chasing baitfish. Spinnerbaits and crankbaits.", when: "Afternoon", night: false } ] },
+    { note: "Cold water and long nights. Wear a life jacket and tell someone your plan.", picks: [
+      { id: "walleye", where: "Banks as the water cools. Crankbaits and jigs with minnows.", when: "Dusk and after dark", night: true },
+      { id: "black-crappie", where: "Drop offs and deeper edges and baitfish schools. Jigs and minnows.", when: "Afternoon", night: false },
+      { id: "largemouth-bass", where: "Banks chasing baitfish. Spinnerbaits and crankbaits.", when: "Afternoon", night: false } ] },
+    { note: "Check ice and cold water safety before any winter trip.", picks: [
+      { id: "walleye", where: "The deepest water, 33 ft at most. Jigs with minnows, fished slow.", when: "Dusk", night: false },
+      { id: "black-crappie", where: "Drop offs and deeper edges. Minnows or light jigs, very slow.", when: "Midday", night: false },
+      { id: "yellow-perch", where: "Drop offs near the deepest water. Small jigs and waxworms.", when: "Midday", night: false } ] }
+  ]
+};
