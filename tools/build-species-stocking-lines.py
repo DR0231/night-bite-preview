@@ -34,6 +34,8 @@ LINES = {
         ("charlesmill", "stocked", "ODNR stocked saugeye in Charles Mill Lake every year from 2016 to 2025."),
         ("pleasanthill", "stocked", "ODNR stocked saugeye in Pleasant Hill Lake every year from 2016 to 2025."),
         ("lakewhite", "stocked", "ODNR stocked saugeye in Lake White every year from 2017 to 2025."),
+        ("lakerupert", "stocked", "ODNR stocked saugeye in Lake Rupert every year from 2016 to 2025."),
+        ("wolfrun", "stocked", "ODNR stocked saugeye in Wolf Run Lake every year from 2016 to 2025."),
     ],
     "blue-catfish": [
         ("hoover", "stocked", "ODNR stocked blue catfish in Hoover in 7 of the years from 2011 to 2018."),
@@ -108,6 +110,10 @@ LINES = {
         ("stonelick", "stocked", "ODNR stocked channel catfish in Stonelick Lake every other year from 2016 to 2024."),
         ("grant", "stocked", "ODNR stocked channel catfish in Grant Lake in 2016, 2018, 2020 and 2024."),
         ("lakewhite", "stocked", "ODNR stocked channel catfish in Lake White in 2017, 2018, 2019, 2021, 2023 and 2025."),
+        ("lakerupert", "stocked", "ODNR stocked channel catfish in Lake Rupert in 2016, 2018 and 2020."),
+        ("jackson", "stocked", "ODNR stocked channel catfish in Jackson Lake in 2017, 2019, 2021, 2023 and 2025."),
+        ("wolfrun", "stocked", "ODNR stocked channel catfish in Wolf Run Lake in 2016, 2018, 2020 and 2022."),
+        ("tycoon", "stocked", "ODNR stocked channel catfish in Tycoon Lake in 2017, 2021, 2023 and 2025."),
     ],
     "bluegill": [
         ("mosquito", "stocked", "ODNR stocked 125 bluegill catchables in Mosquito Creek Lake in 2025."),
@@ -118,6 +124,7 @@ LINES = {
         ("grandlakestmarys", "stocked", "ODNR stocked yellow perch in Grand Lake St. Marys in most years from 2016 to 2025."),
         ("wellington", "stocked", "ODNR stocked yellow perch in Wellington Upground Reservoir in nine of the ten years from 2016 to 2025."),
         ("kiser", "stocked", "ODNR stocked yellow perch in Kiser Lake every year from 2019 to 2025."),
+        ("wolfrun", "stocked", "ODNR stocked yellow perch in Wolf Run Lake in 2017, 2019, 2020, 2021, 2022, 2024 and 2025."),
     ],
     "hybrid-striped-bass": [
         ("oshaughnessy", "stocked", "ODNR lists O’Shaughnessy among the lakes it stocks with hybrid striped bass; no numbers are posted."),

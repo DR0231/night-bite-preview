@@ -6,11 +6,11 @@
       "date": null,
       "draft": true,
       "tag": "New",
-      "title": "Five more Ohio waters",
+      "title": "Nine more Ohio waters",
       "bullets": [
-        "Pick Kiser Lake, Hargus Creek Lake, Stonelick Lake, Grant Lake or Lake White with the lake picker. Each has its own home page.",
+        "Pick Kiser Lake, Hargus Creek Lake, Stonelick Lake, Grant Lake, Lake White, Lake Rupert, Jackson Lake, Wolf Run Lake or Tycoon Lake with the lake picker. Each has its own home page.",
         "Each water has its own map and ramps, lake rules, species notes, dock season and Bait nearby. None has a public level or water temp gauge, and each page says so.",
-        "Kiser and Hargus show today's site bass rule with the March 1, 2027 statewide change dated next to it, linked to ODNR's news release.",
+        "Kiser, Hargus, Rupert, Wolf Run and Tycoon show today's site bass rule with the March 1, 2027 statewide change dated next to it, linked to ODNR's news release.",
         "Stocking & surveys adds ten years of ODNR stocking where ODNR stocks these waters, from ODNR's Fish Stocking dashboard."
       ],
       "links": [
@@ -41,6 +41,22 @@
         {
           "label": "Lake White",
           "href": "lakewhite/"
+        },
+        {
+          "label": "Lake Rupert",
+          "href": "lakerupert/"
+        },
+        {
+          "label": "Jackson Lake",
+          "href": "jackson/"
+        },
+        {
+          "label": "Wolf Run Lake",
+          "href": "wolfrun/"
+        },
+        {
+          "label": "Tycoon Lake",
+          "href": "tycoon/"
         }
       ]
     },

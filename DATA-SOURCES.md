@@ -450,7 +450,7 @@ Gaps (said on the site, never filled in):
 - Guilford depths are far below the map until the dam refill (ODNR expects spring 2027).
 - No ODNR ice reports, and no community trips logged at these lakes yet.
 
-## Lakes: Tier C, the last 13 waters (preview), checked Nov. 16, 2026
+## Lakes: Tier C, the last 58 waters (preview), checked Nov. 16, 2026
 
 Same system as the other lakes: `?lake=kiser|hargus|stonelick|grant|lakewhite`, home pages at `/<id>/`, per lake settings in `js/lakes.js`. Build notes and per-water gaps: /workspace/nb-research/tier-c-13-2026-11-16/notes.md.
 
@@ -476,6 +476,42 @@ Gaps (said on the site, never filled in):
 - Hargus Creek: the lake bait shop listing is not used (a recent review says it sells no bait); nearest confirmed bait is in Lancaster.
 - Grant: no ODNR contour map, no acreage on the wildlife area page, and no ODNR survey numbers.
 - Acreage differs between ODNR pages and maps on some waters; the page uses the map's figure and names it.
+- No ODNR ice reports, and no community trips logged at these lakes yet.
+
+## Lakes: Tier C, the last 13 waters (preview), checked Nov. 16, 2026
+
+Same system as the other lakes: `?lake=kiser|hargus|stonelick|grant|lakewhite|lakerupert|jackson|wolfrun|tycoon`, home pages at `/<id>/`, per lake settings in `js/lakes.js`. Build notes and per-water gaps: /workspace/nb-research/tier-c-13-2026-11-16/notes.md.
+
+Common sources: ODNR fishing area, wildlife area and state park pages; ODNR lake maps; ODNR GIS (DOW_LakeFishing for acres and shoreline, DOW_LakeHPRestrictions, Watercraft boating facilities); OAC 1501:47-5-03 (boating on DOW waters) and OAC 1501:31-13-07 and -09 (2026–27 fishing rules, in force). The March 1, 2027 bass changes are linked to the ODNR news release (https://ohiodnr.gov/discover-and-learn/safety-conservation/about-ODNR/news/ohios-spring-2027-turkey-hunting-seasons-updated-bass-fishing-regulations-approved-by-wildlife-council). USGS site service: none of these waters has a lake gauge posting live level or temperature, and none is an Army Corps lake.
+
+| Lake | Lake level | Water temp | Map pool (contours) | Rules shown | Forecast, observations, alerts |
+|---|---|---|---|---|---|
+| Kiser Lake | None | None | 1,067 ft, 3 ft contours, 2003: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/kiserlake2.pdf; 394 acres | No motors (ODNR); bass 3 a day, 14″ to 20″ slot until Mar. 1, 2027; statewide crappie | NWS grid ILN 51,89; observations Urbana Grimes Field (KI74); alerts OHC021, OHZ052 |
+| Hargus Creek Lake | None | None | 821.5 ft, 5 ft contours, 1997: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/harguscreeklake2.pdf; 143 acres | Electric and hand powered boats only (ODNR); bass 4 a day, 2 under 15″ and 2 15″ or longer until Mar. 1, 2027; statewide crappie | NWS grid ILN 90,67; observations Rickenbacker (KLCK); alerts OHC129, OHZ064 |
+| Stonelick Lake | None | None | 874.2 ft, 3 ft contours, 1998: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/stonelicklake2.pdf; 161 acres | Electric and hand powered boats only (ODNR); statewide limits | NWS grid ILN 51,45; observations Batavia airport (KI69); alerts OHC025, OHZ078 |
+| Grant Lake | None | None | No ODNR contour map (ODNR Grant Lake Wildlife Area page: https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/grant-lake-wildlife-area) | 10 hp (OAC 1501:47-5-03(C)); statewide limits | NWS grid ILN 56,35; observations Batavia airport (KI69); alerts OHC015, OHZ079 |
+| Lake White | None | None | 573.75 ft, 3 ft contours, 2003: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/lakewhite2.pdf; 333 acres | No horsepower limit (ODNR fishing page); statewide limits; park hours sunrise to sunset | NWS grid ILN 88,43; observations Pike County Airport (KEOP); alerts OHC131, OHZ082 |
+| Lake Rupert | None | None | 708 ft, 3 ft contours, 2006: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/lakerupert2.pdf; 327 acres | No horsepower limit, no wake (ODNR fishing page); over 10 hp at idle (OAC 1501:47-5-03(D)); bass 5 a day, none from 12″ to 15″ until Mar. 1, 2027; statewide crappie | NWS grid RLX 28,102; observations Jackson airport (KJRO); alerts OHC163, OHZ084 |
+| Jackson Lake | None | None | 700 ft, 3 ft contours, 2006: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/jacksonlake2.pdf; 252 acres on the map | 10 hp, bigger motors at no wake (ODNR fishing page; the park page says any hp at idle); statewide limits | NWS grid RLX 26,89; observations Jackson airport (KJRO); alerts OHC079, OHZ083 |
+| Wolf Run Lake | None | None | 798 ft, 3 ft contours, 2006: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/wolfrunlake2.pdf; 207 acres on the map | 10 hp (ODNR); bass 3 a day, 14″ to 20″ slot until Mar. 1, 2027; statewide crappie | NWS grid PBZ 28,32; observations Zanesville airport (KZZV); alerts OHC121, OHZ068 |
+| Tycoon Lake | None | None | 616.4 ft, 3 ft contours, 2003: https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/tycoonlake2.pdf; 183 acres on the map | Any motor at idle speed, no wake (ODNR; OAC 1501:47-5-03(E)); bass 3 a day, 14″ to 20″ slot until Mar. 1, 2027; statewide crappie | NWS grid RLX 35,91; observations Jackson airport (KJRO); alerts OHC053, OHZ086 |
+
+ODNR Fish Stocking dashboard (read Nov. 16, 2026), 2016 to 2025: Kiser channel catfish 2016, 2017, 2019, 2021, 2023, 2025, yellow perch 2019 to 2025 every year, hybrid striped bass 2016 to 2024 every year; Hargus Creek channel catfish 2016, 2018, 2020, 2022, 2024; Stonelick channel catfish 2016, 2018, 2020, 2022, 2024, rainbow trout 2016 to 2022; Grant channel catfish 2016, 2018, 2020, 2024; Lake White saugeye 2017 to 2025 every year, channel catfish 2017, 2018, 2019, 2021, 2023, 2025, bluegill 2017; Lake Rupert saugeye 2016 to 2025 every year, channel catfish 2016, 2018, 2020; Jackson channel catfish 2017, 2019, 2021, 2023, 2025; Wolf Run saugeye 2016 to 2025 every year, yellow perch 2017, 2019, 2020, 2021, 2022, 2024, 2025, channel catfish 2016, 2018, 2020, 2022, rainbow trout 2016 to 2022, brown trout 2024; Tycoon channel catfish 2017, 2021, 2023, 2025.
+
+Map pins: ramp names and coordinates from the ODNR Watercraft boating facilities layer (gis.ohiodnr.gov), checked against ODNR park and wildlife area maps. Shorelines traced from OpenStreetMap, not for navigation.
+
+Bait nearby (`data/bait-shops.json`): each shop's Google Maps listing was open with recent reviews on Nov. 16, 2026; drive times are OSRM road times.
+
+Gaps (said on the site, never filled in):
+- No public lake level or water temperature at any of these waters.
+- Kiser: ODNR pages differ on launches (one ramp and four small launches on the fishing page, two launches elsewhere) and piers (five vs two); the marina is listed by ODNR but Google shows the Kiser Lake Marina listing as permanently closed, so it is not a bait shop here.
+- Hargus Creek: the lake bait shop listing is not used (a recent review says it sells no bait); nearest confirmed bait is in Lancaster.
+- Grant: no ODNR contour map, no acreage on the wildlife area page, and no ODNR survey numbers.
+- Acreage differs between ODNR pages and maps on some waters; the page uses the map's figure and names it.
+- Lake Rupert: ODNR's fishing page says no horsepower limit at no wake speed; OAC 1501:47-5-03 says motors over 10 hp at idle or no wake. Both are shown. The fishing page and the wildlife area page give different wildlife area sizes (1,298 and 1,446 acres).
+- Jackson: ODNR's fishing area page says a 10 hp limit with bigger motors at no wake; the state park page says any horsepower at idle speed. Both are shown. Muskie and carp are named only on the park page. Acreage differs across ODNR pages (251, 242) and the map (252).
+- Wolf Run: crappie and trout are named on the park page; the species list shows only what survey or stocking data confirm, and trout are on the Trout page.
+- Tycoon: ODNR's fishing page and OAC 1501:47-5-03 say any motor at idle speed; ODNR's HP map layer says electric only. The page shows the fishing page and OAC rule.
 - No ODNR ice reports, and no community trips logged at these lakes yet.
 
 ## Lake-aware Species (js/species-lake.js)

@@ -795,6 +795,54 @@
     "lng": -83.0513157,
     "q": "JR's Bait & Tackle 6687 OH-104, Jasper, OH"
    }
+  ],
+  "lakerupert": [
+   {
+    "name": "Mike's Bait and Tackle",
+    "address": "1272 Pennsylvania Ave, Wellston, OH",
+    "min": 10,
+    "lat": 39.1115761,
+    "lng": -82.5343447,
+    "q": "Mike's Bait and Tackle 1272 Pennsylvania Ave, Wellston, OH"
+   }
+  ],
+  "jackson": [
+   {
+    "name": "Mike's Bait and Tackle",
+    "address": "1272 Pennsylvania Ave, Wellston, OH",
+    "min": 30,
+    "lat": 39.1115761,
+    "lng": -82.5343447,
+    "q": "Mike's Bait and Tackle 1272 Pennsylvania Ave, Wellston, OH"
+   }
+  ],
+  "wolfrun": [
+   {
+    "name": "T&L Sales LLC",
+    "address": "14171 Clay Pike Rd, Pleasant City, OH",
+    "min": 20,
+    "lat": 39.9300719,
+    "lng": -81.4806132,
+    "q": "T&L Sales LLC 14171 Clay Pike Rd, Pleasant City, OH"
+   },
+   {
+    "name": "Seneca Lake Marina",
+    "address": "16592 Lashley Rd, Senecaville, OH",
+    "min": 25,
+    "lat": 39.930895,
+    "lng": -81.428205,
+    "q": "Seneca Lake Marina 16592 Lashley Rd, Senecaville, OH"
+   }
+  ],
+  "tycoon": [
+   {
+    "name": "Outdoorsmen's Cave",
+    "address": "14728 OH-554, Bidwell, OH",
+    "min": 15,
+    "lat": 38.9216091,
+    "lng": -82.2932279,
+    "q": "Outdoorsmen's Cave 14728 OH-554, Bidwell, OH"
+   }
   ]
  }
 }

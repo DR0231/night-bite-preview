@@ -5,6 +5,7 @@
   "review": "draft"
  },
  "strings": {
+  "night.01dc23a3": "Les pages de la zone de pêche et de la réserve faunique Tycoon Lake de ODNR ne répertorient aucune heure, il n'y a donc pas de règle officielle de nuit à afficher; suivez les panneaux affichés.",
   "night.03428d74": "Les heures d'ouverture du parc d'État de Strouds Run sont 6 am à 11 pm; ODNR autorise les loisirs légitimes, comme la pêche, en dehors de ces heures.",
   "night.097a6811": "ODNR, parc d'État Buck Creek",
   "night.09aac96f": "ODNR, parc d'État East Fork",
@@ -38,6 +39,7 @@
   "night.77a3c4b5": "The Night Bite est un site personnel et non officiel :",
   "night.7b533ed4": "La page de LaDue Reservoir Fishing Area de ODNR et la page du bassin versant de la City of Akron ne répertorient aucune heure d'accès, il n'y a donc pas de règle officielle de nuit à afficher; suivez les panneaux affichés.",
   "night.809be87a": "ODNR, Madison Lake State Park",
+  "night.8fe6f373": "Les pages de la zone de pêche Lake Rupert et Wellston Wildlife Area de ODNR n'indiquent aucune heure, il n'y a donc pas de règle officielle de nuit à afficher; suivez les panneaux affichés.",
   "night.93e09a69": "Mansfield Codified Ordinances, chapitre 971",
   "night.9516ff11": "ODNR, Pymatuning State Park",
   "night.99fd8d05": "Les panneaux affichés sur la rampe et la propre page de l'agence l'emportent sur tout ici. Une heure de fermeture du parc peut couvrir le terrain et la rampe même là où la pêche elle-même est autorisée.",

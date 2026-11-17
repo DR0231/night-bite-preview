@@ -1269,6 +1269,92 @@
         ["ODNR, Lake White Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-white-fishing-area"],
         ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/lakewhite2.pdf"]
       ]
+    },
+    "lakerupert": {
+      "checked": "2026-11-16",
+      "title": "Lake Rupert Fishing: Map, Ramps, Rules | The Night Bite",
+      "description": "Lake Rupert fishing: any horsepower at no wake, Wellston Wildlife Area ramp on SR 683, saugeye stocked every year, 24 ft deep, tonight's bite. Unofficial.",
+      "motors": "No horsepower limit, but motorboats must run at no wake speed (ODNR); over 10 hp only at idle speed (OAC 1501:47-5-03).",
+      "ramps": "Wildlife area ramp on SR 683, half a mile north of SR 93 (ODNR boating facilities layer).",
+      "pool": "Summer pool is 708 ft, the level the ODNR fishing map is drawn at.",
+      "night": "ODNR's Lake Rupert Fishing Area and Wellston Wildlife Area pages list no hours, so there's no official night rule to show; follow posted signs.",
+      "hours": {
+        "none": true,
+        "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.",
+        "checked": "2026-11-17"
+      },
+      "sources": [
+        ["ODNR, Lake Rupert Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-rupert-fishing-area"],
+        ["ODNR, Wellston Wildlife Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wellston-wildlife-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/lakerupert2.pdf"],
+        ["OAC 1501:47-5-03", "https://codes.ohio.gov/ohio-administrative-code/rule-1501:47-5-03"]
+      ]
+    },
+    "jackson": {
+      "checked": "2026-11-16",
+      "title": "Jackson Lake Fishing: Map, Ramps, Rules | The Night Bite",
+      "description": "Jackson Lake fishing: 10 hp, bigger motors at no wake, ADA ramp on McCorkle Rd, 12 ft deep at most, bass, crappie, stocked cats, tonight's bite. Unofficial.",
+      "motors": "10 hp limit for outboards; bigger motors only without a wake (ODNR fishing area page). The state park page says any horsepower at idle speed.",
+      "ramps": "ADA friendly launch ramp on McCorkle Rd just south of SR 279, with a life jacket loaner board (ODNR).",
+      "pool": "Summer pool is 700 ft, the level the ODNR fishing map is drawn at.",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Jackson Lake State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/jackson-lake-state-park"],
+        "checked": "2026-11-17"
+      },
+      "sources": [
+        ["ODNR, Jackson Lake State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/jackson-lake-state-park"],
+        ["ODNR, Jackson Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/jackson-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/jacksonlake2.pdf"]
+      ]
+    },
+    "wolfrun": {
+      "checked": "2026-11-16",
+      "title": "Wolf Run Lake Fishing: Map, Ramps, Rules | The Night Bite",
+      "description": "Wolf Run Lake fishing: 10 hp limit, ramp and tie-ups off SR 215, saugeye and perch stocked, bass, bluegill and crappie, tonight's bite. Unofficial.",
+      "motors": "Motors up to 10 hp (ODNR).",
+      "ramps": "Launch ramp and tie-ups on the south side, off SR 215, near the beach (ODNR).",
+      "pool": "Summer pool is 798 ft, the level the ODNR fishing map is drawn at.",
+      "night": "State park hours are 6 a.m. to 11 p.m.; ODNR allows legitimate recreation, like fishing, outside those hours.",
+      "hours": {
+        "authority": "odnr",
+        "open": "06:00",
+        "close": "23:00",
+        "fishing_after_hours": true,
+        "chip": "Park hours end 11 p.m., fishing allowed after (ODNR)",
+        "source": ["ODNR, Wolf Run State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wolf-run-state-park"],
+        "checked": "2026-11-17"
+      },
+      "sources": [
+        ["ODNR, Wolf Run State Park", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wolf-run-state-park"],
+        ["ODNR, Wolf Run Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wolf-run-lake-fishing-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/wolfrunlake2.pdf"]
+      ]
+    },
+    "tycoon": {
+      "checked": "2026-11-16",
+      "title": "Tycoon Lake Fishing: Map, Ramps, Rules | The Night Bite",
+      "description": "Tycoon Lake fishing: any motor at idle speed, concrete ramp and accessible pier off Tycoon Rd, bass, crappie and stocked cats, tonight's bite. Unofficial.",
+      "motors": "Any motor, idle speed only, no wake (ODNR; OAC 1501:47-5-03).",
+      "ramps": "Concrete ramp off Tycoon Rd with an accessible fishing pier next to it (ODNR).",
+      "pool": "Summer pool is 616.4 ft, the level the ODNR fishing map is drawn at.",
+      "night": "ODNR's Tycoon Lake Fishing Area and Wildlife Area pages list no hours, so there's no official night rule to show; follow posted signs.",
+      "hours": {
+        "none": true,
+        "note": "No official page we found states hours for this water, so there's no night rule to show; follow posted signs.",
+        "checked": "2026-11-17"
+      },
+      "sources": [
+        ["ODNR, Tycoon Lake Fishing Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/tycoon-lake-fishing-area"],
+        ["ODNR, Tycoon Lake Wildlife Area", "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/tycoon-lake-wildlife-area"],
+        ["ODNR fishing map", "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/tycoonlake2.pdf"],
+        ["OAC 1501:47-5-03", "https://codes.ohio.gov/ohio-administrative-code/rule-1501:47-5-03"]
+      ]
     }
   }
 }

@@ -32,9 +32,9 @@
   <link rel="preload" href="../assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="../js/a11y-boot.js?v=v138-2026-11-17"></script>
-  <link rel="stylesheet" href="../css/styles.css?v=v138-2026-11-17">
-  <script src="../js/lakes.js?v=v138-2026-11-17" data-biting></script>
+  <script src="../js/a11y-boot.js?v=v139-2026-11-17"></script>
+  <link rel="stylesheet" href="../css/styles.css?v=v139-2026-11-17">
+  <script src="../js/lakes.js?v=v139-2026-11-17" data-biting></script>
   <script type="application/ld+json">
   [{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://nightbiteoh.com/species/channel-catfish#webpage", "url": "https://nightbiteoh.com/species/channel-catfish", "name": "Channel Catfish Fishing in Ohio Lakes | The Night Bite", "description": "Channel catfish at Hoover, Alum Creek, Buckeye Lake, Dillon Lake and more Ohio lakes: the workhorse night fish on cut bait and crawlers.", "isPartOf": {"@id": "https://nightbiteoh.com/#website"}, "inLanguage": "en-US", "about": {"@type": "Thing", "name": "Channel catfish"}, "breadcrumb": {"@id": "https://nightbiteoh.com/species/channel-catfish#breadcrumb"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nightbiteoh.com/"}, {"@type": "ListItem", "position": 2, "name": "Species", "item": "https://nightbiteoh.com/species/"}, {"@type": "ListItem", "position": 3, "name": "Channel catfish", "item": "https://nightbiteoh.com/species/channel-catfish"}], "@id": "https://nightbiteoh.com/species/channel-catfish#breadcrumb"}]
   </script>
@@ -132,6 +132,10 @@
     <p class="lake-note" data-for="stonelick">Stocked by ODNR at Stonelick Lake every other year: 4,048 advanced fingerlings in 2024.</p>
     <p class="lake-note" data-for="grant">Stocked by ODNR at Grant Lake: 8,932 advanced fingerlings in 2024.</p>
     <p class="lake-note" data-for="lakewhite">Stocked by ODNR at Lake White every other year: 8,334 advanced fingerlings in 2025.</p>
+    <p class="lake-note" data-for="lakerupert">Stocked by ODNR at Lake Rupert in 2016, 2018 and 2020 (8,356 fingerlings and 3,090 yearlings in 2020).</p>
+    <p class="lake-note" data-for="jackson">Stocked by ODNR at Jackson Lake every other year: 6,325 advanced fingerlings in 2025.</p>
+    <p class="lake-note" data-for="wolfrun">Stocked by ODNR at Wolf Run Lake in 2016, 2018, 2020 and 2022 (2,522 yearlings in 2022).</p>
+    <p class="lake-note" data-for="tycoon">Stocked by ODNR at Tycoon Lake: 4,625 advanced fingerlings in 2025.</p>
     <!-- stocking-line -->
     <p class="meta sp-stock" data-for="hoover">ODNR hoop nets compare Hoover channel catfish catch rates with district and state averages. <a href="../stocking?lake=hoover#growth">Stocking &amp; surveys</a></p>
     <p class="meta sp-stock" data-for="alum">ODNR hoop nets compare Alum Creek channel catfish catch rates with district and state averages. <a href="../stocking?lake=alum#growth">Stocking &amp; surveys</a></p>
@@ -160,11 +164,15 @@
     <p class="meta sp-stock" data-for="stonelick">ODNR stocked channel catfish in Stonelick Lake every other year from 2016 to 2024. <a href="../stocking?lake=stonelick#stocked">Stocking &amp; surveys</a></p>
     <p class="meta sp-stock" data-for="grant">ODNR stocked channel catfish in Grant Lake in 2016, 2018, 2020 and 2024. <a href="../stocking?lake=grant#stocked">Stocking &amp; surveys</a></p>
     <p class="meta sp-stock" data-for="lakewhite">ODNR stocked channel catfish in Lake White in 2017, 2018, 2019, 2021, 2023 and 2025. <a href="../stocking?lake=lakewhite#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="lakerupert">ODNR stocked channel catfish in Lake Rupert in 2016, 2018 and 2020. <a href="../stocking?lake=lakerupert#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="jackson">ODNR stocked channel catfish in Jackson Lake in 2017, 2019, 2021, 2023 and 2025. <a href="../stocking?lake=jackson#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="wolfrun">ODNR stocked channel catfish in Wolf Run Lake in 2016, 2018, 2020 and 2022. <a href="../stocking?lake=wolfrun#stocked">Stocking &amp; surveys</a></p>
+    <p class="meta sp-stock" data-for="tycoon">ODNR stocked channel catfish in Tycoon Lake in 2017, 2021, 2023 and 2025. <a href="../stocking?lake=tycoon#stocked">Stocking &amp; surveys</a></p>
     <!-- /stocking-line -->
 
     <div class="sp-now" id="sp-now" data-species="channel-catfish" hidden></div>
     <!-- filled right here, before paint, from the month's picks for the active lake -->
-    <script src="../js/species-lake.js?v=v138-2026-11-17"></script>
+    <script src="../js/species-lake.js?v=v139-2026-11-17"></script>
 
     <nav class="species-subnav" aria-label="On this page">
       <a href="#season">Season</a>
@@ -842,12 +850,68 @@
       </ul>
       </div>
       </div>
+      <div data-for="lakerupert">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>Wellston Wildlife Area shore near the SR 683 ramp (ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>Any horsepower at no wake; over 10 hp at idle (ODNR; OAC 1501:47-5-03).</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="jackson">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>State park shore by the McCorkle Rd ramp (ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>10 hp limit; bigger motors at no wake (ODNR fishing area page).</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="wolfrun">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>State park shore by the SR 215 ramp and the beach (ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>10 hp limit (ODNR).</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
+      <div data-for="tycoon">
+      <div class="mode-panel" data-mode="bank">
+      <ul>
+        <li>The accessible pier by the Tycoon Rd ramp and wildlife area shore (ODNR).</li>
+        <li>Public ramps, parks and shore only. Pins on the <a href="../water#maps">water maps</a>.</li>
+      </ul>
+      </div>
+      <div class="mode-panel" data-mode="boat" hidden>
+      <ul>
+        <li>Any motor, idle speed only, no wake (ODNR; OAC 1501:47-5-03).</li>
+        <li>Contours on the ODNR fishing map; check no wake zones before a night run.</li>
+      </ul>
+      </div>
+      </div>
     </section>
 
     <section id="limits" class="species-section">
       <h2>Limits <span class="regs-tag">reminder, verify</span></h2>
-      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity wingfoot eastbranch guilford highlandtown punderson wellington kiser hargus stonelick grant lakewhite">Statewide inland pattern from the ODNR Fishing Regulations 2026–27; <span data-lk="short">Hoover</span> has no catfish exception. Check HuntFish OH before you keep fish.</p>
-      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity wingfoot eastbranch guilford highlandtown punderson wellington kiser hargus stonelick grant lakewhite">
+      <p class="meta" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity wingfoot eastbranch guilford highlandtown punderson wellington kiser hargus stonelick grant lakewhite lakerupert jackson wolfrun tycoon">Statewide inland pattern from the ODNR Fishing Regulations 2026–27; <span data-lk="short">Hoover</span> has no catfish exception. Check HuntFish OH before you keep fish.</p>
+      <div class="table-wrap" data-for="hoover alum buckeye oshaughnessy griggs indian delaware deercreek madison knox clearfork seneca dillon logan saltfork burroak dow mosquito berlin westbranch milton leesville grandlakestmarys caesarcreek eastfork cjbrown rockyfork ladue paintcreek portagelakes mogadore loramie nimisila cowan acton tappan piedmont clendening atwood charlesmill pleasanthill beachcity wingfoot eastbranch guilford highlandtown punderson wellington kiser hargus stonelick grant lakewhite lakerupert jackson wolfrun tycoon">
         <table class="access-table regs-table">
           <thead>
             <tr><th scope="col">Rule</th><th scope="col">Reminder (verify 2026–27)</th></tr>
@@ -930,6 +994,10 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="meta" data-for="stonelick">Sized for bank reality and small boats. Stonelick Lake is electric and paddle only and shallow, so a kayak or trolling motor does it.</p>
       <p class="meta" data-for="grant">Sized for bank reality and small boats. Grant Lake has a 10 hp limit, so a small motor or trolling motor does it.</p>
       <p class="meta" data-for="lakewhite">Sized for bank reality and small boats. Lake White allows unlimited horsepower; any rig works.</p>
+      <p class="meta" data-for="lakerupert">Sized for bank reality and small boats. Lake Rupert is no wake for big motors, so a small boat or kayak does it.</p>
+      <p class="meta" data-for="jackson">Sized for bank reality and small boats. Jackson Lake is shallow with a 10 hp limit, so a small boat or kayak does it.</p>
+      <p class="meta" data-for="wolfrun">Sized for bank reality and small boats. Wolf Run Lake has a 10 hp limit, so a small motor or trolling motor does it.</p>
+      <p class="meta" data-for="tycoon">Sized for bank reality and small boats. Tycoon Lake is idle speed only, so a kayak or trolling motor does it.</p>
       <div class="mode-panel" data-mode="bank">
       <ul>
         <li>Medium–heavy spinning or baitcasting, 12–20 lb line.</li>
@@ -979,7 +1047,7 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       </details>
       <details class="how-to-read species-waters-region">
         <summary>East and Southeast Ohio</summary>
-        <div class="how-to-read-body"><ul class="lake-chips"><li><a class="lake-chip" href="../dillon/">Dillon Lake</a></li><li><a class="lake-chip" href="../logan/">Lake Logan</a></li><li><a class="lake-chip" href="../burroak/">Burr Oak Lake</a></li><li><a class="lake-chip" href="../dow/">Dow Lake</a></li><li><a class="lake-chip" href="../tappan/">Tappan Lake</a></li><li><a class="lake-chip" href="../clendening/">Clendening Lake</a></li><li><a class="lake-chip" href="../lakewhite/">Lake White</a></li></ul></div>
+        <div class="how-to-read-body"><ul class="lake-chips"><li><a class="lake-chip" href="../dillon/">Dillon Lake</a></li><li><a class="lake-chip" href="../logan/">Lake Logan</a></li><li><a class="lake-chip" href="../burroak/">Burr Oak Lake</a></li><li><a class="lake-chip" href="../dow/">Dow Lake</a></li><li><a class="lake-chip" href="../tappan/">Tappan Lake</a></li><li><a class="lake-chip" href="../clendening/">Clendening Lake</a></li><li><a class="lake-chip" href="../lakewhite/">Lake White</a></li><li><a class="lake-chip" href="../lakerupert/">Lake Rupert</a></li><li><a class="lake-chip" href="../jackson/">Jackson Lake</a></li><li><a class="lake-chip" href="../wolfrun/">Wolf Run Lake</a></li><li><a class="lake-chip" href="../tycoon/">Tycoon Lake</a></li></ul></div>
       </details>
       <details class="how-to-read species-waters-region">
         <summary>Northeast Ohio</summary>
@@ -1036,15 +1104,15 @@ Cite: <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wi
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="../js/refresh.js?v=v138-2026-11-17"></script>
-  <script src="../js/sw-update.js?v=v138-2026-11-17"></script>
-  <script src="../js/alerts.js?v=v138-2026-11-17"></script>
-  <script src="../js/nav.js?v=v138-2026-11-17"></script>
-  <script src="../js/visits.js?v=v138-2026-11-17"></script>
-  <script src="../js/lake-picker.js?v=v138-2026-11-17"></script>
-  <script src="../js/sticky-nav.js?v=v138-2026-11-17"></script>
-  <script src="../js/mode-toggle.js?v=v138-2026-11-17"></script>
+  <script src="../js/refresh.js?v=v139-2026-11-17"></script>
+  <script src="../js/sw-update.js?v=v139-2026-11-17"></script>
+  <script src="../js/alerts.js?v=v139-2026-11-17"></script>
+  <script src="../js/nav.js?v=v139-2026-11-17"></script>
+  <script src="../js/visits.js?v=v139-2026-11-17"></script>
+  <script src="../js/lake-picker.js?v=v139-2026-11-17"></script>
+  <script src="../js/sticky-nav.js?v=v139-2026-11-17"></script>
+  <script src="../js/mode-toggle.js?v=v139-2026-11-17"></script>
 
-  <script src="../js/a11y.js?v=v138-2026-11-17" defer></script>
+  <script src="../js/a11y.js?v=v139-2026-11-17" defer></script>
 </body>
 </html>

@@ -2039,6 +2039,110 @@
    "sources": [
     "odnr-lakewhite"
    ]
+  },
+  "lakerupert": {
+   "name": "Lake Rupert",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists the Wellston Wildlife Area ramp on SR 683. No wake.",
+     "source": "odnr-lakerupert"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Four",
+     "+17405899930",
+     "(740) 589-9930",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-lakerupert"
+   ]
+  },
+  "jackson": {
+   "name": "Jackson Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists an ADA friendly ramp on McCorkle Rd with a life jacket loaner board.",
+     "source": "odnr-jackson"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Jackson Lake State Park office (Shawnee)",
+     "+17408586652",
+     "(740) 858-6652",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-jackson"
+   ]
+  },
+  "wolfrun": {
+   "name": "Wolf Run Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists a launching ramp and tie-ups on the south side off SR 215.",
+     "source": "odnr-wolfrun"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "Wolf Run State Park office",
+     "+17407325035",
+     "(740) 732-5035",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-wolfrun"
+   ]
+  },
+  "tycoon": {
+   "name": "Tycoon Lake",
+   "checked": "2026-11-09",
+   "items": [
+    {
+     "name": "Launch ramp",
+     "status": "unannounced",
+     "label": "No closure posted",
+     "note": "ODNR lists a concrete ramp off Tycoon Rd with an accessible pier next to it. Idle speed.",
+     "source": "odnr-tycoon"
+    }
+   ],
+   "history": "",
+   "history_url": "",
+   "calls": [
+    [
+     "ODNR Wildlife District Four",
+     "+17405899930",
+     "(740) 589-9930",
+     ""
+    ]
+   ],
+   "sources": [
+    "odnr-tycoon"
+   ]
   }
  },
  "watch": [
@@ -3265,6 +3369,82 @@
    "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-white-state-park",
    "lakes": [
     "lakewhite"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-lakerupert",
+   "label": "ODNR, Lake Rupert Fishing Area",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/lake-rupert-fishing-area",
+   "lakes": [
+    "lakerupert"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-jackson",
+   "label": "ODNR, Jackson Lake State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/jackson-lake-state-park",
+   "lakes": [
+    "jackson"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-wolfrun",
+   "label": "ODNR, Wolf Run State Park",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/wolf-run-state-park",
+   "lakes": [
+    "wolfrun"
+   ],
+   "keywords": [
+    "dock",
+    "ramp",
+    "launch",
+    "drawdown",
+    "closed",
+    "closure",
+    "remov",
+    "alert",
+    "marina"
+   ]
+  },
+  {
+   "id": "odnr-tycoon",
+   "label": "ODNR, Tycoon Lake Fishing Area",
+   "url": "https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/tycoon-lake-fishing-area",
+   "lakes": [
+    "tycoon"
    ],
    "keywords": [
     "dock",

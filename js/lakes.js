@@ -1620,9 +1620,125 @@
       map: { data: "NightBiteMapDataLakewhite", chart: "assets/lakewhite-chart.png" },
       spots: ["State park ramp, SR 551", "North launch, SR 552", "Bank (other)"],
       species: ["saugeye", "largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
+    },
+    lakerupert: {
+      id: "lakerupert",
+      name: "Lake Rupert",
+      short: "Rupert",
+      area: "Southeast Ohio",
+      lat: 39.19, lng: -82.52,
+      region: "southeast", owner: "ODNR Division of Wildlife",
+      aliases: ["Rupert", "Lake Rupert", "Wellston Wildlife Area", "Hamden", "Wellston"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 708,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/RLX/28,102/forecast/hourly",
+        point: "https://api.weather.gov/points/39.19,-82.52",
+        grid: "https://api.weather.gov/gridpoints/RLX/28,102",
+        station: "KJRO",
+        stationName: "Jackson airport (KJRO)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.19&lon=-82.52"
+      },
+      alerts: { zones: "OHC163,OHZ084", counties: "the Rupert area" },
+      push: null,
+      map: { data: "NightBiteMapDataLakerupert", chart: "assets/lakerupert-chart.png" },
+      spots: ["Wellston Wildlife Area ramp, SR 683", "Bank (other)"],
+      species: ["saugeye", "largemouth-bass", "black-crappie", "white-crappie", "channel-catfish", "yellow-perch"]
+    },
+    jackson: {
+      id: "jackson",
+      name: "Jackson Lake",
+      short: "Jackson Lake",
+      area: "Southeast Ohio",
+      lat: 38.9, lng: -82.598,
+      region: "southeast", owner: "ODNR Ohio State Parks",
+      aliases: ["Jackson Lake State Park", "Oak Hill", "McCorkle Rd"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 700,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/RLX/26,89/forecast/hourly",
+        point: "https://api.weather.gov/points/38.9,-82.598",
+        grid: "https://api.weather.gov/gridpoints/RLX/26,89",
+        station: "KJRO",
+        stationName: "Jackson airport (KJRO)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=38.9&lon=-82.598"
+      },
+      alerts: { zones: "OHC079,OHZ083", counties: "the Jackson Lake area" },
+      push: null,
+      map: { data: "NightBiteMapDataJackson", chart: "assets/jackson-chart.png" },
+      spots: ["State park ramp, McCorkle Rd", "Furnace ramp, SR 279", "Bank (other)"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish", "muskellunge", "common-carp"]
+    },
+    wolfrun: {
+      id: "wolfrun",
+      name: "Wolf Run Lake",
+      short: "Wolf Run",
+      area: "East central Ohio",
+      lat: 39.8, lng: -81.53,
+      region: "southeast", owner: "ODNR Ohio State Parks",
+      aliases: ["Wolf Run", "Wolf Run State Park", "Caldwell"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 798,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/PBZ/28,32/forecast/hourly",
+        point: "https://api.weather.gov/points/39.8,-81.53",
+        grid: "https://api.weather.gov/gridpoints/PBZ/28,32",
+        station: "KZZV",
+        stationName: "Zanesville Municipal Airport (KZZV)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=39.8&lon=-81.53"
+      },
+      alerts: { zones: "OHC121,OHZ068", counties: "the Wolf Run area" },
+      push: null,
+      map: { data: "NightBiteMapDataWolfrun", chart: "assets/wolfrun-chart.png" },
+      spots: ["State park ramp, SR 215", "Bank (other)"],
+      species: ["saugeye", "largemouth-bass", "bluegill", "channel-catfish", "yellow-perch"]
+    },
+    tycoon: {
+      id: "tycoon",
+      name: "Tycoon Lake",
+      short: "Tycoon",
+      area: "Southeast Ohio",
+      lat: 38.926, lng: -82.351,
+      region: "southeast", owner: "ODNR Division of Wildlife",
+      aliases: ["Tycoon", "Tycoon Lake Wildlife Area", "Rio Grande", "Tycoon Rd"],
+      pool: {
+        // no public lake level or temperature gauge (USGS lists sampling sites only, no live data); not a Corps lake
+        src: null, srcName: null,
+        temp: null,
+        fullPool: 616.4,    // ODNR fishing map summer pool (3 ft contours)
+        gaugeUrl: null
+      },
+      nws: {
+        hourly: "https://api.weather.gov/gridpoints/RLX/35,91/forecast/hourly",
+        point: "https://api.weather.gov/points/38.926,-82.351",
+        grid: "https://api.weather.gov/gridpoints/RLX/35,91",
+        station: "KJRO",
+        stationName: "Jackson airport (KJRO)",
+        page: "https://forecast.weather.gov/MapClick.php?lat=38.926&lon=-82.351"
+      },
+      alerts: { zones: "OHC053,OHZ086", counties: "the Tycoon area" },
+      push: null,
+      map: { data: "NightBiteMapDataTycoon", chart: "assets/tycoon-chart.png" },
+      spots: ["Tycoon Rd ramp and accessible pier", "Bank (other)"],
+      species: ["largemouth-bass", "black-crappie", "white-crappie", "bluegill", "channel-catfish"]
     }
   };
-  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity", "wingfoot", "eastbranch", "guilford", "highlandtown", "punderson", "wellington", "kiser", "hargus", "stonelick", "grant", "lakewhite"];
+  var ORDER = ["hoover", "alum", "buckeye", "oshaughnessy", "griggs", "indian", "delaware", "deercreek", "madison", "knox", "clearfork", "seneca", "dillon", "logan", "saltfork", "burroak", "dow", "mosquito", "berlin", "westbranch", "pymatuning", "milton", "leesville", "grandlakestmarys", "caesarcreek", "eastfork", "cjbrown", "rockyfork", "ladue", "paintcreek", "portagelakes", "mogadore", "loramie", "nimisila", "cowan", "acton", "tappan", "piedmont", "clendening", "atwood", "charlesmill", "pleasanthill", "beachcity", "wingfoot", "eastbranch", "guilford", "highlandtown", "punderson", "wellington", "kiser", "hargus", "stonelick", "grant", "lakewhite", "lakerupert", "jackson", "wolfrun", "tycoon"];
   // picker regions, in this order (js/lake-picker.js). A region with no lakes yet is hidden. Every lake above sets
   // region to one of these ids; lat and lng above (the lake's NWS forecast point, on the water) give Near me distances.
   var REGIONS = [

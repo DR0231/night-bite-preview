@@ -5,6 +5,7 @@
   "review": "draft"
  },
  "strings": {
+  "night.01dc23a3": "ODNRのTycoon Lake釣りエリアと野生動物エリアのページには営業時間が記載されていないため、表示する公式の夜間ルールはありません。掲示されている標識に従ってください。",
   "night.03428d74": "ストラウズ ラン州立公園の営業時間は6 amから11 pmまでです。 ODNR、その時間外でも釣りなどの合法的なレクリエーションが許可されています。",
   "night.097a6811": "ODNR、 Buck Creek州立公園",
   "night.09aac96f": "ODNR、 East Fork州立公園",
@@ -38,6 +39,7 @@
   "night.77a3c4b5": "The Night Bite は非公式の個人サイトです：",
   "night.7b533ed4": "ODNRのLaDue Reservoir Fishing AreaページとCity of Akronの流域ページにはアクセス時間が記載されていないため、表示する公式の夜間ルールはありません。掲示されている標識に従ってください。",
   "night.809be87a": "ODNR、Madison Lake State Park",
+  "night.8fe6f373": "ODNRのLake Rupertフィッシング エリアとWellston Wildlife Areaページには営業時間が記載されていないため、公式の夜のルールを示すことはできません。掲示されている標識に従ってください。",
   "night.93e09a69": "Mansfield 市条例 第971章",
   "night.9516ff11": "ODNR、Pymatuning State Park",
   "night.99fd8d05": "ここでは、ランプに掲示された看板と代理店の独自のページが何よりも優先されます。公園の閉園時間により、釣り自体が許可されている場合でも、駐車場やスロープが閉鎖される場合があります。",

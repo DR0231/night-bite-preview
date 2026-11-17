@@ -5,6 +5,7 @@
   "review": "draft"
  },
  "strings": {
+  "night.01dc23a3": "لا تدرج صفحات منطقة الصيد ومنطقة الحياة البرية Tycoon Lake لـ ODNR أي ساعات، لذلك لا توجد قاعدة ليلية رسمية لعرضها؛ اتبع العلامات المنشورة.",
   "night.03428d74": "ساعات العمل في Strouds Run State Park هي 6 am إلى 11 pm ؛ يسمح ODNR بالترفيه المشروع، مثل صيد الأسماك، خارج تلك الساعات.",
   "night.097a6811": "ODNR ، حديقة Buck Creek الحكومية",
   "night.09aac96f": "ODNR ، حديقة East Fork الحكومية",
@@ -38,6 +39,7 @@
   "night.77a3c4b5": "The Night Bite موقع غير رسمي وشخصي:",
   "night.7b533ed4": "لا توجد ساعات وصول في صفحة LaDue Reservoir Fishing Area التابعة لـ ODNR وصفحة مستجمعات المياه في City of Akron ، لذلك لا توجد قاعدة ليلية رسمية لإظهارها؛ اتبع العلامات المنشورة.",
   "night.809be87a": "ODNR, Madison Lake State Park",
+  "night.8fe6f373": "لا تدرج صفحات منطقة صيد الأسماك Lake Rupert ومنطقة Wellston Wildlife Area التابعة لـ ODNR أي ساعات، لذلك لا توجد قاعدة ليلية رسمية لعرضها؛ اتبع العلامات المنشورة.",
   "night.93e09a69": "Mansfield Codified Ordinances, chapter 971",
   "night.9516ff11": "ODNR, Pymatuning State Park",
   "night.99fd8d05": "اللافتات المنشورة على المنحدر وصفحة الوكالة الخاصة تفوز بأي شيء هنا. يمكن أن يغطي وقت إغلاق الحديقة قطعة الأرض والمنحدر حتى في الأماكن التي يُسمح فيها بالصيد نفسه.",
