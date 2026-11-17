@@ -64,13 +64,21 @@
     var h = +m[4] % 12 + (m[6] === "PM" ? 12 : 0), day = m[1] || m[7], mon = m[2] ? MONS.indexOf(m[2].slice(0, 3)) : -1;
     // a fixed week (Nov 1 2026 is a Sunday) carries the weekday; a month and day carry themselves
     var dt = mon >= 0 ? Date.UTC(2026, mon, +m[3], h, +(m[5] || 0)) : Date.UTC(2026, 10, 1 + (day ? DAYS.indexOf(day) : 0), h, +(m[5] || 0));
+    if (mon >= 0 && day) {
+      // "Mon Nov. 9, 8:45 AM ET": the year whose date falls on that weekday, nearest this year, so Intl writes both
+      var y0 = new Date().getUTCFullYear(), ys = [y0, y0 - 1, y0 + 1, y0 - 2, y0 + 2, y0 - 3, y0 + 3, y0 - 4, y0 + 4, y0 - 5, y0 + 5];
+      for (var i = 0; i < ys.length; i++) {
+        var at = Date.UTC(ys[i], mon, +m[3], h, +(m[5] || 0));
+        if (new Date(at).getUTCDay() === DAYS.indexOf(day)) { dt = at; break; }
+      }
+    }
     return { at: dt, min: m[5] != null, day: !!day, date: mon >= 0, et: !!m[8] };
   }
   function tfmt(p, parts) {
     try {
       var o = { timeZone: "UTC", hour: "numeric" }; if (p.min || p.date) o.minute = "2-digit";
       var t = new Intl.DateTimeFormat(cur, o).format(p.at), x = "";
-      if (p.date) x = new Intl.DateTimeFormat(cur, { timeZone: "UTC", month: "short", day: "numeric" }).format(p.at);
+      if (p.date) x = new Intl.DateTimeFormat(cur, p.day ? { timeZone: "UTC", weekday: "short", month: "short", day: "numeric" } : { timeZone: "UTC", month: "short", day: "numeric" }).format(p.at);
       else if (p.day) x = new Intl.DateTimeFormat(cur, { timeZone: "UTC", weekday: "short" }).format(p.at);
       if (parts) return { t: t, x: x };
       return (p.date ? x + ", " + t : p.day ? x + " " + t : t) + (p.et ? " ET" : "");
