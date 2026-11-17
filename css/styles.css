@@ -427,7 +427,8 @@ button, .btn, .site-nav a, .nav-more-btn, .species-subnav a, .gear-sticky-nav a,
 @media (min-width: 901px) {
   .site-nav .nav-extra.nav-ww { display: none; }
   .site-nav .nav-more-item.nav-more-desk { display: list-item !important; }
-  .nav-more-desk .nav-more-panel a:not([href*="whisperwood"]) { display: none; }
+  .nav-more-desk .nav-more-panel a:not([href*="whisperwood"]):not(.nav-guide) { display: none; }
+  .nav-more-desk .nav-more-panel .nav-guides-label { display: block; }
   .nav-more-desk .nav-more-btn.has-new { background-image: none; }
 }
 
@@ -978,6 +979,36 @@ a.card:hover,
   text-decoration: none;
 }
 .footer-inner a:hover { color: var(--amber); }
+
+/* Guides group: More menu + footer (held pages: drawdown, night, rules, trout) */
+.nav-guides-label {
+  display: block;
+  padding: 0.5rem 0.875rem 0.2rem;
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.footer-guides {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0 0.25rem;
+  margin: 0 0 var(--space-sm);
+}
+.footer-guides .guides-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.5rem;
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 .disclaimer-short { max-width: 36rem; margin: 0.5rem auto 0; line-height: 1.55; }
 
 /* ==========================================================================
