@@ -1706,22 +1706,23 @@
   window.NightBiteLake = { id: id, cfg: LAKES[id], key: key, cwms: cwms, outflow: function (h) { return outflowTemp(id, h); }, home: homeLake, chosen: chosen, root: atRoot, browsing: browsing };
   if (wantsBiting) biting(id);
 
-  // Lake switches only (js/lake-picker.js sets the flag): a short cross-fade into the new page.
-  // Registered here in <head> so it is in place before the first frame; every other navigation stays instant.
-  // revealing: true from the first frame until this page's own fade in has finished. A switch picked inside that
+  // Page to page: a short cross-fade (css/styles.css @view-transition, only with no reduced-motion preference).
+  // Registered here in <head> so it is in place before the first frame. Less motion in the Display panel skips it
+  // too (CSS media queries can't see that setting). The old "nb-lake-switch" flag is only cleared now.
+  // revealing: true from the first frame until this page's own fade in has finished. A link tapped inside that
   // window skips its fade out, so two fades never overlap (Chrome aborts the second with "Page already revealed").
   var revealing = true;
   function revealed() { revealing = false; }
   function vt(e, clear) {
-    var switching = false;
-    try { switching = sessionStorage.getItem("nb-lake-switch") === "1"; if (clear) sessionStorage.removeItem("nb-lake-switch"); } catch (er) {}
+    try { if (clear) sessionStorage.removeItem("nb-lake-switch"); } catch (er) {}
     var t = e.viewTransition;
     if (!t) { if (clear) revealed(); return; }
-    // a skipped or interrupted fade (quick lake switches) rejects these; nothing to do, so keep the console quiet
+    // a skipped or interrupted fade (quick taps) rejects these; nothing to do, so keep the console quiet
     var quiet = function () {};
     try { [t.ready, t.finished, t.updateCallbackDone].forEach(function (pr) { if (pr && pr.catch) pr.catch(quiet); }); } catch (er) {}
+    var calm = document.documentElement.getAttribute("data-motion") === "reduce";
     var busy = !clear && (revealing || document.activeViewTransition);
-    if (!switching || busy) { try { t.skipTransition(); } catch (er) {} }
+    if (calm || busy) { try { t.skipTransition(); } catch (er) {} }
     if (clear) { try { t.finished.then(revealed, revealed); } catch (er) { revealed(); } }
   }
   window.addEventListener("pagereveal", function (e) { vt(e, true); });

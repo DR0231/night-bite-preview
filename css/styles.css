@@ -2850,11 +2850,16 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
   .lake-sheet-panel, .lp-row, .lp-name, .lp-star span, .lp-search, .lp-near, .lp-region summary, .lp-region summary::before { transition: none; }
   .lp-region::details-content { transition: none; }
 }
-/* ---- lake switch: a short cross-fade (js/lakes.js skips it for every other navigation) ---- */
+/* ---- page to page: a short cross-fade between the site's own pages (browsers without cross-document view
+   transitions just navigate). Off with reduced motion, and under Less motion (js/lakes.js skips it, and this rule
+   stops any fade that still starts). ---- */
 @media (prefers-reduced-motion: no-preference) {
   @view-transition { navigation: auto; }
   ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 200ms; animation-timing-function: var(--ease); }
 }
+html[data-motion="reduce"]::view-transition-group(*),
+html[data-motion="reduce"]::view-transition-old(*),
+html[data-motion="reduce"]::view-transition-new(*) { animation: none !important; }
 
 /* ---- log: lake tag and filter ---- */
 .lake-tag {
