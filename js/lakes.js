@@ -1674,7 +1674,7 @@
     });
   }
 
-  // per-lake data files: "what's biting" (js/biting/<id>.js, split from js/biting-data.js and js/biting-data-lakes.js
+  // per-lake data files: "what's biting" (js/biting/<id>.js, split from .github/build-inputs/biting-data.js and biting-data-lakes.js
   // by tools/biting-split.py) and the map data (js/hoover-map-data.js, js/lake-map-data-<id>.js). One rule for every
   // lake, so a new lake needs no edits here.
   function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }

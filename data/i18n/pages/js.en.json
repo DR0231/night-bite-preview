@@ -1,7 +1,7 @@
 {
  "_meta": {
   "page": "js",
-  "source": "js/biting-data.js, js/biting-data-lakes.js"
+  "source": ".github/build-inputs/biting-data.js, .github/build-inputs/biting-data-lakes.js"
  },
  "strings": {
   "js.0050b660": "The humps. Small jigs or worms under a bobber.",

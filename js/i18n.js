@@ -18,7 +18,7 @@
  * starts with ": " or ends with "Source:" / "Live level:" is matched without that piece and the piece added back
  * translated; [data-nb-rule] (rule lines, translated as drafts) gets a small note pointing to the linked official source.
  * S12: every other line on a page comes from data/i18n/pages/<page>.en.json and <page>.<lang>.json, written by
- * tools/i18n-extract.py from the built HTML and the translation memory data/i18n/tm/<lang>.json. Shared keys win.
+ * tools/i18n-extract.py from the built HTML and the translation memory .github/build-inputs/i18n-tm/<lang>.json. Shared keys win.
  * S13: text the scripts write after load goes through the pg.* templates; any {value} or whole text node that is an
  * Ohio clock time ("5:27 PM Wed", "9 PM", "Nov. 2, 5 PM ET") is rewritten with Intl, a value cell split as "5:27" +
  * <span class="cond-unit">PM Wed</span> is read as one time, and <time datetime> holding a full ISO instant (the

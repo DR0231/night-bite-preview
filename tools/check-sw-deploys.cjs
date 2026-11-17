@@ -43,7 +43,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const WORK = fs.mkdtempSync(path.join(os.tmpdir(), 'nb-sw-deploys-'));
 function build(src, tag) {
   const dir = path.join(WORK, tag);
-  const skip = new Set(['.git', 'whisperwood', 'node_modules', path.join('data', 'i18n', 'tm')]);
+  const skip = new Set(['.git', 'whisperwood', 'node_modules', '.github']);
   fs.cpSync(src, dir, { recursive: true, filter: f => !skip.has(path.relative(src, f)) });
   const sw = path.join(dir, 'sw.js');
   const ver = 'v900-test-' + tag;
