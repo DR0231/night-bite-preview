@@ -163,8 +163,10 @@
   --measure: 38rem;
   --header-h: 3.5rem;
 
-  /* Type scale (~1.2 ratio, fluid). Pixelify sizes never drop below 12px. */
-  --text-label: 0.75rem;                                         /* 12px Pixelify labels */
+  /* Type scale (~1.2 ratio, fluid). Data sublabels and provenance are 14px; header nav is at least 13px;
+     other Pixelify chrome labels stay 12px. */
+  --text-label: 0.75rem;                                         /* 12px Pixelify chrome labels */
+  --text-sub: 0.875rem;                                          /* 14px data sublabels and provenance */
   --text-sm: clamp(0.875rem, 0.85rem + 0.12vw, 0.9375rem);       /* 14–15px meta */
   --text-base: clamp(1.0625rem, 1.03rem + 0.15vw, 1.125rem);     /* 17–18px body */
   --text-md: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);            /* h3 / card titles */
@@ -450,13 +452,13 @@ button, .btn, .site-nav a, .nav-more-btn, .species-subnav a, .gear-sticky-nav a,
     overscroll-behavior: contain;
   }
 }
-/* Phones: "Species" is spelled out, so the row runs tighter (12px labels, 4px side padding, 44px targets kept) */
+/* Phones: "Species" is spelled out, so the row runs tighter (13px labels, 4px side padding, 44px targets kept) */
 @media (max-width: 440px) {
   .header-inner { gap: 0.5rem; padding-left: max(0.75rem, env(safe-area-inset-left)); padding-right: max(0.75rem, env(safe-area-inset-right)); }
   .logo { gap: 0.5rem; }
   .logo-text { letter-spacing: 0.01em; }
   .site-nav ul { gap: 0; }
-  .site-nav a, .nav-more-btn { padding: 0 0.25rem; font-size: 0.75rem; letter-spacing: 0; }
+  .site-nav a, .nav-more-btn { padding: 0 0.25rem; font-size: 0.8125rem; letter-spacing: 0; }
   .site-nav a::after, .nav-more-btn::after { left: 0.25rem; right: 0.25rem; }
   .nav-more-btn::before { margin-inline-start: 0.25rem; }
 }
@@ -690,7 +692,7 @@ h1.tagline {
 }
 .chip-nights { background: rgb(var(--amber-rgb) / 0.12); border-color: var(--amber-dim); color: var(--amber); }
 .chip-wait { background: rgb(var(--muted-rgb) / 0.12); border-color: var(--muted); color: var(--muted); }
-.chip .chip-label { display: block; font-size: var(--text-label); opacity: 0.85; margin-top: 0.2rem; }
+.chip .chip-label { display: block; font-size: var(--text-sub); opacity: 0.85; margin-top: 0.2rem; }
 
 /* Quiet note (formerly the dashed "placeholder" box) */
 .placeholder-note,
@@ -973,7 +975,7 @@ a.card:hover,
   min-width: 44px;
   padding: 0 0.5rem;
   font-family: var(--font-display); font-variant-ligatures: none;
-  font-size: var(--text-label);
+  font-size: 0.8125rem; /* 13px, same floor as header nav */
   letter-spacing: 0.04em;
   color: var(--muted);
   text-decoration: none;
@@ -1202,7 +1204,7 @@ html[data-contrast="high"] .trip-send-status { border-inline-start-color: curren
   .access-table td[data-label]::before {
     content: attr(data-label) ": ";
     font-family: var(--font-display); font-variant-ligatures: none;
-    font-size: var(--text-label); letter-spacing: 0.04em; color: var(--muted);
+    font-size: var(--text-sub); letter-spacing: 0.04em; color: var(--muted);
   }
 }
 
@@ -1685,7 +1687,7 @@ a.bento-card:hover .log-value { color: var(--amber); }
 .pool-readout-cell + .pool-readout-cell { padding-left: var(--space-sm); box-shadow: inset 1px 0 0 var(--navy-light); }
 .pool-readout-label {
   font-family: var(--font-display); font-variant-ligatures: none;
-  font-size: var(--text-label);
+  font-size: var(--text-sub);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1826,7 +1828,7 @@ h3 { font-size: 20px; line-height: 30px; }
 .cond-label,
 .cond-sub {
   font-family: var(--font-display); font-variant-ligatures: none;
-  font-size: var(--text-label);
+  font-size: var(--text-sub);
   letter-spacing: 0.08em;
   line-height: 1.3;
   color: var(--muted);
@@ -1975,7 +1977,7 @@ h3 { font-size: 20px; line-height: 30px; }
 .cond-hour[data-storm] { border-color: var(--amber); background: var(--amber-glow); }
 .cond-hour-t, .cond-hour-wind, .cond-hour-pop {
   font-family: var(--font-display); font-variant-ligatures: none;
-  font-size: var(--text-label);
+  font-size: var(--text-sub);
   letter-spacing: 0.04em;
   line-height: 1.3;
   white-space: nowrap;
@@ -3101,17 +3103,24 @@ a.glance-cell[href]:hover { background: var(--navy-mid); color: inherit; }
 .glance-label,
 .glance-sub {
   font-family: var(--font-display); font-variant-ligatures: none;
-  font-size: var(--text-label);
+  font-size: var(--text-sub);
   letter-spacing: 0.08em;
-  line-height: 16px;
-  height: 16px;
+  line-height: 18px;
   color: var(--muted);
-  white-space: nowrap;
   overflow: hidden;
+}
+.glance-label {
+  text-transform: uppercase;
+  height: 18px;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
-.glance-label { text-transform: uppercase; }
-.glance-sub { letter-spacing: 0.04em; color: var(--cream-dark); }
+.glance-sub {
+  letter-spacing: 0.04em;
+  color: var(--cream-dark);
+  min-height: 18px;
+  overflow-wrap: anywhere;
+}
 .glance-cell[data-none] .glance-sub,
 .glance-cell[data-empty] .glance-sub { color: var(--muted); }
 .glance-value {
@@ -3155,7 +3164,7 @@ a.glance-cell[href]:hover { background: var(--navy-mid); color: inherit; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.glance-bite .glance-value.glance-state { font-size: var(--text-label); align-items: center; }
+.glance-bite .glance-value.glance-state { font-size: var(--text-sub); align-items: center; }
 .glance-cell[data-empty] .glance-value.glance-state { color: var(--cream-dark); }
 .glance-head { flex-wrap: wrap; row-gap: 0; }
 .glance-head .glance-bite { margin-inline-start: auto; min-height: 44px; margin-block: -6px; justify-content: center; }   /* 44px target, head stays 32px */
@@ -3164,12 +3173,12 @@ a.glance-cell[href]:hover { background: var(--navy-mid); color: inherit; }
 .glance-stamp {
   margin: 0;
   padding: var(--space-2xs) 0;
-  min-height: 40px;
+  min-height: 44px;
   border-top: 1px solid var(--navy-light);
   font-family: var(--font-display); font-variant-ligatures: none;
-  font-size: var(--text-label);
+  font-size: var(--text-sub);
   letter-spacing: 0.04em;
-  line-height: 16px;
+  line-height: 18px;
   color: var(--muted);
 }
 .glance-stamp time { color: var(--cream-dark); white-space: nowrap; }
@@ -3457,7 +3466,7 @@ html:not([data-lake]) .sp-away .species-card[data-lakes][data-lakes]:not([hidden
   .stack-table tbody td::before {
     content: attr(data-label);
     content: attr(data-label) / "";
-    font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-label); font-weight: 500;
+    font-family: var(--font-display); font-variant-ligatures: none; font-size: var(--text-sub); font-weight: 500;
     letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.35; color: var(--muted);
   }
   html[data-lang] .stack-table tbody td::before { letter-spacing: 0; text-transform: none; }
@@ -4384,11 +4393,11 @@ html[data-lang] .logo-text, html[data-lang] .hero-brand { font-family: "Night Bi
 .i18n-rule-note { display: block; margin-top: 0.25rem; font-size: 0.8125rem; font-style: italic; color: var(--amber); }
 html[data-light="red"] .i18n-rule-note { color: inherit; }
 html[data-contrast="more"] .i18n-rule-note { color: var(--cream); }
-/* Translated labels run longer than English (Fischarten, Attrezzatura): on phones the nav row tightens to 11px with
+/* Translated labels run longer than English (Fischarten, Attrezzatura): on phones the nav row stays at 13px with
    3px side padding so Home, Species, Lake, Gear and More still fit beside the lantern at 375 to 440px; a label that
    still won't fit ends in an ellipsis rather than pushing the page sideways. English is untouched. */
 @media (max-width: 440px) {
-  html[data-lang] .site-nav a, html[data-lang] .nav-more-btn { font-size: 0.6875rem; padding: 0 0.1875rem; }
+  html[data-lang] .site-nav a, html[data-lang] .nav-more-btn { font-size: 0.8125rem; padding: 0 0.1875rem; }
   html[data-lang] .site-nav { min-width: 0; }
   html[data-lang] .site-nav > ul > li { min-width: 0; flex: 0 1 auto; }
   html[data-lang] .site-nav a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
