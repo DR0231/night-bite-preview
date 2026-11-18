@@ -32,7 +32,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v146-2026-11-17";
+var VERSION = "v147-2026-11-18";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -1029,13 +1029,13 @@ var REVISIONS = {
   "js/biting/wellington.js": "aa5fe79e5d1e",
   "assets/map/wellington-map-tall.png": "3718dfd9adb2",
   "assets/map/wellington-map-wide.png": "a0fbcd0c598d",
-  "kiser/": "5dec73dcbea0",
+  "kiser/": "2643741e278c",
   "assets/kiser-chart.png": "6a8043b072f6",
   "js/lake-map-data-kiser.js": "bd4db154c6f2",
   "js/biting/kiser.js": "5379f0e7680e",
   "assets/map/kiser-map-tall.png": "522208b9f6e4",
   "assets/map/kiser-map-wide.png": "1e676d9e24aa",
-  "hargus/": "45a84d3da0d6",
+  "hargus/": "81b07991a75b",
   "assets/hargus-chart.png": "f7e976a9db8d",
   "js/lake-map-data-hargus.js": "41686ce6e518",
   "js/biting/hargus.js": "2a3053706451",
@@ -1059,7 +1059,7 @@ var REVISIONS = {
   "js/biting/lakewhite.js": "6a13cfdfb656",
   "assets/map/lakewhite-map-tall.png": "76753f37d53b",
   "assets/map/lakewhite-map-wide.png": "4500d8885ea8",
-  "lakerupert/": "333087d6c539",
+  "lakerupert/": "900eefb95bed",
   "assets/lakerupert-chart.png": "575bbb9374a3",
   "js/lake-map-data-lakerupert.js": "1f1236ff83f8",
   "js/biting/lakerupert.js": "c36264282233",
@@ -1071,13 +1071,13 @@ var REVISIONS = {
   "js/biting/jackson.js": "eebde2fc62c2",
   "assets/map/jackson-map-tall.png": "521692247685",
   "assets/map/jackson-map-wide.png": "ce8819d51e44",
-  "wolfrun/": "934c0390aff3",
+  "wolfrun/": "c62221037010",
   "assets/wolfrun-chart.png": "93068d6a60fc",
   "js/lake-map-data-wolfrun.js": "e0c206b29d7b",
   "js/biting/wolfrun.js": "a622222f5cc4",
   "assets/map/wolfrun-map-tall.png": "68acf311e6aa",
   "assets/map/wolfrun-map-wide.png": "0ef678780f18",
-  "tycoon/": "88fa9886925d",
+  "tycoon/": "4d7c17f27545",
   "assets/tycoon-chart.png": "a598d96631cd",
   "js/lake-map-data-tycoon.js": "984860763c23",
   "js/biting/tycoon.js": "b01dc35f94ba",
