@@ -2616,8 +2616,9 @@ html:not([data-lake]) [data-lakes]:not([data-lakes~="hoover"]) { display: none !
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
   gap: 0.1875rem;
-  min-height: 2.125rem;
+  min-height: 44px;
   padding: 0;
   margin: 0;
   font-family: var(--font-display);
@@ -2653,10 +2654,10 @@ html:not([data-lake]) [data-lakes]:not([data-lakes~="hoover"]) { display: none !
   border-radius: var(--radius-pill);
   transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
 }
-.lake-pill::before {   /* touch slop around label + pill, so the target is at least 44px tall */
+.lake-pill::before {   /* horizontal slop only; the button itself is now 44px tall */
   content: "";
   position: absolute;
-  inset: -0.3125rem -0.375rem;
+  inset: 0 -0.375rem;
 }
 .lake-pill-dot { width: 6px; height: 6px; background: var(--amber); box-shadow: 0 0 6px var(--amber-glow); flex-shrink: 0; }
 .lake-pill-name::after { content: var(--lake-short, "Hoover"); }
@@ -3415,7 +3416,7 @@ html:not([data-lake]) .sp-away .species-card[data-lakes][data-lakes]:not([hidden
   background: rgb(var(--cream-rgb) / 0.03); border: 1px solid rgb(var(--cream-rgb) / 0.12); border-left: 3px solid var(--navy-light);
 }
 .summary-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.375rem 0.75rem; margin: 0 0 0.3rem; }
-.summary-head a { font-weight: 600; }
+.summary-head a { font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 .summary-chip {
   display: inline-flex; align-items: center; min-height: 1.5rem; padding: 0.1rem 0.5rem;
   font-family: var(--font-display); font-size: var(--text-label); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2;
@@ -4244,8 +4245,32 @@ html[data-light="red"] :is(.contour-key-shallow, .contour-key-deep) { filter: va
 html[data-light="red"] ::selection { background: #3a0d08; color: #ff4422; }
 html[data-light="red"] input, html[data-light="red"] select, html[data-light="red"] textarea { accent-color: var(--amber); }
 
-/* Touch targets (S3b): a link standing alone on a meta line gets 44px of tap height without moving the text */
+/* Touch targets (S3b / UX 2026-11-18): 44px minimum height on phones for standalone controls and
+   for water-name, source, and "also" links. Inline links in running sentences stay as they are.
+   Water-name links in a heading row are their own 44px box. Source and "also" lines keep their
+   punctuation in the sentence: 44px line spacing, plus 12px padding on each link so a one-line
+   name measures 44px (the measured text is 20px). */
 p.meta > a:only-child { padding-block: 0.75rem; }
+.stack-table tbody th[scope="row"] a {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  min-height: 44px;
+  vertical-align: middle;
+  border-radius: var(--radius);
+}
+.summary-src,
+.qf-src,
+.lake-links-also {
+  line-height: 44px;
+}
+.summary-src a,
+.qf-src a,
+.lake-links-also a {
+  padding-block: 12px;
+  border-radius: var(--radius);
+}
 .lp-search:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 
 /* Display entry points: hidden until js/a11y.js runs (no JS, no dead button) */
