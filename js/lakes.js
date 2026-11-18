@@ -1,7 +1,9 @@
 /**
  * The Night Bite: per-lake settings and the active lake.
- * Loaded in <head> on every page (before any other script), so html[data-lake] is set before first paint and the
- * lake-only blocks ([data-for="alum"] and so on, see css/styles.css) never flash the wrong lake.
+ * The tiny head boot (js/lakes-boot.js, sync) sets html[data-lake] and hides other lakes' blocks before first paint,
+ * and sends a saved pick from the water picker to that lake's home. This file is deferred: the full lake list, gauge
+ * helpers and Home-link rewriting. It still does the same boot work if the tiny script is missing, so the two stay
+ * in step.
  *
  * Active lake: ?lake=<id> in the URL first, then localStorage "nb-lake" (the last water chosen on this device, the id
  * only), then Hoover for pages that need a lake before one is chosen.

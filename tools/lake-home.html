@@ -38,7 +38,8 @@
   <script src="js/a11y-boot.js"></script>
   <link rel="stylesheet" href="css/styles.css">
   <noscript><style>.glance-actions{display:none}.pool-trend[data-pending]{display:none!important}</style></noscript>
-  <script src="js/lakes.js"></script>
+  <script src="js/lakes-boot.js"></script>
+  <script src="js/lakes.js" defer></script>
   <!-- nb:jsonld (tools/build-lake-pages.py) -->
   <script type="application/ld+json">
   [{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://nightbiteoh.com/hoover/#webpage", "url": "https://nightbiteoh.com/hoover/", "name": "Hoover Reservoir Fishing: Level, Rules | The Night Bite", "isPartOf": {"@id": "https://nightbiteoh.com/#website"}, "about": {"@type": "Reservoir", "name": "Hoover Reservoir"}, "dateModified": "2026-10-31", "inLanguage": "en-US", "breadcrumb": {"@id": "https://nightbiteoh.com/hoover/#breadcrumb"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://nightbiteoh.com/hoover/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nightbiteoh.com/"}, {"@type": "ListItem", "position": 2, "name": "Hoover Reservoir", "item": "https://nightbiteoh.com/hoover/"}]}]
@@ -122,10 +123,10 @@
           <span class="glance-value" data-glance="temp">65<span class="glance-unit"> °F</span></span>
           <span class="glance-sub" data-glance="temp-sub">USGS gauge</span>
         </a>
-        <a class="glance-cell" href="#conditions" data-cell="sunset" data-empty>
+        <a class="glance-cell" href="#conditions" data-cell="sunset" data-sunset-for="2026-11-18">
           <span class="glance-label">Sunset</span>
-          <span class="glance-value glance-state" data-glance="sunset"><noscript>JS is off</noscript></span>
-          <span class="glance-sub" data-glance="sunset-sub">On this phone</span>
+          <span class="glance-value" data-glance="sunset" data-nb-dyn>5:14<span class="glance-unit"> PM</span></span>
+          <span class="glance-sub" data-glance="sunset-sub" data-nb-dyn>Last light 5:43 PM, Nov 18, 2026</span>
         </a>
         <a class="glance-cell" href="https://forecast.weather.gov/MapClick.php?lat=40.11&amp;lon=-82.88" target="_blank" rel="noopener" data-cell="wind" data-empty>
           <span class="glance-label">Wind tonight</span>
@@ -440,7 +441,7 @@
       <section class="bento-card bento-pool" id="pool-snapshot" aria-labelledby="snapshot-title">
         <h2 id="snapshot-title">Today’s pool &amp; temp</h2>
         <p class="pool-lead" id="correction-line">891.50 ft · 65°F · ~2.5 ft below full pool</p>
-        <script src="js/pool-readout.js"></script>
+        <script src="js/pool-readout.js" defer></script>
         <figure class="pool-chart">
           <button type="button" class="pool-chart-open" id="map-open" aria-haspopup="dialog" aria-controls="hoover-map">
             <img src="assets/hoover-chart.png" alt="" width="143" height="48" data-for="hoover" loading="lazy" decoding="async">
@@ -524,7 +525,7 @@
         <p class="meta" id="usgs-live-status" style="margin-bottom:0.5rem;margin-top:0.5rem;">
           Provisional snapshot; your browser may refresh it from USGS. Never invented.
         </p>
-        <script src="js/lake-snapshot.js"></script>
+        <script src="js/lake-snapshot.js" defer></script>
         <div class="pool-trend" id="pool-trend" hidden data-pending>
           <div class="pool-trend-head">
             <span class="pool-trend-label">Pool, last 7 days</span>
@@ -1033,7 +1034,7 @@
         </details>
         <p class="meta bait-foot">Drive times are rough. <a class="bait-tell" href="mailto:contact@nightbiteoh.com?subject=Bait%20shop">Know a shop? Tell us</a></p>
       </section>
-      <script src="js/bait-nearby.js"></script>
+      <script src="js/bait-nearby.js" defer></script>
 
       <a class="bento-card bento-maps" href="water#maps">
         <h3>Water / maps</h3>
@@ -1179,7 +1180,7 @@
         <span class="card-cue" aria-hidden="true">Open the log</span>
       </a>
     </div>
-    <script src="js/glance.js"></script>
+    <script src="js/glance.js" defer></script>
 
 
     <details class="how-to-read contour-map" id="depth-contours" data-for="hoover">
@@ -1252,7 +1253,7 @@
         </details>
       </div>
     </section>
-    <script src="js/get-app.js"></script>
+    <script src="js/get-app.js" defer></script>
 
     <hr class="divider">
 
@@ -1401,84 +1402,84 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js"></script>
-  <script src="js/sw-update.js"></script>
-  <script src="js/alerts.js"></script>
-  <script src="js/nav.js"></script>
-  <script src="js/visits.js"></script>
-  <script src="js/lake-picker.js"></script>
-  <script src="js/usgs.js"></script>
-  <script src="js/home-log.js"></script>
-  <script src="js/astro.js"></script>
-  <script src="js/night-rules.js"></script>
-  <script src="js/conditions.js"></script>
-  <script src="js/fold-anchors.js"></script>
-  <script src="js/pool-trend.js"></script>
-  <script src="js/hoover-map-data.js"></script>
-  <script src="js/lake-map-data-alum.js"></script>
-  <script src="js/lake-map-data-buckeye.js"></script>
-  <script src="js/lake-map-data-oshaughnessy.js"></script>
-  <script src="js/lake-map-data-griggs.js"></script>
-  <script src="js/lake-map-data-indian.js"></script>
-  <script src="js/lake-map-data-delaware.js"></script>
-  <script src="js/lake-map-data-deercreek.js"></script>
-  <script src="js/lake-map-data-madison.js"></script>
-  <script src="js/lake-map-data-knox.js"></script>
-  <script src="js/lake-map-data-clearfork.js"></script>
-  <script src="js/lake-map-data-seneca.js"></script>
-  <script src="js/lake-map-data-dillon.js"></script>
-  <script src="js/lake-map-data-logan.js"></script>
-  <script src="js/lake-map-data-saltfork.js"></script>
-  <script src="js/lake-map-data-burroak.js"></script>
-  <script src="js/lake-map-data-dow.js"></script>
-  <script src="js/lake-map-data-mosquito.js"></script>
-  <script src="js/lake-map-data-berlin.js"></script>
-  <script src="js/lake-map-data-westbranch.js"></script>
-  <script src="js/lake-map-data-pymatuning.js"></script>
-  <script src="js/lake-map-data-milton.js"></script>
-  <script src="js/lake-map-data-leesville.js"></script>
-  <script src="js/lake-map-data-grandlakestmarys.js"></script>
-  <script src="js/lake-map-data-caesarcreek.js"></script>
-  <script src="js/lake-map-data-eastfork.js"></script>
-  <script src="js/lake-map-data-cjbrown.js"></script>
-  <script src="js/lake-map-data-rockyfork.js"></script>
-  <script src="js/lake-map-data-ladue.js"></script>
-  <script src="js/lake-map-data-paintcreek.js"></script>
-  <script src="js/lake-map-data-portagelakes.js"></script>
-  <script src="js/lake-map-data-mogadore.js"></script>
-  <script src="js/lake-map-data-loramie.js"></script>
-  <script src="js/lake-map-data-nimisila.js"></script>
-  <script src="js/lake-map-data-cowan.js"></script>
-  <script src="js/lake-map-data-acton.js"></script>
-  <script src="js/lake-map-data-tappan.js"></script>
-  <script src="js/lake-map-data-piedmont.js"></script>
-  <script src="js/lake-map-data-clendening.js"></script>
-  <script src="js/lake-map-data-atwood.js"></script>
-  <script src="js/lake-map-data-charlesmill.js"></script>
-  <script src="js/lake-map-data-pleasanthill.js"></script>
-  <script src="js/lake-map-data-beachcity.js"></script>
-  <script src="js/lake-map-data-wingfoot.js"></script>
-  <script src="js/lake-map-data-eastbranch.js"></script>
-  <script src="js/lake-map-data-guilford.js"></script>
-  <script src="js/lake-map-data-highlandtown.js"></script>
-  <script src="js/lake-map-data-punderson.js"></script>
-  <script src="js/lake-map-data-wellington.js"></script>
-  <script src="js/lake-map-data-kiser.js"></script>
-  <script src="js/lake-map-data-hargus.js"></script>
-  <script src="js/lake-map-data-stonelick.js"></script>
-  <script src="js/lake-map-data-grant.js"></script>
-  <script src="js/lake-map-data-lakewhite.js"></script>
-  <script src="js/lake-map-data-lakerupert.js"></script>
-  <script src="js/lake-map-data-jackson.js"></script>
-  <script src="js/lake-map-data-wolfrun.js"></script>
-  <script src="js/lake-map-data-tycoon.js"></script>
-  <script src="js/lake-map-data-lakehope.js"></script>
-  <script src="js/lake-map-data-findlayreservoirs.js"></script>
-  <script src="js/lake-map-data-bresler.js"></script>
-  <script src="js/lake-map-data-fergusonmetzger.js"></script>
-  <script src="js/hoover-map.js"></script>
-  <script src="js/install-tip.js"></script>
-  <script src="js/tonight-tools.js"></script>
+  <script src="js/refresh.js" defer></script>
+  <script src="js/sw-update.js" defer></script>
+  <script src="js/alerts.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/visits.js" defer></script>
+  <script src="js/lake-picker.js" defer></script>
+  <script src="js/usgs.js" defer></script>
+  <script src="js/home-log.js" defer></script>
+  <script src="js/astro.js" defer></script>
+  <script src="js/night-rules.js" defer></script>
+  <script src="js/conditions.js" defer></script>
+  <script src="js/fold-anchors.js" defer></script>
+  <script src="js/pool-trend.js" defer></script>
+  <script src="js/hoover-map-data.js" defer></script>
+  <script src="js/lake-map-data-alum.js" defer></script>
+  <script src="js/lake-map-data-buckeye.js" defer></script>
+  <script src="js/lake-map-data-oshaughnessy.js" defer></script>
+  <script src="js/lake-map-data-griggs.js" defer></script>
+  <script src="js/lake-map-data-indian.js" defer></script>
+  <script src="js/lake-map-data-delaware.js" defer></script>
+  <script src="js/lake-map-data-deercreek.js" defer></script>
+  <script src="js/lake-map-data-madison.js" defer></script>
+  <script src="js/lake-map-data-knox.js" defer></script>
+  <script src="js/lake-map-data-clearfork.js" defer></script>
+  <script src="js/lake-map-data-seneca.js" defer></script>
+  <script src="js/lake-map-data-dillon.js" defer></script>
+  <script src="js/lake-map-data-logan.js" defer></script>
+  <script src="js/lake-map-data-saltfork.js" defer></script>
+  <script src="js/lake-map-data-burroak.js" defer></script>
+  <script src="js/lake-map-data-dow.js" defer></script>
+  <script src="js/lake-map-data-mosquito.js" defer></script>
+  <script src="js/lake-map-data-berlin.js" defer></script>
+  <script src="js/lake-map-data-westbranch.js" defer></script>
+  <script src="js/lake-map-data-pymatuning.js" defer></script>
+  <script src="js/lake-map-data-milton.js" defer></script>
+  <script src="js/lake-map-data-leesville.js" defer></script>
+  <script src="js/lake-map-data-grandlakestmarys.js" defer></script>
+  <script src="js/lake-map-data-caesarcreek.js" defer></script>
+  <script src="js/lake-map-data-eastfork.js" defer></script>
+  <script src="js/lake-map-data-cjbrown.js" defer></script>
+  <script src="js/lake-map-data-rockyfork.js" defer></script>
+  <script src="js/lake-map-data-ladue.js" defer></script>
+  <script src="js/lake-map-data-paintcreek.js" defer></script>
+  <script src="js/lake-map-data-portagelakes.js" defer></script>
+  <script src="js/lake-map-data-mogadore.js" defer></script>
+  <script src="js/lake-map-data-loramie.js" defer></script>
+  <script src="js/lake-map-data-nimisila.js" defer></script>
+  <script src="js/lake-map-data-cowan.js" defer></script>
+  <script src="js/lake-map-data-acton.js" defer></script>
+  <script src="js/lake-map-data-tappan.js" defer></script>
+  <script src="js/lake-map-data-piedmont.js" defer></script>
+  <script src="js/lake-map-data-clendening.js" defer></script>
+  <script src="js/lake-map-data-atwood.js" defer></script>
+  <script src="js/lake-map-data-charlesmill.js" defer></script>
+  <script src="js/lake-map-data-pleasanthill.js" defer></script>
+  <script src="js/lake-map-data-beachcity.js" defer></script>
+  <script src="js/lake-map-data-wingfoot.js" defer></script>
+  <script src="js/lake-map-data-eastbranch.js" defer></script>
+  <script src="js/lake-map-data-guilford.js" defer></script>
+  <script src="js/lake-map-data-highlandtown.js" defer></script>
+  <script src="js/lake-map-data-punderson.js" defer></script>
+  <script src="js/lake-map-data-wellington.js" defer></script>
+  <script src="js/lake-map-data-kiser.js" defer></script>
+  <script src="js/lake-map-data-hargus.js" defer></script>
+  <script src="js/lake-map-data-stonelick.js" defer></script>
+  <script src="js/lake-map-data-grant.js" defer></script>
+  <script src="js/lake-map-data-lakewhite.js" defer></script>
+  <script src="js/lake-map-data-lakerupert.js" defer></script>
+  <script src="js/lake-map-data-jackson.js" defer></script>
+  <script src="js/lake-map-data-wolfrun.js" defer></script>
+  <script src="js/lake-map-data-tycoon.js" defer></script>
+  <script src="js/lake-map-data-lakehope.js" defer></script>
+  <script src="js/lake-map-data-findlayreservoirs.js" defer></script>
+  <script src="js/lake-map-data-bresler.js" defer></script>
+  <script src="js/lake-map-data-fergusonmetzger.js" defer></script>
+  <script src="js/hoover-map.js" defer></script>
+  <script src="js/install-tip.js" defer></script>
+  <script src="js/tonight-tools.js" defer></script>
   <script src="js/a11y.js" defer></script>
 </body>
 </html>

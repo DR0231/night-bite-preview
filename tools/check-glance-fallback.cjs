@@ -1,6 +1,6 @@
 // The Night Bite: the "Tonight at a glance" strip never shows a placeholder. Loads each lake home twice per width:
 //   apis-blocked  JavaScript on, USGS, the Corps (CWMS) and NWS all blocked, nothing saved on the phone
-//   js-off        JavaScript off (the baked HTML from tools/glance_bake.py on its own)
+//   js-off        JavaScript off (the baked HTML from tools/glance_bake.py on its own, including dated sunset)
 // at 320 and 430 px wide, and asserts: the strip is visible; no "--", "Loading", "unavailable", "Gauge unavailable" or
 // "NWS not available" anywhere in it; every value has text; gauge lakes show a level in ft and a visible stamp with a
 // <time> ("last updated X ago" with JavaScript, the absolute date and time without); lakes with no gauge show the
@@ -80,7 +80,7 @@ function read(page) {
         check(t + ' every cell has a value and a sub', !empty.length && !!r.bite && (noSrc ? !r.temp : true), empty.join(',') + (r.bite ? '' : ' bite') + (noSrc && r.temp ? ' extra-temp' : ''));
         check(t + ' bite says what it needs', r.bite === 'Needs forecast' || /^(Good|Fair|Tough)$/.test(r.bite), r.bite);
         check(t + ' wind points at NWS', /forecast\.weather\.gov/.test(r.wind.href) && (/Check NWS/.test(r.wind.v) || /mph|Calm/.test(r.wind.v)), JSON.stringify([r.wind.v, r.wind.s]));
-        if (mode === 'js-off') check(t + ' sunset says JS is off', r.sunset.v === 'JS is off', r.sunset.v);
+        if (mode === 'js-off') check(t + ' sunset is baked for a dated day', /^\d{1,2}:\d{2} (AM|PM)$/.test(r.sunset.v.replace(/\s+/g, ' ')) && /Last light/.test(r.sunset.s) && /\d{4}/.test(r.sunset.s), JSON.stringify([r.sunset.v, r.sunset.s]));
         else check(t + ' sunset worked out on the phone', /^\d{1,2}:\d{2} (AM|PM)( [A-Z][a-z]{2})?$/.test(r.sunset.v.replace(/\s+/g, ' ')), r.sunset.v.replace(/\s+/g, ' '));   // after today's sunset: "5:15 PM Wed"
         if (noSrc) {
           check(t + ' no gauge: one "No public gauge" cell linked to the pool card note', r.pool.state && r.pool.v === 'No public gauge' && r.pool.s === 'Nothing estimated' && /#pool-snapshot$/.test(r.pool.href) && !r.temp, JSON.stringify([r.pool.v, r.pool.s, r.pool.href]));

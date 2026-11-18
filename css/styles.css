@@ -2614,7 +2614,7 @@ html.map-open { overflow: hidden; }
    Lakes: Hoover, Alum Creek, Buckeye Lake, O'Shaughnessy, Griggs, Indian Lake, Delaware Lake, Deer Creek Lake, Madison Lake, Knox Lake, Clear Fork Reservoir (js/lakes.js sets html[data-lake])
    ========================================================================== */
 /* Lake-only blocks: data-for="<lake id>" or a space separated list; species cards list their lakes in data-lakes.
-   js/lakes.js adds the hide rule for the current lake before first paint, from its LAKES entry. No data-lake (no JS): Hoover. */
+   js/lakes-boot.js adds the hide rule for the current lake before first paint, from its SHORTS entry. No data-lake (no JS): Hoover. */
 html:not([data-lake]) [data-for]:not([data-for~="hoover"]),
 html:not([data-lake]) [data-lakes]:not([data-lakes~="hoover"]) { display: none !important; }
 
