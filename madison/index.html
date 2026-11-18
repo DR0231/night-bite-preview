@@ -35,10 +35,10 @@
   <link rel="preload" href="assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="js/a11y-boot.js?v=v153-2026-11-18"></script>
-  <link rel="stylesheet" href="css/styles.css?v=v153-2026-11-18">
+  <script src="js/a11y-boot.js?v=v154-2026-11-18"></script>
+  <link rel="stylesheet" href="css/styles.css?v=v154-2026-11-18">
   <noscript><style>.glance-actions{display:none}.pool-trend[data-pending]{display:none!important}</style></noscript>
-  <script src="js/lakes.js?v=v153-2026-11-18"></script>
+  <script src="js/lakes.js?v=v154-2026-11-18"></script>
   <!-- nb:jsonld (tools/build-lake-pages.py) -->
   <script type="application/ld+json">
   [{"@context": "https://schema.org", "@type": "WebPage", "@id": "https://nightbiteoh.com/madison/#webpage", "url": "https://nightbiteoh.com/madison/", "name": "Madison Lake Fishing: Map, Ramps, Rules | The Night Bite", "isPartOf": {"@id": "https://nightbiteoh.com/#website"}, "about": {"@type": "LakeBodyOfWater", "name": "Madison Lake"}, "dateModified": "2026-10-31", "inLanguage": "en-US", "breadcrumb": {"@id": "https://nightbiteoh.com/madison/#breadcrumb"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "@id": "https://nightbiteoh.com/madison/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://nightbiteoh.com/"}, {"@type": "ListItem", "position": 2, "name": "Madison Lake", "item": "https://nightbiteoh.com/madison/"}]}]
@@ -113,14 +113,9 @@
       </div>
       <div class="glance-grid">
         <a class="glance-cell" href="madison/#pool-snapshot" data-cell="pool" data-empty>
-          <span class="glance-label">Lake level</span>
-          <span class="glance-value glance-state" data-glance="pool">No gauge</span>
-          <span class="glance-sub" data-glance="pool-sub">No public gauge</span>
-        </a>
-        <a class="glance-cell" href="madison/#pool-snapshot" data-cell="temp" data-empty>
-          <span class="glance-label">Water temp</span>
-          <span class="glance-value glance-state" data-glance="temp">No gauge</span>
-          <span class="glance-sub" data-glance="temp-sub">No public gauge</span>
+          <span class="glance-label">Level and temp</span>
+          <span class="glance-value glance-state" data-glance="pool">No public gauge</span>
+          <span class="glance-sub" data-glance="pool-sub">Nothing estimated</span>
         </a>
         <a class="glance-cell" href="madison/#conditions" data-cell="sunset" data-empty>
           <span class="glance-label">Sunset</span>
@@ -196,7 +191,17 @@
       <section class="bento-card bento-pool" id="pool-snapshot" aria-labelledby="snapshot-title">
         <h2 id="snapshot-title">Today’s pool &amp; temp</h2>
         <p class="pool-lead" id="correction-line">No public lake level gauge</p>
-        <script src="js/pool-readout.js?v=v153-2026-11-18"></script>
+        <script src="js/pool-readout.js?v=v154-2026-11-18"></script>
+        <figure class="pool-chart">
+          <button type="button" class="pool-chart-open" id="map-open" aria-haspopup="dialog" aria-controls="hoover-map">
+            <img src="assets/madison-chart.png" alt="" width="132" height="48" data-for="madison" loading="lazy" decoding="async">
+            <span class="sr-only">Open the <span data-lk="short">Madison Lake</span> map with boat ramps<span data-for="madison"> and fishing access</span></span>
+          </button>
+          <figcaption><span class="pool-chart-name" data-lk="name">Madison Lake</span><span class="pool-chart-key"><span data-for="madison">&larr; North</span><span class="pool-chart-legend"><span class="pool-chart-dot" aria-hidden="true"></span><span data-for="madison">Dam</span></span></span><span class="pool-chart-cue" aria-hidden="true">Tap the map for ramps &amp; <span data-for="madison">access</span></span></figcaption>
+        </figure>
+        <details class="how-to-read pool-more" id="pool-more">
+          <summary>Pool details</summary>
+          <div class="how-to-read-body">
         <p class="meta" id="correction-checked">
           ODNR fishing map pool: 965 ft. No USGS or Corps gauge posts this lake's level or water temp, so there is no live reading to show.
         </p>
@@ -207,7 +212,7 @@
         <p class="meta" id="usgs-live-status" style="margin-bottom:0.5rem;margin-top:0.5rem;">
           No public lake level or water temp gauge on this lake. Never invented.
         </p>
-        <script src="js/lake-snapshot.js?v=v153-2026-11-18"></script>
+        <script src="js/lake-snapshot.js?v=v154-2026-11-18"></script>
         <div class="pool-trend" id="pool-trend" hidden data-pending>
           <div class="pool-trend-head">
             <span class="pool-trend-label">Pool, last 7 days</span>
@@ -216,13 +221,6 @@
           <svg class="pool-trend-svg" role="img" aria-label="Pool level over the last 7 days" preserveAspectRatio="none"></svg>
           <div class="pool-trend-axis" aria-hidden="true"><span class="pool-trend-from"></span><span>Now</span></div>
         </div>
-        <figure class="pool-chart">
-          <button type="button" class="pool-chart-open" id="map-open" aria-haspopup="dialog" aria-controls="hoover-map">
-            <img src="assets/madison-chart.png" alt="" width="132" height="48" data-for="madison" loading="lazy" decoding="async">
-            <span class="sr-only">Open the <span data-lk="short">Madison Lake</span> map with boat ramps<span data-for="madison"> and fishing access</span></span>
-          </button>
-          <figcaption><span class="pool-chart-name" data-lk="name">Madison Lake</span><span class="pool-chart-key"><span data-for="madison">&larr; North</span><span class="pool-chart-legend"><span class="pool-chart-dot" aria-hidden="true"></span><span data-for="madison">Dam</span></span></span><span class="pool-chart-cue" aria-hidden="true">Tap the map for ramps &amp; <span data-for="madison">access</span></span></figcaption>
-        </figure>
         <details class="how-to-read" id="how-to-read">
           <summary>How to read this</summary>
           <div class="how-to-read-body">
@@ -231,6 +229,8 @@
               <li>The <a href="https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/wildlife/maps/madisonlake2.pdf" target="_blank" rel="noopener">ODNR fishing map</a>&rsquo;s depths are based on the <strong>965 ft</strong> summer pool (2 ft contours, surveyed 2006). If the lake is down, real water is shallower than printed.</li>
               <li><strong>Electric motors only</strong> (<a href="https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/madison-lake-state-park" target="_blank" rel="noopener">ODNR</a>). Check Ohio&rsquo;s BeachGuard for advisories before swimming.</li>
             </ul>
+          </div>
+        </details>
           </div>
         </details>
       </section>
@@ -243,6 +243,9 @@
           <p class="cond-bite-line"><span class="cond-label">Tonight&rsquo;s bite</span> <span class="cond-bite-rate"></span> <span class="cond-bite-why"></span></p>
           <p class="cond-bite-note">A rule of thumb guide, not a promise.</p>
         </div>
+        <details class="how-to-read cond-more" id="cond-more">
+          <summary>Tonight details</summary>
+          <div class="how-to-read-body">
         <details class="how-to-read bite-how" id="bite-how">
           <summary>How the bite is rated</summary>
           <div class="how-to-read-body">
@@ -279,6 +282,8 @@
         <p class="cond-summary"></p>
         <p class="meta cond-status">Loading the National Weather Service forecast…</p>
         <p class="meta cond-note">Sun and moon times are worked out on your phone, within a few minutes of the US Naval Observatory.</p>
+          </div>
+        </details>
       </section>
 
       <section class="bento-card bento-bait" id="bait-nearby" aria-labelledby="bait-title" data-state="loading">
@@ -295,7 +300,7 @@
         </details>
         <p class="meta bait-foot">Drive times are rough. <a class="bait-tell" href="mailto:contact@nightbiteoh.com?subject=Bait%20shop">Know a shop? Tell us</a></p>
       </section>
-      <script src="js/bait-nearby.js?v=v153-2026-11-18"></script>
+      <script src="js/bait-nearby.js?v=v154-2026-11-18"></script>
 
       <a class="bento-card bento-maps" href="water#maps">
         <h3>Water / maps</h3>
@@ -320,7 +325,7 @@
         <span class="card-cue" aria-hidden="true">Open the log</span>
       </a>
     </div>
-    <script src="js/glance.js?v=v153-2026-11-18"></script>
+    <script src="js/glance.js?v=v154-2026-11-18"></script>
 
 
 
@@ -371,7 +376,7 @@
         </details>
       </div>
     </section>
-    <script src="js/get-app.js?v=v153-2026-11-18"></script>
+    <script src="js/get-app.js?v=v154-2026-11-18"></script>
 
     <hr class="divider">
 
@@ -446,22 +451,23 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="js/refresh.js?v=v153-2026-11-18"></script>
-  <script src="js/sw-update.js?v=v153-2026-11-18"></script>
-  <script src="js/alerts.js?v=v153-2026-11-18"></script>
-  <script src="js/nav.js?v=v153-2026-11-18"></script>
-  <script src="js/visits.js?v=v153-2026-11-18"></script>
-  <script src="js/lake-picker.js?v=v153-2026-11-18"></script>
-  <script src="js/usgs.js?v=v153-2026-11-18"></script>
-  <script src="js/home-log.js?v=v153-2026-11-18"></script>
-  <script src="js/astro.js?v=v153-2026-11-18"></script>
-  <script src="js/night-rules.js?v=v153-2026-11-18"></script>
-  <script src="js/conditions.js?v=v153-2026-11-18"></script>
-  <script src="js/pool-trend.js?v=v153-2026-11-18"></script>
-  <script src="js/lake-map-data-madison.js?v=v153-2026-11-18"></script>
-  <script src="js/hoover-map.js?v=v153-2026-11-18"></script>
-  <script src="js/install-tip.js?v=v153-2026-11-18"></script>
-  <script src="js/tonight-tools.js?v=v153-2026-11-18"></script>
-  <script src="js/a11y.js?v=v153-2026-11-18" defer></script>
+  <script src="js/refresh.js?v=v154-2026-11-18"></script>
+  <script src="js/sw-update.js?v=v154-2026-11-18"></script>
+  <script src="js/alerts.js?v=v154-2026-11-18"></script>
+  <script src="js/nav.js?v=v154-2026-11-18"></script>
+  <script src="js/visits.js?v=v154-2026-11-18"></script>
+  <script src="js/lake-picker.js?v=v154-2026-11-18"></script>
+  <script src="js/usgs.js?v=v154-2026-11-18"></script>
+  <script src="js/home-log.js?v=v154-2026-11-18"></script>
+  <script src="js/astro.js?v=v154-2026-11-18"></script>
+  <script src="js/night-rules.js?v=v154-2026-11-18"></script>
+  <script src="js/conditions.js?v=v154-2026-11-18"></script>
+  <script src="js/fold-anchors.js?v=v154-2026-11-18"></script>
+  <script src="js/pool-trend.js?v=v154-2026-11-18"></script>
+  <script src="js/lake-map-data-madison.js?v=v154-2026-11-18"></script>
+  <script src="js/hoover-map.js?v=v154-2026-11-18"></script>
+  <script src="js/install-tip.js?v=v154-2026-11-18"></script>
+  <script src="js/tonight-tools.js?v=v154-2026-11-18"></script>
+  <script src="js/a11y.js?v=v154-2026-11-18" defer></script>
 </body>
 </html>

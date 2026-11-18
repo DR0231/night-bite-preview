@@ -1747,6 +1747,17 @@ h3 { font-size: 20px; line-height: 30px; }
 .hero .hero-brand { font-size: 40px; line-height: 50px; font-weight: 400; }
 .pool-lead { font-size: 30px; line-height: 40px; }
 .card .pool-lead { font-size: 20px; line-height: 30px; }
+/* a word state on the pool line ("No public lake level gauge"): sentence type, not the 30px numeral */
+.pool-lead.is-state {
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: weight style;
+  padding-block: var(--space-sm);
+}
 .pool-readout-value,
 .card .pool-readout-value { font-size: 30px; line-height: 30px; }
 
@@ -3200,6 +3211,40 @@ a.glance-cell[href]:hover { background: var(--navy-mid); color: inherit; }
   .glance-cell { transition: none; }
 }
 
+/* No-gauge waters: one merged "No public gauge" cell in place of the empty level and temp cells */
+#glance[data-baked="none"] .glance-grid [data-cell="pool"] { grid-column: 1 / -1; }
+#glance[data-baked="none"] .glance-grid .glance-cell:nth-child(even) { padding-inline-start: 0; box-shadow: none; }
+#glance[data-baked="none"] .glance-grid .glance-cell:nth-child(n+3) { border-top: 0; }
+#glance[data-baked="none"] .glance-grid [data-cell="sunset"],
+#glance[data-baked="none"] .glance-grid [data-cell="wind"] { border-top: 1px solid var(--navy-light); }
+#glance[data-baked="none"] .glance-grid [data-cell="wind"] {
+  padding-inline-start: var(--space-sm);
+  box-shadow: inset 1px 0 0 var(--navy-light);
+}
+@media (min-width: 600px) {
+  #glance[data-baked="none"] .glance-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); --glance-cols: 3; }
+  #glance[data-baked="none"] .glance-grid [data-cell="pool"] { grid-column: auto; }
+  #glance[data-baked="none"] .glance-grid [data-cell="sunset"],
+  #glance[data-baked="none"] .glance-grid [data-cell="wind"] { border-top: 0; padding-inline-start: var(--space-sm); box-shadow: inset 1px 0 0 var(--navy-light); }
+}
+
+/* Pool and Tonight details toggles: 14px summary, 44px target (from .how-to-read summary) */
+.pool-more > summary,
+.cond-more > summary { font-size: var(--text-sub); }
+.pool-more .how-to-read,
+.cond-more .how-to-read {
+  background: rgb(var(--navy-rgb) / 0.35);
+  margin-top: var(--space-sm);
+  padding-inline: 0.75rem;
+}
+@media (max-width: 599px) {
+  .bento-pool .pool-lead,
+  .bento-pool .pool-readout { margin-bottom: var(--space-sm); padding-block: var(--space-sm); }
+  .bento-pool .pool-lead.is-state { padding-block: var(--space-sm); }
+  .bento-pool .pool-chart { margin-top: var(--space-sm); padding-top: var(--space-sm); }
+  .bento-pool .pool-more { margin-top: var(--space-sm); }
+}
+
 /* Pool trend: hold its space while the week of readings loads, so the map below doesn't jump (js/pool-trend.js
    clears data-pending; it collapses only if no data comes back). */
 .pool-trend[hidden][data-pending] { display: block; visibility: hidden; }
@@ -4490,6 +4535,12 @@ html[data-contrast="more"] .i18n-rule-note { color: var(--cream); }
    Facts (numbers, lake and ramp names, the rule chip) get dir="ltr" from js/i18n.js and keep the RTL edge. */
 html[dir="rtl"] .glance-grid .glance-cell:nth-child(even) { box-shadow: inset -1px 0 0 var(--navy-light); }
 @media (min-width: 600px) { html[dir="rtl"] .glance-grid .glance-cell:nth-child(n+2) { box-shadow: inset -1px 0 0 var(--navy-light); } }
+html[dir="rtl"] #glance[data-baked="none"] .glance-grid .glance-cell:nth-child(even) { box-shadow: none; }
+html[dir="rtl"] #glance[data-baked="none"] .glance-grid [data-cell="wind"] { box-shadow: inset -1px 0 0 var(--navy-light); }
+@media (min-width: 600px) {
+  html[dir="rtl"] #glance[data-baked="none"] .glance-grid [data-cell="sunset"],
+  html[dir="rtl"] #glance[data-baked="none"] .glance-grid [data-cell="wind"] { box-shadow: inset -1px 0 0 var(--navy-light); }
+}
 :where(html[dir="rtl"] [data-nb-ltr]) { text-align: end; }
 .a11y-actions { display: flex; gap: var(--space-xs); margin-inline-start: auto; }
 .a11y-actions .btn { min-height: 44px; }

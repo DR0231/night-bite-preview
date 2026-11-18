@@ -11,7 +11,7 @@ js/glance.js turns the absolute time into "last updated X hours ago" and swaps i
     python3 tools/glance_bake.py --check             # exit 1 if any lake home's strip is out of step with its card
 
 Used by tools/build-lake-pages.py (every lake home and the template) and tools/promote.py (hoover/index.html, after
-live's snapshot lines are kept). Lakes with no public gauge get an intentional "No gauge" state linking to the pool
+live's snapshot lines are kept). Lakes with no public gauge get one intentional "No public gauge" cell linking to the pool
 card's source note; a gauge that stopped reporting says so. Never invents a value.
 """
 import datetime, html, pathlib, re, sys
@@ -112,8 +112,9 @@ def glance(page, pool, nws_page, prefix=""):
         stamp = f'USGS gauge {t(st["site"])} last reported {t(st["lastWhen"])}, so there is no current level. Nothing is estimated.'
         kind = "stale"
     elif not pool.get("src"):
-        pc = cell("pool", "Lake level", "No gauge", "No public gauge", card, state=True, empty=True)
-        tc = cell("temp", "Water temp", "No gauge", "No public gauge", card, state=True, empty=True)
+        # one cell for both empty slots: this water has no public gauge (stale gauges keep two cells)
+        pc = cell("pool", "Level and temp", "No public gauge", "Nothing estimated", card, state=True, empty=True)
+        tc = ""
         stamp = "No public lake level or temp gauge on this water. Nothing is estimated."
         kind = "none"
     elif m and at:
@@ -156,7 +157,7 @@ def glance(page, pool, nws_page, prefix=""):
         '        </a>\n'
         '      </div>\n'
         '      <div class="glance-grid">\n'
-        f"{pc}\n{tc}\n{sun}\n{wind}\n"
+        + "\n".join(x for x in (pc, tc, sun, wind) if x) + "\n"
         '      </div>\n'
         f'      <p class="glance-stamp" data-glance="stamp">{stamp}</p>\n'
         '    </section>'
