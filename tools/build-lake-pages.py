@@ -67,6 +67,10 @@ for _id in REG["order"]:
     _f = FACTS.get(_id) or {}
     if not (_f.get("title") and _f.get("description")):
         sys.exit(f"build-lake-pages: data/quick-facts.json needs a title and description for {_id}")
+    if len(_f["title"]) > 60:
+        sys.exit(f"build-lake-pages: title for {_id} is {len(_f['title'])} characters (keep at 60 or fewer)")
+    if len(_f["description"]) > 160:
+        sys.exit(f"build-lake-pages: description for {_id} is {len(_f['description'])} characters (keep at 160 or fewer)")
     LAKES[_id] = {"name": REG["lakes"][_id]["name"], "short": REG["lakes"][_id]["short"],
                   "title": _f["title"], "desc": _f["description"]}
 
