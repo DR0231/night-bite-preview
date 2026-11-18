@@ -32,7 +32,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v148-2026-11-18";
+var VERSION = "v149-2026-11-18";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -579,13 +579,13 @@ var PRECACHE = [
 // tools/sw-precache.py writes this block (stamp-version.py and promote.py run it). Don't edit it by hand.
 // BEGIN REVISIONS
 var REVISIONS = {
-  "./": "593adaa8b71b",
+  "./": "9508f36f1aa7",
   "offline.html": "a5cf7e63684e",
   "site.webmanifest": "ee782bcd75a1",
   "favicon.svg": "a4203bb6ec2d",
   "favicon.ico": "ec8fafebba48",
   "apple-touch-icon.png": "ae1b52f0a95b",
-  "css/styles.css": "79d40dbe9bfc",
+  "css/styles.css": "d5d30483bc2a",
   "js/alerts.js": "b41431d3558c",
   "js/astro.js": "a3ec0945f030",
   "js/night-rules.js": "c14111456232",
@@ -600,7 +600,7 @@ var REVISIONS = {
   "js/hoover-map-data.js": "bf1c710139d3",
   "js/hoover-map.js": "545668b49877",
   "js/ice-species.js": "4f21ddf4e05e",
-  "js/install-tip.js": "066437822918",
+  "js/install-tip.js": "3ca2d78397d1",
   "js/lake-picker.js": "b89008e0dbeb",
   "js/water-picker.js": "b48ce9fb2f0d",
   "js/lake-snapshot.js": "79e1111b8d18",
