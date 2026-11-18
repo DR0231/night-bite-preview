@@ -204,6 +204,7 @@
   "log.ph_public": "Nur öffentlich taugliche Notizen…",
   "display.readable_locked": "Für diese Sprache immer an.",
   "pg.home_lead": "Live-Pegel, der Biss heute Nacht, Rampen und die Regeln nach Einbruch der Dunkelheit für Gewässer in Ohio. Wähle deins, dann öffnet es nächstes Mal zuerst.",
+  "pg.site_is": "The Night Bite ist ein inoffizielles Angelzentrum in Ohio und deckt {num} Gewässer ab.",
   "pg.look_around": "Zuerst {lake} ansehen",
   "pg.waters": "Gewässer",
   "pg.find_water": "Gewässer suchen",

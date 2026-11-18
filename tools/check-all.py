@@ -20,7 +20,8 @@ Lake scope (check-waters, check-glance, check-glance-fallback, check-bait). A ru
                     interrupted run resumes; --fresh starts over. Default state dir /workspace/nb-checks/all-lakes-<target>/.
 
 Builds (in this checkout, skipped with --no-build and always skipped for live), in order:
-    build-lake-pages, build-docks, build-meta, stamp-version, build-updates, footer-social, wrap-dates (S13)
+    build-lake-pages, build-docks, build-meta, stamp-version, build-updates, footer-social, wrap-dates (S13),
+    stamp-water-count (the home "What this site is" count from the registry)
 Checks: check-meta (0 errors), check-radius, check-docks (report only: a CHANGED dock page is a note, never a failure),
 check-night-rules (the chip and a mocked NWS storm banner above the fold at 390, red light and high contrast; browser),
 check-hours (night-rules data has official sources and every chip matches it; static),
@@ -59,7 +60,7 @@ sys.stdout.reconfigure(line_buffering=True)
 TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
-BUILDS = ["build-lake-pages.py", "build-docks.py", "build-summaries.py", "build-meta.py", "stamp-version.py", "build-updates.py", "footer-social.py", "wrap-dates.py", "i18n-extract.py", "sw-precache.py"]
+BUILDS = ["build-lake-pages.py", "build-docks.py", "build-summaries.py", "build-meta.py", "stamp-version.py", "build-updates.py", "footer-social.py", "wrap-dates.py", "stamp-water-count.py", "i18n-extract.py", "sw-precache.py"]
 CHECKS = ["check-meta", "check-radius", "check-hours", "check-ramp-names", "check-docks", "check-lake-isolation", "check-glance-bake", "check-precache-refs", "check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-night-rules", "check-i18n", "check-manifest", "check-biting-split", "check-sw-precache", "check-i18n-browser", "sweep"]
 BROWSER = {"check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-i18n-browser", "sweep"}
 

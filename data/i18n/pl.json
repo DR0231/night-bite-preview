@@ -204,6 +204,7 @@
   "log.ph_public": "Tylko notatki do publikacji…",
   "display.readable_locked": "Zawsze włączone dla tego języka.",
   "pg.home_lead": "Poziomy na żywo, dzisiejsze brania, slipy i zasady po zmroku dla wód Ohio. Wybierz swoją, a następnym razem otworzy się pierwsza.",
+  "pg.site_is": "The Night Bite to nieoficjalne centrum wędkarskie w Ohio, obejmujące {num} akwenów.",
   "pg.look_around": "Najpierw zobacz {lake}",
   "pg.waters": "Wody",
   "pg.find_water": "Znajdź wodę",

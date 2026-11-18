@@ -425,7 +425,7 @@ button, .btn, .site-nav a, .nav-more-btn, .species-subnav a, .gear-sticky-nav a,
   .nav-label-full { display: inline; }
 }
 /* Wide screens: Whisperwood Vale sits in More (tools/nav-desk-more.py marks the nav; whisperwood.html is unmarked).
-   Log, About and What's new stay in the row, so the panel shows only Whisperwood and Display there. */
+   Log, About and What's new stay in the row, so the panel shows Whisperwood, Display and Language there. */
 @media (min-width: 901px) {
   .site-nav .nav-extra.nav-ww { display: none; }
   .site-nav .nav-more-item.nav-more-desk { display: list-item !important; }
@@ -434,14 +434,14 @@ button, .btn, .site-nav a, .nav-more-btn, .species-subnav a, .gear-sticky-nav a,
   .nav-more-desk .nav-more-btn.has-new { background-image: none; }
 }
 
-/* Phones + small tablets: Home · Species · Lake · Log · More */
+/* Phones + small tablets: Home · Species · Water · Gear · More.
+   The Water link is real text (same word as the footer and desktop nav).
+   whisperwood.html still uses the older .nav-label-full / .nav-label-short spans. */
 @media (max-width: 900px) {
   .site-nav .nav-extra { display: none; }
   .site-nav .nav-more-item { display: list-item; }
   .nav-label-full { display: none; }
   .nav-label-short { display: inline; }
-  .nav-label-text { display: none; }
-  .nav-label[data-short]::before { content: attr(data-short); }
   .nav-more-panel {
     position: fixed;
     top: auto;
@@ -2769,6 +2769,20 @@ html.lake-sheet-open { overflow: hidden; padding-right: var(--lp-gutter, 0px); }
 .lp-search::placeholder { color: var(--muted); opacity: 1; }
 .lp-search:hover { border-color: rgb(var(--cream-rgb) / 0.18); }
 .lp-search:focus { outline: none; border-color: rgb(var(--amber-rgb) / 0.55); background: rgb(var(--cream-rgb) / 0.06); box-shadow: 0 0 0 3px rgb(var(--amber-rgb) / 0.12); }
+/* Native search clear control, in cream/amber on navy (not the browser's default blue).
+   44px tap target; the accessible name stays the browser's ("Clear" / "Clear field"). */
+.lp-search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  background-color: var(--amber);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M1 0h2l3 3 3-3h2v2L8 5l3 3v2H9L6 7 3 10H1V8l3-3-3-3z'/%3E%3C/svg%3E") center / 12px 12px no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M1 0h2l3 3 3-3h2v2L8 5l3 3v2H9L6 7 3 10H1V8l3-3-3-3z'/%3E%3C/svg%3E") center / 12px 12px no-repeat;
+  cursor: pointer;
+}
+.lp-search::-webkit-search-decoration { -webkit-appearance: none; }
 .lp-near {
   flex-shrink: 0; min-height: 44px; padding: 0 0.875rem;
   font-family: var(--font-display); font-size: 0.8125rem; letter-spacing: 0.03em; color: var(--cream-dark);
@@ -4028,6 +4042,13 @@ a[href^="tel:"],
 main.water-home { max-width: 1160px; }
 .water-home > :not(.wp):not(.wp-hero) { max-width: var(--max-wide); margin-left: auto; margin-right: auto; }
 .water-home > .condensed-list { margin-left: auto; margin-right: auto; }
+.water-home > .site-is {
+  max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-md);
+  color: var(--cream-dark);
+}
 .wp-hero { padding: var(--space-md) 0 var(--space-lg); }
 .wp-hero .hero-horizon { margin-bottom: var(--space-md); }
 .wp-hero .hero-brand { margin-bottom: var(--space-2xs); }
@@ -4291,9 +4312,14 @@ p.meta > a:only-child { padding-block: 0.75rem; }
 }
 .nav-more-panel .a11y-open:hover { color: var(--amber); background: var(--navy-light); }
 .site-footer .a11y-open {
-  font: inherit; color: inherit; background: transparent; border: 0; padding: 0; cursor: pointer;
-  text-decoration: underline; text-underline-offset: 0.18em; min-height: 44px; border-radius: var(--radius);
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; min-width: 44px; padding: 0 0.5rem;
+  font-family: var(--font-display); font-variant-ligatures: none;
+  font-size: 0.8125rem; letter-spacing: 0.04em;
+  color: var(--muted); background: transparent; border: 0; cursor: pointer;
+  text-decoration: none; border-radius: var(--radius);
 }
+.site-footer .a11y-open:hover { color: var(--amber); }
 [data-a11y-open][hidden] { display: none !important; }
 
 /* Panel (S14 redesign): a bottom sheet on phones, a centered card from 600px. Grouped cards with small pixel
@@ -4394,7 +4420,7 @@ html[data-lang] .logo-text, html[data-lang] .hero-brand { font-family: "Night Bi
 html[data-light="red"] .i18n-rule-note { color: inherit; }
 html[data-contrast="more"] .i18n-rule-note { color: var(--cream); }
 /* Translated labels run longer than English (Fischarten, Attrezzatura): on phones the nav row stays at 13px with
-   3px side padding so Home, Species, Lake, Gear and More still fit beside the lantern at 375 to 440px; a label that
+   3px side padding so Home, Species, Water, Gear and More still fit beside the lantern at 375 to 440px; a label that
    still won't fit ends in an ellipsis rather than pushing the page sideways. English is untouched. */
 @media (max-width: 440px) {
   html[data-lang] .site-nav a, html[data-lang] .nav-more-btn { font-size: 0.8125rem; padding: 0 0.1875rem; }
@@ -4413,7 +4439,7 @@ html[dir="rtl"] .glance-grid .glance-cell:nth-child(even) { box-shadow: inset -1
 .a11y-actions { display: flex; gap: var(--space-xs); margin-inline-start: auto; }
 .a11y-actions .btn { min-height: 44px; }
 /* Large and XL on phones: the header row keeps a readable fixed size (system font) and the wordmark goes to
-   screen-reader text, so Home, Species, Lake, Gear and More still fit beside the lantern */
+   screen-reader text, so Home, Species, Water, Gear and More still fit beside the lantern */
 @media (max-width: 900px) {
   html[data-text="lg"] .site-nav a, html[data-text="xl"] .site-nav a,
   html[data-text="lg"] .nav-more-btn, html[data-text="xl"] .nav-more-btn { font-size: 15px; padding: 0 0.3rem; }

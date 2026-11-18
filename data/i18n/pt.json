@@ -204,6 +204,7 @@
   "log.ph_public": "Só notas que podem ser públicas…",
   "display.readable_locked": "Sempre ativado neste idioma.",
   "pg.home_lead": "Níveis ao vivo, a mordida de hoje à noite, rampas e as regras depois do escurecer nas águas de Ohio. Escolha a sua e ela abre primeiro da próxima vez.",
+  "pg.site_is": "The Night Bite é um centro de pesca não oficial de Ohio que cobre {num} águas.",
   "pg.look_around": "Conheça {lake} primeiro",
   "pg.waters": "Águas",
   "pg.find_water": "Encontre uma água",

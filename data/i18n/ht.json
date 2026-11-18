@@ -204,6 +204,7 @@
   "log.ph_public": "Sèlman nòt ki ka piblik…",
   "display.readable_locked": "Toujou limen pou lang sa a.",
   "pg.home_lead": "Nivo an dirèk, mòde aswè a, ranp ak règ apre nwit tonbe pou dlo Ohio yo. Chwazi pa w la epi l ap louvri an premye pwochen fwa.",
+  "pg.site_is": "The Night Bite se yon sant lapèch ki pa ofisyèl nan Ohio ki kouvri {num} dlo.",
   "pg.look_around": "Gade {lake} an premye",
   "pg.waters": "Dlo",
   "pg.find_water": "Chèche yon dlo",
