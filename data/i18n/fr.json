@@ -205,6 +205,8 @@
   "display.readable_locked": "Toujours activé pour cette langue.",
   "pg.home_lead": "Niveaux en direct, la touche de ce soir, les rampes et les règles de nuit pour les eaux de l’Ohio. Choisissez la vôtre, elle s’ouvrira en premier la prochaine fois.",
   "pg.site_is": "The Night Bite est un centre de pêche non officiel de l'Ohio couvrant {num} eaux.",
+  "pg.your_water": "Votre eau: {lake}",
+  "pg.your_water_unlisted": "Votre eau, {lake}, n'est pas listée sur cette page.",
   "pg.look_around": "Découvrez d’abord {lake}",
   "pg.waters": "Eaux",
   "pg.find_water": "Trouver une eau",

@@ -205,6 +205,8 @@
   "display.readable_locked": "此语言始终开启。",
   "pg.home_lead": "俄亥俄州各水域的实时水位、今晚咬口、下水坡道和天黑后的规定。选好你的水域，下次会先打开它。",
   "pg.site_is": "The Night Bite 是俄亥俄州非官方钓鱼信息中心，涵盖 {num} 处水域。",
+  "pg.your_water": "你的水域：{lake}",
+  "pg.your_water_unlisted": "你的水域 {lake} 未列在本页。",
   "pg.look_around": "先看看 {lake}",
   "pg.waters": "水域",
   "pg.find_water": "查找水域",

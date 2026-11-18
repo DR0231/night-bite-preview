@@ -3485,6 +3485,61 @@ html:not([data-lake]) .sp-away .species-card[data-lakes][data-lakes]:not([hidden
   }
   html[data-lang] .stack-table tbody td::before { letter-spacing: 0; text-transform: none; }
 }
+/* "Your water" jump on /rules, /drawdown and /species/trout (UX step 6). Hidden until
+   js/your-water.js reads the existing device-local pick. 14px text, 44px tap target. */
+.your-water {
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  color: var(--muted);
+  margin: 0 0 var(--space-md);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.your-water[hidden] { display: none; }
+.your-water a {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  min-height: 44px;
+  border-radius: var(--radius);
+}
+.stack-table tbody tr,
+#crappie #hoover {
+  scroll-margin-top: calc(var(--header-h, 56px) + 1rem);
+}
+.stack-table tbody tr:target,
+.stack-table tbody tr.is-your-water,
+#crappie #hoover:target,
+#crappie #hoover.is-your-water {
+  background-color: rgb(var(--amber-rgb) / 0.12);
+  box-shadow: inset 3px 0 0 var(--amber);
+}
+#crappie #hoover:target,
+#crappie #hoover.is-your-water {
+  border-radius: var(--radius);
+}
+@media (max-width: 680px) {
+  .stack-table tbody tr:target,
+  .stack-table tbody tr.is-your-water {
+    border-color: var(--amber);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stack-table tbody tr.is-your-water,
+  #crappie #hoover.is-your-water {
+    animation: your-water-flash 1.6s var(--ease);
+  }
+}
+@keyframes your-water-flash {
+  0%, 20% { background-color: rgb(var(--amber-rgb) / 0.22); }
+  100% { background-color: rgb(var(--amber-rgb) / 0.12); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stack-table tbody tr.is-your-water,
+  #crappie #hoover.is-your-water { animation: none; }
+}
 .sp-trout-note { margin-top: var(--space-sm); }
 .page-guides {
   max-width: var(--measure);

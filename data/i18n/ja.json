@@ -205,6 +205,8 @@
   "display.readable_locked": "この言語では常にオンです。",
   "pg.home_lead": "オハイオの水域のライブ水位、今夜の食い、スロープ、日没後のルール。選んだ水域は次回最初に開きます。",
   "pg.site_is": "The Night Biteはオハイオの非公式な釣りの拠点で、{num}の水域を扱っています。",
+  "pg.your_water": "あなたの水域: {lake}",
+  "pg.your_water_unlisted": "あなたの水域 {lake} はこのページに載っていません。",
   "pg.look_around": "まず {lake} を見る",
   "pg.waters": "水域",
   "pg.find_water": "水域を探す",

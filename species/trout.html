@@ -32,9 +32,9 @@
   <link rel="preload" href="../assets/fonts/pixelify-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/night-bite-pixel-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <script src="../js/a11y-boot.js?v=v152-2026-11-18"></script>
-  <link rel="stylesheet" href="../css/styles.css?v=v152-2026-11-18">
-  <script src="../js/lakes.js?v=v152-2026-11-18"></script>
+  <script src="../js/a11y-boot.js?v=v153-2026-11-18"></script>
+  <link rel="stylesheet" href="../css/styles.css?v=v153-2026-11-18">
+  <script src="../js/lakes.js?v=v153-2026-11-18"></script>
 </head>
 <body>
   <a class="sr-only" href="#main">Skip to content</a>
@@ -84,6 +84,7 @@
     <p class="lead">
       On this site trout are stocked fish only. ODNR&rsquo;s <a href="https://analytics.das.ohio.gov/t/DOPPUB/views/ODNR_Fish_Stocking/FishStocking" target="_blank" rel="noopener">Fish Stocking dashboard</a> lists rainbow trout at six of these waters in the last ten years, and brown trout once at Punderson Lake (2016) and once at Wolf Run Lake (2024).
     </p>
+    <p class="your-water" id="your-water" hidden></p>
 
     <section id="stocked" aria-labelledby="stocked-title">
       <h2 id="stocked-title">Where ODNR stocked trout</h2>
@@ -91,14 +92,14 @@
         <caption>Trout on ODNR&rsquo;s Fish Stocking dashboard, 2016 to 2025</caption>
         <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Water</th><th scope="col" role="columnheader">Trout</th><th scope="col" role="columnheader">Years listed</th><th scope="col" role="columnheader" class="num">Last year listed</th></tr></thead>
         <tbody role="rowgroup">
-          <tr role="row"><th scope="row" role="rowheader"><a href="../caesarcreek/">Caesar Creek Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2025</td><td role="cell" data-label="Last year listed" class="num">576 in 2025</td></tr>
-          <tr role="row"><th scope="row" role="rowheader"><a href="../punderson/">Punderson Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2016 to 2022, 7 years</td><td role="cell" data-label="Last year listed" class="num">2,004 in 2022</td></tr>
-          <tr role="row"><th scope="row" role="rowheader"><a href="../punderson/">Punderson Lake</a></th><td role="cell" data-label="Trout">Brown trout, yearlings</td><td role="cell" data-label="Years listed">2016</td><td role="cell" data-label="Last year listed" class="num">1,306 in 2016</td></tr>
-          <tr role="row"><th scope="row" role="rowheader"><a href="../dow/">Dow Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2016 to 2022, 7 years</td><td role="cell" data-label="Last year listed" class="num">2,510 in 2022</td></tr>
-          <tr role="row"><th scope="row" role="rowheader"><a href="../rockyfork/">Rocky Fork Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2016 to 2019, 4 years</td><td role="cell" data-label="Last year listed" class="num">1,625 in 2019</td></tr>
-          <tr role="row"><th scope="row" role="rowheader"><a href="../stonelick/">Stonelick Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2016 to 2022, 7 years</td><td role="cell" data-label="Last year listed" class="num">2,471 in 2022</td></tr>
-          <tr role="row"><th scope="row" role="rowheader"><a href="../wolfrun/">Wolf Run Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2016 to 2022, 7 years</td><td role="cell" data-label="Last year listed" class="num">2,506 in 2022</td></tr>
-          <tr role="row"><th scope="row" role="rowheader"><a href="../wolfrun/">Wolf Run Lake</a></th><td role="cell" data-label="Trout">Brown trout, fingerlings</td><td role="cell" data-label="Years listed">2024</td><td role="cell" data-label="Last year listed" class="num">27,593 in 2024</td></tr>
+          <tr id="caesarcreek" data-lake="caesarcreek" role="row"><th scope="row" role="rowheader"><a href="../caesarcreek/">Caesar Creek Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2025</td><td role="cell" data-label="Last year listed" class="num">576 in 2025</td></tr>
+          <tr id="punderson" data-lake="punderson" role="row"><th scope="row" role="rowheader"><a href="../punderson/">Punderson Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2016 to 2022, 7 years</td><td role="cell" data-label="Last year listed" class="num">2,004 in 2022</td></tr>
+          <tr data-lake="punderson" role="row"><th scope="row" role="rowheader"><a href="../punderson/">Punderson Lake</a></th><td role="cell" data-label="Trout">Brown trout, yearlings</td><td role="cell" data-label="Years listed">2016</td><td role="cell" data-label="Last year listed" class="num">1,306 in 2016</td></tr>
+          <tr id="dow" data-lake="dow" role="row"><th scope="row" role="rowheader"><a href="../dow/">Dow Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2016 to 2022, 7 years</td><td role="cell" data-label="Last year listed" class="num">2,510 in 2022</td></tr>
+          <tr id="rockyfork" data-lake="rockyfork" role="row"><th scope="row" role="rowheader"><a href="../rockyfork/">Rocky Fork Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2016 to 2019, 4 years</td><td role="cell" data-label="Last year listed" class="num">1,625 in 2019</td></tr>
+          <tr id="stonelick" data-lake="stonelick" role="row"><th scope="row" role="rowheader"><a href="../stonelick/">Stonelick Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2016 to 2022, 7 years</td><td role="cell" data-label="Last year listed" class="num">2,471 in 2022</td></tr>
+          <tr id="wolfrun" data-lake="wolfrun" role="row"><th scope="row" role="rowheader"><a href="../wolfrun/">Wolf Run Lake</a></th><td role="cell" data-label="Trout">Rainbow trout, catchables</td><td role="cell" data-label="Years listed">2016 to 2022, 7 years</td><td role="cell" data-label="Last year listed" class="num">2,506 in 2022</td></tr>
+          <tr data-lake="wolfrun" role="row"><th scope="row" role="rowheader"><a href="../wolfrun/">Wolf Run Lake</a></th><td role="cell" data-label="Trout">Brown trout, fingerlings</td><td role="cell" data-label="Years listed">2024</td><td role="cell" data-label="Last year listed" class="num">27,593 in 2024</td></tr>
         </tbody>
       </table></div>
       <p class="meta">
@@ -151,12 +152,13 @@
       <p class="disclaimer-short">The Night Bite is unofficial and personal. Not affiliated with ODNR, the City of Columbus, USGS, or the US&nbsp;Army Corps of Engineers.</p>
     </div>
   </footer>
-  <script src="../js/refresh.js?v=v152-2026-11-18"></script>
-  <script src="../js/sw-update.js?v=v152-2026-11-18"></script>
-  <script src="../js/alerts.js?v=v152-2026-11-18"></script>
-  <script src="../js/nav.js?v=v152-2026-11-18"></script>
-  <script src="../js/visits.js?v=v152-2026-11-18"></script>
-  <script src="../js/lake-picker.js?v=v152-2026-11-18"></script>
-  <script src="../js/a11y.js?v=v152-2026-11-18" defer></script>
+  <script src="../js/refresh.js?v=v153-2026-11-18"></script>
+  <script src="../js/sw-update.js?v=v153-2026-11-18"></script>
+  <script src="../js/alerts.js?v=v153-2026-11-18"></script>
+  <script src="../js/nav.js?v=v153-2026-11-18"></script>
+  <script src="../js/visits.js?v=v153-2026-11-18"></script>
+  <script src="../js/lake-picker.js?v=v153-2026-11-18"></script>
+  <script src="../js/your-water.js?v=v153-2026-11-18" defer></script>
+  <script src="../js/a11y.js?v=v153-2026-11-18" defer></script>
 </body>
 </html>

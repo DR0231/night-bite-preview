@@ -105,6 +105,8 @@
   "display.readable_locked": "Always on for this language.",
   "pg.home_lead": "Live levels, tonight’s bite, ramps and the rules after dark for Ohio waters. Pick yours and it opens first next time.",
   "pg.site_is": "The Night Bite is an unofficial Ohio fishing hub covering {num} waters.",
+  "pg.your_water": "Your water: {lake}",
+  "pg.your_water_unlisted": "Your water, {lake}, is not listed on this page.",
   "pg.look_around": "Look around {lake} first",
   "pg.waters": "Waters",
   "pg.find_water": "Find a water",

@@ -2,7 +2,7 @@
 """Build the two summary pages from data already on the site, so they never drift from the lake pages:
 
     python3 tools/build-summaries.py           # write drawdown.html and night.html between their nb:summary markers;
-                                               # stamp lake row ids on rules.html items already on the page
+                                               # stamp lake row ids on rules.html and species/trout.html items already on the page
     python3 tools/build-summaries.py --check   # change nothing; exit 1 if a page would change
 
   · drawdown.html: MWCD's winter drawdown table for the waters on this site, from data/drawdowns.json (MWCD's own
@@ -14,8 +14,11 @@
     still lands on that water.
   · rules.html: add id="<lake>" to each bass-table row already on the page, and id="hoover" to the Hoover crappie
     paragraph, so lake-home also-links can go to /rules#<lake>. This does not add or rewrite rows.
+  · species/trout.html: add id="<lake>" to the first stocking row for each water, and data-lake="<lake>" to every
+    stocking row, so /species/trout#<lake> lands on that water. A water with two rows (Punderson, Wolf Run) keeps one
+    id, on the first row. This does not add or rewrite cells.
 Only the part between <!-- nb:summary --> and <!-- /nb:summary --> is written on drawdown.html and night.html; the rest
-of each of those pages is hand edited. rules.html is stamped in place, with no new content rows.
+of each of those pages is hand edited. rules.html and species/trout.html are stamped in place, with no new content rows.
 """
 import datetime, html, json, os, pathlib, re, sys
 
@@ -156,6 +159,35 @@ def stamp_rules_ids(s):
     return s
 
 
+
+def stamp_trout_ids(s):
+    """Add id="<lake>" to the first stocking row for each water, and data-lake on every row. Does not add or rewrite cells."""
+    sec = re.search(r'(<section id="stocked".*?<tbody[^>]*>)(.*?)(</tbody>)', s, re.S)
+    if not sec:
+        return s
+    seen = set()
+
+    def tr(m):
+        lake = m.group(3)
+        if lake not in REG["lakes"]:
+            return m.group(0)
+        attrs = m.group(1) or ""
+        th = m.group(2) or ""
+        data = f' data-lake="{html.escape(lake, quote=True)}"'
+        iid = ""
+        if lake not in seen:
+            seen.add(lake)
+            iid = f' id="{html.escape(lake, quote=True)}"'
+        return f'<tr{iid}{data}{attrs}><th scope="row"{th}><a href="../{lake}/">'
+
+    body = re.sub(
+        r'<tr(?:\s+id="[^"]*")?(?:\s+data-lake="[^"]*")?(\s+role="row")?><th scope="row"(\s+role="rowheader")?><a href="\.\./([a-z0-9-]+)/">',
+        tr,
+        sec.group(2),
+    )
+    return s[:sec.start()] + sec.group(1) + body + sec.group(3) + s[sec.end():]
+
+
 MARK = re.compile(r"(<!-- nb:summary -->)(.*?)(<!-- /nb:summary -->)", re.S)
 check = "--check" in sys.argv[1:]
 bad = 0
@@ -186,4 +218,16 @@ if rs2 != rs:
         rp.write_text(rs2); print("wrote rules.html (row ids)")
 elif check:
     print("PASS rules.html")
+
+# species/trout.html: stamp row ids on items already on the page. Do not add or rewrite rows.
+tp = root / "species" / "trout.html"
+ts = tp.read_text()
+ts2 = stamp_trout_ids(ts)
+if ts2 != ts:
+    if check:
+        print("FAIL species/trout.html is missing lake row ids (run python3 tools/build-summaries.py)"); bad = 1
+    else:
+        tp.write_text(ts2); print("wrote species/trout.html (row ids)")
+elif check:
+    print("PASS species/trout.html")
 sys.exit(bad)

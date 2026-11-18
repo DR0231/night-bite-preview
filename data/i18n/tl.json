@@ -205,6 +205,8 @@
   "display.readable_locked": "Laging naka-on para sa wikang ito.",
   "pg.home_lead": "Live na lebel, kagat ngayong gabi, mga rampa at mga patakaran pagkadilim para sa mga tubig ng Ohio. Piliin ang sa iyo at ito ang unang bubukas sa susunod.",
   "pg.site_is": "The Night Bite ay isang hindi opisyal na sentro ng pangingisda sa Ohio na sumasaklaw sa {num} na katubigan.",
+  "pg.your_water": "Ang iyong tubig: {lake}",
+  "pg.your_water_unlisted": "Ang iyong tubig, {lake}, ay wala sa pahinang ito.",
   "pg.look_around": "Silipin muna ang {lake}",
   "pg.waters": "Mga tubig",
   "pg.find_water": "Maghanap ng tubig",

@@ -205,6 +205,8 @@
   "display.readable_locked": "이 언어에서는 항상 켜져 있습니다.",
   "pg.home_lead": "오하이오 수역의 실시간 수위, 오늘 밤 입질, 경사로, 해 진 뒤 규칙. 내 수역을 고르면 다음에 먼저 열립니다.",
   "pg.site_is": "The Night Bite는 오하이오의 비공식 낚시 허브로, {num}개의 수역을 다룹니다.",
+  "pg.your_water": "내 수역: {lake}",
+  "pg.your_water_unlisted": "내 수역 {lake}은(는) 이 페이지에 없습니다.",
   "pg.look_around": "먼저 {lake} 둘러보기",
   "pg.waters": "수역",
   "pg.find_water": "수역 찾기",

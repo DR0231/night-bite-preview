@@ -32,7 +32,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v152-2026-11-18";
+var VERSION = "v153-2026-11-18";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -92,6 +92,7 @@ var PRECACHE = [
   "js/scrollspy.js",
   "js/fold-anchors.js",
   "js/night-access.js",
+  "js/your-water.js",
   "js/local-notes.js",
   "js/docks.js",
   "data/quick-facts.json",
@@ -585,7 +586,7 @@ var REVISIONS = {
   "favicon.svg": "a4203bb6ec2d",
   "favicon.ico": "ec8fafebba48",
   "apple-touch-icon.png": "ae1b52f0a95b",
-  "css/styles.css": "6e36469d7bc5",
+  "css/styles.css": "22a8cf5f6b74",
   "js/alerts.js": "b41431d3558c",
   "js/astro.js": "a3ec0945f030",
   "js/night-rules.js": "c14111456232",
@@ -627,6 +628,7 @@ var REVISIONS = {
   "js/scrollspy.js": "1b056c72b92f",
   "js/fold-anchors.js": "50003a38a248",
   "js/night-access.js": "1722e157a2c9",
+  "js/your-water.js": "da7865eb55a2",
   "js/local-notes.js": "d68fc177c5f1",
   "js/docks.js": "a1a7f6febfb1",
   "data/quick-facts.json": "35a1a8229c48",

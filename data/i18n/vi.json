@@ -205,6 +205,8 @@
   "display.readable_locked": "Luôn bật cho ngôn ngữ này.",
   "pg.home_lead": "Mực nước trực tiếp, độ ăn mồi tối nay, bến thả thuyền và quy định sau khi trời tối cho các vùng nước Ohio. Chọn nơi của bạn và lần sau nó sẽ mở trước.",
   "pg.site_is": "The Night Bite là trung tâm câu cá không chính thức của Ohio, với {num} vùng nước.",
+  "pg.your_water": "Nguồn nước của bạn: {lake}",
+  "pg.your_water_unlisted": "Nguồn nước của bạn, {lake}, không có trong trang này.",
   "pg.look_around": "Xem {lake} trước",
   "pg.waters": "Vùng nước",
   "pg.find_water": "Tìm vùng nước",

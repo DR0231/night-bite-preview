@@ -205,6 +205,8 @@
   "display.readable_locked": "Sempre attivo per questa lingua.",
   "pg.home_lead": "Livelli in diretta, l’abboccata di stanotte, rampe e regole notturne per le acque dell’Ohio. Scegli la tua e la prossima volta si apre per prima.",
   "pg.site_is": "The Night Bite è un centro di pesca non ufficiale dell'Ohio che copre {num} acque.",
+  "pg.your_water": "La tua acqua: {lake}",
+  "pg.your_water_unlisted": "La tua acqua, {lake}, non è elencata in questa pagina.",
   "pg.look_around": "Esplora prima {lake}",
   "pg.waters": "Acque",
   "pg.find_water": "Trova un’acqua",
