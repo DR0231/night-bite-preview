@@ -50,16 +50,20 @@ def name(lake):
 def drawdown():
     d = json.loads((root / "data" / "drawdowns.json").read_text())
     rows = sorted(d["rows"], key=lambda r: (r["begins"], name(r["lake"])))
-    out = ['      <div class="table-wrap data-table-wrap"><table class="data-table summary-table">',
+    refill = f'Refill by {ap(d["refill_by"], year=False)}'
+    # every cell carries its column name in data-label (shown as the label when the table stacks into cards on
+    # phones; js/i18n.js translates it), and explicit table roles keep the table read as a table when CSS restacks it
+    out = ['      <div class="table-wrap data-table-wrap"><table class="data-table summary-table stack-table" role="table">',
            f'        <caption>MWCD winter drawdown, {d["season"]}. Levels in feet above sea level, as MWCD lists them.</caption>',
-           '        <thead><tr><th scope="col">Water</th><th scope="col">Starts</th><th scope="col" class="num">Normal pool</th>'
-           '<th scope="col" class="num">Winter level</th><th scope="col" class="num">Drop</th><th scope="col" class="num">Days</th>'
-           f'<th scope="col" class="num">Refill by {ap(d["refill_by"], year=False)}</th></tr></thead>',
-           '        <tbody>']
+           '        <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Water</th><th scope="col" role="columnheader">Starts</th><th scope="col" role="columnheader" class="num">Normal pool</th>'
+           '<th scope="col" role="columnheader" class="num">Winter level</th><th scope="col" role="columnheader" class="num">Drop</th><th scope="col" role="columnheader" class="num">Days</th>'
+           f'<th scope="col" role="columnheader" class="num">{refill}</th></tr></thead>',
+           '        <tbody role="rowgroup">']
+    rl = html.escape(re.sub(r"<[^>]+>", "", refill), quote=True)
     for r in rows:
-        out.append(f'          <tr id="{html.escape(r["lake"], quote=True)}"><th scope="row"><a href="{r["lake"]}/">{html.escape(name(r["lake"]))}</a></th><td>{ap(r["begins"], year=False)}</td>'
-                   f'<td class="num">{ft(r["normal"])} ft</td><td class="num">{ft(r["winter"])} ft</td><td class="num">{ft(r["drop"])} ft</td>'
-                   f'<td class="num">{r["days"]}</td><td class="num">{ft(r["refill"])} ft</td></tr>')
+        out.append(f'          <tr id="{html.escape(r["lake"], quote=True)}" role="row"><th scope="row" role="rowheader"><a href="{r["lake"]}/">{html.escape(name(r["lake"]))}</a></th><td role="cell" data-label="Starts">{ap(r["begins"], year=False)}</td>'
+                   f'<td role="cell" data-label="Normal pool" class="num">{ft(r["normal"])} ft</td><td role="cell" data-label="Winter level" class="num">{ft(r["winter"])} ft</td><td role="cell" data-label="Drop" class="num">{ft(r["drop"])} ft</td>'
+                   f'<td role="cell" data-label="Days" class="num">{r["days"]}</td><td role="cell" data-label="{rl}" class="num">{ft(r["refill"])} ft</td></tr>')
     out += ['        </tbody>', '      </table></div>']
     if d.get("not_listed"):
         nl = [f'<a href="{l}/">{html.escape(name(l))}</a>' for l in d["not_listed"]]
@@ -129,15 +133,15 @@ def night():
 def stamp_rules_ids(s):
     """Add id="<lake>" to lake-specific items already on rules.html. Does not add or rewrite rows."""
     def tr(m):
-        lake = m.group(1)
+        lake = m.group(3)
         if lake not in REG["lakes"]:
             return m.group(0)
-        return f'<tr id="{html.escape(lake, quote=True)}"><th scope="row"><a href="{lake}/">'
+        return f'<tr id="{html.escape(lake, quote=True)}"{m.group(1) or ""}><th scope="row"{m.group(2) or ""}><a href="{lake}/">'
 
-    bass = re.search(r'(<section id="bass".*?<tbody>)(.*?)(</tbody>)', s, re.S)
+    bass = re.search(r'(<section id="bass".*?<tbody[^>]*>)(.*?)(</tbody>)', s, re.S)
     if bass:
         body = re.sub(
-            r'<tr(?:\s+id="[^"]*")?><th scope="row"><a href="([a-z0-9-]+)/">',
+            r'<tr(?:\s+id="[^"]*")?(\s+role="row")?><th scope="row"(\s+role="rowheader")?><a href="([a-z0-9-]+)/">',
             tr,
             bass.group(2),
         )

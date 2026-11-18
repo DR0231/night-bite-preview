@@ -264,7 +264,7 @@ def _rules_covered():
     """
     text = (root / "rules.html").read_text()
     out = set()
-    bass = re.search(r'<section id="bass".*?<tbody>(.*?)</tbody>', text, re.S)
+    bass = re.search(r'<section id="bass".*?<tbody[^>]*>(.*?)</tbody>', text, re.S)
     if bass:
         for lake in re.findall(r'<a href="([a-z0-9-]+)/">', bass.group(1)):
             if lake in REG["lakes"]:
