@@ -21,7 +21,7 @@ Lake scope (check-waters, check-glance, check-glance-fallback, check-bait). A ru
 
 Builds (in this checkout, skipped with --no-build and always skipped for live), in order:
     build-lakes-boot, build-lake-pages, build-docks, build-meta, clean-url-script, stamp-version, build-updates, footer-social, footer-contact, wrap-dates (S13),
-    stamp-water-count (the home "What this site is" count from the registry)
+    stamp-water-count (the home "What this site is" count from the registry), stamp-assets (content-hash ?v= on font and image URLs)
 Checks: check-meta (0 errors), check-clean-urls (internal links, sitemap, canonical, og:url and hreflang use the clean URL when a twin exists; the clean-url boot script is in place; static), check-radius, check-docks (report only: a CHANGED dock page is a note, never a failure),
 check-night-rules (the chip and a mocked NWS storm banner above the fold at 390, red light and high contrast; browser),
 check-hours (night-rules data has official sources and every chip matches it; static),
@@ -43,7 +43,7 @@ check-tap-targets (interactive elements at 390px are at least 44px tall, except 
 without duplicates, bad files refused; about 10 s), check-i18n (string files: missing keys per language, placeholders,
 protected words, draft flag; static), check-manifest (install name and water count in site.webmanifest; static), check-biting-split (js/biting/<id>.js match
 the combined biting data value for value; static), check-sw-precache (sw.js REVISIONS match the
-precached files, none missing; static), check-i18n-browser (language picker: Spanish applies, persists, falls back to English
+precached files, none missing; static), check-asset-revs (every static font and image URL carries its content hash; static), check-i18n-browser (language picker: Spanish applies, persists, falls back to English
 for a missing key; facts stay English; about 20 s), sweep (every sitemap page).
 Every browser check loads tools/no-analytics.cjs. Against live nothing is written: static checks read the live
 checkout (--live-dir, default /workspace/the-night-bite) through NB_ROOT, and no build runs.
@@ -60,8 +60,8 @@ sys.stdout.reconfigure(line_buffering=True)
 TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
-BUILDS = ["build-lakes-boot.py", "build-lake-pages.py", "build-docks.py", "build-summaries.py", "build-meta.py", "clean-url-script.py", "stamp-version.py", "build-updates.py", "footer-social.py", "footer-contact.py", "wrap-dates.py", "stamp-water-count.py", "i18n-extract.py", "sw-precache.py"]
-CHECKS = ["check-meta", "check-clean-urls", "check-radius", "check-hours", "check-ramp-names", "check-docks", "check-lake-isolation", "check-glance-bake", "check-precache-refs", "check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-night-rules", "check-i18n", "check-manifest", "check-biting-split", "check-sw-precache", "check-i18n-browser", "sweep"]
+BUILDS = ["build-lakes-boot.py", "build-lake-pages.py", "build-docks.py", "build-summaries.py", "build-meta.py", "clean-url-script.py", "stamp-version.py", "build-updates.py", "footer-social.py", "footer-contact.py", "wrap-dates.py", "stamp-water-count.py", "stamp-assets.py", "i18n-extract.py", "sw-precache.py"]
+CHECKS = ["check-meta", "check-clean-urls", "check-radius", "check-hours", "check-ramp-names", "check-docks", "check-lake-isolation", "check-glance-bake", "check-precache-refs", "check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-night-rules", "check-i18n", "check-manifest", "check-biting-split", "check-sw-precache", "check-asset-revs", "check-i18n-browser", "sweep"]
 BROWSER = {"check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-i18n-browser", "sweep"}
 
 ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -270,6 +270,7 @@ def cmd_for(name):
         "check-manifest": ([py, str(TOOLS / "check-manifest.py")], static_env),
         "check-biting-split": ([py, str(TOOLS / "biting-split.py"), "--check"], static_env),
         "check-sw-precache": ([py, str(TOOLS / "sw-precache.py"), "--check"], static_env),
+        "check-asset-revs": ([py, str(TOOLS / "stamp-assets.py"), "--check"], static_env),
         "check-glance-bake": ([py, str(TOOLS / "glance_bake.py"), "--check"], static_env),
         "check-precache-refs": ([py, str(TOOLS / "check-precache-refs.py")], static_env),
         "check-live-readings": (["node", str(TOOLS / "check-live-readings.cjs"), base, d], {}),

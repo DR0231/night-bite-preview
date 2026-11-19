@@ -7,7 +7,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../assets/fonts/pixelify-sans-latin-ext.woff2) format('woff2');
+  src: url(../assets/fonts/pixelify-sans-latin-ext.woff2?v=0afa0101fd8c) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* Pixelify Sans latin */
@@ -16,7 +16,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../assets/fonts/pixelify-sans-latin.woff2) format('woff2');
+  src: url(../assets/fonts/pixelify-sans-latin.woff2?v=9c367c6a9e26) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* Pixelify Sans latin-ext */
@@ -25,7 +25,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(../assets/fonts/pixelify-sans-latin-ext.woff2) format('woff2');
+  src: url(../assets/fonts/pixelify-sans-latin-ext.woff2?v=0afa0101fd8c) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* Pixelify Sans latin */
@@ -34,7 +34,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(../assets/fonts/pixelify-sans-latin.woff2) format('woff2');
+  src: url(../assets/fonts/pixelify-sans-latin.woff2?v=9c367c6a9e26) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* Pixelify Sans latin-ext */
@@ -43,7 +43,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(../assets/fonts/pixelify-sans-latin-ext.woff2) format('woff2');
+  src: url(../assets/fonts/pixelify-sans-latin-ext.woff2?v=0afa0101fd8c) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* Pixelify Sans latin */
@@ -52,7 +52,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(../assets/fonts/pixelify-sans-latin.woff2) format('woff2');
+  src: url(../assets/fonts/pixelify-sans-latin.woff2?v=9c367c6a9e26) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* Night Bite Pixel: original pixel face for headings + pool numbers (see assets/fonts/README.md).
@@ -62,14 +62,14 @@
   font-style: normal;
   font-weight: 100 599;
   font-display: swap;
-  src: url(../assets/fonts/night-bite-pixel-regular.woff2) format('woff2');
+  src: url(../assets/fonts/night-bite-pixel-regular.woff2?v=1458fee0d42d) format('woff2');
 }
 @font-face {
   font-family: 'Night Bite Pixel';
   font-style: normal;
   font-weight: 600 900;
   font-display: swap;
-  src: url(../assets/fonts/night-bite-pixel-bold.woff2) format('woff2');
+  src: url(../assets/fonts/night-bite-pixel-bold.woff2?v=3e683f59654f) format('woff2');
 }
 /* Source Serif 4 latin-ext */
 @font-face {
@@ -77,7 +77,7 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(../assets/fonts/source-serif-4-italic-latin-ext.woff2) format('woff2');
+  src: url(../assets/fonts/source-serif-4-italic-latin-ext.woff2?v=a98065d414c1) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* Source Serif 4 latin */
@@ -86,7 +86,7 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(../assets/fonts/source-serif-4-italic-latin.woff2) format('woff2');
+  src: url(../assets/fonts/source-serif-4-italic-latin.woff2?v=f97463f721a8) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* Source Serif 4 latin-ext */
@@ -95,7 +95,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../assets/fonts/source-serif-4-latin-ext.woff2) format('woff2');
+  src: url(../assets/fonts/source-serif-4-latin-ext.woff2?v=0eca99f28f44) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* Source Serif 4 latin */
@@ -104,7 +104,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../assets/fonts/source-serif-4-latin.woff2) format('woff2');
+  src: url(../assets/fonts/source-serif-4-latin.woff2?v=88c3215f1779) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* Source Serif 4 latin-ext */
@@ -113,7 +113,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(../assets/fonts/source-serif-4-latin-ext.woff2) format('woff2');
+  src: url(../assets/fonts/source-serif-4-latin-ext.woff2?v=0eca99f28f44) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* Source Serif 4 latin */
@@ -122,7 +122,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(../assets/fonts/source-serif-4-latin.woff2) format('woff2');
+  src: url(../assets/fonts/source-serif-4-latin.woff2?v=88c3215f1779) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -593,7 +593,7 @@ code {
   display: flex;
   justify-content: center;
   overflow: hidden;
-  background: url("../assets/horizon-tile.png") left top / 480px 92px repeat-x;
+  background: url("../assets/horizon-tile.png?v=f876ce581248") left top / 480px 92px repeat-x;
   image-rendering: pixelated;
 }
 .hero-horizon img {
@@ -625,7 +625,7 @@ code {
   margin: calc(-1 * var(--space-xs)) 0 var(--space-lg);
   margin-inline-start: calc(50% - 50vw);
   height: 44px;
-  background: url("../assets/horizon-thin.png") left top / 480px 44px repeat-x;
+  background: url("../assets/horizon-thin.png?v=e221a7fc7502") left top / 480px 44px repeat-x;
   image-rendering: pixelated;
 }
 
@@ -1880,7 +1880,7 @@ h3 { font-size: 20px; line-height: 30px; }
   flex-shrink: 0;
   width: calc(13px * var(--wind-scale));
   height: calc(13px * var(--wind-scale));
-  background: url("../assets/wind/wind-arrows.png") no-repeat;
+  background: url("../assets/wind/wind-arrows.png?v=320e354157c4") no-repeat;
   background-size: calc(130px * var(--wind-scale)) calc(13px * var(--wind-scale));
   background-position: calc(-13px * var(--wind-scale) * var(--wind-i, 0)) 0;
   image-rendering: pixelated;
@@ -1896,7 +1896,7 @@ h3 { font-size: 20px; line-height: 30px; }
   flex-shrink: 0;
   width: calc(13px * var(--moon-scale));
   height: calc(13px * var(--moon-scale));
-  background: url("../assets/moon/moon-phases.png") no-repeat;
+  background: url("../assets/moon/moon-phases.png?v=88eb81447164") no-repeat;
   background-size: calc(104px * var(--moon-scale)) calc(13px * var(--moon-scale));
   background-position: calc(-13px * var(--moon-scale) * var(--moon-i, 0)) 0;
   image-rendering: pixelated;

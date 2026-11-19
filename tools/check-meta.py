@@ -7,7 +7,7 @@ Every public page (same list as tools/build-meta.py) must have:
   · one <title> and one non-empty meta description
   · one canonical on https://nightbiteoh.com/ in the clean form (no .html, except whisperwood.html)
   · og:site_name, og:type, og:title, og:description, og:url (= canonical), og:image (absolute https://nightbiteoh.com
-    URL to a file that exists in assets/og/), og:image:width, og:image:height, og:image:alt
+    URL to a file that exists in assets/og/, optional ?v= content hash from stamp-assets.py), og:image:width, og:image:height, og:image:alt
   · twitter:card summary_large_image, twitter:title, twitter:description, twitter:image (absolute, file exists)
   · og:title and twitter:title equal to <title>; og/twitter descriptions equal to the meta description
   · every <script type="application/ld+json"> block parses as JSON and has @context https://schema.org and @type
@@ -162,8 +162,10 @@ for p in sorted(root.rglob("*.html")):
         img = get(kind, n)
         if not img.startswith(SITE + "assets/og/"):
             err(f"{n} should be an absolute {SITE}assets/og/ URL")
-        elif not (root / img[len(SITE):]).exists():
-            err(f"{n} points at a missing file {img}")
+        else:
+            path = img[len(SITE):].split("?", 1)[0]
+            if not (root / path).exists():
+                err(f"{n} points at a missing file {img}")
     noindex = re.search(r'<meta name="robots" content="[^"]*noindex', head) and 'http-equiv="refresh"' in head
     if not noindex and canon not in sitemap:
         warnings.append(f"{rel}: canonical {canon} is not in sitemap.xml")
