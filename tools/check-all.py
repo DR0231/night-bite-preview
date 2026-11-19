@@ -20,9 +20,9 @@ Lake scope (check-waters, check-glance, check-glance-fallback, check-bait). A ru
                     interrupted run resumes; --fresh starts over. Default state dir /workspace/nb-checks/all-lakes-<target>/.
 
 Builds (in this checkout, skipped with --no-build and always skipped for live), in order:
-    build-lakes-boot, build-lake-pages, build-docks, build-meta, stamp-version, build-updates, footer-social, footer-contact, wrap-dates (S13),
+    build-lakes-boot, build-lake-pages, build-docks, build-meta, clean-url-script, stamp-version, build-updates, footer-social, footer-contact, wrap-dates (S13),
     stamp-water-count (the home "What this site is" count from the registry)
-Checks: check-meta (0 errors), check-radius, check-docks (report only: a CHANGED dock page is a note, never a failure),
+Checks: check-meta (0 errors), check-clean-urls (internal links, sitemap, canonical, og:url and hreflang use the clean URL when a twin exists; the clean-url boot script is in place; static), check-radius, check-docks (report only: a CHANGED dock page is a note, never a failure),
 check-night-rules (the chip and a mocked NWS storm banner above the fold at 390, red light and high contrast; browser),
 check-hours (night-rules data has official sources and every chip matches it; static),
 check-ramp-names (one Hoover ramp spelling site-wide, lists match the map pins, every ramp pin has Directions; static),
@@ -60,8 +60,8 @@ sys.stdout.reconfigure(line_buffering=True)
 TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
-BUILDS = ["build-lakes-boot.py", "build-lake-pages.py", "build-docks.py", "build-summaries.py", "build-meta.py", "stamp-version.py", "build-updates.py", "footer-social.py", "footer-contact.py", "wrap-dates.py", "stamp-water-count.py", "i18n-extract.py", "sw-precache.py"]
-CHECKS = ["check-meta", "check-radius", "check-hours", "check-ramp-names", "check-docks", "check-lake-isolation", "check-glance-bake", "check-precache-refs", "check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-night-rules", "check-i18n", "check-manifest", "check-biting-split", "check-sw-precache", "check-i18n-browser", "sweep"]
+BUILDS = ["build-lakes-boot.py", "build-lake-pages.py", "build-docks.py", "build-summaries.py", "build-meta.py", "clean-url-script.py", "stamp-version.py", "build-updates.py", "footer-social.py", "footer-contact.py", "wrap-dates.py", "stamp-water-count.py", "i18n-extract.py", "sw-precache.py"]
+CHECKS = ["check-meta", "check-clean-urls", "check-radius", "check-hours", "check-ramp-names", "check-docks", "check-lake-isolation", "check-glance-bake", "check-precache-refs", "check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-night-rules", "check-i18n", "check-manifest", "check-biting-split", "check-sw-precache", "check-i18n-browser", "sweep"]
 BROWSER = {"check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-i18n-browser", "sweep"}
 
 ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -239,7 +239,7 @@ log(f"base {base}\n")
 
 
 def fail_lines(name, out):
-    if name in ("check-meta", "check-manifest"):
+    if name in ("check-meta", "check-clean-urls", "check-manifest"):
         return [l[len("ERROR:"):].strip() for l in out.splitlines() if l.startswith("ERROR:")]
     if name in ("check-radius", "check-hours", "check-ramp-names"):
         return [l[len("ERROR"):].strip() for l in out.splitlines() if l.startswith("ERROR ")]
@@ -262,6 +262,7 @@ def cmd_for(name):
     py = sys.executable
     return {
         "check-meta": ([py, str(TOOLS / "check-meta.py")], static_env),
+        "check-clean-urls": ([py, str(TOOLS / "check-clean-urls.py")], static_env),
         "check-radius": ([py, str(TOOLS / "check-radius.py")], static_env),
         "check-hours": ([py, str(TOOLS / "check-hours.py")], static_env),
         "check-ramp-names": ([py, str(TOOLS / "check-ramp-names.py")], static_env),
