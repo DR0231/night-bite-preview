@@ -1529,8 +1529,9 @@ html[data-contrast="high"] .trip-send-status { border-inline-start-color: curren
 @media (min-width: 720px) {
   /* Upper stack: pool, maps, species beside Tonight. Lower: Whisperwood and
      log beside Bait nearby. Equal gaps, both columns in a stack stretch to
-     the same height, and the last card in the shorter column grows so the
-     bottom edges line up (no holes between cards). */
+     the same height. Link cards (maps, species, Whisperwood, log) keep their
+     natural height. If the left column is short, the pool card grows; if the
+     right is short, Tonight or Bait grows. */
   .bento-grid {
     display: flex;
     flex-direction: column;
@@ -1549,9 +1550,24 @@ html[data-contrast="high"] .trip-send-status { border-inline-start-color: curren
     gap: var(--space-md);
     min-width: 0;
   }
-  .bento-col > .bento-card:last-child { flex: 1 1 auto; }
+  .bento-col > .bento-pool,
+  .bento-col > .bento-conditions,
+  .bento-col > .bento-bait { flex: 1 1 auto; }
+  .bento-col > .bento-maps,
+  .bento-col > .bento-species,
+  .bento-col > .bento-whisper,
+  .bento-col > .bento-log { flex: 0 0 auto; }
   .bento-pool, .bento-conditions, .bento-bait,
   .bento-maps, .bento-species, .bento-whisper, .bento-log { order: 0; }
+  /* Extra height in the pool card goes to the chart, so the map sits in a
+     taller well instead of leaving a hole under Species. */
+  .bento-pool .pool-chart {
+    flex: 1 1 auto;
+    align-items: center;
+  }
+  /* When Bait nearby grows (no shops listed), keep the tell-us line at the
+     bottom of the card so the extra space is not a blank gap in the middle. */
+  .bento-bait .bait-foot { margin-top: auto; }
 }
 @media (min-width: 1000px) {
   .bento-stack { grid-template-columns: 1.15fr 1fr; }

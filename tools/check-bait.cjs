@@ -104,11 +104,11 @@ let pass=0,fail=0;const out=[];function ok(n,c,i){c?pass++:fail++; if(!c||proces
     const {c,p,errs}=await mk({},init);await p.goto(BASE+'griggs/');await ready(p);const r=await st(p);
     ok(W+'unsupported: lake order + calm line, no button',r.sort==='lake'&&r.btnHidden&&r.loc==='Location off, sorted from the lake.',r);ok(W+'unsupported: no errors',errs.length===0,errs);await c.close();}
   }
-  // layout: pool, maps and Whisperwood still hug their content at desktop. The last card in
-  // a column (Tonight, Species, log, Bait) may grow so the two columns end level.
+  // layout: link cards (maps, species, Whisperwood, log) still hug their content at desktop.
+  // Pool, Tonight and Bait may grow so the two columns end level.
   if(vp[0]===1440){const {c,p}=await mk({});for(const id of ['hoover/','buckeye/','madison/','alum/']){await p.goto(BASE+id);await ready(p);await p.waitForTimeout(3000);
     const g=await p.evaluate(()=>[...document.querySelectorAll('.bento-grid .bento-card')].map(e=>{const r=e.getBoundingClientRect();let h=0;for(const k of e.children){if(k.tagName==='SCRIPT')continue;const kr=k.getBoundingClientRect();if(kr.height)h=Math.max(h,kr.bottom-r.top)}return [e.className.split(' ')[1],Math.round(r.height-h)]}));
-    const tight=g.filter(x=>/^(bento-pool|bento-maps|bento-whisper)$/.test(x[0]));
+    const tight=g.filter(x=>/^(bento-maps|bento-species|bento-whisper|bento-log)$/.test(x[0]));
     ok(W+'no stretched cards '+id.replace('/',''),tight.every(x=>x[1]<80),g);
     if(id==='hoover/') await p.screenshot({path:''+(process.env.OUT||'/tmp')+'/bait-1440-home-grid.png',fullPage:true});}
    await c.close();}
