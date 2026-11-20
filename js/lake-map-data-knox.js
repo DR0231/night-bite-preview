@@ -2,7 +2,7 @@
    listed in DATA-SOURCES.md. Positions are percentages of each map image, projected from real lat/lng. */
 window.NightBiteMapDataKnox = {
  "title": "Ramps & access at Knox Lake",
- "notes": "Knox Lake Fishing Area: 10 hp limit, larger motors at no wake or idle only. Shoreline traced from OpenStreetMap, not for navigation.",
+ "notes": "Knox Lake Fishing Area: motors over 10 hp allowed at idle speed or no wake only. Shoreline traced from OpenStreetMap, not for navigation.",
  "maps": {
   "knox-map-wide": {
    "src": "assets/map/knox-map-wide.png?v=979e6ba7ddfb",
@@ -24,7 +24,7 @@ window.NightBiteMapDataKnox = {
    "shortLabel": "Marina",
    "address": "Armentrout Road, lower lake",
    "parking": "Yes",
-   "note": "10 hp limit; larger motors may run at no wake or idle only. Pin is approximate, read from the ODNR fishing map.",
+   "note": "Motors over 10 hp allowed at idle speed or no wake only. Pin is approximate, read from the ODNR fishing map.",
    "directions": [
     40.4962,
     -82.5209
@@ -40,7 +40,7 @@ window.NightBiteMapDataKnox = {
     }
    },
    "sources": [
-    "ODNR Knox Lake Fishing Area page (marina and main ramp on Armentrout Road, 10 hp limit)",
+    "ODNR Knox Lake Fishing Area page (marina and main ramp on Armentrout Road; motors over 10 hp at idle or no wake only)",
     "ODNR Knox Lake fishing map (ramp and marina symbols; pin placed from the map grid)"
    ],
    "sourceLabels": [
