@@ -35,7 +35,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v165-2026-11-20";
+var VERSION = "v166-2026-11-20";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -641,7 +641,7 @@ var REVISIONS = {
   "js/your-water.js": "da7865eb55a2",
   "js/local-notes.js": "d68fc177c5f1",
   "js/docks.js": "a1a7f6febfb1",
-  "data/quick-facts.json": "366979ab4eee",
+  "data/quick-facts.json": "ad3082eedd5a",
   "data/bait-shops.json": "2a13412f3883",
   "data/community-log.json": "11d7942a8e63",
   "data/tournaments.json": "d843f370ad46",
@@ -804,9 +804,9 @@ var REVISIONS = {
   "js/biting/madison.js": "0eda8fc065eb",
   "assets/map/madison-map-tall.png": "444806e561ae",
   "assets/map/madison-map-wide.png": "95878b3ea30f",
-  "knox/": "87a5edb1418b",
+  "knox/": "ea0ade85145b",
   "assets/knox-chart.png": "025d6bb15f45",
-  "js/lake-map-data-knox.js": "9ce5f01bc082",
+  "js/lake-map-data-knox.js": "b3ba24373db5",
   "js/biting/knox.js": "9c270393689a",
   "assets/map/knox-map-tall.png": "4fc3e6e27e1e",
   "assets/map/knox-map-wide.png": "979e6ba7ddfb",

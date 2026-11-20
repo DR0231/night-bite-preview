@@ -22,7 +22,7 @@ window.NightBiteMapDataKnox = {
    "name": "Marina and main ramp (lower lake)",
    "typeLabel": "Boat ramp",
    "shortLabel": "Marina",
-   "address": "Armentrout Road, lower lake",
+   "address": "Off Buena Vista Road, lower lake",
    "parking": "Yes",
    "note": "Motors over 10 hp allowed at idle speed or no wake only. Pin is approximate, read from the ODNR fishing map.",
    "directions": [
@@ -40,8 +40,8 @@ window.NightBiteMapDataKnox = {
     }
    },
    "sources": [
-    "ODNR Knox Lake Fishing Area page (marina and main ramp on Armentrout Road; motors over 10 hp at idle or no wake only)",
-    "ODNR Knox Lake fishing map (ramp and marina symbols; pin placed from the map grid)"
+    "ODNR Knox Lake fishing map, revised 2010 (Buena Vista Road label at the marina and main ramp cluster; pin placed from the map grid)",
+    "Site owner check, Nov. 20, 2026"
    ],
    "sourceLabels": [
     "ODNR"
