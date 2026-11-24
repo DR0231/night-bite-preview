@@ -1,6 +1,42 @@
 #!/usr/bin/env node
 // Local checks for workers/trip-queue/worker.draft.js. No wrangler, no network, no secrets, no deploy.
-import { readBodyCapped, webhookInit, rateSaltMissing, rateKey } from "./worker.draft.js";
+import { readFileSync } from "node:fs";
+import { readBodyCapped, webhookInit, rateSaltMissing, rateActorKey, applyBucket, checkSubmitLimits, SubmitLimits, RATE_PER_HOUR, RATE_BURST_PERIOD, MAX_NEW_PER_DAY } from "./worker.draft.js";
+
+function parseJsonc(path) {
+  const text = readFileSync(path, "utf8").split("\n").map(line => /^\s*\/\//.test(line) ? "" : line).join("\n");
+  return JSON.parse(text);
+}
+
+function memoryState() {
+  const m = new Map();
+  return {
+    storage: {
+      async get(k) { return m.get(k); },
+      async put(k, v) { m.set(k, v); }
+    }
+  };
+}
+
+function mockLimits() {
+  const objects = new Map();
+  return {
+    idFromName(name) { return { name }; },
+    get(id) {
+      const key = id && id.name;
+      if (!objects.has(key)) objects.set(key, new SubmitLimits(memoryState(), {}));
+      return objects.get(key);
+    }
+  };
+}
+
+function testEnv(limitFn) {
+  return {
+    RATE_SALT: "salt-a",
+    SUBMIT_RATE: { limit: limitFn || (async () => ({ success: true })) },
+    SUBMIT_LIMITS: mockLimits()
+  };
+}
 
 let fails = 0, passes = 0;
 function check(name, ok, info) {
@@ -72,12 +108,67 @@ check("webhook: a non-https protocol after parse is skipped", webhookInit("https
 
 check("RATE_SALT: missing or empty fails closed",
   rateSaltMissing({}) && rateSaltMissing({ RATE_SALT: "" }) && rateSaltMissing({ RATE_SALT: null }) && !rateSaltMissing({ RATE_SALT: "s" }));
-const k1 = await rateKey({ RATE_SALT: "salt-a" }, "1.2.3.4", "2026-11-24T23");
-const k2 = await rateKey({ RATE_SALT: "salt-b" }, "1.2.3.4", "2026-11-24T23");
-const k3 = await rateKey({ RATE_SALT: "salt-a" }, "1.2.3.4", "2026-11-24T23");
-check("RATE_SALT: the KV key is a hash prefix, not the raw IP, and changes with the salt",
-  !!(k1 && k1.startsWith("rl:") && !k1.includes("1.2.3.4") && k1 !== k2 && k1 === k3));
-check("RATE_SALT: no salt means no key", (await rateKey({}, "1.2.3.4", "2026-11-24T23")) === null);
+const k1 = await rateActorKey({ RATE_SALT: "salt-a" }, "1.2.3.4");
+const k2 = await rateActorKey({ RATE_SALT: "salt-b" }, "1.2.3.4");
+const k3 = await rateActorKey({ RATE_SALT: "salt-a" }, "1.2.3.4");
+check("RATE_SALT: the actor key is a hash prefix, not the raw IP, and changes with the salt",
+  !!(k1 && k1.startsWith("a:") && !k1.includes("1.2.3.4") && k1 !== k2 && k1 === k3));
+check("RATE_SALT: no salt means no key", (await rateActorKey({}, "1.2.3.4")) === null);
+
+const b1 = applyBucket(null, "2026-11-24T23", 5);
+const b2 = applyBucket({ window: b1.window, n: b1.n }, "2026-11-24T23", 5);
+const bFull = applyBucket({ window: "2026-11-24T23", n: 5 }, "2026-11-24T23", 5);
+const bRollover = applyBucket({ window: "2026-11-24T22", n: 5 }, "2026-11-24T23", 5);
+check("applyBucket: increments, refuses at the limit, and resets on a new window",
+  b1.ok === true && b1.n === 1 && b2.ok === true && b2.n === 2 && bFull.ok === false && bFull.n === 5
+    && bRollover.ok === true && bRollover.n === 1 && applyBucket(null, "", 5).error === "args");
+
+const now = new Date("2026-11-24T23:10:00Z");
+const missing = await checkSubmitLimits({ RATE_SALT: "salt-a" }, k1, now);
+const noSalt = await checkSubmitLimits({}, k1, now);
+check("limits: missing Rate Limiting binding or RATE_SALT fails closed with 503",
+  missing.error === 503 && noSalt.error === 503);
+
+const burstKeys = [];
+const burstEnv = testEnv(async ({ key }) => { burstKeys.push(key); return { success: false }; });
+const burst = await checkSubmitLimits(burstEnv, k1, now);
+check("limits: Rate Limiting binding refusal is 429 with a 60s retry, and the key is the hash not the IP",
+  burst.error === 429 && burst.retryAfter === RATE_BURST_PERIOD
+    && burstKeys.length === 1 && burstKeys[0] === k1 && !burstKeys[0].includes("1.2.3.4"));
+
+const hourEnv = testEnv();
+const hourResults = [];
+for (let i = 0; i < RATE_PER_HOUR + 1; i++) hourResults.push(await checkSubmitLimits(hourEnv, k1, now));
+check("limits: Durable Object allows 5 in the hour and refuses the sixth with 429",
+  hourResults.slice(0, 5).every(r => r.ok === true) && hourResults[5].error === 429 && hourResults[5].retryAfter === 3600);
+
+const dayEnv = testEnv();
+const dayActor = await rateActorKey(dayEnv, "9.9.9.9");
+const dayResults = [];
+for (let i = 0; i < MAX_NEW_PER_DAY + 1; i++) {
+  const actor = await rateActorKey(dayEnv, "10.0.0." + String((i % 200) + 1));
+  dayResults.push(await checkSubmitLimits(dayEnv, actor, now));
+}
+check("limits: the global daily cap is below 300 and the next submit is 503 queue-full",
+  MAX_NEW_PER_DAY === 80 && MAX_NEW_PER_DAY < 300
+    && dayResults.slice(0, MAX_NEW_PER_DAY).every(r => r.ok === true)
+    && dayResults[MAX_NEW_PER_DAY].error === 503 && dayResults[MAX_NEW_PER_DAY].reason === "day-cap"
+    && !dayActor.includes("9.9.9.9"));
+
+const draftCfg = parseJsonc(new URL("./wrangler.draft.jsonc", import.meta.url));
+const liveCfg = parseJsonc(new URL("./wrangler.jsonc", import.meta.url));
+const rl = draftCfg.ratelimits && draftCfg.ratelimits[0];
+const dob = draftCfg.durable_objects && draftCfg.durable_objects.bindings && draftCfg.durable_objects.bindings[0];
+check("wrangler.draft.jsonc: main is the draft, with SUBMIT_RATE 5/60s and the SubmitLimits Durable Object",
+  draftCfg.main === "worker.draft.js" && draftCfg.name === "nb-trip-queue"
+    && rl && rl.name === "SUBMIT_RATE" && /^\d+$/.test(String(rl.namespace_id))
+    && rl.simple && rl.simple.limit === 5 && rl.simple.period === 60
+    && dob && dob.name === "SUBMIT_LIMITS" && dob.class_name === "SubmitLimits"
+    && Array.isArray(draftCfg.migrations) && draftCfg.migrations[0] && draftCfg.migrations[0].tag === "v1-submit-limits"
+    && (draftCfg.migrations[0].new_classes || []).includes("SubmitLimits"));
+check("wrangler.jsonc is unchanged: still points at worker.js, no rate-limit or Durable Object bindings",
+  liveCfg.main === "worker.js" && liveCfg.name === "nb-trip-queue" && !liveCfg.ratelimits && !liveCfg.durable_objects
+    && JSON.stringify(liveCfg.kv_namespaces) === JSON.stringify(draftCfg.kv_namespaces));
 
 console.log(fails ? fails + " FAIL, " + passes + " pass" : "ALL PASSED: " + passes + " pass, 0 fail");
 process.exit(fails ? 1 : 0);

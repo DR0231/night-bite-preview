@@ -17,7 +17,7 @@ What it does (the v20/v21 promote steps, generalized):
   · files: everything that changed in the preview between --base (default: the end of the range in live's last
     "Promote preview A..B" commit) and --ref (default origin/main), read from git, not the working tree. --all takes
     every tracked file instead. Live-only files are never written: CNAME, robots.txt, the IndexNow key file,
-    google*.html, privacy.html, data/updates.json, updates.html, whisperwood*, previews/, review/, Worker drafts (*.draft.js, DEPLOY-DRAFT.md, check-worker-draft.mjs), and .github/ except .github/workflows/.
+    google*.html, privacy.html, data/updates.json, updates.html, whisperwood*, previews/, review/, Worker drafts (*.draft.js, *.draft.jsonc, DEPLOY-DRAFT.md, check-worker-draft.mjs), and .github/ except .github/workflows/.
   · html: CSP gets Cloudflare Insights (live CSP kept when it differs), the analytics beacon before </body> (not
     offline.html), robots noindex,nofollow removed (404 and offline keep noindex), Preview chip removed,
     /night-bite-preview/ becomes /, Whisperwood links relative, live's pool lead, Checked time and water temp kept.
@@ -81,14 +81,15 @@ def git(cwd, *args, check=True, binary=False):
 def is_worker_draft(f):
     """Draft Worker files stay on preview: they are not deployed, and must not be copied to the live tree."""
     name = f.rsplit("/", 1)[-1]
-    return name.endswith(".draft.js") or name == "DEPLOY-DRAFT.md" or name == "check-worker-draft.mjs"
+    return (name.endswith(".draft.js") or name.endswith(".draft.jsonc")
+            or name == "DEPLOY-DRAFT.md" or name == "check-worker-draft.mjs")
 
 
 def live_only(f):
     # Workflows go to live so the static gate runs there too. Other .github/ files (issue templates) stay skipped.
     # .github/build-inputs/ (translation memory, biting sources) goes too: live's builds read it, Pages never serves it.
     # startswith("whisperwood") matches the post-run guard: never write a stray whisperwood-icon.png (or similar).
-    # Worker drafts (worker.draft.js, DEPLOY-DRAFT.md, check-worker-draft.mjs) stay on preview until a separate go.
+    # Worker drafts (*.draft.js, *.draft.jsonc, DEPLOY-DRAFT.md, check-worker-draft.mjs) stay on preview until a separate go.
     if is_worker_draft(f):
         return True
     if f.startswith(".github/"):

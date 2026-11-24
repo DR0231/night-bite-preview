@@ -1,0 +1,29 @@
+// DRAFT wrangler config for worker.draft.js. Not deployed.
+// wrangler.jsonc is the live deploy target and must stay pointing at worker.js.
+// When D'Angelo says to deploy this draft, run wrangler from this folder with:
+//   wrangler deploy -c wrangler.draft.jsonc
+// Do not run that now. Confirm namespace_id 41701 is unused on the account first
+// (it must be a unique positive integer string). Wrangler 4.36.0 or later is required
+// for the Rate Limiting binding. The first approved deploy applies the SubmitLimits
+// Durable Object migration.
+{
+  "name": "nb-trip-queue",
+  "main": "worker.draft.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  "observability": { "enabled": false },
+  "kv_namespaces": [{ "binding": "TRIPS", "id": "d41222451003416fadb2d6f529bea6f8" }],
+  "ratelimits": [
+    {
+      "name": "SUBMIT_RATE",
+      "namespace_id": "41701",
+      "simple": { "limit": 5, "period": 60 }
+    }
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "SUBMIT_LIMITS", "class_name": "SubmitLimits" }]
+  },
+  "migrations": [
+    { "tag": "v1-submit-limits", "new_classes": ["SubmitLimits"] }
+  ]
+}

@@ -44,9 +44,11 @@ check("live_only: previews/ and review/ are skipped",
 check("live_only: a regular script is promoted", promote.live_only("js/nav.js") is False)
 check("live_only: Worker drafts and DEPLOY-DRAFT.md are skipped",
       promote.live_only("workers/trip-queue/worker.draft.js") is True
+      and promote.live_only("workers/trip-queue/wrangler.draft.jsonc") is True
       and promote.live_only("workers/trip-queue/DEPLOY-DRAFT.md") is True
       and promote.live_only("workers/trip-queue/check-worker-draft.mjs") is True
-      and promote.live_only("workers/trip-queue/worker.js") is False)
+      and promote.live_only("workers/trip-queue/worker.js") is False
+      and promote.live_only("workers/trip-queue/wrangler.jsonc") is False)
 check("live_only: workflows and build-inputs go to live; other .github/ files do not",
       (not promote.live_only(".github/workflows/pages.yml")
        and not promote.live_only(".github/build-inputs/i18n-tm/ar.json")
