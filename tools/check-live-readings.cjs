@@ -12,6 +12,8 @@
 //   temp-4h        F5: level 1 h old and temp 4 h old: the temp shows on the card, the bite rating ignores it (3 h limit)
 //   race           F10: a slow older answer that lands after a newer one never replaces it
 //   trend-old      the 7 day chart ends at its last reading's time, not "Now", when that is more than 6 h old
+//   trend-failed-stale  a chart that first ended at Now, then failed its refresh after 7 h, drops Now and data-old,
+//                       and stays out of "Tonight, in short"
 //   hidden         F13: a page opened in a background tab fetches nothing until it is visible
 //   alert-expiry   a banner whose end time passed goes away even when the alerts refresh fails
 //   f9-dates       F9: a reading time from any day but today carries its weekday and date ("Mon Nov. 9, 8:45 AM ET"),
@@ -111,7 +113,7 @@ async function scenario(browser, name, opts, fn) {
   const hits = { latest: 0, series: 0, nws: 0 };
   await ctx.route(OTHER, r => opts.legacy && /waterservices\.usgs\.gov/.test(r.request().url()) ? r.fulfill(opts.legacy()) : r.abort('failed'));
   await ctx.route(NWS, r => { hits.nws++; return opts.nws ? opts.nws(r) : r.abort('failed'); });
-  await ctx.route(USGS_SERIES, r => { hits.series++; return opts.series ? r.fulfill(opts.series()) : r.abort('failed'); });
+  await ctx.route(USGS_SERIES, r => { hits.series++; if (!opts.series) return r.abort('failed'); const body = opts.series(); return body ? r.fulfill(body) : r.abort('failed'); });
   await ctx.route(USGS_LATEST, async r => { const n = hits.latest++; if (!opts.latest) return r.abort('failed'); const x = await opts.latest(n); return x ? r.fulfill(x) : r.abort('failed'); });
   // the "old reading" path only replaces the baked first paint when the gauge's reading is newer than it
   // (js/usgs.js). Live's Hoover snapshot can be a few days old, so a 9-day-old test reading would be
@@ -220,6 +222,19 @@ async function scenario(browser, name, opts, fn) {
     const r = await read(page);
     check('trend-old: chart end says its own time, not Now', r.trendOld && /^\d{1,2}:\d\d (AM|PM) [A-Z][a-z]{2}$/.test(r.trendEnd), JSON.stringify([r.trendEnd, r.trendOld]));
     check('trend-old: old trend stays out of Tonight, in short', !/over 7 days/.test(r.condLine), r.condLine);
+  });
+
+  let seriesUp = true;
+  await scenario(browser, 'trend-failed-stale', { wait: 4000, latest: () => latest({ t: now - 0.5 * H, v: 890.21 }, { t: now - 0.5 * H, c: 14.8 }), series: () => seriesUp ? series(now - 0.5 * H) : null }, async page => {
+    let r = await read(page);
+    check('trend-failed-stale: first load ends at Now', r.trendEnd === 'Now' && !r.trendOld, JSON.stringify([r.trendEnd, r.trendOld, r.condLine]));
+    seriesUp = false;
+    await page.evaluate(shift => { const real = Date.now.bind(Date); Date.now = () => real() + shift; }, 7 * H);
+    await page.evaluate(() => window.NightBiteRefresh.run('check'));
+    await sleep(3000);
+    r = await read(page);
+    check('trend-failed-stale: failed refresh past 6 hours drops Now', r.trendOld && r.trendEnd !== 'Now' && /^\d{1,2}:\d\d (AM|PM) [A-Z][a-z]{2}$/.test(r.trendEnd), JSON.stringify([r.trendEnd, r.trendOld]));
+    check('trend-failed-stale: old trend stays out of Tonight, in short', !/over 7 days/.test(r.condLine), r.condLine);
   });
 
   // F13: the page starts hidden (a background tab), then becomes visible
