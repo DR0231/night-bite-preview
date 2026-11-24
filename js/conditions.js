@@ -13,8 +13,30 @@
 (function () {
   var card = document.getElementById("conditions");
   if (!card || !window.fetch) return;
-  // lake settings from js/lakes.js; the fallbacks are Hoover's original values
-  var LK = window.NightBiteLake, LC = (LK && LK.cfg) || null, NW = (LC && LC.nws) || {};
+  // lake settings from js/lakes.js. Hoover's original values are the fallback only on a Hoover page.
+  // If lakes.js did not load, any other page shows "Weather unavailable" with no lake-specific link:
+  // no Hoover forecast, station, cache keys, or bite input from KCMH.
+  function pageLake() {
+    var id = (window.NightBitePageLake || document.documentElement.getAttribute("data-lake") || "").toLowerCase();
+    if (id) return id;
+    var m = document.querySelector('meta[name="nb-home"]');
+    return ((m && m.getAttribute("content")) || "").toLowerCase();
+  }
+  var LK = window.NightBiteLake;
+  if (!LK && pageLake() !== "hoover") {
+    var statusEl = card.querySelector(".cond-status");
+    var grid = card.querySelector(".cond-grid");
+    card.setAttribute("data-state", "error");
+    if (statusEl) {
+      statusEl.innerHTML = 'Weather unavailable, check <a href="https://www.weather.gov/" target="_blank" rel="noopener">weather.gov</a>.';
+    }
+    ["wind", "air", "rain", "pressure"].forEach(function (k) {
+      var c = grid && grid.querySelector('[data-cond="' + k + '"]');
+      if (c) c.hidden = true;
+    });
+    return;
+  }
+  var LC = (LK && LK.cfg) || null, NW = (LC && LC.nws) || {};
   var LAT = LC ? LC.lat : 40.11, LNG = LC ? LC.lng : -82.88;
   var HOURLY = NW.hourly || "https://api.weather.gov/gridpoints/ILN/89,88/forecast/hourly";
   var POINT = NW.point || "https://api.weather.gov/points/40.11,-82.88";
