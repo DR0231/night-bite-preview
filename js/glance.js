@@ -20,7 +20,16 @@
 (function () {
   var box = document.getElementById("glance");
   if (!box) return;
-  var LK = window.NightBiteLake, C = (LK && LK.cfg) || {}, P = C.pool || {}, NW = C.nws || {};
+  function pageLake() {
+    var id = (window.NightBitePageLake || document.documentElement.getAttribute("data-lake") || "").toLowerCase();
+    if (id) return id;
+    var m = document.querySelector('meta[name="nb-home"]');
+    return ((m && m.getAttribute("content")) || "").toLowerCase();
+  }
+  var LK = window.NightBiteLake;
+  // If lakes.js is missing, leave the baked strip alone on any page that is not Hoover.
+  if (!LK && pageLake() !== "hoover") return;
+  var C = (LK && LK.cfg) || {}, P = C.pool || {}, NW = C.nws || {};
   var line = document.getElementById("correction-line");
   var checked = document.getElementById("correction-checked");
   var cond = document.getElementById("conditions");

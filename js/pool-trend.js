@@ -8,7 +8,15 @@
   var box = document.getElementById("pool-trend");
   if (box && !window.fetch) box.removeAttribute("data-pending");
   if (!box || !window.fetch) return;
-  var LK = window.NightBiteLake, LP = LK && LK.cfg && LK.cfg.pool;   // js/lakes.js; Hoover if missing
+  function pageLake() {
+    var id = (window.NightBitePageLake || document.documentElement.getAttribute("data-lake") || "").toLowerCase();
+    if (id) return id;
+    var m = document.querySelector('meta[name="nb-home"]');
+    return ((m && m.getAttribute("content")) || "").toLowerCase();
+  }
+  var LK = window.NightBiteLake, LP = LK && LK.cfg && LK.cfg.pool;
+  // If lakes.js is missing, only a Hoover page may use Hoover's gauge or unsuffixed saved week.
+  if (!LK && pageLake() !== "hoover") { box.removeAttribute("data-pending"); return; }
   if (LP && !LP.src) { box.hidden = true; box.removeAttribute("data-pending"); return; }   // no public lake gauge: no trend
   var CWMS = !!(LP && LP.src === "cwms");
   var LS = window.NightBiteLakes;

@@ -61,8 +61,8 @@ TOOLS = pathlib.Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 BASES = {"preview": "https://dr0231.github.io/night-bite-preview/", "live": "https://nightbiteoh.com/"}
 BUILDS = ["build-lakes-boot.py", "build-lake-pages.py", "build-docks.py", "build-summaries.py", "build-meta.py", "clean-url-script.py", "stamp-version.py", "build-updates.py", "footer-social.py", "footer-contact.py", "wrap-dates.py", "stamp-water-count.py", "stamp-assets.py", "i18n-extract.py", "sw-precache.py"]
-CHECKS = ["check-meta", "check-clean-urls", "check-radius", "check-hours", "check-ramp-names", "check-docks", "check-lake-isolation", "check-glance-bake", "check-precache-refs", "check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-night-rules", "check-i18n", "check-manifest", "check-biting-split", "check-sw-precache", "check-asset-revs", "check-i18n-browser", "sweep"]
-BROWSER = {"check-glance", "check-glance-fallback", "check-live-readings", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-i18n-browser", "sweep"}
+CHECKS = ["check-meta", "check-clean-urls", "check-radius", "check-hours", "check-ramp-names", "check-docks", "check-lake-isolation", "check-glance-bake", "check-precache-refs", "check-glance", "check-glance-fallback", "check-live-readings", "check-lakes-js-fallback", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-night-rules", "check-i18n", "check-manifest", "check-biting-split", "check-sw-precache", "check-asset-revs", "check-i18n-browser", "sweep"]
+BROWSER = {"check-glance", "check-glance-fallback", "check-live-readings", "check-lakes-js-fallback", "check-sw-deploys", "check-bait", "check-waters", "check-picker-flow", "check-a11y-settings", "check-tap-targets", "check-min-font", "check-log-io", "check-trip-queue", "check-i18n-browser", "sweep"}
 
 ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
 ap.add_argument("--target", choices=["preview", "live", "local"], default="preview")
@@ -274,6 +274,7 @@ def cmd_for(name):
         "check-glance-bake": ([py, str(TOOLS / "glance_bake.py"), "--check"], static_env),
         "check-precache-refs": ([py, str(TOOLS / "check-precache-refs.py")], static_env),
         "check-live-readings": (["node", str(TOOLS / "check-live-readings.cjs"), base, d], {}),
+        "check-lakes-js-fallback": (["node", str(TOOLS / "check-lakes-js-fallback.cjs"), base, d], {}),
         "check-sw-deploys": (["node", str(TOOLS / "check-sw-deploys.cjs"), d], {}),
         "check-i18n-browser": (["node", str(TOOLS / "check-i18n.cjs"), base, d], {}),
         "check-docks": ([py, str(TOOLS / "check-docks.py")], {}),

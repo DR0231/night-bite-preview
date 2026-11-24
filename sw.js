@@ -35,7 +35,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v166-2026-11-20";
+var VERSION = "v167-2026-11-24";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -604,7 +604,7 @@ var REVISIONS = {
   "js/community-log.js": "62217f38aaa5",
   "js/conditions.js": "f471b830969c",
   "js/get-app.js": "8345fce8e5c8",
-  "js/glance.js": "955d3169a3c9",
+  "js/glance.js": "68143b0197b4",
   "js/home-log.js": "b0cf7771714e",
   "js/hoover-map-data.js": "34a54a22f7ab",
   "js/hoover-map.js": "f01d585f0d9d",
@@ -614,7 +614,7 @@ var REVISIONS = {
   "js/water-picker.js": "b48ce9fb2f0d",
   "js/lake-snapshot.js": "79e1111b8d18",
   "js/lakes.js": "eb1a1993ce27",
-  "js/lakes-boot.js": "dec578da1165",
+  "js/lakes-boot.js": "c840160a4328",
   "js/log.js": "966237501387",
   "js/mode-toggle.js": "842ee5852866",
   "js/nav.js": "85c14199105b",
@@ -624,7 +624,7 @@ var REVISIONS = {
   "js/updates-draft.js": "954b481592ef",
   "js/pack-list.js": "f9a5e5d83c93",
   "js/pool-readout.js": "9ce9ff4ef6cb",
-  "js/pool-trend.js": "a024c0a2ed48",
+  "js/pool-trend.js": "1e3f5e729a57",
   "js/refresh.js": "5b0ca98fef84",
   "js/species-filter.js": "454f000c5ba6",
   "js/species-lake.js": "e58c74799c1c",
@@ -632,7 +632,7 @@ var REVISIONS = {
   "js/sw-update.js": "626f1e2076eb",
   "js/tonight-tools.js": "a7a6cf64125b",
   "js/tournaments.js": "f3ea2dbe151b",
-  "js/usgs.js": "c3f519eee62d",
+  "js/usgs.js": "226ec74535a1",
   "js/water.js": "23040b9980b5",
   "js/visits.js": "e0f046529c59",
   "js/scrollspy.js": "1b056c72b92f",

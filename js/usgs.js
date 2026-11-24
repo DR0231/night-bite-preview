@@ -20,8 +20,32 @@
 (function () {
   if (window.__nightbiteUsgsLoaded) return;
   window.__nightbiteUsgsLoaded = true;
-  // lake settings from js/lakes.js; the fallbacks are Hoover's original values
+  // lake settings from js/lakes.js. Hoover's original values are the fallback only on a Hoover page.
+  // If lakes.js did not load: a lake home keeps its own baked card; a shared page (water.html) does not
+  // keep Hoover's baked numbers under another lake's name. No fetch, no unsuffixed saved keys.
+  function pageLake() {
+    var id = (window.NightBitePageLake || document.documentElement.getAttribute("data-lake") || "").toLowerCase();
+    if (id) return id;
+    var m = document.querySelector('meta[name="nb-home"]');
+    return ((m && m.getAttribute("content")) || "").toLowerCase();
+  }
+  var lineEl = document.getElementById("correction-line");
+  var checkedEl = document.getElementById("correction-checked");
+  var tempEl = document.getElementById("water-temp");
+  var statusEl = document.getElementById("usgs-live-status");
+  if (!lineEl && !tempEl) return;
+
   var LK = window.NightBiteLake;
+  if (!LK && pageLake() !== "hoover") {
+    var home = document.querySelector('meta[name="nb-home"]');
+    var homeId = ((home && home.getAttribute("content")) || "").toLowerCase();
+    if (homeId && homeId === pageLake()) return;   // lake home: the baked card is already this lake's
+    if (lineEl) { lineEl.textContent = "unavailable"; lineEl.removeAttribute("data-source"); }
+    if (checkedEl) checkedEl.textContent = "";
+    if (tempEl) tempEl.textContent = "";
+    if (statusEl) statusEl.textContent = "No reading to show.";
+    return;
+  }
   var LP = (LK && LK.cfg && LK.cfg.pool) || null;
   if (LP && !LP.src) return;   // no public lake gauge (Madison Lake, Knox Lake, Clear Fork): js/lake-snapshot.js writes the card
   var SITE = (LP && LP.site) || "03228400";
@@ -35,13 +59,6 @@
   var GAUGE_URL = (LP && LP.gaugeUrl) ||
     "https://waterdata.usgs.gov/monitoring-location/USGS-03228400/";
   var LS = window.NightBiteLakes;
-
-  var lineEl = document.getElementById("correction-line");
-  var checkedEl = document.getElementById("correction-checked");
-  var tempEl = document.getElementById("water-temp");
-  var statusEl = document.getElementById("usgs-live-status");
-
-  if (!lineEl && !tempEl) return;
 
   function formatEt(iso) {
     try {
