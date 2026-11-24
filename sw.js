@@ -13,8 +13,10 @@
  *  · Pages (navigations and text/html): network first with a 4 second timeout, then the saved copy, then offline.html.
  *    Lake homes come from the precache, so they open offline right after install. Every other page you open online
  *    is saved (PREFIX + "pages", newest 40). An unvisited deeper page (water.html, a species page) shows offline.html.
- *  · data/*.json: network first, saved copy when offline (PREFIX + "data", newest 60; the precached copy is the
- *    last resort). The worker never adds headers: data/advisor-rules.json for the Android app is plain GitHub Pages.
+ *  · data/*.json: network first, no 4 second stale fallback (a slow feed must not be shown as current). Saved copy
+ *    only when the network fails (PREFIX + "data", newest 60; the precached copy is the last resort), labelled
+ *    X-NB-Saved: 1 so a page can mark it offline. A live fetch stays plain, including data/advisor-rules.json for
+ *    the Android app.
  *  · CSS and JS by deploy (v135): every page asks for them with ?v=<its deploy>. This deploy's come from the
  *    precache; a deploy a saved page still needs, from that deploy's kept copies; a newer deploy, from the network
  *    only. Saved pages carry their deploy and are only served with their own deploy's files, so a page never mixes
@@ -35,7 +37,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v173-2026-11-24";
+var VERSION = "v174-2026-11-24";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -1128,8 +1130,12 @@ var REVISIONS = {
 function rel(url) { return url.href.slice(SCOPE.length); }
 
 function isWhisperwood(url) {
-  var r = rel(url).toLowerCase();
-  return r === "whisperwood" || r.indexOf("whisperwood/") === 0 || r.indexOf("whisperwood.html") === 0;
+  // path only: rel() includes the query, so /whisperwood?utm= would miss and get intercepted
+  var root = new URL(SCOPE).pathname, path = url.pathname || "";
+  if (path.indexOf(root) === 0) path = path.slice(root.length);
+  else if (path.charAt(0) === "/") path = path.slice(1);
+  path = path.toLowerCase();
+  return path === "whisperwood" || path.indexOf("whisperwood/") === 0 || path.indexOf("whisperwood.html") === 0;
 }
 
 // a cached redirect can't answer a navigation, so store a clean copy
@@ -1194,9 +1200,16 @@ function download(path, url) {
     if (!want) return res;
     return hashOf(path, res.clone()).then(function (h) {
       if (h === want || h === null) return res;
-      // a cache between here and the server still had the last deploy's copy: ask past it once, then keep what comes
+      // a cache between here and the server still had the last deploy's copy: ask past it once, and hash that too.
+      // if the retry still does not match, throw so install fails and the next update check tries again
       return fetch(new Request(url + (url.indexOf("?") < 0 ? "?" : "&") + "nbrev=" + want, { cache: "reload", credentials: "same-origin" }))
-        .then(function (r2) { return r2.ok ? r2 : res; }, function () { return res; });
+        .then(function (r2) {
+          if (!r2.ok) throw new Error(path + " " + r2.status);
+          return hashOf(path, r2.clone()).then(function (h2) {
+            if (h2 === want || h2 === null) return r2;
+            throw new Error(path + " hash mismatch");
+          });
+        });
     });
   });
 }
@@ -1490,6 +1503,22 @@ function offlinePage() {
 
 // kind: "pages", "data" or "assets" (CSS and JS). A precached page, script or style is not saved again at runtime
 // (its precache copy matches the shell); data is always saved, so the log and tournaments offline are the newest seen.
+function markSaved(res) {
+  return res.blob().then(function (b) {
+    var h = new Headers(res.headers);
+    h.set("X-NB-Saved", "1");
+    return new Response(b, { status: res.status, statusText: res.statusText, headers: h });
+  });
+}
+// a runtime assets hit is only this deploy if its X-NB-Deploy matches the request (or it is an untagged precache copy)
+function assetFallbackOk(hit, url) {
+  if (!hit) return false;
+  var want = url.searchParams.get("v") || VERSION;
+  var d = hit.headers.get(DEPLOY_HEADER);
+  if (d) return d === want;
+  return want === VERSION;
+}
+
 function networkFirst(event, url, kind) {
   var network = fetch(event.request).then(function (res) {
     if (res.ok && res.type === "basic" && (kind === "data" || !precachePath(url))) {
@@ -1497,14 +1526,31 @@ function networkFirst(event, url, kind) {
     }
     return res;
   });
+  // data feeds: wait for the network; a saved copy is only used when the fetch fails, and is labelled so
+  if (kind === "data") {
+    return network.catch(function () {
+      return saved("data", url).then(function (hit) { return hit ? markSaved(hit) : Response.error(); });
+    });
+  }
   var timeout = new Promise(function (resolve) {
     setTimeout(function () { resolve(saved(kind, url)); }, NETWORK_TIMEOUT);
   });
   return Promise.race([
     network,
-    timeout.then(function (hit) { return hit || network; })   // slow signal: use the saved copy if there is one
+    timeout.then(function (hit) {
+      // non-precached scripts: do not serve another deploy's copy just because the network is slow
+      if (kind === "assets" && hit && !assetFallbackOk(hit, url)) return network;
+      return hit || network;
+    })
   ]).catch(function () {
-    return saved(kind, url).then(function (hit) { return hit || (kind === "pages" ? offlinePage() : Response.error()); });
+    return saved(kind, url).then(function (hit) {
+      if (kind === "assets") {
+        if (assetFallbackOk(hit, url)) return hit;
+        if (hit) { tellMixed(event); return hit; }
+        return Response.error();
+      }
+      return hit || (kind === "pages" ? offlinePage() : Response.error());
+    });
   });
 }
 
