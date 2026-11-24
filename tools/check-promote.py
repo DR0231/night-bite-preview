@@ -109,12 +109,13 @@ priv = '''<html><head>
 <script src="js/clean-url.js?v=v49-2026-11-20"></script>
 <script src="js/a11y-boot.js?v=v49-2026-11-20"></script>
 </head><body><p>Privacy wording stays.</p>
+    <a href="updates" data-updates="2026-11-18">What's new</a>
     <!-- nb:footer-social (tools/footer-social.py) -->
     <p class="footer-social"><span class="social-label">Follow along</span></p>
     <!-- /nb:footer-social -->
 </body></html>
 '''
-priv2 = priv.replace("v49-2026-11-20", "v50-2026-11-24")
+priv2 = priv.replace("v49-2026-11-20", "v50-2026-11-24").replace("2026-11-18", "2026-11-24")
 check("privacy shell: stamps, clean-url and the footer follow row may change",
       promote.live_page_shell(priv) == promote.live_page_shell(priv2))
 check("privacy shell: any other wording change fails",

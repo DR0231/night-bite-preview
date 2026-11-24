@@ -62,6 +62,7 @@ DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}$")
 FOOTER_RE = re.compile(r"[ \t]*<!-- nb:footer-social.*?<!-- /nb:footer-social -->\n", re.S)
 CLEAN_URL_RE = re.compile(r'[ \t]*<script src="(?:\.\./|/night-bite-preview/|/)?js/clean-url\.js[^"]*"></script>\n?')
 V_STAMP_RE = re.compile(r"\?v=[A-Za-z0-9._-]+")
+DATA_UPDATES_RE = re.compile(r'data-updates="[^"]*"')
 UPDATES_BLOCK_RE = re.compile(r"<!-- updates:start -->.*?<!-- updates:end -->", re.S)
 STAGE_ALWAYS = frozenset({"sw.js", "data/updates.json", "updates.html", "privacy.html"})
 
@@ -114,6 +115,7 @@ def live_page_shell(s, updates=False):
     if updates:
         s = UPDATES_BLOCK_RE.sub("<!-- updates:start --><!-- updates:end -->", s)
     s = V_STAMP_RE.sub("?v=", s)
+    s = DATA_UPDATES_RE.sub('data-updates=""', s)
     s = CLEAN_URL_RE.sub("", s)
     s = FOOTER_RE.sub("", s)
     return s
