@@ -122,7 +122,9 @@
     var failed = line.hasAttribute("data-refresh-failed"), off = line.hasAttribute("data-offline");
     var what = HASTEMP && lastM[2] !== undefined ? "Level and temp" : "Level";   // a line with no temp: the stamp speaks for the level only
     var text;
-    if (src === "live" && !failed && !off) text = what + " live from the " + SRC + " gauge, updated " + ago(at) + " ";
+    // a reading older than 6 hours is never called live, even if the card still has data-source="live"
+    var live = src === "live" && !failed && !off && Date.now() - at <= 6 * 36e5;
+    if (live) text = what + " live from the " + SRC + " gauge, updated " + ago(at) + " ";
     else text = (off ? "Offline. " : failed ? "Live refresh failed. " : "") + what + " last updated " + ago(at) + " ";
     var tm = document.createElement("time");
     tm.setAttribute("datetime", new Date(at).toISOString());

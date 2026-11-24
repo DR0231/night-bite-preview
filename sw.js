@@ -35,7 +35,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v170-2026-11-24";
+var VERSION = "v171-2026-11-24";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -602,9 +602,9 @@ var REVISIONS = {
   "js/bait-nearby.js": "b75e87af32d4",
   "js/biting.js": "2035244affef",
   "js/community-log.js": "62217f38aaa5",
-  "js/conditions.js": "ea791fe8a1d9",
+  "js/conditions.js": "6c5702d3dd14",
   "js/get-app.js": "8345fce8e5c8",
-  "js/glance.js": "68143b0197b4",
+  "js/glance.js": "1250e4635c52",
   "js/home-log.js": "b0cf7771714e",
   "js/hoover-map-data.js": "34a54a22f7ab",
   "js/hoover-map.js": "f01d585f0d9d",
@@ -613,7 +613,7 @@ var REVISIONS = {
   "js/lake-picker.js": "b89008e0dbeb",
   "js/water-picker.js": "b48ce9fb2f0d",
   "js/lake-snapshot.js": "79e1111b8d18",
-  "js/lakes.js": "eb1a1993ce27",
+  "js/lakes.js": "021c82b0e6d5",
   "js/lakes-boot.js": "c840160a4328",
   "js/log.js": "966237501387",
   "js/mode-toggle.js": "842ee5852866",
@@ -632,7 +632,7 @@ var REVISIONS = {
   "js/sw-update.js": "626f1e2076eb",
   "js/tonight-tools.js": "a7a6cf64125b",
   "js/tournaments.js": "f3ea2dbe151b",
-  "js/usgs.js": "226ec74535a1",
+  "js/usgs.js": "9ec36b84f0ba",
   "js/water.js": "23040b9980b5",
   "js/visits.js": "e0f046529c59",
   "js/scrollspy.js": "1b056c72b92f",

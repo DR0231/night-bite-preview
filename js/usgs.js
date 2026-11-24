@@ -151,6 +151,19 @@
     var v = t ? Date.parse(t.getAttribute("datetime")) : NaN;
     return isFinite(v) ? v : 0;
   }
+  // a card left tagged live after the shown reading ages past 6 hours (a hung or missed refresh) is no longer current
+  function dropLiveTag() {
+    if (!lineEl || lineEl.getAttribute("data-source") !== "live") return false;
+    var t = shownAt();
+    if (!t || Date.now() - t <= MAX_AGE) return false;
+    lineEl.removeAttribute("data-offline");
+    lineEl.setAttribute("data-source", "old");
+    if (statusEl) {
+      statusEl.innerHTML = '<span>No new reading in 6 hours, check</span> <a href="' + GAUGE_URL + '" target="_blank" rel="noopener">' + SRC_NAME +   // pg.no_new_6h
+        '</a>. <span>Showing the reading from ' + (OFF ? OFF.when(new Date(t)) : formatEt(new Date(t).toISOString()) || "") + '.</span>';   // pg.showing_from
+    }
+    return true;
+  }
 
   // the water temp for the bite rating and "Tonight, in short" (js/conditions.js): a fresh lake surface reading only,
   // with its time; null clears it. Never an outflow, saved or old reading.
@@ -263,7 +276,12 @@
       if (showSaved()) return;
     }
     if (hadLive) {
-      // a failed auto refresh keeps the last live reading on screen
+      // the last live reading is no longer current: drop the live tag and say so, never leave it up as live
+      if (dropLiveTag() || (lineEl && lineEl.getAttribute("data-source") === "old")) {
+        if (lineEl) lineEl.setAttribute("data-refresh-failed", "1");
+        return;
+      }
+      // a failed auto refresh keeps the last live reading on screen (still within 6 hours)
       if (statusEl) statusEl.innerHTML = 'Refresh failed, check <a href="' + GAUGE_URL + '" target="_blank" rel="noopener">' + SRC_NAME + '</a>. Showing the last reading.';   // pg.refresh_failed_short
       if (lineEl) lineEl.setAttribute("data-refresh-failed", "1");
       return;
@@ -297,6 +315,7 @@
   var seq = 0;
   function load() {
     var mine = ++seq;
+    dropLiveTag();   // drop a leftover live tag before this fetch, in case the last reading has already aged out
     getReadings()
       .then(function (r) {
         if (mine !== seq) return;

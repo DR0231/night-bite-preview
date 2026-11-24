@@ -607,6 +607,9 @@
     var out = [], line = document.getElementById("correction-line");
     // only a live level: a snapshot, saved, old or failed reading has its own time on the card, and this line has none
     if (!line || line.getAttribute("data-source") !== "live" || line.hasAttribute("data-refresh-failed") || line.hasAttribute("data-offline")) return [];
+    var checked = document.getElementById("correction-checked");
+    var at = checked && checked.querySelector("time") && new Date(checked.querySelector("time").getAttribute("datetime")).valueOf();
+    if (!isFinite(at) || Date.now() - at > 6 * 36e5) return [];   // same 6 hour live limit as the pool card
     var m = /~?\s*([\d.]+)\s*ft\s+(below|above)\s+full pool/i.exec((line.getAttribute("data-nb-out") === line.textContent && line.getAttribute("data-en") || line.textContent || ""));
     if (m) out.push("pool " + m[1] + " ft " + m[2].toLowerCase() + " full");
     var tr = document.getElementById("pool-trend"), w = document.getElementById("pool-trend-word");
