@@ -12,6 +12,8 @@
 //   legacy-slow-css the one deploy that still runs an old worker: its mix after a slow styles.css heals with one reload
 //   many-deploys    one visitor through four deploys in a row (A, B, C, A again): each worker takes over, one deploy each
 //   no-reload       an ordinary deploy reloads nobody (every returning visitor's page reloading showed in Cloudflare)
+//   asset-v-hash    a non-precached image cached at ?v=old is not served for ?v=new; the cache entry is replaced;
+//                   offline, a different ?v= may fall back to the last saved copy only because the network failed
 //   kill-sw-only    tools/sw-kill-switch.js deployed as sw.js: every nb- cache and the registration are gone
 //   kill-both       N3: kill switch plus js/sw-update.js replaced by tools/sw-kill-switch-page.js: still all gone
 //   repro-kill-old  INFO only: the kill switch the docs gave up to v134, both files replaced (the N3 race)
@@ -272,6 +274,36 @@ async function run(name, fn) {
     const m = await markers(page);
     check('no-reload: a deploy on a good connection: B, one deploy', one(m) && m.html === 'B', fmt(m));
     check('no-reload: and no reload', loads.n === 1, 'loads ' + loads.n);
+    await ctx.close();
+  });
+
+  await run('asset-v-hash', async () => {
+    const { ctx, page } = await visit(browser, A);
+    const rel = 'assets/nb-v-test.png';   // not in PRECACHE, so cacheFirstAsset uses the runtime cache
+    const oldBytes = 'old-asset-bytes', newBytes = 'new-asset-bytes';
+    const get = v => page.evaluate(async url => {
+      try {
+        const r = await fetch(url);
+        return { ok: r.ok, status: r.status, body: await r.text(), deploy: r.headers.get('X-NB-Deploy') };
+      } catch (e) { return { ok: false, error: String(e && e.message || e) }; }
+    }, BASE + rel + '?v=' + v);
+    S.deploy = Object.assign({}, A, { over: { [rel]: oldBytes } });
+    S.hits = [];
+    const r1 = await get('oldhash');
+    check('asset-v-hash: first fetch of ?v=oldhash is the old bytes', r1.ok && r1.body === oldBytes, JSON.stringify(r1));
+    S.deploy = Object.assign({}, A, { over: { [rel]: newBytes } });
+    S.hits = [];
+    const r2 = await get('newhash');
+    check('asset-v-hash: ?v=newhash is not served from the old cache entry', r2.ok && r2.body === newBytes, JSON.stringify(r2));
+    check('asset-v-hash: the new hash went to the network', S.hits.some(h => h.indexOf(rel) >= 0 && /[?&]v=newhash/.test(h)), S.hits.filter(h => h.indexOf('nb-v-test') >= 0).join(' '));
+    S.hits = [];
+    const r3 = await get('newhash');
+    check('asset-v-hash: a matching ?v= is served from cache', r3.ok && r3.body === newBytes && r3.deploy === 'newhash', JSON.stringify(r3));
+    check('asset-v-hash: a matching ?v= does not hit the network again', !S.hits.some(h => h.indexOf('nb-v-test') >= 0), S.hits.filter(h => h.indexOf('nb-v-test') >= 0).join(' '));
+    S.down = true; await ctx.setOffline(true);
+    const r4 = await get('otherhash');
+    check('asset-v-hash: offline, a different ?v= falls back to the last saved copy', r4.ok && r4.body === newBytes, JSON.stringify(r4));
+    await ctx.setOffline(false); S.down = false;
     await ctx.close();
   });
 

@@ -35,7 +35,7 @@
  * Kill switch: see SERVICE-WORKER.md.
  */
 var PREFIX = "nb-preview-";
-var VERSION = "v169-2026-11-24";
+var VERSION = "v170-2026-11-24";
 var SCOPE = new URL("./", self.location).href;
 var NETWORK_TIMEOUT = 4000;
 var PRECACHE_CACHE = PREFIX + "precache";
@@ -1573,9 +1573,11 @@ function staleWhileRevalidate(event, url) {
 }
 
 // fonts and images: precache first, then the assets runtime cache. A ?v= content hash (tools/stamp-assets.py) means
-// the file is immutable, so a cached copy is returned with no revalidate. Unversioned requests (a dynamic URL that
-// was not stamped) stay stale while revalidate. Live readings never come through here: data/ is network first, and
-// NWS/USGS/Corps requests are cross origin and are not intercepted.
+// the file is immutable, so a cached copy is returned with no revalidate only when that copy's X-NB-Deploy matches
+// the requested v (remember() stores under a query-stripped key, so a new hash would otherwise hit the old bytes).
+// On a mismatch, go to the network and replace the cache entry; the old copy is used only if the network fails.
+// Unversioned requests (a dynamic URL that was not stamped) stay stale while revalidate. Live readings never come
+// through here: data/ is network first, and NWS/USGS/Corps requests are cross origin and are not intercepted.
 function isFontOrImage(url) {
   return /\.(woff2|png|svg|ico|jpe?g|webp|gif)$/i.test(url.pathname);
 }
@@ -1584,16 +1586,18 @@ function cacheFirstAsset(event, url) {
   return fromPrecache(url).then(function (pre) {
     if (pre) return pre;
     return fromRuntime(RUNTIME.assets, url).then(function (hit) {
-      if (hit && url.searchParams.get("v")) return hit;       // content-hashed URL: immutable
+      var want = url.searchParams.get("v");
+      if (hit && want && hit.headers.get(DEPLOY_HEADER) === want) return hit;   // same content hash as the request
       var fresh = fetch(event.request).then(function (res) {
         if (res.ok && res.type === "basic") return remember("assets", url, res.clone()).then(function () { return res; });
         return res;
       });
-      if (hit) {
+      if (hit && !want) {
         event.waitUntil(fresh.catch(function () {}));
         return hit;
       }
-      return fresh;
+      // hashed URL with no matching cache entry: wait for the network; fall back only when it fails
+      return want ? fresh.catch(function (err) { if (hit) return hit; throw err; }) : fresh;
     });
   });
 }
