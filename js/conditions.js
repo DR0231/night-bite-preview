@@ -302,7 +302,13 @@
     asOf(latest.t);
     return true;
   }
-
+  // the 3-hour trend counts toward the bite only while the newest reading is from the last 6 hours
+  // (the same live limit as the pool card). waterF() already drops a gauge temp after 3 hours.
+  var PRESSURE_MAX = 6 * 36e5;
+  function pressureFresh() {
+    var t = pressureAt ? pressureAt.valueOf() : NaN;
+    return st.p3 && isFinite(t) && Date.now() - t <= PRESSURE_MAX ? st.p3 : null;
+  }
 
   /* ---- shared helpers for the derived lines ---- */
   function tempF(p) {
@@ -464,7 +470,7 @@
   /* each input's part tonight: null when it isn't loaded, else { pts, word } */
   function biteParts() {
     var parts = { pressure: null, wind: null, moon: null, water: null, storm: !!st.storm };
-    var p3 = st.p3;
+    var p3 = pressureFresh();   // only a barometer reading from the last 6 hours
     if (p3) {
       if (p3.trend === "falling") parts.pressure = p3.fast ? { pts: PP.fallFast, word: "pressure dropping fast" } : { pts: PP.fallSlow, word: "pressure falling slowly" };
       else if (p3.trend === "steady") parts.pressure = { pts: PP.steady, word: "steady pressure" };
@@ -632,7 +638,8 @@
       if (pop !== null) bits.push(Math.round(pop) + "% rain chance");
     }
     if (st.storm) bits.push("storms possible");
-    if (st.p3) bits.push("pressure " + (st.p3.trend === "steady" ? "steady" : st.p3.trend));
+    var p3 = pressureFresh();
+    if (p3) bits.push("pressure " + (p3.trend === "steady" ? "steady" : p3.trend));
     if (waterF() !== null) bits.push(Math.round(waterF()) + "°F water");
     bits = bits.concat(poolBits());
     if (!bits.length) { lineEl.hidden = true; return; }
@@ -651,9 +658,9 @@
     try { renderExtras(); } catch (e) { if (extraEl) extraEl.hidden = true; }
     try { renderLine(); } catch (e) { if (lineEl) lineEl.hidden = true; }
   }
-  // the pool card fills in on its own schedule; redraw the short line when it changes
+  // the pool card fills in on its own schedule; redraw the bite and the short line when it changes
   (function () {
-    var t = null, again = function () { clearTimeout(t); t = setTimeout(function () { try { renderLine(); } catch (e) {} }, 50); };
+    var t = null, again = function () { clearTimeout(t); t = setTimeout(function () { try { render(); } catch (e) {} }, 50); };
     ["correction-line", "pool-trend"].forEach(function (id) {
       var el = document.getElementById(id);
       if (el && window.MutationObserver) new MutationObserver(again).observe(el, { childList: true, subtree: true, characterData: true, attributes: true });
@@ -742,12 +749,14 @@
     if (OFF && OFF.isOffline()) {
       card.setAttribute("data-offline", "1");
       if (statusEl) statusEl.textContent = OFF.label(lastOk);
+      render();   // drop a bite built from pressure older than 6 h or water older than 3 h
       return;
     }
     if (statusEl) {
       statusEl.innerHTML = "Weather update failed, check " + '<a href="' + WX_PAGE + '" target="_blank" rel="noopener">weather.gov</a>' +
         ". Showing the " + t.value + " " + t.unit + " ET reading.";
     }
+    render();
   }
 
   /* force: skip the session cache (the 15 minute auto refresh always forces) */
@@ -791,10 +800,11 @@
         var o = r[0], obs = null;
         st.thunder = r[1] || null;
         try {
-          applyPressure(o, offline || !!cached);
+          // a session-cache hit still has to pass the 6 hour age check; only the offline copy may skip it
+          var pressureOk = applyPressure(o, offline);
           applyWind(o || {});
           if (!offline) stamp(lastOk);   // adds the KCMH reading time
-          if (o) obs = slimObs(o);
+          if (o && pressureOk) obs = slimObs(o);
           if (!cached && obs) writeCache(slimHourly(h), obs, st.thunder);
         } catch (e) {
           noReading(STATION + " unavailable");
