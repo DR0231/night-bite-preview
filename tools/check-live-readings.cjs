@@ -24,6 +24,9 @@
 //   pressure-saved      a 2-day-old saved barometer, shown as the offline copy, is kept out of the bite
 //   fail-refresh-stale  after a failed refresh, a water temp older than 3 h and a pressure trend older than 6 h
 //                       are dropped from the bite and the short line, so an old rating is not left as current
+//   wx-failed-status    a 2-day-old saved forecast's failed-refresh status carries the weekday and date, not a time only
+//   wx-failed-stale     after a failed refresh past the live limit, air/wind/rain are hidden and a 6 h-plus pressure
+//                       reading is not left up as current
 //   wind-failed    Glance wind says how old the forecast is after a failed NWS refresh (real NWS for the first load;
 //                  skipped with an INFO line when weather.gov can't be reached)
 // Usage: node tools/check-live-readings.cjs [BASE] [OUTDIR]     (BASE: the preview, or tools/serve.py for local runs)
@@ -68,9 +71,10 @@ function pressureObs(latestMs, olderMs, latestIn, olderIn) {
     { properties: { timestamp: iso(olderMs), seaLevelPressure: { value: olderIn * PA } } }
   ] };
 }
-function hourlyBody(nowMs) {   // light S wind so the bite still has a rating when pressure is dropped
+function hourlyBody(nowMs, n) {   // light S wind so the bite still has a rating when pressure is dropped
   const periods = [];
-  for (let i = -1; i < 28; i++) {
+  const hours = n == null ? 28 : n;
+  for (let i = -1; i < hours; i++) {
     const t = nowMs + i * H;
     periods.push({ startTime: iso(t), endTime: iso(t + H), temperature: 55, temperatureUnit: 'F',
       windSpeed: '6 mph', windDirection: 'S', shortForecast: 'Clear', probabilityOfPrecipitation: { value: 0 } });
@@ -102,7 +106,15 @@ async function read(page) {
       biteWhy: tx($('#conditions .cond-bite-why')), biteRate: tx($('#conditions .cond-bite-rate')),
       condCache: sessionStorage.getItem('nb-cond-v3'),
       trendEnd: tx($('.pool-trend-axis span:last-child')),
-      trendOld: !!($('#pool-trend') && $('#pool-trend').hasAttribute('data-old')) };
+      trendOld: !!($('#pool-trend') && $('#pool-trend').hasAttribute('data-old')),
+      wxStatus: tx($('#conditions .cond-status')),
+      airSub: tx($('#conditions [data-cond="air"] .cond-sub')),
+      windSub: tx($('#conditions [data-cond="wind"] .cond-sub')),
+      airHidden: !!($('#conditions [data-cond="air"]') && $('#conditions [data-cond="air"]').hidden),
+      windHidden: !!($('#conditions [data-cond="wind"]') && $('#conditions [data-cond="wind"]').hidden),
+      rainHidden: !!($('#conditions [data-cond="rain"]') && $('#conditions [data-cond="rain"]').hidden),
+      pressureText: tx($('#conditions [data-cond="pressure"] .cond-value')),
+      pressureNoreading: !!($('#conditions [data-cond="pressure"]') && $('#conditions [data-cond="pressure"]').hasAttribute('data-noreading')) };
   });
 }
 
@@ -316,6 +328,7 @@ async function scenario(browser, name, opts, fn) {
     const r = await read(page);
     check('pressure-saved: offline copy still shows the forecast', /(?:light|moderate) S wind/i.test(r.condLine + ' ' + r.biteWhy), JSON.stringify([r.condLine, r.biteWhy]));
     check('pressure-saved: 2-day-old saved pressure is not in the bite', !pressureTalk(r), JSON.stringify([r.condLine, r.biteWhy, r.bitePressure]));
+    check('wx-failed-status: failed-refresh status carries the weekday and date', /Showing the /.test(r.wxStatus) && DATED.test(r.wxStatus), r.wxStatus);
   });
 
   let nwsLive = true;
@@ -331,6 +344,22 @@ async function scenario(browser, name, opts, fn) {
     check('fail-refresh-stale: failed refresh drops 7h-old pressure and 3h-plus water from the bite',
       !pressureTalk(r) && !/°F water/.test(r.condLine) && r.bitePressure !== 'yes' && r.biteWater !== 'yes',
       JSON.stringify([r.condLine, r.biteWhy, r.bitePressure, r.biteWater, r.waterF]));
+  });
+
+  let nwsLiveShort = true;
+  const shortHours = hourlyBody(now, 3);
+  await scenario(browser, 'wx-failed-stale', { wait: 4000, latest: () => latest({ t: now - 0.5 * H, v: 890.21 }, { t: now - 0.5 * H, c: 14.8 }), series: () => series(now - 0.5 * H),
+    nws: r => nwsLiveShort ? nwsWeather(shortHours, fallFresh)(r) : r.abort('failed') }, async page => {
+    let r = await read(page);
+    check('wx-failed-stale: first load presents air and wind as current', !r.airHidden && !r.windHidden && /Feels like/i.test(r.airSub) && /Now/i.test(r.windSub), JSON.stringify([r.airHidden, r.windHidden, r.airSub, r.windSub, r.pressureText]));
+    nwsLiveShort = false;
+    await page.evaluate(shift => { const real = Date.now.bind(Date); Date.now = () => real() + shift; }, 7 * H);
+    await page.evaluate(() => window.NightBiteRefresh.run('check'));
+    await sleep(4000);
+    r = await read(page);
+    check('wx-failed-stale: air, wind and rain are hidden once every forecast hour has ended', r.airHidden && r.windHidden && r.rainHidden, JSON.stringify([r.airHidden, r.windHidden, r.rainHidden, r.airSub, r.windSub]));
+    check('wx-failed-stale: a pressure reading older than 6 hours is not left as current', r.pressureNoreading || /^No reading/i.test(r.pressureText), JSON.stringify([r.pressureNoreading, r.pressureText, r.wxStatus]));
+    check('wx-failed-stale: status names the last good reading', /Weather update failed/.test(r.wxStatus) && /Showing the /.test(r.wxStatus), r.wxStatus);
   });
 
   await scenario(browser, 'wind-failed', { wait: 9000, nws: r => nwsUp ? r.continue() : r.abort('failed') }, async page => {

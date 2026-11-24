@@ -143,18 +143,36 @@
     }
   }
 
+  function currentPeriod(periods) {
+    if (!periods || !periods.length) return null;
+    var now = Date.now();
+    for (var i = 0; i < periods.length; i++) {
+      if (new Date(periods[i].endTime).valueOf() > now) return periods[i];
+    }
+    return null;   // every saved hour has already ended
+  }
+  function showForecastCells(on) {
+    ["wind", "air", "rain"].forEach(function (k) {
+      var c = grid.querySelector('[data-cond="' + k + '"]');
+      if (c) c.hidden = !on;
+    });
+  }
+
   /* ---- hourly forecast ---- */
   function applyHourly(json, subNow) {
     subNow = subNow || "Now";
     var periods = json && json.properties && json.properties.periods;
     if (!periods || !periods.length) throw new Error("no periods");
-    var now = Date.now(), p = periods[0];
-    for (var i = 0; i < periods.length; i++) {
-      if (new Date(periods[i].endTime).valueOf() > now) { p = periods[i]; break; }
+    st.periods = periods;
+    var p = currentPeriod(periods);
+    st.now = p;
+    if (!p) {
+      windNow = null;
+      showForecastCells(false);
+      if (summaryEl) summaryEl.textContent = "";
+      return true;
     }
     var start = periods.indexOf(p);
-    st.periods = periods;
-    st.now = p;
     windNow = { p: p, sub: subNow };
     applyWind(null);
     var f = tempF(p);
@@ -169,6 +187,7 @@
     }
     if (maxPop !== null) setCell("rain", String(Math.round(maxPop)), "%", "Next 12 hours");
     if (summaryEl && p.shortForecast) summaryEl.textContent = p.shortForecast + ".";
+    showForecastCells(true);
     return true;
   }
 
@@ -732,10 +751,8 @@
     try { applyWind(saved.obs || {}); } catch (e) {}
     st.thunder = saved.thunder || null;
     render();
-    ["wind", "air", "rain", "pressure"].forEach(function (k) {
-      var c = grid.querySelector('[data-cond="' + k + '"]');
-      if (c) c.hidden = false;
-    });
+    var pc = grid.querySelector('[data-cond="pressure"]');
+    if (pc) pc.hidden = false;
     hasData = true;
     lastOk = new Date(saved.savedAt);
     card.setAttribute("data-state", "ok");
@@ -746,9 +763,16 @@
 
   function failRefresh() {
     // keep the last good numbers on screen and say how old they are; js/glance.js reads the two attributes
-    var t = timeEt(lastOk);
     card.setAttribute("data-refresh-failed", "1");
     if (lastOk) card.setAttribute("data-checked-at", String(lastOk.valueOf()));
+    // re-pick the current hour from the last forecast; hide air/wind/rain if every period has ended,
+    // and drop a pressure reading older than 6 hours so it is not left up as current
+    var saved = card.hasAttribute("data-saved") || (OFF && OFF.isOffline());
+    if (st.periods) {
+      try { applyHourly({ properties: { periods: st.periods } }, saved ? "Saved" : "Now"); } catch (e) {}
+    }
+    if (pressureAt && Date.now() - pressureAt.valueOf() > PRESSURE_MAX) noReading(STATION + " reading too old");
+    else if (pressureAt) asOf(pressureAt.valueOf());
     if (OFF && OFF.isOffline()) {
       card.setAttribute("data-offline", "1");
       if (statusEl) statusEl.textContent = OFF.label(lastOk);
@@ -756,8 +780,10 @@
       return;
     }
     if (statusEl) {
-      statusEl.innerHTML = "Weather update failed, check " + '<a href="' + WX_PAGE + '" target="_blank" rel="noopener">weather.gov</a>' +
-        ". Showing the " + t.value + " " + t.unit + " ET reading.";
+      // OFF.when carries the weekday and date when the last good fetch was not today in Ohio
+      var when = lastOk && OFF && OFF.when ? OFF.when(lastOk) : null;
+      statusEl.innerHTML = "Weather update failed, check " + '<a href="' + WX_PAGE + '" target="_blank" rel="noopener">weather.gov</a>.' +
+        (when ? " Showing the " + when + " reading." : "");
     }
     render();
   }
@@ -779,10 +805,8 @@
     return hourlyP.then(function (h) {
       applyHourly(h, window.NightBiteOffline && window.NightBiteOffline.isOffline() ? "Saved" : "Now");
       card.setAttribute("data-state", "ok");
-      ["wind", "air", "rain", "pressure"].forEach(function (k) {
-        var c = grid.querySelector('[data-cond="' + k + '"]');
-        if (c) c.hidden = false;
-      });
+      var pc = grid.querySelector('[data-cond="pressure"]');
+      if (pc) pc.hidden = false;
       hasData = true;
       lastOk = cached ? new Date(cached.at) : new Date();
       card.removeAttribute("data-offline");
