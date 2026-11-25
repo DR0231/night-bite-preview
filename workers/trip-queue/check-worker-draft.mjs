@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// Local checks for workers/trip-queue/worker.draft.js. No wrangler, no network, no secrets, no deploy.
+// Local checks for workers/trip-queue/worker.js (and the matching wrangler.jsonc). No wrangler, no network, no secrets, no deploy.
 import { readFileSync } from "node:fs";
-import { readBodyCapped, webhookInit, rateSaltMissing, rateActorKey, applyBucket, checkSubmitLimits, SubmitLimits, RATE_PER_HOUR, RATE_BURST_PERIOD, MAX_NEW_PER_DAY } from "./worker.draft.js";
+import { readBodyCapped, webhookInit, rateSaltMissing, rateActorKey, applyBucket, checkSubmitLimits, SubmitLimits, RATE_PER_HOUR, RATE_BURST_PERIOD, MAX_NEW_PER_DAY } from "./worker.js";
 
 function parseJsonc(path) {
   const text = readFileSync(path, "utf8").split("\n").map(line => /^\s*\/\//.test(line) ? "" : line).join("\n");
@@ -157,18 +157,16 @@ check("limits: the global daily cap is below 300 and the next submit is 503 queu
 
 const draftCfg = parseJsonc(new URL("./wrangler.draft.jsonc", import.meta.url));
 const liveCfg = parseJsonc(new URL("./wrangler.jsonc", import.meta.url));
-const rl = draftCfg.ratelimits && draftCfg.ratelimits[0];
-const dob = draftCfg.durable_objects && draftCfg.durable_objects.bindings && draftCfg.durable_objects.bindings[0];
-check("wrangler.draft.jsonc: main is the draft, with SUBMIT_RATE 5/60s and the SubmitLimits Durable Object",
-  draftCfg.main === "worker.draft.js" && draftCfg.name === "nb-trip-queue"
+const rl = liveCfg.ratelimits && liveCfg.ratelimits[0];
+const dob = liveCfg.durable_objects && liveCfg.durable_objects.bindings && liveCfg.durable_objects.bindings[0];
+check("wrangler.jsonc: main is worker.js, with SUBMIT_RATE 5/60s and the SubmitLimits Durable Object",
+  liveCfg.main === "worker.js" && liveCfg.name === "nb-trip-queue"
     && rl && rl.name === "SUBMIT_RATE" && /^\d+$/.test(String(rl.namespace_id))
     && rl.simple && rl.simple.limit === 5 && rl.simple.period === 60
     && dob && dob.name === "SUBMIT_LIMITS" && dob.class_name === "SubmitLimits"
-    && Array.isArray(draftCfg.migrations) && draftCfg.migrations[0] && draftCfg.migrations[0].tag === "v1-submit-limits"
-    && (draftCfg.migrations[0].new_classes || []).includes("SubmitLimits"));
-check("wrangler.jsonc is unchanged: still points at worker.js, no rate-limit or Durable Object bindings",
-  liveCfg.main === "worker.js" && liveCfg.name === "nb-trip-queue" && !liveCfg.ratelimits && !liveCfg.durable_objects
-    && JSON.stringify(liveCfg.kv_namespaces) === JSON.stringify(draftCfg.kv_namespaces));
+    && Array.isArray(liveCfg.migrations) && liveCfg.migrations[0] && liveCfg.migrations[0].tag === "v1-submit-limits"
+    && ((liveCfg.migrations[0].new_sqlite_classes || liveCfg.migrations[0].new_classes || []).includes("SubmitLimits"))
+    && JSON.stringify(draftCfg) === JSON.stringify(liveCfg));
 
 console.log(fails ? fails + " FAIL, " + passes + " pass" : "ALL PASSED: " + passes + " pass, 0 fail");
 process.exit(fails ? 1 : 0);

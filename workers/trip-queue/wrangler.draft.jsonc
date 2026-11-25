@@ -1,14 +1,11 @@
-// DRAFT wrangler config for worker.draft.js. Not deployed.
-// wrangler.jsonc is the live deploy target and must stay pointing at worker.js.
-// When D'Angelo says to deploy this draft, run wrangler from this folder with:
-//   wrangler deploy -c wrangler.draft.jsonc
-// Do not run that now. Confirm namespace_id 41701 is unused on the account first
-// (it must be a unique positive integer string). Wrangler 4.36.0 or later is required
-// for the Rate Limiting binding. The first approved deploy applies the SubmitLimits
-// Durable Object migration.
+// Deployed through Wrangler (see README.md and DEPLOY-DRAFT.md). No secrets here.
+// ADMIN_TOKEN, RATE_SALT, TRIP_WEBHOOK_URL and TRIP_WEBHOOK_KEY are Worker secrets.
+// namespace_id 41701 was confirmed unused on the account at first deploy (2026-11-24).
+// Wrangler 4.36.0 or later is required for the Rate Limiting binding. The SubmitLimits
+// Durable Object uses a new_sqlite_classes migration (required on the free plan).
 {
   "name": "nb-trip-queue",
-  "main": "worker.draft.js",
+  "main": "worker.js",
   "compatibility_date": "2026-11-01",
   "workers_dev": true,
   "observability": { "enabled": false },
@@ -24,6 +21,6 @@
     "bindings": [{ "name": "SUBMIT_LIMITS", "class_name": "SubmitLimits" }]
   },
   "migrations": [
-    { "tag": "v1-submit-limits", "new_classes": ["SubmitLimits"] }
+    { "tag": "v1-submit-limits", "new_sqlite_classes": ["SubmitLimits"] }
   ]
 }

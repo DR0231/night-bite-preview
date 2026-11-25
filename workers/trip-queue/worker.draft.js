@@ -1,5 +1,4 @@
 /**
- * DRAFT — not deployed. wrangler.jsonc still points at worker.js.
  * The Night Bite trip queue (nb-trip-queue on workers.dev).
  * POST /submit takes one Share a trip form, checks it and stores it in KV as pending. Nothing is published here:
  * D'Angelo approves or rejects each one (tools/trip-queue.py), and approved trips go into data/community-log.json by hand.
